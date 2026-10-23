@@ -1,13 +1,11 @@
-﻿import { test, expect } from "@playwright/test";
-import fs from "node:fs";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-
-const root = path.dirname(fileURLToPath(import.meta.url));
-const resultsDir = path.resolve(root, "..", "..", "..", "qa", "kilo", "results");
-fs.mkdirSync(resultsDir, { recursive: true });
+﻿const { test, expect } = require("@playwright/test");
+const fs = require("node:fs");
+const path = require("node:path");
 
 test("arsiv büyüme testi - sentetik veri simülasyonu", async ({ page }) => {
+  const resultsDir = path.resolve(__dirname, "..", "..", "..", "qa", "kilo", "results");
+  fs.mkdirSync(resultsDir, { recursive: true });
+  
   await page.goto("/arsiv");
   await expect(page.getByText(/kayıt bağlı/)).toBeVisible();
   
