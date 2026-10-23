@@ -35,3 +35,26 @@ export function planScheduledPublications(records: readonly PublicationRecord[],
   }
   return { dryRun: true, ready, skipped };
 }
+
+/**
+ * Yayın defterine atomik "karşılaştır-ve-yaz" kaydı (saf fonksiyon). Eşzamanlı iki çalışma aynı
+ * yazıyı planlasa bile yalnız ilki defteri günceller; ikincisi reddedilir. Çökme sonrası yeniden
+ * deneme aynı planı üretir ve defterde kayıt varsa yine reddedilir. Gerçek zamanlayıcı bu
+ * fonksiyonu tek yazıcı kilidi altında, defteri atomik olarak yeniden yazarak kullanmalıdır.
+ */
+export function recordPublication(ledger: readonly PublicationLedgerEntry[], action: ScheduledAction, publishedAt: string): { ok: true; ledger: PublicationLedgerEntry[] } | { ok: false; reason: string } {
+  if (Number.isNaN(Date.parse(publishedAt))) return { ok: false, reason: "Geçersiz yayın zamanı." };
+  if (ledger.some((entry) => entry.publicationId === action.publicationId || entry.idempotencyKey === action.idempotencyKey)) return { ok: false, reason: "Bu yayın defterde zaten kayıtlı; ikinci yayın reddedildi." };
+  return { ok: true, ledger: [...ledger, { idempotencyKey: action.idempotencyKey, publicationId: action.publicationId, publishedAt }] };
+}
+
+/** İlişkili arşiv kayıtları yayımlanmış kümede değilse (silinmiş/geri çekilmiş) yayın planlanmaz. */
+export function withArchiveReferenceGate(plan: SchedulePlan, records: readonly PublicationRecord[], publishedArchiveIds: ReadonlySet<string>): SchedulePlan {
+  const ready: ScheduledAction[] = []; const skipped = [...plan.skipped];
+  for (const action of plan.ready) {
+    const record = records.find((item) => item?.id === action.publicationId);
+    const missing = (record?.relatedArchiveIds ?? []).filter((id) => !publishedArchiveIds.has(id));
+    if (missing.length) skipped.push({ publicationId: action.publicationId, reason: `İlişkili arşiv kaydı yayında değil veya silinmiş: ${missing.join(", ")}` }); else ready.push(action);
+  }
+  return { dryRun: true, ready, skipped };
+}
