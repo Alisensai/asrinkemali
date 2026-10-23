@@ -116,6 +116,12 @@ test("1881 öncesine tarihlenen kayıt yaşam çizelgesine ve tarihsiz gruba gir
   assert.deepEqual(result.rail.filter((item) => item.kind === "period").map((item) => item.periodId), ["oncesi"]);
 });
 
+test("özet yaşam aralığı mekân kuruluş tarihlerinden etkilenmez", () => {
+  const result = buildAtaturkExperience([make("okul", { type: "place", categories: ["mekan", "egitim"], date: day("1883") }), make("gazete", { type: "publication", date: day("1908-08-01") }), make("olay", { date: day("1920-04-23") })]);
+  assert.equal(result.stats.firstLifetimeYear, 1908);
+  assert.equal(result.stats.lastLifetimeYear, 1920);
+});
+
 test("mekân kaydının tarihi yaşam olayı gibi sunulmaz", () => {
   const [place] = buildAtaturkExperience([make("kosk", { type: "place", categories: ["mekan"], date: day("1912") })]).records;
   assert.ok(place.dateNote.startsWith(PLACE_DATE_NOTE));

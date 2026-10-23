@@ -208,6 +208,8 @@ export function buildAtaturkExperience(input: readonly ArchiveRecord[]): Ataturk
   const firstLifetime = lifetimeYears.length ? Math.min(...lifetimeYears) : null; const lastLifetime = lifetimeYears.length ? Math.max(...lifetimeYears) : null;
   if (firstLifetime !== null && lastLifetime !== null) for (let year = firstLifetime; year <= lastLifetime; year += 1) if (!yearCounts.has(year)) yearCounts.set(year, { year, count: 0, periodId: periodFor({ start: `${year}-06-30`, end: null, precision: "year", certainty: "exact", display: String(year) }) });
   const yearMarks = [...yearCounts.values()].sort((a, b) => a.year - b.year);
+  // Özet aralık mekân kayıtlarını saymaz: mekân tarihi (inşa/kuruluş) yaşam olayının tarihi değildir.
+  const eventYears = records.filter((record) => record.year !== null && record.type !== "place" && PERIOD_DEFINITIONS.find((period) => period.id === record.periodId)?.inLifetime).map((record) => record.year as number);
 
   // Ray: yaşam dönemleri yıl yıl; üç ve daha uzun kayıtsız yıl dizileri tek aralığa iner; yaşam dışı dönemler tek kısayol olur.
   const rail: RailItem[] = [];
@@ -231,7 +233,7 @@ export function buildAtaturkExperience(input: readonly ArchiveRecord[]): Ataturk
 
   return {
     records, periods, themes, yearMarks, rail, quote,
-    stats: { records: records.length, institutions: new Set(records.map((record) => record.institution)).size, photographs: records.filter((record) => record.type === "photograph").length, documents: records.filter((record) => record.type === "document").length, firstYear: yearMarks[0]?.year ?? null, firstLifetimeYear: firstLifetime, lastLifetimeYear: lastLifetime, undated: records.filter((record) => record.year === null).length, earlyRecords: records.filter((record) => record.periodId === "erken-yillar").length },
+    stats: { records: records.length, institutions: new Set(records.map((record) => record.institution)).size, photographs: records.filter((record) => record.type === "photograph").length, documents: records.filter((record) => record.type === "document").length, firstYear: yearMarks[0]?.year ?? null, firstLifetimeYear: eventYears.length ? Math.min(...eventYears) : null, lastLifetimeYear: eventYears.length ? Math.max(...eventYears) : null, undated: records.filter((record) => record.year === null).length, earlyRecords: records.filter((record) => record.periodId === "erken-yillar").length },
     typeCounts: TYPE_ORDER.map((type) => ({ type, label: typeLabel(type), count: records.filter((record) => record.type === type).length })).filter((item) => item.count > 0),
   };
 }
