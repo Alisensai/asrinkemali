@@ -127,6 +127,14 @@ class ReleaseCheckTests(unittest.TestCase):
         checker.check_target(self.root / "missing", "next", self.report, 5, False, 1, 0, {})
         self.assertTrue(self.report["targets"]["next"].startswith("SKIP (belirtilen dalda yok)"))
 
+    def test_next_source_audit_ignores_generated_playwright_report(self):
+        self.write("app/page.tsx", "<main>Home</main>")
+        self.write("playwright-report/index.html", '<a href="/not-a-route">Report link</a>')
+        checker.check_target(self.root, "next", self.report, 5, False, 1, 0, {})
+        codes = {item["code"] for item in self.report["findings"]}
+        self.assertNotIn("broken-route", codes)
+        self.assertIn("missing-route", codes)
+
     def test_next_source_broken_route_is_reported(self):
         page = self.write("app/page.tsx", '<a href="/missing">Boş rota</a>')
         checker.check_next_sources(self.root, self.report)
@@ -148,6 +156,117 @@ class ReleaseCheckTests(unittest.TestCase):
         self.write("app/page.tsx", '<a href="#missing">Anchor</a>')
         checker.check_next_sources(self.root, self.report)
         self.assertIn("broken-anchor", {item["code"] for item in self.report["findings"]})
+
+    def test_next_external_url_check_is_offline_by_default(self):
+        self.write("app/page.tsx", '<a href="https://example.invalid">External</a>')
+        checker.check_next_sources(self.root, self.report)
+        self.assertNotIn("external-link-failed", {item["code"] for item in self.report["findings"]})
+
+    def test_next_external_link_uses_supplied_cache(self):
+        self.write("app/page.tsx", '<a href="https://example.invalid">A</a><a href="https://example.invalid">B</a>')
+        cache = {"https://example.invalid": (200, "")}
+        checker.check_next_sources(self.root, self.report, external=True, cache=cache)
+        self.assertEqual(len(cache), 1)
+
+    def test_next_required_route_inventory_is_enforced(self):
+        self.write("app/page.tsx", "<main>Home</main>")
+        checker.check_next_sources(self.root, self.report)
+        self.assertIn("missing-route", {item["code"] for item in self.report["findings"]})
+
+    def test_next_image_with_missing_alt_is_reported(self):
+        self.write("app/page.tsx", '<Image src="/assets/photo.webp" />')
+        checker.check_next_sources(self.root, self.report)
+        self.assertIn("missing-image-alt", {item["code"] for item in self.report["findings"]})
+
+    def test_next_decorative_empty_alt_is_allowed(self):
+        self.write("app/page.tsx", '<Image src="/assets/photo.webp" alt="" />')
+        checker.check_next_sources(self.root, self.report)
+        self.assertNotIn("missing-image-alt", {item["code"] for item in self.report["findings"]})
+
+    def test_next_missing_asset_is_reported(self):
+        self.write("app/page.tsx", '<Image src="/assets/missing.webp" alt="Photo" />')
+        checker.check_next_sources(self.root, self.report)
+        self.assertIn("broken-resource", {item["code"] for item in self.report["findings"]})
+
+    def test_next_button_without_event_is_reported(self):
+        self.write("app/page.tsx", "<button>Click</button>")
+        checker.check_next_sources(self.root, self.report)
+        self.assertIn("button-without-action", {item["code"] for item in self.report["findings"]})
+
+    def test_next_button_with_event_is_allowed(self):
+        self.write("app/page.tsx", '<button type="button" onClick={() => run()}>Run</button>')
+        checker.check_next_sources(self.root, self.report)
+        self.assertNotIn("button-without-action", {item["code"] for item in self.report["findings"]})
+
+    def test_next_http_link_is_insecure(self):
+        self.write("app/page.tsx", '<a href="http://example.invalid">External</a>')
+        checker.check_next_sources(self.root, self.report)
+        self.assertIn("insecure-external-link", {item["code"] for item in self.report["findings"]})
+
+    def test_next_blank_external_link_requires_safe_rel(self):
+        self.write("app/page.tsx", '<a href="https://example.invalid" target="_blank">External</a>')
+        checker.check_next_sources(self.root, self.report)
+        self.assertIn("unsafe-external-link", {item["code"] for item in self.report["findings"]})
+
+    def test_next_blank_external_link_with_safe_rel_passes(self):
+        self.write("app/page.tsx", '<a href="https://example.invalid" target="_blank" rel="noopener noreferrer">External</a>')
+        checker.check_next_sources(self.root, self.report)
+        self.assertNotIn("unsafe-external-link", {item["code"] for item in self.report["findings"]})
+
+    def test_required_missing_target_is_critical_not_skip_only(self):
+        checker.check_target(self.root / "missing", "next", self.report, 5, False, 1, 0, {}, require_target=True)
+        self.assertIn("required-target-missing", {item["code"] for item in self.report["findings"]})
+
+    def test_secret_detector_reports_without_echoing_secret(self):
+        content = "pass" + "word = '" + "a-fake-test-value-long-enough" + "'"
+        self.write("credentials.txt", content)
+        checker.check_secret_leaks(self.root, self.report)
+        finding = next(item for item in self.report["findings"] if item["code"] == "potential-secret-credential-assignment")
+        self.assertNotIn("a-fake-test-value-long-enough", finding["message"])
+
+    def test_secret_environment_file_is_critical(self):
+        self.write(".env.local", "SITE_TOKEN=fake")
+        checker.check_secret_leaks(self.root, self.report)
+        self.assertIn("environment-file-present", {item["code"] for item in self.report["findings"]})
+
+    def test_example_env_file_is_allowed(self):
+        self.write(".env.example", "API_KEY=replace-me")
+        checker.check_secret_leaks(self.root, self.report)
+        self.assertNotIn("environment-file-present", {item["code"] for item in self.report["findings"]})
+
+    def test_seo_configuration_requires_sitemap_and_robots(self):
+        self.write("app/layout.tsx", "export const metadata = { title: 'Title' };")
+        checker.check_next_seo(self.root, self.report)
+        codes = {item["code"] for item in self.report["findings"]}
+        self.assertIn("missing-robots-config", codes)
+        self.assertIn("missing-sitemap-config", codes)
+        self.assertIn("missing-seo-twitter-card", codes)
+
+    def test_seo_configuration_rejects_missing_open_graph_asset(self):
+        self.write("app/layout.tsx", 'export const metadata = { openGraph: { images: [{ url: "/assets/missing.webp" }] } };')
+        checker.check_next_seo(self.root, self.report)
+        self.assertIn("broken-og-image", {item["code"] for item in self.report["findings"]})
+
+    def test_consistent_package_lock_passes(self):
+        self.write("package.json", json.dumps({
+            "dependencies": {"next": "1"},
+            "scripts": {"lint": "eslint", "typecheck": "tsc", "test": "node --test", "build": "next build"},
+        }))
+        self.write("package-lock.json", json.dumps({"packages": {"": {
+            "dependencies": {"next": "1"}, "devDependencies": {}, "optionalDependencies": {},
+        }}}))
+        checker.check_web_package(self.root, self.report)
+        self.assertNotIn("package-lock-mismatch", {item["code"] for item in self.report["findings"]})
+
+    def test_mismatched_package_lock_is_critical(self):
+        self.write("package.json", json.dumps({
+            "dependencies": {"next": "2"}, "scripts": {"lint": "eslint", "typecheck": "tsc", "test": "node --test", "build": "next build"},
+        }))
+        self.write("package-lock.json", json.dumps({"packages": {"": {
+            "dependencies": {"next": "1"}, "devDependencies": {}, "optionalDependencies": {},
+        }}}))
+        checker.check_web_package(self.root, self.report)
+        self.assertIn("package-lock-mismatch", {item["code"] for item in self.report["findings"]})
 
     def test_large_file_threshold_is_reported(self):
         self.write("index.html", "<p>AI temsili</p>")

@@ -15,8 +15,10 @@ import subprocess
 import sys
 import time
 from urllib.error import HTTPError, URLError
-from urllib.parse import unquote, urldefrag, urljoin, urlparse
+from urllib.parse import unquote, urlparse
 from urllib.request import Request, urlopen
+
+import archive_validator
 
 
 AI_DISCLOSURE = ("yapay zekâ", "yapay zeka", "ai-generated", "ai generated", "temsilî", "temsili")
@@ -24,7 +26,10 @@ QUOTE_KEYS = {"quote", "quotation", "alıntı", "alinti"}
 SOURCE_KEYS = {"source", "sourceurl", "reference", "citation", "cite", "kaynak", "kaynakça", "kaynakca"}
 HTML_EXTENSIONS = {".html", ".htm"}
 CODE_EXTENSIONS = {".html", ".htm", ".js", ".jsx", ".ts", ".tsx", ".json", ".md"}
-IGNORE_DIRS = {".git", "node_modules", ".next", "dist", "build", ".venv", "__pycache__"}
+IGNORE_DIRS = {
+    ".git", "node_modules", ".next", "dist", "build", ".venv", "__pycache__",
+    "playwright-report", "test-results", "release-check-reports", ".turbo", ".vercel",
+}
 
 
 class PageParser(HTMLParser):
@@ -178,6 +183,32 @@ def local_target(root: Path, page: Path, href: str) -> tuple[Path, str] | None:
     return target, unquote(parsed.fragment)
 
 
+def check_external_link(href: str, target: str, rel: str, report: dict,
+                       timeout: float, rate_limit: float, cache: dict[str, tuple[int | None, str]]) -> None:
+    if href not in cache:
+        if cache:
+            time.sleep(rate_limit)
+        request = Request(href, method="HEAD", headers={"User-Agent": "AsrinKemaliReleaseCheck/1.0"})
+        try:
+            with urlopen(request, timeout=timeout) as response:
+                cache[href] = (response.status, "")
+        except HTTPError as exc:
+            if exc.code in {405, 501}:
+                try:
+                    with urlopen(Request(href, headers={"Range": "bytes=0-0", "User-Agent": "AsrinKemaliReleaseCheck/1.0"}), timeout=timeout) as response:
+                        cache[href] = (response.status, "")
+                except (HTTPError, URLError, TimeoutError) as second:
+                    cache[href] = (getattr(second, "code", None), str(second))
+            else:
+                cache[href] = (exc.code, str(exc))
+        except (URLError, TimeoutError, OSError) as exc:
+            cache[href] = (None, str(exc))
+    status, detail = cache[href]
+    if status is None or status >= 400:
+        issue(report, target, "warning", "external-link-failed",
+              f"Dış bağlantı doğrulanamadı ({status or 'ağ hatası'}): {detail or href}", rel)
+
+
 def check_html(root: Path, target: str, report: dict, external: bool, timeout: float, rate_limit: float,
                cache: dict[str, tuple[int | None, str]]) -> None:
     pages = files_under(root, HTML_EXTENSIONS)
@@ -272,28 +303,7 @@ def check_html(root: Path, target: str, report: dict, external: bool, timeout: f
                     if fragment not in ids:
                         issue(report, target, "error", "broken-anchor", f"Sayfa içi hedef bulunamadı: {href}", rel)
             if external and urlparse(href).scheme in {"http", "https"}:
-                if href not in cache:
-                    if cache:
-                        time.sleep(rate_limit)
-                    request = Request(href, method="HEAD", headers={"User-Agent": "AsrinKemaliReleaseCheck/1.0"})
-                    try:
-                        with urlopen(request, timeout=timeout) as response:
-                            cache[href] = (response.status, "")
-                    except HTTPError as exc:
-                        if exc.code in {405, 501}:
-                            try:
-                                with urlopen(Request(href, headers={"Range": "bytes=0-0", "User-Agent": "AsrinKemaliReleaseCheck/1.0"}), timeout=timeout) as response:
-                                    cache[href] = (response.status, "")
-                            except (HTTPError, URLError, TimeoutError) as second:
-                                cache[href] = (getattr(second, "code", None), str(second))
-                        else:
-                            cache[href] = (exc.code, str(exc))
-                    except (URLError, TimeoutError, OSError) as exc:
-                        cache[href] = (None, str(exc))
-                status, detail = cache[href]
-                if status is None or status >= 400:
-                    issue(report, target, "warning", "external-link-failed",
-                          f"Dış bağlantı doğrulanamadı ({status or 'ağ hatası'}): {detail or href}", rel)
+                check_external_link(href, target, rel, report, timeout, rate_limit, cache)
 
 
 def check_css_resources(root: Path, target: str, report: dict) -> None:
@@ -305,13 +315,21 @@ def check_css_resources(root: Path, target: str, report: dict) -> None:
             parsed = urlparse(value)
             if not value or parsed.scheme or parsed.netloc or value.startswith("#"):
                 continue
-            resolved = local_target(root, stylesheet, value)
-            if resolved and not resolved[0].is_file():
-                issue(report, target, "error", "broken-resource", f"CSS kaynağı bulunamadı: {value}",
-                      str(stylesheet.relative_to(root)))
+            if value.startswith("/"):
+                resource_path = root / "public" / unquote(parsed.path).lstrip("/")
+                if not resource_path.is_file():
+                    issue(report, target, "error", "broken-resource", f"CSS kaynağı bulunamadı: {value}",
+                          str(stylesheet.relative_to(root)))
+            else:
+                resolved = local_target(root, stylesheet, value)
+                if resolved and not resolved[0].is_file():
+                    issue(report, target, "error", "broken-resource", f"CSS kaynağı bulunamadı: {value}",
+                          str(stylesheet.relative_to(root)))
 
 
-def check_next_sources(root: Path, report: dict) -> None:
+def check_next_sources(root: Path, report: dict, external: bool = False, timeout: float = 5.0,
+                       rate_limit: float = 0.25, cache: dict | None = None) -> None:
+    external_cache = cache if cache is not None else {}
     app_root = root / "app"
     pages_root = root / "pages"
     route_files: dict[str, Path] = {}
@@ -382,19 +400,321 @@ def check_next_sources(root: Path, report: dict) -> None:
                         issue(report, "next", "error", "broken-anchor", f"Next.js hedef sayfasında anchor bulunamadı: {href}",
                               str(path.relative_to(root)))
 
+    required_routes = {"/", "/ataturk", "/kronoloji", "/arsiv", "/yayinlar", "/hakkimizda"}
+    for required in sorted(required_routes):
+        if not any(matches_route(route, required) for route in route_files):
+            issue(report, "next", "critical", "missing-route", f"Zorunlu uygulama rotası yok: {required}",
+                  str(app_root))
+    if not (app_root / "not-found.tsx").is_file() and not (app_root / "not-found.jsx").is_file():
+        issue(report, "next", "error", "missing-not-found", "Uygulama seviyesinde not-found sayfası eksik.", str(app_root))
+
+    source_roots = [path for path in (app_root, root / "components", root / "lib") if path.is_dir()]
+    source_paths = [file for source_root in source_roots for file in files_under(source_root, {".ts", ".tsx", ".js", ".jsx"})]
+    source_text = {path: path.read_text(encoding="utf-8", errors="replace") for path in source_paths}
+    shared_ids = {
+        match.group(2)
+        for text in source_text.values()
+        for match in re.finditer(r"""\bid\s*=\s*(?:\{\s*)?(['"])(.*?)\1""", text)
+    }
+    known_routes = list(route_files)
+
+    def route_for_href(href: str, source: Path) -> tuple[str, str] | None:
+        parsed = urlparse(html.unescape(href.strip()))
+        if parsed.scheme or parsed.netloc or href.startswith(("mailto:", "tel:", "javascript:", "data:")):
+            return None
+        if not parsed.path and not parsed.fragment:
+            return None
+        if parsed.path.startswith("/assets/") or Path(parsed.path).suffix.lower() in {".png", ".jpg", ".jpeg", ".webp", ".svg", ".pdf"}:
+            asset_name = unquote(parsed.path).lstrip("/")
+            asset_path = root / "public" / asset_name
+            if not asset_path.is_file():
+                issue(report, "next", "error", "broken-resource", f"Yerel bağlantı kaynağı yok: {href}",
+                      str(source.relative_to(root)))
+            return None
+        route = unquote(parsed.path)
+        if not route.startswith("/"):
+            containing_route = next((name for name, route_file in route_files.items() if route_file == source), "/")
+            route = posixpath.normpath(posixpath.join(containing_route, route))
+        normalized = route.rstrip("/") or "/"
+        matches = [known for known in known_routes if matches_route(known, normalized)]
+        if not matches:
+            issue(report, "next", "error", "broken-route", f"Next.js yerel rotası bulunamadı: {href}",
+                  str(source.relative_to(root)))
+            return None
+        if parsed.fragment and source in route_files.values():
+            page_route = next((name for name, route_file in route_files.items() if route_file == source), "/")
+            target_route = matches[0]
+            target_file = route_files[target_route]
+            ids = {
+                match.group(2)
+                for match in re.finditer(r"""\bid\s*=\s*(?:\{\s*)?(['"])(.*?)\1""", source_text[target_file])
+            } | shared_ids
+            if unquote(parsed.fragment) not in ids:
+                issue(report, "next", "error", "broken-anchor", f"Next.js sayfasında hedef bulunamadı: {href}",
+                      str(source.relative_to(root)))
+        return normalized, parsed.fragment
+
+    jsx_tag = re.compile(r"<(?:a|Link)\b(?P<attrs>[^<>]*?)>", re.S)
+    href_attribute = re.compile(r"""\bhref\s*=\s*(?:\{\s*)?(['"])(.*?)\1""", re.S)
+    object_href = re.compile(r"""\bhref\s*:\s*(['"])(.*?)\1""", re.S)
+    for path, text in source_text.items():
+        tags_with_hrefs = set()
+        for match in jsx_tag.finditer(text):
+            attrs = match.group("attrs")
+            href_match = href_attribute.search(attrs)
+            if href_match:
+                href = href_match.group(2)
+                tags_with_hrefs.add(href)
+                route_for_href(href, path)
+                parsed = urlparse(href)
+                if parsed.scheme == "http" and parsed.netloc:
+                    issue(report, "next", "error", "insecure-external-link", f"Dış bağlantı HTTPS kullanmıyor: {href}",
+                          str(path.relative_to(root)))
+                if parsed.scheme in {"http", "https"} and re.search(r"""\btarget\s*=\s*(['"])_blank\1""", attrs):
+                    rel_match = re.search(r"""\brel\s*=\s*(['"])(.*?)\1""", attrs)
+                    rel_tokens = set((rel_match.group(2).lower().split() if rel_match else []))
+                    if not {"noopener", "noreferrer"}.issubset(rel_tokens):
+                        issue(report, "next", "error", "unsafe-external-link", "target=_blank bağlantısı rel=noopener noreferrer içermiyor.",
+                              str(path.relative_to(root)))
+                if external and parsed.scheme in {"http", "https"}:
+                    check_external_link(href, "next", str(path.relative_to(root)), report,
+                                        timeout, rate_limit, external_cache)
+                if href.strip().lower().startswith("javascript:"):
+                    issue(report, "next", "critical", "javascript-link", "javascript: bağlantısı güvenli değil.",
+                          str(path.relative_to(root)))
+        for match in object_href.finditer(text):
+            href = match.group(2)
+            if href.startswith("/"):
+                route_for_href(href, path)
+            elif urlparse(href).scheme in {"http", "https"} and external:
+                check_external_link(href, "next", str(path.relative_to(root)), report,
+                                    timeout, rate_limit, external_cache)
+
+    image_tag = re.compile(r"<(?:Image|img)\b(?P<attrs>[^<>]*?)/?>", re.S)
+    src_attribute = re.compile(r"""\bsrc\s*=\s*(?:\{\s*)?(['"])(.*?)\1""", re.S)
+    alt_attribute = re.compile(r"""\balt\s*=\s*(?:\{\s*)?(['"])(.*?)\1""", re.S)
+    for path, text in source_text.items():
+        for match in image_tag.finditer(text):
+            attrs = match.group("attrs")
+            alt = alt_attribute.search(attrs)
+            dynamic_alt = re.search(r"\balt\s*=\s*\{", attrs)
+            if not alt and not dynamic_alt:
+                issue(report, "next", "error", "missing-image-alt", "Next.js görselinde alt özniteliği eksik.",
+                      str(path.relative_to(root)))
+            src = src_attribute.search(attrs)
+            if src and src.group(2).startswith("/"):
+                asset = root / "public" / unquote(src.group(2)).lstrip("/")
+                if not asset.is_file():
+                    issue(report, "next", "error", "broken-resource", f"Next.js görseli bulunamadı: {src.group(2)}",
+                          str(path.relative_to(root)))
+        for match in re.finditer(r"""\bsrc\s*:\s*(['"])(/[^'"]+)\1""", text):
+            asset = root / "public" / unquote(match.group(2)).lstrip("/")
+            if not asset.is_file():
+                issue(report, "next", "error", "broken-resource", f"Site verisindeki görsel bulunamadı: {match.group(2)}",
+                      str(path.relative_to(root)))
+
+    button_open = re.compile(r"<button\b", re.I)
+    for path, text in source_text.items():
+        offset = 0
+        while match := button_open.search(text, offset):
+            cursor = match.end()
+            brace_depth = 0
+            quote_char = None
+            while cursor < len(text):
+                char = text[cursor]
+                if quote_char:
+                    if char == "\\":
+                        cursor += 2
+                        continue
+                    if char == quote_char:
+                        quote_char = None
+                elif char in "'\"`":
+                    quote_char = char
+                elif char == "{":
+                    brace_depth += 1
+                elif char == "}":
+                    brace_depth = max(0, brace_depth - 1)
+                elif char == ">" and brace_depth == 0:
+                    break
+                cursor += 1
+            if cursor >= len(text):
+                issue(report, "next", "error", "malformed-button", "Kapatılmamış button etiketi.", str(path.relative_to(root)))
+                break
+            attrs = text[match.end():cursor]
+            closing = re.search(r"</button\s*>", text[cursor + 1:], re.I)
+            content = text[cursor + 1:cursor + 1 + closing.start()] if closing else ""
+            label = re.search(r"""\baria-label\s*=\s*(['"])(.*?)\1""", attrs, re.S)
+            has_label = bool(label and label.group(2).strip()) or bool(re.search(r"\baria-label\s*=", attrs)) or bool(re.sub(r"<[^>]*>|{[^}]*}", "", content).strip())
+            if not has_label and not re.search(r"\baria-labelledby\s*=", attrs):
+                issue(report, "next", "error", "unlabeled-button", "Next.js button erişilebilir etikete sahip değil.",
+                      str(path.relative_to(root)))
+            has_action = bool(re.search(r"\b(?:onClick|formAction)\s*=", attrs) or
+                              re.search(r"""\btype\s*=\s*(['"])submit\1""", attrs))
+            disabled = bool(re.search(r"\bdisabled(?:\s|=|$)", attrs) or
+                            re.search(r"""\baria-disabled\s*=\s*(['"])true\1""", attrs))
+            if not has_action and not disabled:
+                issue(report, "next", "error", "button-without-action",
+                      f"Next.js düğmesinde onClick/formAction/submit yok: {(label.group(2) if label else '') or '(etiketsiz)'}",
+                      str(path.relative_to(root)))
+            offset = cursor + 1 + closing.end() if closing else cursor + 1
+
+
+def check_next_seo(root: Path, report: dict) -> None:
+    app_root = root / "app"
+    layout = app_root / "layout.tsx"
+    robots = app_root / "robots.ts"
+    sitemap = app_root / "sitemap.ts"
+    for path, code, label in ((layout, "missing-layout-metadata", "layout metadata"),
+                              (robots, "missing-robots-config", "robots.ts"),
+                              (sitemap, "missing-sitemap-config", "sitemap.ts")):
+        if not path.is_file():
+            issue(report, "next", "error", code, f"Next.js {label} eksik.", str(path.relative_to(root)))
+    if layout.is_file():
+        text = layout.read_text(encoding="utf-8", errors="replace")
+        requirements = {
+            "title": r"\btitle\s*:",
+            "description": r"\bdescription\s*:",
+            "canonical": r"\bcanonical\s*:",
+            "robots": r"\brobots\s*:",
+            "open-graph": r"\bopenGraph\s*:",
+            "og-image": r"\bimages\s*:",
+            "twitter-card": r"\btwitter\s*:",
+        }
+        for name, pattern in requirements.items():
+            if not re.search(pattern, text, re.I):
+                issue(report, "next", "error", "missing-seo-" + name, f"Root metadata içinde {name} tanımı eksik.", "app/layout.tsx")
+        if not re.search(r"\bmetadataBase\s*:", text):
+            issue(report, "next", "error", "missing-seo-metadata-base", "metadataBase tanımlanmamış.", "app/layout.tsx")
+        if not re.search(r"""url\s*:\s*(['"])/assets/[^'"]+\1""", text):
+            issue(report, "next", "error", "missing-og-image-path",
+                  "Open Graph metadata'sında yerel OG görsel yolu yok.", "app/layout.tsx")
+        elif re.search(r"""url\s*:\s*(['"])(/assets/[^'"]+)\1""", text):
+            for match in re.finditer(r"""url\s*:\s*(['"])(/assets/[^'"]+)\1""", text):
+                image = root / "public" / unquote(match.group(2)).lstrip("/")
+                if not image.is_file():
+                    issue(report, "next", "error", "broken-og-image",
+                          f"Open Graph görseli bulunamadı: {match.group(2)}", "app/layout.tsx")
+        if not re.search(r"\brobots\s*:\s*\{[^}]*\bindex\s*:\s*(?:false|canIndex)", text, re.S):
+            issue(report, "next", "error", "unsafe-robots-default", "Robots metadata taslakta indekslemeyi kapatmıyor.", "app/layout.tsx")
+        if "canIndex" in text and not re.search(
+            r"\bcanIndex\s*=\s*Boolean\(\s*process\.env\.NEXT_PUBLIC_SITE_URL\s*\)", text
+        ):
+            issue(report, "next", "error", "unsafe-robots-default",
+                  "Indexlenebilirlik NEXT_PUBLIC_SITE_URL yapılandırmasına bağlı olmalı.", "app/layout.tsx")
+    if robots.is_file():
+        text = robots.read_text(encoding="utf-8", errors="replace")
+        if not re.search(r"\bdisallow\s*:\s*['\"]\/['\"]", text):
+            issue(report, "next", "error", "unsafe-robots-default", "Origin tanımsız olduğunda robots disallow / olmalı.", "app/robots.ts")
+        if not re.search(r"\bNEXT_PUBLIC_SITE_URL\b", text):
+            issue(report, "next", "warning", "robots-sitemap-origin", "Robots sitemap URL'sini doğrulanmış site origin'ine bağlamıyor.", "app/robots.ts")
+    if sitemap.is_file():
+        text = sitemap.read_text(encoding="utf-8", errors="replace")
+        if not re.search(r"\bNEXT_PUBLIC_SITE_URL\b", text):
+            issue(report, "next", "error", "sitemap-origin", "Sitemap gerçek deployment origin'i yapılandırmasına bağlı değil.", "app/sitemap.ts")
+        for route in ("/ataturk", "/kronoloji", "/arsiv", "/yayinlar", "/hakkimizda"):
+            if f'"{route}"' not in text and f"'{route}'" not in text:
+                issue(report, "next", "warning", "sitemap-route-missing", f"Sitemap kaynaklarında {route} rotası görünmüyor.", "app/sitemap.ts")
+
+
+def check_secret_leaks(root: Path, report: dict, target: str = "security") -> None:
+    patterns = (
+        ("private-key", re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----")),
+        ("aws-access-key", re.compile(r"\bAKIA[0-9A-Z]{16}\b")),
+        ("github-token", re.compile(r"\b(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{40,})\b")),
+        ("credential-assignment", re.compile(
+            r"""(?i)\b(?:api[_-]?key|access[_-]?token|client[_-]?secret|password)\b\s*[:=]\s*['"]([A-Za-z0-9/+_=.-]{20,})['"]""")),
+    )
+    safe_extensions = {".py", ".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs", ".json", ".yml", ".yaml", ".toml",
+                       ".ini", ".cfg", ".md", ".txt", ".env", ".pem", ".key", ".sh", ".ps1", ".html", ".css"}
+    for path in files_under(root):
+        name = path.name.lower()
+        if name.startswith(".env") and name not in {".env.example", ".env.template", ".env.sample"}:
+            issue(report, target, "critical", "environment-file-present", "Gizli çevre dosyası depoda bulunmamalı.", str(path.relative_to(root)))
+        if path.suffix.lower() not in safe_extensions:
+            continue
+        try:
+            text = path.read_text(encoding="utf-8")
+        except (OSError, UnicodeError):
+            continue
+        if re.search(r"(?i)example|placeholder|your[_ -]?(?:key|token|secret)|changeme|dummy", text):
+            safe_values = {"example", "placeholder", "your_key", "your-token", "changeme", "dummy"}
+        else:
+            safe_values = set()
+        for code, pattern in patterns:
+            for match in pattern.finditer(text):
+                captured = match.group(1) if match.groups() else match.group(0)
+                if captured.lower() in safe_values:
+                    continue
+                issue(report, target, "critical", "potential-secret-" + code,
+                      "Olası gizli anahtar/kimlik bilgisi algılandı; değeri rapora yazdırılmadı.", str(path.relative_to(root)))
+                break
+
+
+def check_web_package(root: Path, report: dict) -> None:
+    package_path = root / "package.json"
+    lock_path = root / "package-lock.json"
+    if not package_path.is_file():
+        issue(report, "next", "critical", "missing-next-package", "web/package.json eksik.", "package.json")
+        return
+    if not lock_path.is_file():
+        issue(report, "next", "critical", "missing-next-lockfile", "web/package-lock.json eksik; npm ci deterministik çalışamaz.", "package-lock.json")
+        return
+    try:
+        package = json.loads(package_path.read_text(encoding="utf-8"))
+        lock = json.loads(lock_path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+        issue(report, "next", "critical", "invalid-package-lock", f"Paket manifesti/lockfile geçersiz: {exc}")
+        return
+    root_package = lock.get("packages", {}).get("")
+    if root_package:
+        for section in ("dependencies", "devDependencies", "optionalDependencies"):
+            if package.get(section, {}) != root_package.get(section, {}):
+                issue(report, "next", "critical", "package-lock-mismatch",
+                      f"package-lock.json içindeki {section} manifestten farklı.", "package-lock.json")
+                break
+    scripts = package.get("scripts", {})
+    for name in ("lint", "typecheck", "test", "build"):
+        if not scripts.get(name):
+            issue(report, "next", "critical", "missing-quality-script", f"package.json '{name}' script'i eksik.", "package.json")
+
+
+def check_unused_assets(root: Path, report: dict) -> None:
+    asset_root = root / "public" / "assets"
+    if not asset_root.is_dir():
+        return
+    source_roots = [path for path in (root / "app", root / "components", root / "lib", root / "public") if path.is_dir()]
+    source_text = "\n".join(
+        path.read_text(encoding="utf-8", errors="replace")
+        for source_root in source_roots
+        for path in files_under(source_root, {".ts", ".tsx", ".js", ".jsx", ".css", ".json", ".svg"})
+    )
+    for asset in files_under(asset_root):
+        if asset.name not in source_text:
+            issue(report, "next", "warning", "unreferenced-asset", "Kullanımına kaynak kodda rastlanmayan asset.", str(asset.relative_to(root)))
+
 
 def check_target(root: Path, target: str, report: dict, max_file_mb: float, external: bool,
-                 timeout: float, rate_limit: float, cache: dict) -> None:
+                 timeout: float, rate_limit: float, cache: dict, require_target: bool = False) -> None:
     root = root.resolve()
     if not root.is_dir():
         report["targets"][target] = f"SKIP (belirtilen dalda yok): {root}"
+        if require_target:
+            issue(report, target, "critical", "required-target-missing", f"Zorunlu hedef dizini yok: {root}")
         return
     html_pages = files_under(root, HTML_EXTENSIONS)
     if target == "static" and not html_pages:
         report["targets"][target] = f"SKIP (belirtilen dalda yok): HTML sayfası yok ({root})"
+        if require_target:
+            issue(report, target, "critical", "required-target-missing", f"Zorunlu HTML hedefi yok: {root}")
         return
-    if target == "next" and not any((root / folder).is_dir() for folder in ("app", "pages", "out")) and not html_pages:
+    if target == "next" and (
+        not any((root / folder).is_dir() for folder in ("app", "pages", "out"))
+        or (require_target and (not (root / "app").is_dir() or not (root / "package.json").is_file()))
+    ):
         report["targets"][target] = f"SKIP (belirtilen dalda yok): Next.js app/pages/out bulunamadı ({root})"
+        if require_target:
+            issue(report, target, "critical", "required-next-target-missing",
+                  f"Zorunlu Next.js uygulaması web/ altında bulunamadı: {root}")
         return
     report["targets"][target] = f"CHECKED: {root}"
 
@@ -423,10 +743,21 @@ def check_target(root: Path, target: str, report: dict, max_file_mb: float, exte
     if target == "next" and not (root / "package.json").is_file():
         issue(report, target, "error", "missing-next-package", "Next.js hedefinde package.json bulunamadı.")
 
-    check_html(root, target, report, external, timeout, rate_limit, cache)
+    if target == "static" and html_pages:
+        check_html(root, target, report, external, timeout, rate_limit, cache)
     check_css_resources(root, target, report)
-    if target == "next" and not html_pages:
-        check_next_sources(root, report)
+    if target == "next" and (root / "app").is_dir():
+        check_next_sources(root, report, external, timeout, rate_limit, cache)
+        check_next_seo(root, report)
+        check_web_package(root, report)
+        check_unused_assets(root, report)
+        data_path = root / "lib" / "site-data.ts"
+        collections_report = archive_validator.validate_site_collections(data_path, target)
+        report["data_collections"] = collections_report["collection_counts"]
+        report["findings"].extend(collections_report["findings"])
+        archive_report = archive_validator.validate_file(data_path, target)
+        report["archive"] = {key: value for key, value in archive_report.items() if key != "findings"}
+        report["findings"].extend(archive_report["findings"])
     check_json_data(root, target, report)
 
     if not any((root / name).is_file() for name in ("LICENSE", "LICENSE.md", "LICENSE.txt", "LICENCE", "COPYING")):
@@ -509,7 +840,23 @@ def check_repo(root: Path, report: dict, target_roots: dict[str, Path]) -> None:
 
 def render_markdown(report: dict) -> str:
     lines = ["# Release quality report", "", f"- **Hedef:** {report['target']}",
-             f"- **Strict gate:** {report['fail_on']}", ""]
+             f"- **Strict gate:** {report['fail_on']}",
+             f"- **Release-ready:** {'EVET' if report.get('release_ready') else 'HAYIR'}", ""]
+    counts = report.get("summary", {})
+    lines.extend([
+        "## Özet",
+        "",
+        f"- Testler: {counts.get('tests_passed', 0)} başarılı / {counts.get('tests_failed', 0)} başarısız",
+        f"- Kritik hatalar: {counts.get('critical', 0)}",
+        f"- Hatalar: {counts.get('error', 0)}",
+        f"- Uyarılar: {counts.get('warning', 0)}",
+        f"- Uzman incelemesi gereken kayıtlar: {counts.get('expert_review', 0)}",
+        "",
+    ])
+    if report.get("release_blockers"):
+        lines.extend(["## Yayın engelleri", ""])
+        lines.extend(f"- {blocker}" for blocker in report["release_blockers"])
+        lines.append("")
     lines.extend(["## Hedef durumu", "", "| Hedef | Sonuç |", "|---|---|"])
     for target, result in report["targets"].items():
         lines.append(f"| {target} | {result.replace('|', '\\|')} |")
@@ -533,21 +880,23 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Statik/Next.js sürüm kalite kontrolü; JSON ve Markdown rapor üretir.")
     parser.add_argument("--target", choices=("static", "next", "both"), default="both")
     parser.add_argument("--static-root", type=Path, default=Path("."))
-    parser.add_argument("--next-root", type=Path, default=Path("next"))
+    parser.add_argument("--next-root", type=Path, default=Path("web"))
     parser.add_argument("--output-dir", type=Path, default=Path("release-check-reports"))
     parser.add_argument("--external-links", action="store_true", help="İsteğe bağlı, rate-limited HEAD istekleri yap.")
     parser.add_argument("--timeout", type=float, default=5.0)
     parser.add_argument("--rate-limit", type=float, default=0.25, help="Dış istekler arası saniye.")
     parser.add_argument("--max-file-mb", type=float, default=5.0)
     parser.add_argument("--fail-on", choices=("none", "warning", "error"), default="none")
+    parser.add_argument("--require-target", action="store_true", help="Seçilen hedef yoksa SKIP yerine kritik hata üret.")
     args = parser.parse_args(argv)
     if args.timeout <= 0 or args.rate_limit < 0 or args.max_file_mb <= 0:
         parser.error("--timeout ve --max-file-mb pozitif, --rate-limit sıfır veya pozitif olmalı.")
 
     repo_root = Path.cwd().resolve()
     report = {"schema_version": 1, "target": args.target, "fail_on": args.fail_on,
-              "targets": {}, "git": {}, "findings": []}
+              "targets": {}, "git": {}, "findings": [], "checks": []}
     check_repo(repo_root, report, {})
+    check_secret_leaks(repo_root, report)
     roots = {"static": args.static_root, "next": args.next_root}
     cache: dict[str, tuple[int | None, str]] = {}
     selected = ("static", "next") if args.target == "both" else (args.target,)
@@ -555,10 +904,19 @@ def main(argv: list[str] | None = None) -> int:
         path = roots[name]
         if not path.is_absolute():
             path = repo_root / path
-        check_target(path, name, report, args.max_file_mb, args.external_links, args.timeout, args.rate_limit, cache)
+        check_target(path, name, report, args.max_file_mb, args.external_links, args.timeout, args.rate_limit, cache, args.require_target)
 
     report["summary"] = {severity: sum(item["severity"] == severity for item in report["findings"])
-                         for severity in ("error", "warning")}
+                         for severity in ("critical", "error", "warning", "expert_review")}
+    report["summary"].update({"tests_passed": 0, "tests_failed": 0})
+    report["release_blockers"] = [
+        item["message"] for item in report["findings"] if item["severity"] in {"critical", "error"}
+    ]
+    if not any(value.startswith("CHECKED:") for value in report["targets"].values()):
+        report["release_blockers"].append("Zorunlu hedeflerden hiçbiri denetlenmedi.")
+    report["release_ready"] = not report["release_blockers"] and not any(
+        item["code"] in {"missing-archive-content", "expert-review-required"} for item in report["findings"]
+    )
     report["external_links_checked"] = len(cache)
     try:
         args.output_dir.mkdir(parents=True, exist_ok=True)
@@ -574,7 +932,10 @@ def main(argv: list[str] | None = None) -> int:
     print(f"Rapor: {json_path} ve {markdown_path}")
     print(f"Bulgular: {report['summary']['error']} hata, {report['summary']['warning']} uyarı")
     threshold = {"none": 3, "warning": 2, "error": 1}[args.fail_on]
-    if threshold < 3 and any({"error": 1, "warning": 2}[item["severity"]] <= threshold for item in report["findings"]):
+    if threshold < 3 and any(
+        {"critical": 0, "error": 1, "warning": 2, "expert_review": 2}.get(item["severity"], 2) <= threshold
+        for item in report["findings"]
+    ):
         return 1
     return 0
 

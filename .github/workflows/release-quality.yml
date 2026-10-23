@@ -7,8 +7,12 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: release-quality-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  release-check:
+  release-quality:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -16,16 +20,25 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.x"
-      - name: Run release checker tests
-        run: python -m unittest discover -s tools/release-check/tests -v
-      - name: Generate static and Next.js quality reports
-        run: python tools/release-check/checker.py --target both --static-root . --next-root apps/web --output-dir release-check-reports --fail-on none
-      - name: Upload release quality reports
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install exact web dependencies
+        working-directory: web
+        run: npm ci --no-audit --no-fund
+      - name: Install Chromium for end-to-end routes and interactions
+        working-directory: web
+        run: npx playwright install --with-deps chromium
+      - name: Run release gates and generate readiness report
+        run: python tools/release-check/quality_runner.py --web-root web --output-dir release-check-reports --e2e
+      - name: Upload machine-readable and human-readable reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: release-quality-reports
+          name: release-quality-report
           path: release-check-reports/
           if-no-files-found: error
-          retention-days: 14
+          retention-days: 30
