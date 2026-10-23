@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "ayk-halic-istanbul-konferansi-19-mayis-5-haziran-1924",
+  "slug": "ayk-halic-istanbul-konferansi-19-mayis-5-haziran-1924",
+  "title": "Haliç-İstanbul Konferansı (19 Mayıs-5 Haziran 1924)",
+  "type": "event",
+  "date": {
+    "start": "1924-05-19",
+    "end": "1924-06-05",
+    "precision": "range",
+    "certainty": "exact",
+    "display": "19 Mayıs - 5 Haziran 1924",
+    "note": "Tarih aralığı, Atatürk Ansiklopedisi maddesindeki ifadeden alınmıştır."
+  },
+  "people": [
+    {
+      "name": "Tahir KODAL",
+      "role": "author"
+    }
+  ],
+  "locations": [
+    {
+      "name": "İstanbul",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "siyaset",
+    "cumhuriyet"
+  ],
+  "summary": "Osmanlı Devleti, I. Dünya Savaşı’nı kaybettiği için, 30 Ekim 1918’de Mondros Mütarekesi imzalanmıştır. Mondros Mütarekesi imzalandığında Musul Vilayeti (Musul, Kerkük ve Süleymaniye), Türk ordularının kontrolü altındaydı. Ancak, İngilizler, Mütareke şartlarına uymayarak ve uluslararası hukuku hiçe sayarak, sahip olduğu enerji kaynağı, yani petrolü nedeniyle, Fransızlara vermiş olduğu sözü de unutarak, 3 Kasım 1918’de Musul’u kendileri “ işgal ” etmişlerdir. Musul, Mondros Mütarekesi imzalandığı sırada, Türklerin yönetiminde olduğu için, kurulacak olan yeni Türk Devleti’nin “...",
+  "description": "Osmanlı Devleti, I. Dünya Savaşı’nı kaybettiği için, 30 Ekim 1918’de Mondros Mütarekesi imzalanmıştır. Mondros Mütarekesi imzalandığında Musul Vilayeti (Musul, Kerkük ve Süleymaniye), Türk ordularının kontrolü altındaydı. Ancak, İngilizler, Mütareke şartlarına uymayarak ve uluslararası hukuku hiçe sayarak, sahip olduğu enerji kaynağı, yani petrolü nedeniyle, Fransızlara vermiş olduğu sözü de unutarak, 3 Kasım 1918’de Musul’u kendileri “ işgal ” etmişlerdir. Musul, Mondros Mütarekesi imzalandığı sırada, Türklerin yönetiminde olduğu için, kurulacak olan yeni Türk Devleti’nin “... Atatürk Ansiklopedisi maddesi, Tahir KODAL imzasıyla olayın tarihsel bağlamını ayrıntılı olarak ele alır. Bu arşiv kaydı yalnızca künye, tarih ve kısa açıklama sunar; maddenin tam metni ve kaynakçası için kurumun sayfasına başvurulmalıdır.",
+  "source": {
+    "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "institutionType": "institutional",
+    "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+    "title": "Atatürk Ansiklopedisi: Haliç-İstanbul Konferansı (19 Mayıs-5 Haziran 1924)",
+    "url": "https://www.ataturkansiklopedisi.gov.tr/detay/1804/halic-istanbul-konferansi-19-mayis-5-haziran-1924",
+    "citation": "Tahir KODAL, \"Haliç-İstanbul Konferansı (19 Mayıs-5 Haziran 1924)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/1804/halic-istanbul-konferansi-19-mayis-5-haziran-1924.",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2024-03-27",
+    "archiveIdentifier": "AYK-1804",
+    "note": "Atatürk Ansiklopedisi maddesi; künye ve metin AYK kamuya açık API üzerinden doğrulandı. Sayfa yalnızca bağlantı olarak sunulur."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "collection": "Atatürk Ansiklopedisi",
+      "identifier": "AYK-1804",
+      "url": "https://www.ataturkansiklopedisi.gov.tr/detay/1804/halic-istanbul-konferansi-19-mayis-5-haziran-1924",
+      "accessedAt": "2026-10-23",
+      "note": "AYK kamuya açık API kaydındaki başlık, yazar, yayın tarihi ve metin özetiyle eşleştirildi."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "reviewed",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "AYK maddesi, yazarı, yayın tarihi ve tarih bilgisi kurumsal kaynak üzerinden doğrulandı; insan uzman onayı değildir."
+  },
+  "tags": [
+    "Haliç-İstanbul Konferansı",
+    "Tahir KODAL",
+    "Atatürk Ansiklopedisi",
+    "1924"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "atam-100-yilinda-lozan-baris-antlasmasi-2023",
+  "slug": "atam-100-yilinda-lozan-baris-antlasmasi-2023",
+  "title": "100. Yılında Lozan Barış Antlaşması",
+  "type": "publication",
+  "date": {
+    "start": "2023-01-01",
+    "end": null,
+    "precision": "year",
+    "certainty": "exact",
+    "display": "2023",
+    "note": "Basım yılı ATAM kitap künyesinden alınmıştır."
+  },
+  "people": [
+    {
+      "name": "Sevtap Demirci",
+      "role": "author",
+      "note": "Editör"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "yayin",
+    "siyaset"
+  ],
+  "summary": "Lozan Barış Antlaşması’nı yüzüncü yılında tarihsel ve diplomatik boyutlarıyla değerlendiren ATAM yayını.",
+  "description": "Atatürk Araştırma Merkezi tarafından 2023 yılında yayımlanan eser, Prof. Dr. Sevtap Demirci’nin editörlüğünde Lozan Barış Antlaşması’nı yüzüncü yılında ele alır. Kitap künyesinde ISBN 978-975-17-5706-7 ve yayın no 556 olarak kayıtlıdır. Yayın sayfası yalnızca bağlantı olarak sunulur.",
+  "source": {
+    "institution": "Atatürk Araştırma Merkezi Yayınları",
+    "institutionType": "institutional",
+    "institutionUrl": "https://atam.gov.tr/",
+    "title": "ATAM Yayınları: 100. Yılında Lozan Barış Antlaşması",
+    "url": "https://atam.gov.tr/kitaplar/100-yilinda-lozan-baris-antlasmasi/",
+    "citation": "Sevtap Demirci (ed.), 100. Yılında Lozan Barış Antlaşması, Atatürk Araştırma Merkezi Yayınları, Ankara 2023, ISBN 978-975-17-5706-7, Yayın No. 556.",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2023-01-01",
+    "archiveIdentifier": "978-975-17-5706-7",
+    "note": "Kitap künyesi (yazar/editoryal kurul, ISBN, basım yılı) ATAM yayın sayfasından doğrulandı; kitap dosyası indirilmedi."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Araştırma Merkezi Yayınları",
+      "collection": "ATAM Yayınları",
+      "identifier": "978-975-17-5706-7",
+      "url": "https://atam.gov.tr/kitaplar/100-yilinda-lozan-baris-antlasmasi/",
+      "accessedAt": "2026-10-23",
+      "note": "ATAM kitap detay sayfasındaki künye tablosuna dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Araştırma Merkezi Yayınları",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Kitap künyesi ATAM yayın sayfasındaki yazar, ISBN ve basım yılı bilgileriyle doğrulandı; kitap dosyası indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "Lozan Barış Antlaşması",
+    "Sevtap Demirci",
+    "ATAM",
+    "2023",
+    "100. yıl"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

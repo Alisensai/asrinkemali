@@ -18,8 +18,8 @@ test("gerçek arşiv yüklenir ve dosya eşlemesi tutarlıdır", async () => {
   const archive = await loadArchive();
   assert.equal(archive.errors.length, 0, archive.errors.join("\n"));
   assert.equal(archive.warnings.length, 0, archive.warnings.join("\n"));
-  assert.equal(archive.records.length, 68);
-  assert.equal(archive.files.length, 68);
+  assert.equal(archive.records.length, 168);
+  assert.equal(archive.files.length, 168);
   assert.equal(archive.root, REPO_ROOT);
   assert.ok(archive.taxonomy.categories.length > 0);
   assert.ok(archive.recordSchema);

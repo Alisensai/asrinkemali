@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "tbmm-tutanak-d03-c018-b043-1930-04-03",
+  "slug": "tbmm-tutanak-d03-c018-b043-1930-04-03",
+  "title": "TBMM Tutanak Dergisi, III. Dönem, 18. Cilt, 43. Birleşim (3 Nisan 1930)",
+  "type": "document",
+  "date": {
+    "start": "1930-04-03",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "3 Nisan 1930",
+    "note": "Oturum tarihi TBMM Tutanak Dergisi fihristinden alınmıştır."
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "official",
+      "note": "Dönemin Cumhurbaşkanı; tutanak dönemin Meclis çalışmalarına aittir."
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "tbmm",
+    "siyaset",
+    "cumhuriyet"
+  ],
+  "summary": "3 Nisan 1930 tarihli TBMM III. Dönem 18. Cilt 43. Birleşim tutanağı, oturumun resmî kaydını içerir.",
+  "description": "TBMM Tutanak Dergisi'nin III. Dönem 18. Cilt 43. Birleşimini içeren resmî tutanak PDF'i. 3 Nisan 1930 tarihli oturumun gündemi, konuşmaları ve kararları tam metin olarak sunulur. Kayıt, TBMM'nin resmî PDF adresine bağlantı verir; dosya indirilmemiştir.",
+  "source": {
+    "institution": "Türkiye Büyük Millet Meclisi",
+    "institutionType": "official",
+    "institutionUrl": "https://www.tbmm.gov.tr/",
+    "title": "TBMM Tutanak Dergisi, III. Dönem, 18. Cilt, 43. Birleşim",
+    "url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d03/c018/tbmm03018043.pdf",
+    "citation": "TBMM Tutanak Dergisi, III. Dönem, 18. Cilt, 43. Birleşim, 3 Nisan 1930, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d03/c018/tbmm03018043.pdf",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1930-04-03",
+    "archiveIdentifier": "III. Dönem, 18. Cilt, 43. Birleşim",
+    "note": "Resmî TBMM Tutanak Dergisi PDF'i; bağlantı HTTPS üzerinden 200 yanıtı verdi. PDF indirilmedi ve depoya eklenmedi."
+  },
+  "provenance": [
+    {
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "collection": "TBMM Tutanak Dergisi",
+      "identifier": "III. Dönem, 18. Cilt, 43. Birleşim",
+      "url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d03/c018/tbmm03018043.pdf",
+      "accessedAt": "2026-10-23",
+      "note": "TBMM tutanak dizinindeki resmî birleşim kaydına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Türkiye Büyük Millet Meclisi",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Birleşim tarihi ve resmî PDF bağlantısı TBMM tutanak diziniyle doğrulandı; PDF içeriği indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "TBMM Tutanak Dergisi",
+    "III. Dönem",
+    "18. Cilt",
+    "43. Birleşim",
+    "1930",
+    "resmî tutanak"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

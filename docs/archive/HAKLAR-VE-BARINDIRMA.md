@@ -1,27 +1,29 @@
 # Haklar ve Barındırma
 
-Bu belge, yeni 50 kaydın telif/usage durumunu ve içeriğin dosya olarak mı yoksa
-yalnızca dış bağlantı olarak mı sunulduğunu açıklar.
+Bu belge, yeni 150 kaydın (ilk genişletme 50 + v06 genişletmesi 100) telif/
+kullanım durumunu ve içeriğin dosya olarak mı yoksa yalnızca dış bağlantı
+olarak mı sunulduğunu açıklar.
 
 ## Temel karar
 
-**50 kaydın tamamı yalnızca dış bağlantı olarak sunulur.** Depoda indirilmiş
-PDF, görsel, ses veya tam metin yoktur.
+**Yeni 150 kaydın tamamı yalnızca dış bağlantı olarak sunulur.** Depoda
+indirilmiş PDF, görsel, ses veya tam metin yoktur.
 
-| Alan | Değer | Kayıt |
+| Alan | Değer | Yeni kayıt |
 |---|---|---:|
-| `holding.mode` | `external_link` | 50 |
-| `holding.filePath` | `null` | 50 |
-| `rights.status` | `official_link_only` | 50 |
-| `rights.imageReuse` | `link_only` | 8 |
-| `rights.imageReuse` | `not_downloaded` | 42 |
+| `holding.mode` | `external_link` | 150 |
+| `holding.filePath` | `null` | 150 |
+| `rights.status` | `official_link_only` | 150 |
+| `rights.imageReuse` | `link_only` | 18 |
+| `rights.imageReuse` | `not_downloaded` | 132 |
 | Depoda barındırılan dosya | yok | 0 |
 | `metadata_only` | yok | 0 |
 
-Görselli 8 kayıt, İBB Atatürk Kitaplığı'ndan gelen 6 fotoğraf ve 2 belgedir.
-Bu kayıtlarda `image.url` ve `image.localPath` boştur; `image.sourcePageUrl`
-kurumun öğe sayfasına işaret eder. Next.js tarafı görseli gömmek yerine bu
-sayfaya bağlantı vermelidir.
+Tüm arşivde (18 eski + 150 yeni) görseli olan 21 kayıt vardır; bunların 18'i
+yeni İBB Atatürk Kitaplığı kaydı, 3'ü eski kayıtlardır. Görselli kayıtlarda
+`image.url` ve `image.localPath` boştur; `image.sourcePageUrl` kurumun öğe
+sayfasına işaret eder. Next.js tarafı görseli gömmek yerine bu sayfaya bağlantı
+vermelidir.
 
 ## Neden dosya indirilmedi?
 
@@ -42,11 +44,14 @@ yayımlanmasına izin verildiği anlamına gelmez.
 
 ## Kayıt bazında barındırma durumu
 
-Aşağıdaki 50 kaydın tamamı `external_link` ve `filePath: null` değerlerine
+Aşağıdaki 150 kaydın tamamı `external_link` ve `filePath: null` değerlerine
 sahiptir. Ayrıntılı satırlar için [KAYNAK-ENVANTERI.md](KAYNAK-ENVANTERI.md)
 dosyasındaki "Barındırma" sütununa bakın.
 
 ### Görselli kayıtlar (`imageReuse: link_only`)
+
+İlk genişletmede 8, v06 genişletmesinde 10 olmak üzere 18 yeni görselli kayıt
+vardır. Tamamı İBB Atatürk Kitaplığı kaynaklıdır.
 
 | Kayıt | Kurum | Görsel durumu |
 |---|---|---|
@@ -58,12 +63,23 @@ dosyasındaki "Barındırma" sütununa bakın.
 | `ibb-10-yildonumu-meclis-fotografi-1933` | İBB | Yalnızca öğe sayfasına bağlantı |
 | `ibb-lozan-mektubu-1923` | İBB | Belge görseli; yalnızca öğe sayfasına bağlantı |
 | `ibb-taksim-abide-komisyonu-tutanagi-1928` | İBB | Belge görseli; yalnızca öğe sayfasına bağlantı |
+| `ibb-canonica-taksim-abidesi-mektubu-1928` | İBB | Belge görseli; yalnızca öğe sayfasına bağlantı |
+| `ibb-dolmabahce-naas-ziyaret-usulu-1938` | İBB | Belge görseli; yalnızca öğe sayfasına bağlantı |
+| `ibb-tuzer-ataturk-vefati-mektubu-1938` | İBB | Belge görseli; yalnızca öğe sayfasına bağlantı |
+| `ibb-tuzer-ankara-secim-mektubu-1935` | İBB | Belge görseli; yalnızca öğe sayfasına bağlantı |
+| `ibb-leipzig-illustrirte-zeitung-mektubu-1937` | İBB | Belge görseli; yalnızca öğe sayfasına bağlantı |
+| `ibb-ataturk-albumu-1881-1938` | İBB | Albüm kapağı; yalnızca öğe sayfasına bağlantı |
+| `ibb-fotograflarla-ataturk-rafet-zaim-1940` | İBB | Albüm kapağı; yalnızca öğe sayfasına bağlantı |
+| `ibb-19-mayis-1941-kutlamalari-albumu` | İBB | Albüm kapağı; yalnızca öğe sayfasına bağlantı |
+| `ibb-taksim-abidesi-gumruk-muafiyeti-1928` | İBB | Belge görseli; yalnızca öğe sayfasına bağlantı |
+| `ibb-anadolu-bagdad-taksim-abidesi-1926` | İBB | Belge görseli; yalnızca öğe sayfasına bağlantı |
 
 ### Görselsiz kayıtlar (`imageReuse: not_downloaded`)
 
-Diğer 42 kayıt: 24 Atatürk Ansiklopedisi, 10 TBMM, 5 ATAM Yayınları ve 3 Millî
-Kütüphane kaydı. Bu kayıtlarda `image: null`; yalnızca kaynak sayfası ve künye
-bilgisi vardır.
+Diğer 132 yeni kayıt: 94 Atatürk Ansiklopedisi, 20 TBMM, 15 ATAM Yayınları ve
+3 Millî Kütüphane kaydı. Bu kayıtlarda `image: null`; yalnızca kaynak sayfası ve
+künye bilgisi vardır. Ayrıca 3 eski kayıtta görsel vardır; toplam görselli kayıt
+sayısı 21'dir.
 
 ## Şema ve doğrulama kuralları
 

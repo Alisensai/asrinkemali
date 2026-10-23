@@ -31,21 +31,21 @@
     "institution": "Türkiye Büyük Millet Meclisi",
     "institutionType": "official",
     "institutionUrl": "https://kurtulussavasimuzesi.tbmm.gov.tr/",
-    "title": "Kurtuluş Savaşı Müzesi: Meclisin Açılışı",
-    "url": "https://kurtulussavasimuzesi.tbmm.gov.tr/meclisacilis",
+    "title": "Kurtuluş Savaşı Müzesi: Tarihçe",
+    "url": "https://kurtulussavasimuzesi.tbmm.gov.tr/tarihce",
     "accessedAt": "2026-10-23",
     "publishedAt": null,
-    "archiveIdentifier": "meclisacilis",
-    "note": "Kurumsal sayfa; binanın Meclis olarak kullanım aralığını ve müze statüsünü açıklar."
+    "archiveIdentifier": "tarihce",
+    "note": "Kurumsal tarihçe sayfası; I. TBMM Binası’nın Meclis olarak kullanım aralığını ve müze statüsünü açıklar."
   },
   "provenance": [
     {
       "institution": "Türkiye Büyük Millet Meclisi",
       "collection": "Kurtuluş Savaşı Müzesi",
-      "identifier": "meclisacilis",
-      "url": "https://kurtulussavasimuzesi.tbmm.gov.tr/meclisacilis",
+      "identifier": "tarihce",
+      "url": "https://kurtulussavasimuzesi.tbmm.gov.tr/tarihce",
       "accessedAt": "2026-10-23",
-      "note": "Kurumsal sayfa, binanın 23 Nisan 1920 – 15 Ekim 1924 arasındaki kullanımını belgeler."
+      "note": "Kurumsal tarihçe sayfası, binanın 23 Nisan 1920 – 15 Ekim 1924 arasındaki kullanımını belgeler."
     }
   ],
   "rights": {

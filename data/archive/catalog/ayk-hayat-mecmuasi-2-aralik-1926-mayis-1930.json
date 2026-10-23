@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "ayk-hayat-mecmuasi-2-aralik-1926-mayis-1930",
+  "slug": "ayk-hayat-mecmuasi-2-aralik-1926-mayis-1930",
+  "title": "Hayat Mecmuası (2 Aralık 1926- Mayıs 1930)",
+  "type": "publication",
+  "date": {
+    "start": "1926-12-02",
+    "end": "1930-05-31",
+    "precision": "range",
+    "certainty": "exact",
+    "display": "2 Aralık 1926 - Mayıs 1930",
+    "note": "Tarih aralığı, Atatürk Ansiklopedisi maddesindeki ifadeden alınmıştır."
+  },
+  "people": [
+    {
+      "name": "Emine Güntepe Yeşilbursa",
+      "role": "author"
+    }
+  ],
+  "locations": [
+    {
+      "name": "İstanbul",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "yayin",
+    "kultur"
+  ],
+  "summary": "Hayat Mecmuası, 2 Aralık 1926 tarihinde haftalık ilim, felsefe ve sanat mecmuası olarak yayımlanmaya başlamıştır. Derginin mesul müdürlüğünü sırasıyla Mehmet Erişirgil, Nafi Atuf Kansu ve Faruk Nafiz Çamlıbel üstlenmiştir. Dönemin aydınları olarak nitelendirilen birçok yazar derginin kadrosunda yer almıştır. Edebiyat, edebiyat tarihi, felsefe, sosyoloji, tarih, sanat, hukuk, iktisat gibi birçok alan derginin içeriğini oluşturmuştur. 15 Temmuz 1929 tarihine kadar haftalık yayımlanan mecmua, bu tarihten 30 Kânunuevvel 1929 tarihine kadar on beş günde bir yayımlanmıştır. Böylece...",
+  "description": "Hayat Mecmuası, 2 Aralık 1926 tarihinde haftalık ilim, felsefe ve sanat mecmuası olarak yayımlanmaya başlamıştır. Derginin mesul müdürlüğünü sırasıyla Mehmet Erişirgil, Nafi Atuf Kansu ve Faruk Nafiz Çamlıbel üstlenmiştir. Dönemin aydınları olarak nitelendirilen birçok yazar derginin kadrosunda yer almıştır. Edebiyat, edebiyat tarihi, felsefe, sosyoloji, tarih, sanat, hukuk, iktisat gibi birçok alan derginin içeriğini oluşturmuştur. 15 Temmuz 1929 tarihine kadar haftalık yayımlanan mecmua, bu tarihten 30 Kânunuevvel 1929 tarihine kadar on beş günde bir yayımlanmıştır. Böylece... Atatürk Ansiklopedisi maddesi, Emine Güntepe Yeşilbursa imzasıyla yayının künyesini ve tarihsel bağlamını ayrıntılı olarak ele alır. Bu arşiv kaydı yalnızca künye, tarih ve kısa açıklama sunar; maddenin tam metni ve kaynakçası için kurumun sayfasına başvurulmalıdır.",
+  "source": {
+    "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "institutionType": "institutional",
+    "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+    "title": "Atatürk Ansiklopedisi: Hayat Mecmuası (2 Aralık 1926- Mayıs 1930)",
+    "url": "https://www.ataturkansiklopedisi.gov.tr/detay/1291/hayat-mecmuasi-2-aralik-1926-mayis-1930",
+    "citation": "Emine Güntepe Yeşilbursa, \"Hayat Mecmuası (2 Aralık 1926- Mayıs 1930)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/1291/hayat-mecmuasi-2-aralik-1926-mayis-1930.",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2023-08-15",
+    "archiveIdentifier": "AYK-1291",
+    "note": "Atatürk Ansiklopedisi maddesi; künye ve metin AYK kamuya açık API üzerinden doğrulandı. Sayfa yalnızca bağlantı olarak sunulur."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "collection": "Atatürk Ansiklopedisi",
+      "identifier": "AYK-1291",
+      "url": "https://www.ataturkansiklopedisi.gov.tr/detay/1291/hayat-mecmuasi-2-aralik-1926-mayis-1930",
+      "accessedAt": "2026-10-23",
+      "note": "AYK kamuya açık API kaydındaki başlık, yazar, yayın tarihi ve metin özetiyle eşleştirildi."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "AYK maddesi, yazarı, yayın tarihi ve tarih bilgisi kurumsal kaynak üzerinden doğrulandı; insan uzman onayı değildir."
+  },
+  "tags": [
+    "Hayat Mecmuası (2 Aralık 1926- Mayıs 1930)",
+    "Emine Güntepe Yeşilbursa",
+    "Atatürk Ansiklopedisi",
+    "1926"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

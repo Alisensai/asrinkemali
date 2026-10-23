@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "ayk-inonu-muharebeleri",
+  "slug": "ayk-inonu-muharebeleri",
+  "title": "İnönü Muharebeleri",
+  "type": "event",
+  "date": {
+    "start": "1921-01-06",
+    "end": "1921-04-01",
+    "precision": "range",
+    "certainty": "exact",
+    "display": "6 Ocak 1921 - 1 Nisan 1921",
+    "note": "Tarih aralığı, Atatürk Ansiklopedisi maddesindeki ifadeden alınmıştır."
+  },
+  "people": [
+    {
+      "name": "Hüsnü Özlü",
+      "role": "author"
+    },
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "subject"
+    }
+  ],
+  "locations": [
+    {
+      "name": "İnönü",
+      "city": "Eskişehir",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "milli-mucadele",
+    "siyaset"
+  ],
+  "summary": "1921'de Yunan Kuvvetleri ve Ankara Hükümet kuvvetleri arasında gerçekleşen muharebe savaşları",
+  "description": "1921'de Yunan Kuvvetleri ve Ankara Hükümet kuvvetleri arasında gerçekleşen muharebe savaşları Atatürk Ansiklopedisi maddesi, Hüsnü Özlü imzasıyla olayın tarihsel bağlamını ayrıntılı olarak ele alır. Bu arşiv kaydı yalnızca künye, tarih ve kısa açıklama sunar; maddenin tam metni ve kaynakçası için kurumun sayfasına başvurulmalıdır.",
+  "source": {
+    "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "institutionType": "institutional",
+    "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+    "title": "Atatürk Ansiklopedisi: İnönü Muharebeleri",
+    "url": "https://www.ataturkansiklopedisi.gov.tr/detay/748/inonu-muharebeleri",
+    "citation": "Hüsnü Özlü, \"İnönü Muharebeleri\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/748/inonu-muharebeleri.",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2021-04-19",
+    "archiveIdentifier": "AYK-748",
+    "note": "Atatürk Ansiklopedisi maddesi; künye ve metin AYK kamuya açık API üzerinden doğrulandı. Sayfa yalnızca bağlantı olarak sunulur."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "collection": "Atatürk Ansiklopedisi",
+      "identifier": "AYK-748",
+      "url": "https://www.ataturkansiklopedisi.gov.tr/detay/748/inonu-muharebeleri",
+      "accessedAt": "2026-10-23",
+      "note": "AYK kamuya açık API kaydındaki başlık, yazar, yayın tarihi ve metin özetiyle eşleştirildi."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "reviewed",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "AYK maddesi, yazarı, yayın tarihi ve tarih bilgisi kurumsal kaynak üzerinden doğrulandı; insan uzman onayı değildir."
+  },
+  "tags": [
+    "İnönü Muharebeleri",
+    "Hüsnü Özlü",
+    "Atatürk Ansiklopedisi",
+    "1921"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}
