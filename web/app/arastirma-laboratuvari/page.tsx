@@ -133,7 +133,7 @@ function CandidateRow({ candidate }: { candidate: ResearchCandidate }) {
       : (candidate.eventYear ?? "—");
   const flags = [
     candidate.verification.citationComplete ? "künye ✓" : "künye ✗",
-    candidate.verification.rightsKnown ? "hak ✓" : "hak ✗",
+    candidate.verification.rightsKnown ? "hak bilgisi ✓" : "hak bilgisi ✗",
     candidate.verification.humanReviewed ? "insan ✓" : "insan ✗",
   ].join(" · ");
   return (
@@ -145,7 +145,7 @@ function CandidateRow({ candidate }: { candidate: ResearchCandidate }) {
         </a>
       </td>
       <td>{candidate.institution}</td>
-      <td>{period}</td>
+      <td className={styles.periodCell}>{period}</td>
       <td>{candidate.sourceNature === "primary" ? "Birincil" : candidate.sourceNature === "secondary" ? "İkincil" : "Belirsiz"}</td>
       <td>{candidateStateLabel(candidate.state)}</td>
       <td>{flags}</td>

@@ -138,11 +138,19 @@ async function cmdDryRun(options) {
     console.error("Eşleşen aday yok. --id src-YYYY-NNNN veya --all kullanın.");
     return 1;
   }
+  const { convertAndValidate } = await import("./lib/convert-dryrun.mjs");
+  const archiveContext = {
+    taxonomy: archive.taxonomy,
+    recordSchema: archive.recordSchema,
+    taxonomySchema: archive.taxonomySchema,
+    root: REPO_ROOT,
+  };
   let ok = 0;
   let blocked = 0;
   let invalid = 0;
   for (const candidate of selected) {
-    const result = convertCandidateToDraft(candidate, archive.records);
+    // Yürütme yolu: dönüşüm + GERÇEK arşiv doğrulayıcısı (validateArchive)
+    const result = await convertAndValidate(candidate, archive.records, archiveContext);
     if (result.outcome === "ok") ok += 1;
     else if (result.outcome === "blocked") blocked += 1;
     else invalid += 1;

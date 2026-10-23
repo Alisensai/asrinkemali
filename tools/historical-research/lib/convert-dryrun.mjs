@@ -135,9 +135,11 @@ export function convertCandidateToDraft(candidate, archiveRecords = [], deps = {
       url: candidate.url,
       citation: candidate.citation ?? null,
       accessedAt: candidate.accessedAt,
-      publishedAt: candidate.publishedAt ?? null,
+      // Şema tam tarih (YYYY-MM-DD) ister: yıl-kesinlikli künyelerde null bırakılır
+      // (yıl bilgisi künye metninde ve notta korunur; gün/ay uydurulmaz).
+      publishedAt: isFullDate(candidate.publishedAt) ? candidate.publishedAt : null,
       archiveIdentifier: candidate.archiveIdentifier ?? null,
-      note: "MKA Evidence Engine dry-run dönüşümünden üretildi; henüz yayımlanmamıştır.",
+      note: `MKA Evidence Engine dry-run dönüşümünden üretildi; henüz yayımlanmamıştır.${isFullDate(candidate.publishedAt) ? "" : ` Yayın yılı künyeden: ${candidate.publishedAt ?? "bilinmiyor"} (tam gün/ay şemada istendiğinden alan boş bırakıldı).`}`,
     },
     provenance: [
       {
@@ -186,6 +188,10 @@ export function convertCandidateToDraft(candidate, archiveRecords = [], deps = {
   };
 
   return { outcome: "ok", candidateId: candidate.id, record, issues, blockers: [] };
+}
+
+function isFullDate(value) {
+  return typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value);
 }
 
 function mapDocumentTypeToRecordType(documentType) {
@@ -272,6 +278,55 @@ export function draftExportPath(root, candidateId) {
   const target = path.join(root, "data", "research", "candidates", "exports", `${candidateId}.json`);
   assertNoCatalogWrite(target);
   return target;
+}
+
+/**
+ * Dönüşümü gerçek arşiv doğrulayıcısına bağlar (async).
+ *
+ * Bu, dry-run yürütme yolunun ZORUNLU adımıdır: üretilen taslak, mevcut arşivin
+ * gerçek taksonomi ve şemalarıyla `validateArchive` üzerinden doğrulanır ve
+ * doğrulama hatası üretirse sonuç `outcome: "invalid"` döner — "ok" değil.
+ *
+ * @param {SourceCandidate} candidate
+ * @param {Array} archiveRecords
+ * @param {{taxonomy: object|null, recordSchema: object|null, taxonomySchema: object|null, root: string}} archiveContext
+ * @returns {Promise<DryRunResult & {validationErrors: Array}>}
+ */
+export async function convertAndValidate(candidate, archiveRecords, archiveContext) {
+  const base = convertCandidateToDraft(candidate, archiveRecords);
+  if (base.outcome !== "ok" || !base.record) {
+    return { ...base, validationErrors: [] };
+  }
+  const validateModule = await import(
+    pathToFileUrlSafe(path.join(REPO_ROOT, "scripts", "archive", "lib", "validate.mjs"))
+  );
+  const result = await validateModule.validateArchive({
+    records: [base.record],
+    taxonomy: archiveContext?.taxonomy ?? null,
+    recordSchema: archiveContext?.recordSchema ?? null,
+    taxonomySchema: archiveContext?.taxonomySchema ?? null,
+    root: archiveContext?.root ?? REPO_ROOT,
+  });
+  if (result.ok) {
+    return { ...base, validationErrors: [] };
+  }
+  return {
+    ...base,
+    outcome: "invalid",
+    record: null,
+    blockers: [
+      ...base.blockers,
+      ...result.errors.map((error) => ({
+        code: `VALIDATION_${error.code}`,
+        message: `${error.path ?? ""} ${error.message}`.trim(),
+      })),
+    ],
+    validationErrors: result.errors,
+  };
+}
+
+function pathToFileUrlSafe(p) {
+  return `file://${p.replaceAll("\\", "/")}`;
 }
 
 export { REPO_ROOT };

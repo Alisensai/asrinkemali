@@ -40,8 +40,19 @@ function isPrivateIPv6(host) {
   if (lower.startsWith("fc") || lower.startsWith("fd")) return true; // ULA fc00::/7
   if (lower.startsWith("fe80")) return true; // link-local
   if (lower.startsWith("::ffff:")) {
-    const v4 = lower.split("::ffff:")[1];
-    return v4 ? isPrivateIPv4(v4) : false;
+    // IPv4-eşlenmiş IPv6: hem noktalı ondalık hem onaltılık gösterim yakalanır
+    // (ör. ::ffff:127.0.0.1 VE ::ffff:7f00:1).
+    const tail = lower.split("::ffff:")[1];
+    if (!tail) return false;
+    if (isIP(tail) === 4) return isPrivateIPv4(tail);
+    // Onaltılık gösterim: her 16-bit grup bir IPv4 oktet çiftidir
+    const groups = tail.split(":").filter(Boolean);
+    if (groups.length !== 2) return true; // beklenmeyen biçim: güvenli taraf reddet
+    const high = parseInt(groups[0], 16);
+    const low = parseInt(groups[1], 16);
+    if (!Number.isFinite(high) || !Number.isFinite(low)) return true;
+    const dotted = `${high >> 8}.${high & 0xff}.${low >> 8}.${low & 0xff}`;
+    return isPrivateIPv4(dotted);
   }
   return false;
 }
@@ -137,18 +148,23 @@ export async function assertPublicDnsResolution(rawUrl) {
   if (isIP(hostname)) return structural; // yapısal denetim zaten IP'yi kapsadı
   let addresses;
   try {
-    const result = await dns.resolve4(hostname);
-    addresses = result;
+    // Hem A hem AAAA kayıtları denetlenir; biri bile özel ağa düşerse reddedilir.
+    const [a, aaaa] = await Promise.all([
+      dns.resolve4(hostname).catch(() => []),
+      dns.resolve6(hostname).catch(() => []),
+    ]);
+    addresses = [...a, ...aaaa];
   } catch {
-    try {
-      const v6 = await dns.resolve6(hostname);
-      addresses = v6;
-    } catch {
-      return {
-        ok: false,
-        errors: [{ code: "DNS_UNRESOLVABLE", message: `Ana makine çözümlenemedi: ${hostname}.` }],
-      };
-    }
+    return {
+      ok: false,
+      errors: [{ code: "DNS_UNRESOLVABLE", message: `Ana makine çözümlenemedi: ${hostname}.` }],
+    };
+  }
+  if (addresses.length === 0) {
+    return {
+      ok: false,
+      errors: [{ code: "DNS_UNRESOLVABLE", message: `Ana makine için adres kaydı yok: ${hostname}.` }],
+    };
   }
   const privateHits = addresses.filter((address) => {
     const version = isIP(address);

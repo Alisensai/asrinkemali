@@ -20,11 +20,13 @@ test("gerçek arşiv yüklenir: kayıtlar hatasız okunur", async () => {
 test("gerçek arşivde 1881–1918 hedef dönemi boşluk raporlanır", async () => {
   const archive = await loadArchive(REPO_ROOT);
   const report = analyzeGaps(archive.records, { targetStart: 1881, targetEnd: 1918 });
-  // Bu test yalnızca ölçüm alanlarının varlığını ve tutarlılığını doğrular;
-  // sabit yüzde beklemez (arşiv büyüdükçe pay artar ve test esnek kalır).
-  assert.ok(report.targetPeriod.distinctRecords < report.counts.total, "erken dönem payı hâlâ küçük olmalı");
-  assert.ok(report.missingRanges.length >= 1, "en az bir boş yıl aralığı raporlanmalı");
+  // Yalnızca TUTARLILIK denetimi: arşiv büyüdüğünde de geçerli kalır.
+  // (Boşluk dolduğunda missingRanges boşalabilir; bu bir hata değildir.)
+  assert.ok(report.targetPeriod.distinctRecords >= 0);
   assert.ok(report.targetPeriod.recordYearIncidences >= report.targetPeriod.distinctRecords, "kayıt-yıl örnekleme ayrı kayıttan az olamaz");
+  assert.ok(report.targetPeriod.share <= 1, "ayrı kayıt payı %100'ü aşamaz");
+  assert.equal(report.counts.total, archive.records.length);
+  assert.ok(report.missingRanges.every((range) => range.start <= range.end), "boş aralıklar geçerli");
 });
 
 test("aday havuzu yüklenir: sentetik aday içermez ve gerçek kurumlar taşır", async () => {
