@@ -5,7 +5,7 @@
     1536,
     1024
   ],
-  "mean_absolute_error_0_255": 25.974,
-  "pixels_over_32_percent": 25.971,
+  "mean_absolute_error_0_255": 25.492,
+  "pixels_over_32_percent": 25.584,
   "note": "Piksel farkı, içerik ve font render farklarını da kapsar; görsel kabulün tek ölçütü değildir."
 }

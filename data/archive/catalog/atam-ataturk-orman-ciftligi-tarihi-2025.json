@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "atam-ataturk-orman-ciftligi-tarihi-2025",
+  "slug": "atam-ataturk-orman-ciftligi-tarihi-2025",
+  "title": "Atatürk Orman Çiftliği'nin Tarihi",
+  "type": "publication",
+  "date": {
+    "start": "2025-01-01",
+    "end": null,
+    "precision": "year",
+    "certainty": "exact",
+    "display": "2025",
+    "note": "Basım yılı ATAM kitap künyesinden alınmıştır."
+  },
+  "people": [
+    {
+      "name": "İzzet Öztoprak",
+      "role": "author"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "yayin",
+    "mekan",
+    "cumhuriyet"
+  ],
+  "summary": "Atatürk Orman Çiftliği'nin kuruluşunu ve tarihsel gelişimini ele alan ATAM yayını.",
+  "description": "Atatürk Araştırma Merkezi tarafından 2025 yılında yayımlanan eser, İzzet Öztoprak imzasıyla Atatürk Orman Çiftliği'nin tarihini ele alır. Kitap künyesinde ISBN 978-975-17-6304-4 ve yayın no 222 olarak kayıtlıdır. Yayın sayfası yalnızca bağlantı olarak sunulur.",
+  "source": {
+    "institution": "Atatürk Araştırma Merkezi Yayınları",
+    "institutionType": "institutional",
+    "institutionUrl": "https://atam.gov.tr/",
+    "title": "ATAM Yayınları: Atatürk Orman Çiftliği'nin Tarihi",
+    "url": "https://atam.gov.tr/kitaplar/ataturk-orman-ciftliginin-tarihi-2/",
+    "citation": "İzzet Öztoprak, Atatürk Orman Çiftliği'nin Tarihi, Atatürk Araştırma Merkezi Yayınları, Ankara 2025, ISBN 978-975-17-6304-4.",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2025-01-01",
+    "archiveIdentifier": "978-975-17-6304-4",
+    "note": "Kitap künyesi (yazar, ISBN, basım yılı) ATAM yayın sayfasından doğrulandı; kitap dosyası indirilmedi."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Araştırma Merkezi Yayınları",
+      "collection": "ATAM Yayınları",
+      "identifier": "978-975-17-6304-4",
+      "url": "https://atam.gov.tr/kitaplar/ataturk-orman-ciftliginin-tarihi-2/",
+      "accessedAt": "2026-10-23",
+      "note": "ATAM kitap detay sayfasındaki künye tablosuna dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Araştırma Merkezi Yayınları",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Kitap künyesi ATAM yayın sayfasındaki yazar, ISBN ve basım yılı bilgileriyle doğrulandı; kitap dosyası indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "Atatürk Orman Çiftliği",
+    "Ankara",
+    "ATAM",
+    "2025",
+    "tarım"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

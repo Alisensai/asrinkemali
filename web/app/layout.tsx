@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Cinzel, Cormorant_Garamond, Montserrat } from "next/font/google";
+import { Cinzel, Cormorant_Garamond, Montserrat, Playfair_Display } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { SiteHeader } from "@/components/SiteHeader";
 import "./globals.css";
 
 const display = Cinzel({ subsets: ["latin"], variable: "--font-cinzel", display: "swap" });
+const playfair = Playfair_Display({ subsets: ["latin", "latin-ext"], weight: ["700", "800", "900"], variable: "--font-playfair", display: "swap" });
 const body = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "600", "700"], style: ["normal", "italic"], variable: "--font-cormorant", display: "swap" });
 const sans = Montserrat({ subsets: ["latin"], variable: "--font-montserrat", display: "swap" });
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
@@ -22,5 +23,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="tr" className={`${display.variable} ${body.variable} ${sans.variable}`}><body><SiteHeader />{children}<Footer /></body></html>;
+  return <html lang="tr" className={`${display.variable} ${playfair.variable} ${body.variable} ${sans.variable}`}><body><SiteHeader />{children}<Footer /></body></html>;
 }

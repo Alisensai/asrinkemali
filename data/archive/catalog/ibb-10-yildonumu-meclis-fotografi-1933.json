@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "ibb-10-yildonumu-meclis-fotografi-1933",
+  "slug": "ibb-10-yildonumu-meclis-fotografi-1933",
+  "title": "Cumhuriyet'in 10. Yıldönümünde TBMM'den Çıkarken Fotoğraf",
+  "type": "photograph",
+  "date": {
+    "start": "1933-10-29",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "29 Ekim 1933",
+    "note": "Arşiv kaydında tarih [t.y.]; tarih, fotoğraf başlığındaki 'Cumhuriyetin 10. yıldönümü' ifadesine göre belirlendi."
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "subject"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "fotograf",
+    "cumhuriyet",
+    "tbmm"
+  ],
+  "summary": "Gazi Mustafa Kemal'in Cumhuriyet'in onuncu yıldönümünde TBMM'de süferanın tebrikatını kabul ettikten sonra Meclis'ten çıkarken çekilmiş fotoğrafı.",
+  "description": "İBB Atatürk Kitaplığı'nda Bel_Mtf_026166 demirbaş numarasıyla kayıtlı fotoğraf, 29 Ekim 1933'te Cumhuriyet'in onuncu yıldönümü kutlamaları sırasında TBMM'de gerçekleşen tebrik kabulünü belgeler. Arşiv kaydında tarih [t.y.] olarak geçse de fotoğrafın başlığı onuncu yıldönümüne işaret eder. Görsel, kurumsal kaynak sayfasına bağlantıyla sunulur; dosya indirilmemiştir.",
+  "source": {
+    "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+    "institutionType": "archive",
+    "institutionUrl": "https://sayisalarsiv.ibb.gov.tr/",
+    "title": "İBB Atatürk Kitaplığı: Cumhuriyet'in 10. Yıldönümünde TBMM'den Çıkarken Fotoğraf",
+    "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_026166",
+    "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Bel_Mtf_026166, “Cumhuriyet'in 10. Yıldönümünde TBMM'den Çıkarken Fotoğraf”, erişim 23.10.2026, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_026166",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1933-10-29",
+    "archiveIdentifier": "Bel_Mtf_026166",
+    "note": "İBB Atatürk Kitaplığı Sayısal Arşiv katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Görsel indirilmedi."
+  },
+  "provenance": [
+    {
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "collection": "İBB Atatürk Kitaplığı Sayısal Arşiv",
+      "identifier": "Bel_Mtf_026166",
+      "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_026166",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal katalog kaydı ve demirbaş numarasına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "İBB Atatürk Kitaplığı",
+    "imageReuse": "link_only",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": {
+    "kind": "digitized_original",
+    "url": null,
+    "sourcePageUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_026166",
+    "alt": "Cumhuriyet'in onuncu yıldönümünde TBMM'den çıkarken çekilen Atatürk fotoğrafı",
+    "credit": "İBB Atatürk Kitaplığı",
+    "width": null,
+    "height": null,
+    "mimeType": null,
+    "localPath": null,
+    "displayPolicy": "source_link_only"
+  },
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Katalog kaydı ve fotoğraf başlığı 23.10.2026 tarihinde doğrulandı. Arşiv tarihi [t.y.] olduğu için tarih, başlıktaki onuncu yıldönümü ifadesine dayanılarak 29 Ekim 1933 olarak belirlendi; görsel indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "10. Yıl",
+    "TBMM",
+    "fotoğraf",
+    "1933",
+    "Atatürk"
+  ],
+  "relatedIds": [
+    "onuncu-yil-nutku-1933"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

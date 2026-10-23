@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "tbmm-57-birlesim-tutanagi-1926",
+  "slug": "tbmm-57-birlesim-tutanagi-1926",
+  "title": "TBMM 57. Birleşim Tutanağı (17 Şubat 1926)",
+  "type": "document",
+  "date": {
+    "start": "1926-02-17",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "17 Şubat 1926"
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "official",
+      "note": "Dönemin siyasi lideri."
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "tbmm",
+    "hukuk",
+    "toplum"
+  ],
+  "summary": "17 Şubat 1926'da yapılan 57. Birleşim'in tutanağı, Türk Medeni Kanunu'nun kabul edildiği oturumun resmî kaydıdır.",
+  "description": "Tutanak, İkinci Dönem Dördüncü Yasama Yılı'nın 57. Birleşiminde Türk Medeni Kanunu'nun görüşülmesi ve kabulüne ilişkin kayıtları içerir. Kanun, aile, miras ve kişiler hukuku alanında Cumhuriyet'in laik hukuk düzenini kurumsallaştırdı. PDF bağlantısı resmî TBMM tutanak dizinine aittir; dosya indirilmemiştir.",
+  "source": {
+    "institution": "Türkiye Büyük Millet Meclisi",
+    "institutionType": "official",
+    "institutionUrl": "https://www.tbmm.gov.tr/",
+    "title": "TBMM Tutanak Dergisi, Dönem 2, Cilt 22, 57. Birleşim",
+    "url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c022/tbmm02022057.pdf",
+    "citation": "TBMM Tutanak Dergisi, Dönem 2, Cilt 22, 57. Birleşim, 17 Şubat 1926, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c022/tbmm02022057.pdf",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1926-02-17",
+    "archiveIdentifier": "Dönem 2, Cilt 22, 57. Birleşim",
+    "note": "Resmî TBMM Tutanak Dergisi PDF'i; bağlantı HTTPS üzerinden 200 yanıtı verdi. PDF indirilmedi ve depoya eklenmedi."
+  },
+  "provenance": [
+    {
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "collection": "TBMM Tutanak Dergisi",
+      "identifier": "Dönem 2, Cilt 22, 57. Birleşim",
+      "url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c022/tbmm02022057.pdf",
+      "accessedAt": "2026-10-23",
+      "note": "TBMM tutanak dizinindeki resmî birleşim kaydına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Türkiye Büyük Millet Meclisi",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Birleşim tarihi ve resmî PDF bağlantısı TBMM tutanak diziniyle doğrulandı; PDF içeriği indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "TBMM",
+    "Türk Medeni Kanunu",
+    "17 Şubat 1926",
+    "tutanak",
+    "hukuk reformu"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

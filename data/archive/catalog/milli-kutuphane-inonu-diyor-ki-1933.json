@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "milli-kutuphane-inonu-diyor-ki-1933",
+  "slug": "milli-kutuphane-inonu-diyor-ki-1933",
+  "title": "İnönü Diyor Ki",
+  "type": "publication",
+  "date": {
+    "start": "1933-01-01",
+    "end": null,
+    "precision": "year",
+    "certainty": "estimated",
+    "display": "1933",
+    "note": "Katalog kaydında yayın tarihi alanı boş; yayın yılı yer numarasındaki yıl önekinden değerlendirildi."
+  },
+  "people": [
+    {
+      "name": "İsmet İnönü",
+      "role": "subject"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "yayin",
+    "siyaset",
+    "cumhuriyet"
+  ],
+  "summary": "İsmet İnönü'nün konuşma, demeç ve hatıralarından derlenen, 1933 tarihli katalog kaydı.",
+  "description": "Millî Kütüphane Dijital Kütüphane kataloğunda 'İnönü diyor ki :' adıyla kayıtlı eser, 289 yaprak ve 24 cm ölçülerindedir. Katalog kaydında yayın tarihi alanı boş olup yer numarası 1933 AD 3595'dir; yayın yılı bu numaradaki 1933 önekinden değerlendirilmiştir. Genel notta İngilizce bir ek bulunduğu belirtilir.",
+  "source": {
+    "institution": "Millî Kütüphane",
+    "institutionType": "library",
+    "institutionUrl": "https://dijital-kutuphane.mkutup.gov.tr/",
+    "title": "Millî Kütüphane Dijital Kütüphane: İnönü Diyor Ki",
+    "url": "https://dijital-kutuphane.mkutup.gov.tr/tr/books/catalog/details/105276",
+    "citation": "Millî Kütüphane Dijital Kütüphane, “İnönü Diyor Ki”, Yer No. 1933 AD 3595, erişim 23.10.2026, https://dijital-kutuphane.mkutup.gov.tr/tr/books/catalog/details/105276",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1933-01-01",
+    "archiveIdentifier": "1933 AD 3595",
+    "note": "Millî Kütüphane katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Yayın yılı yer numarasından değerlendirildi."
+  },
+  "provenance": [
+    {
+      "institution": "Millî Kütüphane",
+      "collection": "Millî Kütüphane Dijital Kütüphane",
+      "identifier": "1933 AD 3595",
+      "url": "https://dijital-kutuphane.mkutup.gov.tr/tr/books/catalog/details/105276",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal katalog kaydındaki künye alanlarına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Millî Kütüphane",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "reviewed",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Katalog kaydı ve künye alanları 23.10.2026 tarihinde doğrulandı; yayın yılı yer numarasındaki yıl önekinden değerlendirildiği için kayıt 'incelendi' durumundadır. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "İsmet İnönü",
+    "Millî Kütüphane",
+    "1933",
+    "konuşma",
+    "katalog"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

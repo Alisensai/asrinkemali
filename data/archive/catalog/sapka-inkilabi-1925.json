@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "sapka-inkilabi-1925",
+  "slug": "sapka-inkilabi-1925",
+  "title": "Şapka İnkılabı",
+  "type": "event",
+  "date": {
+    "start": "1925-11-25",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "25 Kasım 1925"
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "official"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "toplum",
+    "kultur",
+    "hukuk"
+  ],
+  "summary": "TBMM'nin 25 Kasım 1925'te kabul ettiği Şapka Kanunu, kılık-kıyafet alanında Cumhuriyet'in modernleşme politikalarının simgesi oldu.",
+  "description": "Şapka İnkılabı, Atatürk'ün Kastamonu ve İnebolu gezilerindeki konuşmalarıyla başlayan, ardından 25 Kasım 1925'te kabul edilen kanunla hukuki bir çerçeveye kavuşan düzenlemedir. Kanun, belirli başlıkların giyilmesini yasaklayarak modern kıyafetin yaygınlaşmasını amaçladı. Kaynak maddede 1925'teki hazırlık süreci ve kanunun kabulü ele alınır.",
+  "source": {
+    "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "institutionType": "institutional",
+    "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+    "title": "Atatürk Ansiklopedisi: Şapka İnkılabı",
+    "url": "https://www.ataturkansiklopedisi.gov.tr/detay/1232/sapka-inkilabi-1925",
+    "citation": "Atatürk Ansiklopedisi, “Şapka İnkılabı”, yazar Ayten SEZER ARIĞ, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/1232/sapka-inkilabi-1925",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2023-03-13",
+    "archiveIdentifier": "1232",
+    "note": "Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "collection": "Atatürk Ansiklopedisi",
+      "identifier": "1232",
+      "url": "https://www.ataturkansiklopedisi.gov.tr/detay/1232/sapka-inkilabi-1925",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal ansiklopedi maddesine dayanan tek kaynaklı provenans kaydı."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "quotation": null,
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Atatürk Ansiklopedisi maddesi, tarih ve künye bilgisi 23.10.2026 tarihinde kontrol edildi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "Şapka Kanunu",
+    "kıyafet",
+    "modernleşme",
+    "1925",
+    "TBMM"
+  ],
+  "relatedIds": [
+    "tekke-zaviye-turbelerin-kapatilmasi-1925"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

@@ -1,0 +1,99 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "atam-milletin-sesi-mehmet-akif-ersoy-2026",
+  "slug": "atam-milletin-sesi-mehmet-akif-ersoy-2026",
+  "title": "Milletin Sesi Mehmet Akif Ersoy",
+  "type": "publication",
+  "date": {
+    "start": "2026-01-01",
+    "end": null,
+    "precision": "year",
+    "certainty": "exact",
+    "display": "2026",
+    "note": "Basım yılı ATAM kitap künyesinden alınmıştır."
+  },
+  "people": [
+    {
+      "name": "Adnan Yılmaz",
+      "role": "author"
+    },
+    {
+      "name": "Mehmet Akif Ersoy",
+      "role": "subject"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "yayin",
+    "milli-mucadele",
+    "kultur"
+  ],
+  "summary": "Mehmet Akif Ersoy'un hayatını ve millî mücadeledeki rolünü ele alan ATAM yayını.",
+  "description": "Atatürk Araştırma Merkezi tarafından 2026 yılında yayımlanan eser, Adnan Yılmaz imzasıyla Mehmet Akif Ersoy'un hayatını ve millî mücadeledeki yerini ele alır. Kitap künyesinde ISBN 978-975-17-6515-4 ve yayın no 480 olarak kayıtlıdır. Yayın sayfası yalnızca bağlantı olarak sunulur.",
+  "source": {
+    "institution": "Atatürk Araştırma Merkezi Yayınları",
+    "institutionType": "institutional",
+    "institutionUrl": "https://atam.gov.tr/",
+    "title": "ATAM Yayınları: Milletin Sesi Mehmet Akif Ersoy",
+    "url": "https://atam.gov.tr/kitaplar/milletin-sesi-mehmet-akif-ersoy/",
+    "citation": "Adnan Yılmaz, Milletin Sesi Mehmet Akif Ersoy, Atatürk Araştırma Merkezi Yayınları, Ankara 2026, ISBN 978-975-17-6515-4.",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2026-01-01",
+    "archiveIdentifier": "978-975-17-6515-4",
+    "note": "Kitap künyesi (yazar, ISBN, basım yılı) ATAM yayın sayfasından doğrulandı; kitap dosyası indirilmedi."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Araştırma Merkezi Yayınları",
+      "collection": "ATAM Yayınları",
+      "identifier": "978-975-17-6515-4",
+      "url": "https://atam.gov.tr/kitaplar/milletin-sesi-mehmet-akif-ersoy/",
+      "accessedAt": "2026-10-23",
+      "note": "ATAM kitap detay sayfasındaki künye tablosuna dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Araştırma Merkezi Yayınları",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Kitap künyesi ATAM yayın sayfasındaki yazar, ISBN ve basım yılı bilgileriyle doğrulandı; kitap dosyası indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "Mehmet Akif Ersoy",
+    "İstiklal Marşı",
+    "ATAM",
+    "2026",
+    "biyografi"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

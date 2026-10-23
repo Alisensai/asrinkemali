@@ -1,0 +1,17 @@
+{
+  "name": "asrinkemali-kilo-qa",
+  "version": "1.0.0",
+  "description": "Asrın Kemali bağımsız mobil ve erişilebilirlik kalite paketi",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "qa:install": "npm ci",
+    "test:next:responsive": "node qa/kilo/scripts/responsive-regression.mjs --target=next",
+    "test:next:a11y": "node qa/kilo/scripts/a11y-smoke.mjs --target=next",
+    "test:next:all": "node qa/kilo/scripts/run-all.mjs --target=next"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "playwright": "^1.48.0"
+  }
+}

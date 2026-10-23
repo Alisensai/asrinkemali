@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "soyadi-kanunu-1934",
+  "slug": "soyadi-kanunu-1934",
+  "title": "Soyadı Kanunu",
+  "type": "event",
+  "date": {
+    "start": "1934-06-21",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "21 Haziran 1934"
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "official"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "hukuk",
+    "toplum"
+  ],
+  "summary": "TBMM'nin 21 Haziran 1934'te kabul ettiği Soyadı Kanunu, her Türk vatandaşına soyadı alma yükümlülüğü getirdi.",
+  "description": "Soyadı Kanunu, toplumsal kimliğin düzenlenmesi ve resmî kayıtların standartlaşması amacıyla çıkarılan düzenlemelerden biridir. Kanun, soyadlarının Türkçe olması ve belirli unvanların kullanılmaması gibi kurallar getirdi; Mustafa Kemal'e 24 Kasım 1934'te Atatürk soyadı verildi. Kaynak maddede kanunun 21 Haziran 1934'te kabulü ve uygulama süreci ele alınır.",
+  "source": {
+    "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "institutionType": "institutional",
+    "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+    "title": "Atatürk Ansiklopedisi: Soyadı Kanunu",
+    "url": "https://www.ataturkansiklopedisi.gov.tr/detay/298/soyadi-kanunu-1934",
+    "citation": "Atatürk Ansiklopedisi, “Soyadı Kanunu”, yazar Oğuz Aytepe, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/298/soyadi-kanunu-1934",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2021-02-27",
+    "archiveIdentifier": "298",
+    "note": "Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "collection": "Atatürk Ansiklopedisi",
+      "identifier": "298",
+      "url": "https://www.ataturkansiklopedisi.gov.tr/detay/298/soyadi-kanunu-1934",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal ansiklopedi maddesine dayanan tek kaynaklı provenans kaydı."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "quotation": null,
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Atatürk Ansiklopedisi maddesi, tarih ve künye bilgisi 23.10.2026 tarihinde kontrol edildi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "Soyadı Kanunu",
+    "Atatürk",
+    "1934",
+    "kimlik",
+    "TBMM"
+  ],
+  "relatedIds": [
+    "kadinlara-secme-secilme-hakki-1934"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "ibb-taksim-abide-komisyonu-tutanagi-1928",
+  "slug": "ibb-taksim-abide-komisyonu-tutanagi-1928",
+  "title": "Taksim Cumhuriyet Abidesi Komisyonu Tutanağı (29 Mart 1928)",
+  "type": "document",
+  "date": {
+    "start": "1928-03-29",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "29 Mart 1928"
+  },
+  "people": [
+    {
+      "name": "Hakkı Şinasi Paşa",
+      "role": "official"
+    },
+    {
+      "name": "Sabiha Ziya Hanım",
+      "role": "other"
+    }
+  ],
+  "locations": [
+    {
+      "name": "İstanbul",
+      "city": "İstanbul",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "mekan",
+    "cumhuriyet",
+    "siyaset"
+  ],
+  "summary": "Taksim Cumhuriyet Abidesi için kurulan komisyonun 29 Mart 1928 tarihli dört maddelik tutanağı.",
+  "description": "İBB Atatürk Kitaplığı'nda Bel_Mtf_070929 demirbaş numarasıyla kayıtlı tutanak, Taksim Cumhuriyet Abidesi için basılan teberru biletlerinin yeniden basılması ve komisyon çalışmalarına ilişkin dört maddeyi içerir. Tutanak 29 Mart 1928 Perşembe günü Hakkı Şinasi Paşa'nın başkanlığında toplanan komisyon tarafından imzalanmıştır. Görsel, kurumsal kaynak sayfasına bağlantıyla sunulur.",
+  "source": {
+    "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+    "institutionType": "archive",
+    "institutionUrl": "https://sayisalarsiv.ibb.gov.tr/",
+    "title": "İBB Atatürk Kitaplığı: Taksim Cumhuriyet Abidesi Komisyonu Tutanağı (29 Mart 1928)",
+    "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070929",
+    "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Bel_Mtf_070929, “Taksim Cumhuriyet Abidesi Komisyonu Tutanağı (29 Mart 1928)”, erişim 23.10.2026, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070929",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1928-03-29",
+    "archiveIdentifier": "Bel_Mtf_070929",
+    "note": "İBB Atatürk Kitaplığı Sayısal Arşiv katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Görsel indirilmedi."
+  },
+  "provenance": [
+    {
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "collection": "İBB Atatürk Kitaplığı Sayısal Arşiv",
+      "identifier": "Bel_Mtf_070929",
+      "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070929",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal katalog kaydı ve demirbaş numarasına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "İBB Atatürk Kitaplığı",
+    "imageReuse": "link_only",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": {
+    "kind": "digitized_original",
+    "url": null,
+    "sourcePageUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070929",
+    "alt": "Taksim Cumhuriyet Abidesi komisyonunun 29 Mart 1928 tarihli tutanağı",
+    "credit": "İBB Atatürk Kitaplığı",
+    "width": null,
+    "height": null,
+    "mimeType": null,
+    "localPath": null,
+    "displayPolicy": "source_link_only"
+  },
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Katalog kaydı ve 29/03/1928 tarihi 23.10.2026 tarihinde doğrulandı; görsel indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "Taksim",
+    "Cumhuriyet Abidesi",
+    "1928",
+    "tutanak",
+    "İstanbul"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

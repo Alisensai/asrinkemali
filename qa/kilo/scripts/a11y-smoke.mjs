@@ -1,0 +1,26 @@
+import { chromium } from "playwright";
+import AxeBuilder from "@axe-core/playwright";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const root = path.dirname(fileURLToPath(import.meta.url));
+const resultsDir = path.join(root, "..", "results");
+fs.mkdirSync(resultsDir, { recursive: true });
+const target = process.argv.find((value) => value.startsWith("--target="))?.split("=")[1] ?? "next";
+const baseUrl = process.argv.find((value) => value.startsWith("--baseUrl="))?.split("=")[1] ?? "http://127.0.0.1:4173";
+const browser = await chromium.launch({ headless: true });
+const context = await browser.newContext({ viewport: { width: 1280, height: 800 } });
+const page = await context.newPage();
+const response = await page.goto(baseUrl, { waitUntil: "networkidle", timeout: 60_000 });
+await page.keyboard.press("Tab");
+const skipLinkFocused = await page.evaluate(() => document.activeElement?.textContent?.includes("İçeriğe geç") === true);
+const axe = await new AxeBuilder({ page }).analyze();
+const serious = axe.violations.filter((violation) => violation.impact === "serious" || violation.impact === "critical");
+const report = { timestamp: new Date().toISOString(), target, baseUrl, httpStatus: response?.status(), skipLinkFocused, violations: axe.violations.map(({ id, impact, help, nodes }) => ({ id, impact, help, nodes: nodes.map((node) => node.target) })) };
+await page.screenshot({ path: path.join(resultsDir, `a11y-${target}-desktop.png`), fullPage: true });
+await context.close();
+await browser.close();
+fs.writeFileSync(path.join(resultsDir, `a11y-report-${target}.json`), JSON.stringify(report, null, 2));
+console.log(JSON.stringify(report, null, 2));
+if (!response?.ok() || !skipLinkFocused || serious.length > 0) process.exitCode = 1;

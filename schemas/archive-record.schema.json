@@ -1,0 +1,734 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Alisensai/asrinkemali/schemas/archive-record.schema.json",
+  "title": "Asrın Kemali Arşiv Kaydı",
+  "description": "Tarihsel arşiv kayıtları için tek kaynaklı, denetlenebilir veri sözleşmesi. Yayın kapısı kuralları JSON Schema dışında scripts/archive/lib/validate.mjs içinde uygulanır.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "slug",
+    "title",
+    "type",
+    "date",
+    "people",
+    "locations",
+    "categories",
+    "summary",
+    "source",
+    "provenance",
+    "rights",
+    "image",
+    "verification",
+    "tags",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "enum": [
+        "1.0.0",
+        "1.1.0"
+      ]
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "minLength": 3,
+      "maxLength": 80
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "minLength": 3,
+      "maxLength": 100
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 160
+    },
+    "type": {
+      "enum": [
+        "photograph",
+        "document",
+        "speech",
+        "event",
+        "publication",
+        "place"
+      ]
+    },
+    "date": {
+      "$ref": "#/$defs/date"
+    },
+    "people": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/person"
+      },
+      "maxItems": 20
+    },
+    "locations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/location"
+      },
+      "maxItems": 10
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+      },
+      "minItems": 1,
+      "maxItems": 8,
+      "uniqueItems": true
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 20,
+      "maxLength": 600
+    },
+    "description": {
+      "type": "string",
+      "minLength": 20,
+      "maxLength": 4000
+    },
+    "source": {
+      "$ref": "#/$defs/source"
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/provenance"
+      },
+      "minItems": 1,
+      "maxItems": 10
+    },
+    "rights": {
+      "$ref": "#/$defs/rights"
+    },
+    "image": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/image"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "holding": {
+      "$ref": "#/$defs/holding"
+    },
+    "quotation": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/quotation"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "verification": {
+      "$ref": "#/$defs/verification"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 50
+      },
+      "minItems": 1,
+      "maxItems": 20,
+      "uniqueItems": true
+    },
+    "relatedIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+      },
+      "maxItems": 10,
+      "uniqueItems": true
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "$defs": {
+    "holding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "filePath",
+        "note"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "external_link",
+            "hosted_file",
+            "metadata_only"
+          ]
+        },
+        "filePath": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 300
+        },
+        "note": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 600
+        }
+      }
+    },
+    "date": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start",
+        "end",
+        "precision",
+        "certainty",
+        "display"
+      ],
+      "properties": {
+        "start": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "end": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "precision": {
+          "enum": [
+            "day",
+            "month",
+            "year",
+            "range",
+            "unknown"
+          ]
+        },
+        "certainty": {
+          "enum": [
+            "exact",
+            "estimated",
+            "unknown"
+          ]
+        },
+        "display": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 500
+        }
+      }
+    },
+    "person": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "role"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 100
+        },
+        "role": {
+          "enum": [
+            "subject",
+            "speaker",
+            "author",
+            "official",
+            "other"
+          ]
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 300
+        }
+      }
+    },
+    "location": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 120
+        },
+        "country": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 80
+        },
+        "city": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 80
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 300
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "institution",
+        "institutionType",
+        "institutionUrl",
+        "title",
+        "url",
+        "accessedAt"
+      ],
+      "properties": {
+        "institution": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 160
+        },
+        "institutionType": {
+          "enum": [
+            "official",
+            "institutional",
+            "archive",
+            "library",
+            "academic",
+            "other"
+          ]
+        },
+        "institutionUrl": {
+          "type": "string",
+          "format": "uri",
+          "maxLength": 500
+        },
+        "title": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 300
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "maxLength": 500
+        },
+        "citation": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 700
+        },
+        "accessedAt": {
+          "type": "string",
+          "format": "date"
+        },
+        "publishedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "archiveIdentifier": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 120
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 600
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "institution",
+        "accessedAt"
+      ],
+      "properties": {
+        "institution": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 160
+        },
+        "collection": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 160
+        },
+        "identifier": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 160
+        },
+        "url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri",
+          "maxLength": 500
+        },
+        "accessedAt": {
+          "type": "string",
+          "format": "date"
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 800
+        }
+      }
+    },
+    "rights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "imageReuse",
+        "note"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "public_domain",
+            "open_license",
+            "official_link_only",
+            "institutional_terms",
+            "unknown",
+            "permission_required",
+            "ai_representative"
+          ]
+        },
+        "license": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 120
+        },
+        "licenseUrl": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri",
+          "maxLength": 500
+        },
+        "termsUrl": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri",
+          "maxLength": 500
+        },
+        "credit": {
+          "type": "string",
+          "maxLength": 300
+        },
+        "imageReuse": {
+          "enum": [
+            "not_downloaded",
+            "link_only",
+            "permitted",
+            "ai_representative"
+          ]
+        },
+        "note": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 1000
+        }
+      }
+    },
+    "image": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "alt",
+        "credit",
+        "displayPolicy"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "digitized_original",
+            "ai_representative",
+            "none"
+          ]
+        },
+        "url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri",
+          "maxLength": 500
+        },
+        "sourcePageUrl": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri",
+          "maxLength": 500
+        },
+        "alt": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 300
+        },
+        "credit": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 300
+        },
+        "width": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1,
+          "maximum": 20000
+        },
+        "height": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1,
+          "maximum": 20000
+        },
+        "mimeType": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "image/jpeg",
+            "image/png",
+            "image/webp",
+            null
+          ]
+        },
+        "localPath": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 300
+        },
+        "displayPolicy": {
+          "enum": [
+            "source_link_only",
+            "embedded_allowed",
+            "not_displayed"
+          ]
+        }
+      }
+    },
+    "quotation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "text",
+        "speaker",
+        "work",
+        "date",
+        "context",
+        "sourceUrl",
+        "sourceTitle",
+        "evidence",
+        "verified"
+      ],
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 1000
+        },
+        "speaker": {
+          "const": "Mustafa Kemal Atatürk"
+        },
+        "work": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 200
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "context": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 1000
+        },
+        "sourceUrl": {
+          "type": "string",
+          "format": "uri",
+          "maxLength": 500
+        },
+        "sourceTitle": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 300
+        },
+        "evidence": {
+          "$ref": "#/$defs/quoteEvidence"
+        },
+        "verified": {
+          "const": true
+        }
+      }
+    },
+    "quoteEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceExcerpt",
+        "retrievedAt",
+        "verifiedBy",
+        "method"
+      ],
+      "properties": {
+        "sourceExcerpt": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 2000
+        },
+        "retrievedAt": {
+          "type": "string",
+          "format": "date"
+        },
+        "verifiedBy": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 160
+        },
+        "method": {
+          "enum": [
+            "institutional_transcription",
+            "facsimile",
+            "published_transcription"
+          ]
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 600
+        }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "reviewedBy",
+        "reviewedAt",
+        "checks",
+        "notes"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "draft",
+            "reviewed",
+            "published"
+          ]
+        },
+        "reviewedBy": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 160
+        },
+        "reviewedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "checks": {
+          "$ref": "#/$defs/checks"
+        },
+        "notes": {
+          "type": "string",
+          "maxLength": 1000
+        }
+      }
+    },
+    "checks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceReachable",
+        "dateVerified",
+        "rightsVerified",
+        "quoteVerified",
+        "duplicateChecked"
+      ],
+      "properties": {
+        "sourceReachable": {
+          "type": "boolean"
+        },
+        "dateVerified": {
+          "type": "boolean"
+        },
+        "rightsVerified": {
+          "type": "boolean"
+        },
+        "quoteVerified": {
+          "type": "boolean"
+        },
+        "duplicateChecked": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

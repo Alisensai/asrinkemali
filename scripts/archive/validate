@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+# CI/Unix sarmalayıcı: doğrulama betiğinin çıkış kodunu olduğu gibi iletir.
+exec node "$(dirname "$0")/validate.mjs" "$@"
