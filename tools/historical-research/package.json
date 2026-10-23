@@ -8,9 +8,14 @@
     "node": ">=20"
   },
   "scripts": {
-    "test": "node --test tests/",
+    "test": "node --test tests/ evidence/",
     "gap-report": "node cli.mjs gap-report",
     "pool-status": "node cli.mjs pool-status",
-    "dry-run": "node cli.mjs dry-run"
+    "dry-run": "node cli.mjs dry-run",
+    "typecheck": "tsc -p evidence/tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "typescript": "^7.0.2"
   }
 }

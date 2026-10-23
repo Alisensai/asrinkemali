@@ -1,0 +1,731 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-10-23T19:45:12.114Z",
+  "audits": [
+    {
+      "candidateId": "src-2026-0001",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 0.3,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Künye tamamlanmamış.",
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart.",
+        "Künye araştırması (23.10.2026): Yazar ve tarih resmî künye bölümünden doğrulandı (23.10.2026)."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0002",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 1,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0003",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 1,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0004",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 1,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0005",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 1,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0006",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 1,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0007",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 1,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0008",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 1,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0009",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 1,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0010",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 1,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0011",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 0.3,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Künye tamamlanmamış.",
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart.",
+        "Künye araştırması (23.10.2026): Yazar (Öğretim Üyesi Zekeriya Türkmen) ve tarih resmî künyeden doğrulandı."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0012",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 1,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0013",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 1,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0014",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 1,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0015",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 1,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0016",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 1,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0017",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 1,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0018",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 1,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0019",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 1,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0020",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 1,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0021",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 1,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0022",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 1,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0023",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 0.3,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Künye tamamlanmamış.",
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart.",
+        "Künye araştırması (23.10.2026): Yazar resmî künyeden doğrulandı; tarih zaten kayıtlıydı."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0024",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 1,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0025",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 1,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0026",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 0.5,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 0.3,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Yayın tarihi eksik — resmî künye sayfasından doğrulanmalı.",
+        "Künye tamamlanmamış.",
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart.",
+        "Künye araştırması (23.10.2026): Yazar (Halil Bal) kayıtlı; yayın tarihi resmî sayfada belirtilmiyor — boş bırakıldı (uydurulmadı)."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0027",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 0.3,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Künye tamamlanmamış.",
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart.",
+        "Künye araştırması (23.10.2026): Yazar (İsmet Görgülü) kayıtlı; tarih resmî künyeden doğrulandı."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0028",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 0.3,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Künye tamamlanmamış.",
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart.",
+        "Künye araştırması (23.10.2026): Kitap künyesinde yazar boş; ATAM arşiv listesinde 'İsmail Özçelik' görünüyor. İki farklı ISBN (978-975-16-1983-9 künyede, 975-16-1821-5 listede) — baskı farkı olabilir; insan incelemesi gerekli."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0029",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 1,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0030",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 1,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 1,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0031",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 0,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 0.3,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Yazar bilgisi eksik — resmî künye sayfasından doğrulanmalı.",
+        "Yayın tarihi eksik — resmî künye sayfasından doğrulanmalı.",
+        "Künye tamamlanmamış.",
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart.",
+        "Künye araştırması (23.10.2026): Künye DOĞRULANAMADI: Devlet Arşivleri yayın listesinde 'Belgelerle Mustafa Kemal Atatürk ve Türk-Bulgar İlişkileri (1913-1938), Ankara 2002' başlıklı eser muhtemel eşleşme; PDF indirilmeden kesin künye doğrulanamaz (insan incelemesi gerekli). Alanlar boş bırakıldı."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    },
+    {
+      "candidateId": "src-2026-0032",
+      "auditedAt": "2026-10-23T19:45:12.111Z",
+      "scores": {
+        "accessibility": 1,
+        "bibliographicIntegrity": 0,
+        "sourceNatureClarity": 1,
+        "periodRelevance": 1,
+        "provenanceIntegrity": 0.3,
+        "copyrightClarity": 0,
+        "independence": 0.5,
+        "duplicationRisk": 0.7,
+        "humanReviewNeed": 1
+      },
+      "findings": [
+        "Yazar bilgisi eksik — resmî künye sayfasından doğrulanmalı.",
+        "Yayın tarihi eksik — resmî künye sayfasından doğrulanmalı.",
+        "Künye tamamlanmamış.",
+        "Telif/yeniden kullanım izni doğrulanmadı — kurumsal bağlantı dışında kullanım öncesi insan incelemesi şart.",
+        "Künye araştırması (23.10.2026): Kurumsal koleksiyon (Millî Kütüphane Atatürk Belgeliği): tekil künye yok; sayfa beyanına göre 1983'ten beri hizmette, 3.053 materyal. Yazar/tarih alanları uygulanamaz — kurumsal künye olarak kaydedildi."
+      ],
+      "reviewQuestions": [
+        "Bu kaynak, aynı iddiayı destekleyen diğer kaynaklardan bağımsız mı (ayna/kopya/türetilmiş değil mi)?"
+      ],
+      "readyForImport": false
+    }
+  ]
+}

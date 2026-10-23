@@ -18,7 +18,7 @@ async function timed(fn) {
   return { result, ms: Number(end - start) / 1e6 };
 }
 
-for (const size of [500, 1000, 10000]) {
+for (const size of [500, 1000, 2000, 10000]) {
   test(`ölçek: ${size} sentetik arşiv kaydında boşluk analizi çalışır`, async () => {
     const records = makeSyntheticRecords(size, 42);
     assert.equal(records.length, size);

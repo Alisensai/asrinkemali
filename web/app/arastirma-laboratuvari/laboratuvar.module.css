@@ -180,3 +180,208 @@
 .table a:hover {
   text-decoration-color: #e8c884;
 }
+
+/* ===== Evidence Workbench 2.0 (A–J bölümleri) ===== */
+
+.tabNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.6rem;
+  border-bottom: 1px solid rgba(192, 154, 83, 0.25);
+  padding-bottom: 0.8rem;
+}
+
+.tabLink {
+  color: #c4b39a;
+  font-size: 0.82rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 0.4rem;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.tabLink:hover {
+  color: #e8d5b0;
+  background: rgba(192, 154, 83, 0.08);
+}
+
+.tabActive {
+  color: #f4e6c8;
+  background: rgba(192, 154, 83, 0.15);
+  border-color: rgba(192, 154, 83, 0.4);
+}
+
+.queueList,
+.claimList,
+.evidenceList,
+.noteList,
+.findingList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.claimCard,
+.evidenceCard,
+.noteCard {
+  background: #1a070d;
+  border: 1px solid rgba(192, 154, 83, 0.25);
+  border-radius: 0.6rem;
+  padding: 0.9rem 1rem;
+}
+
+.claimHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  color: #c09a53;
+  font-size: 0.82rem;
+  margin-bottom: 0.4rem;
+}
+
+.claimHead strong {
+  color: #e8d5b0;
+}
+
+.flagWarn {
+  background: rgba(166, 42, 42, 0.25);
+  border: 1px solid rgba(200, 80, 60, 0.5);
+  color: #e8a48f;
+  border-radius: 0.35rem;
+  padding: 0.1rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.claimText {
+  color: #ece0cd;
+  margin: 0 0 0.4rem;
+  line-height: 1.55;
+}
+
+.uncertain {
+  color: #d9a441;
+  font-size: 0.85rem;
+  background: rgba(217, 164, 65, 0.08);
+  border-left: 3px solid #d9a441;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0 0.35rem 0.35rem 0;
+}
+
+.claimMeta {
+  color: #9c8d76;
+  font-size: 0.8rem;
+  margin: 0.3rem 0 0;
+}
+
+.revisionDetails {
+  margin-top: 0.6rem;
+  color: #c4b39a;
+  font-size: 0.85rem;
+}
+
+.revisionDetails summary {
+  cursor: pointer;
+  color: #c09a53;
+}
+
+.evidenceCite {
+  color: #c4b39a;
+  font-size: 0.85rem;
+  margin: 0.2rem 0;
+}
+
+.evidenceCite a {
+  color: #e0b46a;
+}
+
+.quote {
+  color: #f0e3c8;
+  font-style: italic;
+  border-left: 3px solid rgba(192, 154, 83, 0.6);
+  margin: 0.4rem 0;
+  padding: 0.3rem 0 0.3rem 0.7rem;
+}
+
+.compareControls {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-bottom: 1rem;
+}
+
+.compareControls label,
+.noteForm label {
+  display: grid;
+  gap: 0.3rem;
+  color: #c4b39a;
+  font-size: 0.85rem;
+}
+
+.compareControls select,
+.noteForm select,
+.noteForm textarea {
+  background: #1a070d;
+  color: #ece0cd;
+  border: 1px solid rgba(192, 154, 83, 0.35);
+  border-radius: 0.4rem;
+  padding: 0.45rem 0.6rem;
+  font-size: 0.9rem;
+}
+
+.noteForm textarea {
+  resize: vertical;
+}
+
+.independenceWarn {
+  color: #e8a48f;
+  background: rgba(166, 42, 42, 0.15);
+  border: 1px solid rgba(200, 80, 60, 0.4);
+  border-radius: 0.4rem;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.88rem;
+}
+
+.noteForm {
+  display: grid;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.noteForm button {
+  background: rgba(192, 154, 83, 0.18);
+  border: 1px solid rgba(192, 154, 83, 0.45);
+  color: #f4e6c8;
+  border-radius: 0.4rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.88rem;
+  width: fit-content;
+}
+
+.noteForm button:hover {
+  background: rgba(192, 154, 83, 0.3);
+}
+
+.exportList {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.exportList a {
+  color: #e0b46a;
+  text-decoration: none;
+  border: 1px solid rgba(192, 154, 83, 0.3);
+  border-radius: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  display: inline-block;
+}
+
+.exportList a:hover {
+  background: rgba(192, 154, 83, 0.1);
+}

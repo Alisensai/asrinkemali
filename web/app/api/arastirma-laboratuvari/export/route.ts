@@ -1,0 +1,73 @@
+import { NextResponse } from "next/server";
+import { researchLabEnabled } from "@/lib/research-evidence/candidates";
+import { loadWorkbench } from "@/lib/research-evidence/workbench";
+
+export const dynamic = "force-dynamic";
+
+/**
+ * Dışa aktarım API'si (yalnız geliştirme ortamı kapısı arkasında).
+ * Production'da her durumda 404. Çıktılar gerçek arşive otomatik yazılmaz.
+ * CSV hücreleri formül enjeksiyonuna karşı öneklenir.
+ */
+export async function GET(request: Request) {
+  if (!researchLabEnabled()) {
+    return NextResponse.json({ error: "not found" }, { status: 404 });
+  }
+  const format = new URL(request.url).searchParams.get("format") ?? "";
+  const workbench = loadWorkbench();
+
+  switch (format) {
+    case "claims-v2":
+      return NextResponse.json(
+        { schemaVersion: "2.0.0", claims: workbench.claims },
+        { headers: { "content-disposition": 'attachment; filename="claims-v2.json"' } }
+      );
+    case "evidence":
+      return NextResponse.json(
+        { schemaVersion: "1.0.0", evidence: workbench.evidence },
+        { headers: { "content-disposition": 'attachment; filename="evidence.json"' } }
+      );
+    case "audits":
+      return NextResponse.json(
+        { schemaVersion: "1.0.0", audits: workbench.audits },
+        { headers: { "content-disposition": 'attachment; filename="candidate-audits.json"' } }
+      );
+    case "evidence-csv": {
+      const header = "id,claimId,claimVersion,relation,institution,title,author,verificationLevel,supports,quote";
+      const rows = workbench.evidence.map((e) =>
+        [
+          e.id,
+          e.claimId,
+          e.claimVersion,
+          e.relation,
+          e.locator.institution,
+          e.locator.title,
+          e.locator.author ?? "",
+          e.verificationLevel,
+          e.supportAssessment.actuallySupports ?? "",
+          e.shortQuote ?? "",
+        ]
+          .map((cell) => csvCell(cell))
+          .join(",")
+      );
+      const csv = [header, ...rows].join("\r\n");
+      return new NextResponse(csv, {
+        headers: {
+          "content-type": "text/csv; charset=utf-8",
+          "content-disposition": 'attachment; filename="evidence.csv"',
+        },
+      });
+    }
+    default:
+      return NextResponse.json({ error: "unknown format" }, { status: 400 });
+  }
+}
+
+/** Formül enjeksiyonu koruması: hücre başı = + - @ veya boşlukla başlıyorsa tek tırnak öneki. */
+function csvCell(value: unknown) {
+  const text = String(value ?? "");
+  if (/^[=+\-@\t\r]/.test(text) || /^\s/.test(text)) {
+    return `'${text.replace(/"/g, '""')}`;
+  }
+  return `"${text.replace(/"/g, '""')}"`;
+}
