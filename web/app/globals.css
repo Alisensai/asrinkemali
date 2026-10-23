@@ -1,0 +1,13 @@
+:root {
+  --ak-ink: #0b0a09;
+  --ak-burgundy: #260707;
+  --ak-red: #6a0e13;
+  --ak-gold: #d1a36d;
+  --ak-paper: #f4e8d6;
+}
+
+* { box-sizing: border-box; }
+html { background: var(--ak-ink); }
+body { margin: 0; color: var(--ak-paper); background: var(--ak-ink); font-family: Arial, sans-serif; }
+a { color: inherit; }
+button, input { font: inherit; }
