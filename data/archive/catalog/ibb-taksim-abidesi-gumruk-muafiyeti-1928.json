@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "ibb-taksim-abidesi-gumruk-muafiyeti-1928",
+  "slug": "ibb-taksim-abidesi-gumruk-muafiyeti-1928",
+  "title": "Taksim Abidesi Parçalarının Gümrük Muafiyetine Dair Belge (1928)",
+  "type": "document",
+  "date": {
+    "start": "1928-07-18",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "18 Temmuz 1928",
+    "note": "Belge tarihi İBB Atatürk Kitaplığı katalog kaydından alınmıştır."
+  },
+  "people": [
+    {
+      "name": "Hakkı Şinasi Paşa",
+      "role": "author",
+      "note": "Cumhuriyet Abidesi Komisyonu Reisi."
+    },
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "subject"
+    }
+  ],
+  "locations": [
+    {
+      "name": "İstanbul",
+      "city": "İstanbul",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "mekan",
+    "hukuk"
+  ],
+  "summary": "Cumhuriyet Abidesi Komisyonu Reisi Hakkı Şinasi’nin, Taksim Meydanı’na dikilecek abidenin parçaları için gümrük vergisi istenmesi üzerine yazdığı 18 Temmuz 1928 tarihli belge.",
+  "description": "Belge, Cumhuriyet Abidesi Komisyonu Reisi ve İstanbul Mebusu Hakkı Şinasi tarafından İstanbul Ziraat Bankası Müdüriyeti’ne hitaben yazılmıştır. Taksim Meydanı’na Gazi Mustafa Kemal Paşa namına dikilecek abidenin parçalarını getiren geminin Galata Gümrüğü’ne gelmesi ve gümrük yetkililerinin vergi istemesi üzerine kaleme alınmıştır. İBB Atatürk Kitaplığı’nda Bel_Mtf_070902 demirbaş numarasıyla kayıtlıdır.",
+  "source": {
+    "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+    "institutionType": "archive",
+    "institutionUrl": "https://sayisalarsiv.ibb.gov.tr/",
+    "title": "İBB Atatürk Kitaplığı: Taksim Abidesi Parçalarının Gümrük Muafiyetine Dair Belge",
+    "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070902",
+    "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Bel_Mtf_070902, “Taksim Abidesi Parçalarının Gümrük Muafiyetine Dair Belge”, 18 Temmuz 1928, erişim 2026-10-23, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070902",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1928-07-18",
+    "archiveIdentifier": "Bel_Mtf_070902",
+    "note": "İBB Atatürk Kitaplığı Sayısal Arşiv katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Dosya indirilmedi."
+  },
+  "provenance": [
+    {
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "collection": "İBB Atatürk Kitaplığı Sayısal Arşiv",
+      "identifier": "Bel_Mtf_070902",
+      "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070902",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal katalog kaydı ve demirbaş numarasına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "İBB Atatürk Kitaplığı",
+    "imageReuse": "link_only",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": {
+    "kind": "digitized_original",
+    "url": null,
+    "sourcePageUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070902",
+    "alt": "Taksim Abidesi Parçalarının Gümrük Muafiyetine Dair Belge (1928)",
+    "credit": "İBB Atatürk Kitaplığı",
+    "width": null,
+    "height": null,
+    "mimeType": null,
+    "localPath": null,
+    "displayPolicy": "source_link_only"
+  },
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Katalog kaydı ve belge tarihi 23.10.2026 tarihinde doğrulandı; dosya indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "İBB Atatürk Kitaplığı",
+    "Taksim Abidesi",
+    "gümrük",
+    "1928",
+    "belge"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "tbmm-tutanak-d05-c012-b075-1936-06-08",
+  "slug": "tbmm-tutanak-d05-c012-b075-1936-06-08",
+  "title": "TBMM Tutanak Dergisi, V. Dönem, 12. Cilt, 75. Birleşim (8 Haziran 1936)",
+  "type": "document",
+  "date": {
+    "start": "1936-06-08",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "8 Haziran 1936",
+    "note": "Oturum tarihi TBMM Tutanak Dergisi fihristinden alınmıştır."
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "official",
+      "note": "Dönemin Cumhurbaşkanı; tutanak dönemin Meclis çalışmalarına aittir."
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "tbmm",
+    "siyaset",
+    "cumhuriyet"
+  ],
+  "summary": "8 Haziran 1936 tarihli TBMM V. Dönem 12. Cilt 75. Birleşim tutanağı, oturumun resmî kaydını içerir.",
+  "description": "TBMM Tutanak Dergisi'nin V. Dönem 12. Cilt 75. Birleşimini içeren resmî tutanak PDF'i. 8 Haziran 1936 tarihli oturumun gündemi, konuşmaları ve kararları tam metin olarak sunulur. Kayıt, TBMM'nin resmî PDF adresine bağlantı verir; dosya indirilmemiştir.",
+  "source": {
+    "institution": "Türkiye Büyük Millet Meclisi",
+    "institutionType": "official",
+    "institutionUrl": "https://www.tbmm.gov.tr/",
+    "title": "TBMM Tutanak Dergisi, V. Dönem, 12. Cilt, 75. Birleşim",
+    "url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d05/c012/tbmm05012075.pdf",
+    "citation": "TBMM Tutanak Dergisi, V. Dönem, 12. Cilt, 75. Birleşim, 8 Haziran 1936, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d05/c012/tbmm05012075.pdf",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1936-06-08",
+    "archiveIdentifier": "V. Dönem, 12. Cilt, 75. Birleşim",
+    "note": "Resmî TBMM Tutanak Dergisi PDF'i; bağlantı HTTPS üzerinden 200 yanıtı verdi. PDF indirilmedi ve depoya eklenmedi."
+  },
+  "provenance": [
+    {
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "collection": "TBMM Tutanak Dergisi",
+      "identifier": "V. Dönem, 12. Cilt, 75. Birleşim",
+      "url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d05/c012/tbmm05012075.pdf",
+      "accessedAt": "2026-10-23",
+      "note": "TBMM tutanak dizinindeki resmî birleşim kaydına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Türkiye Büyük Millet Meclisi",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Birleşim tarihi ve resmî PDF bağlantısı TBMM tutanak diziniyle doğrulandı; PDF içeriği indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "TBMM Tutanak Dergisi",
+    "V. Dönem",
+    "12. Cilt",
+    "75. Birleşim",
+    "1936",
+    "resmî tutanak"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

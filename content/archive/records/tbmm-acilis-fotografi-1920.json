@@ -30,21 +30,21 @@
     "institution": "Türkiye Büyük Millet Meclisi",
     "institutionType": "official",
     "institutionUrl": "https://kurtulussavasimuzesi.tbmm.gov.tr/",
-    "title": "Kurtuluş Savaşı Müzesi: Meclisin Açılışı",
-    "url": "https://kurtulussavasimuzesi.tbmm.gov.tr/meclisacilis",
+    "title": "Kurtuluş Savaşı Müzesi: 23 Nisan 1920 Açılış Fotoğrafı",
+    "url": "https://cdn.tbmm.gov.tr/KurtulusSavasiMuzeWeb/MeclisAcilis/23Nisan1920Gunu.jpg",
     "accessedAt": "2026-10-23",
     "publishedAt": null,
     "archiveIdentifier": "23Nisan1920Gunu.jpg",
-    "note": "Kurumsal sayfadaki fotoğraf galerisinde yer alan görsel; credit Türk Tarih Kurumu Arşivi olarak belirtilir."
+    "note": "Kurumsal fotoğraf galerisindeki 23 Nisan 1920 açılış fotoğrafının doğrudan CDN adresi; görsel dosyası indirilmedi."
   },
   "provenance": [
     {
       "institution": "Türkiye Büyük Millet Meclisi",
       "collection": "Kurtuluş Savaşı Müzesi Fotoğraf Galerisi",
       "identifier": "23Nisan1920Gunu.jpg",
-      "url": "https://kurtulussavasimuzesi.tbmm.gov.tr/meclisacilis",
+      "url": "https://cdn.tbmm.gov.tr/KurtulusSavasiMuzeWeb/MeclisAcilis/23Nisan1920Gunu.jpg",
       "accessedAt": "2026-10-23",
-      "note": "Görsel, Meclisin Açılışı sayfasındaki galeride 23 Nisan 1920 açılışı olarak tanımlanır."
+      "note": "Görsel, Meclisin Açılışı sayfasındaki galeride 23 Nisan 1920 açılışı olarak tanımlanır; doğrudan CDN adresi kullanılmıştır."
     }
   ],
   "rights": {

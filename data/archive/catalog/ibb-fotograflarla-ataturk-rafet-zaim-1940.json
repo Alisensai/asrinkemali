@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "ibb-fotograflarla-ataturk-rafet-zaim-1940",
+  "slug": "ibb-fotograflarla-ataturk-rafet-zaim-1940",
+  "title": "Fotoğraflarla Atatürk / Rafet Zaim (1940)",
+  "type": "publication",
+  "date": {
+    "start": "1940-01-01",
+    "end": null,
+    "precision": "year",
+    "certainty": "exact",
+    "display": "1940",
+    "note": "Katalog kaydındaki basım/konu yılından alınmıştır."
+  },
+  "people": [
+    {
+      "name": "Rafet Zaim",
+      "role": "author"
+    },
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "subject"
+    }
+  ],
+  "locations": [
+    {
+      "name": "İstanbul",
+      "city": "İstanbul",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "yayin",
+    "fotograf"
+  ],
+  "summary": "Rafet Zaim’in hazırladığı, Atatürk’ü fotoğraflarla anlatan 1940 tarihli albüm.",
+  "description": "İBB Atatürk Kitaplığı’nda Alb_000216 demirbaş numarasıyla kayıtlı albüm, Rafet Zaim’in hazırladığı fotoğraflarla Atatürk’ü konu edinir. Katalog kaydında basım yılı 1940 olarak verilmiştir. Albümün tamamı indirilmemiş, kurumsal katalog kaydına bağlantı verilmiştir.",
+  "source": {
+    "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+    "institutionType": "archive",
+    "institutionUrl": "https://sayisalarsiv.ibb.gov.tr/",
+    "title": "İBB Atatürk Kitaplığı: Fotoğraflarla Atatürk / Rafet Zaim",
+    "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Alb_000216",
+    "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Alb_000216, “Fotoğraflarla Atatürk / Rafet Zaim”, 1940, erişim 2026-10-23, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Alb_000216",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1940-01-01",
+    "archiveIdentifier": "Alb_000216",
+    "note": "İBB Atatürk Kitaplığı Sayısal Arşiv katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Dosya indirilmedi."
+  },
+  "provenance": [
+    {
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "collection": "İBB Atatürk Kitaplığı Sayısal Arşiv",
+      "identifier": "Alb_000216",
+      "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Alb_000216",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal katalog kaydı ve demirbaş numarasına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "İBB Atatürk Kitaplığı",
+    "imageReuse": "link_only",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": {
+    "kind": "digitized_original",
+    "url": null,
+    "sourcePageUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Alb_000216",
+    "alt": "Fotoğraflarla Atatürk / Rafet Zaim (1940)",
+    "credit": "İBB Atatürk Kitaplığı",
+    "width": null,
+    "height": null,
+    "mimeType": null,
+    "localPath": null,
+    "displayPolicy": "source_link_only"
+  },
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Katalog kaydı ve belge tarihi 23.10.2026 tarihinde doğrulandı; dosya indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "Fotoğraflarla Atatürk",
+    "Rafet Zaim",
+    "albüm",
+    "İBB Atatürk Kitaplığı",
+    "1940"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

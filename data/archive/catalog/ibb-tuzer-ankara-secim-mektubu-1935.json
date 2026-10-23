@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "ibb-tuzer-ankara-secim-mektubu-1935",
+  "slug": "ibb-tuzer-ankara-secim-mektubu-1935",
+  "title": "Ahmet Fikri Tüzer’in Ankara ve Atatürk’e Dair Mektubu (1935)",
+  "type": "document",
+  "date": {
+    "start": "1935-01-24",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "24 Ocak 1935",
+    "note": "Belge tarihi İBB Atatürk Kitaplığı katalog kaydından alınmıştır."
+  },
+  "people": [
+    {
+      "name": "Ahmet Fikri Tüzer",
+      "role": "author"
+    },
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "subject"
+    },
+    {
+      "name": "Nazmiye Fikri Tüzer",
+      "role": "other",
+      "note": "Mektubun muhatabı."
+    }
+  ],
+  "locations": [
+    {
+      "name": "İstanbul",
+      "city": "İstanbul",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "cumhuriyet",
+    "siyaset"
+  ],
+  "summary": "Ahmet Fikri Tüzer’in eşine yazdığı, Ankara’ya dönüşünü, Ankara’daki seçimleri ve Atatürk ile hükümet erkânının yer aldığı bir listeyi aktaran 24 Ocak 1935 tarihli mektup.",
+  "description": "TBMM antetli kâğıda yazılan mektup, Ahmet Fikri Tüzer’in eşi Nazmiye Fikri Tüzer’e hitaben kaleme aldığı yazışmadır. Tüzer, Ankara’ya dönüşünü, Ankara’da yapılan seçimleri ve Atatürk, Başvekil ile bütün vekillerin yer aldığı bir listeyi aktarır. İBB Atatürk Kitaplığı’nda Bel_Mtf_013167 demirbaş numarasıyla kayıtlıdır. Belge, kurumsal katalog kaydına bağlantıyla sunulur.",
+  "source": {
+    "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+    "institutionType": "archive",
+    "institutionUrl": "https://sayisalarsiv.ibb.gov.tr/",
+    "title": "İBB Atatürk Kitaplığı: Ahmet Fikri Tüzer’in Ankara ve Atatürk’e Dair Mektubu",
+    "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_013167",
+    "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Bel_Mtf_013167, “Ahmet Fikri Tüzer’in Ankara ve Atatürk’e Dair Mektubu”, 24 Ocak 1935, erişim 2026-10-23, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_013167",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1935-01-24",
+    "archiveIdentifier": "Bel_Mtf_013167",
+    "note": "İBB Atatürk Kitaplığı Sayısal Arşiv katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Dosya indirilmedi."
+  },
+  "provenance": [
+    {
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "collection": "İBB Atatürk Kitaplığı Sayısal Arşiv",
+      "identifier": "Bel_Mtf_013167",
+      "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_013167",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal katalog kaydı ve demirbaş numarasına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "İBB Atatürk Kitaplığı",
+    "imageReuse": "link_only",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": {
+    "kind": "digitized_original",
+    "url": null,
+    "sourcePageUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_013167",
+    "alt": "Ahmet Fikri Tüzer’in Ankara ve Atatürk’e Dair Mektubu (1935)",
+    "credit": "İBB Atatürk Kitaplığı",
+    "width": null,
+    "height": null,
+    "mimeType": null,
+    "localPath": null,
+    "displayPolicy": "source_link_only"
+  },
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Katalog kaydı ve belge tarihi 23.10.2026 tarihinde doğrulandı; dosya indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "İBB Atatürk Kitaplığı",
+    "Ahmet Fikri Tüzer",
+    "Ankara",
+    "1935",
+    "mektup"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}
