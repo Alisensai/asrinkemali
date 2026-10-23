@@ -8,6 +8,8 @@ import base from "./playwright.config";
  * Kullanım: npm run build && npx playwright test -c playwright.prod.config.ts
  */
 const port = Number(process.env.ASRIN_PROD_E2E_PORT ?? 49273);
+// Üretim hedefini çalışanlara bildirir: yalnız üretim derlemesinde anlamlı güvenlik testleri bu işarete bakar.
+process.env.ASRIN_E2E_TARGET = "production";
 const baseURL = `http://127.0.0.1:${port}`;
 
 export default defineConfig({

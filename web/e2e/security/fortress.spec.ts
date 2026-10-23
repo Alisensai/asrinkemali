@@ -6,7 +6,12 @@ const LEAK = /node_modules|[A-Za-z]:\\Users|\/home\/runner|\/Users\/[a-z]|at Obj
 const PAGES = ["/", "/ataturk", "/arsiv", "/arsiv/anitkabir", "/kronoloji", "/yayinlar", "/tarihte-bugun", "/hakkimizda", "/olmayan-sayfa", "/api/health", "/api/ready", "/api/health-integration", "/sitemap.xml", "/robots.txt"];
 
 test.describe("MKA FORTRESS", () => {
-  test.beforeEach(({}, testInfo) => { test.skip(!primary(testInfo.project.name), "güvenlik testleri görünümden bağımsızdır; tek projede çalışır"); });
+  test.beforeEach(({}, testInfo) => {
+    // Geliştirme sunucusu bilinçli olarak 'unsafe-eval' (HMR) ve geliştirme paket adları içerir; bu testler
+    // yalnız üretim derlemesine karşı anlamlıdır (playwright.prod.config.ts ve CI'daki security.yml).
+    test.skip(process.env.ASRIN_E2E_TARGET !== "production", "MKA FORTRESS güvenlik testleri yalnız üretim sunucusunda çalışır");
+    test.skip(!primary(testInfo.project.name), "güvenlik testleri görünümden bağımsızdır; tek projede çalışır");
+  });
 
   test("güvenlik başlıkları tüm rota türlerinde tutarlı; X-Powered-By yok", async ({ request }) => {
     for (const route of PAGES) {
@@ -47,9 +52,11 @@ test.describe("MKA FORTRESS", () => {
   });
 
   test("hassas dosya ve yönetim yolları 404; içerik sızmaz", async ({ request }) => {
-    for (const route of ["/.env", "/.env.local", "/.git/config", "/package.json", "/next.config.ts", "/web/package.json", "/content/archive/records/anitkabir.json", "/data/archive/catalog/sevr-antlasmasi-1920.json", "/admin", "/admin/giris", "/yonetim", "/panel", "/api/admin/publish", "/editor", "/_next/../package.json", "/%2e%2e/%2e%2e/package.json", "/arsiv/..%2f..%2fpackage.json"]) {
+    // Kodlanmış yol geçişi sunucu türüne göre 400 (reddedildi) veya 404 alabilir; dosya asla sunulmamalıdır.
+    const ENCODED_TRAVERSAL = new Set(["/%2e%2e/%2e%2e/package.json", "/arsiv/..%2f..%2fpackage.json"]);
+    for (const route of ["/.env", "/.env.local", "/.git/config", "/package.json", "/next.config.ts", "/web/package.json", "/content/archive/records/anitkabir.json", "/data/archive/catalog/sevr-antlasmasi-1920.json", "/admin", "/admin/giris", "/yonetim", "/panel", "/api/admin/publish", "/editor", "/_next/../package.json", ...ENCODED_TRAVERSAL]) {
       const response = await request.get(route, { maxRedirects: 0 });
-      expect(response.status(), route).toBe(404);
+      if (ENCODED_TRAVERSAL.has(route)) expect([400, 404], route).toContain(response.status()); else expect(response.status(), route).toBe(404);
       const body = await response.text();
       expect(body, route).not.toMatch(LEAK);
       expect(body, route).not.toContain('"dependencies"');
