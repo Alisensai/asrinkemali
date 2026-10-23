@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "tbmm-tutanak-d05-c012-b075-1936-06-08",
+  "record_path": "data/archive/catalog/tbmm-tutanak-d05-c012-b075-1936-06-08.json",
+  "record_snapshot_sha256": "51fd4d02f41df4773d5aeec6862f3c604179581deb8eecccfed7e715a4f7f2b0",
+  "record_snapshot": {
+    "title": "TBMM Tutanak Dergisi, V. Dönem, 12. Cilt, 75. Birleşim (8 Haziran 1936)",
+    "type": "document",
+    "date": {
+      "start": "1936-06-08",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "8 Haziran 1936",
+      "note": "Oturum tarihi TBMM Tutanak Dergisi fihristinden alınmıştır."
+    },
+    "source_institution": "Türkiye Büyük Millet Meclisi",
+    "source_url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d05/c012/tbmm05012075.pdf",
+    "citation": "TBMM Tutanak Dergisi, V. Dönem, 12. Cilt, 75. Birleşim, 8 Haziran 1936, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d05/c012/tbmm05012075.pdf",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

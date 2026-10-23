@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-bilecik-gorusmesi",
+  "record_path": "data/archive/catalog/ayk-bilecik-gorusmesi.json",
+  "record_snapshot_sha256": "8eacf6fb5068f72ff2a4828f2755ca66ff1e78d913311bb0e850c7aaf1a5fa65",
+  "record_snapshot": {
+    "title": "Bilecik Görüşmesi",
+    "type": "event",
+    "date": {
+      "start": "1920-12-05",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "5 Aralık 1920",
+      "note": "Tarih, Atatürk Ansiklopedisi maddesindeki olay tarihinden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/720/bilecik-gorusmesi",
+    "citation": "İzzet Öztoprak, \"Bilecik Görüşmesi\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/720/bilecik-gorusmesi.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

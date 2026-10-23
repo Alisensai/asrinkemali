@@ -12,3 +12,5 @@ Thumbs.db
 playwright-report/
 test-results/
 qa/kilo/results/
+__pycache__/
+*.pyc

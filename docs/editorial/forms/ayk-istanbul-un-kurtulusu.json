@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-istanbul-un-kurtulusu",
+  "record_path": "data/archive/catalog/ayk-istanbul-un-kurtulusu.json",
+  "record_snapshot_sha256": "aa4b0d3c5ffdf18122ea9e3989c2345475d210cfd072ee533a1fec368e9b2b50",
+  "record_snapshot": {
+    "title": "İstanbul’un Kurtuluşu",
+    "type": "event",
+    "date": {
+      "start": "1923-10-06",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "6 Ekim 1923",
+      "note": "Tarih, Atatürk Ansiklopedisi maddesindeki olay tarihinden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/688/istanbul-un-kurtulusu",
+    "citation": "Nur Bilge Crıss, \"İstanbul’un Kurtuluşu\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/688/istanbul-un-kurtulusu.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

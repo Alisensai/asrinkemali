@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-ankara-antlasmasi",
+  "record_path": "data/archive/catalog/ayk-ankara-antlasmasi.json",
+  "record_snapshot_sha256": "74389a966fa1d111c7638043efd296832a3d3c0d5449655cf940aa94bd947d1c",
+  "record_snapshot": {
+    "title": "Ankara Antlaşması",
+    "type": "document",
+    "date": {
+      "start": "1926-06-05",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "5 Haziran 1926",
+      "note": "Tarih, Atatürk Ansiklopedisi maddesindeki olay tarihinden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/572/ankara-antlasmasi",
+    "citation": "İhsan Şerif kaymaz, \"Ankara Antlaşması\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/572/ankara-antlasmasi.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

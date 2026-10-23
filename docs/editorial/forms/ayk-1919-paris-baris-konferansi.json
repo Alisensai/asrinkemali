@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-1919-paris-baris-konferansi",
+  "record_path": "data/archive/catalog/ayk-1919-paris-baris-konferansi.json",
+  "record_snapshot_sha256": "357659aef6569f5b0db01dc0baa7ff0960cfd951e7832dfab8a960ca43cc01f0",
+  "record_snapshot": {
+    "title": "1919 Paris Barış Konferansı",
+    "type": "event",
+    "date": {
+      "start": "1919-01-18",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "18 Ocak 1919",
+      "note": "Tarih, Atatürk Ansiklopedisi maddesindeki olay tarihinden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/166/1919-paris-baris-konferansi",
+    "citation": "Cemalettin Taşkıran, \"1919 Paris Barış Konferansı\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/166/1919-paris-baris-konferansi.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

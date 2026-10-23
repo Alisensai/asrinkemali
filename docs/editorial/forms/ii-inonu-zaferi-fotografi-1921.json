@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "record_id": "ii-inonu-zaferi-fotografi-1921",
   "record_path": "content/archive/records/ii-inonu-zaferi-fotografi-1921.json",
-  "record_snapshot_sha256": "2ca4ad267bbfebb3ad24131611b978955ef022ed506c01f95bc12696af014692",
+  "record_snapshot_sha256": "400bab857afc4d313520c99a1b0b3f842b47bc4f6e2a90bdeaac18ffab5e432b",
   "record_snapshot": {
     "title": "II. İnönü Zaferi Fotoğrafı",
     "type": "photograph",
@@ -15,8 +15,8 @@
       "note": "Tarih, kurumsal fotoğraf albümündeki açıklamadan alınmıştır. II. İnönü Muharebeleri 31 Mart – 1 Nisan 1921 aralığında gerçekleştiği için bu tarih ayrıca insan denetimi gerektirir."
     },
     "source_institution": "Türkiye Büyük Millet Meclisi",
-    "source_url": "https://kurtulussavasimuzesi.tbmm.gov.tr/fotograf",
-    "citation": "Kurtuluş Savaşı Müzesi: Fotoğraflar",
+    "source_url": "https://cdn.tbmm.gov.tr/KurtulusSavasiMuzeWeb/Fotograf/6.jpg",
+    "citation": "Kurtuluş Savaşı Müzesi: II. İnönü Zaferi Fotoğrafı",
     "rights_status": "official_link_only"
   },
   "review_status": "pending",

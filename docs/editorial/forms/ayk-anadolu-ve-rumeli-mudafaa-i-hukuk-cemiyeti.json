@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-anadolu-ve-rumeli-mudafaa-i-hukuk-cemiyeti",
+  "record_path": "data/archive/catalog/ayk-anadolu-ve-rumeli-mudafaa-i-hukuk-cemiyeti.json",
+  "record_snapshot_sha256": "4d01539c554f51c5808408a1e3f669baf47d447af807a4fadec37d35b2bc5f19",
+  "record_snapshot": {
+    "title": "Anadolu ve Rumeli Müdafaa-i Hukuk Cemiyeti",
+    "type": "event",
+    "date": {
+      "start": "1919-09-07",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "7 Eylül 1919",
+      "note": "Tarih, Atatürk Ansiklopedisi maddesindeki olay tarihinden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/568/anadolu-ve-rumeli-mudafaa-i-hukuk-cemiyeti",
+    "citation": "Nurcan Toksoy, \"Anadolu ve Rumeli Müdafaa-i Hukuk Cemiyeti\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/568/anadolu-ve-rumeli-mudafaa-i-hukuk-cemiyeti.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

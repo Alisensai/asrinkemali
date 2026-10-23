@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-kayseri-ucak-fabrikasi",
+  "record_path": "data/archive/catalog/ayk-kayseri-ucak-fabrikasi.json",
+  "record_snapshot_sha256": "622b09498f2e4f649083df8a0ab3269e65f36c0f0fa4bf309d17021e74422f81",
+  "record_snapshot": {
+    "title": "Kayseri Uçak Fabrikası",
+    "type": "place",
+    "date": {
+      "start": "1926-10-06",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "6 Ekim 1926",
+      "note": "Tarih, Atatürk Ansiklopedisi maddesindeki olay tarihinden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/530/kayseri-ucak-fabrikasi",
+    "citation": "İhsan TAYHANİ, \"Kayseri Uçak Fabrikası\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/530/kayseri-ucak-fabrikasi.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

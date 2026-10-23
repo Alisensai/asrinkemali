@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ibb-taksim-abidesi-gumruk-muafiyeti-1928",
+  "record_path": "data/archive/catalog/ibb-taksim-abidesi-gumruk-muafiyeti-1928.json",
+  "record_snapshot_sha256": "d25a9e1f5604a4a53405daaeedd724ca1a95a25290a5a003119970889a560b3a",
+  "record_snapshot": {
+    "title": "Taksim Abidesi Parçalarının Gümrük Muafiyetine Dair Belge (1928)",
+    "type": "document",
+    "date": {
+      "start": "1928-07-18",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "18 Temmuz 1928",
+      "note": "Belge tarihi İBB Atatürk Kitaplığı katalog kaydından alınmıştır."
+    },
+    "source_institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+    "source_url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070902",
+    "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Bel_Mtf_070902, “Taksim Abidesi Parçalarının Gümrük Muafiyetine Dair Belge”, 18 Temmuz 1928, erişim 2026-10-23, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070902",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

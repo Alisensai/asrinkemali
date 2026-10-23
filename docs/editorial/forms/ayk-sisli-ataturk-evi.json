@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-sisli-ataturk-evi",
+  "record_path": "data/archive/catalog/ayk-sisli-ataturk-evi.json",
+  "record_snapshot_sha256": "70bf7c5ec13e1df3e423d38c98ac05c158f7bf43f71fb2dd706635e64dd22d04",
+  "record_snapshot": {
+    "title": "Şişli Atatürk Evi",
+    "type": "place",
+    "date": {
+      "start": "1918-12-16",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "16 Aralık 1918",
+      "note": "Tarih, Atatürk Ansiklopedisi maddesindeki olay tarihinden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/258/sisli-ataturk-evi",
+    "citation": "Mücteba İlgürel, \"Şişli Atatürk Evi\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/258/sisli-ataturk-evi.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

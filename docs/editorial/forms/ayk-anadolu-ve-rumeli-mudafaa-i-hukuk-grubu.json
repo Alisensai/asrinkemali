@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-anadolu-ve-rumeli-mudafaa-i-hukuk-grubu",
+  "record_path": "data/archive/catalog/ayk-anadolu-ve-rumeli-mudafaa-i-hukuk-grubu.json",
+  "record_snapshot_sha256": "d52e5a0022e2af52a9976fffbaf62e80d06200936b02e5e31209aca059b98aa5",
+  "record_snapshot": {
+    "title": "Anadolu ve Rumeli Müdafaa-i Hukuk Grubu",
+    "type": "event",
+    "date": {
+      "start": "1921-05-10",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "10 Mayıs 1921",
+      "note": "Tarih, Atatürk Ansiklopedisi maddesindeki olay tarihinden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/569/anadolu-ve-rumeli-mudafaa-i-hukuk-grubu",
+    "citation": "İhsan Güneş, \"Anadolu ve Rumeli Müdafaa-i Hukuk Grubu\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/569/anadolu-ve-rumeli-mudafaa-i-hukuk-grubu.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "record_id": "meclis-onunde-dua-1920",
   "record_path": "content/archive/records/meclis-onunde-dua-1920.json",
-  "record_snapshot_sha256": "0f2813879ca7c30d73f74715c965b44c29c8473587b0c0e85466bd22a6762276",
+  "record_snapshot_sha256": "cbcd16feb21e564aecab7562db460f2c756991f28572f45cfd11b09076dd89e3",
   "record_snapshot": {
     "title": "Meclis Önünde Dua",
     "type": "photograph",
@@ -14,8 +14,8 @@
       "display": "6 Mayıs 1920"
     },
     "source_institution": "Türkiye Büyük Millet Meclisi",
-    "source_url": "https://kurtulussavasimuzesi.tbmm.gov.tr/fotograf",
-    "citation": "Kurtuluş Savaşı Müzesi: Fotoğraflar",
+    "source_url": "https://cdn.tbmm.gov.tr/KurtulusSavasiMuzeWeb/Fotograf/2.jpg",
+    "citation": "Kurtuluş Savaşı Müzesi: Meclis Önünde Dua Fotoğrafı",
     "rights_status": "official_link_only"
   },
   "review_status": "pending",

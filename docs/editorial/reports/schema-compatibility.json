@@ -1,8 +1,8 @@
 {
-  "archive_record_count": 68,
+  "archive_record_count": 168,
   "archive_schema_version_counts": {
     "1.0.0": 18,
-    "1.1.0": 50
+    "1.1.0": 150
   },
   "archive_fields_by_version": {
     "1.0.0": [
@@ -71,7 +71,7 @@
   ],
   "editorial_form_schema_version_expected": "1.0.0",
   "editorial_form_schema_version_counts": {
-    "1.0.0": 68
+    "1.0.0": 168
   },
   "editorial_forms_with_unsupported_or_missing_schema_version": 0,
   "editorial_forms_with_invalid_json": 0,

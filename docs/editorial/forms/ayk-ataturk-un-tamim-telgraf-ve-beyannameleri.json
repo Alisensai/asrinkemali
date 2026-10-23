@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-ataturk-un-tamim-telgraf-ve-beyannameleri",
+  "record_path": "data/archive/catalog/ayk-ataturk-un-tamim-telgraf-ve-beyannameleri.json",
+  "record_snapshot_sha256": "77e382068a93cb3b7c800ad556b9a54873f22233061b84eac456ae0cc8d26aa8",
+  "record_snapshot": {
+    "title": "Atatürk’ün Tamim, Telgraf ve Beyannameleri",
+    "type": "publication",
+    "date": {
+      "start": "1964-01-01",
+      "end": null,
+      "precision": "year",
+      "certainty": "exact",
+      "display": "1964",
+      "note": "Tarih, Atatürk Ansiklopedisi maddesindeki yıl bilgisinden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/883/ataturk-un-tamim-telgraf-ve-beyannameleri",
+    "citation": "Ali Güler, \"Atatürk’ün Tamim, Telgraf ve Beyannameleri\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/883/ataturk-un-tamim-telgraf-ve-beyannameleri.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

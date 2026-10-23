@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "record_id": "i-tbmm-binasi",
   "record_path": "content/archive/records/i-tbmm-binasi.json",
-  "record_snapshot_sha256": "c1bb8f9b5583448ef2466ed9075bd64a018a01b4a965f03d8e3c336a22d1762f",
+  "record_snapshot_sha256": "1d9dc65d566f391e880899ea599598260d8912392b901fe9b9a3d58872596802",
   "record_snapshot": {
     "title": "I. Türkiye Büyük Millet Meclisi Binası",
     "type": "place",
@@ -14,8 +14,8 @@
       "display": "23 Nisan 1920 – 15 Ekim 1924"
     },
     "source_institution": "Türkiye Büyük Millet Meclisi",
-    "source_url": "https://kurtulussavasimuzesi.tbmm.gov.tr/meclisacilis",
-    "citation": "Kurtuluş Savaşı Müzesi: Meclisin Açılışı",
+    "source_url": "https://kurtulussavasimuzesi.tbmm.gov.tr/tarihce",
+    "citation": "Kurtuluş Savaşı Müzesi: Tarihçe",
     "rights_status": "official_link_only"
   },
   "review_status": "pending",
