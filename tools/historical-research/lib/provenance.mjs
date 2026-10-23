@@ -10,8 +10,11 @@
  *  - Yapay zekâ incelemesi insan uzman onayı değildir; kanıt kaydı bunu ayrı tutar.
  */
 
+import { titleSimilarity } from "./dedupe.mjs";
+
 /**
  * İddia için kanıt ağı kurar ve durumu değerlendirir.
+ * Aynı özgün belgeden türeyen/ayna kaynaklar bağımsız sayılmaz.
  * @param {HistoricalClaim} claim
  * @param {Array} candidates
  * @returns {{status: "unverified"|"corroborated"|"contested", evidenceCount: number,
@@ -27,7 +30,10 @@ export function evaluateClaim(claim, candidates) {
   const contradicting = evidence.filter((link) => link.relation === "contradicts");
 
   // Bağımsızlık: aynı kurum + aynı arşiv kimliği yalnızca bir kez sayılır.
+  // Ayrıca farklı kurumlardaki benzer künyeli (ayna/türetilmiş) kaynaklar da
+  // bağımsız sayılmaz — kanıtın kendisi beyan edilmelidir.
   const seenRoots = new Set();
+  const mirrorRoots = new Set();
   let independent = 0;
   for (const link of supporting) {
     const root = `${link.candidate.institution}::${link.candidate.archiveIdentifier ?? normalize(link.candidate.url)}`;
@@ -35,6 +41,22 @@ export function evaluateClaim(claim, candidates) {
       seenRoots.add(root);
       independent += 1;
     }
+  }
+  // Ayna/türetilmiş kaynak tespiti (farklı kurum + aynı olay yılı + benzer başlık)
+  const supportingCandidates = supporting.map((link) => link.candidate);
+  for (let i = 0; i < supportingCandidates.length; i += 1) {
+    for (let j = i + 1; j < supportingCandidates.length; j += 1) {
+      const a = supportingCandidates[i];
+      const b = supportingCandidates[j];
+      if (a.institution === b.institution) continue;
+      if (a.eventYear != null && a.eventYear === b.eventYear && titleSimilarity(a.title, b.title) >= 0.8) {
+        mirrorRoots.add(`${a.id}+${b.id}`);
+      }
+    }
+  }
+  if (mirrorRoots.size > 0 && independent > 1) {
+    independent -= mirrorRoots.size; // ayna çiftleri bağımsızlığı düşürür
+    if (independent < 1) independent = 1;
   }
 
   const conflicts = [];
@@ -80,7 +102,9 @@ function normalize(url) {
 
 /**
  * İddia tarihleri arasında çelişki kontrolü.
- * @param {Array<HistoricalClaim>} claims
+ * Yalnızca AYNI konuyu (subject) paylaşan iddialar karşılaştırılır; farklı
+ * olayların benzer ifadeleri yanlış pozitif üretmez.
+ * @param {Array<HistoricalClaim & {subject?: string}>} claims
  * @returns {Array<{claimA: string, claimB: string, note: string}>}
  */
 export function findDateConflicts(claims) {
@@ -89,17 +113,15 @@ export function findDateConflicts(claims) {
     for (let j = i + 1; j < claims.length; j += 1) {
       const a = claims[i];
       const b = claims[j];
-      // Aynı iddiaya benzer metin ama farklı kesin tarih
-      const sameSubject =
-        fold(a.text) === fold(b.text) ||
-        wordOverlap(a.text, b.text) >= 0.6;
+      // Konum anahtarı yoksa karşılaştırma YAPILMAZ (belirsizlik çelişki demek değildir)
+      if (!a.subject || !b.subject || a.subject !== b.subject) continue;
       const dateA = a.date?.start;
       const dateB = b.date?.start;
-      if (sameSubject && dateA && dateB && dateA !== dateB) {
+      if (dateA && dateB && dateA !== dateB) {
         conflicts.push({
           claimA: a.id,
           claimB: b.id,
-          note: `Benzer iddialarda farklı tarihler: ${dateA} ve ${dateB}. Kaynaklar incelenmelidir; otomatik karar verilmez.`,
+          note: `Aynı konuda (${a.subject}) farklı tarihler: ${dateA} ve ${dateB}. Kaynaklar incelenmelidir; otomatik karar verilmez.`,
         });
       }
     }

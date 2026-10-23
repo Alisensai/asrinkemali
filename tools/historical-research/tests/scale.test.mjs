@@ -40,11 +40,12 @@ test("ölçek: 500 sentetik aday arasında tekrar analizi çalışır", async ()
 test("ölçek: 10.000 sentetik adaydan hiçbiri dönüşebilir değil (sentetik koruması)", () => {
   const candidates = makeSyntheticCandidates(10000, 3);
   let blocked = 0;
-  for (const candidate of candidates.slice(0, 200)) {
+  for (const candidate of candidates) {
     const result = convertCandidateToDraft(candidate, []);
     if (result.blockers.some((blocker) => blocker.code === "SYNTHETIC_FORBIDDEN")) blocked += 1;
   }
-  assert.equal(blocked, 200);
+  // TÜM 10.000 aday denetlenir (örneklem değil)
+  assert.equal(blocked, 10000);
 });
 
 test("sentetik kayıtlar gerçek tarihî kaynaklarla karıştırılamaz: işaret zorunlu", () => {

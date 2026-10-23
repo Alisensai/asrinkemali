@@ -23,7 +23,7 @@ export function validateCandidate(candidate) {
   if (!candidate || typeof candidate !== "object") {
     return { ok: false, issues: [{ code: "NOT_OBJECT", path: "$", message: "Aday bir nesne olmalı." }] };
   }
-  if (!/^src-\d{4}-\d{4}$/.test(candidate.id ?? "")) {
+  if (!/^src-\d{4}-\d{3,6}$/.test(candidate.id ?? "")) {
     issues.push({ code: "BAD_ID", path: "$.id", message: "Kimlik 'src-YYYY-NNNN' biçiminde olmalı." });
   }
   if (typeof candidate.title !== "string" || candidate.title.trim().length < 3) {

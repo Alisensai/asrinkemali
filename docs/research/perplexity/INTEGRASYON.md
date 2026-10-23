@@ -28,22 +28,21 @@ Dry-run dönüşüm            →  ArchiveRecord v1.1.0 TASLAK (draft; publishe
 Katalog yazımı             →  YOK. Yalnız insan onayıyla, ayrı PR'da, mevcut kurallarla
 ```
 
-### Yayın kapısı (kod düzeyinde garanti)
+### Yayın kapısı (kod düzeyinde garanti, testlerle doğrulanır)
 
 - `convertCandidateToDraft` her zaman `verification.status: "draft"` üretir; `published` değeri **üretilemez**.
-- `assertNoCatalogWrite`, `data/archive/catalog/`, `content/archive/records/`, `schemas/` yollarına yazmayı reddeder.
+- `assertNoCatalogWrite`, göreli, **mutlak** ve katman geçişli (`..`) yollar için `data/archive/catalog/`, `content/archive/records/`, `schemas/` yazmalarını reddeder (test edildi).
+- Dry-run taslağı, mevcut arşivin gerçek taksonomi ve şemalarıyla `validateArchive` üzerinden doğrulanır; taslak yeni şema hatası üretemez (entegrasyon testi).
+- Dry-run URL'si yalnızca kurumsal alan adı beyaz listesinden geçebilir (`scripts/archive/lib/security.mjs` kuralı).
 - Aday havuzunda `humanReviewed: true` + `import_ready` durumu olmadan dry-run bile kayıt üretmez.
-- Yani: **insan incelemesi olmadan yayımlama, mimari olarak imkânsızdır.**
+- Yani: **insan incelemesi olmadan yayımlama, kod düzeyinde engellenir ve otomatik testlerle kanıtlanır.**
 
-## Claude'nin Atatürk Yaşam Deneyimine Otomatik Yansıma
+## Claude'nin Atatürk Yaşam Deneyimine Yansıma
 
-1. Erken dönem (1881–1918) adayları onaylanıp arşive kayıt olarak girdiğinde (ayrı PR, ayrı onay),
-   kayıtlar `content/archive/records/` veya `data/archive/catalog/` şemasına uygun JSON olur.
-2. Claude'un deneyimi zaten `web/lib/archive.ts` üzerinden kayıtları okur; yeni kayıtlar
-   otomatik olarak `arsiv` sorgularına, kronolojiye ve yaşam deneyimi sayfalarına düşer.
-   Evidence Engine'in ek iş yapmasına gerek yoktur — şema uyumu tek gerekliliktir.
-3. `recordYearRange` boşluk analizi, yeni kayıtlarla otomatik daralır; `gap-report` komutu
-   her çalıştırmada güncel durumu raporlar.
+1. Erken dönem (1881–1918) adayları onaylanıp arşive kayıt olarak girdiğinde (ayrı PR, ayrı onay), kayıtlar `ArchiveRecord` v1.1.0 şemasına uygun JSON olur.
+2. Arşiv sorguları `web/lib/archive.ts` üzerinden tüm yayımlanmış kayıtları okur; şemaya uygun yeni kayıtlar arşiv/kronoloji sorgularına otomatik düşer.
+3. NOT: Claude'nin deneyim kodu (PR #17) bu turda satır satır incelenMEDİ; "otomatik yansıma" iddiası yalnızca şema uyumu varsayımına dayanır. Doğrulama için PR #17'nin veri okuma katmanının ayrıca gözden geçirilmesi önerilir.
+4. `recordYearRange` boşluk analizi, yeni kayıtlarla otomatik daralır; `gap-report` komutu her çalıştırmada güncel durumu raporlar.
 
 ## Komutlar
 
@@ -56,15 +55,16 @@ node tools/historical-research/cli.mjs verify-url URL       # tek URL yapısal g
 cd tools/historical-research && npm test                    # 75 otomatik test
 ```
 
-## Panel Erişimi (geliştirme ortamı)
+## Panel Erişimi (yalnızca geliştirme ortamı)
 
 ```bash
 cd web && MKA_RESEARCH_LAB=1 npm run dev    # http://localhost:3000/arastirma-laboratuvari
 ```
 
-- Production build'de `MKA_RESEARCH_LAB=1` tanımlı değilse sayfa **404** döner (doğrulandı).
+- Panel yalnızca `NODE_ENV` production OLMADIĞINDA ve `MKA_RESEARCH_LAB=1` bayrağıyla açılır; production ortamında bayrak set edilse bile **404** döner (test edildi).
 - Sayfa `force-dynamic`'tir; aday verisi statik pakete girmez.
-- Yönetici yetkilendirmesi kurulana kadar bu bayrak tek kapıdır; kimlik doğrulama varmış gibi davranılmaz.
+- Yönetici yetkilendirmesi kurulana kadar ortam bayrağı + geliştirme ortamı çift kuralı geçerlidir; kimlik doğrulama varmış gibi davlanılmaz.
+- **Kapsam notu:** Bu panelin mevcut sürümü minimal bir aday listesi görünümüdür. Filtreleme, kaynak detay incelemesi, karşılaştırma, boşluk haritası görselleştirme, ilişki grafiği ve dışa aktarma denetimleri HENÜZ UYGULANMADI (bkz. Gelecek Adımlar).
 
 ## Gelecek Adımlar
 

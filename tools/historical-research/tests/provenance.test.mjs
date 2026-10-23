@@ -5,8 +5,8 @@ import { makeCandidate } from "./helpers.mjs";
 
 test("aynı bilginin farklı kaynaklarda bulunması: iki bağımsız kurum 'corroborated' verir", () => {
   const candidates = [
-    makeCandidate({ id: "src-2026-0001", institution: "Kurum A", archiveIdentifier: "A-1" }),
-    makeCandidate({ id: "src-2026-0002", institution: "Kurum B", archiveIdentifier: "B-1" }),
+    makeCandidate({ id: "src-2026-0001", institution: "Kurum A", archiveIdentifier: "A-1", title: "Mustafa Kemal'in Manastır Yılları" }),
+    makeCandidate({ id: "src-2026-0002", institution: "Kurum B", archiveIdentifier: "B-1", title: "Osmanlı Subayı Mustafa Kemal", url: "https://b.gov.tr/madde" }),
   ];
   const claim = {
     id: "claim-001",
@@ -72,16 +72,18 @@ test("çelişkili bilgi: karşıt kanıt 'contested' üretir ve otomatik çözü
   assert.match(evaluation.conflicts[0].message, /otomatik olarak çözülmez|insan incelemesi gerekir/);
 });
 
-test("çelişkili tarih bilgisi: benzer iddialarda farklı tarihler işaretlenir", () => {
+test("çelişkili tarih bilgisi: aynı konulu iddialarda farklı tarihler işaretlenir", () => {
   const claims = [
     {
       id: "claim-001",
+      subject: "manastir-idadisi-kayit",
       text: "Mustafa Kemal 1896'da Manastır Askerî İdadisi'ne kaydoldu",
       date: { start: "1896", end: null, precision: "year", certainty: "estimated", display: "1896" },
       evidence: [],
     },
     {
       id: "claim-002",
+      subject: "manastir-idadisi-kayit",
       text: "Mustafa Kemal 1897'de Manastır Askerî İdadisi'ne kaydoldu",
       date: { start: "1897", end: null, precision: "year", certainty: "estimated", display: "1897" },
       evidence: [],
@@ -90,6 +92,35 @@ test("çelişkili tarih bilgisi: benzer iddialarda farklı tarihler işaretlenir
   const conflicts = findDateConflicts(claims);
   assert.equal(conflicts.length, 1);
   assert.match(conflicts[0].note, /farklı tarihler/);
+});
+
+test("çelişkili tarih bilgisi: konu anahtarı yoksa karşılaştırılmaz", () => {
+  const claims = [
+    { id: "claim-001", text: "A olayı 1912'de oldu", date: { start: "1912", end: null, precision: "year", certainty: "estimated", display: "1912" }, evidence: [] },
+    { id: "claim-002", text: "B olayı 1913'te oldu", date: { start: "1913", end: null, precision: "year", certainty: "estimated", display: "1913" }, evidence: [] },
+  ];
+  assert.equal(findDateConflicts(claims).length, 0);
+});
+
+test("ayna kaynaklar: farklı kurum ve URL'li benzer künyeler bağımsız sayılmaz", () => {
+  const candidates = [
+    makeCandidate({ id: "src-2026-0001", institution: "Kurum A", archiveIdentifier: "A-1", url: "https://a.gov.tr/x", title: "Mustafa Kemal'in Selanik Yılları", eventYear: 1896 }),
+    makeCandidate({ id: "src-2026-0002", institution: "Kurum B", archiveIdentifier: "B-1", url: "https://b.org/y", title: "Mustafa Kemal'in Selanik Yılları", eventYear: 1896 }),
+  ];
+  const claim = {
+    id: "claim-005",
+    text: "Ayna testi iddiası",
+    date: { start: "1896", end: null, precision: "year", certainty: "estimated", display: "1896" },
+    evidence: [
+      { candidateId: "src-2026-0001", relation: "supports" },
+      { candidateId: "src-2026-0002", relation: "supports" },
+    ],
+  };
+  const evaluation = evaluateClaim(claim, candidates);
+  // Ayna çifti bağımsızlığı düşürür: 2 görünür kanıt, 1 bağımsız
+  assert.equal(evaluation.evidenceCount, 2);
+  assert.equal(evaluation.independentInstitutions, 1);
+  assert.notEqual(evaluation.status, "corroborated");
 });
 
 test("provenans zinciri: kayıt → iddia → kaynak → kurum → özgün belge", () => {

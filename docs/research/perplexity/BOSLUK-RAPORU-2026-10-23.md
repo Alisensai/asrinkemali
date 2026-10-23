@@ -2,7 +2,8 @@
 
 - Toplam kayıt: **168** (yayımlandı: 151, incelendi: 16, taslak: 1)
 - Hedef dönem: **1881–1918**
-- Hedef dönemdeki kayıt-yıl örneklemi: **4** (arşivin %2.4'i)
+- Hedef dönemle kesişen AYRI kayıt: **4** (arşivin %2.4'i)
+- Hedef dönem kayıt-yıl örnekleme: **4** (çok yıllı kayıtlar her yıl için bir örnek üretir)
 
 ## Yıl Dağılımı
 
@@ -77,22 +78,22 @@
 
 | Tema | Kayıt | Kapsam |
 |---|---:|---|
-| Çocukluğu ve aile yaşamı | 1 | sparse |
-| Selanik dönemi | 2 | sparse |
-| İlk öğrenim ve askerî okullar | 2 | sparse |
-| Manastır yılları | 1 | sparse |
-| Harp Okulu | 1 | sparse |
-| Harp Akademisi | 2 | sparse |
+| Çocukluğu ve aile yaşamı | 0 | none |
+| Selanik dönemi | 1 | sparse |
+| İlk öğrenim ve askerî okullar | 1 | sparse |
+| Manastır yılları | 0 | none |
+| Harp Okulu | 0 | none |
+| Harp Akademisi | 0 | none |
 | İlk askerî görevleri | 0 | none |
-| Şam dönemi | 7 | partial |
+| Şam dönemi | 0 | none |
 | Trablusgarp Savaşı | 0 | none |
-| Balkan Savaşları | 1 | sparse |
-| Çanakkale Savaşları | 3 | partial |
-| Doğu Cephesi | 10 | covered |
-| 1917–1918 dönemi | 2 | sparse |
-| Dönemin tarihî kişileri | 6 | partial |
-| Dönemin tarihî mekânları | 59 | covered |
-| Genel yaşam | 82 | covered |
+| Balkan Savaşları | 0 | none |
+| Çanakkale Savaşları | 0 | none |
+| Doğu Cephesi | 0 | none |
+| 1917–1918 dönemi | 1 | sparse |
+| Dönemin tarihî kişileri | 0 | none |
+| Dönemin tarihî mekânları | 1 | sparse |
+| Genel yaşam | 0 | none |
 
 ## Hedef Dönemde Boşluklar
 
@@ -105,4 +106,4 @@
 
 ## Yöntem Notları
 
-- **GAP_METHODOLOGY:** Bu rapor yalnızca arşiv KAYIT yoğunluğunu ölçer; 'bu yılda tarihî olay yok' anlamına gelmez. Tema eşleşmesi anahtar kelime temellidir ve kesin tema doğrulaması değildir.
+- **GAP_METHODOLOGY:** Bu rapor arşiv KAYIT yoğunluğunu ölçer; 'bu yılda tarihî olay yok' anlamına gelmez. `distinctRecords` hedef dönemle kesişen ayrı kayıt sayısıdır; `recordYearIncidences` çok yıllı kayıtların her yıl için bir örneklem üretmesidir (yüzde payı buna göre artabilir). Tema kapsamı yalnızca hedef dönemle kesişen kayıtlar üzerinden hesaplanır; eşleştirme kelime-sınırlıdır.

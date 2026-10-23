@@ -16,7 +16,8 @@ export function gapReportToMarkdown(report) {
   lines.push("");
   lines.push(`- Toplam kayıt: **${report.counts.total}** (yayımlandı: ${report.counts.published}, incelendi: ${report.counts.reviewed}, taslak: ${report.counts.draft})`);
   lines.push(`- Hedef dönem: **${report.targetPeriod.targetStart}–${report.targetPeriod.targetEnd}**`);
-  lines.push(`- Hedef dönemdeki kayıt-yıl örneklemi: **${report.targetPeriod.targetRecords}** (arşivin %${(report.targetPeriod.share * 100).toFixed(1)}'i)`);
+  lines.push(`- Hedef dönemle kesişen AYRI kayıt: **${report.targetPeriod.distinctRecords}** (arşivin %${(report.targetPeriod.share * 100).toFixed(1)}'i)`);
+  lines.push(`- Hedef dönem kayıt-yıl örnekleme: **${report.targetPeriod.recordYearIncidences}** (çok yıllı kayıtlar her yıl için bir örnek üretir)`);
   lines.push("");
   lines.push("## Yıl Dağılımı");
   lines.push("");
@@ -83,7 +84,7 @@ export function poolToMarkdown(pool, summary) {
     const period = candidate.periodStart ? `${candidate.periodStart}–${candidate.periodEnd ?? ""}` : (candidate.eventYear ?? "—");
     const flags = [
       candidate.verification?.citationComplete ? "künye ✓" : "künye ✗",
-      candidate.verification?.rightsKnown ? "hak ✓" : "hak ✗",
+      candidate.verification?.rightsKnown ? "hak bilgisi ✓" : "hak bilgisi ✗",
       candidate.verification?.humanReviewed ? "insan ✓" : "insan ✗",
     ].join(" ");
     lines.push(`| ${candidate.id} | ${candidate.title} | ${candidate.institution} | ${period} | ${candidate.state} | ${flags} |`);
@@ -93,10 +94,11 @@ export function poolToMarkdown(pool, summary) {
 }
 
 /**
- * CSV çıktısı (adaylar için). Tırnak kaçışları güvenli uygulanır.
+ * CSV çıktısı (adaylar). Tırnak kaçışları güvenli uygulanır. Sütun kümesi,
+ * `importCandidatesFromCsv` ile geri okunabilecek tam kümedir (dışa/içe aktarma uyumu).
  */
 export function poolToCsv(pool) {
-  const header = ["id", "title", "institution", "url", "state", "periodStart", "periodEnd", "eventYear", "documentType", "sourceNature", "synthetic", "citationComplete", "rightsKnown", "humanReviewed"];
+  const header = ["id", "title", "institution", "institutionType", "institutionUrl", "url", "authors", "publishedAt", "eventYear", "periodStart", "periodEnd", "documentType", "sourceNature", "researchThemes", "accessedAt", "archiveIdentifier", "citation", "synthetic"];
   const escape = (value) => {
     const text = String(value ?? "");
     return /[",\n]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text;
@@ -107,17 +109,21 @@ export function poolToCsv(pool) {
       candidate.id,
       candidate.title,
       candidate.institution,
+      candidate.institutionType,
+      candidate.institutionUrl,
       candidate.url,
-      candidate.state,
+      (candidate.authors ?? []).map((author) => author.name).join(";"),
+      candidate.publishedAt ?? "",
+      candidate.eventYear ?? "",
       candidate.periodStart ?? "",
       candidate.periodEnd ?? "",
-      candidate.eventYear ?? "",
       candidate.documentType,
       candidate.sourceNature,
+      (candidate.researchThemes ?? []).join(";"),
+      candidate.accessedAt,
+      candidate.archiveIdentifier ?? "",
+      candidate.citation ?? "",
       candidate.synthetic ? "true" : "false",
-      candidate.verification?.citationComplete ? "true" : "false",
-      candidate.verification?.rightsKnown ? "true" : "false",
-      candidate.verification?.humanReviewed ? "true" : "false",
     ].map(escape).join(","));
   }
   return rows.join("\n") + "\n";

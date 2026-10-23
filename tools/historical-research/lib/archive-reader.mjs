@@ -30,7 +30,8 @@ function pathToFileUrl(p) {
 /**
  * Tüm arşivi (iki kök birlikte) yükler.
  * @param {string|null} root
- * @returns {Promise<{records: Array, errors: Array, warnings: Array}>}
+ * @returns {Promise<{records: Array, errors: Array, warnings: Array, taxonomy: object|null,
+ *                    recordSchema: object|null, taxonomySchema: object|null}>}
  */
 export async function loadArchive(root = null) {
   const lib = await getLoader();
@@ -39,6 +40,9 @@ export async function loadArchive(root = null) {
     records: result.records,
     errors: result.errors,
     warnings: result.warnings,
+    taxonomy: result.taxonomy ?? null,
+    recordSchema: result.recordSchema ?? null,
+    taxonomySchema: result.taxonomySchema ?? null,
   };
 }
 

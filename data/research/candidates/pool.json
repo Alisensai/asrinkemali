@@ -72,7 +72,9 @@
         }
       ],
       "relatedArchiveIds": [],
-      "claims": [],
+      "claims": [
+        "claim-001"
+      ],
       "archiveIdentifier": "AYK-4899",
       "citation": "\"Atatürk, Gazi Mustafa Kemal (1881-10 Kasım 1938)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/4899/Atat%C3%BCrk,-Gazi-Mustafa-Kemal-(1881-10-Kas%C4%B1m-1938).",
       "synthetic": false,
@@ -305,7 +307,7 @@
         }
       ],
       "publishedAt": "2022-02-22",
-      "eventYear": 1892,
+      "eventYear": null,
       "periodStart": 1872,
       "periodEnd": 1917,
       "people": [
@@ -338,7 +340,7 @@
         "duplicateChecked": true,
         "aiReviewed": true,
         "humanReviewed": false,
-        "notes": "Mustafa Kemal'in ilk öğrenim gördüğü mahalle mektebinin kuruluşu (1872) ve eğitim kadrosu."
+        "notes": "Mustafa Kemal'in ilk öğrenim gördüğü mahalle mektebinin kuruluşu (1872) ve eğitim kadrosu. Sayfada kayıt yılı belirtilmediğinden eventYear boş bırakıldı."
       },
       "state": "awaiting_human_review",
       "stateHistory": [
@@ -358,7 +360,7 @@
       "archiveIdentifier": "AYK-243",
       "citation": "Volkan Aksoy, \"Şemsi Efendi Mektebi\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/243/%C5%9Eemsi-Efendi-Mektebi.",
       "synthetic": false,
-      "notes": "Mustafa Kemal'in ilk öğrenim gördüğü mahalle mektebinin kuruluşu (1872) ve eğitim kadrosu."
+      "notes": "Mustafa Kemal'in ilk öğrenim gördüğü mahalle mektebinin kuruluşu (1872) ve eğitim kadrosu. Sayfada kayıt yılı belirtilmediğinden eventYear boş bırakıldı."
     },
     {
       "schemaVersion": "1.0.0",
@@ -425,7 +427,9 @@
         }
       ],
       "relatedArchiveIds": [],
-      "claims": [],
+      "claims": [
+        "claim-002"
+      ],
       "archiveIdentifier": "AYK-875",
       "citation": "Ali Güler, \"Atatürk'ün Eğitim ve Öğretim Gördüğü Kurumlar\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/875/Atat%C3%BCrk%E2%80%99%C3%BCn-E%C4%9Fitim-ve-%C3%96%C4%9Fretim-G%C3%B6rd%C3%BC%C4%9F%C3%BC-Kurumlar.",
       "synthetic": false,
@@ -495,7 +499,9 @@
         }
       ],
       "relatedArchiveIds": [],
-      "claims": [],
+      "claims": [
+        "claim-003"
+      ],
       "archiveIdentifier": "AYK-407",
       "citation": "Hasan Taner Kerimoğlu, \"Trablusgarp Savaşı'nda Atatürk\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/407/Trablusgarp-Sava%C5%9F%C4%B1%E2%80%99nda-Atat%C3%BCrk.",
       "synthetic": false,
@@ -565,7 +571,9 @@
         }
       ],
       "relatedArchiveIds": [],
-      "claims": [],
+      "claims": [
+        "claim-004"
+      ],
       "archiveIdentifier": "AYK-685",
       "citation": "İsmet Görgülü, \"Balkan Savaşı'nda Atatürk\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/685/Balkan-Sava%C5%9F%C4%B1%E2%80%99nda-Atat%C3%BCrk.",
       "synthetic": false,
@@ -638,7 +646,9 @@
         }
       ],
       "relatedArchiveIds": [],
-      "claims": [],
+      "claims": [
+        "claim-006"
+      ],
       "archiveIdentifier": "AYK-4078",
       "citation": "Serpil Sürmeli, \"Birinci Dünya Savaşı'nda Mustafa Kemal (Atatürk)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/4078/Birinci-D%C3%BCnya-Sava%C5%9F%C4%B1%E2%80%99nda-Mustafa-Kemal-(Atat%C3%BCrk).",
       "synthetic": false,
@@ -708,7 +718,9 @@
         }
       ],
       "relatedArchiveIds": [],
-      "claims": [],
+      "claims": [
+        "claim-006"
+      ],
       "archiveIdentifier": "AYK-4084",
       "citation": "Murat Karataş, \"Çanakkale Cephesi'nde Mustafa Kemal (ATATÜRK)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/4084/%C3%87anakkale-Cephesi%E2%80%99nde-Mustafa-Kemal-(ATAT%C3%9CRK).",
       "synthetic": false,
@@ -774,7 +786,9 @@
         }
       ],
       "relatedArchiveIds": [],
-      "claims": [],
+      "claims": [
+        "claim-005"
+      ],
       "archiveIdentifier": "AYK-388",
       "citation": "\"Mustafa Kemal'in Sofya Ataşemiliterliği\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/388/Mustafa-Kemal%E2%80%99in-Sofya-Ata%C5%9Femiliterli%C4%9Fi.",
       "synthetic": false,
@@ -845,7 +859,9 @@
         }
       ],
       "relatedArchiveIds": [],
-      "claims": [],
+      "claims": [
+        "claim-010"
+      ],
       "archiveIdentifier": "AYK-291",
       "citation": "Nasır Yüceer, \"Sina ve Filistin Cephesi'nde Atatürk\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/291/Sina-ve-Filistin-Cephesi%E2%80%99nde-Atat%C3%BCrk.",
       "synthetic": false,
@@ -984,7 +1000,9 @@
         }
       ],
       "relatedArchiveIds": [],
-      "claims": [],
+      "claims": [
+        "claim-008"
+      ],
       "archiveIdentifier": "AYK-105",
       "citation": "Hakan Uzun, \"Afetinan'ın M. Kemal Atatürk'ün Karlsbad Hatıraları\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/105/Afetinan%E2%80%99%C4%B1n-M.-Kemal-Atat%C3%BCrk%E2%80%99%C3%BCn-Karlsbad-Hat%C4%B1ralar%C4%B1.",
       "synthetic": false,
@@ -1051,7 +1069,9 @@
         }
       ],
       "relatedArchiveIds": [],
-      "claims": [],
+      "claims": [
+        "claim-009"
+      ],
       "archiveIdentifier": "AYK-353",
       "citation": "Mehmet Okur, \"Mondros Mütarekesi\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/353/Mondros-M%C3%BCtarekesi.",
       "synthetic": false,
@@ -1903,7 +1923,7 @@
       "urlStatus": "reachable",
       "urlCheckedAt": "2026-10-23",
       "authors": [],
-      "publishedAt": "2008-01-01",
+      "publishedAt": "2008",
       "eventYear": null,
       "periodStart": 1905,
       "periodEnd": 1913,
@@ -1976,7 +1996,7 @@
           "name": "Hikmet Özdemir"
         }
       ],
-      "publishedAt": "2023-01-01",
+      "publishedAt": "2023",
       "eventYear": null,
       "periodStart": 1881,
       "periodEnd": 1938,
@@ -2045,7 +2065,7 @@
           "name": "Oral Ateş"
         }
       ],
-      "publishedAt": "2025-01-01",
+      "publishedAt": "2025",
       "eventYear": 1916,
       "periodStart": 1915,
       "periodEnd": 1917,
@@ -2093,7 +2113,9 @@
         }
       ],
       "relatedArchiveIds": [],
-      "claims": [],
+      "claims": [
+        "claim-007"
+      ],
       "archiveIdentifier": null,
       "citation": "Oral Ateş, İlk Defa Yayınlanan Belgelerle Mustafa Kemal Paşa ve 16'ncı Kolordu Komutanlığı (1915-1917), ATAM e-yayın, 2025, https://atam.gov.tr/e-yayin/ilk-defa-yayinlanan-belgelerle-mustafa-kemal-pasa-ve-16nci-kolordu-komutanligi-1915-1917/.",
       "synthetic": false,
@@ -2119,7 +2141,7 @@
       ],
       "locations": [],
       "documentType": "archive_document",
-      "sourceNature": "primary",
+      "sourceNature": "secondary",
       "researchThemes": [
         "genel",
         "cocukluk",
@@ -2142,7 +2164,7 @@
         "duplicateChecked": true,
         "aiReviewed": true,
         "humanReviewed": false,
-        "notes": "Devlet Arşivleri Başkanlığı'nın özgün belge derlemesi (PDF). Yazar ve yayın tarihi sayfada belirtilmemiş."
+        "notes": "Devlet Arşivleri Başkanlığı'nın özgün belge derlemesi (PDF). Yazar ve yayın tarihi sayfada belirtilmemiş. Derleme düzeyinde ikincil kaynak sayılır; içindeki tek tek belgeler birincildir ve insan incelemesinde ayrıca sınıflandırılmalıdır."
       },
       "state": "insufficient_info",
       "stateHistory": [
@@ -2162,7 +2184,7 @@
       "archiveIdentifier": null,
       "citation": "Belgelerle Mustafa Kemal Atatürk, T.C. Cumhurbaşkanlığı Devlet Arşivleri Başkanlığı (PDF), erişim 23.10.2026, https://www.devletarsivleri.gov.tr/cdn/file/download?fileId=88.",
       "synthetic": false,
-      "notes": "Devlet Arşivleri Başkanlığı'nın özgün belge derlemesi (PDF). Yazar ve yayın tarihi sayfada belirtilmemiş."
+      "notes": "Devlet Arşivleri Başkanlığı'nın özgün belge derlemesi (PDF). Yazar ve yayın tarihi sayfada belirtilmemiş. Derleme düzeyinde ikincil kaynak sayılır; içindeki tek tek belgeler birincildir ve insan incelemesinde ayrıca sınıflandırılmalıdır."
     },
     {
       "schemaVersion": "1.0.0",

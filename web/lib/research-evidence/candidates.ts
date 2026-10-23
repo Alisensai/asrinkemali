@@ -52,6 +52,10 @@ function repositoryRoot() {
 }
 
 export function researchLabEnabled(): boolean {
+  // Yalnızca geliştirme/test ortamı + açık bayrak. Production ortamında
+  // (NODE_ENV=production) bayrak set edilse bile panel açılmaz; kimlik
+  // doğrulama kurulana kadar ortam bayrağı tek başına yetki DEĞİLDİR.
+  if (process.env.NODE_ENV === "production") return false;
   return process.env.MKA_RESEARCH_LAB === "1";
 }
 
