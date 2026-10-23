@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "cumhuriyetin-onuncu-yil-kutlamalari-1933",
+  "record_path": "data/archive/catalog/cumhuriyetin-onuncu-yil-kutlamalari-1933.json",
+  "record_snapshot_sha256": "1694dc25c4693f0d6131470095e8d888adc3d50472627746eec91ad532d4bef7",
+  "record_snapshot": {
+    "title": "Cumhuriyet'in Onuncu Yıl Kutlamaları",
+    "type": "event",
+    "date": {
+      "start": "1933-10-29",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "29 Ekim 1933"
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/606/cumhuriyetin-onuncu-yil-kutlamalari-1933",
+    "citation": "Atatürk Ansiklopedisi, “Cumhuriyet'in Onuncu Yıl Kutlamaları”, yazar Yasemin DOĞANER, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/606/cumhuriyetin-onuncu-yil-kutlamalari-1933",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

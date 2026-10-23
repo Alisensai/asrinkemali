@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "1924-anayasasi",
+  "record_path": "content/archive/records/1924-anayasasi.json",
+  "record_snapshot_sha256": "1f39d1e4ed72cfb2470dd00361bc4d2ee995681666a0bba92ac710aa78e50adf",
+  "record_snapshot": {
+    "title": "1924 Anayasası",
+    "type": "document",
+    "date": {
+      "start": "1924-04-20",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "20 Nisan 1924"
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://ataturkansiklopedisi.gov.tr/detay/168/1924-Anayasası",
+    "citation": "Atatürk Ansiklopedisi: 1924 Anayasası",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "tbmm-1-birlesim-tutanagi-1928",
+  "record_path": "data/archive/catalog/tbmm-1-birlesim-tutanagi-1928.json",
+  "record_snapshot_sha256": "af1aa371b5d13d30cb749b5872cf15ace17c6258b3042bd3b27ac510657913a2",
+  "record_snapshot": {
+    "title": "TBMM 1. Birleşim Tutanağı (1 Kasım 1928)",
+    "type": "document",
+    "date": {
+      "start": "1928-11-01",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "1 Kasım 1928"
+    },
+    "source_institution": "Türkiye Büyük Millet Meclisi",
+    "source_url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d03/c005/tbmm03005001.pdf",
+    "citation": "TBMM Tutanak Dergisi, Dönem 3, Cilt 5, 1. Birleşim, 1 Kasım 1928, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d03/c005/tbmm03005001.pdf",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

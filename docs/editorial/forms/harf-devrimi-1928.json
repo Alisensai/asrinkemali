@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "harf-devrimi-1928",
+  "record_path": "content/archive/records/harf-devrimi-1928.json",
+  "record_snapshot_sha256": "d0d8e5916c675d92d091193e5b89f9988006d2301dc1d0cf94e0127987c7903c",
+  "record_snapshot": {
+    "title": "Harf Devrimi",
+    "type": "event",
+    "date": {
+      "start": "1928-11-01",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "1 Kasım 1928"
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://ataturkansiklopedisi.gov.tr/detay/616/Harf-Devrimi",
+    "citation": "Atatürk Ansiklopedisi: Harf Devrimi",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

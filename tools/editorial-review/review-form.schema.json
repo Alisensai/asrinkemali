@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:asrin-kemali:schema:editorial-review-form:1.0.0",
+  "title": "ASRIN KEMALİ archive human editorial review form",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "record_id",
+    "record_path",
+    "record_snapshot_sha256",
+    "record_snapshot",
+    "review_status",
+    "reviewer",
+    "review_date",
+    "checks",
+    "outcome",
+    "evidence",
+    "explanation",
+    "publicationApproval"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "record_id": { "type": "string", "minLength": 1 },
+    "record_path": { "type": "string", "minLength": 1 },
+    "record_snapshot_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "record_snapshot": {
+      "type": "object",
+      "required": ["title", "type", "date", "source_institution", "source_url", "citation", "rights_status"],
+      "properties": {
+        "title": { "type": "string" },
+        "type": { "type": "string" },
+        "date": { "type": "object" },
+        "source_institution": { "type": "string" },
+        "source_url": { "type": "string" },
+        "citation": { "type": "string" },
+        "rights_status": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "review_status": { "enum": ["pending", "submitted"] },
+    "reviewer": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "required": ["name", "role"],
+          "properties": {
+            "name": { "type": "string", "minLength": 1 },
+            "role": { "const": "human_expert" },
+            "institution": { "type": "string" }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "review_date": { "type": ["string", "null"], "format": "date" },
+    "checks": {
+      "type": "object",
+      "required": [
+        "historical_facts",
+        "source_authenticity",
+        "source_record_consistency",
+        "quotation",
+        "copyright_and_reuse"
+      ],
+      "properties": {
+        "historical_facts": { "$ref": "#/$defs/reviewCheck" },
+        "source_authenticity": { "$ref": "#/$defs/reviewCheck" },
+        "source_record_consistency": { "$ref": "#/$defs/reviewCheck" },
+        "quotation": { "$ref": "#/$defs/reviewCheck" },
+        "copyright_and_reuse": { "$ref": "#/$defs/reviewCheck" }
+      },
+      "additionalProperties": false
+    },
+    "outcome": { "enum": ["pending", "approved", "correction_required", "rejected"] },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["description"],
+        "properties": {
+          "description": { "type": "string", "minLength": 1 },
+          "url": { "type": "string", "format": "uri" },
+          "reference": { "type": "string", "minLength": 1 }
+        },
+        "anyOf": [{ "required": ["url"] }, { "required": ["reference"] }],
+        "additionalProperties": false
+      }
+    },
+    "explanation": { "type": "string" },
+    "publicationApproval": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "required": ["status", "authority", "role", "approvedBy", "approvedAt"],
+          "properties": {
+            "status": { "const": "approved" },
+            "authority": { "const": "human" },
+            "role": { "const": "human_editor" },
+            "approvedBy": { "type": "string", "minLength": 1 },
+            "approvedAt": { "type": "string", "format": "date-time" }
+          },
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "reviewCheck": {
+      "enum": ["not_reviewed", "pass", "fail", "not_applicable"]
+    }
+  }
+}

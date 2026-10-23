@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "sivas-kongresi-1919",
+  "record_path": "data/archive/catalog/sivas-kongresi-1919.json",
+  "record_snapshot_sha256": "64fb6a75dd1c6922cb0bb96d195ab0be66fe8986eb2540bc47093004d74da4b5",
+  "record_snapshot": {
+    "title": "Sivas Kongresi",
+    "type": "event",
+    "date": {
+      "start": "1919-09-04",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "4 Eylül 1919"
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/294/sivas-kongresi-1919",
+    "citation": "Atatürk Ansiklopedisi, “Sivas Kongresi”, yazar Firdes TEMİZGÜNEY, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/294/sivas-kongresi-1919",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ankaranin-baskent-olusu-1923",
+  "record_path": "data/archive/catalog/ankaranin-baskent-olusu-1923.json",
+  "record_snapshot_sha256": "68e800d2c6dca452095c8eeddf5e6aac2bad53cb061e7404f5e8ede5545d2749",
+  "record_snapshot": {
+    "title": "Ankara'nın Başkent Oluşu",
+    "type": "event",
+    "date": {
+      "start": "1923-10-13",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "13 Ekim 1923"
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/868/ankaranin-baskent-olusu-1923",
+    "citation": "Atatürk Ansiklopedisi, “Ankara'nın Başkent Oluşu”, yazar Zafer Koylu, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/868/ankaranin-baskent-olusu-1923",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

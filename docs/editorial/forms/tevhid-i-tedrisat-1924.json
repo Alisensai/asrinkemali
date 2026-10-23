@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "tevhid-i-tedrisat-1924",
+  "record_path": "content/archive/records/tevhid-i-tedrisat-1924.json",
+  "record_snapshot_sha256": "d3b313ad3c8fa17e4a849e44889f956085f349b295dd5824a197bd821b8f5a3e",
+  "record_snapshot": {
+    "title": "Tevhid-i Tedrisat Kanunu",
+    "type": "event",
+    "date": {
+      "start": "1924-03-03",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "3 Mart 1924"
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://ataturkansiklopedisi.gov.tr/detay/400/Tevhid-i-Tedrisat-Kanunu",
+    "citation": "Atatürk Ansiklopedisi: Tevhid-i Tedrisat Kanunu",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}
