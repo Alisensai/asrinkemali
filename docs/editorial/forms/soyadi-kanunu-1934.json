@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "soyadi-kanunu-1934",
+  "record_path": "data/archive/catalog/soyadi-kanunu-1934.json",
+  "record_snapshot_sha256": "34f4d43c451e997be145741a5db2fe7da64dcc69555907012bf2584cfff83ef8",
+  "record_snapshot": {
+    "title": "Soyadı Kanunu",
+    "type": "event",
+    "date": {
+      "start": "1934-06-21",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "21 Haziran 1934"
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/298/soyadi-kanunu-1934",
+    "citation": "Atatürk Ansiklopedisi, “Soyadı Kanunu”, yazar Oğuz Aytepe, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/298/soyadi-kanunu-1934",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

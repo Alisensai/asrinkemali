@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "sevr-antlasmasi-1920",
+  "record_path": "data/archive/catalog/sevr-antlasmasi-1920.json",
+  "record_snapshot_sha256": "a6f9045c30535231cbf44ca00ed0f50e1b83866df2014493bef64860e09b7313",
+  "record_snapshot": {
+    "title": "Sevr Antlaşması",
+    "type": "event",
+    "date": {
+      "start": "1920-08-10",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "10 Ağustos 1920"
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/271/sevr-antlasmasi-1920",
+    "citation": "Atatürk Ansiklopedisi, “Sevr Antlaşması”, yazar Şayan Ulusan, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/271/sevr-antlasmasi-1920",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

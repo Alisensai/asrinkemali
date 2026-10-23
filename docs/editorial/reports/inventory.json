@@ -1,0 +1,3332 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-23T17:08:35.693839+00:00",
+  "source_directories": [
+    "content/archive/records",
+    "data/archive/catalog"
+  ],
+  "summary": {
+    "record_count": 68,
+    "invalid_record_count": 0,
+    "type_counts": {
+      "document": 13,
+      "event": 29,
+      "photograph": 9,
+      "place": 3,
+      "publication": 12,
+      "speech": 2
+    },
+    "source_institution_counts": {
+      "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)": 37,
+      "Atatürk Araştırma Merkezi Yayınları": 5,
+      "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı": 8,
+      "Millî Kütüphane": 3,
+      "Türkiye Büyük Millet Meclisi": 15
+    },
+    "human_review_missing_count": 68,
+    "human_review_missing_ids": [
+      "1924-anayasasi",
+      "anitkabir",
+      "cumhuriyetin-ilani-1923",
+      "harf-devrimi-1928",
+      "i-tbmm-binasi",
+      "ii-inonu-zaferi-fotografi-1921",
+      "kadinlara-secme-secilme-hakki-1934",
+      "lozan-baris-antlasmasi-1923",
+      "meclis-onunde-dua-1920",
+      "nutuk-1928",
+      "onuncu-yil-nutku-1933",
+      "saltanatin-kaldirilmasi-1922",
+      "samsun-cikarmasi-1919",
+      "selanikteki-ataturk-evi",
+      "tbmm-acilis-fotografi-1920",
+      "tbmm-acilisi-1920",
+      "tevhid-i-tedrisat-1924",
+      "vatandas-icin-medeni-bilgiler-1930",
+      "amasya-mulakati-1919",
+      "amasya-tamimi-1919",
+      "ankaranin-baskent-olusu-1923",
+      "atam-ataturk-gunlugu-2025",
+      "atam-ataturk-orman-ciftligi-tarihi-2025",
+      "atam-gazi-mustafa-kemal-ataturkun-hayati-2025",
+      "atam-milletin-sesi-mehmet-akif-ersoy-2026",
+      "atam-nutuk-ozgun-dille-2025",
+      "ataturkun-nutuk-adli-eseri-1927",
+      "balikesir-zagnos-pasa-nutku-1923",
+      "baskomutanlik-kanunu-1921",
+      "buyuk-taarruz-1922",
+      "cumhuriyet-gazetesi-1924",
+      "cumhuriyetin-on-besinci-yil-kutlamalari-1938",
+      "cumhuriyetin-onuncu-yil-kutlamalari-1933",
+      "erzurum-kongresi-1919",
+      "halifeligin-kaldirilmasi-1924",
+      "havza-genelgesi-1919",
+      "ibb-10-yildonumu-meclis-fotografi-1933",
+      "ibb-canakkale-fotografi-1928",
+      "ibb-ertugrul-yati-fotografi-1927",
+      "ibb-erzincan-sapka-fotografi-1926",
+      "ibb-lozan-mektubu-1923",
+      "ibb-nutuk-okuma-fotografi-1927",
+      "ibb-refet-pasa-ziyafeti-fotografi-1923",
+      "ibb-taksim-abide-komisyonu-tutanagi-1928",
+      "izmirin-isgali-1919",
+      "menemen-olayi-1930",
+      "milli-kutuphane-ataturk-donemi-maliye-politikasi-1982",
+      "milli-kutuphane-ataturk-ve-canakkale-2006",
+      "milli-kutuphane-inonu-diyor-ki-1933",
+      "montro-bogazlar-sozlesmesi-1936",
+      "mudanya-mutarekesi-1922",
+      "sakarya-meydan-muharebesi-1921",
+      "sapka-inkilabi-1925",
+      "sevr-antlasmasi-1920",
+      "sivas-kongresi-1919",
+      "soyadi-kanunu-1934",
+      "tbmm-1-birlesim-tutanagi-1920",
+      "tbmm-1-birlesim-tutanagi-1928",
+      "tbmm-130-birlesim-tutanagi-1922",
+      "tbmm-135-birlesim-tutanagi-1921",
+      "tbmm-2-birlesim-tutanagi-1924",
+      "tbmm-35-birlesim-tutanagi-1923",
+      "tbmm-43-birlesim-tutanagi-1923",
+      "tbmm-57-birlesim-tutanagi-1926",
+      "tbmm-62-birlesim-tutanagi-1921",
+      "tbmm-71-birlesim-tutanagi-1934",
+      "tekke-zaviye-turbelerin-kapatilmasi-1925",
+      "teskilat-i-esasiye-1921"
+    ],
+    "ai_review_only_count": 67,
+    "ai_review_only_ids": [
+      "1924-anayasasi",
+      "anitkabir",
+      "cumhuriyetin-ilani-1923",
+      "harf-devrimi-1928",
+      "i-tbmm-binasi",
+      "ii-inonu-zaferi-fotografi-1921",
+      "kadinlara-secme-secilme-hakki-1934",
+      "lozan-baris-antlasmasi-1923",
+      "meclis-onunde-dua-1920",
+      "nutuk-1928",
+      "onuncu-yil-nutku-1933",
+      "saltanatin-kaldirilmasi-1922",
+      "samsun-cikarmasi-1919",
+      "tbmm-acilis-fotografi-1920",
+      "tbmm-acilisi-1920",
+      "tevhid-i-tedrisat-1924",
+      "vatandas-icin-medeni-bilgiler-1930",
+      "amasya-mulakati-1919",
+      "amasya-tamimi-1919",
+      "ankaranin-baskent-olusu-1923",
+      "atam-ataturk-gunlugu-2025",
+      "atam-ataturk-orman-ciftligi-tarihi-2025",
+      "atam-gazi-mustafa-kemal-ataturkun-hayati-2025",
+      "atam-milletin-sesi-mehmet-akif-ersoy-2026",
+      "atam-nutuk-ozgun-dille-2025",
+      "ataturkun-nutuk-adli-eseri-1927",
+      "balikesir-zagnos-pasa-nutku-1923",
+      "baskomutanlik-kanunu-1921",
+      "buyuk-taarruz-1922",
+      "cumhuriyet-gazetesi-1924",
+      "cumhuriyetin-on-besinci-yil-kutlamalari-1938",
+      "cumhuriyetin-onuncu-yil-kutlamalari-1933",
+      "erzurum-kongresi-1919",
+      "halifeligin-kaldirilmasi-1924",
+      "havza-genelgesi-1919",
+      "ibb-10-yildonumu-meclis-fotografi-1933",
+      "ibb-canakkale-fotografi-1928",
+      "ibb-ertugrul-yati-fotografi-1927",
+      "ibb-erzincan-sapka-fotografi-1926",
+      "ibb-lozan-mektubu-1923",
+      "ibb-nutuk-okuma-fotografi-1927",
+      "ibb-refet-pasa-ziyafeti-fotografi-1923",
+      "ibb-taksim-abide-komisyonu-tutanagi-1928",
+      "izmirin-isgali-1919",
+      "menemen-olayi-1930",
+      "milli-kutuphane-ataturk-donemi-maliye-politikasi-1982",
+      "milli-kutuphane-ataturk-ve-canakkale-2006",
+      "milli-kutuphane-inonu-diyor-ki-1933",
+      "montro-bogazlar-sozlesmesi-1936",
+      "mudanya-mutarekesi-1922",
+      "sakarya-meydan-muharebesi-1921",
+      "sapka-inkilabi-1925",
+      "sevr-antlasmasi-1920",
+      "sivas-kongresi-1919",
+      "soyadi-kanunu-1934",
+      "tbmm-1-birlesim-tutanagi-1920",
+      "tbmm-1-birlesim-tutanagi-1928",
+      "tbmm-130-birlesim-tutanagi-1922",
+      "tbmm-135-birlesim-tutanagi-1921",
+      "tbmm-2-birlesim-tutanagi-1924",
+      "tbmm-35-birlesim-tutanagi-1923",
+      "tbmm-43-birlesim-tutanagi-1923",
+      "tbmm-57-birlesim-tutanagi-1926",
+      "tbmm-62-birlesim-tutanagi-1921",
+      "tbmm-71-birlesim-tutanagi-1934",
+      "tekke-zaviye-turbelerin-kapatilmasi-1925",
+      "teskilat-i-esasiye-1921"
+    ],
+    "missing_reviewer_count": 1,
+    "missing_reviewer_ids": [
+      "selanikteki-ataturk-evi"
+    ],
+    "source_missing_count": 0,
+    "source_missing_ids": [],
+    "rights_unclear_count": 2,
+    "rights_unclear_ids": [
+      "selanikteki-ataturk-evi",
+      "vatandas-icin-medeni-bilgiler-1930"
+    ],
+    "estimated_date_count": 3,
+    "estimated_date_ids": [
+      "milli-kutuphane-ataturk-donemi-maliye-politikasi-1982",
+      "milli-kutuphane-ataturk-ve-canakkale-2006",
+      "milli-kutuphane-inonu-diyor-ki-1933"
+    ],
+    "source_access_status_counts": {
+      "not_checked": 68
+    },
+    "probable_duplicate_group_count": 0,
+    "record_identifier_collision_group_count": 0,
+    "conflicting_source_group_count": 0,
+    "publication_approval_pending_count": 68,
+    "publication_approval_pending_ids": [
+      "1924-anayasasi",
+      "anitkabir",
+      "cumhuriyetin-ilani-1923",
+      "harf-devrimi-1928",
+      "i-tbmm-binasi",
+      "ii-inonu-zaferi-fotografi-1921",
+      "kadinlara-secme-secilme-hakki-1934",
+      "lozan-baris-antlasmasi-1923",
+      "meclis-onunde-dua-1920",
+      "nutuk-1928",
+      "onuncu-yil-nutku-1933",
+      "saltanatin-kaldirilmasi-1922",
+      "samsun-cikarmasi-1919",
+      "selanikteki-ataturk-evi",
+      "tbmm-acilis-fotografi-1920",
+      "tbmm-acilisi-1920",
+      "tevhid-i-tedrisat-1924",
+      "vatandas-icin-medeni-bilgiler-1930",
+      "amasya-mulakati-1919",
+      "amasya-tamimi-1919",
+      "ankaranin-baskent-olusu-1923",
+      "atam-ataturk-gunlugu-2025",
+      "atam-ataturk-orman-ciftligi-tarihi-2025",
+      "atam-gazi-mustafa-kemal-ataturkun-hayati-2025",
+      "atam-milletin-sesi-mehmet-akif-ersoy-2026",
+      "atam-nutuk-ozgun-dille-2025",
+      "ataturkun-nutuk-adli-eseri-1927",
+      "balikesir-zagnos-pasa-nutku-1923",
+      "baskomutanlik-kanunu-1921",
+      "buyuk-taarruz-1922",
+      "cumhuriyet-gazetesi-1924",
+      "cumhuriyetin-on-besinci-yil-kutlamalari-1938",
+      "cumhuriyetin-onuncu-yil-kutlamalari-1933",
+      "erzurum-kongresi-1919",
+      "halifeligin-kaldirilmasi-1924",
+      "havza-genelgesi-1919",
+      "ibb-10-yildonumu-meclis-fotografi-1933",
+      "ibb-canakkale-fotografi-1928",
+      "ibb-ertugrul-yati-fotografi-1927",
+      "ibb-erzincan-sapka-fotografi-1926",
+      "ibb-lozan-mektubu-1923",
+      "ibb-nutuk-okuma-fotografi-1927",
+      "ibb-refet-pasa-ziyafeti-fotografi-1923",
+      "ibb-taksim-abide-komisyonu-tutanagi-1928",
+      "izmirin-isgali-1919",
+      "menemen-olayi-1930",
+      "milli-kutuphane-ataturk-donemi-maliye-politikasi-1982",
+      "milli-kutuphane-ataturk-ve-canakkale-2006",
+      "milli-kutuphane-inonu-diyor-ki-1933",
+      "montro-bogazlar-sozlesmesi-1936",
+      "mudanya-mutarekesi-1922",
+      "sakarya-meydan-muharebesi-1921",
+      "sapka-inkilabi-1925",
+      "sevr-antlasmasi-1920",
+      "sivas-kongresi-1919",
+      "soyadi-kanunu-1934",
+      "tbmm-1-birlesim-tutanagi-1920",
+      "tbmm-1-birlesim-tutanagi-1928",
+      "tbmm-130-birlesim-tutanagi-1922",
+      "tbmm-135-birlesim-tutanagi-1921",
+      "tbmm-2-birlesim-tutanagi-1924",
+      "tbmm-35-birlesim-tutanagi-1923",
+      "tbmm-43-birlesim-tutanagi-1923",
+      "tbmm-57-birlesim-tutanagi-1926",
+      "tbmm-62-birlesim-tutanagi-1921",
+      "tbmm-71-birlesim-tutanagi-1934",
+      "tekke-zaviye-turbelerin-kapatilmasi-1925",
+      "teskilat-i-esasiye-1921"
+    ],
+    "review_priority_counts": {
+      "P1": 5,
+      "P3": 63
+    }
+  },
+  "records": [
+    {
+      "record_id": "1924-anayasasi",
+      "record_slug": "1924-anayasasi",
+      "title": "1924 Anayasası",
+      "type": "document",
+      "date_start": "1924-04-20",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.0.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://ataturkansiklopedisi.gov.tr/detay/168/1924-Anayasası",
+      "citation": "Atatürk Ansiklopedisi: 1924 Anayasası — Kurumsal ansiklopedi maddesi; anayasanın kabul tarihini, 491 sayılı kanun numarasını ve kurumsal yapısını açıklar.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "content/archive/records/1924-anayasasi.json",
+      "record_snapshot_sha256": "1f39d1e4ed72cfb2470dd00361bc4d2ee995681666a0bba92ac710aa78e50adf",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "anitkabir",
+      "record_slug": "anitkabir",
+      "title": "Anıtkabir",
+      "type": "place",
+      "date_start": "1953-11-10",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.0.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://ataturkansiklopedisi.gov.tr/detay/869/Anıtkabir",
+      "citation": "Atatürk Ansiklopedisi: Anıtkabir — Kurumsal ansiklopedi maddesi; Anıtkabir'in yer seçimi, inşası ve 10 Kasım 1953 nakil törenini açıklar.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "content/archive/records/anitkabir.json",
+      "record_snapshot_sha256": "98e6efb1b7580044b4df5781e739fedc86a2f413974e53ae7f22298ac7d57d74",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "cumhuriyetin-ilani-1923",
+      "record_slug": "cumhuriyetin-ilani-1923",
+      "title": "Cumhuriyet'in İlanı",
+      "type": "event",
+      "date_start": "1923-10-29",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.0.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://ataturkansiklopedisi.gov.tr/detay/608/Cumhuriyet’in-İlanı",
+      "citation": "Atatürk Ansiklopedisi: Cumhuriyet'in İlanı — Kurumsal ansiklopedi maddesi; 29 Ekim 1923 kararını, anayasa değişikliğini ve siyasi bağlamı açıklar.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "content/archive/records/cumhuriyetin-ilani-1923.json",
+      "record_snapshot_sha256": "8cfad1c2fec52fb0610385929415055628299181c13161190da1c390a63b03dd",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "harf-devrimi-1928",
+      "record_slug": "harf-devrimi-1928",
+      "title": "Harf Devrimi",
+      "type": "event",
+      "date_start": "1928-11-01",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.0.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://ataturkansiklopedisi.gov.tr/detay/616/Harf-Devrimi",
+      "citation": "Atatürk Ansiklopedisi: Harf Devrimi — Kurumsal ansiklopedi maddesi; 1 Kasım 1928 kanununu, alfabe tartışmalarını ve uygulama sürecini açıklar.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "content/archive/records/harf-devrimi-1928.json",
+      "record_snapshot_sha256": "d0d8e5916c675d92d091193e5b89f9988006d2301dc1d0cf94e0127987c7903c",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "i-tbmm-binasi",
+      "record_slug": "i-tbmm-binasi",
+      "title": "I. Türkiye Büyük Millet Meclisi Binası",
+      "type": "place",
+      "date_start": "1920-04-23",
+      "date_end": "1924-10-15",
+      "date_precision": "range",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.0.0",
+      "source_institution": "Türkiye Büyük Millet Meclisi",
+      "source_url": "https://kurtulussavasimuzesi.tbmm.gov.tr/meclisacilis",
+      "citation": "Kurtuluş Savaşı Müzesi: Meclisin Açılışı — Kurumsal sayfa; binanın Meclis olarak kullanım aralığını ve müze statüsünü açıklar.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "content/archive/records/i-tbmm-binasi.json",
+      "record_snapshot_sha256": "c1bb8f9b5583448ef2466ed9075bd64a018a01b4a965f03d8e3c336a22d1762f",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "ii-inonu-zaferi-fotografi-1921",
+      "record_slug": "ii-inonu-zaferi-fotografi-1921",
+      "title": "II. İnönü Zaferi Fotoğrafı",
+      "type": "photograph",
+      "date_start": "1921-04-10",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.0.0",
+      "source_institution": "Türkiye Büyük Millet Meclisi",
+      "source_url": "https://kurtulussavasimuzesi.tbmm.gov.tr/fotograf",
+      "citation": "Kurtuluş Savaşı Müzesi: Fotoğraflar — Kurumsal albümde II. İnönü Zaferi başlığı ve 10 Nisan 1921 tarihiyle listelenir.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "reviewed",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "content/archive/records/ii-inonu-zaferi-fotografi-1921.json",
+      "record_snapshot_sha256": "2ca4ad267bbfebb3ad24131611b978955ef022ed506c01f95bc12696af014692",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "kadinlara-secme-secilme-hakki-1934",
+      "record_slug": "kadinlara-secme-secilme-hakki-1934",
+      "title": "Kadınlara Milletvekili Seçme ve Seçilme Hakkı",
+      "type": "event",
+      "date_start": "1934-12-05",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.0.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://ataturkansiklopedisi.gov.tr/detay/919/Atatürk-Döneminde-Kadın-Hakları",
+      "citation": "Atatürk Ansiklopedisi: Atatürk Döneminde Kadın Hakları — Kurumsal ansiklopedi maddesi; 5 Aralık 1934 tarihli 2598 sayılı kanunu ve kadın hakları sürecini açıklar.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "content/archive/records/kadinlara-secme-secilme-hakki-1934.json",
+      "record_snapshot_sha256": "3491e779adc5a8b0bc566cee6bbd41d40e5ab532f27ffbccf756a737cd247312",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "lozan-baris-antlasmasi-1923",
+      "record_slug": "lozan-baris-antlasmasi-1923",
+      "title": "Lozan Barış Antlaşması",
+      "type": "event",
+      "date_start": "1923-07-24",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.0.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://ataturkansiklopedisi.gov.tr/detay/627/Lozan-Barış-Antlaşması",
+      "citation": "Atatürk Ansiklopedisi: Lozan Barış Antlaşması — Kurumsal ansiklopedi maddesi; antlaşmanın tarihini, görüşme sürecini ve siyasi sonuçlarını açıklar.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "content/archive/records/lozan-baris-antlasmasi-1923.json",
+      "record_snapshot_sha256": "66691a027433762b0299687b3835afc220e1486a1d85b86ed1fd79f310751108",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "meclis-onunde-dua-1920",
+      "record_slug": "meclis-onunde-dua-1920",
+      "title": "Meclis Önünde Dua",
+      "type": "photograph",
+      "date_start": "1920-05-06",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.0.0",
+      "source_institution": "Türkiye Büyük Millet Meclisi",
+      "source_url": "https://kurtulussavasimuzesi.tbmm.gov.tr/fotograf",
+      "citation": "Kurtuluş Savaşı Müzesi: Fotoğraflar — Kurumsal fotoğraf albümünde Meclis Önünde Dua başlığı ve 6 Mayıs 1920 tarihiyle listelenir.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "content/archive/records/meclis-onunde-dua-1920.json",
+      "record_snapshot_sha256": "0f2813879ca7c30d73f74715c965b44c29c8473587b0c0e85466bd22a6762276",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "nutuk-1928",
+      "record_slug": "nutuk-1928",
+      "title": "Nutuk",
+      "type": "publication",
+      "date_start": "1928-07-01",
+      "date_end": "",
+      "date_precision": "month",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.0.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://ataturkansiklopedisi.gov.tr/detay/878/Atatürk’ün-Nutuk-Adlı-Eseri",
+      "citation": "Atatürk Ansiklopedisi: Atatürk'ün Nutuk Adlı Eseri — Kurumsal ansiklopedi maddesi; Nutuk'un okunuşunu, ilk baskısını, cilt yapısını ve belge sayısını açıklar.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "content/archive/records/nutuk-1928.json",
+      "record_snapshot_sha256": "5a9f113f87a0eaec36d1b331ad514d70ed4c934c3db4d47f818a2245dd1cebcb",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "onuncu-yil-nutku-1933",
+      "record_slug": "onuncu-yil-nutku-1933",
+      "title": "Onuncu Yıl Nutku",
+      "type": "speech",
+      "date_start": "1933-10-29",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.0.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://ataturkansiklopedisi.gov.tr/detay/503/Onuncu-Yıl-Nutku",
+      "citation": "Atatürk Ansiklopedisi: Onuncu Yıl Nutku — Kurumsal ansiklopedi maddesi; nutkun tarihini, bağlamını, taslak sürecini ve metnini açıklar.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": true,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "content/archive/records/onuncu-yil-nutku-1933.json",
+      "record_snapshot_sha256": "dedb46777337a44fada240e0a20fcc45e9572064eae43cdf54fdd8a2a5870f77",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "saltanatin-kaldirilmasi-1922",
+      "record_slug": "saltanatin-kaldirilmasi-1922",
+      "title": "Saltanatın Kaldırılması",
+      "type": "event",
+      "date_start": "1922-11-01",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.0.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://ataturkansiklopedisi.gov.tr/detay/222/Saltanatın-Kaldırılması",
+      "citation": "Atatürk Ansiklopedisi: Saltanatın Kaldırılması — Kurumsal ansiklopedi maddesi; 1 Kasım 1922 kararının siyasi bağlamını ve Lozan sürecini açıklar.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "content/archive/records/saltanatin-kaldirilmasi-1922.json",
+      "record_snapshot_sha256": "77c093a4cc484ec9fd3fd4f786a983df4a773275e347223b038244c937f24720",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "samsun-cikarmasi-1919",
+      "record_slug": "samsun-cikarmasi-1919",
+      "title": "Mustafa Kemal'in Samsun'a Çıkışı",
+      "type": "event",
+      "date_start": "1919-05-19",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.0.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://ataturkansiklopedisi.gov.tr/detay/324/Millî-Bayramlar",
+      "citation": "Atatürk Ansiklopedisi: Millî Bayramlar — Atatürk Araştırma Merkezi tarafından yayımlanan ansiklopedi maddesi; 19 Mayıs'ın anlamını ve dönemin olaylarını açıklar.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "content/archive/records/samsun-cikarmasi-1919.json",
+      "record_snapshot_sha256": "f174bc0d3cec69bc0a346e6cd0d28788b7b762f840d87f9c4d2bc6207620606e",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "selanikteki-ataturk-evi",
+      "record_slug": "selanikteki-ataturk-evi",
+      "title": "Atatürk'ün Selanik'teki Evi",
+      "type": "place",
+      "date_start": "",
+      "date_end": "",
+      "date_precision": "unknown",
+      "date_certainty": "unknown",
+      "archive_schema_version": "1.0.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://ataturkansiklopedisi.gov.tr/detay/882/Atatürk’ün-Selanik’teki-Evi",
+      "citation": "Atatürk Ansiklopedisi: Atatürk'ün Selanik'teki Evi — Kurumsal ansiklopedi maddesi; evin konumu, onarımları ve müze statüsünü açıklar.",
+      "recorded_source_access_claim": "previously_reported_unreachable",
+      "source_access_status": "not_checked",
+      "rights_status": "unknown",
+      "ai_review_status": "not_detected",
+      "human_expert_review_status": "missing",
+      "human_publication_approval_status": "pending",
+      "verification_status": "draft",
+      "quotation_present": false,
+      "issues": [
+        "rights_unclear",
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "unknown_date",
+        "reuse_or_copyright_status_unclear",
+        "human_expert_review_required",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "content/archive/records/selanikteki-ataturk-evi.json",
+      "record_snapshot_sha256": "07d9ad2c842bcef557e1f2d61330725a80d5be1dd131b5b7875e285ac6d6d133",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P1",
+        "score": 5,
+        "dimensions": [
+          {
+            "area": "date",
+            "issues": [
+              "estimated_or_unknown_date"
+            ],
+            "weight": 2
+          },
+          {
+            "area": "rights",
+            "issues": [
+              "reuse_or_copyright_status_unclear"
+            ],
+            "weight": 3
+          }
+        ],
+        "human_expert_review_status": "missing",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "tbmm-acilis-fotografi-1920",
+      "record_slug": "tbmm-acilis-fotografi-1920",
+      "title": "TBMM'nin Açılış Fotoğrafı",
+      "type": "photograph",
+      "date_start": "1920-04-23",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.0.0",
+      "source_institution": "Türkiye Büyük Millet Meclisi",
+      "source_url": "https://kurtulussavasimuzesi.tbmm.gov.tr/meclisacilis",
+      "citation": "Kurtuluş Savaşı Müzesi: Meclisin Açılışı — Kurumsal sayfadaki fotoğraf galerisinde yer alan görsel; credit Türk Tarih Kurumu Arşivi olarak belirtilir.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "content/archive/records/tbmm-acilis-fotografi-1920.json",
+      "record_snapshot_sha256": "1e73f6b45b62d656a2c65bf3db42e048631f1c051755c139cb63c7da6a131257",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "tbmm-acilisi-1920",
+      "record_slug": "tbmm-acilisi-1920",
+      "title": "Türkiye Büyük Millet Meclisinin Açılışı",
+      "type": "event",
+      "date_start": "1920-04-23",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.0.0",
+      "source_institution": "Türkiye Büyük Millet Meclisi",
+      "source_url": "https://kurtulussavasimuzesi.tbmm.gov.tr/meclisacilis",
+      "citation": "Kurtuluş Savaşı Müzesi: Meclisin Açılışı — Kurumsal müze sayfası; açılış töreni ve I. TBMM Binası bilgileri birlikte yer alır.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "content/archive/records/tbmm-acilisi-1920.json",
+      "record_snapshot_sha256": "8de970ca9f6396dc0679ec583f7d8d66cf9a993fc3b74c5a91db032b18390c2e",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "tevhid-i-tedrisat-1924",
+      "record_slug": "tevhid-i-tedrisat-1924",
+      "title": "Tevhid-i Tedrisat Kanunu",
+      "type": "event",
+      "date_start": "1924-03-03",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.0.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://ataturkansiklopedisi.gov.tr/detay/400/Tevhid-i-Tedrisat-Kanunu",
+      "citation": "Atatürk Ansiklopedisi: Tevhid-i Tedrisat Kanunu — Kurumsal ansiklopedi maddesi; kanun teklifini, TBMM görüşmesini ve eğitim reformunun kapsamını açıklar.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "content/archive/records/tevhid-i-tedrisat-1924.json",
+      "record_snapshot_sha256": "d3b313ad3c8fa17e4a849e44889f956085f349b295dd5824a197bd821b8f5a3e",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "vatandas-icin-medeni-bilgiler-1930",
+      "record_slug": "vatandas-icin-medeni-bilgiler-1930",
+      "title": "Vatandaş İçin Medenî Bilgiler",
+      "type": "publication",
+      "date_start": "1930-01-01",
+      "date_end": "",
+      "date_precision": "year",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.0.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://ataturkansiklopedisi.gov.tr/detay/140/Vatandaş-İçin-Medenî-Bilgiler",
+      "citation": "Atatürk Ansiklopedisi: Vatandaş İçin Medenî Bilgiler — Kurumsal ansiklopedi maddesi; eserin yazarını, hazırlanışını ve 1930 baskısını açıklar.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "unknown",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "reviewed",
+      "quotation_present": false,
+      "issues": [
+        "rights_unclear",
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "reuse_or_copyright_status_unclear",
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "content/archive/records/vatandas-icin-medeni-bilgiler-1930.json",
+      "record_snapshot_sha256": "842eec2f80bce282d9cc9ca06230933ac1ee79099d82f0053d0adfb942433041",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P1",
+        "score": 3,
+        "dimensions": [
+          {
+            "area": "rights",
+            "issues": [
+              "reuse_or_copyright_status_unclear"
+            ],
+            "weight": 3
+          }
+        ],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "amasya-mulakati-1919",
+      "record_slug": "amasya-mulakati-1919",
+      "title": "Amasya Mülakatı",
+      "type": "event",
+      "date_start": "1919-10-22",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/209/amasya-mulakati-1919",
+      "citation": "Atatürk Ansiklopedisi, “Amasya Mülakatı”, yazar Hikmet Özdemir, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/209/amasya-mulakati-1919 — Atatürk Ansiklopedisi: Amasya Mülakatı — Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/amasya-mulakati-1919.json",
+      "record_snapshot_sha256": "ec33f5236ebdf19eed847d720968dd1a35d0c2620259aec046b0ecdfb165b298",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "amasya-tamimi-1919",
+      "record_slug": "amasya-tamimi-1919",
+      "title": "Amasya Tamimi",
+      "type": "event",
+      "date_start": "1919-06-22",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/210/amasya-tamimi-1919",
+      "citation": "Atatürk Ansiklopedisi, “Amasya Tamimi”, yazar Hikmet Özdemir, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/210/amasya-tamimi-1919 — Atatürk Ansiklopedisi: Amasya Tamimi — Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/amasya-tamimi-1919.json",
+      "record_snapshot_sha256": "523b884bfc395150c451707caa2380f37475631cb3122bc9bbf698a9e69d8f97",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "ankaranin-baskent-olusu-1923",
+      "record_slug": "ankaranin-baskent-olusu-1923",
+      "title": "Ankara'nın Başkent Oluşu",
+      "type": "event",
+      "date_start": "1923-10-13",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/868/ankaranin-baskent-olusu-1923",
+      "citation": "Atatürk Ansiklopedisi, “Ankara'nın Başkent Oluşu”, yazar Zafer Koylu, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/868/ankaranin-baskent-olusu-1923 — Atatürk Ansiklopedisi: Ankara'nın Başkent Oluşu — Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/ankaranin-baskent-olusu-1923.json",
+      "record_snapshot_sha256": "68e800d2c6dca452095c8eeddf5e6aac2bad53cb061e7404f5e8ede5545d2749",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "atam-ataturk-gunlugu-2025",
+      "record_slug": "atam-ataturk-gunlugu-2025",
+      "title": "Doğumundan Ölümüne Kadar Kaynakçalı Atatürk Günlüğü",
+      "type": "publication",
+      "date_start": "2025-01-01",
+      "date_end": "",
+      "date_precision": "year",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Araştırma Merkezi Yayınları",
+      "source_url": "https://atam.gov.tr/kitaplar/dogumundan-olumune-kadar-kaynakcali-ataturk-gunlugu/",
+      "citation": "Prof. Dr. Utkan Kocatürk, Doğumundan Ölümüne Kadar Kaynakçalı Atatürk Günlüğü, Atatürk Araştırma Merkezi Yayınları, Ankara 2025, ISBN 978-975-17-6173-6. — ATAM Yayınları: Doğumundan Ölümüne Kadar Kaynakçalı Atatürk Günlüğü — Kitap künyesi (yazar, ISBN, basım yılı) ATAM yayın sayfasından doğrulandı; kitap dosyası indirilmedi.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/atam-ataturk-gunlugu-2025.json",
+      "record_snapshot_sha256": "2b7ece3bbdeecf01123396c458d9d2c78f26f133cc74ed9144936f199c310b9c",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "atam-ataturk-orman-ciftligi-tarihi-2025",
+      "record_slug": "atam-ataturk-orman-ciftligi-tarihi-2025",
+      "title": "Atatürk Orman Çiftliği'nin Tarihi",
+      "type": "publication",
+      "date_start": "2025-01-01",
+      "date_end": "",
+      "date_precision": "year",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Araştırma Merkezi Yayınları",
+      "source_url": "https://atam.gov.tr/kitaplar/ataturk-orman-ciftliginin-tarihi-2/",
+      "citation": "İzzet Öztoprak, Atatürk Orman Çiftliği'nin Tarihi, Atatürk Araştırma Merkezi Yayınları, Ankara 2025, ISBN 978-975-17-6304-4. — ATAM Yayınları: Atatürk Orman Çiftliği'nin Tarihi — Kitap künyesi (yazar, ISBN, basım yılı) ATAM yayın sayfasından doğrulandı; kitap dosyası indirilmedi.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/atam-ataturk-orman-ciftligi-tarihi-2025.json",
+      "record_snapshot_sha256": "a15649eb1174ed02f2758d59f1b07b5e6b1969a6ddb49de297fc40f043a02923",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "atam-gazi-mustafa-kemal-ataturkun-hayati-2025",
+      "record_slug": "atam-gazi-mustafa-kemal-ataturkun-hayati-2025",
+      "title": "Gazi Mustafa Kemal Atatürk'ün Hayatı",
+      "type": "publication",
+      "date_start": "2025-01-01",
+      "date_end": "",
+      "date_precision": "year",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Araştırma Merkezi Yayınları",
+      "source_url": "https://atam.gov.tr/kitaplar/gazi-mustafa-kemal-ataturkun-hayati-3/",
+      "citation": "Yücel Özkaya, Mehmet Saray, Mustafa Balcıoğlu, Cezmi Eraslan, Gazi Mustafa Kemal Atatürk'ün Hayatı, Atatürk Araştırma Merkezi Yayınları, Ankara 2025, ISBN 978-975-17-6295-5. — ATAM Yayınları: Gazi Mustafa Kemal Atatürk'ün Hayatı — Kitap künyesi (yazar, ISBN, basım yılı) ATAM yayın sayfasından doğrulandı; kitap dosyası indirilmedi.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/atam-gazi-mustafa-kemal-ataturkun-hayati-2025.json",
+      "record_snapshot_sha256": "51a56e890b348350cb69b5f406b160b36e620df2a0dab26dfa2ca688d8311e1e",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "atam-milletin-sesi-mehmet-akif-ersoy-2026",
+      "record_slug": "atam-milletin-sesi-mehmet-akif-ersoy-2026",
+      "title": "Milletin Sesi Mehmet Akif Ersoy",
+      "type": "publication",
+      "date_start": "2026-01-01",
+      "date_end": "",
+      "date_precision": "year",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Araştırma Merkezi Yayınları",
+      "source_url": "https://atam.gov.tr/kitaplar/milletin-sesi-mehmet-akif-ersoy/",
+      "citation": "Adnan Yılmaz, Milletin Sesi Mehmet Akif Ersoy, Atatürk Araştırma Merkezi Yayınları, Ankara 2026, ISBN 978-975-17-6515-4. — ATAM Yayınları: Milletin Sesi Mehmet Akif Ersoy — Kitap künyesi (yazar, ISBN, basım yılı) ATAM yayın sayfasından doğrulandı; kitap dosyası indirilmedi.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/atam-milletin-sesi-mehmet-akif-ersoy-2026.json",
+      "record_snapshot_sha256": "9f85aa85cf6dc4bfe953a586fdd757befed11e1dcd11a7e9ca62cdc456241493",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "atam-nutuk-ozgun-dille-2025",
+      "record_slug": "atam-nutuk-ozgun-dille-2025",
+      "title": "Nutuk – Özgün Dille (Orijinal, Ciltli)",
+      "type": "publication",
+      "date_start": "2025-01-01",
+      "date_end": "",
+      "date_precision": "year",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Araştırma Merkezi Yayınları",
+      "source_url": "https://atam.gov.tr/kitaplar/nutuk-ozgun-dille-orijinal-ciltli/",
+      "citation": "Mustafa Kemal Atatürk, Nutuk – Özgün Dille (Orijinal, Ciltli), Atatürk Araştırma Merkezi Yayınları, Ankara 2025, ISBN 978-975-17-6170-5. — ATAM Yayınları: Nutuk – Özgün Dille (Orijinal, Ciltli) — Kitap künyesi (yazar, ISBN, basım yılı) ATAM yayın sayfasından doğrulandı; kitap dosyası indirilmedi.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/atam-nutuk-ozgun-dille-2025.json",
+      "record_snapshot_sha256": "41247479160e0bd85819951eeab15fdce92a5f559902f46270a519d48ee1e7bf",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "ataturkun-nutuk-adli-eseri-1927",
+      "record_slug": "ataturkun-nutuk-adli-eseri-1927",
+      "title": "Atatürk'ün Nutuk Adlı Eseri",
+      "type": "publication",
+      "date_start": "1927-01-01",
+      "date_end": "",
+      "date_precision": "year",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/878/ataturkun-nutuk-adli-eseri-1927",
+      "citation": "Atatürk Ansiklopedisi, “Atatürk'ün Nutuk Adlı Eseri”, yazar Temuçin Faik ERTAN, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/878/ataturkun-nutuk-adli-eseri-1927 — Atatürk Ansiklopedisi: Atatürk'ün Nutuk Adlı Eseri — Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/ataturkun-nutuk-adli-eseri-1927.json",
+      "record_snapshot_sha256": "aebeedd309f446521db31144b5a4e216adca1e1d392a270e6845ab4c1362a7a6",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "balikesir-zagnos-pasa-nutku-1923",
+      "record_slug": "balikesir-zagnos-pasa-nutku-1923",
+      "title": "Atatürk'ün Balıkesir Zağnos Paşa Camii'nde Verdiği Nutku",
+      "type": "speech",
+      "date_start": "1923-02-07",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/863/balikesir-zagnos-pasa-nutku-1923",
+      "citation": "Atatürk Ansiklopedisi, “Atatürk'ün Balıkesir Zağnos Paşa Camii'nde Verdiği Nutku”, yazar ZEKİ ÇEVİK, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/863/balikesir-zagnos-pasa-nutku-1923 — Atatürk Ansiklopedisi: Atatürk'ün Balıkesir Zağnos Paşa Camii'nde Verdiği Nutku — Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": true,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/balikesir-zagnos-pasa-nutku-1923.json",
+      "record_snapshot_sha256": "152205538b35b60ea9f26a651523efa563aebf338a86a3c94ba0dc1ab97d58c7",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "baskomutanlik-kanunu-1921",
+      "record_slug": "baskomutanlik-kanunu-1921",
+      "title": "Başkomutanlık Kanunu",
+      "type": "event",
+      "date_start": "1921-08-05",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/701/baskomutanlik-kanunu-1921",
+      "citation": "Atatürk Ansiklopedisi, “Başkomutanlık Kanunu”, yazar İhsan Güneş, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/701/baskomutanlik-kanunu-1921 — Atatürk Ansiklopedisi: Başkomutanlık Kanunu — Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/baskomutanlik-kanunu-1921.json",
+      "record_snapshot_sha256": "35bd9df5841ea8530c8088ed656917cfbc16b203f92b41f65118834860645f62",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "buyuk-taarruz-1922",
+      "record_slug": "buyuk-taarruz-1922",
+      "title": "Büyük Taarruz",
+      "type": "event",
+      "date_start": "1922-08-26",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/4929/buyuk-taarruz-1922",
+      "citation": "Atatürk Ansiklopedisi, “Büyük Taarruz”, yazar Zafer KOYLU, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/4929/buyuk-taarruz-1922 — Atatürk Ansiklopedisi: Büyük Taarruz — Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/buyuk-taarruz-1922.json",
+      "record_snapshot_sha256": "f3dc634176cdc7917ee181d2c501b272455f037f54860c4986e137974b5f00d7",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "cumhuriyet-gazetesi-1924",
+      "record_slug": "cumhuriyet-gazetesi-1924",
+      "title": "Cumhuriyet Gazetesi",
+      "type": "publication",
+      "date_start": "1924-05-07",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/1230/cumhuriyet-gazetesi-1924",
+      "citation": "Atatürk Ansiklopedisi, “Cumhuriyet Gazetesi”, yazar Mustafa ARIKAN, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/1230/cumhuriyet-gazetesi-1924 — Atatürk Ansiklopedisi: Cumhuriyet Gazetesi — Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/cumhuriyet-gazetesi-1924.json",
+      "record_snapshot_sha256": "a92d413ed70db868119dc2e9347c283a92fd8856c2155538dceb7f80473438bf",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "cumhuriyetin-on-besinci-yil-kutlamalari-1938",
+      "record_slug": "cumhuriyetin-on-besinci-yil-kutlamalari-1938",
+      "title": "Cumhuriyet'in On Beşinci Yıl Kutlamaları",
+      "type": "event",
+      "date_start": "1938-10-29",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/611/cumhuriyetin-on-besinci-yil-kutlamalari-1938",
+      "citation": "Atatürk Ansiklopedisi, “Cumhuriyet'in On Beşinci Yıl Kutlamaları”, yazar Cağfer Güler, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/611/cumhuriyetin-on-besinci-yil-kutlamalari-1938 — Atatürk Ansiklopedisi: Cumhuriyet'in On Beşinci Yıl Kutlamaları — Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/cumhuriyetin-on-besinci-yil-kutlamalari-1938.json",
+      "record_snapshot_sha256": "873bad67db35836de516707f8b10cc54037b2b56b77e4bd0a51ef00bb50d04aa",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "cumhuriyetin-onuncu-yil-kutlamalari-1933",
+      "record_slug": "cumhuriyetin-onuncu-yil-kutlamalari-1933",
+      "title": "Cumhuriyet'in Onuncu Yıl Kutlamaları",
+      "type": "event",
+      "date_start": "1933-10-29",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/606/cumhuriyetin-onuncu-yil-kutlamalari-1933",
+      "citation": "Atatürk Ansiklopedisi, “Cumhuriyet'in Onuncu Yıl Kutlamaları”, yazar Yasemin DOĞANER, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/606/cumhuriyetin-onuncu-yil-kutlamalari-1933 — Atatürk Ansiklopedisi: Cumhuriyet'in Onuncu Yıl Kutlamaları — Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/cumhuriyetin-onuncu-yil-kutlamalari-1933.json",
+      "record_snapshot_sha256": "1694dc25c4693f0d6131470095e8d888adc3d50472627746eec91ad532d4bef7",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "erzurum-kongresi-1919",
+      "record_slug": "erzurum-kongresi-1919",
+      "title": "Erzurum Kongresi",
+      "type": "event",
+      "date_start": "1919-07-23",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/673/erzurum-kongresi-1919",
+      "citation": "Atatürk Ansiklopedisi, “Erzurum Kongresi”, yazar Nurcan Toksoy, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/673/erzurum-kongresi-1919 — Atatürk Ansiklopedisi: Erzurum Kongresi — Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/erzurum-kongresi-1919.json",
+      "record_snapshot_sha256": "ef3a73df26c268695095cac1e511e39e72556dc02469b80c5f4013255fd8d491",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "halifeligin-kaldirilmasi-1924",
+      "record_slug": "halifeligin-kaldirilmasi-1924",
+      "title": "Halifeliğin Kaldırılması",
+      "type": "event",
+      "date_start": "1924-03-03",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/940/halifeligin-kaldirilmasi-1924",
+      "citation": "Atatürk Ansiklopedisi, “Halifeliğin Kaldırılması”, yazar Ali SATAN, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/940/halifeligin-kaldirilmasi-1924 — Atatürk Ansiklopedisi: Halifeliğin Kaldırılması — Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/halifeligin-kaldirilmasi-1924.json",
+      "record_snapshot_sha256": "9936958944019088e52560c934cb4a7ea14a83c416964407b851e350bdb5ac1a",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "havza-genelgesi-1919",
+      "record_slug": "havza-genelgesi-1919",
+      "title": "Havza Genelgesi",
+      "type": "event",
+      "date_start": "1919-05-28",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/768/havza-genelgesi-1919",
+      "citation": "Atatürk Ansiklopedisi, “Havza Genelgesi”, yazar Zekeriya TÜRKMEN, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/768/havza-genelgesi-1919 — Atatürk Ansiklopedisi: Havza Genelgesi — Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/havza-genelgesi-1919.json",
+      "record_snapshot_sha256": "8c90cfa49c9eebbbd8a9da63f033289c40fa316d1b5f44d30a7ab62e0114d1d4",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "ibb-10-yildonumu-meclis-fotografi-1933",
+      "record_slug": "ibb-10-yildonumu-meclis-fotografi-1933",
+      "title": "Cumhuriyet'in 10. Yıldönümünde TBMM'den Çıkarken Fotoğraf",
+      "type": "photograph",
+      "date_start": "1933-10-29",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "source_url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_026166",
+      "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Bel_Mtf_026166, “Cumhuriyet'in 10. Yıldönümünde TBMM'den Çıkarken Fotoğraf”, erişim 23.10.2026, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_026166 — İBB Atatürk Kitaplığı: Cumhuriyet'in 10. Yıldönümünde TBMM'den Çıkarken Fotoğraf — İBB Atatürk Kitaplığı Sayısal Arşiv katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Görsel indirilmedi.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/ibb-10-yildonumu-meclis-fotografi-1933.json",
+      "record_snapshot_sha256": "a3e70b73fc9984751e167f3cf2a4b3c544ae336cc0eeee0c8f308a185b8251a7",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "ibb-canakkale-fotografi-1928",
+      "record_slug": "ibb-canakkale-fotografi-1928",
+      "title": "Çanakkale'de Atatürk ve Bir Grup Fotoğrafı (1928)",
+      "type": "photograph",
+      "date_start": "1928-01-01",
+      "date_end": "",
+      "date_precision": "year",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "source_url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_014877",
+      "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Krt_014877, “Çanakkale'de Atatürk ve Bir Grup Fotoğrafı (1928)”, erişim 23.10.2026, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_014877 — İBB Atatürk Kitaplığı: Çanakkale'de Atatürk ve Bir Grup Fotoğrafı (1928) — İBB Atatürk Kitaplığı Sayısal Arşiv katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Görsel indirilmedi.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/ibb-canakkale-fotografi-1928.json",
+      "record_snapshot_sha256": "82b1dfb7774ffe5bc0866f50a41bc6724b403a542bad57f9fc96dabe280308e2",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "ibb-ertugrul-yati-fotografi-1927",
+      "record_slug": "ibb-ertugrul-yati-fotografi-1927",
+      "title": "Atatürk'ün Ertuğrul Yatında Fotoğrafı (1927)",
+      "type": "photograph",
+      "date_start": "1927-01-01",
+      "date_end": "",
+      "date_precision": "year",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "source_url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_016917",
+      "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Krt_016917, “Atatürk'ün Ertuğrul Yatında Fotoğrafı (1927)”, erişim 23.10.2026, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_016917 — İBB Atatürk Kitaplığı: Atatürk'ün Ertuğrul Yatında Fotoğrafı (1927) — İBB Atatürk Kitaplığı Sayısal Arşiv katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Görsel indirilmedi.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/ibb-ertugrul-yati-fotografi-1927.json",
+      "record_snapshot_sha256": "157d77c5120889b120c7329f65e13799841c10161e75e03511f5d4ae9ec9d415",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "ibb-erzincan-sapka-fotografi-1926",
+      "record_slug": "ibb-erzincan-sapka-fotografi-1926",
+      "title": "Erzincan'da Şapka İnkılabı Üzerine Çekilen Grup Fotoğrafı",
+      "type": "photograph",
+      "date_start": "1926-01-01",
+      "date_end": "",
+      "date_precision": "year",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "source_url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_014792",
+      "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Krt_014792, “Erzincan'da Şapka İnkılabı Üzerine Çekilen Grup Fotoğrafı”, erişim 23.10.2026, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_014792 — İBB Atatürk Kitaplığı: Erzincan'da Şapka İnkılabı Üzerine Çekilen Grup Fotoğrafı — İBB Atatürk Kitaplığı Sayısal Arşiv katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Görsel indirilmedi.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/ibb-erzincan-sapka-fotografi-1926.json",
+      "record_snapshot_sha256": "f536b6c56e1aac6f85fdefd1229a8756847c9a84858492bffad50245f5d606f4",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "ibb-lozan-mektubu-1923",
+      "record_slug": "ibb-lozan-mektubu-1923",
+      "title": "Lozan Görüşmelerinde İsmet İnönü'nün Fransız Murahhasına Mektubu",
+      "type": "document",
+      "date_start": "1923-07-24",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "source_url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070690",
+      "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Bel_Mtf_070690, “Lozan Görüşmelerinde İsmet İnönü'nün Fransız Murahhasına Mektubu”, erişim 23.10.2026, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070690 — İBB Atatürk Kitaplığı: Lozan Görüşmelerinde İsmet İnönü'nün Fransız Murahhasına Mektubu — İBB Atatürk Kitaplığı Sayısal Arşiv katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Görsel indirilmedi.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/ibb-lozan-mektubu-1923.json",
+      "record_snapshot_sha256": "681878af18831163834b644e21bfe63a393dd77f9d0bf362c15f00cb2299674e",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "ibb-nutuk-okuma-fotografi-1927",
+      "record_slug": "ibb-nutuk-okuma-fotografi-1927",
+      "title": "Atatürk'ün Nutuk'u Okurken Çekilen Fotoğraf",
+      "type": "photograph",
+      "date_start": "1927-10-15",
+      "date_end": "1927-10-20",
+      "date_precision": "range",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "source_url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_026164",
+      "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Bel_Mtf_026164, “Atatürk'ün Nutuk'u Okurken Çekilen Fotoğraf”, erişim 23.10.2026, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_026164 — İBB Atatürk Kitaplığı: Atatürk'ün Nutuk'u Okurken Çekilen Fotoğraf — İBB Atatürk Kitaplığı Sayısal Arşiv katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Görsel indirilmedi.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/ibb-nutuk-okuma-fotografi-1927.json",
+      "record_snapshot_sha256": "8c33bd09c205d67661593ca314d01c1f339ef5b91b27109d671339342a2554af",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "ibb-refet-pasa-ziyafeti-fotografi-1923",
+      "record_slug": "ibb-refet-pasa-ziyafeti-fotografi-1923",
+      "title": "TBMM İstanbul Temsilcisi Refet Paşa'nın Yemekli Toplantısı (1923)",
+      "type": "photograph",
+      "date_start": "1923-01-01",
+      "date_end": "",
+      "date_precision": "year",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "source_url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_013518",
+      "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Krt_013518, “TBMM İstanbul Temsilcisi Refet Paşa'nın Yemekli Toplantısı (1923)”, erişim 23.10.2026, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_013518 — İBB Atatürk Kitaplığı: TBMM İstanbul Temsilcisi Refet Paşa'nın Yemekli Toplantısı (1923) — İBB Atatürk Kitaplığı Sayısal Arşiv katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Görsel indirilmedi.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/ibb-refet-pasa-ziyafeti-fotografi-1923.json",
+      "record_snapshot_sha256": "891b06b88fd71c3fac0c25d408341a21517fa6eee19c0abdea6e012b91c0088e",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "ibb-taksim-abide-komisyonu-tutanagi-1928",
+      "record_slug": "ibb-taksim-abide-komisyonu-tutanagi-1928",
+      "title": "Taksim Cumhuriyet Abidesi Komisyonu Tutanağı (29 Mart 1928)",
+      "type": "document",
+      "date_start": "1928-03-29",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "source_url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070929",
+      "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Bel_Mtf_070929, “Taksim Cumhuriyet Abidesi Komisyonu Tutanağı (29 Mart 1928)”, erişim 23.10.2026, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070929 — İBB Atatürk Kitaplığı: Taksim Cumhuriyet Abidesi Komisyonu Tutanağı (29 Mart 1928) — İBB Atatürk Kitaplığı Sayısal Arşiv katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Görsel indirilmedi.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/ibb-taksim-abide-komisyonu-tutanagi-1928.json",
+      "record_snapshot_sha256": "2dd2c13d720ce4d114e14be2caf8dac70090ed31c89eb43b617ad47abf49bc84",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "izmirin-isgali-1919",
+      "record_slug": "izmirin-isgali-1919",
+      "title": "İzmir'in İşgali",
+      "type": "event",
+      "date_start": "1919-05-15",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/719/izmirin-isgali-1919",
+      "citation": "Atatürk Ansiklopedisi, “İzmir'in İşgali”, yazar ENGİN BERBER, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/719/izmirin-isgali-1919 — Atatürk Ansiklopedisi: İzmir'in İşgali — Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/izmirin-isgali-1919.json",
+      "record_snapshot_sha256": "53b497b9101d58587530fb430485dfb834231187c6955f71a581485b58e29e05",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "menemen-olayi-1930",
+      "record_slug": "menemen-olayi-1930",
+      "title": "Menemen Olayı",
+      "type": "event",
+      "date_start": "1930-12-23",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/304/menemen-olayi-1930",
+      "citation": "Atatürk Ansiklopedisi, “Menemen Olayı”, yazar Nasrullah Uzman, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/304/menemen-olayi-1930 — Atatürk Ansiklopedisi: Menemen Olayı — Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/menemen-olayi-1930.json",
+      "record_snapshot_sha256": "91f3053e6f541f08fdf593452484ea35fc201449bda7be1e31281f14b636d028",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "milli-kutuphane-ataturk-donemi-maliye-politikasi-1982",
+      "record_slug": "milli-kutuphane-ataturk-donemi-maliye-politikasi-1982",
+      "title": "Atatürk Dönemi Maliye Politikası",
+      "type": "publication",
+      "date_start": "1982-01-01",
+      "date_end": "",
+      "date_precision": "year",
+      "date_certainty": "estimated",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Millî Kütüphane",
+      "source_url": "https://dijital-kutuphane.mkutup.gov.tr/tr/books/catalog/details/136684",
+      "citation": "Millî Kütüphane Dijital Kütüphane, “Atatürk Dönemi Maliye Politikası”, Yer No. 1982 AD 2826, erişim 23.10.2026, https://dijital-kutuphane.mkutup.gov.tr/tr/books/catalog/details/136684 — Millî Kütüphane Dijital Kütüphane: Atatürk Dönemi Maliye Politikası — Millî Kütüphane katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Yayın yılı yer numarasından değerlendirildi.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "reviewed",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "estimated_date_requires_context_review",
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/milli-kutuphane-ataturk-donemi-maliye-politikasi-1982.json",
+      "record_snapshot_sha256": "10d1605f071d13a89f1693bf868cc1815d156ae7a15af0adfd65b646b3565ea2",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P1",
+        "score": 2,
+        "dimensions": [
+          {
+            "area": "date",
+            "issues": [
+              "estimated_or_unknown_date"
+            ],
+            "weight": 2
+          }
+        ],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "milli-kutuphane-ataturk-ve-canakkale-2006",
+      "record_slug": "milli-kutuphane-ataturk-ve-canakkale-2006",
+      "title": "Atatürk ve Çanakkale",
+      "type": "publication",
+      "date_start": "2006-01-01",
+      "date_end": "",
+      "date_precision": "year",
+      "date_certainty": "estimated",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Millî Kütüphane",
+      "source_url": "https://dijital-kutuphane.mkutup.gov.tr/tr/books/catalog/details/109289",
+      "citation": "Millî Kütüphane Dijital Kütüphane, “Atatürk ve Çanakkale”, Yer No. 2006 AD 5745, erişim 23.10.2026, https://dijital-kutuphane.mkutup.gov.tr/tr/books/catalog/details/109289 — Millî Kütüphane Dijital Kütüphane: Atatürk ve Çanakkale — Millî Kütüphane katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Yayın yılı yer numarasından değerlendirildi.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "reviewed",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "estimated_date_requires_context_review",
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/milli-kutuphane-ataturk-ve-canakkale-2006.json",
+      "record_snapshot_sha256": "4b812934095f742917f9567ccfe60f8cddf5f539694217a5b095ec5042b64eef",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P1",
+        "score": 2,
+        "dimensions": [
+          {
+            "area": "date",
+            "issues": [
+              "estimated_or_unknown_date"
+            ],
+            "weight": 2
+          }
+        ],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "milli-kutuphane-inonu-diyor-ki-1933",
+      "record_slug": "milli-kutuphane-inonu-diyor-ki-1933",
+      "title": "İnönü Diyor Ki",
+      "type": "publication",
+      "date_start": "1933-01-01",
+      "date_end": "",
+      "date_precision": "year",
+      "date_certainty": "estimated",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Millî Kütüphane",
+      "source_url": "https://dijital-kutuphane.mkutup.gov.tr/tr/books/catalog/details/105276",
+      "citation": "Millî Kütüphane Dijital Kütüphane, “İnönü Diyor Ki”, Yer No. 1933 AD 3595, erişim 23.10.2026, https://dijital-kutuphane.mkutup.gov.tr/tr/books/catalog/details/105276 — Millî Kütüphane Dijital Kütüphane: İnönü Diyor Ki — Millî Kütüphane katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Yayın yılı yer numarasından değerlendirildi.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "reviewed",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "estimated_date_requires_context_review",
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/milli-kutuphane-inonu-diyor-ki-1933.json",
+      "record_snapshot_sha256": "c5757d66a3412f19204ca8f68ff90560210ad96e9da3406acf382ecb9d0cc85a",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P1",
+        "score": 2,
+        "dimensions": [
+          {
+            "area": "date",
+            "issues": [
+              "estimated_or_unknown_date"
+            ],
+            "weight": 2
+          }
+        ],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "montro-bogazlar-sozlesmesi-1936",
+      "record_slug": "montro-bogazlar-sozlesmesi-1936",
+      "title": "Montrö Boğazlar Sözleşmesi",
+      "type": "event",
+      "date_start": "1936-07-20",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/355/montro-bogazlar-sozlesmesi-1936",
+      "citation": "Atatürk Ansiklopedisi, “Montrö Boğazlar Sözleşmesi”, yazar Mehmet Seyfettin Erol, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/355/montro-bogazlar-sozlesmesi-1936 — Atatürk Ansiklopedisi: Montrö Boğazlar Sözleşmesi — Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/montro-bogazlar-sozlesmesi-1936.json",
+      "record_snapshot_sha256": "9fba41869b136bdf51d59fc56a6e17feb3e3740ef0b6fc7367b811ff9272ef7f",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "mudanya-mutarekesi-1922",
+      "record_slug": "mudanya-mutarekesi-1922",
+      "title": "Mudanya Mütarekesi",
+      "type": "event",
+      "date_start": "1922-10-03",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/373/mudanya-mutarekesi-1922",
+      "citation": "Atatürk Ansiklopedisi, “Mudanya Mütarekesi”, yazar İhsan Güneş, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/373/mudanya-mutarekesi-1922 — Atatürk Ansiklopedisi: Mudanya Mütarekesi — Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/mudanya-mutarekesi-1922.json",
+      "record_snapshot_sha256": "084c58efe698c862b33b7ff89ebe10e4240274e45e59c82b5137db3877f1bb48",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "sakarya-meydan-muharebesi-1921",
+      "record_slug": "sakarya-meydan-muharebesi-1921",
+      "title": "Sakarya Meydan Muharebesi",
+      "type": "event",
+      "date_start": "1921-08-23",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/216/sakarya-meydan-muharebesi-1921",
+      "citation": "Atatürk Ansiklopedisi, “Sakarya Meydan Muharebesi”, yazar Orhan Yöney, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/216/sakarya-meydan-muharebesi-1921 — Atatürk Ansiklopedisi: Sakarya Meydan Muharebesi — Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/sakarya-meydan-muharebesi-1921.json",
+      "record_snapshot_sha256": "c0019fbba290bab71fb52fbd87f067d14387577762c20a6562540268f8223bfc",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "sapka-inkilabi-1925",
+      "record_slug": "sapka-inkilabi-1925",
+      "title": "Şapka İnkılabı",
+      "type": "event",
+      "date_start": "1925-11-25",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/1232/sapka-inkilabi-1925",
+      "citation": "Atatürk Ansiklopedisi, “Şapka İnkılabı”, yazar Ayten SEZER ARIĞ, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/1232/sapka-inkilabi-1925 — Atatürk Ansiklopedisi: Şapka İnkılabı — Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/sapka-inkilabi-1925.json",
+      "record_snapshot_sha256": "2a8b4110f5567b5813ab423e9e4ac92bf9bdcb564d33662d5b2a4779a6592ddd",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "sevr-antlasmasi-1920",
+      "record_slug": "sevr-antlasmasi-1920",
+      "title": "Sevr Antlaşması",
+      "type": "event",
+      "date_start": "1920-08-10",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/271/sevr-antlasmasi-1920",
+      "citation": "Atatürk Ansiklopedisi, “Sevr Antlaşması”, yazar Şayan Ulusan, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/271/sevr-antlasmasi-1920 — Atatürk Ansiklopedisi: Sevr Antlaşması — Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/sevr-antlasmasi-1920.json",
+      "record_snapshot_sha256": "a6f9045c30535231cbf44ca00ed0f50e1b83866df2014493bef64860e09b7313",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "sivas-kongresi-1919",
+      "record_slug": "sivas-kongresi-1919",
+      "title": "Sivas Kongresi",
+      "type": "event",
+      "date_start": "1919-09-04",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/294/sivas-kongresi-1919",
+      "citation": "Atatürk Ansiklopedisi, “Sivas Kongresi”, yazar Firdes TEMİZGÜNEY, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/294/sivas-kongresi-1919 — Atatürk Ansiklopedisi: Sivas Kongresi — Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/sivas-kongresi-1919.json",
+      "record_snapshot_sha256": "64fb6a75dd1c6922cb0bb96d195ab0be66fe8986eb2540bc47093004d74da4b5",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "soyadi-kanunu-1934",
+      "record_slug": "soyadi-kanunu-1934",
+      "title": "Soyadı Kanunu",
+      "type": "event",
+      "date_start": "1934-06-21",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/298/soyadi-kanunu-1934",
+      "citation": "Atatürk Ansiklopedisi, “Soyadı Kanunu”, yazar Oğuz Aytepe, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/298/soyadi-kanunu-1934 — Atatürk Ansiklopedisi: Soyadı Kanunu — Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/soyadi-kanunu-1934.json",
+      "record_snapshot_sha256": "34f4d43c451e997be145741a5db2fe7da64dcc69555907012bf2584cfff83ef8",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "tbmm-1-birlesim-tutanagi-1920",
+      "record_slug": "tbmm-1-birlesim-tutanagi-1920",
+      "title": "TBMM 1. Birleşim Tutanağı (23 Nisan 1920)",
+      "type": "document",
+      "date_start": "1920-04-23",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Türkiye Büyük Millet Meclisi",
+      "source_url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c001/tbmm01001001.pdf",
+      "citation": "TBMM Tutanak Dergisi, Dönem 1, Cilt 1, 1. Birleşim, 23 Nisan 1920, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c001/tbmm01001001.pdf — TBMM Tutanak Dergisi, Dönem 1, Cilt 1, 1. Birleşim — Resmî TBMM Tutanak Dergisi PDF'i; bağlantı HTTPS üzerinden 200 yanıtı verdi. PDF indirilmedi ve depoya eklenmedi.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/tbmm-1-birlesim-tutanagi-1920.json",
+      "record_snapshot_sha256": "50fae598472742ab0353cf6f18b9e7c74e58b666e17adc4af69d0908f9eb1bf3",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "tbmm-1-birlesim-tutanagi-1928",
+      "record_slug": "tbmm-1-birlesim-tutanagi-1928",
+      "title": "TBMM 1. Birleşim Tutanağı (1 Kasım 1928)",
+      "type": "document",
+      "date_start": "1928-11-01",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Türkiye Büyük Millet Meclisi",
+      "source_url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d03/c005/tbmm03005001.pdf",
+      "citation": "TBMM Tutanak Dergisi, Dönem 3, Cilt 5, 1. Birleşim, 1 Kasım 1928, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d03/c005/tbmm03005001.pdf — TBMM Tutanak Dergisi, Dönem 3, Cilt 5, 1. Birleşim — Resmî TBMM Tutanak Dergisi PDF'i; bağlantı HTTPS üzerinden 200 yanıtı verdi. PDF indirilmedi ve depoya eklenmedi.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/tbmm-1-birlesim-tutanagi-1928.json",
+      "record_snapshot_sha256": "af1aa371b5d13d30cb749b5872cf15ace17c6258b3042bd3b27ac510657913a2",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "tbmm-130-birlesim-tutanagi-1922",
+      "record_slug": "tbmm-130-birlesim-tutanagi-1922",
+      "title": "TBMM 130. Birleşim Tutanağı (1 Kasım 1922)",
+      "type": "document",
+      "date_start": "1922-11-01",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Türkiye Büyük Millet Meclisi",
+      "source_url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c024/tbmm01024130.pdf",
+      "citation": "TBMM Tutanak Dergisi, Dönem 1, Cilt 24, 130. Birleşim, 1 Kasım 1922, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c024/tbmm01024130.pdf — TBMM Tutanak Dergisi, Dönem 1, Cilt 24, 130. Birleşim — Resmî TBMM Tutanak Dergisi PDF'i; bağlantı HTTPS üzerinden 200 yanıtı verdi. PDF indirilmedi ve depoya eklenmedi.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/tbmm-130-birlesim-tutanagi-1922.json",
+      "record_snapshot_sha256": "f47e9d69de208567dcc9aca0d24e0543cf7046113a2fa3d1df4f57cdcf070f4b",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "tbmm-135-birlesim-tutanagi-1921",
+      "record_slug": "tbmm-135-birlesim-tutanagi-1921",
+      "title": "TBMM 135. Birleşim Tutanağı (20 Ocak 1921)",
+      "type": "document",
+      "date_start": "1921-01-20",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Türkiye Büyük Millet Meclisi",
+      "source_url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c007/tbmm01007135.pdf",
+      "citation": "TBMM Tutanak Dergisi, Dönem 1, Cilt 7, 135. Birleşim, 20 Ocak 1921, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c007/tbmm01007135.pdf — TBMM Tutanak Dergisi, Dönem 1, Cilt 7, 135. Birleşim — Resmî TBMM Tutanak Dergisi PDF'i; bağlantı HTTPS üzerinden 200 yanıtı verdi. PDF indirilmedi ve depoya eklenmedi.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/tbmm-135-birlesim-tutanagi-1921.json",
+      "record_snapshot_sha256": "0313ab29480881f06f0398a7852dbaa107b55e7b8db0fb085111c226754518b5",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "tbmm-2-birlesim-tutanagi-1924",
+      "record_slug": "tbmm-2-birlesim-tutanagi-1924",
+      "title": "TBMM 2. Birleşim Tutanağı (3 Mart 1924)",
+      "type": "document",
+      "date_start": "1924-03-03",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Türkiye Büyük Millet Meclisi",
+      "source_url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c007/tbmm02007002.pdf",
+      "citation": "TBMM Tutanak Dergisi, Dönem 2, Cilt 7, 2. Birleşim, 3 Mart 1924, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c007/tbmm02007002.pdf — TBMM Tutanak Dergisi, Dönem 2, Cilt 7, 2. Birleşim — Resmî TBMM Tutanak Dergisi PDF'i; bağlantı HTTPS üzerinden 200 yanıtı verdi. PDF indirilmedi ve depoya eklenmedi.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/tbmm-2-birlesim-tutanagi-1924.json",
+      "record_snapshot_sha256": "c7f8873ea790d9a6e2741d0a6a988bfed3e41272b551b551189a60fb3aafca29",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "tbmm-35-birlesim-tutanagi-1923",
+      "record_slug": "tbmm-35-birlesim-tutanagi-1923",
+      "title": "TBMM 35. Birleşim Tutanağı (13 Ekim 1923)",
+      "type": "document",
+      "date_start": "1923-10-13",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Türkiye Büyük Millet Meclisi",
+      "source_url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c002/tbmm02002035.pdf",
+      "citation": "TBMM Tutanak Dergisi, Dönem 2, Cilt 2, 35. Birleşim, 13 Ekim 1923, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c002/tbmm02002035.pdf — TBMM Tutanak Dergisi, Dönem 2, Cilt 2, 35. Birleşim — Resmî TBMM Tutanak Dergisi PDF'i; bağlantı HTTPS üzerinden 200 yanıtı verdi. PDF indirilmedi ve depoya eklenmedi.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/tbmm-35-birlesim-tutanagi-1923.json",
+      "record_snapshot_sha256": "3d596f411c12b3c1938a2342a0143397d27ac23bcba9b178430007e9ae741f11",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "tbmm-43-birlesim-tutanagi-1923",
+      "record_slug": "tbmm-43-birlesim-tutanagi-1923",
+      "title": "TBMM 43. Birleşim Tutanağı (29 Ekim 1923)",
+      "type": "document",
+      "date_start": "1923-10-29",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Türkiye Büyük Millet Meclisi",
+      "source_url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c003/tbmm02003043.pdf",
+      "citation": "TBMM Tutanak Dergisi, Dönem 2, Cilt 3, 43. Birleşim, 29 Ekim 1923, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c003/tbmm02003043.pdf — TBMM Tutanak Dergisi, Dönem 2, Cilt 3, 43. Birleşim — Resmî TBMM Tutanak Dergisi PDF'i; bağlantı HTTPS üzerinden 200 yanıtı verdi. PDF indirilmedi ve depoya eklenmedi.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/tbmm-43-birlesim-tutanagi-1923.json",
+      "record_snapshot_sha256": "794409fb34c645373bbf97899e4f893f9e24513a3694338d1d5635dec715e995",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "tbmm-57-birlesim-tutanagi-1926",
+      "record_slug": "tbmm-57-birlesim-tutanagi-1926",
+      "title": "TBMM 57. Birleşim Tutanağı (17 Şubat 1926)",
+      "type": "document",
+      "date_start": "1926-02-17",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Türkiye Büyük Millet Meclisi",
+      "source_url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c022/tbmm02022057.pdf",
+      "citation": "TBMM Tutanak Dergisi, Dönem 2, Cilt 22, 57. Birleşim, 17 Şubat 1926, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c022/tbmm02022057.pdf — TBMM Tutanak Dergisi, Dönem 2, Cilt 22, 57. Birleşim — Resmî TBMM Tutanak Dergisi PDF'i; bağlantı HTTPS üzerinden 200 yanıtı verdi. PDF indirilmedi ve depoya eklenmedi.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/tbmm-57-birlesim-tutanagi-1926.json",
+      "record_snapshot_sha256": "ec3368292964ac81e97bf87e020cb377164205aa139bf110ba0b5dabac700f48",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "tbmm-62-birlesim-tutanagi-1921",
+      "record_slug": "tbmm-62-birlesim-tutanagi-1921",
+      "title": "TBMM 62. Birleşim Tutanağı (5 Ağustos 1921)",
+      "type": "document",
+      "date_start": "1921-08-05",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Türkiye Büyük Millet Meclisi",
+      "source_url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c012/tbmm01012062.pdf",
+      "citation": "TBMM Tutanak Dergisi, Dönem 1, Cilt 12, 62. Birleşim, 5 Ağustos 1921, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c012/tbmm01012062.pdf — TBMM Tutanak Dergisi, Dönem 1, Cilt 12, 62. Birleşim — Resmî TBMM Tutanak Dergisi PDF'i; bağlantı HTTPS üzerinden 200 yanıtı verdi. PDF indirilmedi ve depoya eklenmedi.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/tbmm-62-birlesim-tutanagi-1921.json",
+      "record_snapshot_sha256": "866c4e93e81c25d36bc15b6b5a2acb3d895c50ae058132b45ac3266b0a052574",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "tbmm-71-birlesim-tutanagi-1934",
+      "record_slug": "tbmm-71-birlesim-tutanagi-1934",
+      "title": "TBMM 71. Birleşim Tutanağı (21 Haziran 1934)",
+      "type": "document",
+      "date_start": "1934-06-21",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Türkiye Büyük Millet Meclisi",
+      "source_url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d04/c023/tbmm04023071.pdf",
+      "citation": "TBMM Tutanak Dergisi, Dönem 4, Cilt 23, 71. Birleşim, 21 Haziran 1934, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d04/c023/tbmm04023071.pdf — TBMM Tutanak Dergisi, Dönem 4, Cilt 23, 71. Birleşim — Resmî TBMM Tutanak Dergisi PDF'i; bağlantı HTTPS üzerinden 200 yanıtı verdi. PDF indirilmedi ve depoya eklenmedi.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/tbmm-71-birlesim-tutanagi-1934.json",
+      "record_snapshot_sha256": "2f3f520922a071a377c7e9b17c99f85228bc232de5372ad440847a3e4a2d7cf2",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "tekke-zaviye-turbelerin-kapatilmasi-1925",
+      "record_slug": "tekke-zaviye-turbelerin-kapatilmasi-1925",
+      "title": "Tekke, Zaviye ve Türbelerin Kapatılması",
+      "type": "event",
+      "date_start": "1925-11-30",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/397/tekke-zaviye-turbelerin-kapatilmasi-1925",
+      "citation": "Atatürk Ansiklopedisi, “Tekke, Zaviye ve Türbelerin Kapatılması”, yazar Ali Güler, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/397/tekke-zaviye-turbelerin-kapatilmasi-1925 — Atatürk Ansiklopedisi: Tekke, Zaviye ve Türbelerin Kapatılması — Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/tekke-zaviye-turbelerin-kapatilmasi-1925.json",
+      "record_snapshot_sha256": "37dfd363eea12b6c9ee0de69b348f7d023b0d26420166ab94e76199895e282cb",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    },
+    {
+      "record_id": "teskilat-i-esasiye-1921",
+      "record_slug": "teskilat-i-esasiye-1921",
+      "title": "Teşkilat-ı Esasiye Kanunu",
+      "type": "event",
+      "date_start": "1921-01-20",
+      "date_end": "",
+      "date_precision": "day",
+      "date_certainty": "exact",
+      "archive_schema_version": "1.1.0",
+      "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/3980/teskilat-i-esasiye-1921",
+      "citation": "Atatürk Ansiklopedisi, “Teşkilat-ı Esasiye Kanunu”, yazar İhsan Güneş, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/3980/teskilat-i-esasiye-1921 — Atatürk Ansiklopedisi: Teşkilat-ı Esasiye Kanunu — Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı.",
+      "recorded_source_access_claim": "previously_reported_reachable_not_rechecked",
+      "source_access_status": "not_checked",
+      "rights_status": "official_link_only",
+      "ai_review_status": "ai_review_only",
+      "human_expert_review_status": "ai_review_only",
+      "human_publication_approval_status": "pending",
+      "verification_status": "published",
+      "quotation_present": false,
+      "issues": [
+        "human_expert_review_pending",
+        "human_editor_publication_approval_pending"
+      ],
+      "risk_flags": [
+        "ai_review_is_not_human_expert_review",
+        "human_editor_publication_approval_required"
+      ],
+      "record_path": "data/archive/catalog/teskilat-i-esasiye-1921.json",
+      "record_snapshot_sha256": "b5b703f8909883c84afd2160c6eb9e687cdf7f1791c6274a64350dc56b9a4741",
+      "human_form_status": "pending",
+      "source_access_detail": {
+        "status": "not_checked"
+      },
+      "review_priority": {
+        "level": "P3",
+        "score": 0,
+        "dimensions": [],
+        "human_expert_review_status": "ai_review_only",
+        "human_publication_approval_status": "pending"
+      }
+    }
+  ],
+  "probable_duplicate_groups": [],
+  "identifier_collision_groups": [],
+  "conflicting_source_groups": [],
+  "schema_compatibility": {
+    "archive_record_count": 68,
+    "archive_schema_version_counts": {
+      "1.0.0": 18,
+      "1.1.0": 50
+    },
+    "archive_fields_by_version": {
+      "1.0.0": [
+        "categories",
+        "createdAt",
+        "date",
+        "description",
+        "id",
+        "image",
+        "locations",
+        "people",
+        "provenance",
+        "quotation",
+        "relatedIds",
+        "rights",
+        "schemaVersion",
+        "slug",
+        "source",
+        "summary",
+        "tags",
+        "title",
+        "type",
+        "updatedAt",
+        "verification"
+      ],
+      "1.1.0": [
+        "categories",
+        "createdAt",
+        "date",
+        "description",
+        "holding",
+        "id",
+        "image",
+        "locations",
+        "people",
+        "provenance",
+        "quotation",
+        "relatedIds",
+        "rights",
+        "schemaVersion",
+        "slug",
+        "source",
+        "summary",
+        "tags",
+        "title",
+        "type",
+        "updatedAt",
+        "verification"
+      ]
+    },
+    "archive_version_field_differences": [
+      {
+        "archive_schema_version": "1.0.0",
+        "fields_unique_to_version": [],
+        "fields_absent_from_version": [
+          "holding"
+        ]
+      },
+      {
+        "archive_schema_version": "1.1.0",
+        "fields_unique_to_version": [
+          "holding"
+        ],
+        "fields_absent_from_version": []
+      }
+    ],
+    "editorial_form_schema_version_expected": "1.0.0",
+    "editorial_form_schema_version_counts": {
+      "1.0.0": 68
+    },
+    "editorial_forms_with_unsupported_or_missing_schema_version": 0,
+    "editorial_forms_with_invalid_json": 0,
+    "invalid_editorial_form_paths": [],
+    "interpretation": "Arşiv kaydındaki schemaVersion ile editörlük formundaki schema_version ayrı sürüm alanlarıdır; değerleri bağımsız raporlanır ve eşit olmaları beklenmez."
+  },
+  "findings": [],
+  "historical_truth_limitation": "URL syntax, prior sourceReachable claims, HTTP status, and a human-entered form do not independently prove document authenticity, historical correctness, attribution, rights, or reviewer identity."
+}

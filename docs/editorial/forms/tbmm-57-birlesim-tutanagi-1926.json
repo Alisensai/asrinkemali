@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "tbmm-57-birlesim-tutanagi-1926",
+  "record_path": "data/archive/catalog/tbmm-57-birlesim-tutanagi-1926.json",
+  "record_snapshot_sha256": "ec3368292964ac81e97bf87e020cb377164205aa139bf110ba0b5dabac700f48",
+  "record_snapshot": {
+    "title": "TBMM 57. Birleşim Tutanağı (17 Şubat 1926)",
+    "type": "document",
+    "date": {
+      "start": "1926-02-17",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "17 Şubat 1926"
+    },
+    "source_institution": "Türkiye Büyük Millet Meclisi",
+    "source_url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c022/tbmm02022057.pdf",
+    "citation": "TBMM Tutanak Dergisi, Dönem 2, Cilt 22, 57. Birleşim, 17 Şubat 1926, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c022/tbmm02022057.pdf",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ibb-lozan-mektubu-1923",
+  "record_path": "data/archive/catalog/ibb-lozan-mektubu-1923.json",
+  "record_snapshot_sha256": "681878af18831163834b644e21bfe63a393dd77f9d0bf362c15f00cb2299674e",
+  "record_snapshot": {
+    "title": "Lozan Görüşmelerinde İsmet İnönü'nün Fransız Murahhasına Mektubu",
+    "type": "document",
+    "date": {
+      "start": "1923-07-24",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "24 Temmuz 1923"
+    },
+    "source_institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+    "source_url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070690",
+    "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Bel_Mtf_070690, “Lozan Görüşmelerinde İsmet İnönü'nün Fransız Murahhasına Mektubu”, erişim 23.10.2026, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070690",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

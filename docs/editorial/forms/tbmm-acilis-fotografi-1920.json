@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "tbmm-acilis-fotografi-1920",
+  "record_path": "content/archive/records/tbmm-acilis-fotografi-1920.json",
+  "record_snapshot_sha256": "1e73f6b45b62d656a2c65bf3db42e048631f1c051755c139cb63c7da6a131257",
+  "record_snapshot": {
+    "title": "TBMM'nin Açılış Fotoğrafı",
+    "type": "photograph",
+    "date": {
+      "start": "1920-04-23",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "23 Nisan 1920"
+    },
+    "source_institution": "Türkiye Büyük Millet Meclisi",
+    "source_url": "https://kurtulussavasimuzesi.tbmm.gov.tr/meclisacilis",
+    "citation": "Kurtuluş Savaşı Müzesi: Meclisin Açılışı",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "selanikteki-ataturk-evi",
+  "record_path": "content/archive/records/selanikteki-ataturk-evi.json",
+  "record_snapshot_sha256": "07d9ad2c842bcef557e1f2d61330725a80d5be1dd131b5b7875e285ac6d6d133",
+  "record_snapshot": {
+    "title": "Atatürk'ün Selanik'teki Evi",
+    "type": "place",
+    "date": {
+      "start": null,
+      "end": null,
+      "precision": "unknown",
+      "certainty": "unknown",
+      "display": "Tarih bilinmiyor",
+      "note": "Evin inşa tarihi ve Atatürk'ün burada yaşadığı dönemin sınırları kaynakta kesin olarak verilmediği için tarih alanı boş bırakılmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://ataturkansiklopedisi.gov.tr/detay/882/Atatürk’ün-Selanik’teki-Evi",
+    "citation": "Atatürk Ansiklopedisi: Atatürk'ün Selanik'teki Evi",
+    "rights_status": "unknown"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

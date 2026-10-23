@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:asrin-kemali:schema:editorial-approval-event:1.0.0",
+  "title": "ASRIN KEMALİ editorial audit ledger event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "sequence",
+    "timestamp",
+    "record_id",
+    "event_type",
+    "actor",
+    "actor_role",
+    "form_sha256",
+    "evidence_refs",
+    "previous_event_hash",
+    "event_hash"
+  ],
+  "properties": {
+    "sequence": { "type": "integer", "minimum": 1 },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "record_id": { "type": "string", "minLength": 1 },
+    "event_type": {
+      "enum": ["review_submitted", "correction_requested", "review_rejected", "editor_approval_recorded"]
+    },
+    "actor": { "type": "string", "minLength": 1 },
+    "actor_role": { "enum": ["human_expert", "human_editor"] },
+    "form_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "evidence_refs": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+    "previous_event_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "event_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+  }
+}
