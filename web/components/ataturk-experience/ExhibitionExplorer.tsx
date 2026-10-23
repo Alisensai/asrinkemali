@@ -30,6 +30,9 @@ export function ExhibitionExplorer({ records, themes, typeCounts }: Props) {
   const activeTheme = themes.find((item) => item.id === theme);
   const selectedRecord = selected ? bySlug.get(selected) : undefined;
 
+  // Hidrasyon tamamlandı işareti: testler etkileşimden önce bunu bekler.
+  useEffect(() => { document.getElementById("sergi")?.setAttribute("data-ready", "true"); }, []);
+
   useEffect(() => {
     const dialog = dialogRef.current; if (!dialog) return;
     if (selectedRecord && !dialog.open) dialog.showModal();
@@ -58,9 +61,9 @@ export function ExhibitionExplorer({ records, themes, typeCounts }: Props) {
         {themes.map((item, index) => <li key={item.id} className={styles.reveal}>
           <button type="button" className={styles.themeCard} data-coverage={item.coverage} aria-pressed={theme === item.id} disabled={item.count === 0} onClick={() => chooseTheme(item.id)} aria-describedby={`tema-not-${item.id}`}>
             <span className={styles.themeNumber} aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
-            <span className={styles.themeTitle}>{item.title}</span>
-            <span className={styles.themeDescription}>{item.description}</span>
-            <span className={styles.themeFooter}><span className={styles.coverage} data-coverage={item.coverage}>{COVERAGE_LABELS[item.coverage]}</span><span className={styles.themeCount}>{item.count} kayıt</span></span>
+            <span id={`tema-baslik-${item.id}`} className={styles.themeTitle}>{item.title}</span>
+            <span id={`tema-aciklama-${item.id}`} className={styles.themeDescription}>{item.description}</span>
+            <span className={styles.themeFooter}><span id={`tema-kapsam-${item.id}`} className={styles.coverage} data-coverage={item.coverage}>{COVERAGE_LABELS[item.coverage]}</span><span id={`tema-sayi-${item.id}`} className={styles.themeCount}>{item.count} kayıt</span></span>
           </button>
           <p id={`tema-not-${item.id}`} className={styles.themeNote}>{item.note ?? "Sergide bu temaya ait kayıtları gösterir."}</p>
         </li>)}
@@ -76,8 +79,8 @@ export function ExhibitionExplorer({ records, themes, typeCounts }: Props) {
 
       <div className={styles.filters}>
         <div className={styles.typeFilter} role="group" aria-label="Kayıt türüne göre süz">
-          <button type="button" className={styles.chip} aria-pressed={type === "all"} onClick={() => { setType("all"); setLimit(PAGE_SIZE); }}>Tümü <span className={styles.chipCount}>{records.length}</span></button>
-          {typeCounts.map((item) => <button key={item.type} type="button" className={styles.chip} aria-pressed={type === item.type} onClick={() => { setType(item.type); setLimit(PAGE_SIZE); }}>{item.label} <span className={styles.chipCount}>{item.count}</span></button>)}
+          <button type="button" className={styles.chip} aria-pressed={type === "all"} onClick={() => { setType("all"); setLimit(PAGE_SIZE); }}>Tümü <span className={styles.chipCount}>{records.length}<span className={styles.srOnly}> kayıt</span></span></button>
+          {typeCounts.map((item) => <button key={item.type} type="button" className={styles.chip} aria-pressed={type === item.type} onClick={() => { setType(item.type); setLimit(PAGE_SIZE); }}>{item.label} <span className={styles.chipCount}>{item.count}<span className={styles.srOnly}> kayıt</span></span></button>)}
         </div>
         <div className={styles.themeSelect}>
           <label htmlFor="sergi-tema">Tema</label>

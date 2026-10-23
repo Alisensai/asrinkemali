@@ -20,7 +20,7 @@ export function ExperienceHero({ experience }: { experience: AtaturkExperience }
       <dl className={styles.heroStats}>
         <div><dt>Kaynaklı kayıt</dt><dd>{stats.records}</dd></div>
         <div><dt>Kaynak kurum</dt><dd>{stats.institutions}</dd></div>
-        <div><dt>Kayıtlı yıllar</dt><dd>{stats.firstYear && stats.lastLifetimeYear ? `${stats.firstYear}–${stats.lastLifetimeYear}` : "—"}</dd></div>
+        <div><dt>Yaşam çizelgesi</dt><dd>{stats.firstLifetimeYear && stats.lastLifetimeYear ? `${stats.firstLifetimeYear}–${stats.lastLifetimeYear}` : "—"}</dd></div>
         <div><dt>Fotoğraf · belge</dt><dd>{stats.photographs} · {stats.documents}</dd></div>
       </dl>
     </div>

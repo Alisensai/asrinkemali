@@ -57,6 +57,11 @@ export type ExperiencePeriod = {
 
 export type ExperienceTheme = { id: string; title: string; description: string; count: number; coverage: CoverageLevel; note: string | null };
 export type YearMark = { year: number; count: number; periodId: string };
+/** Yıl rayı öğesi: kayıtlı yıl, art arda kayıtsız yıllar aralığı veya yaşam dışı dönem kısayolu. */
+export type RailItem =
+  | { kind: "year"; year: number; count: number; periodId: string }
+  | { kind: "gap"; from: number; to: number }
+  | { kind: "period"; periodId: string; label: string; count: number };
 export type ExperienceQuote = { text: string; work: string; dateDisplay: string; context: string; sourceUrl: string; sourceTitle: string; verifiedBy: string; recordSlug: string };
 
 export type AtaturkExperience = {
@@ -64,8 +69,9 @@ export type AtaturkExperience = {
   periods: ExperiencePeriod[];
   themes: ExperienceTheme[];
   yearMarks: YearMark[];
+  rail: RailItem[];
   quote: ExperienceQuote | null;
-  stats: { records: number; institutions: number; photographs: number; documents: number; firstYear: number | null; lastLifetimeYear: number | null; undated: number };
+  stats: { records: number; institutions: number; photographs: number; documents: number; firstYear: number | null; firstLifetimeYear: number | null; lastLifetimeYear: number | null; undated: number; earlyRecords: number };
   typeCounts: { type: ArchiveRecordType; label: string; count: number }[];
 };
 
@@ -78,11 +84,12 @@ const ATATURK = "Mustafa Kemal Atatürk";
 const LIFETIME_END = "1938-11-10";
 const UNDATED_PERIOD = "tarihsiz";
 
-type PeriodDefinition = { id: string; title: string; range: string; from: string; to: string; intro: string; inLifetime: boolean };
+type PeriodDefinition = { id: string; title: string; range: string; from: string; to: string; intro: string; emptyIntro?: string; inLifetime: boolean };
 
 /** Arşiv gruplaması için dönem sınırları (ISO tarih karşılaştırması). */
 export const PERIOD_DEFINITIONS: readonly PeriodDefinition[] = [
-  { id: "erken-yillar", title: "Çocukluk, öğrenim ve askerlik yılları", range: "1881–1918", from: "1881-01-01", to: "1918-12-31", inLifetime: true, intro: "Bu döneme ait kaynak denetiminden geçmiş ve yayımlanmış arşiv kaydı henüz bulunmuyor. Kayıtlar doğrulandıkça çizelgeye eklenecektir." },
+  { id: "oncesi", title: "1881 öncesi: mekân ve kurumların geçmişi", range: "1881 öncesi", from: "0001-01-01", to: "1880-12-31", inLifetime: false, intro: "Bu kayıtların tarihleri mekânın veya kurumun kendi geçmişine aittir (ör. inşa veya kuruluş yılı); Atatürk'ün yaşamındaki bir olayı göstermez." },
+  { id: "erken-yillar", title: "Çocukluk, öğrenim ve askerlik yılları", range: "1881–1918", from: "1881-01-01", to: "1918-12-31", inLifetime: true, intro: "Bu döneme tarihlenen sınırlı sayıda kaynaklı kayıt. Kapsam eksiktir; mekân kayıtlarındaki tarihler mekânın kendi geçmişine ait olabilir.", emptyIntro: "Bu döneme ait kaynak denetiminden geçmiş ve yayımlanmış arşiv kaydı henüz bulunmuyor. Kayıtlar doğrulandıkça çizelgeye eklenecektir." },
   { id: "milli-mucadele", title: "Millî Mücadele", range: "1919–1922", from: "1919-01-01", to: "1922-10-31", inLifetime: true, intro: "Genelgeler, kongreler, Büyük Millet Meclisinin açılışı ve cephe gelişmelerine ilişkin kaynaklı kayıtlar." },
   { id: "kurulus", title: "Cumhuriyet'in kuruluşu", range: "1922–1924", from: "1922-11-01", to: "1924-04-30", inLifetime: true, intro: "Saltanatın kaldırılmasından 1924 Anayasası'na uzanan kuruluş adımlarına ait kayıtlar." },
   { id: "inkilaplar", title: "İnkılaplar ve yeni kurumlar", range: "1924–1932", from: "1924-05-01", to: "1932-12-31", inLifetime: true, intro: "Hukuk, eğitim, yazı ve toplumsal yaşamdaki dönüşümlere ilişkin belgeler, olaylar ve fotoğraflar." },
@@ -96,8 +103,8 @@ const fold = (value: string) => value.toLocaleLowerCase("tr-TR");
 
 /** Tema eşleştirmeleri yalnızca kaydın kendi kategori, tür, kişi ve başlık alanlarına dayanır. */
 export const THEME_DEFINITIONS: readonly ThemeDefinition[] = [
-  { id: "cocukluk-ogrenim", title: "Çocukluğu ve öğrenim hayatı", description: "Doğduğu şehir, aile çevresi ve okul yılları.", note: "Bu tema için yayımlanmış kaynaklı kayıt henüz yok.", match: (_record, periodId) => periodId === "erken-yillar" },
-  { id: "askeri-kariyer", title: "Askerî kariyeri", description: "Komuta, muharebe ve başkomutanlık kayıtları.", note: "1919 öncesi askerî kariyerine ait yayımlanmış kayıt yok; yalnız Millî Mücadele dönemindeki komuta kayıtları gösterilir.", match: (record) => has(record, "milli-mucadele") && /muharebe|taarruz|başkomutan|mütareke|zafer|cephe/.test(fold(`${record.title} ${record.tags.join(" ")}`)) },
+  { id: "cocukluk-ogrenim", title: "Çocukluğu ve öğrenim hayatı", description: "Doğduğu şehir, aile çevresi ve okul yılları.", note: "Yalnız öğrenim hayatına doğrudan ilişkin, mekân dışı kayıtlar gösterilir; okul ve kurum kayıtları kuruluş tarihleriyle “Tarihî mekânlar” temasındadır.", match: (record, periodId) => periodId === "erken-yillar" && record.type !== "place" && has(record, "egitim") },
+  { id: "askeri-kariyer", title: "Askerî kariyeri", description: "Komuta, muharebe ve başkomutanlık kayıtları.", note: "1919 öncesi askerî kariyerine ilişkin olay kaydı yok; yalnız Millî Mücadele dönemindeki komuta kayıtları gösterilir.", match: (record) => has(record, "milli-mucadele") && /muharebe|taarruz|başkomutan|mütareke|zafer|cephe/.test(fold(`${record.title} ${record.tags.join(" ")}`)) },
   { id: "milli-mucadele", title: "Millî Mücadele", description: "Genelgeler, kongreler ve cephe gelişmeleri.", note: null, match: (record) => has(record, "milli-mucadele") },
   { id: "cumhuriyet", title: "Cumhuriyet'in kuruluşu", description: "Meclis, saltanatın kaldırılması, Lozan ve Cumhuriyet'in ilanı.", note: null, match: (record) => has(record, "kurulus") },
   { id: "egitim-kultur", title: "Eğitim ve kültür", description: "Öğretim birliği, harf inkılabı ve kültür hayatı.", note: null, match: (record) => has(record, "egitim") || has(record, "kultur") },
@@ -133,6 +140,16 @@ export function dateNote(date: ArchiveDate) {
   return notes.length ? notes.join(" ") : null;
 }
 
+/** Mekân kayıtlarında tarih, mekânın kendi geçmişine aittir; yaşam olayı gibi sunulmaz. */
+export const PLACE_DATE_NOTE = "Mekân kaydı: tarih, mekânın veya kurumun kendi geçmişine aittir (ör. inşa ya da kuruluş); Atatürk'ün o tarihte orada bulunduğunu göstermez.";
+
+/** Ardışık yılları aralıklara indirger: [1929, 1931, 1932] → "1929, 1931–1932". */
+export function formatYearRanges(years: readonly number[]) {
+  const sorted = [...new Set(years)].sort((a, b) => a - b); const parts: string[] = [];
+  for (let index = 0; index < sorted.length; index += 1) { const start = sorted[index]; let end = start; while (sorted[index + 1] === end + 1) { end += 1; index += 1; } parts.push(start === end ? String(start) : `${start}–${end}`); }
+  return parts.join(", ");
+}
+
 export function periodFor(date: ArchiveDate) {
   const start = isoDate(date.start);
   if (!start) return UNDATED_PERIOD;
@@ -158,7 +175,7 @@ function toExperienceRecord(record: ArchiveRecord, published: Map<string, Archiv
   const related = (record.relatedIds ?? []).map((id) => published.get(id)).filter((item): item is ArchiveRecord => item !== undefined && item.slug !== record.slug).map((item) => ({ slug: item.slug, title: item.title }));
   return {
     id: record.id, slug: record.slug, title: record.title, type: record.type, typeLabel: typeLabel(record.type), summary: record.summary, description: record.description ?? record.summary,
-    dateDisplay: record.date.display || "Tarih bilinmiyor", dateStart: isoDate(record.date.start), year: recordYear(record.date), dateNote: dateNote(record.date), periodId,
+    dateDisplay: record.date.display || "Tarih bilinmiyor", dateStart: isoDate(record.date.start), year: recordYear(record.date), dateNote: [record.type === "place" ? PLACE_DATE_NOTE : null, dateNote(record.date)].filter(Boolean).join(" ") || null, periodId,
     institution: record.source.institution || "Kaynak kurum belirtilmemiş", institutionUrl: safeExternalUrl(record.source.institutionUrl), sourceTitle: record.source.title || record.title, sourceUrl: safeExternalUrl(record.source.url),
     citation: record.source.citation ?? record.source.title ?? "", archiveIdentifier: record.source.archiveIdentifier ?? null,
     rightsLabel: rightsLabel(record.rights.status), rightsNote: record.rights.note, credit: record.rights.credit ?? image?.credit ?? null, imageNote,
@@ -182,8 +199,8 @@ export function buildAtaturkExperience(input: readonly ArchiveRecord[]): Ataturk
     const years = [...new Set(inPeriod.map((record) => record.year).filter((year): year is number => year !== null))];
     const fromYear = Number(period.from.slice(0, 4)); const toYear = Number(period.to.slice(0, 4));
     const emptyYears = period.inLifetime && period.id !== "erken-yillar" ? Array.from({ length: toYear - fromYear + 1 }, (_, index) => fromYear + index).filter((year) => !years.includes(year) && !records.some((record) => record.year === year)) : [];
-    return { id: period.id, title: period.title, range: period.range, intro: period.intro, recordSlugs: inPeriod.map((record) => record.slug), years, emptyYears, inLifetime: period.inLifetime };
-  }).filter((period) => period.id !== UNDATED_PERIOD || period.recordSlugs.length > 0);
+    return { id: period.id, title: period.title, range: period.range, intro: inPeriod.length === 0 && period.emptyIntro ? period.emptyIntro : period.intro, recordSlugs: inPeriod.map((record) => record.slug), years, emptyYears, inLifetime: period.inLifetime };
+  }).filter((period) => period.inLifetime || period.recordSlugs.length > 0);
 
   const yearCounts = new Map<number, YearMark>();
   for (const record of records) if (record.year !== null) { const mark = yearCounts.get(record.year) ?? { year: record.year, count: 0, periodId: record.periodId }; mark.count += 1; yearCounts.set(record.year, mark); }
@@ -192,14 +209,29 @@ export function buildAtaturkExperience(input: readonly ArchiveRecord[]): Ataturk
   if (firstLifetime !== null && lastLifetime !== null) for (let year = firstLifetime; year <= lastLifetime; year += 1) if (!yearCounts.has(year)) yearCounts.set(year, { year, count: 0, periodId: periodFor({ start: `${year}-06-30`, end: null, precision: "year", certainty: "exact", display: String(year) }) });
   const yearMarks = [...yearCounts.values()].sort((a, b) => a.year - b.year);
 
+  // Ray: yaşam dönemleri yıl yıl; üç ve daha uzun kayıtsız yıl dizileri tek aralığa iner; yaşam dışı dönemler tek kısayol olur.
+  const rail: RailItem[] = [];
+  const shortcut = (id: string) => { const period = periods.find((item) => item.id === id); if (period?.recordSlugs.length) rail.push({ kind: "period", periodId: id, label: period.range, count: period.recordSlugs.length }); };
+  shortcut("oncesi");
+  const lifetimeMarks = yearMarks.filter((mark) => PERIOD_DEFINITIONS.find((period) => period.id === mark.periodId)?.inLifetime);
+  for (let index = 0; index < lifetimeMarks.length; index += 1) {
+    const mark = lifetimeMarks[index];
+    if (mark.count > 0) { rail.push({ kind: "year", year: mark.year, count: mark.count, periodId: mark.periodId }); continue; }
+    let end = index; while (lifetimeMarks[end + 1]?.count === 0) end += 1;
+    if (end - index >= 2) rail.push({ kind: "gap", from: mark.year, to: lifetimeMarks[end].year });
+    else for (let gap = index; gap <= end; gap += 1) rail.push({ kind: "gap", from: lifetimeMarks[gap].year, to: lifetimeMarks[gap].year });
+    index = end;
+  }
+  shortcut("miras"); shortcut(UNDATED_PERIOD);
+
   const themes = THEME_DEFINITIONS.map((theme) => { const count = records.filter((record) => record.themeIds.includes(theme.id)).length; const coverage: CoverageLevel = count === 0 ? "none" : theme.note ? "partial" : "available"; return { id: theme.id, title: theme.title, description: theme.description, count, coverage, note: count === 0 ? "Bu tema için yayımlanmış kaynaklı kayıt henüz yok." : theme.note }; });
 
   const quoteRecord = publishedRecords.find((record) => record.quotation?.verified && record.verification.checks.quoteVerified && safeExternalUrl(record.quotation.sourceUrl) && !/yapay zek/i.test(record.quotation.evidence.verifiedBy));
   const quote = quoteRecord?.quotation ? { text: quoteRecord.quotation.text, work: quoteRecord.quotation.work, dateDisplay: quoteRecord.date.display, context: quoteRecord.quotation.context, sourceUrl: safeExternalUrl(quoteRecord.quotation.sourceUrl) as string, sourceTitle: quoteRecord.quotation.sourceTitle, verifiedBy: quoteRecord.quotation.evidence.verifiedBy, recordSlug: quoteRecord.slug } : null;
 
   return {
-    records, periods, themes, yearMarks, quote,
-    stats: { records: records.length, institutions: new Set(records.map((record) => record.institution)).size, photographs: records.filter((record) => record.type === "photograph").length, documents: records.filter((record) => record.type === "document").length, firstYear: yearMarks[0]?.year ?? null, lastLifetimeYear: lastLifetime, undated: records.filter((record) => record.year === null).length },
+    records, periods, themes, yearMarks, rail, quote,
+    stats: { records: records.length, institutions: new Set(records.map((record) => record.institution)).size, photographs: records.filter((record) => record.type === "photograph").length, documents: records.filter((record) => record.type === "document").length, firstYear: yearMarks[0]?.year ?? null, firstLifetimeYear: firstLifetime, lastLifetimeYear: lastLifetime, undated: records.filter((record) => record.year === null).length, earlyRecords: records.filter((record) => record.periodId === "erken-yillar").length },
     typeCounts: TYPE_ORDER.map((type) => ({ type, label: typeLabel(type), count: records.filter((record) => record.type === type).length })).filter((item) => item.count > 0),
   };
 }

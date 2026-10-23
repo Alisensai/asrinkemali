@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { AtaturkExperience } from "@/lib/ataturk-experience";
+import { formatYearRanges, type AtaturkExperience } from "@/lib/ataturk-experience";
 import styles from "./ataturk-experience.module.css";
 
 export function FeaturedQuote({ quote }: { quote: AtaturkExperience["quote"] }) {
@@ -39,8 +39,9 @@ export function ScopeNotes({ experience }: { experience: AtaturkExperience }) {
         <h3>Kapsam</h3>
         <ul>
           <li>Yalnız yayıma açık durumdaki {experience.stats.records} arşiv kaydı kullanılır; taslak ve incelemedeki kayıtlar gösterilmez.</li>
-          <li>Bu sayfa Atatürk&apos;ün yaşam öyküsünün tamamını kapsamaz. Erken yaşamına (1881–1918) ait yayımlanmış kayıt henüz yoktur.</li>
-          {emptyYears.length ? <li>Kayıt bulunmayan yıllar: {emptyYears.join(", ")}. Boşluklar, olay olmadığı anlamına gelmez.</li> : null}
+          <li>Bu sayfa Atatürk&apos;ün yaşam öyküsünün tamamını kapsamaz. {experience.stats.earlyRecords ? `Erken yaşamına (1881–1918) tarihlenen yalnız ${experience.stats.earlyRecords} kayıt vardır; bu dönem eksik kapsanır.` : "Erken yaşamına (1881–1918) ait yayımlanmış kayıt henüz yoktur."}</li>
+          {emptyYears.length ? <li>1919–1938 arasında kayıt bulunmayan yıllar: {formatYearRanges(emptyYears)}. Boşluklar, olay olmadığı anlamına gelmez.</li> : null}
+          <li>Mekân kayıtlarındaki tarihler mekânın veya kurumun kendi geçmişine aittir (ör. inşa, kuruluş); Atatürk&apos;ün o tarihte orada bulunduğunu göstermez. 1881 öncesine tarihlenen kayıtlar yaşam çizelgesinin dışında ayrı gösterilir.</li>
           {emptyThemes.length ? <li>Kaydı olmayan temalar: {emptyThemes.map((theme) => theme.title).join(", ")}.</li> : null}
           {partialThemes.length ? <li>Kısmi kapsamlı temalar: {partialThemes.map((theme) => theme.title).join(", ")}.</li> : null}
         </ul>

@@ -21,7 +21,7 @@ export default function AtaturkPage() {
         <h2 id="yolculuk-baslik" className={styles.sectionTitle}>Dönem dönem, yıl yıl</h2>
         <p className={styles.sectionLead}>Yıl rayından bir yıl seçin veya kaydırarak ilerleyin. Her olay kartı, kaynak kurumu, belge bağlantısını ve tarih bilgisini içeren bir bilgi paneli açar.</p>
       </div>
-      <LifeJourney periods={experience.periods} records={experience.records} yearMarks={experience.yearMarks} />
+      <LifeJourney periods={experience.periods} records={experience.records} rail={experience.rail} />
     </section>
     <div className="container"><ExhibitionExplorer records={experience.records} themes={experience.themes} typeCounts={experience.typeCounts} /><ScopeNotes experience={experience} /></div>
   </main>;

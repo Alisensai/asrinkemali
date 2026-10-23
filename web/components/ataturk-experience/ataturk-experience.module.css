@@ -223,7 +223,8 @@
   margin-block: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
 }
 
 .periodStrip li + li a {
@@ -499,6 +500,20 @@
   border: 1px solid var(--exp-line);
   border-radius: 10px;
   color: var(--gold);
+}
+
+.railPeriod .railYearNumber {
+  font-size: 13px;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  color: var(--gold-pale);
+}
+
+.railPeriodItem + .railPeriodItem,
+li:not(.railPeriodItem) + .railPeriodItem {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--exp-line);
 }
 
 .railGap > span {
@@ -1052,6 +1067,8 @@
 }
 
 .chip {
+  /* srOnly alt öğeleri kaydırılabilir süzgeç satırının dışına taşmasın. */
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -1452,8 +1469,8 @@
 @media (max-width: 620px) { .page { --exp-gutter: 12px; } }
 
 @media (max-width: 1180px) {
-  .periodStrip ol { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .periodStrip li:nth-child(4) a { border-left: 0; }
+  .periodStrip ol { grid-auto-flow: row; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .periodStrip li:nth-child(3n + 1) a { border-left: 0; }
   .periodStrip li:nth-child(n + 4) a { border-top: 1px solid var(--exp-line); }
   .themeGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .exhibitGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1492,6 +1509,8 @@
   .railYear::before { display: none; }
   .railYear[aria-current="true"] { background: linear-gradient(180deg, #8a131b, #5a0c11); }
   .railGap > span { padding: 10px 6px; font-size: 12px; }
+  .railPeriodItem + .railPeriodItem,
+  li:not(.railPeriodItem) + .railPeriodItem { margin-top: 0; padding-top: 0; border-top: 0; padding-left: 6px; border-left: 1px dashed var(--exp-line); }
   .heroArt { width: 100%; opacity: 0.7; }
   .heroShade { background: linear-gradient(0deg, #0a0607 0%, rgba(10, 6, 7, 0.85) 40%, rgba(10, 6, 7, 0.55) 100%); }
 }
