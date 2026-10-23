@@ -29,7 +29,7 @@
   --font-serif-body: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
 
-  --container: 1420px;
+  --container: 1366px;
   color-scheme: dark;
 }
 
@@ -118,7 +118,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 .utility-bar {
   background-color: var(--black);
   border-bottom: 1px solid var(--border-subtle);
-  height: 38px;
+  height: 35px;
   font-size: 12px;
   position: relative;
   z-index: 20;
@@ -237,13 +237,14 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 }
 
 .masthead {
-  min-height: 146px;
+  height: 141px;
+  min-height: 141px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
   isolation: isolate;
-  padding: 14px 0;
+  padding: 0;
 }
 
 .masthead::before {
@@ -382,7 +383,8 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 }
 
 .nav-inner {
-  min-height: 48px;
+  height: 50px;
+  min-height: 50px;
   display: flex;
   align-items: center;
 }
@@ -433,7 +435,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
    4. ATATÜRK HERO KOMPOZİSYONU
    ========================================================================== */
 .hero {
-  height: 480px;
+  height: 414px;
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -446,9 +448,9 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   top: 0;
   bottom: 0;
   right: 0;
-  width: 62%;
+  width: 64%;
   z-index: -2;
-  background: url('assets/ataturk-hero-temsili.webp') no-repeat center 26% / cover;
+  background: url('assets/ataturk-hero-temsili.webp') no-repeat 44% 28% / cover;
   filter: contrast(1.06) saturate(0.88);
 }
 
@@ -472,18 +474,18 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 }
 
 .hero-copy {
-  width: 53%;
-  padding-left: 12px;
+  width: 54%;
+  padding-left: 0;
 }
 
 .eyebrow {
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 600;
-  letter-spacing: 3.5px;
+  letter-spacing: 3.2px;
   color: var(--gold);
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   display: block;
 }
 
@@ -496,9 +498,9 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 .hero-pretitle {
   display: block;
   font-family: var(--font-serif-display);
-  font-size: clamp(26px, 2.7vw, 42px);
+  font-size: clamp(24px, 2.4vw, 36px);
   font-weight: 600;
-  letter-spacing: 2.5px;
+  letter-spacing: 2px;
   color: #ffffff;
   white-space: nowrap;
   text-shadow: 0 3px 12px rgba(0, 0, 0, 0.9);
@@ -507,10 +509,10 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 .hero-title {
   display: block;
   font-family: 'Playfair Display', var(--font-serif-display);
-  font-size: clamp(66px, 6.6vw, 102px);
+  font-size: clamp(62px, 6.2vw, 92px);
   font-weight: 800;
-  letter-spacing: 5px;
-  margin: 6px 0 16px 0;
+  letter-spacing: 4.5px;
+  margin: 4px 0 12px 0;
   background: linear-gradient(180deg, #ffffff 0%, #ebd7b8 32%, #d1a36d 68%, #ab7e48 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -520,12 +522,12 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 
 .hero-description {
   font-family: var(--font-serif-body);
-  font-size: clamp(19px, 1.6vw, 24px);
+  font-size: clamp(17px, 1.4vw, 21px);
   font-weight: 400;
   line-height: 1.35;
   color: #e6dacd;
-  margin: 0 0 24px 0;
-  max-width: 540px;
+  margin: 0 0 18px 0;
+  max-width: 520px;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
 }
 
@@ -600,7 +602,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   display: flex;
   align-items: center;
   gap: 14px;
-  margin-top: 26px;
+  margin-top: 18px;
   font-family: var(--font-sans);
   font-size: 12px;
 }
@@ -611,7 +613,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 }
 
 .pagination-line {
-  width: 54px;
+  width: 62px;
   height: 2px;
   background-color: var(--gold);
 }
@@ -644,9 +646,9 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 
 /* Sağ Alıntı & İmza */
 .hero-quote-side {
-  width: 35%;
-  margin-top: 50px;
-  margin-right: 18px;
+  width: 34%;
+  margin-top: 24px;
+  margin-right: 12px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -739,15 +741,15 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 .shortcuts {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  margin-top: 14px;
+  gap: 9px;
+  margin-top: 0;
   position: relative;
   z-index: 4;
   isolation: isolate;
 }
 
 .shortcut {
-  min-height: 122px;
+  min-height: 119px;
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(180, 130, 80, 0.45);
@@ -755,7 +757,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 22px 18px 98px;
+  padding: 16px 20px 16px 94px;
   text-decoration: none;
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   isolation: isolate;
@@ -788,14 +790,12 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   left: 20px;
   top: 50%;
   transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  border: 1px solid rgba(209, 163, 109, 0.45);
-  border-radius: 3px;
+  width: 40px;
+  height: 40px;
+  border: 0;
   display: grid;
   place-items: center;
-  background: rgba(22, 10, 11, 0.7);
-  backdrop-filter: blur(2px);
+  background: transparent;
 }
 
 .tile-svg {
@@ -840,9 +840,9 @@ button:focus-visible, a:focus-visible, input:focus-visible {
    ========================================================================== */
 .content-grid {
   display: grid;
-  grid-template-columns: 1fr 390px;
-  gap: 32px;
-  margin-top: 36px;
+  grid-template-columns: 1fr 422px;
+  gap: 24px;
+  margin-top: 14px;
 }
 
 .section-topline {
@@ -850,8 +850,8 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   align-items: baseline;
   justify-content: space-between;
   border-bottom: 1px solid rgba(138, 92, 60, 0.4);
-  padding-bottom: 12px;
-  margin-bottom: 18px;
+  padding-bottom: 10px;
+  margin-bottom: 14px;
   position: relative;
 }
 
@@ -892,11 +892,11 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 .publication-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 14px;
 }
 
 .publication-card {
-  min-height: 180px;
+  min-height: 140px;
   border: 1px solid rgba(138, 92, 60, 0.4);
   background:
     linear-gradient(180deg, rgba(16, 8, 9, 0.2) 0%, rgba(10, 5, 6, 0.95) 75%),
@@ -904,7 +904,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 16px;
+  padding: 12px 14px;
   text-decoration: none;
   position: relative;
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
@@ -930,12 +930,12 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 }
 
 .publication-card h3 {
-  font-family: var(--font-serif-display);
-  font-size: 14.5px;
+  font-family: var(--font-serif-body);
+  font-size: 16.5px;
   font-weight: 600;
-  line-height: 1.35;
+  line-height: 1.3;
   color: #ffffff;
-  margin: 10px 0;
+  margin: 8px 0;
 }
 
 .publication-footer {
@@ -974,7 +974,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 .timeline-teaser {
   background: radial-gradient(circle at 85% 20%, #2e0c0f 0%, #150708 75%);
   border: 1px solid rgba(180, 130, 80, 0.45);
-  padding: 22px 24px;
+  padding: 16px 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1025,7 +1025,7 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 .timeline-items::before {
   content: "";
   position: absolute;
-  left: 52px;
+  left: 55px;
   top: 10px;
   bottom: 10px;
   width: 1px;
