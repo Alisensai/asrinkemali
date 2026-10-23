@@ -1,0 +1,31 @@
+name: Release quality
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  release-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Run release checker tests
+        run: python -m unittest discover -s tools/release-check/tests -v
+      - name: Generate static and Next.js quality reports
+        run: python tools/release-check/checker.py --target both --static-root . --next-root apps/web --output-dir release-check-reports --fail-on none
+      - name: Upload release quality reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-quality-reports
+          path: release-check-reports/
+          if-no-files-found: error
+          retention-days: 14
