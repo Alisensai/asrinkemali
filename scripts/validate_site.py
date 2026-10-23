@@ -48,7 +48,7 @@ for src, alt in p.images:
     if not src or not (ROOT / src).is_file(): errors.append(f"Eksik görsel: {src}")
     if alt is None: errors.append(f"Alt metin tanımsız: {src}")
 if not (ROOT / "design/ONAYLANAN-TASARIM.webp").exists(): errors.append("Onaylı tasarım eksik")
-if "AI" not in (ROOT / "README.md").read_text() and "yapay zekâ" not in (ROOT / "README.md").read_text().lower(): errors.append("Temsili görsel açıklaması eksik")
+if "AI" not in (ROOT / "README.md").read_text(encoding="utf-8") and "yapay zekâ" not in (ROOT / "README.md").read_text(encoding="utf-8").lower(): errors.append("Temsili görsel açıklaması eksik")
 if errors:
     for error in errors: print("HATA:", error)
     raise SystemExit(1)
