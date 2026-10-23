@@ -793,7 +793,7 @@ def check_repo(root: Path, report: dict, target_roots: dict[str, Path]) -> None:
         result = subprocess.run(["git", "-C", str(root), *args], capture_output=True, text=True, check=False)
         return result.stdout.strip() if result.returncode == 0 else ""
 
-    branch = git("branch", "--show-current")
+    branch = git("branch", "--show-current") or os.environ.get("GITHUB_HEAD_REF") or os.environ.get("GITHUB_REF_NAME", "")
     report["git"] = {"branch": branch or None}
     if not branch:
         issue(report, "repository", "warning", "unknown-branch", "Git dalı belirlenemedi (detached HEAD veya Git yok).")

@@ -3,6 +3,7 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import checker
@@ -273,6 +274,12 @@ class ReleaseCheckTests(unittest.TestCase):
         self.write("large.bin", "x" * 2048)
         checker.check_target(self.root, "static", self.report, 0.0001, False, 1, 0, {})
         self.assertIn("large-file", {item["code"] for item in self.report["findings"]})
+
+    @patch.dict("os.environ", {"GITHUB_HEAD_REF": "feature/quality", "GITHUB_REF_NAME": "6/merge"})
+    def test_ci_pr_branch_is_reported_when_checkout_is_detached(self):
+        checker.check_repo(self.root, self.report, {})
+        self.assertEqual(self.report["git"]["branch"], "feature/quality")
+        self.assertNotIn("unknown-branch", {item["code"] for item in self.report["findings"]})
 
     def test_local_target_rejects_parent_escape(self):
         resolved = checker.local_target(self.root, self.root / "index.html", "../outside.html")

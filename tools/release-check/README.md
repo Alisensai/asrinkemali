@@ -73,7 +73,7 @@ Her yayına açık kayıt için benzersiz `id` ve `slug`, biçimle uyumlu `date`
 
 ## Test matrisi
 
-Üç test dosyasında **90 Python test case** bulunur; ilk görevden gelen 35 checker test korunmuştur. Eklenenler gerçek Next.js kaynak taraması, tarihî arşiv kuralları ve dependency-audit hatalarını kapsar.
+Üç test dosyasında **91 Python test case** bulunur; ilk görevden gelen 35 checker test korunmuştur. Eklenenler gerçek Next.js kaynak taraması, tarihî arşiv kuralları ve dependency-audit/CI branch metadata hatalarını kapsar.
 
 | Grup | Örnekler | Beklenen |
 |---|---|---|
@@ -87,4 +87,4 @@ Her yayına açık kayıt için benzersiz `id` ve `slug`, biçimle uyumlu `date`
 | SEO ve build girdisi | title/robots/sitemap, package/lockfile, hedef yok | yapılandırma hatası; strict hedefte SKIP değil |
 | Offline | dış link kontrolü kapalı, tekrarlanan URL cache | ağ isteği yok / tek cache girdisi |
 
-Web uygulamasında ayrıca 5 Node unit test ve 5 viewport projesinde 10 Playwright route/etkileşim testi çalışır. Tam CI koşusunda test toplamı 105'tir.
+Web uygulamasında ayrıca 5 Node unit test ve 5 viewport projesinde 10 Playwright route/etkileşim testi çalışır. Tam CI koşusunda test toplamı 106'dır.
