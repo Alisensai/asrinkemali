@@ -37,7 +37,7 @@ export default async function ArchiveDetailPage({ params }: { params: Promise<{ 
   return (
     <ContentPage eyebrow={typeLabel(record.type).toLocaleUpperCase("tr-TR")} title={record.title}>
       <article className={styles.detail}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "12px" }}>
+        <div className={styles.detailTopNav}>
           <Link href="/arsiv" className={styles.detailBack}>
             <Icon name="arrow-left" size={14} /> Dijital Arşive Dön
           </Link>

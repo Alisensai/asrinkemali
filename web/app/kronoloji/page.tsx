@@ -66,25 +66,15 @@ export default async function ChronologyPage({ searchParams }: { searchParams: P
           </div>
         </form>
 
-        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "8px", marginTop: "-12px" }}>
-          <span style={{ fontFamily: "var(--font-sans)", fontSize: "12px", color: "var(--gold)", fontWeight: 600 }}>
+        <div className={styles.quickYearsBar}>
+          <span className={styles.quickYearsLabel}>
             Önemli Yıllar:
           </span>
           {HISTORIC_YEARS.map((y) => (
             <Link
               key={y}
               href={`/kronoloji?yil=${y}`}
-              style={{
-                fontFamily: "var(--font-sans)",
-                fontSize: "12px",
-                padding: "4px 10px",
-                borderRadius: "2px",
-                border: year === y ? "1px solid var(--gold-bright)" : "1px solid rgba(209, 163, 109, 0.35)",
-                background: year === y ? "var(--red-accent)" : "rgba(20, 8, 10, 0.6)",
-                color: year === y ? "#ffffff" : "var(--gold-pale)",
-                textDecoration: "none",
-                transition: "all 0.2s ease",
-              }}
+              className={`${styles.quickYearChip}${year === y ? ` ${styles.quickYearChipActive}` : ""}`}
             >
               {y}
             </Link>
