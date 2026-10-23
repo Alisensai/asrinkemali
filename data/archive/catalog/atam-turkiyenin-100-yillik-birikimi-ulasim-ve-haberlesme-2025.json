@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "atam-turkiyenin-100-yillik-birikimi-ulasim-ve-haberlesme-2025",
+  "slug": "atam-turkiyenin-100-yillik-birikimi-ulasim-ve-haberlesme-2025",
+  "title": "Türkiye’nin 100 Yıllık Birikimi: Ulaşım ve Haberleşme",
+  "type": "publication",
+  "date": {
+    "start": "2025-01-01",
+    "end": null,
+    "precision": "year",
+    "certainty": "exact",
+    "display": "2025",
+    "note": "Basım yılı ATAM kitap künyesinden alınmıştır."
+  },
+  "people": [
+    {
+      "name": "Efdal As",
+      "role": "author",
+      "note": "Editör"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "yayin",
+    "cumhuriyet"
+  ],
+  "summary": "Cumhuriyet’in yüz yılında ulaşım ve haberleşme alanındaki gelişmeleri ele alan, Efdal As editörlüğündeki ATAM yayını.",
+  "description": "Atatürk Araştırma Merkezi tarafından 2025 yılında yayımlanan eser, Efdal As’ın editörlüğünde Türkiye’nin yüz yıllık ulaşım ve haberleşme birikimini değerlendirir. Kitap künyesinde ISBN 978-975-17-6298-6 ve yayın no 584 olarak kayıtlıdır. Yayın sayfası yalnızca bağlantı olarak sunulur.",
+  "source": {
+    "institution": "Atatürk Araştırma Merkezi Yayınları",
+    "institutionType": "institutional",
+    "institutionUrl": "https://atam.gov.tr/",
+    "title": "ATAM Yayınları: Türkiye’nin 100 Yıllık Birikimi: Ulaşım ve Haberleşme",
+    "url": "https://atam.gov.tr/kitaplar/turkiyenin-100-yillik-birikimi-ulasim-ve-haberlesme/",
+    "citation": "Efdal As (ed.), Türkiye’nin 100 Yıllık Birikimi: Ulaşım ve Haberleşme, Atatürk Araştırma Merkezi Yayınları, Ankara 2025, ISBN 978-975-17-6298-6, Yayın No. 584.",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2025-01-01",
+    "archiveIdentifier": "978-975-17-6298-6",
+    "note": "Kitap künyesi (yazar/editoryal kurul, ISBN, basım yılı) ATAM yayın sayfasından doğrulandı; kitap dosyası indirilmedi."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Araştırma Merkezi Yayınları",
+      "collection": "ATAM Yayınları",
+      "identifier": "978-975-17-6298-6",
+      "url": "https://atam.gov.tr/kitaplar/turkiyenin-100-yillik-birikimi-ulasim-ve-haberlesme/",
+      "accessedAt": "2026-10-23",
+      "note": "ATAM kitap detay sayfasındaki künye tablosuna dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Araştırma Merkezi Yayınları",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Kitap künyesi ATAM yayın sayfasındaki yazar, ISBN ve basım yılı bilgileriyle doğrulandı; kitap dosyası indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "Türkiye’nin 100 Yıllık Birikimi",
+    "ulaşım",
+    "haberleşme",
+    "ATAM",
+    "2025"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

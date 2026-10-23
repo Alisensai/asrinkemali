@@ -1,0 +1,115 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "ibb-anadolu-bagdad-taksim-abidesi-1926",
+  "slug": "ibb-anadolu-bagdad-taksim-abidesi-1926",
+  "title": "Anadolu-Bağdad Demiryolları’nın Taksim Abidesi Bağışına Dair Belge (1926)",
+  "type": "document",
+  "date": {
+    "start": "1926-09-09",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "9 Eylül 1926",
+    "note": "Belge tarihi İBB Atatürk Kitaplığı katalog kaydından alınmıştır."
+  },
+  "people": [
+    {
+      "name": "Anadolu-Bağdad Demiryolları",
+      "role": "author",
+      "note": "Belgeyi gönderen kurum."
+    },
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "subject"
+    },
+    {
+      "name": "Hakkı Şinasi Paşa",
+      "role": "other",
+      "note": "Belgenin muhatabı."
+    }
+  ],
+  "locations": [
+    {
+      "name": "İstanbul",
+      "city": "İstanbul",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "mekan",
+    "siyaset"
+  ],
+  "summary": "Anadolu-Bağdad Demiryolları’nın, Taksim Meydanı’nda dikilecek Gazi Mustafa Kemal Paşa heykelinin masraflarına katkı sağlayamayacağını bildiren 9 Eylül 1926 tarihli yazısı.",
+  "description": "Anadolu-Bağdad Demiryolları Müdüriyet-i Umumiyesi antetli kâğıda yazılan belge, İstanbul Şehremaneti Beyoğlu Şube-i İdariyyesi’nde bulunan İstanbul Mebusu Hakkı Şinasi Paşa’ya hitaben kaleme alınmıştır. Kurum, Gazi Mustafa Kemal Paşa namına Taksim Meydanı’nda dikilmesi tasarlanan heykelin masraflarına katkıda bulunmak istemekle birlikte bütçesinin TBMM tarafından tahdit edilmesi nedeniyle ödeme yapamayacağını bildirir. İBB Atatürk Kitaplığı’nda Bel_Mtf_070796 demirbaş numarasıyla kayıtlıdır.",
+  "source": {
+    "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+    "institutionType": "archive",
+    "institutionUrl": "https://sayisalarsiv.ibb.gov.tr/",
+    "title": "İBB Atatürk Kitaplığı: Anadolu-Bağdad Demiryolları’nın Taksim Abidesi Bağışına Dair Belge",
+    "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070796",
+    "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Bel_Mtf_070796, “Anadolu-Bağdad Demiryolları’nın Taksim Abidesi Bağışına Dair Belge”, 9 Eylül 1926, erişim 2026-10-23, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070796",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1926-09-09",
+    "archiveIdentifier": "Bel_Mtf_070796",
+    "note": "İBB Atatürk Kitaplığı Sayısal Arşiv katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Dosya indirilmedi."
+  },
+  "provenance": [
+    {
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "collection": "İBB Atatürk Kitaplığı Sayısal Arşiv",
+      "identifier": "Bel_Mtf_070796",
+      "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070796",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal katalog kaydı ve demirbaş numarasına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "İBB Atatürk Kitaplığı",
+    "imageReuse": "link_only",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": {
+    "kind": "digitized_original",
+    "url": null,
+    "sourcePageUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070796",
+    "alt": "Anadolu-Bağdad Demiryolları’nın Taksim Abidesi Bağışına Dair Belge (1926)",
+    "credit": "İBB Atatürk Kitaplığı",
+    "width": null,
+    "height": null,
+    "mimeType": null,
+    "localPath": null,
+    "displayPolicy": "source_link_only"
+  },
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Katalog kaydı ve belge tarihi 23.10.2026 tarihinde doğrulandı; dosya indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "İBB Atatürk Kitaplığı",
+    "Anadolu-Bağdad Demiryolları",
+    "Taksim Abidesi",
+    "1926",
+    "belge"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

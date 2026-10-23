@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "atam-fahri-akcakoca-akca-hatiralari-2025",
+  "slug": "atam-fahri-akcakoca-akca-hatiralari-2025",
+  "title": "İstiklal Savaşı İstihbarat Subaylarından: Fahri Akçakoca Akça’nın Hatıraları",
+  "type": "publication",
+  "date": {
+    "start": "2025-01-01",
+    "end": null,
+    "precision": "year",
+    "certainty": "exact",
+    "display": "2025",
+    "note": "Basım yılı ATAM kitap künyesinden alınmıştır."
+  },
+  "people": [
+    {
+      "name": "Önder Göçgün",
+      "role": "author",
+      "note": "Editör"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "yayin",
+    "milli-mucadele"
+  ],
+  "summary": "Fahri Akçakoca Akça’nın İstiklal Savaşı’ndaki istihbarat subaylığı dönemine ait hatıralarını bir araya getiren ATAM yayını.",
+  "description": "Atatürk Araştırma Merkezi tarafından 2025 yılında yayımlanan eser, Önder Göçgün’ün editörlüğünde Fahri Akçakoca Akça’nın hatıralarını sunar. Kitap künyesinde ISBN 978-975-17-6299-3 ve yayın no 345 olarak kayıtlıdır. Yayın sayfası yalnızca bağlantı olarak sunulur; kitap dosyası indirilmemiştir.",
+  "source": {
+    "institution": "Atatürk Araştırma Merkezi Yayınları",
+    "institutionType": "institutional",
+    "institutionUrl": "https://atam.gov.tr/",
+    "title": "ATAM Yayınları: İstiklal Savaşı İstihbarat Subaylarından: Fahri Akçakoca Akça’nın Hatıraları",
+    "url": "https://atam.gov.tr/kitaplar/istiklal-savasi-istihbarat-subaylarindan-fahri-akcakoca-akcanin-hatiralari/",
+    "citation": "Önder Göçgün (ed.), İstiklal Savaşı İstihbarat Subaylarından: Fahri Akçakoca Akça’nın Hatıraları, Atatürk Araştırma Merkezi Yayınları, Ankara 2025, ISBN 978-975-17-6299-3, Yayın No. 345.",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2025-01-01",
+    "archiveIdentifier": "978-975-17-6299-3",
+    "note": "Kitap künyesi (yazar/editoryal kurul, ISBN, basım yılı) ATAM yayın sayfasından doğrulandı; kitap dosyası indirilmedi."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Araştırma Merkezi Yayınları",
+      "collection": "ATAM Yayınları",
+      "identifier": "978-975-17-6299-3",
+      "url": "https://atam.gov.tr/kitaplar/istiklal-savasi-istihbarat-subaylarindan-fahri-akcakoca-akcanin-hatiralari/",
+      "accessedAt": "2026-10-23",
+      "note": "ATAM kitap detay sayfasındaki künye tablosuna dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Araştırma Merkezi Yayınları",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Kitap künyesi ATAM yayın sayfasındaki yazar, ISBN ve basım yılı bilgileriyle doğrulandı; kitap dosyası indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "Fahri Akçakoca Akça",
+    "hatıralar",
+    "İstiklal Savaşı",
+    "ATAM",
+    "2025"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

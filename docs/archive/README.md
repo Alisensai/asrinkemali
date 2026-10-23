@@ -1,55 +1,68 @@
 # Doğrulanmış Arşiv Kataloğu
 
-Bu dizin, `feature/opencode-verified-catalog` dalında eklenen 50 gerçek kurumsal
-kaynağın kataloğunu, hak/barındırma kararlarını, doğrulama yöntemini ve Codex'in
+Bu dizin, ASRIN KEMALİ arşivinin doğrulanmış kurumsal kaynaklarla
+genişletilmesini, hak/barındırma kararlarını, doğrulama yöntemini ve Codex'in
 Next.js çalışmasına bağlanma biçimini belgeler.
+
+- İlk genişletme: `feature/opencode-verified-catalog` dalında 50 kayıt.
+- v06 genişletmesi: `feature/opencode-v06-archive-expansion` dalında 100 kayıt.
+- Toplam: 18 eski kayıt + 150 yeni kayıt = **168 kayıt**.
 
 ## Özet
 
 | Ölçüt | Sonuç |
 |---|---:|
-| Yeni katalog kaydı | 50 |
-| Toplam arşiv kaydı (eski 18 + yeni 50) | 68 |
-| Yeni kayıtlarda `published` | 47 |
-| Yeni kayıtlarda `reviewed` | 3 |
-| Yeni kayıtlarda `draft` | 0 |
-| Yalnızca dış bağlantı (`holding.mode: external_link`) | 50 |
+| v06 genişletmesinde eklenen kayıt | 100 |
+| Toplam arşiv kaydı (eski 18 + yeni 150) | 168 |
+| Yayımlandı (`published`) | 151 |
+| İncelendi (`reviewed`) | 16 |
+| Taslak (`draft`) | 1 |
+| v06 kayıtlarında yayımlandı | 89 |
+| v06 kayıtlarında incelendi | 11 |
+| Yalnızca dış bağlantı (`holding.mode: external_link`) | 150 |
 | Depoda barındırılan dosya/görsel/PDF | 0 |
 | Yalnızca metadata (`metadata_only`) | 0 |
-| Yeni görselli kayıt (tamamı link-only) | 8 |
-| Yeni doğrulanmış alıntı | 1 |
-| Kaynak URL denetimi | 72 benzersiz URL, 0 başarısız |
+| Görselli kayıt (tamamı link-only) | 21 |
+| Doğrulanmış alıntı | 2 |
+| Kaynak URL denetimi | 176 benzersiz URL, 0 başarısız |
 | Test | 74 / 74 geçti |
 
-Doğrulama komutu sonucu: **68 kayıt, 62 yayımlandı, 5 incelendi, 1 taslak,
-0 hata, 7 uyarı**. Uyarıların 3'ü yeni Millî Kütüphane kayıtlarındaki tahmini
-yayın yılından, 4'ü önceden var olan kayıtlardan gelir.
+Doğrulama komutu sonucu: **168 kayıt, 151 yayımlandı, 16 incelendi, 1 taslak,
+0 hata, 7 uyarı**. Uyarıların 3'ü Millî Kütüphane kayıtlarındaki tahmini yayın
+yılından, 4'ü önceden var olan kayıtlardan gelir.
 
 ## Kaynak dağılımı
 
 | Kurum | Kayıt | Tür dağılımı | Durum |
 |---|---:|---|---|
-| Atatürk Ansiklopedisi (ATAM) | 24 | 21 olay, 1 konuşma, 2 yayın | 24 yayımlandı |
-| TBMM Tutanak Dergisi | 10 | 10 belge | 10 yayımlandı |
-| İBB Atatürk Kitaplığı | 8 | 6 fotoğraf, 2 belge | 8 yayımlandı |
-| ATAM Yayınları | 5 | 5 yayın | 5 yayımlandı |
+| Atatürk Ansiklopedisi (ATAM) | 107 | 68 olay, 14 yayın, 6 belge, 17 mekân, 2 konuşma | 94 yayımlandı, 12 incelendi, 1 taslak |
+| TBMM Tutanak Dergisi | 25 | 20 belge, 3 fotoğraf, 1 olay, 1 mekân | 24 yayımlandı, 1 incelendi |
+| İBB Atatürk Kitaplığı | 18 | 9 belge, 6 fotoğraf, 3 yayın | 18 yayımlandı |
+| ATAM Yayınları | 15 | 15 yayın | 15 yayımlandı |
 | Millî Kütüphane | 3 | 3 yayın | 3 incelendi |
-| **Toplam** | **50** | **21 olay, 1 konuşma, 12 belge, 10 yayın, 6 fotoğraf** | **47 yayımlandı, 3 incelendi** |
+| **Toplam** | **168** | **69 olay, 35 belge, 35 yayın, 18 mekân, 9 fotoğraf, 2 konuşma** | **151 yayımlandı, 16 incelendi, 1 taslak** |
 
-Türlerin toplam arşivdeki karşılığı: 29 olay, 2 konuşma, 13 belge, 12 yayın,
-9 fotoğraf ve 3 mekân.
+### v06 genişletmesinin dağılımı
+
+| Kurum | Kayıt | Tür dağılımı | Durum |
+|---|---:|---|---|
+| Atatürk Ansiklopedisi | 70 | 40 olay, 15 mekân, 10 yayın, 5 belge | 59 yayımlandı, 11 incelendi |
+| TBMM Tutanak Dergisi | 10 | 10 belge | 10 yayımlandı |
+| İBB Atatürk Kitaplığı | 10 | 7 belge, 3 yayın | 10 yayımlandı |
+| ATAM Yayınları | 10 | 10 yayın | 10 yayımlandı |
+| **Toplam** | **100** | **40 olay, 17 belge, 13 yayın, 15 mekân** | **89 yayımlandı, 11 incelendi** |
 
 ## Barındırma kararı
 
-50 kaydın tamamı **yalnızca dış bağlantı** olarak sunulur:
+Yeni eklenen 150 kaydın tamamı **yalnızca dış bağlantı** olarak sunulur:
 
 - `holding.mode`: `external_link`
 - `holding.filePath`: `null`
 - `rights.status`: `official_link_only`
-- Görselli 8 İBB kaydında `rights.imageReuse`: `link_only`
-- Görselsiz 42 kayıtta `rights.imageReuse`: `not_downloaded`
+- Görselli İBB kayıtlarında `rights.imageReuse`: `link_only`
+- Görselsiz kayıtlarda `rights.imageReuse`: `not_downloaded`
 - `data/archive/files/` altında dosya yoktur.
-- `data/archive/catalog/` altında yalnızca 50 JSON dosyası vardır; PDF, JPEG,
+- `data/archive/catalog/` altında yalnızca JSON kayıtları vardır; PDF, JPEG,
   PNG veya metin dosyası indirilmemiştir.
 
 Nedenleri ve ileride dosya barındırma koşulları için
@@ -58,14 +71,14 @@ Nedenleri ve ileride dosya barındırma koşulları için
 ## Dizinler
 
 ```text
-data/archive/catalog/*.json          # 50 yeni kayıt (schemaVersion 1.1.0)
+data/archive/catalog/*.json          # 150 yeni kayıt (schemaVersion 1.1.0)
 content/archive/records/*.json       # 18 mevcut kayıt (schemaVersion 1.0.0)
 schemas/archive-record.schema.json   # v1.0.0 + v1.1.0 sözleşmesi
 schemas/archive-record.types.ts      # TypeScript karşılığı
 scripts/archive/lib/load.mjs         # iki dizini birlikte yükler
 scripts/archive/lib/validate.mjs     # yayın kapısı + holding/citation kuralları
 docs/archive/README.md               # bu dosya
-docs/archive/KAYNAK-ENVANTERI.md     # 50 kaydın tek tek kaynak/barındırma tablosu
+docs/archive/KAYNAK-ENVANTERI.md     # kaynak/barındırma envanteri
 docs/archive/HAKLAR-VE-BARINDIRMA.md # telif, link-only ve dosya politikası
 docs/archive/DOGRULAMA-RAPORU.md     # doğrulama, link ve test sonuçları
 docs/archive/CODEX-ENTEGRASYONU.md   # Next.js/Codex bağlantı talimatı
@@ -86,7 +99,7 @@ node --test "scripts/archive/tests/*.test.mjs"
 
 `--links` denetimi, Millî Kütüphane ve benzeri kurumların hızlı ardışık HEAD
 isteklerine 400 dönebilmesi nedeniyle CLI içinde `concurrency: 1` ile çalışır.
-Bu, yanlış negatifleri önler; 23.10.2026 tarihli çalıştırmada 72 URL'nin
+Bu, yanlış negatifleri önler; 23.10.2026 tarihli çalıştırmada 176 URL'nin
 tamamı başarılı oldu.
 
 ## Kapsam ve sınırlar
@@ -96,6 +109,8 @@ tamamı başarılı oldu.
   uyumlu biçimde genişletilmiştir.
 - Kayıtların `reviewedBy` alanı `OpenCode arşiv denetimi (yapay zekâ)` olarak
   tutulur. Bu, insan uzman onayı değildir.
+- v06 genişletmesinde 70 Atatürk Ansiklopedisi kaydı, 10 TBMM tutanağı,
+  10 İBB Atatürk Kitaplığı kaydı ve 10 ATAM yayını eklendi.
 - 3 Millî Kütüphane kaydında katalog sayfasındaki `Yayın Tarihi` alanı boştur;
   yayın yılı yer numarasındaki yıl önekinden değerlendirilmiştir. Bu nedenle
   bu kayıtlar `published` değil `reviewed` durumundadır.

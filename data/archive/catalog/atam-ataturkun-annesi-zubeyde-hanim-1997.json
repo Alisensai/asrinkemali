@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "atam-ataturkun-annesi-zubeyde-hanim-1997",
+  "slug": "atam-ataturkun-annesi-zubeyde-hanim-1997",
+  "title": "Atatürk’ün Annesi Zübeyde Hanım",
+  "type": "publication",
+  "date": {
+    "start": "1997-01-01",
+    "end": null,
+    "precision": "year",
+    "certainty": "exact",
+    "display": "1997",
+    "note": "Basım yılı ATAM kitap künyesinden alınmıştır."
+  },
+  "people": [
+    {
+      "name": "Cemil Sönmez",
+      "role": "author"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "yayin",
+    "toplum"
+  ],
+  "summary": "Cemil Sönmez’in Atatürk’ün annesi Zübeyde Hanım’ın hayatını ele alan ATAM yayını.",
+  "description": "Atatürk Araştırma Merkezi tarafından 1997 yılında yayımlanan eser, Cemil Sönmez imzasıyla Zübeyde Hanım’ın hayatını konu edinir. Kitap künyesinde ISBN 975-16-0942-9, yayın no 245 ve 112 sayfa bilgisi yer alır. Yayın sayfası yalnızca bağlantı olarak sunulur.",
+  "source": {
+    "institution": "Atatürk Araştırma Merkezi Yayınları",
+    "institutionType": "institutional",
+    "institutionUrl": "https://atam.gov.tr/",
+    "title": "ATAM Yayınları: Atatürk’ün Annesi Zübeyde Hanım",
+    "url": "https://atam.gov.tr/kitaplar/ataturkun-annesi-zubeyde-hanim/",
+    "citation": "Cemil Sönmez, Atatürk’ün Annesi Zübeyde Hanım, Atatürk Araştırma Merkezi Yayınları, Ankara 1997, ISBN 975-16-0942-9, Yayın No. 245.",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1997-01-01",
+    "archiveIdentifier": "975-16-0942-9",
+    "note": "Kitap künyesi (yazar/editoryal kurul, ISBN, basım yılı) ATAM yayın sayfasından doğrulandı; kitap dosyası indirilmedi."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Araştırma Merkezi Yayınları",
+      "collection": "ATAM Yayınları",
+      "identifier": "975-16-0942-9",
+      "url": "https://atam.gov.tr/kitaplar/ataturkun-annesi-zubeyde-hanim/",
+      "accessedAt": "2026-10-23",
+      "note": "ATAM kitap detay sayfasındaki künye tablosuna dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Araştırma Merkezi Yayınları",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Kitap künyesi ATAM yayın sayfasındaki yazar, ISBN ve basım yılı bilgileriyle doğrulandı; kitap dosyası indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "Zübeyde Hanım",
+    "Cemil Sönmez",
+    "ATAM",
+    "1997",
+    "biyografi"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

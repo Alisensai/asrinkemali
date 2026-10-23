@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "ibb-leipzig-illustrirte-zeitung-mektubu-1937",
+  "slug": "ibb-leipzig-illustrirte-zeitung-mektubu-1937",
+  "title": "Leipzig Illustrirte Zeitung’un Mustafa Kemal’e Saygı Mektubu (1937)",
+  "type": "document",
+  "date": {
+    "start": "1937-11-11",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "11 Kasım 1937",
+    "note": "Belge tarihi İBB Atatürk Kitaplığı katalog kaydından alınmıştır."
+  },
+  "people": [
+    {
+      "name": "Leipzig Illustrirte Zeitung",
+      "role": "author",
+      "note": "Mektubu gönderen yayın."
+    },
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "subject"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Leipzig",
+      "city": "Leipzig",
+      "country": "Almanya"
+    }
+  ],
+  "categories": [
+    "kultur",
+    "cumhuriyet"
+  ],
+  "summary": "Leipzig’de yayımlanan Illustrirte Zeitung’un Mustafa Kemal’in Genel Sekreterliğine hitaben yazdığı, Türk Ordusu’na dair yayınları ve gelecek yıl abonelik talebini içeren 11 Kasım 1937 tarihli mektup.",
+  "description": "Belge, Leipzig’de haftalık olarak yayımlanan Illustrirte Zeitung’un Mustafa Kemal’in Genel Sekreterliğine hitaben yazdığı mektuptur. Dergi, Türk Ordusu ile ilgili yayınlarının nasıl bulunduğunu sorar, gelecek yıl için abonelik talebini iletir ve Mustafa Kemal’e saygılarını sunar. İBB Atatürk Kitaplığı’nda Bel_Mtf_071094 demirbaş numarasıyla kayıtlıdır.",
+  "source": {
+    "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+    "institutionType": "archive",
+    "institutionUrl": "https://sayisalarsiv.ibb.gov.tr/",
+    "title": "İBB Atatürk Kitaplığı: Leipzig Illustrirte Zeitung’un Mustafa Kemal’e Saygı Mektubu",
+    "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_071094",
+    "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Bel_Mtf_071094, “Leipzig Illustrirte Zeitung’un Mustafa Kemal’e Saygı Mektubu”, 11 Kasım 1937, erişim 2026-10-23, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_071094",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1937-11-11",
+    "archiveIdentifier": "Bel_Mtf_071094",
+    "note": "İBB Atatürk Kitaplığı Sayısal Arşiv katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Dosya indirilmedi."
+  },
+  "provenance": [
+    {
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "collection": "İBB Atatürk Kitaplığı Sayısal Arşiv",
+      "identifier": "Bel_Mtf_071094",
+      "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_071094",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal katalog kaydı ve demirbaş numarasına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "İBB Atatürk Kitaplığı",
+    "imageReuse": "link_only",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": {
+    "kind": "digitized_original",
+    "url": null,
+    "sourcePageUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_071094",
+    "alt": "Leipzig Illustrirte Zeitung’un Mustafa Kemal’e Saygı Mektubu (1937)",
+    "credit": "İBB Atatürk Kitaplığı",
+    "width": null,
+    "height": null,
+    "mimeType": null,
+    "localPath": null,
+    "displayPolicy": "source_link_only"
+  },
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Katalog kaydı ve belge tarihi 23.10.2026 tarihinde doğrulandı; dosya indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "İBB Atatürk Kitaplığı",
+    "Leipzig Illustrirte Zeitung",
+    "Mustafa Kemal",
+    "1937",
+    "basın"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

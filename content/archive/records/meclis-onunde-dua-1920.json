@@ -30,21 +30,21 @@
     "institution": "Türkiye Büyük Millet Meclisi",
     "institutionType": "official",
     "institutionUrl": "https://kurtulussavasimuzesi.tbmm.gov.tr/",
-    "title": "Kurtuluş Savaşı Müzesi: Fotoğraflar",
-    "url": "https://kurtulussavasimuzesi.tbmm.gov.tr/fotograf",
+    "title": "Kurtuluş Savaşı Müzesi: Meclis Önünde Dua Fotoğrafı",
+    "url": "https://cdn.tbmm.gov.tr/KurtulusSavasiMuzeWeb/Fotograf/2.jpg",
     "accessedAt": "2026-10-23",
     "publishedAt": null,
     "archiveIdentifier": "Fotograf/2.jpg",
-    "note": "Kurumsal fotoğraf albümünde Meclis Önünde Dua başlığı ve 6 Mayıs 1920 tarihiyle listelenir."
+    "note": "Kurumsal fotoğraf albümündeki Meclis Önünde Dua fotoğrafının doğrudan CDN adresi; görsel dosyası indirilmedi."
   },
   "provenance": [
     {
       "institution": "Türkiye Büyük Millet Meclisi",
       "collection": "Kurtuluş Savaşı Müzesi Fotoğraf Albümü",
       "identifier": "Fotograf/2.jpg",
-      "url": "https://kurtulussavasimuzesi.tbmm.gov.tr/fotograf",
+      "url": "https://cdn.tbmm.gov.tr/KurtulusSavasiMuzeWeb/Fotograf/2.jpg",
       "accessedAt": "2026-10-23",
-      "note": "Görsel, kurumsal albümde 6 Mayıs 1920 tarihli dua töreni olarak tanımlanır."
+      "note": "Görsel, kurumsal albümde 6 Mayıs 1920 tarihli dua töreni olarak tanımlanır; doğrudan CDN adresi kullanılmıştır."
     }
   ],
   "rights": {

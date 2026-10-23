@@ -9,8 +9,8 @@ import { todayInHistory, NO_RECORDS_MESSAGE } from "../lib/today.mjs";
 const archive = await loadArchive();
 const records = archive.records;
 
-test("arşiv 68 kayıt ve altı türü kapsar", () => {
-  assert.equal(records.length, 68);
+test("arşiv 168 kayıt ve altı türü kapsar", () => {
+  assert.equal(records.length, 168);
   assert.deepEqual(
     [...new Set(records.map((record) => record.type))].sort(),
     ["document", "event", "photograph", "place", "publication", "speech"].sort()
@@ -26,7 +26,7 @@ test("yayımlanmış kayıtlar kaynak, provenans ve yayın haklarına sahiptir",
     "institutional_terms",
   ]);
   const published = records.filter((record) => record.verification.status === "published");
-  assert.equal(published.length, 62);
+  assert.equal(published.length, 151);
   for (const record of published) {
     assert.ok(record.source?.url, `${record.id}: kaynak URL'si yok`);
     assert.ok(record.provenance?.some((item) => item.url === record.source.url), `${record.id}: kaynak provenansta yok`);
@@ -112,7 +112,7 @@ test("Tarihte Bugün yalnızca gerçek takvim günü eşleşmelerini döndürür
 test("Türkçe arama gerçek arşivde ı/i, İ/i ve ş/s eşitlemesiyle çalışır", () => {
   assert.ok(searchRecords(records, "istiklal").length >= 1);
   assert.ok(searchRecords(records, "İSTİKLAL").length >= 1);
-  assert.ok(searchRecords(records, "sisli").length === 0);
+  assert.ok(searchRecords(records, "sisli").some((hit) => hit.record.id === "ayk-sisli-ataturk-evi"));
   assert.ok(searchRecords(records, "kadin").some((hit) => hit.record.id === "kadinlara-secme-secilme-hakki-1934"));
   assert.ok(searchRecords(records, "KADIN").some((hit) => hit.record.id === "kadinlara-secme-secilme-hakki-1934"));
   assert.ok(searchRecords(records, "meclis").length >= 3);
