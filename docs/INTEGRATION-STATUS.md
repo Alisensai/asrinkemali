@@ -11,9 +11,11 @@ Hedef: `main` (merge edilmedi)
 | Kaynak | HEAD | Entegrasyon yöntemi | Doğrulanan durum |
 | --- | --- | --- | --- |
 | PR #1 — `feature/codex-app-foundation` | `8cbb1dfc43b32f1d65fa8c8bb49cf7f54ce4c26c` | `--no-ff`, merge commit `2c14958` | Açık, taslak; smoke ve Next.js CI başarılı |
-| PR #2 — `feature/antigravity-visual-fidelity` | `b9d519e134875e5f7baea289d0e9db5a666d5b17` | `--no-ff`, merge commit `885a824` | Açık, taslak; smoke başarılı |
+| PR #2 — `feature/antigravity-visual-fidelity` | Entegre edilen: `b9d519e134875e5f7baea289d0e9db5a666d5b17` | `--no-ff`, merge commit `885a824` | Açık, taslak; başlangıçtaki smoke başarılı |
 
 Dal `origin/main` üzerindeki `42352e6da93ee3eea1cd6d1dca1f1908f438642e` commit'inden oluşturuldu. Birleştirmelerde çatışma oluşmadı. PR #1 ve PR #2 kapatılmadı; hiçbiri `main` dalına merge edilmedi.
+
+Entegrasyon tamamlandıktan sonra PR #2, `96d06603cf96b3a9b91ac422f96f93219a9a7cfd` commit'ine ilerledi. Bu geç commit statik `styles.css`, ek görsel denetim çıktıları ve `docs/visual/PIXEL-AUDIT.md` içeriyor. Eşzamanlı çalışmanın üzerine yazmamak için bu entegrasyon dalına alınmadı. Antigravity'nin sonraki turu PR #4'ün HEAD'ini baz almalı; `b9d519e..96d0660` kararları ayrı takip dalında Next.js stillerine seçilerek taşınmalıdır.
 
 ## Uygulanan mimari
 
