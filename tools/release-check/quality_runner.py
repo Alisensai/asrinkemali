@@ -13,6 +13,7 @@ import sys
 from datetime import datetime, timezone
 
 import checker
+import publication_guard
 
 
 SEVERITY_RANK = {"critical": 0, "error": 1, "warning": 2, "expert_review": 2, "info": 3}
@@ -34,10 +35,14 @@ def _test_counts(name: str, output: str, code: int) -> tuple[int, int]:
         match = re.search(r"Ran\s+(\d+)\s+tests?", output)
         if not match:
             return 0, 1 if code else 0
-        passed = int(match.group(1)) if code == 0 else 0
-        failed = 0 if code == 0 else max(1, int(match.group(1)))
-        return passed, failed
-    if name in {"web-unit-tests", "web-e2e"}:
+        total = int(match.group(1))
+        if code == 0:
+            return total, 0
+        summary = re.search(r"FAILED\s*\(([^)]*)\)", output)
+        failure_counts = re.findall(r"(?:failures?|errors?)=(\d+)", summary.group(1)) if summary else []
+        failed = sum(int(count) for count in failure_counts) or 1
+        return max(0, total - failed), failed
+    if name in {"web-unit-tests", "web-e2e", "archive-engine-tests"}:
         tests = re.search(r"(?:ℹ\s*)?tests\s+(\d+)", output)
         failed = re.search(r"(?:ℹ\s*)?fail\s+(\d+)", output)
         if tests:
@@ -146,7 +151,7 @@ def _public_check(step: dict) -> dict:
 def _markdown(report: dict) -> str:
     summary = report["summary"]
     lines = [
-        "# V0.4 release quality report", "",
+        "# V0.6 release quality report", "",
         f"- **Üretim için hazır:** {'EVET' if report['release_ready'] else 'HAYIR'}",
         f"- **Çalışma zamanı (UTC):** {report['generated_at']}",
         f"- **Hedef:** {report['target_root']}",
@@ -174,6 +179,38 @@ def _markdown(report: dict) -> str:
     lines.extend(f"- **{item['severity']}** `{item['code']}` {item['path']}: {item['message']}" for item in security)
     if not security:
         lines.append("- Güvenlik bulgusu yok.")
+    catalog = report.get("archive_catalog", {})
+    scheduled = report.get("scheduled_content", {})
+    engine = report.get("archive_engine_validation", {})
+    engine_statuses = engine.get("byStatus", {})
+    status_counts = catalog.get("status_counts", {})
+    lines.extend([
+        "", "## Yayın motoru ve tarihî kaynak kataloğu", "",
+        f"- Katalog: {catalog.get('record_count', 0)} kayıt / {catalog.get('file_count', 0)} dosya; "
+        f"durumlar draft={status_counts.get('draft', 0)}, reviewed={status_counts.get('reviewed', 0)}, "
+        f"published={status_counts.get('published', 0)}.",
+        f"- İnsan uzman incelemesi gereken kayıt: {catalog.get('human_expert_review_required_count', 0)}.",
+        f"- Zamanlanmış içerik: {scheduled.get('entry_count', 0)} kayıt "
+        f"({scheduled.get('status', 'ölçülemedi')}).",
+    ])
+    if engine:
+        lines.append(
+            f"- Mevcut Node arşiv doğrulayıcısı: {engine.get('total', 0)} kayıt; "
+            f"published={engine_statuses.get('published', 0)}, reviewed={engine_statuses.get('reviewed', 0)}, "
+            f"draft={engine_statuses.get('draft', 0)}."
+        )
+    limitations = report.get("publication_verification_limitations", [])
+    if limitations:
+        lines.extend(["", "Denetim sınırları:"])
+        lines.extend(f"- {item}" for item in limitations)
+    lines.extend(["", "## Öncelikli sorunlar", ""])
+    if report.get("priority_findings"):
+        lines.extend(
+            f"- **{item['severity']}** `{item['code']}` {item['path']}: {item['message']}"
+            for item in report["priority_findings"]
+        )
+    else:
+        lines.append("- Öncelikli bulgu yok.")
     lines.extend(["", "## Tüm kalite bulguları", "",
                   "| Şiddet | Kod | Hedef | Dosya | Açıklama |",
                   "|---|---|---|---|---|"])
@@ -221,6 +258,9 @@ def run(argv: list[str] | None = None) -> int:
         "missing_content": [],
         "missing_sources": [],
         "archive": {},
+        "archive_catalog": {},
+        "scheduled_content": {},
+        "publication_verification_limitations": [],
         "summary": {},
         "release_ready": False,
         "external_link_check_enabled": args.external_links,
@@ -238,6 +278,8 @@ def run(argv: list[str] | None = None) -> int:
             ("web-unit-tests", [npm, "test"]),
             ("release-checker-tests", [sys.executable, "-m", "unittest", "discover", "-s",
                                       str(repo_root / "tools" / "release-check" / "tests"), "-v"]),
+            ("archive-engine-tests", ["node", "--test", "scripts/archive/tests/*.test.mjs"]),
+            ("archive-source-validation", ["node", "scripts/archive/validate.mjs", "--json"]),
             ("web-production-build", [npm, "run", "build"]),
         ]
         if args.e2e:
@@ -249,12 +291,27 @@ def run(argv: list[str] | None = None) -> int:
                 step_env["CI"] = "true"
             step = run_step(name, command, web_root if name.startswith("web-") else repo_root, env=step_env)
             report["checks"].append(_public_check(step))
-            if name in {"web-unit-tests", "release-checker-tests", "web-e2e"}:
+            if name in {"web-unit-tests", "release-checker-tests", "archive-engine-tests", "web-e2e"}:
                 report["summary"]["tests_passed"] = report["summary"].get("tests_passed", 0) + step["tests_passed"]
                 report["summary"]["tests_failed"] = report["summary"].get("tests_failed", 0) + step["tests_failed"]
             if not step["passed"]:
                 add_finding(report["findings"], "critical" if name.endswith("tests") or name == "web-e2e" else "error",
                             "quality-command-failed", f"{name} başarısız oldu (exit {step['exit_code']}): {step['error'] or step['output_tail'][-1000:]}", "ci")
+            if name == "archive-source-validation":
+                archive_payload = _parse_json_output(step["_stdout"])
+                if archive_payload is None:
+                    add_finding(report["findings"], "error", "archive-validation-report-invalid",
+                                "Arşiv doğrulayıcısı JSON raporu üretmedi.", "archive")
+                else:
+                    report["archive_engine_validation"] = archive_payload.get("stats", {})
+                    for finding in archive_payload.get("errors", []):
+                        add_finding(report["findings"], "error", finding.get("code", "archive-validation-error"),
+                                    finding.get("message", "Arşiv doğrulama hatası."),
+                                    "archive", f"{finding.get('recordId') or ''} {finding.get('path') or ''}".strip())
+                    for finding in archive_payload.get("warnings", []):
+                        add_finding(report["findings"], "warning", finding.get("code", "archive-validation-warning"),
+                                    finding.get("message", "Arşiv doğrulama uyarısı."),
+                                    "archive", f"{finding.get('recordId') or ''} {finding.get('path') or ''}".strip())
         check_audit(web_root, report)
         checker_report = {"findings": [], "targets": {}, "git": {}, "checks": []}
         checker.check_repo(repo_root, checker_report, {})
@@ -275,18 +332,31 @@ def run(argv: list[str] | None = None) -> int:
             "error": None,
         })
 
+    publication_report = publication_guard.validate_repository(repo_root)
+    report["archive_catalog"] = publication_report["catalog"]
+    report["scheduled_content"] = publication_report["scheduled_content"]
+    report["publication_verification_limitations"] = publication_report["verification_limitations"]
+    report["findings"].extend(publication_report["findings"])
+
     severities = ("critical", "error", "warning", "expert_review", "info")
     for severity in severities:
         report["summary"][severity] = sum(item["severity"] == severity for item in report["findings"])
     report["summary"].setdefault("tests_passed", 0)
     report["summary"].setdefault("tests_failed", 0)
+    report["priority_findings"] = sorted(
+        report["findings"],
+        key=lambda item: (SEVERITY_RANK.get(item["severity"], 3), item["code"], item["path"]),
+    )[:10]
     report["missing_content"] = [
         item["message"] for item in report["findings"]
         if item["code"] in {"missing-archive-content", "missing-published-content"}
     ]
     report["missing_sources"] = [
         {"path": item["path"], "code": item["code"], "message": item["message"]}
-        for item in report["findings"] if item["code"].startswith(("missing-source", "invalid-source-url", "missing-use", "missing-copyright"))
+        for item in report["findings"]         if item["code"].startswith((
+            "missing-source", "invalid-source-url", "invalid-catalog-source-url",
+            "missing-use", "missing-copyright", "source-not-in-provenance",
+        ))
     ]
     report["security_findings"] = [item for item in report["findings"] if item["target"] == "security"]
     report["release_blockers"] = [
