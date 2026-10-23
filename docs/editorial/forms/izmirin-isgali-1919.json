@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "izmirin-isgali-1919",
+  "record_path": "data/archive/catalog/izmirin-isgali-1919.json",
+  "record_snapshot_sha256": "53b497b9101d58587530fb430485dfb834231187c6955f71a581485b58e29e05",
+  "record_snapshot": {
+    "title": "İzmir'in İşgali",
+    "type": "event",
+    "date": {
+      "start": "1919-05-15",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "15 Mayıs 1919"
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/719/izmirin-isgali-1919",
+    "citation": "Atatürk Ansiklopedisi, “İzmir'in İşgali”, yazar ENGİN BERBER, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/719/izmirin-isgali-1919",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

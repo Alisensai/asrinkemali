@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "buyuk-taarruz-1922",
+  "record_path": "data/archive/catalog/buyuk-taarruz-1922.json",
+  "record_snapshot_sha256": "f3dc634176cdc7917ee181d2c501b272455f037f54860c4986e137974b5f00d7",
+  "record_snapshot": {
+    "title": "Büyük Taarruz",
+    "type": "event",
+    "date": {
+      "start": "1922-08-26",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "26 Ağustos 1922"
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/4929/buyuk-taarruz-1922",
+    "citation": "Atatürk Ansiklopedisi, “Büyük Taarruz”, yazar Zafer KOYLU, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/4929/buyuk-taarruz-1922",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

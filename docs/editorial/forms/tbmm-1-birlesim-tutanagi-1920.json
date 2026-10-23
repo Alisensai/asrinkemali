@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "tbmm-1-birlesim-tutanagi-1920",
+  "record_path": "data/archive/catalog/tbmm-1-birlesim-tutanagi-1920.json",
+  "record_snapshot_sha256": "50fae598472742ab0353cf6f18b9e7c74e58b666e17adc4af69d0908f9eb1bf3",
+  "record_snapshot": {
+    "title": "TBMM 1. Birleşim Tutanağı (23 Nisan 1920)",
+    "type": "document",
+    "date": {
+      "start": "1920-04-23",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "23 Nisan 1920"
+    },
+    "source_institution": "Türkiye Büyük Millet Meclisi",
+    "source_url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c001/tbmm01001001.pdf",
+    "citation": "TBMM Tutanak Dergisi, Dönem 1, Cilt 1, 1. Birleşim, 23 Nisan 1920, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c001/tbmm01001001.pdf",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

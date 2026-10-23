@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "sapka-inkilabi-1925",
+  "record_path": "data/archive/catalog/sapka-inkilabi-1925.json",
+  "record_snapshot_sha256": "2a8b4110f5567b5813ab423e9e4ac92bf9bdcb564d33662d5b2a4779a6592ddd",
+  "record_snapshot": {
+    "title": "Şapka İnkılabı",
+    "type": "event",
+    "date": {
+      "start": "1925-11-25",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "25 Kasım 1925"
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/1232/sapka-inkilabi-1925",
+    "citation": "Atatürk Ansiklopedisi, “Şapka İnkılabı”, yazar Ayten SEZER ARIĞ, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/1232/sapka-inkilabi-1925",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

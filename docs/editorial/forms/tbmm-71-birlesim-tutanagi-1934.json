@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "tbmm-71-birlesim-tutanagi-1934",
+  "record_path": "data/archive/catalog/tbmm-71-birlesim-tutanagi-1934.json",
+  "record_snapshot_sha256": "2f3f520922a071a377c7e9b17c99f85228bc232de5372ad440847a3e4a2d7cf2",
+  "record_snapshot": {
+    "title": "TBMM 71. Birleşim Tutanağı (21 Haziran 1934)",
+    "type": "document",
+    "date": {
+      "start": "1934-06-21",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "21 Haziran 1934"
+    },
+    "source_institution": "Türkiye Büyük Millet Meclisi",
+    "source_url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d04/c023/tbmm04023071.pdf",
+    "citation": "TBMM Tutanak Dergisi, Dönem 4, Cilt 23, 71. Birleşim, 21 Haziran 1934, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d04/c023/tbmm04023071.pdf",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}
