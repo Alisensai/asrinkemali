@@ -67,7 +67,7 @@ const candidates = [
   ayk(83, "Z%C3%BCbeyde-Han%C4%B1m-(1857-1923)", "Zübeyde Hanım (1857-1923)", "Mehmet Emin Elmacı", "2021-08-11", ["cocukluk", "kisiler"], { periodStart: 1857, periodEnd: 1923, eventYear: null, people: ["Zübeyde Hanım"], locations: ["Selanik", "İzmir"], summaryNote: "Atatürk'ün annesi." }),
   ayk(237, "Makbule-Atadan-(1885-1956)", "Makbule Atadan (1885-1956)", "Mehmet Emin Elmacı", "2021-02-17", ["cocukluk", "kisiler"], { periodStart: 1885, periodEnd: 1956, eventYear: null, people: ["Makbule Atadan"], locations: ["Selanik"], summaryNote: "Atatürk'ün kız kardeşi." }),
   // --- Eğitim ---
-  ayk(243, "%C5%9Eemsi-Efendi-Mektebi", "Şemsi Efendi Mektebi", "Volkan Aksoy", "2022-02-22", ["egitim", "selanik"], { periodStart: 1872, periodEnd: 1917, eventYear: 1892, people: ["Şemsi Efendi", "Mustafa Kemal Atatürk"], locations: ["Selanik"], summaryNote: "Mustafa Kemal'in ilk öğrenim gördüğü mahalle mektebinin kuruluşu (1872) ve eğitim kadrosu." }),
+  ayk(243, "%C5%9Eemsi-Efendi-Mektebi", "Şemsi Efendi Mektebi", "Volkan Aksoy", "2022-02-22", ["egitim", "selanik"], { periodStart: 1872, periodEnd: 1917, eventYear: null, people: ["Şemsi Efendi", "Mustafa Kemal Atatürk"], locations: ["Selanik"], summaryNote: "Mustafa Kemal'in ilk öğrenim gördüğü mahalle mektebinin kuruluşu (1872) ve eğitim kadrosu. Sayfada kayıt yılı belirtilmediğinden eventYear boş bırakıldı." }),
   ayk(875, "Atat%C3%BCrk%E2%80%99%C3%BCn-E%C4%9Fitim-ve-%C3%96%C4%9Fretim-G%C3%B6rd%C3%BC%C4%9F%C3%BC-Kurumlar", "Atatürk'ün Eğitim ve Öğretim Gördüğü Kurumlar", "Ali Güler", "2020-12-30", ["egitim"], { periodStart: 1887, periodEnd: 1905, eventYear: null, people: ["Mustafa Kemal Atatürk"], locations: ["Selanik", "Manastır", "İstanbul"], summaryNote: "Öğrenim hayatı 1887–1905: Şemsi Efendi Mektebi, Selanik Askerî Rüştiyesi, Manastır Askerî İdadisi, Harp Okulu, Erkân-ı Harbiye." }),
   // --- Savaş dönemleri ---
   ayk(407, "Trablusgarp-Sava%C5%9F%C4%B1%E2%80%99nda-Atat%C3%BCrk", "Trablusgarp Savaşı'nda Atatürk", "Hasan Taner Kerimoğlu", "2021-07-07", ["trablusgarp"], { periodStart: 1908, periodEnd: 1912, eventYear: 1911, people: ["Mustafa Kemal Atatürk"], locations: ["Derne", "Trablusgarp"], summaryNote: "Derne Komutanlığı; Trablusgarp Savaşı 1911–1912." }),
@@ -134,7 +134,7 @@ const candidates = [
     institutionUrl: ATAM.institutionUrl,
     url: "https://atam.gov.tr/kitaplar/kurmay-yuzbasi-mustafa-kemal/",
     authors: [],
-    publishedAt: "2008-01-01",
+    publishedAt: "2008",
     documentType: "book",
     sourceNature: "secondary",
     researchThemes: ["egitim", "harp-akademisi", "ilk-gorevler", "selanik"],
@@ -152,7 +152,7 @@ const candidates = [
     institutionUrl: ATAM.institutionUrl,
     url: "https://atam.gov.tr/kitaplar/ataturk/",
     authors: [{ name: "Hikmet Özdemir" }],
-    publishedAt: "2023-01-01",
+    publishedAt: "2023",
     documentType: "book",
     sourceNature: "secondary",
     researchThemes: ["genel", "cocukluk", "egitim"],
@@ -170,7 +170,7 @@ const candidates = [
     institutionUrl: ATAM.institutionUrl,
     url: "https://atam.gov.tr/e-yayin/ilk-defa-yayinlanan-belgelerle-mustafa-kemal-pasa-ve-16nci-kolordu-komutanligi-1915-1917/",
     authors: [{ name: "Oral Ateş" }],
-    publishedAt: "2025-01-01",
+    publishedAt: "2025",
     documentType: "book",
     sourceNature: "secondary",
     researchThemes: ["dogu-cephesi"],
@@ -191,12 +191,12 @@ const candidates = [
     authors: [],
     publishedAt: null,
     documentType: "archive_document",
-    sourceNature: "primary",
+    sourceNature: "secondary",
     researchThemes: ["genel", "cocukluk", "egitim"],
     archiveIdentifier: null,
     periodStart: 1881, periodEnd: 1938, eventYear: null,
     people: ["Mustafa Kemal Atatürk"], locations: [],
-    summaryNote: "Devlet Arşivleri Başkanlığı'nın özgün belge derlemesi (PDF). Yazar ve yayın tarihi sayfada belirtilmemiş.",
+    summaryNote: "Devlet Arşivleri Başkanlığı'nın özgün belge derlemesi (PDF). Yazar ve yayın tarihi sayfada belirtilmemiş. Derleme düzeyinde ikincil kaynak sayılır; içindeki tek tek belgeler birincildir ve insan incelemesinde ayrıca sınıflandırılmalıdır.",
     rights: { ...RIGHTS_LINK_ONLY, credit: DA.institution },
     citation: "Belgelerle Mustafa Kemal Atatürk, T.C. Cumhurbaşkanlığı Devlet Arşivleri Başkanlığı (PDF), erişim 23.10.2026, https://www.devletarsivleri.gov.tr/cdn/file/download?fileId=88.",
   },
@@ -322,20 +322,19 @@ const claims = [
   },
   {
     id: "claim-006",
-    text: "Mustafa Kemal, Çanakkale Cephesi'nde 1914–1916 arasında komutanlık görevleri üstlendi.",
+    text: "Atatürk Ansiklopedisi'nin \"Çanakkale Cephesi'nde Mustafa Kemal\" maddesi, Mustafa Kemal'in bu cephedeki görevlerini 1914–1916 dönemini kapsayacak şekilde ele alır.",
     date: { start: "1914", end: "1916", precision: "range", certainty: "estimated", display: "1914–1916" },
     evidence: [
       { candidateId: byTitle["Çanakkale Cephesi'nde Mustafa Kemal (ATATÜRK)"], relation: "supports" },
-      { candidateId: byTitle["Birinci Dünya Savaşı'nda Mustafa Kemal (Atatürk)"], relation: "supports" },
+      { candidateId: byTitle["Birinci Dünya Savaşı'nda Mustafa Kemal (Atatürk)"], relation: "partial" },
     ],
   },
   {
     id: "claim-007",
-    text: "Mustafa Kemal Paşa, 16'ncı Kolordu Komutanlığı'nı 1915–1917 arasında Doğu Cephesi'nde yürüttü.",
+    text: "ATAM'ın e-yayını \"İlk Defa Yayınlanan Belgelerle Mustafa Kemal Paşa ve 16'ncı Kolordu Komutanlığı\" kitabının kapsamı, başlığında belirtildiği üzere 1915–1917 dönemidir.",
     date: { start: "1915", end: "1917", precision: "range", certainty: "exact", display: "1915–1917" },
     evidence: [
       { candidateId: byTitle["İlk Defa Yayınlanan Belgelerle Mustafa Kemal Paşa ve 16'ncı Kolordu Komutanlığı (1915-1917)"], relation: "supports" },
-      { candidateId: byTitle["Birinci Dünya Savaşı'nda Mustafa Kemal (Atatürk)"], relation: "supports" },
     ],
   },
   {
@@ -352,7 +351,7 @@ const claims = [
   },
   {
     id: "claim-010",
-    text: "Mustafa Kemal, Yıldırım Orduları Grubu Komutanı olarak Sina ve Filistin Cephesi'nde 1917–1919 arasında görev yaptı.",
+    text: "Atatürk Ansiklopedisi'nin \"Sina ve Filistin Cephesi'nde Atatürk\" maddesi, Mustafa Kemal'in bu cephedeki görevlerini kapsayan dönem olarak 1917–1919 aralığını esas alır.",
     date: { start: "1917", end: "1919", precision: "range", certainty: "estimated", display: "1917–1919" },
     evidence: [{ candidateId: byTitle["Sina ve Filistin Cephesi'nde Atatürk"], relation: "supports" }],
   },
@@ -362,9 +361,33 @@ const claimsPath = path.resolve(process.argv[3] ?? "data/research/candidates/cla
 await fs.writeFile(claimsPath, JSON.stringify({
   schemaVersion: "1.0.0",
   meta: {
-    note: "İddialar yalnızca 23.10.2026'da okunan kurumsal sayfalarda açıkça belirtilen bilgilerden türetilmiştir. Kanıt bağımlılığı ve çelişkiler otomatik değerlendirilir; nihai tarih kararı insan incelemesiyle verilir.",
+    note: "İddialar yalnızca 23.10.2026'da okunan kurumsal sayfalarda açıkça belirtilen bilgilerden türetilmiştir. Kaynak kapsamı ile komuta/görev sürekliliği iddiası birbirinden ayrı tutulur; nihai tarih kararı insan incelemesiyle verilir.",
   },
   claims,
+}, null, 2) + "\n", "utf8");
+
+// Karşılıklı bağ: aday → iddia bağlantıları
+const claimsByCandidate = new Map();
+for (const claim of claims) {
+  for (const link of claim.evidence) {
+    if (!link.candidateId) continue;
+    if (!claimsByCandidate.has(link.candidateId)) claimsByCandidate.set(link.candidateId, []);
+    claimsByCandidate.get(link.candidateId).push(claim.id);
+  }
+}
+for (const candidate of pool) {
+  candidate.claims = claimsByCandidate.get(candidate.id) ?? [];
+}
+await fs.writeFile(poolPath, JSON.stringify({
+  schemaVersion: "1.0.0",
+  meta: {
+    title: "MKA Evidence Engine — Kaynak Adayları Havuzu",
+    targetPeriod: { start: 1881, end: 1918 },
+    note: "Bu havuz yayımlanmış arşiv DEĞİLDİR. Hiçbir aday insan onayı olmadan arşive aktarılmaz. Tüm kaynaklar 23.10.2026 tarihinde tek tek okunarak doğrulanmıştır; hiçbir künye uydurulmamıştır.",
+    generatedAt: "2026-10-23T00:00:00Z",
+    generator: "tools/historical-research (Perplexity ajanı)",
+  },
+  candidates: pool,
 }, null, 2) + "\n", "utf8");
 
 console.log(`pool.json: ${pool.length} aday`);

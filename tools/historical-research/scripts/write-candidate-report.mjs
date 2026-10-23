@@ -8,11 +8,11 @@ const rows = pool.map((c) => {
   const period = c.periodStart !== null ? `${c.periodStart}–${c.periodEnd ?? ""}` : (c.eventYear ?? "—");
   const flags = [
     c.verification.citationComplete ? "künye ✓" : "künye ✗",
-    c.verification.rightsKnown ? "hak ✓" : "hak ✗",
+    c.verification.rightsKnown ? "hak bilgisi ✓" : "hak bilgisi ✗",
     c.verification.humanReviewed ? "insan ✓" : "insan ✗",
   ].join(" · ");
   const authors = c.authors.length ? c.authors.map((a) => a.name).join(", ") : "yazar belirtilmemiş";
-  return `| ${c.id} | ${c.title} | ${authors} | ${c.publishedAt ?? "tarih belirtilmemiş"} | ${c.institution} | ${period} | ${c.state} | ${flags} |`;
+  return `| ${c.id} | [${c.title}](${c.url}) | ${authors} | ${c.publishedAt ?? "tarih belirtilmemiş"} | ${c.institution} | ${period} | ${c.state} | ${flags} |`;
 });
 
 const report = `# Kaynak Adayları Araştırma Raporu (1881–1918)
@@ -35,7 +35,7 @@ const report = `# Kaynak Adayları Araştırma Raporu (1881–1918)
 - **Künye tam (yazar + tarih):** ${pool.filter((c) => c.verification.citationComplete).length} aday → durum: insan incelemesi bekliyor
 - **Künye eksik (yazar veya yayın tarihi belirtilmemiş):** ${pool.filter((c) => !c.verification.citationComplete).length} aday → durum: bilgi yetersiz
 - **Kurum dağılımı:** Atatürk Ansiklopedisi ${pool.filter((c) => c.institution.includes("Atatürk Ansiklopedisi")).length}, ATAM ${pool.filter((c) => c.institution === "Atatürk Araştırma Merkezi (ATAM)").length}, Devlet Arşivleri ${pool.filter((c) => c.institution.includes("Devlet Arşivleri")).length}, Millî Kütüphane ${pool.filter((c) => c.institution.includes("Millî")).length}
-- **Kaynak niteliği:** ${pool.filter((c) => c.sourceNature === "primary").length} birincil (Devlet Arşivleri belge derlemesi), ${pool.filter((c) => c.sourceNature === "secondary").length} ikincil
+- **Kaynak niteliği:** ${pool.filter((c) => c.sourceNature === "primary").length} birincil, ${pool.filter((c) => c.sourceNature === "secondary").length} ikincil. Devlet Arşivleri derlemesi, derleme düzeyinde ikincil sınıflandırıldı; içindeki tek tek belgeler birincildir ve insan incelemesinde ayrıca sınıflandırılmalıdır.
 - **Telif/kullanım:** Tümü "yalnızca kurumsal bağlantı" (official_link_only) olarak işaretlendi; hiçbir dosya/PDF/kitap metni indirilip depoya alınmadı. Yeniden kullanım lisansları doğrulanmadığı için adaylar yalnızca künye + bağlantı olarak sunulur.
 
 ## Havuz Adayları (kaynak dosya: data/research/candidates/pool.json)

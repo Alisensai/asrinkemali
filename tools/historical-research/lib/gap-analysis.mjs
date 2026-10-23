@@ -39,6 +39,13 @@ export function recordYearRange(record) {
   return { start, end: end ?? start };
 }
 
+/** Türkçe metin için kelime-sınırı eşleştirme (alt dizgi yanlış pozitiflerini önler). */
+function matchPhrase(haystack, needle) {
+  const escaped = needle.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const pattern = new RegExp(`(^|[^\\p{L}])${escaped}([^\\p{L}]|$)`, "u");
+  return pattern.test(haystack);
+}
+
 /** Kaydın metin alanlarında tema anahtar kelime araması yapar. */
 function recordThemeHits(record) {
   const haystack = [
@@ -52,7 +59,7 @@ function recordThemeHits(record) {
   const hits = new Set();
   const addIf = (theme, needles) => {
     for (const needle of needles) {
-      if (haystack.includes(needle)) {
+      if (matchPhrase(haystack, needle.toLocaleLowerCase("tr-TR"))) {
         hits.add(theme);
         break;
       }
@@ -121,6 +128,7 @@ export function analyzeGaps(records, options = {}) {
   const recordsByYear = {};
   const yearList = [];
   const themeCounts = Object.fromEntries(RESEARCH_THEMES.map((theme) => [theme, 0]));
+  const targetPeriodRecords = [];
 
   for (const record of records) {
     const status = record?.verification?.status;
@@ -135,8 +143,15 @@ export function analyzeGaps(records, options = {}) {
         yearList.push(year);
       }
     }
-    for (const theme of recordThemeHits(record)) {
-      themeCounts[theme] = (themeCounts[theme] ?? 0) + 1;
+    // Hedef dönemle kesişen AYRI kayıtlar (kayıt-yıl örnekleme değil)
+    if (
+      start !== null && Number.isFinite(start) &&
+      start <= targetEnd && (end ?? start) >= targetStart
+    ) {
+      targetPeriodRecords.push(record);
+      for (const theme of recordThemeHits(record)) {
+        themeCounts[theme] = (themeCounts[theme] ?? 0) + 1;
+      }
     }
   }
 
@@ -183,15 +198,18 @@ export function analyzeGaps(records, options = {}) {
     targetPeriod: {
       targetStart,
       targetEnd,
-      targetRecords: targetYearList.length,
-      share: records.length > 0 ? Number((targetYearList.length / records.length).toFixed(4)) : 0,
+      distinctRecords: targetPeriodRecords.length,
+      recordYearIncidences: targetYearList.length,
+      share: records.length > 0 ? Number((targetPeriodRecords.length / records.length).toFixed(4)) : 0,
     },
     notes: [
       {
         code: "GAP_METHODOLOGY",
         message:
-          "Bu rapor yalnızca arşiv KAYIT yoğunluğunu ölçer; 'bu yılda tarihî olay yok' anlamına gelmez. " +
-          "Tema eşleşmesi anahtar kelime temellidir ve kesin tema doğrulaması değildir.",
+          "Bu rapor arşiv KAYIT yoğunluğunu ölçer; 'bu yılda tarihî olay yok' anlamına gelmez. " +
+          "`distinctRecords` hedef dönemle kesişen ayrı kayıt sayısıdır; `recordYearIncidences` " +
+          "çok yıllı kayıtların her yıl için bir örneklem üretmesidir (yüzde payı buna göre artabilir). " +
+          "Tema kapsamı yalnızca hedef dönemle kesişen kayıtlar üzerinden hesaplanır; eşleştirme kelime-sınırlıdır.",
       },
     ],
   };

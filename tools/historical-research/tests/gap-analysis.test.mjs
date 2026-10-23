@@ -66,9 +66,12 @@ test("eksik dönem: rapor 'olay yok' demez, yöntem notu taşır", () => {
 });
 
 test("tema kapsamı: erken dönem temaları tespit edilir", () => {
+  const earlyDate = (year) => ({ start: String(year), end: null, precision: "year", certainty: "estimated", display: String(year) });
   const records = [
-    makeArchiveRecord({ title: "Mustafa Kemal'in Selanik'te çocukluğu ve ailesi", summary: "Selanik", tags: [] }),
-    makeArchiveRecord({ title: "Çanakkale Savaşları: Anafartalar", summary: "Çanakkale", tags: [] }),
+    makeArchiveRecord({ date: earlyDate(1893), title: "Mustafa Kemal'in Selanik'te çocukluğu ve ailesi", summary: "Selanik", tags: [] }),
+    makeArchiveRecord({ date: earlyDate(1915), title: "Çanakkale Savaşları: Anafartalar", summary: "Çanakkale", tags: [] }),
+    // Hedef dönem DIŞINDA: tema sayımına girmemeli
+    makeArchiveRecord({ date: earlyDate(1923), title: "Çanakkale konusunda sonraki dönem kaydı", summary: "", tags: [] }),
   ];
   const report = analyzeGaps(records);
   const cocukluk = report.themeCoverage.find((theme) => theme.theme === "cocukluk");
@@ -78,6 +81,47 @@ test("tema kapsamı: erken dönem temaları tespit edilir", () => {
   // hiç kayıt düşmeyen tema "none" kalır
   const trablus = report.themeCoverage.find((theme) => theme.theme === "trablusgarp");
   assert.equal(trablus.coverage, "none");
+});
+
+test("tema eşleştirme: alt dizgi yanlış pozitifleri engellenir", () => {
+  const earlyDate = (year) => ({ start: String(year), end: null, precision: "year", certainty: "estimated", display: String(year) });
+  // 'yaşam' kelimesi 'şam' temasını tetiklememeli
+  const records = [
+    makeArchiveRecord({ date: earlyDate(1890), title: "Mustafa Kemal'in yaşam öyküsü", summary: "", tags: [] }),
+  ];
+  const report = analyzeGaps(records);
+  const sam = report.themeCoverage.find((theme) => theme.theme === "sam");
+  assert.equal(sam.records, 0, "'yaşam' kelimesi 'şam' temasını tetiklememeli");
+  // 'devlet' kelimesi 'ev' veya 'kisiler' temasını tetiklememeli
+  const records2 = [
+    makeArchiveRecord({ date: earlyDate(1890), title: "Osmanlı devlet yapısı", summary: "", tags: [] }),
+  ];
+  const report2 = analyzeGaps(records2);
+  assert.equal(report2.themeCoverage.find((t) => t.theme === "mekanlar").records, 0, "'devlet' kelimesi 'ev' tema aramasını tetiklememeli");
+  // 'Ankara'da Muş depremi' gibi metin 'muş' alt dizgisiyle dogu-cephesi vermemeli
+  const records3 = [
+    makeArchiveRecord({ date: earlyDate(1890), title: "Ankara'da bir yıl", summary: "", tags: [] }),
+  ];
+  const report3 = analyzeGaps(records3);
+  assert.equal(report3.themeCoverage.find((t) => t.theme === "dogu-cephesi").records, 0, "'muş' alt dizgisi tema tetiklememeli");
+});
+
+test("hedef dönem ölçümü: ayrı kayıt ve kayıt-yıl örneklemi ayrı raporlanır", () => {
+  const earlyDate = (year) => ({ start: String(year), end: null, precision: "year", certainty: "estimated", display: String(year) });
+  const rangeDate = { start: "1911", end: "1913", precision: "range", certainty: "exact", display: "1911–1913" };
+  const records = [
+    makeArchiveRecord({ date: rangeDate }), // 1 kayıt → 3 kayıt-yıl
+    makeArchiveRecord({ date: earlyDate(1915) }),
+    makeArchiveRecord({ date: earlyDate(1923) }), // dönem dışı
+  ];
+  const report = analyzeGaps(records, { targetStart: 1881, targetEnd: 1918 });
+  assert.equal(report.targetPeriod.distinctRecords, 2);
+  assert.equal(report.targetPeriod.recordYearIncidences, 4);
+  assert.equal(report.targetPeriod.share, Number((2 / 3).toFixed(4)));
+  // Çok yıllı kayıt payı %100'ü AŞAMAZ (ayrı kayıt bazında hesap)
+  const onlyMultiYear = [makeArchiveRecord({ date: rangeDate })];
+  const report2 = analyzeGaps(onlyMultiYear, { targetStart: 1881, targetEnd: 1918 });
+  assert.ok(report2.targetPeriod.share <= 1);
 });
 
 test("boş veri kümesi: hata fırlatmadan sıfır rapor üretilir", () => {

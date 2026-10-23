@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { gapReportToMarkdown, poolToMarkdown, poolToCsv, writeReport } from "../lib/report.mjs";
 import { analyzeGaps } from "../lib/gap-analysis.mjs";
 import { poolSummary } from "../lib/candidates.mjs";
+import { importCandidatesFromCsv } from "../lib/importers.mjs";
 import { makeCandidate, makeSyntheticRecords } from "./helpers.mjs";
 import fs from "node:fs/promises";
 import path from "node:path";
@@ -25,19 +26,24 @@ test("CSV doğrulama: ayırıcılar ve tırnak kaçışları güvenli üretilir"
   const csv = poolToCsv(pool);
   const lines = csv.trim().split("\n");
   assert.equal(lines.length, 3); // başlık + 2 satır (satır sonu hücre dışına kaçmaz)
-  assert.equal(lines[0].split(",").length, 14);
+  assert.equal(lines[0].split(",").length, 18);
   // Tırnak içeren hücre çift tırnakla kaçışlanır
   assert.ok(csv.includes('"Virgül, ""tırnak""'));
 });
 
-test("CSV doğrulama: üretilen CSV geri ayrıştırılabilir", () => {
-  const pool = [makeCandidate()];
+test("CSV doğrulama: çok satırlı hücre RFC 4180 uyumlu kaçışlanır ve geri okunur", () => {
+  const pool = [
+    makeCandidate({ title: 'Virgül, "tırnak" içeren başlık' }),
+    makeCandidate({ id: "src-2026-0002", title: "Satır\nsonu içeren başlık", url: "https://ornek.gov.tr/2", archiveIdentifier: "AYK-2" }),
+  ];
   const csv = poolToCsv(pool);
-  const [header, row] = csv.trim().split("\n");
-  assert.equal(header.split(",").length, 14);
-  // En basit ayrıştırma: tüm satır tek hücre değil, 14 alan var
-  const fields = row.match(/("([^"]|"")*"|[^,]*)/g);
-  assert.ok(fields.length >= 14);
+  // Çıktıyı gerçek CSV ayrıştırıcısıyla geri oku: satır sonu hücre İÇİNDE
+  // kaldığı için iki kayıt da bütünlüklü döner.
+  const parsed = importCandidatesFromCsv(csv);
+  assert.equal(parsed.candidates.length, 2, `iki kayıt geri okunmalı: ${JSON.stringify(parsed.issues)}`);
+  const withNewline = parsed.candidates.find((c) => c.id === "src-2026-0002");
+  assert.ok(withNewline, "satır sonlu kayıt bulunmalı");
+  assert.match(withNewline.title, /Satır\nsonu içeren başlık/);
 });
 
 test("JSON doğrulama: rapor serileştirilebilir ve geri okunabilir", () => {

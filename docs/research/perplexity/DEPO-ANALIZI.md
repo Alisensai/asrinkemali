@@ -26,7 +26,7 @@ PR #14 notunda *"Arşivde 1881-1918 arası kaynak kaydı yok"* tespiti yer alıy
 
 ## Arşiv Boşluğu (özet)
 
-168 kayıt arasında **1881–1918 dönemine düşen kayıt-yıl sayısı: 4 (%2,4)**. Boş aralıklar: 1881–1882, 1884–1907, 1909–1911, 1913–1917. Yalnızca 1883, 1908, 1912 ve 1918 yıllarına kayıt değiyor. Ayrıntı: `BOSLUK-RAPORU-2026-10-23.md`.
+168 kayıt arasında **1881–1918 dönemine düşen ayrı kayıt sayısı: 4 (%2,4)**. Boş aralıklar: 1881–1882, 1884–1907, 1909–1911, 1913–1917. Yalnızca 1883, 1908, 1912 ve 1918 yıllarına kayıt değiyor. Hedef dönemle kesişen kayıtlar içinde **çocukluk, Manastır, Harp Okulu, Harp Akademisi, ilk görevler, Şam, Trablusgarp, Balkan Savaşları, Çanakkale, Doğu Cephesi ve dönem kişileri temalarında HİÇ kayıt yok**. Ayrıntı: `BOSLUK-RAPORU-2026-10-23.md`.
 
 ## Evidence Engine'in Konumu
 

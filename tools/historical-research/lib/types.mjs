@@ -13,6 +13,8 @@
  *    göstergesidir ve `urlStatus` alanında ayrı tutulur.
  */
 
+import path from "node:path";
+
 /** Aday havuzu durumları. Hiçbiri tek başına insan onayı üretmez. */
 export const CANDIDATE_STATES = [
   "new",                    // yeni aday
@@ -157,9 +159,25 @@ export const CATALOG_WRITE_GUARDS = [
 ];
 
 export function assertNoCatalogWrite(targetPath) {
-  const normalized = String(targetPath).replaceAll("\\", "/");
+  // Mutlak yolları da yakalamak için önce çözümle (normalize) et.
+  // resolve() yolu mutlak yapar ve '..' katmanlarını açar; böylece
+  // '/repo/data/archive/catalog/x' gibi mutlak girgiler de denetlenir.
+  let resolved;
+  try {
+    resolved = path.resolve(String(targetPath));
+  } catch {
+    resolved = String(targetPath).replaceAll("\\", "/");
+  }
+  const normalized = resolved.replaceAll("\\", "/");
   for (const guard of CATALOG_WRITE_GUARDS) {
-    if (normalized === guard || normalized.startsWith(guard + "/")) {
+    // Korumalı yolun kendisi VE onun altındaki her yol (mutlak veya göreli,
+    // katman geçişli) reddedilir.
+    if (
+      normalized === guard ||
+      normalized.startsWith(`${guard}/`) ||
+      normalized.includes(`/${guard}/`) ||
+      normalized.endsWith(`/${guard}`)
+    ) {
       throw new Error(
         `Korumalı arşiv yoluna yazma reddedildi: ${targetPath}. ` +
         "Gerçek katalog dosyaları yalnızca insan onayıyla, ayrı bir süreçte değişir."

@@ -170,12 +170,14 @@ export function convertCandidateToDraft(candidate, archiveRecords = [], deps = {
       reviewedAt: null,
       checks: {
         sourceReachable: Boolean(candidate.verification?.urlReachable),
-        dateVerified: Boolean(candidate.eventYear),
-        rightsVerified: Boolean(candidate.verification?.rightsKnown),
+        // Olay yılı alanının dolu olması, tarihin DOĞRULANDIĞI anlamına gelmez.
+        dateVerified: false,
+        // Hak bilgisi kayıtlı olması, yeniden kullanım izni verildiği anlamına gelmez.
+        rightsVerified: false,
         quoteVerified: false,
         duplicateChecked: Boolean(candidate.verification?.duplicateChecked),
       },
-      notes: "MKA Evidence Engine dry-run çıktısı. İnsan uzman onayı YOKTUR; yayımlanamaz.",
+      notes: "MKA Evidence Engine dry-run çıktısı. İnsan uzman onayı YOKTUR; yayımlanamaz. rightsVerified=false: hak bilgisi kayıtlı olsa bile yeniden kullanım izni doğrulanmamıştır. Kategori atamaları öneridir; savaş kategorisi taksonomide yoktur.",
     },
     tags: [candidate.institution, String(candidate.eventYear ?? candidate.periodStart ?? "")].filter(Boolean),
     relatedIds: [...(candidate.relatedArchiveIds ?? [])],
@@ -201,13 +203,16 @@ function mapDocumentTypeToRecordType(documentType) {
 
 function buildArchiveDate(candidate) {
   if (candidate.eventYear != null) {
+    // Depo kuralı: yıl kesinliğinde kayıtlarda -01-01 gün adı yalnızca şema
+    // uyumu içindir; gün bilgisi iddia edilmez (mevcut ATAM kayıtlarıyla aynı
+    // uygulama, not alanında belgelenir).
     return {
-      start: String(candidate.eventYear),
+      start: `${candidate.eventYear}-01-01`,
       end: null,
       precision: "year",
       certainty: "estimated",
       display: String(candidate.eventYear),
-      note: "Aday havuzundaki olay yılından; insan incelemesiyle kesinleştirilmelidir.",
+      note: `Olay yılı aday havuzundan (${candidate.eventYear}); -01-01 gün adı yıl kesinliği içindir, gün bilgisi iddia edilmez. İnsan incelemesiyle kesinleştirilmelidir.`,
     };
   }
   return {
@@ -221,23 +226,26 @@ function buildArchiveDate(candidate) {
 }
 
 function mapThemesToCategories(themes) {
+  // Taksonomideki geçerli kategorilere eşleme. Savaş kategorisi TAKSİM
+  // EDİLMEMİŞTİR (1881–1918 askerî olayları için özel kategori önerisi insan
+  // incelemesine bırakılır); taslakta 'siyaset' dönem tarihi olarak kullanılır.
   const mapping = {
-    "cocukluk": "genel",
-    "selanik": "genel",
+    "cocukluk": "kultur",
+    "selanik": "kultur",
     "egitim": "egitim",
-    "manastir": "genel",
+    "manastir": "kultur",
     "harp-okulu": "egitim",
     "harp-akademisi": "egitim",
-    "ilk-gorevler": "genel",
-    "sam": "genel",
-    "trablusgarp": "savas",
-    "balkan-savaslari": "savas",
-    "canakkale": "savas",
-    "dogu-cephesi": "savas",
-    "1917-1918": "genel",
-    "kisiler": "genel",
-    "mekanlar": "genel",
-    "genel": "genel",
+    "ilk-gorevler": "siyaset",
+    "sam": "siyaset",
+    "trablusgarp": "siyaset",
+    "balkan-savaslari": "siyaset",
+    "canakkale": "siyaset",
+    "dogu-cephesi": "siyaset",
+    "1917-1918": "siyaset",
+    "kisiler": "kultur",
+    "mekanlar": "mekan",
+    "genel": "kultur",
   };
   const out = new Set();
   for (const theme of themes) {

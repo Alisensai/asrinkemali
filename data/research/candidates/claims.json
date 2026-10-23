@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "meta": {
-    "note": "İddialar yalnızca 23.10.2026'da okunan kurumsal sayfalarda açıkça belirtilen bilgilerden türetilmiştir. Kanıt bağımlılığı ve çelişkiler otomatik değerlendirilir; nihai tarih kararı insan incelemesiyle verilir."
+    "note": "İddialar yalnızca 23.10.2026'da okunan kurumsal sayfalarda açıkça belirtilen bilgilerden türetilmiştir. Kaynak kapsamı ile komuta/görev sürekliliği iddiası birbirinden ayrı tutulur; nihai tarih kararı insan incelemesiyle verilir."
   },
   "claims": [
     {
@@ -91,7 +91,7 @@
     },
     {
       "id": "claim-006",
-      "text": "Mustafa Kemal, Çanakkale Cephesi'nde 1914–1916 arasında komutanlık görevleri üstlendi.",
+      "text": "Atatürk Ansiklopedisi'nin \"Çanakkale Cephesi'nde Mustafa Kemal\" maddesi, Mustafa Kemal'in bu cephedeki görevlerini 1914–1916 dönemini kapsayacak şekilde ele alır.",
       "date": {
         "start": "1914",
         "end": "1916",
@@ -106,13 +106,13 @@
         },
         {
           "candidateId": "src-2026-0009",
-          "relation": "supports"
+          "relation": "partial"
         }
       ]
     },
     {
       "id": "claim-007",
-      "text": "Mustafa Kemal Paşa, 16'ncı Kolordu Komutanlığı'nı 1915–1917 arasında Doğu Cephesi'nde yürüttü.",
+      "text": "ATAM'ın e-yayını \"İlk Defa Yayınlanan Belgelerle Mustafa Kemal Paşa ve 16'ncı Kolordu Komutanlığı\" kitabının kapsamı, başlığında belirtildiği üzere 1915–1917 dönemidir.",
       "date": {
         "start": "1915",
         "end": "1917",
@@ -123,10 +123,6 @@
       "evidence": [
         {
           "candidateId": "src-2026-0030",
-          "relation": "supports"
-        },
-        {
-          "candidateId": "src-2026-0009",
           "relation": "supports"
         }
       ]
@@ -167,7 +163,7 @@
     },
     {
       "id": "claim-010",
-      "text": "Mustafa Kemal, Yıldırım Orduları Grubu Komutanı olarak Sina ve Filistin Cephesi'nde 1917–1919 arasında görev yaptı.",
+      "text": "Atatürk Ansiklopedisi'nin \"Sina ve Filistin Cephesi'nde Atatürk\" maddesi, Mustafa Kemal'in bu cephedeki görevlerini kapsayan dönem olarak 1917–1919 aralığını esas alır.",
       "date": {
         "start": "1917",
         "end": "1919",
