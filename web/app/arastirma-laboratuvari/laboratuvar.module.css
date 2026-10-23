@@ -1,0 +1,174 @@
+/* Araştırma Laboratuvarı — MKA kimliği: bordo, siyah, altın. */
+
+.lab {
+  background: #120407;
+  color: #f3e9dc;
+  min-height: 100vh;
+  padding: 3.5rem 1.25rem 4rem;
+}
+
+.lab > * {
+  max-width: 1180px;
+  margin-inline: auto;
+}
+
+.header {
+  border-bottom: 1px solid rgba(192, 154, 83, 0.35);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  color: #c09a53;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.header h1 {
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  color: #f6ead8;
+  margin: 0 0 0.75rem;
+}
+
+.lede {
+  color: #cdbfae;
+  max-width: 68ch;
+  line-height: 1.65;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.9rem;
+  margin-bottom: 2.25rem;
+}
+
+.stat {
+  background: #1c070c;
+  border: 1px solid rgba(192, 154, 83, 0.3);
+  border-radius: 0.5rem;
+  padding: 1.1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.statValue {
+  font-size: 2rem;
+  color: #c09a53;
+  font-weight: 700;
+}
+
+.statLabel {
+  color: #b9a894;
+  font-size: 0.85rem;
+}
+
+.section {
+  margin-bottom: 2.5rem;
+}
+
+.section h2 {
+  color: #e8d5b0;
+  font-size: 1.25rem;
+  margin: 0 0 1rem;
+}
+
+.stateList {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.stateList li {
+  display: flex;
+  justify-content: space-between;
+  background: #1c070c;
+  border: 1px solid rgba(192, 154, 83, 0.22);
+  border-radius: 0.4rem;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+.stateList strong {
+  color: #c09a53;
+}
+
+.themeList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0;
+}
+
+.themeList li {
+  background: rgba(192, 154, 83, 0.12);
+  border: 1px solid rgba(192, 154, 83, 0.35);
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.8rem;
+  color: #e8d5b0;
+}
+
+.note {
+  color: #a5977f;
+  font-size: 0.85rem;
+  margin-top: 0.9rem;
+  max-width: 80ch;
+  line-height: 1.55;
+}
+
+.tableWrap {
+  overflow-x: auto;
+  border: 1px solid rgba(192, 154, 83, 0.25);
+  border-radius: 0.5rem;
+  background: #17060a;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  min-width: 900px;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid rgba(192, 154, 83, 0.14);
+  vertical-align: top;
+}
+
+.table th {
+  color: #c09a53;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(192, 154, 83, 0.08);
+  white-space: nowrap;
+}
+
+.table td {
+  color: #e6dccb;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table a {
+  color: #e8c884;
+  text-decoration-color: rgba(232, 200, 132, 0.4);
+}
+
+.table a:hover {
+  text-decoration-color: #e8c884;
+}
