@@ -118,11 +118,27 @@
 }
 
 .note {
-  color: #a5977f;
+  color: #c4b39a;
   font-size: 0.85rem;
   margin-top: 0.9rem;
   max-width: 80ch;
   line-height: 1.55;
+}
+
+.periodCell {
+  white-space: nowrap;
+}
+
+.table th {
+  color: #c09a53;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: #1f0a10;
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .tableWrap {
@@ -147,14 +163,6 @@
   vertical-align: top;
 }
 
-.table th {
-  color: #c09a53;
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  background: rgba(192, 154, 83, 0.08);
-  white-space: nowrap;
-}
 
 .table td {
   color: #e6dccb;

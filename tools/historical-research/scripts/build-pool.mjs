@@ -274,6 +274,12 @@ function buildCandidate(raw, index) {
 const pool = candidates.map(buildCandidate);
 
 const poolPath = path.resolve(process.argv[2] ?? "data/research/candidates/pool.json");
+// Betik çıktı yolları da katalog yazma korumasından geçer (mutlak yol dahil).
+{
+  const { assertNoCatalogWrite } = await import("../lib/types.mjs");
+  assertNoCatalogWrite(poolPath);
+  assertNoCatalogWrite(path.resolve(process.argv[3] ?? "data/research/candidates/claims.json"));
+}
 await fs.mkdir(path.dirname(poolPath), { recursive: true });
 await fs.writeFile(poolPath, JSON.stringify({
   schemaVersion: "1.0.0",
@@ -298,7 +304,7 @@ const claims = [
   },
   {
     id: "claim-002",
-    text: "Mustafa Kemal'in öğrenim hayatı 1887–1905 arasında Selanik, Manastır ve İstanbul'daki askerî okullarda geçti.",
+    text: "Atatürk Ansiklopedisi'nin \"Atatürk'ün Eğitim ve Öğretim Gördüğü Kurumlar\" maddesi, öğrenim hayatını 1887–2005 aralığında Şemsi Efendi Mektebi'nden Erkân-ı Harbiye Mektebi'ne uzanan kurumlarla belgeler (madde künyesi ve kapsam aralığı; tam metin pasajı ayrıca kaydedilmeli).",
     date: { start: "1887", end: "1905", precision: "range", certainty: "exact", display: "1887–1905" },
     evidence: [{ candidateId: byTitle["Atatürk'ün Eğitim ve Öğretim Gördüğü Kurumlar"], relation: "supports" }],
   },
@@ -357,6 +363,11 @@ const claims = [
   },
 ];
 
+// Her iddiaya kanıt temeli damgası: künye/kapsam meta verisinden türetilen
+// iddialar, destekleyici PASAJ kaydedilene dek "unverified" kabul edilmelidir.
+for (const claim of claims) {
+  claim.evidenceBasis = "künye ve kapsam meta verisi (kaynak sayfasından 23.10.2026'da çıkarıldı); destekleyici tam metin pasajı/konum kaydı HENÜZ YOK — insan incelemesinde pasaj eklenene dek unverified kabul edilmeli";
+}
 const claimsPath = path.resolve(process.argv[3] ?? "data/research/candidates/claims.json");
 await fs.writeFile(claimsPath, JSON.stringify({
   schemaVersion: "1.0.0",

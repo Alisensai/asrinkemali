@@ -1,8 +1,8 @@
 # Test Raporu — MKA Evidence Engine V0.7
 
-**Tarih:** 2026-10-23 (rev. 2 — danışman düzeltmeleri sonrası)
+**Tarih:** 2026-10-23 (rev. 3 — ikinci tur danışman düzeltmeleri sonrası)
 **Ortam:** Node v20.20.2, bağımlılıksız (yalnız `node:test`), `feature/perplexity-v07-evidence-engine` dalı
-**Sonuç: 90/90 test geçti, 0 hata, 0 atlandı.** Süre: ~3,8 sn.
+**Sonuç: 100/100 test geçti, 0 hata, 0 atlandı.** Süre: ~4,1 sn.
 
 ## Test Matrisi (kullanıcı gereksinimleri ↔ testler)
 
@@ -74,3 +74,34 @@
 ```bash
 cd tools/historical-research && npm test
 ```
+
+## Rev.3 ile eklenen testler (ikinci tur danışman bulguları)
+
+| Konu | Test |
+|---|---|
+| Dış içe aktarmada onay bayraklarının SIFIRLANMASI (`state`, `humanReviewed`) | regressions.test.mjs |
+| JSON `null` / dizi olmayan girdinin güvenli reddi (exception yok) | regressions.test.mjs |
+| Kapanmamış son tırnaklı CSV satırının reddi | regressions.test.mjs |
+| Geçersiz yıl değeri taşıyan CSV satırının reddi | regressions.test.mjs |
+| `partial` kanıtın tek başına corroborated ÜRETMEMESİ | regressions.test.mjs |
+| IPv4-eşlenmiş onaltılık IPv6 özel adresinin reddi (`::ffff:7f00:1`) | regressions.test.mjs |
+| Dry-run yürütme yolunun GERÇEK şema doğrulayıcısı kullanması (`convertAndValidate`) | regressions.test.mjs |
+| Yıl-kesinlikli ATAM adayının gerçek şemadan geçmesi | regressions.test.mjs |
+| Gerçek yükleyicinin 500 kayıt sınırının belgelenmesi (600 dosyalık geçici fixture) | regressions.test.mjs |
+| CLI dry-run: 32 adayın tamamı bloklandı (insan onayı yok) | manuel doğrulandı |
+
+## Önemli sınırlar (belgelenmiş)
+
+- **Gerçek arşiv yükleyicisi 500 kayıt üstünde hata üretir** (`scripts/archive/lib/security.mjs` → `MAX_RECORDS=500`, OpenCode'un dosyası).
+  1.000+ kayda ölçeklenme, bellek-içi analiz fonksiyonlarında test edildi; GERÇEK yükleme hattı için bu sınırın
+  OpenCode tarafında kaldırılması gerekir. Bu, arşiv 500 kaydı aşmadan önce çözülmeli.
+- Dry-run `source.publishedAt` yalnız tam tarih (YYYY-MM-DD) kabul eder; yıl-kesinlikli künyelerde alan boş bırakılır
+  (yıl, künye metninde ve notta korunur; gün/ay uydurulmaz).
+
+## Görsel Denetim (tarayıcı)
+
+- Panel, gerçek tarayıcıda ekran görüntüleriyle incelendi (1440px): tablo başlıkları görünür, tarih sütunu tek satırda,
+  yatay taşma yok, Türkçe karakterler doğru. Tarih sütunu kayması ve düşük kontrast düzeltildi.
+- **Site geneli önceden var olan kusur (bu PR'ın kapsamı dışında):** üst barda "Dijital Arşiv" düğmesinin sağında
+  "Arş" metni kırpılıyor; `/arsiv` sayfasında da aynı kusur mevcut (SiteHeader bileşeni — ilgili ajanın dosyası).
+  Bu PR'da değiştirilmedi.

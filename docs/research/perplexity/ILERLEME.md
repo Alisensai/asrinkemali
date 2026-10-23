@@ -16,7 +16,7 @@ güncellenen ilerleme defteridir.
 | 2 | Depo incelemesi (şema, katalog, PR #14/#15/#17) | Tamamlandı — bkz. `DEPO-ANALIZI.md` |
 | 3 | Veri sözleşmesi (`tools/historical-research/lib/types.mjs`) | Tamamlandı |
 | 4 | Çekirdek yazılım (okuyucu, boşluk analizi, aday havuzu, URL güvenliği, tekrar, provenans, dry-run) | Tamamlandı |
-| 5 | Otomatik testler (node:test) | Tamamlandı — 90 test, 0 hata (rev.2 düzeltmeleriyle) |
+| 5 | Otomatik testler (node:test) | Tamamlandı — 100 test, 0 hata (rev.3) |
 | 6 | Gerçek arşiv boşluk analizi raporu | Tamamlandı — bkz. `BOSLUK-RAPORU-2026-10-23.md` |
 | 7 | Gerçek kaynak adayı araştırması (1881–1918) | Tamamlandı — 32 aday, 0 sentetik |
 | 8 | Web paneli `/arastirma-laboratuvari` (yalnız dev) | Tamamlandı — kapı `MKA_RESEARCH_LAB=1` |
@@ -45,7 +45,7 @@ güncellenen ilerleme defteridir.
 ## Değişiklik günlüğü
 
 - 2026-10-23: Aşama 1–2 tamamlandı; depo analizi yazıldı.
-- 2026-10-23: Aşama 3–5: çekirdek modül + 90 test yazıldı, tamamı geçti (rev.2: mutlak yol koruması, ayna kanıt, şema doğrulaması, CSV/JSON girdi, adaptörler).
+- 2026-10-23: Aşama 3–5: çekirdek modül + 100 test yazıldı, tamamı geçti (rev.2/3: mutlak yol koruması, ayna kanıt, çalışma zamanı şema doğrulaması, içe aktarma sıfırlama, adaptörler).
 - 2026-10-23: Aşama 6: gerçek 168 kayıtlık arşivde boşluk analizi çalıştırıldı.
 - 2026-10-23: Aşama 7: 32 gerçek kaynak adayı toplandı ve doğrulandı (ayrıntılar
   `KAYNAK-ADAYLARI-RAPORU.md`).
@@ -69,3 +69,16 @@ güncellenen ilerleme defteridir.
 12. CSV/JSON girdi doğrulama, sağlayıcı adaptör kaydı ve keşif süzme yetenekleri eklendi.
 13. Ölçek testi 10.000 adayın tamamını denetliyor; kırılgan sabit beklentiler kaldırıldı.
 14. Aday → iddia karşılıklı bağlantıları havuza işlendi; rapor tablosuna URL sütunu eklendi.
+
+## Rev.3 — İkinci tur danışman düzeltmeleri (2026-10-23)
+
+1. Dry-run yürütme yolu (CLI) artık `convertAndValidate` ile GERÇEK `validateArchive`'i çağırır; şema hatası üreten taslak "invalid" döner.
+2. `source.publishedAt` yalnız tam tarih kabul eder; yıl-kesinlikli künyelerde boş bırakılır (uydurma yok).
+3. İçe aktarma, dışarıdan gelen `state`/`humanReviewed` bayraklarını sıfırlar (JSON ve CSV).
+4. `partial` kanıt tek başına corroborated üretmez; ayna kaynaklar bağımsız sayılmaz.
+5. İddia 002, "askerî okullarda" genellemesinden kurum adlarıyla belgelenen ifadeye daraltıldı; tüm iddialara "kanıt temeli" damgası eklendi (künye meta verisi; pasaj kaydı yok → unverified).
+6. URL denetimi: IPv4-eşlenmiş onaltılık IPv6 yakalanır; DNS denetimi A+AAAA birleşik.
+7. `build-pool.mjs` çıktı yolları da katalog yazma korumasından geçer.
+8. Ölçek testi: gerçek yükleyicinin `MAX_RECORDS=500` sınırı 600 dosyalık geçici fixture ile belgelendi (OpenCode tarafında kaldırılmalı).
+9. Panel görsel denetimi gerçek tarayıcıda yapıldı; tarih sütunu kayması ve kontrast düzeltildi. Site üst çubuğundaki "Arş" kırpılması site-geneli önceden var olan kusur (dokunulmadı).
+10. Panel etiketleri "hak bilgisi ✓" olarak netleştirildi (izin doğrulaması değil).

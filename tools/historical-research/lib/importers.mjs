@@ -30,7 +30,6 @@ export function parseCsv(csvText) {
   let field = "";
   let row = [];
   let inQuotes = false;
-  let seenFirstQuote = false;
   for (let i = 0; i < csvText.length; i += 1) {
     const char = csvText[i];
     if (inQuotes) {
@@ -49,28 +48,29 @@ export function parseCsv(csvText) {
     if (char === '"') {
       if (field.length === 0) {
         inQuotes = true;
-        seenFirstQuote = true;
       } else {
         issues.push(`Beklenmedik tırnak karakteri (satır ${rows.length + 1}).`);
       }
     } else if (char === ",") {
       row.push(field);
       field = "";
-      seenFirstQuote = false;
     } else if (char === "\n" || char === "\r") {
       if (char === "\r" && csvText[i + 1] === "\n") i += 1;
       row.push(field);
       if (row.length > 1 || row[0] !== "") rows.push(row);
       row = [];
       field = "";
-      seenFirstQuote = false;
     } else {
       field += char;
     }
   }
-  row.push(field);
-  if (row.length > 1 || row[0] !== "") rows.push(row);
-  if (seenFirstQuote && field.length === 0) issues.push("Kapanmamış tırnak olabilir; son satır kontrol edildi.");
+  if (inQuotes) {
+    // Kapanmamış tırnak: satır reddedilir
+    issues.push("Kapanmamış tırnak: son satırda açılan alıntı kapanmıyor; satır atlandı.");
+  } else {
+    row.push(field);
+    if (row.length > 1 || row[0] !== "") rows.push(row);
+  }
   return { rows, issues };
 }
 
@@ -99,6 +99,14 @@ export function importCandidatesFromCsv(csvText) {
       continue;
     }
     const raw = Object.fromEntries(header.map((name, i) => [name, cells[i]]));
+    // Geçersiz yıl değerleri SATIR REDDİ olarak işaretlenir (sessizce null'e düşmez)
+    const yearFields = [["eventYear", raw.eventYear], ["periodStart", raw.periodStart], ["periodEnd", raw.periodEnd]];
+    const badYear = yearFields.find(([name, value]) =>
+      value !== undefined && value !== "" && parseYear(value) === null);
+    if (badYear) {
+      importIssues.push({ row: index + 1, code: "INVALID_ROW", message: `Geçersiz yıl değeri (${badYear[0]}: '${badYear[1]}'); satır atlandı.` });
+      continue;
+    }
     const candidate = {
       schemaVersion: "1.0.0",
       id: raw.id,
@@ -111,13 +119,13 @@ export function importCandidatesFromCsv(csvText) {
       urlCheckedAt: null,
       authors: raw.authors ? raw.authors.split(";").filter(Boolean).map((name) => ({ name: name.trim() })) : [],
       publishedAt: raw.publishedAt || null,
-      eventYear: raw.eventYear ? Number(raw.eventYear) : null,
-      periodStart: raw.periodStart ? Number(raw.periodStart) : null,
-      periodEnd: raw.periodEnd ? Number(raw.periodEnd) : null,
+      eventYear: parseYear(raw.eventYear),
+      periodStart: parseYear(raw.periodStart),
+      periodEnd: parseYear(raw.periodEnd),
       people: [],
       locations: [],
       documentType: raw.documentType || "other",
-      sourceNature: raw.sourceNature || "unknown",
+      sourceNature: ["primary", "secondary", "unknown"].includes(raw.sourceNature) ? raw.sourceNature : "unknown",
       researchThemes: raw.researchThemes ? raw.researchThemes.split(";").filter(Boolean) : [],
       rights: { status: "unknown", license: null, licenseUrl: null, termsUrl: null, credit: raw.institution || "", imageReuse: "not_downloaded", note: "CSV içe aktarması; hak bilgisi doğrulanmadı." },
       accessedAt: raw.accessedAt,
@@ -136,9 +144,19 @@ export function importCandidatesFromCsv(csvText) {
       importIssues.push({ row: index + 1, code: "INVALID_ROW", message: validation.issues.map((i) => i.message).join(" ") });
       continue;
     }
+    // İçe aktarma, inceleme/onay bayraklarını SIFIRLAR: dışarıdan gelen
+    // `state`, `humanReviewed`, `verification` değerleri ASLA korunmaz.
     candidates.push(candidate);
   }
   return { candidates, issues: importIssues };
+}
+
+function parseYear(value) {
+  if (value === undefined || value === null || String(value).trim() === "") return null;
+  const text = String(value).trim();
+  if (!/^\d{4}$/.test(text)) return null;
+  const year = Number(text);
+  return year >= 1800 && year <= 2100 ? year : null;
 }
 
 /**
@@ -153,20 +171,43 @@ export function importCandidatesFromJson(jsonText) {
   } catch (error) {
     return { candidates: [], issues: [{ code: "JSON_PARSE", message: `JSON ayrıştırılamadı: ${error.message}` }] };
   }
+  if (parsed === null || typeof parsed !== "object" || Array.isArray(parsed) === false && !Array.isArray(parsed.candidates)) {
+    return { candidates: [], issues: [{ code: "NO_CANDIDATES", message: "Dizi veya candidates alanı bulunamadı." }] };
+  }
   const list = Array.isArray(parsed) ? parsed : parsed.candidates;
   if (!Array.isArray(list)) {
-    return { candidates: [], issues: [{ code: "NO_CANDIDATES", message: "Dizi veya candidates alanı bulunamadı." }] };
+    return { candidates: [], issues: [{ code: "NO_CANDIDATES", message: "candidates alanı dizi değil." }] };
   }
   const candidates = [];
   const issues = [];
   for (let index = 0; index < list.length; index += 1) {
     const candidate = list[index];
+    if (candidate === null || typeof candidate !== "object") {
+      issues.push({ code: "INVALID_CANDIDATE", message: `${index + 1}. aday bir nesne değil.` });
+      continue;
+    }
     const validation = validateCandidate(candidate);
     if (!validation.ok) {
       issues.push({ code: "INVALID_CANDIDATE", message: `${index + 1}. aday: ${validation.issues.map((i) => i.message).join(" ")}` });
       continue;
     }
-    candidates.push(candidate);
+    // Dış içe aktarma onay bayraklarını SIFIRLAR: gelen `state`,
+    // `humanReviewed` ve `verification` değerleri asla korunmaz.
+    const sanitized = {
+      ...candidate,
+      state: "new",
+      stateHistory: [{ state: "new", at: new Date().toISOString(), note: "JSON içe aktarması; onay bayrakları sıfırlandı" }],
+      verification: {
+        urlReachable: false,
+        citationComplete: false,
+        rightsKnown: false,
+        duplicateChecked: false,
+        aiReviewed: false,
+        humanReviewed: false,
+        notes: "",
+      },
+    };
+    candidates.push(sanitized);
   }
   return { candidates, issues };
 }

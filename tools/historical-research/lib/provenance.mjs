@@ -26,12 +26,15 @@ export function evaluateClaim(claim, candidates) {
     .map((link) => ({ ...link, candidate: byId.get(link.candidateId) }))
     .filter((link) => Boolean(link.candidate));
 
-  const supporting = evidence.filter((link) => link.relation === "supports" || link.relation === "partial");
+  const supporting = evidence.filter((link) => link.relation === "supports");
+  const partial = evidence.filter((link) => link.relation === "partial");
   const contradicting = evidence.filter((link) => link.relation === "contradicts");
 
-  // Bağımsızlık: aynı kurum + aynı arşiv kimliği yalnızca bir kez sayılır.
-  // Ayrıca farklı kurumlardaki benzer künyeli (ayna/türetilmiş) kaynaklar da
-  // bağımsız sayılmaz — kanıtın kendisi beyan edilmelidir.
+  // Bağımsızlık: yalnız TAM DESTEK ("supports") veren kaynaklar bağımsızlık
+  // sayılır. "partial" kanıttır ama tam destekleme DEĞİLDİR; tek başına
+  // corroborated üretmez. Aynı kurum + aynı arşiv kimliği bir kez sayılır;
+  // farklı kurumlardaki benzer künyeli (ayna/türetilmiş) kaynaklar da bağımsız
+  // sayılmaz — bağımsızlık beyan edilmemişse varsayılan olarak bilinmez kalır.
   const seenRoots = new Set();
   const mirrorRoots = new Set();
   let independent = 0;
@@ -77,6 +80,10 @@ export function evaluateClaim(claim, candidates) {
     status = "contested";
   } else if (independent >= 2) {
     status = "corroborated";
+  }
+  if (status === "corroborated" && partial.length > 0 && supporting.length < 2) {
+    // Tam destekleyen bağımsız kaynak yoksa doğrulanmış iddia verilemez
+    status = "unverified";
   }
 
   const notes = [];
@@ -156,6 +163,10 @@ export function provenanceChain(recordId, claim, candidates) {
       return {
         candidateId: candidate.id,
         relation: link.relation,
+        // Destekleyici pasaj/konum bilgisi taşınır (varsa); uydurulmaz
+        supportingPassage: link.quote ?? null,
+        locator: link.locator ?? null,
+        note: link.note ?? null,
         institution: candidate.institution,
         originalDocument: {
           identifier: candidate.archiveIdentifier ?? null,
@@ -164,6 +175,6 @@ export function provenanceChain(recordId, claim, candidates) {
         },
       };
     }).filter(Boolean),
-    note: "Zincirdeki her halka, kaynağın hangi iddiayı hangi ölçüde desteklediğini belgelemek içindir; otomatik doğruluk kararı içermez.",
+    note: "Zincirdeki her halka, kaynağın hangi iddiayı hangi ölçüde desteklediğini belgelemek içindir; otomatik doğruluk kararı içermez. Destekleyici pasaj kaydedilmemişse iddia 'unverified' kabul edilir.",
   };
 }
