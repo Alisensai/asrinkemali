@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "ibb-canakkale-fotografi-1928",
+  "slug": "ibb-canakkale-fotografi-1928",
+  "title": "Çanakkale'de Atatürk ve Bir Grup Fotoğrafı (1928)",
+  "type": "photograph",
+  "date": {
+    "start": "1928-01-01",
+    "end": null,
+    "precision": "year",
+    "certainty": "exact",
+    "display": "1928",
+    "note": "Arşiv kaydında tarih [1928] olarak verilmiştir."
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "subject"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Çanakkale",
+      "city": "Çanakkale",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "fotograf",
+    "cumhuriyet"
+  ],
+  "summary": "Atatürk'ün Çanakkale'de bir grupla birlikte çekilmiş fotoğrafı.",
+  "description": "İBB Atatürk Kitaplığı'nda Krt_014877 demirbaş numarasıyla kayıtlı fotoğraf, Atatürk'ü Çanakkale'de bir grupla birlikte gösterir. Arşiv kaydında tarih [1928] olarak verilmiştir. Görsel, kurumsal kaynak sayfasına bağlantıyla sunulur.",
+  "source": {
+    "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+    "institutionType": "archive",
+    "institutionUrl": "https://sayisalarsiv.ibb.gov.tr/",
+    "title": "İBB Atatürk Kitaplığı: Çanakkale'de Atatürk ve Bir Grup Fotoğrafı (1928)",
+    "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_014877",
+    "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Krt_014877, “Çanakkale'de Atatürk ve Bir Grup Fotoğrafı (1928)”, erişim 23.10.2026, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_014877",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1928-01-01",
+    "archiveIdentifier": "Krt_014877",
+    "note": "İBB Atatürk Kitaplığı Sayısal Arşiv katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Görsel indirilmedi."
+  },
+  "provenance": [
+    {
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "collection": "İBB Atatürk Kitaplığı Sayısal Arşiv",
+      "identifier": "Krt_014877",
+      "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_014877",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal katalog kaydı ve demirbaş numarasına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "İBB Atatürk Kitaplığı",
+    "imageReuse": "link_only",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": {
+    "kind": "digitized_original",
+    "url": null,
+    "sourcePageUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_014877",
+    "alt": "Atatürk'ün Çanakkale'de bir grupla çekilmiş fotoğrafı",
+    "credit": "İBB Atatürk Kitaplığı",
+    "width": null,
+    "height": null,
+    "mimeType": null,
+    "localPath": null,
+    "displayPolicy": "source_link_only"
+  },
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Katalog kaydı ve [1928] tarihi 23.10.2026 tarihinde doğrulandı; görsel indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "Çanakkale",
+    "Atatürk",
+    "1928",
+    "fotoğraf",
+    "grup"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

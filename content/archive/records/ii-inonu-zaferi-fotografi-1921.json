@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "ii-inonu-zaferi-fotografi-1921",
+  "slug": "ii-inonu-zaferi-fotografi-1921",
+  "title": "II. İnönü Zaferi Fotoğrafı",
+  "type": "photograph",
+  "date": {
+    "start": "1921-04-10",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "10 Nisan 1921",
+    "note": "Tarih, kurumsal fotoğraf albümündeki açıklamadan alınmıştır. II. İnönü Muharebeleri 31 Mart – 1 Nisan 1921 aralığında gerçekleştiği için bu tarih ayrıca insan denetimi gerektirir."
+  },
+  "people": [
+    {
+      "name": "İsmet İnönü",
+      "role": "subject",
+      "note": "II. İnönü Zaferi'nde Türk kuvvetlerinin komutanı."
+    }
+  ],
+  "locations": [],
+  "categories": [
+    "fotograf",
+    "milli-mucadele"
+  ],
+  "summary": "Kurtuluş Savaşı Müzesi albümünde II. İnönü Zaferi'ni kutlamaya hazırlanan askerî birlikleri gösteren fotoğraf 10 Nisan 1921 tarihiyle yer alır. Tarih, muharebenin bilinen aralığıyla çeliştiği için kayıt incelemede tutulmuştur.",
+  "description": "Kurumsal fotoğraf albümünde görsel, II. İnönü Zaferi'ni kutlamaya hazırlanan askerî birlikler olarak tanımlanır ve 10 Nisan 1921 tarihi verilir. II. İnönü Muharebeleri'nin 31 Mart – 1 Nisan 1921 aralığında gerçekleştiği dikkate alındığında albümdeki tarih ile olay arasında uyumsuzluk bulunur. Bu nedenle kayıt yayımlanmamış, inceleme durumunda bırakılmıştır. Görselin kendisi indirilmemiştir.",
+  "source": {
+    "institution": "Türkiye Büyük Millet Meclisi",
+    "institutionType": "official",
+    "institutionUrl": "https://kurtulussavasimuzesi.tbmm.gov.tr/",
+    "title": "Kurtuluş Savaşı Müzesi: Fotoğraflar",
+    "url": "https://kurtulussavasimuzesi.tbmm.gov.tr/fotograf",
+    "accessedAt": "2026-10-23",
+    "publishedAt": null,
+    "archiveIdentifier": "Fotograf/6.jpg",
+    "note": "Kurumsal albümde II. İnönü Zaferi başlığı ve 10 Nisan 1921 tarihiyle listelenir."
+  },
+  "provenance": [
+    {
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "collection": "Kurtuluş Savaşı Müzesi Fotoğraf Albümü",
+      "identifier": "Fotograf/6.jpg",
+      "url": "https://kurtulussavasimuzesi.tbmm.gov.tr/fotograf",
+      "accessedAt": "2026-10-23",
+      "note": "Görsel, kurumsal albümde 10 Nisan 1921 tarihli II. İnönü Zaferi kutlaması olarak tanımlanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "TBMM Kurtuluş Savaşı Müzesi",
+    "imageReuse": "link_only",
+    "note": "Görselin yeniden kullanım lisansı doğrulanmadı; dosya indirilmez ve kopyalanmaz. Kayıt yalnızca kurumsal kaynak sayfaya bağlantı verir."
+  },
+  "image": {
+    "kind": "digitized_original",
+    "url": null,
+    "sourcePageUrl": "https://kurtulussavasimuzesi.tbmm.gov.tr/fotograf",
+    "alt": "II. İnönü Zaferi'ni kutlamaya hazırlanan askerî birlikleri gösteren fotoğraf",
+    "credit": "TBMM Kurtuluş Savaşı Müzesi",
+    "width": null,
+    "height": null,
+    "mimeType": null,
+    "localPath": null,
+    "displayPolicy": "source_link_only"
+  },
+  "verification": {
+    "status": "reviewed",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Kaynak sayfa 23 Ekim 2026'da erişildi. Albümdeki 10 Nisan 1921 tarihi kayıtlıdır; ancak muharebenin 31 Mart – 1 Nisan 1921 aralığıyla uyumsuzluğu giderilmediği için kayıt yayımlanmadı. İnsan uzman denetimi gerekir."
+  },
+  "tags": [
+    "II. İnönü",
+    "10 Nisan 1921",
+    "fotoğraf",
+    "Millî Mücadele",
+    "TBMM"
+  ],
+  "relatedIds": [
+    "tbmm-acilisi-1920"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

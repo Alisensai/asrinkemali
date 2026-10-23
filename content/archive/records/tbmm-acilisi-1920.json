@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "tbmm-acilisi-1920",
+  "slug": "tbmm-acilisi-1920",
+  "title": "Türkiye Büyük Millet Meclisinin Açılışı",
+  "type": "event",
+  "date": {
+    "start": "1920-04-23",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "23 Nisan 1920"
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "official",
+      "note": "Meclisin açılışında Temsil Heyeti adına konuşan lider."
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "kurulus",
+    "tbmm",
+    "siyaset"
+  ],
+  "summary": "Türkiye Büyük Millet Meclisi 23 Nisan 1920'de Ankara'da açıldı. Meclis, Millî Mücadele'nin siyasi merkezi ve yeni devletin egemenlik organı olarak çalıştı.",
+  "description": "TBMM'nin açılışı, Ankara'da Hacı Bayram-ı Veli Camii'nde kılınan cuma namazı ve duaların ardından yapılan törenle gerçekleşti. Meclis, Temsil Heyeti adına Mustafa Kemal Paşa'nın 21 Nisan 1920 tarihli tamimi doğrultusunda toplandı. Açılış, saltanatın siyasi otoritesinin yanında millet egemenliğine dayanan ayrı bir meclis iradesinin kurumsallaşmasını simgeler.",
+  "source": {
+    "institution": "Türkiye Büyük Millet Meclisi",
+    "institutionType": "official",
+    "institutionUrl": "https://kurtulussavasimuzesi.tbmm.gov.tr/",
+    "title": "Kurtuluş Savaşı Müzesi: Meclisin Açılışı",
+    "url": "https://kurtulussavasimuzesi.tbmm.gov.tr/meclisacilis",
+    "accessedAt": "2026-10-23",
+    "publishedAt": null,
+    "archiveIdentifier": "meclisacilis",
+    "note": "Kurumsal müze sayfası; açılış töreni ve I. TBMM Binası bilgileri birlikte yer alır."
+  },
+  "provenance": [
+    {
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "collection": "Kurtuluş Savaşı Müzesi",
+      "identifier": "meclisacilis",
+      "url": "https://kurtulussavasimuzesi.tbmm.gov.tr/meclisacilis",
+      "accessedAt": "2026-10-23",
+      "note": "Sayfa, 23 Nisan 1920 açılışını ve tören akışını kurumsal olarak belgeler."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Türkiye Büyük Millet Meclisi Kurtuluş Savaşı Müzesi",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal sayfada yeniden kullanım lisansı doğrulanmadı; metin ve görsel kopyalanmaz, yalnızca kaynak sayfaya bağlantı verilir."
+  },
+  "image": null,
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Kaynak sayfa 23 Ekim 2026'da erişildi; tarih ve olay örgüsü kurumsal sayfayla karşılaştırıldı. Doğrudan alıntı kullanılmadı."
+  },
+  "tags": [
+    "TBMM",
+    "23 Nisan",
+    "1920",
+    "Ankara",
+    "meclis",
+    "egemenlik"
+  ],
+  "relatedIds": [
+    "tbmm-acilis-fotografi-1920",
+    "i-tbmm-binasi",
+    "cumhuriyetin-ilani-1923"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

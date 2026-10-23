@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "milli-kutuphane-ataturk-ve-canakkale-2006",
+  "slug": "milli-kutuphane-ataturk-ve-canakkale-2006",
+  "title": "Atatürk ve Çanakkale",
+  "type": "publication",
+  "date": {
+    "start": "2006-01-01",
+    "end": null,
+    "precision": "year",
+    "certainty": "estimated",
+    "display": "2006",
+    "note": "Katalog kaydında yayın tarihi alanı boş; yayın yılı yer numarasındaki yıl önekinden değerlendirildi."
+  },
+  "people": [],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "yayin",
+    "milli-mucadele",
+    "egitim"
+  ],
+  "summary": "Atatürk ve Çanakkale konusunu ele alan, ilköğretim okulları için hazırlanmış katalog kaydı.",
+  "description": "Millî Kütüphane Dijital Kütüphane kataloğunda 'Atatürk ve Çanakkale /' adıyla kayıtlı eser, 100 yaprak ve 19x21 cm ölçülerindedir. Katalog kaydında yayın tarihi alanı boş olup yer numarası 2006 AD 5745'dir; yayın yılı bu numaradaki 2006 önekinden değerlendirilmiştir. Genel notta eserin ilköğretim okulları için hazırlandığı belirtilir.",
+  "source": {
+    "institution": "Millî Kütüphane",
+    "institutionType": "library",
+    "institutionUrl": "https://dijital-kutuphane.mkutup.gov.tr/",
+    "title": "Millî Kütüphane Dijital Kütüphane: Atatürk ve Çanakkale",
+    "url": "https://dijital-kutuphane.mkutup.gov.tr/tr/books/catalog/details/109289",
+    "citation": "Millî Kütüphane Dijital Kütüphane, “Atatürk ve Çanakkale”, Yer No. 2006 AD 5745, erişim 23.10.2026, https://dijital-kutuphane.mkutup.gov.tr/tr/books/catalog/details/109289",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2006-01-01",
+    "archiveIdentifier": "2006 AD 5745",
+    "note": "Millî Kütüphane katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Yayın yılı yer numarasından değerlendirildi."
+  },
+  "provenance": [
+    {
+      "institution": "Millî Kütüphane",
+      "collection": "Millî Kütüphane Dijital Kütüphane",
+      "identifier": "2006 AD 5745",
+      "url": "https://dijital-kutuphane.mkutup.gov.tr/tr/books/catalog/details/109289",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal katalog kaydındaki künye alanlarına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Millî Kütüphane",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "reviewed",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Katalog kaydı ve künye alanları 23.10.2026 tarihinde doğrulandı; yayın yılı yer numarasındaki yıl önekinden değerlendirildiği için kayıt 'incelendi' durumundadır. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "Çanakkale",
+    "Atatürk",
+    "Millî Kütüphane",
+    "2006",
+    "eğitim"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

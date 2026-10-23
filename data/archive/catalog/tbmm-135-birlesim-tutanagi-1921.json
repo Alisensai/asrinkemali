@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "tbmm-135-birlesim-tutanagi-1921",
+  "slug": "tbmm-135-birlesim-tutanagi-1921",
+  "title": "TBMM 135. Birleşim Tutanağı (20 Ocak 1921)",
+  "type": "document",
+  "date": {
+    "start": "1921-01-20",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "20 Ocak 1921"
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "official",
+      "note": "Dönemin siyasi lideri."
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "tbmm",
+    "hukuk",
+    "kurulus"
+  ],
+  "summary": "20 Ocak 1921'de yapılan 135. Birleşim'in tutanağı, Teşkilat-ı Esasiye Kanunu'nun kabul edildiği oturumun resmî kaydıdır.",
+  "description": "Tutanak, Birinci Dönem Birinci Yasama Yılı'nın 135. Birleşiminde Teşkilat-ı Esasiye Kanunu'nun görüşülmesi ve kabulüne ilişkin kayıtları içerir. 1921 Anayasası olarak bilinen kanun, millî egemenliğe dayanan devlet düzeninin hukuki temelini oluşturdu. PDF bağlantısı resmî TBMM tutanak dizinine aittir; dosya indirilmemiştir.",
+  "source": {
+    "institution": "Türkiye Büyük Millet Meclisi",
+    "institutionType": "official",
+    "institutionUrl": "https://www.tbmm.gov.tr/",
+    "title": "TBMM Tutanak Dergisi, Dönem 1, Cilt 7, 135. Birleşim",
+    "url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c007/tbmm01007135.pdf",
+    "citation": "TBMM Tutanak Dergisi, Dönem 1, Cilt 7, 135. Birleşim, 20 Ocak 1921, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c007/tbmm01007135.pdf",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1921-01-20",
+    "archiveIdentifier": "Dönem 1, Cilt 7, 135. Birleşim",
+    "note": "Resmî TBMM Tutanak Dergisi PDF'i; bağlantı HTTPS üzerinden 200 yanıtı verdi. PDF indirilmedi ve depoya eklenmedi."
+  },
+  "provenance": [
+    {
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "collection": "TBMM Tutanak Dergisi",
+      "identifier": "Dönem 1, Cilt 7, 135. Birleşim",
+      "url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c007/tbmm01007135.pdf",
+      "accessedAt": "2026-10-23",
+      "note": "TBMM tutanak dizinindeki resmî birleşim kaydına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Türkiye Büyük Millet Meclisi",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Birleşim tarihi ve resmî PDF bağlantısı TBMM tutanak diziniyle doğrulandı; PDF içeriği indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "TBMM",
+    "Teşkilat-ı Esasiye",
+    "1921 Anayasası",
+    "tutanak",
+    "20 Ocak 1921"
+  ],
+  "relatedIds": [
+    "teskilat-i-esasiye-1921"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

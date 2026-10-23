@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "atam-ataturk-gunlugu-2025",
+  "slug": "atam-ataturk-gunlugu-2025",
+  "title": "Doğumundan Ölümüne Kadar Kaynakçalı Atatürk Günlüğü",
+  "type": "publication",
+  "date": {
+    "start": "2025-01-01",
+    "end": null,
+    "precision": "year",
+    "certainty": "exact",
+    "display": "2025",
+    "note": "Basım yılı ATAM kitap künyesinden alınmıştır."
+  },
+  "people": [
+    {
+      "name": "Prof. Dr. Utkan Kocatürk",
+      "role": "author"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "yayin",
+    "cumhuriyet"
+  ],
+  "summary": "Utkan Kocatürk'ün Atatürk'ün doğumundan ölümüne kadar olan yaşamını kaynaklarla kronolojik olarak ele alan çalışması.",
+  "description": "Atatürk Araştırma Merkezi tarafından 2025 yılında yayımlanan eser, Prof. Dr. Utkan Kocatürk imzasıyla Atatürk'ün yaşamını kronolojik bir günlük formunda sunar. Kitap künyesinde ISBN 978-975-17-6173-6 ve yayın no 096 olarak kayıtlıdır. Yayın sayfası yalnızca bağlantı olarak sunulur.",
+  "source": {
+    "institution": "Atatürk Araştırma Merkezi Yayınları",
+    "institutionType": "institutional",
+    "institutionUrl": "https://atam.gov.tr/",
+    "title": "ATAM Yayınları: Doğumundan Ölümüne Kadar Kaynakçalı Atatürk Günlüğü",
+    "url": "https://atam.gov.tr/kitaplar/dogumundan-olumune-kadar-kaynakcali-ataturk-gunlugu/",
+    "citation": "Prof. Dr. Utkan Kocatürk, Doğumundan Ölümüne Kadar Kaynakçalı Atatürk Günlüğü, Atatürk Araştırma Merkezi Yayınları, Ankara 2025, ISBN 978-975-17-6173-6.",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2025-01-01",
+    "archiveIdentifier": "978-975-17-6173-6",
+    "note": "Kitap künyesi (yazar, ISBN, basım yılı) ATAM yayın sayfasından doğrulandı; kitap dosyası indirilmedi."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Araştırma Merkezi Yayınları",
+      "collection": "ATAM Yayınları",
+      "identifier": "978-975-17-6173-6",
+      "url": "https://atam.gov.tr/kitaplar/dogumundan-olumune-kadar-kaynakcali-ataturk-gunlugu/",
+      "accessedAt": "2026-10-23",
+      "note": "ATAM kitap detay sayfasındaki künye tablosuna dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Araştırma Merkezi Yayınları",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Kitap künyesi ATAM yayın sayfasındaki yazar, ISBN ve basım yılı bilgileriyle doğrulandı; kitap dosyası indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "Atatürk Günlüğü",
+    "Utkan Kocatürk",
+    "ATAM",
+    "2025",
+    "kronoloji"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

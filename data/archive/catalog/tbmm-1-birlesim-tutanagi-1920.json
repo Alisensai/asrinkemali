@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "tbmm-1-birlesim-tutanagi-1920",
+  "slug": "tbmm-1-birlesim-tutanagi-1920",
+  "title": "TBMM 1. Birleşim Tutanağı (23 Nisan 1920)",
+  "type": "document",
+  "date": {
+    "start": "1920-04-23",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "23 Nisan 1920"
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "official",
+      "note": "Dönemin siyasi lideri."
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "tbmm",
+    "kurulus"
+  ],
+  "summary": "TBMM'nin açılış günü olan 23 Nisan 1920'de yapılan 1. Birleşim'in resmî tutanağı, Meclis'in kuruluş sürecinin birincil kaynağıdır.",
+  "description": "Tutanak, Birinci Dönem Birinci Yasama Yılı'nın 1. Birleşiminde Meclis'in açılışı, yoklama ve ilk kararlarına ilişkin kayıtları içerir. TBMM Tutanak Dergisi'nin resmî PDF'i üzerinden erişilebilir; dosya depoya indirilmemiştir.",
+  "source": {
+    "institution": "Türkiye Büyük Millet Meclisi",
+    "institutionType": "official",
+    "institutionUrl": "https://www.tbmm.gov.tr/",
+    "title": "TBMM Tutanak Dergisi, Dönem 1, Cilt 1, 1. Birleşim",
+    "url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c001/tbmm01001001.pdf",
+    "citation": "TBMM Tutanak Dergisi, Dönem 1, Cilt 1, 1. Birleşim, 23 Nisan 1920, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c001/tbmm01001001.pdf",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1920-04-23",
+    "archiveIdentifier": "Dönem 1, Cilt 1, 1. Birleşim",
+    "note": "Resmî TBMM Tutanak Dergisi PDF'i; bağlantı HTTPS üzerinden 200 yanıtı verdi. PDF indirilmedi ve depoya eklenmedi."
+  },
+  "provenance": [
+    {
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "collection": "TBMM Tutanak Dergisi",
+      "identifier": "Dönem 1, Cilt 1, 1. Birleşim",
+      "url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c001/tbmm01001001.pdf",
+      "accessedAt": "2026-10-23",
+      "note": "TBMM tutanak dizinindeki resmî birleşim kaydına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Türkiye Büyük Millet Meclisi",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Birleşim tarihi ve resmî PDF bağlantısı TBMM tutanak diziniyle doğrulandı; PDF içeriği indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "TBMM",
+    "23 Nisan 1920",
+    "tutanak",
+    "açılış",
+    "Birinci Dönem"
+  ],
+  "relatedIds": [
+    "tbmm-acilisi-1920"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

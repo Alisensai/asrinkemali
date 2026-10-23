@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "halifeligin-kaldirilmasi-1924",
+  "slug": "halifeligin-kaldirilmasi-1924",
+  "title": "Halifeliğin Kaldırılması",
+  "type": "event",
+  "date": {
+    "start": "1924-03-03",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "3 Mart 1924"
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "official"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "hukuk",
+    "toplum",
+    "tbmm"
+  ],
+  "summary": "TBMM'nin 3 Mart 1924'te kabul ettiği kanunlarla halifelik kaldırıldı; laik devlet düzenine geçişte önemli bir adım atıldı.",
+  "description": "Halifeliğin kaldırılması, Cumhuriyet'in ilk yıllarında din ile devlet işlerinin ayrılması yönündeki düzenlemelerin merkezinde yer alır. 3 Mart 1924'te TBMM'de kabul edilen kanunlarla halifelik kurumu sona erdirildi ve Osmanlı hanedanı üyelerinin yurt dışına çıkarılması kararlaştırıldı. Kaynak maddede kurumun tarihsel arka planı ve kaldırılma süreci ele alınır.",
+  "source": {
+    "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "institutionType": "institutional",
+    "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+    "title": "Atatürk Ansiklopedisi: Halifeliğin Kaldırılması",
+    "url": "https://www.ataturkansiklopedisi.gov.tr/detay/940/halifeligin-kaldirilmasi-1924",
+    "citation": "Atatürk Ansiklopedisi, “Halifeliğin Kaldırılması”, yazar Ali SATAN, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/940/halifeligin-kaldirilmasi-1924",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2022-09-13",
+    "archiveIdentifier": "940",
+    "note": "Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "collection": "Atatürk Ansiklopedisi",
+      "identifier": "940",
+      "url": "https://www.ataturkansiklopedisi.gov.tr/detay/940/halifeligin-kaldirilmasi-1924",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal ansiklopedi maddesine dayanan tek kaynaklı provenans kaydı."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "quotation": null,
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Atatürk Ansiklopedisi maddesi, tarih ve künye bilgisi 23.10.2026 tarihinde kontrol edildi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "halifelik",
+    "laiklik",
+    "TBMM",
+    "1924",
+    "3 Mart"
+  ],
+  "relatedIds": [
+    "tevhid-i-tedrisat-1924"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

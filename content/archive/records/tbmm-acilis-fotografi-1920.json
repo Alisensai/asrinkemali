@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "tbmm-acilis-fotografi-1920",
+  "slug": "tbmm-acilis-fotografi-1920",
+  "title": "TBMM'nin Açılış Fotoğrafı",
+  "type": "photograph",
+  "date": {
+    "start": "1920-04-23",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "23 Nisan 1920"
+  },
+  "people": [],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "fotograf",
+    "tbmm",
+    "kurulus"
+  ],
+  "summary": "TBMM'nin 23 Nisan 1920'deki açılışına ait fotoğraf, Kurtuluş Savaşı Müzesi'nin Meclisin Açılışı sayfasında Türk Tarih Kurumu Arşivi creditiyle yer alır.",
+  "description": "Kurumsal sayfada fotoğraf, Türkiye Büyük Millet Meclisinin 23 Nisan 1920 tarihinde çekilmiş resmi olarak tanımlanır. Görselin kendisi indirilmemiş; yeniden kullanım koşulları doğrulanmadığı için yalnızca kaynak sayfaya bağlantı verilmiştir. Fotoğrafın alt metni ve tarihi kurumsal sayfadaki açıklamaya dayanır.",
+  "source": {
+    "institution": "Türkiye Büyük Millet Meclisi",
+    "institutionType": "official",
+    "institutionUrl": "https://kurtulussavasimuzesi.tbmm.gov.tr/",
+    "title": "Kurtuluş Savaşı Müzesi: Meclisin Açılışı",
+    "url": "https://kurtulussavasimuzesi.tbmm.gov.tr/meclisacilis",
+    "accessedAt": "2026-10-23",
+    "publishedAt": null,
+    "archiveIdentifier": "23Nisan1920Gunu.jpg",
+    "note": "Kurumsal sayfadaki fotoğraf galerisinde yer alan görsel; credit Türk Tarih Kurumu Arşivi olarak belirtilir."
+  },
+  "provenance": [
+    {
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "collection": "Kurtuluş Savaşı Müzesi Fotoğraf Galerisi",
+      "identifier": "23Nisan1920Gunu.jpg",
+      "url": "https://kurtulussavasimuzesi.tbmm.gov.tr/meclisacilis",
+      "accessedAt": "2026-10-23",
+      "note": "Görsel, Meclisin Açılışı sayfasındaki galeride 23 Nisan 1920 açılışı olarak tanımlanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Türk Tarih Kurumu Arşivi; TBMM Kurtuluş Savaşı Müzesi aracılığıyla",
+    "imageReuse": "link_only",
+    "note": "Görselin yeniden kullanım lisansı doğrulanmadı; dosya indirilmez ve kopyalanmaz. Kayıt yalnızca kurumsal kaynak sayfaya bağlantı verir."
+  },
+  "image": {
+    "kind": "digitized_original",
+    "url": null,
+    "sourcePageUrl": "https://kurtulussavasimuzesi.tbmm.gov.tr/meclisacilis",
+    "alt": "Türkiye Büyük Millet Meclisinin 23 Nisan 1920'deki açılışından bir fotoğraf",
+    "credit": "Türk Tarih Kurumu Arşivi; TBMM Kurtuluş Savaşı Müzesi aracılığıyla",
+    "width": null,
+    "height": null,
+    "mimeType": null,
+    "localPath": null,
+    "displayPolicy": "source_link_only"
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Kaynak sayfa 23 Ekim 2026'da erişildi; fotoğrafın tarihi ve credit bilgisi kurumsal sayfadaki galeri açıklamasıyla doğrulandı. Görsel dosyası indirilmedi."
+  },
+  "tags": [
+    "TBMM",
+    "23 Nisan 1920",
+    "fotoğraf",
+    "açılış",
+    "Türk Tarih Kurumu"
+  ],
+  "relatedIds": [
+    "tbmm-acilisi-1920",
+    "i-tbmm-binasi"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

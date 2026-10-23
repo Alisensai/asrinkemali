@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "cumhuriyetin-ilani-1923",
+  "slug": "cumhuriyetin-ilani-1923",
+  "title": "Cumhuriyet'in İlanı",
+  "type": "event",
+  "date": {
+    "start": "1923-10-29",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "29 Ekim 1923"
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "official",
+      "note": "Anayasa değişikliği teklifini hazırlayan ve Cumhuriyet'in ilanını yöneten lider."
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "cumhuriyet",
+    "kurulus",
+    "siyaset"
+  ],
+  "summary": "TBMM 29 Ekim 1923'te Teşkilat-ı Esasiye Kanunu'nda yaptığı değişiklikle Cumhuriyet'i ilan etti. Yeni düzenleme, devlet başkanlığı ve hükümet sistemini cumhuriyet esasına bağladı.",
+  "description": "Saltanatın kaldırılması ve Lozan Barış Antlaşması'nın ardından devletin rejiminin adının konması gündeme geldi. Mustafa Kemal Paşa'nın hazırladığı anayasa değişikliği teklifi TBMM'de kabul edildi ve 29 Ekim 1923'te Cumhuriyet ilan edildi. Cumhuriyet'in ilanı, egemenliğin millete ait olduğu esasını devlet düzeninin temeline yerleştirdi.",
+  "source": {
+    "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "institutionType": "institutional",
+    "institutionUrl": "https://ataturkansiklopedisi.gov.tr/",
+    "title": "Atatürk Ansiklopedisi: Cumhuriyet'in İlanı",
+    "url": "https://ataturkansiklopedisi.gov.tr/detay/608/Cumhuriyet’in-İlanı",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2021-03-29",
+    "archiveIdentifier": "608",
+    "note": "Kurumsal ansiklopedi maddesi; 29 Ekim 1923 kararını, anayasa değişikliğini ve siyasi bağlamı açıklar."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "collection": "Atatürk Ansiklopedisi",
+      "identifier": "608",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/608/Cumhuriyet’in-İlanı",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal madde, Cumhuriyet'in ilanını TBMM kararı ve anayasa değişikliği üzerinden belgeler."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal ansiklopedi sayfasında yeniden kullanım lisansı doğrulanmadı; metin ve görsel kopyalanmaz, yalnızca kaynak sayfaya bağlantı verilir."
+  },
+  "image": null,
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Kaynak sayfa 23 Ekim 2026'da erişildi; 29 Ekim 1923 tarihi ve anayasa değişikliği kurumsal maddeyle doğrulandı. Doğrudan alıntı kullanılmadı."
+  },
+  "tags": [
+    "Cumhuriyet",
+    "29 Ekim 1923",
+    "TBMM",
+    "ilan",
+    "egemenlik"
+  ],
+  "relatedIds": [
+    "saltanatin-kaldirilmasi-1922",
+    "lozan-baris-antlasmasi-1923",
+    "onuncu-yil-nutku-1933"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

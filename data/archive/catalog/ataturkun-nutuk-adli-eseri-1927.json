@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "ataturkun-nutuk-adli-eseri-1927",
+  "slug": "ataturkun-nutuk-adli-eseri-1927",
+  "title": "Atatürk'ün Nutuk Adlı Eseri",
+  "type": "publication",
+  "date": {
+    "start": "1927-01-01",
+    "end": null,
+    "precision": "year",
+    "certainty": "exact",
+    "display": "1927",
+    "note": "Nutuk'un TBMM'de okunduğu 15-20 Ekim 1927 tarihleri esas alınmıştır."
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "author"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "konusma",
+    "yayin",
+    "cumhuriyet"
+  ],
+  "summary": "Mustafa Kemal Atatürk'ün 15-20 Ekim 1927'de TBMM'de okuduğu Nutuk, Cumhuriyet'in kuruluş sürecini birinci elden anlatan temel eserdir.",
+  "description": "Nutuk, Atatürk'ün 1919-1927 dönemindeki siyasi ve askerî gelişmeleri anlattığı, 15-20 Ekim 1927 tarihlerinde TBMM'de altı gün boyunca okunan eserdir. Metin, Millî Mücadele'nin örgütlenmesi, TBMM'nin kuruluşu ve Cumhuriyet'in ilanı gibi konularda birincil kaynak niteliği taşır. Kaynak maddede eserin okunma süreci, içeriği ve yayın geçmişi ele alınır.",
+  "source": {
+    "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "institutionType": "institutional",
+    "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+    "title": "Atatürk Ansiklopedisi: Atatürk'ün Nutuk Adlı Eseri",
+    "url": "https://www.ataturkansiklopedisi.gov.tr/detay/878/ataturkun-nutuk-adli-eseri-1927",
+    "citation": "Atatürk Ansiklopedisi, “Atatürk'ün Nutuk Adlı Eseri”, yazar Temuçin Faik ERTAN, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/878/ataturkun-nutuk-adli-eseri-1927",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2020-12-30",
+    "archiveIdentifier": "878",
+    "note": "Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "collection": "Atatürk Ansiklopedisi",
+      "identifier": "878",
+      "url": "https://www.ataturkansiklopedisi.gov.tr/detay/878/ataturkun-nutuk-adli-eseri-1927",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal ansiklopedi maddesine dayanan tek kaynaklı provenans kaydı."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "quotation": null,
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Atatürk Ansiklopedisi maddesi, tarih ve künye bilgisi 23.10.2026 tarihinde kontrol edildi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "Nutuk",
+    "Atatürk",
+    "1927",
+    "TBMM",
+    "birincil kaynak"
+  ],
+  "relatedIds": [
+    "nutuk-1928"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}
