@@ -97,6 +97,8 @@ export interface EvidenceRecord {
   shortQuote: string | null;
   /** Erişim tarihi (ISO tam tarih). */
   accessDate: string;
+  /** Kanıtın bildirdiği tarih aralığı (uygulanabilirse; yoksa null). */
+  dateRange: ClaimDateRange | null;
   supportAssessment: SupportAssessment;
   verificationLevel: VerificationLevel;
   humanReview: HumanReviewState;

@@ -10,5 +10,6 @@
     "skipLibCheck": true,
     "types": ["node"]
   },
-  "include": ["*.mjs", "contracts.d.ts"]
+  "include": ["*.mjs", "contracts.d.ts"],
+  "exclude": ["*.test.mjs"]
 }

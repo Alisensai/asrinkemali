@@ -30,6 +30,7 @@ export const MAX_QUOTE_CHARS = 300;
  * @param {string|null} [input.shortQuote]
  * @param {string} input.accessDate ISO tam tarih (YYYY-MM-DD)
  * @param {string|null} [input.candidateId]
+ * @param {import("./contracts.d.ts").ClaimDateRange|null} [input.dateRange]
  * @param {boolean} [input.synthetic]
  * @returns {EvidenceRecord}
  */
@@ -70,6 +71,7 @@ export function createEvidenceRecord(input) {
     locator: input.locator,
     shortQuote: input.shortQuote ?? null,
     accessDate: input.accessDate,
+    dateRange: input.dateRange ?? null,
     supportAssessment: assessment,
     verificationLevel: "unverified",
     humanReview: { reviewed: false, reviewer: null, reviewedAt: null },

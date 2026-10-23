@@ -1,0 +1,552 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-10-23T19:45:12.113Z",
+  "evidence": [
+    {
+      "schemaVersion": "1.0.0",
+      "id": "ev-001-1",
+      "claimId": "claim-001",
+      "claimVersion": 1,
+      "candidateId": "src-2026-0001",
+      "relation": "supports",
+      "locator": {
+        "url": "https://ataturkansiklopedisi.gov.tr/detay/4899/",
+        "title": "Atatürk, Gazi Mustafa Kemal (1881-10 Kasım 1938)",
+        "author": "Şerafettin Turan",
+        "institution": "Atatürk Ansiklopedisi",
+        "page": null,
+        "section": null,
+        "locator": null
+      },
+      "shortQuote": "Gümrük memuru Ali Rıza ile Zübeyde çiftinin dördüncü çocukları olan Mustafa, 1881'de Selanik'te ... doğmuştur.",
+      "accessDate": "2026-10-23",
+      "dateRange": {
+        "start": "1881",
+        "end": "1938",
+        "precision": "range",
+        "certainty": "exact",
+        "display": "1881–1938"
+      },
+      "supportAssessment": {
+        "assessed": true,
+        "actuallySupports": true,
+        "method": "direct_passage",
+        "note": "Doğum yılı ve şehri pasajda açıkça geçiyor; ölüm tarihi ayrı pasajda: '10 Kasım 1938 Perşembe sabahı saat 09.05'te hayata gözlerini yumdu.'"
+      },
+      "verificationLevel": "passage_reviewed",
+      "humanReview": {
+        "reviewed": false,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "synthetic": false
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "ev-002-1",
+      "claimId": "claim-002",
+      "claimVersion": 1,
+      "candidateId": "src-2026-0002",
+      "relation": "supports",
+      "locator": {
+        "url": "https://ataturkansiklopedisi.gov.tr/detay/875/",
+        "title": "Atatürk'ün Eğitim ve Öğretim Gördüğü Kurumlar",
+        "author": null,
+        "institution": "Atatürk Ansiklopedisi",
+        "page": null,
+        "section": null,
+        "locator": null
+      },
+      "shortQuote": "Şemsi Efendi, küçük Mustafa okuluna kaydolduğu zaman (1887) 14 yıllık tecrübeli, ünü bütün Selanik'te yayılmış bir öğretmendir.",
+      "accessDate": "2026-10-23",
+      "dateRange": {
+        "start": "1887",
+        "end": "1905",
+        "precision": "range",
+        "certainty": "exact",
+        "display": "1887–1905"
+      },
+      "supportAssessment": {
+        "assessed": true,
+        "actuallySupports": true,
+        "method": "direct_passage",
+        "note": "1887 başlangıcı bu pasajla; 1905 bitişi maddenin başka pasajıyla: 'Mustafa Kemal 29 Kânunuevvel 1320, yani 11 Ocak 1905 Çarşamba günü Erkan-ı Harbiye Yüzbaşılığı ile mektepten neşet ederek...'"
+      },
+      "verificationLevel": "passage_reviewed",
+      "humanReview": {
+        "reviewed": false,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "synthetic": false
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "ev-002-1-v2",
+      "claimId": "claim-002",
+      "claimVersion": 2,
+      "candidateId": "src-2026-0002",
+      "relation": "supports",
+      "locator": {
+        "url": "https://ataturkansiklopedisi.gov.tr/detay/875/",
+        "title": "Atatürk'ün Eğitim ve Öğretim Gördüğü Kurumlar",
+        "author": null,
+        "institution": "Atatürk Ansiklopedisi",
+        "page": null,
+        "section": null,
+        "locator": null
+      },
+      "shortQuote": "Şemsi Efendi, küçük Mustafa okuluna kaydolduğu zaman (1887) 14 yıllık tecrübeli, ünü bütün Selanik'te yayılmış bir öğretmendir.",
+      "accessDate": "2026-10-23",
+      "dateRange": {
+        "start": "1887",
+        "end": "1905",
+        "precision": "range",
+        "certainty": "exact",
+        "display": "1887–1905"
+      },
+      "supportAssessment": {
+        "assessed": true,
+        "actuallySupports": true,
+        "method": "direct_passage",
+        "note": "1887 başlangıcı bu pasajla; 1905 bitişi maddenin başka pasajıyla: 'Mustafa Kemal 29 Kânunuevvel 1320, yani 11 Ocak 1905 Çarşamba günü Erkan-ı Harbiye Yüzbaşılığı ile mektepten neşet ederek...' [v2 metnine göre yeniden değerlendirildi]"
+      },
+      "verificationLevel": "passage_reviewed",
+      "humanReview": {
+        "reviewed": false,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "synthetic": false
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "ev-003-1",
+      "claimId": "claim-003",
+      "claimVersion": 1,
+      "candidateId": "src-2026-0003",
+      "relation": "supports",
+      "locator": {
+        "url": "https://ataturkansiklopedisi.gov.tr/detay/407/",
+        "title": "Trablusgarp Savaşı (1911-1912)",
+        "author": "Hasan Taner Kerimoğlu",
+        "institution": "Atatürk Ansiklopedisi",
+        "page": null,
+        "section": null,
+        "locator": null
+      },
+      "shortQuote": "5 Mart 1912 tarihinde Derne Komutanlığı'na atanan Mustafa Kemal, böylece geniş bir bölgedeki Osmanlı savunma güçlerini komuta etme görevini üstlenmiş oldu.",
+      "accessDate": "2026-10-23",
+      "dateRange": {
+        "start": "1911",
+        "end": "1912",
+        "precision": "range",
+        "certainty": "exact",
+        "display": "1911–1912"
+      },
+      "supportAssessment": {
+        "assessed": true,
+        "actuallySupports": true,
+        "method": "direct_passage",
+        "note": "Derne Komutanlığı ataması ve görev kapsamı pasajda açıkça geçiyor."
+      },
+      "verificationLevel": "passage_reviewed",
+      "humanReview": {
+        "reviewed": false,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "synthetic": false
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "ev-004-1",
+      "claimId": "claim-004",
+      "claimVersion": 1,
+      "candidateId": "src-2026-0004",
+      "relation": "supports",
+      "locator": {
+        "url": "https://ataturkansiklopedisi.gov.tr/detay/685/",
+        "title": "Balkan Savaşı'nda Mustafa Kemal",
+        "author": "İsmet Görgülü",
+        "institution": "Atatürk Ansiklopedisi",
+        "page": null,
+        "section": null,
+        "locator": null
+      },
+      "shortQuote": "Atatürk, Balkan Savaşı'nda 1 Aralık 1912'den 10 Ağustos 1913'e kadar 8 ay 10 gün görev yapar.",
+      "accessDate": "2026-10-23",
+      "dateRange": {
+        "start": "1912-12-01",
+        "end": "1913-08-10",
+        "precision": "day",
+        "certainty": "exact",
+        "display": "1 Aralık 1912 – 10 Ağustos 1913"
+      },
+      "supportAssessment": {
+        "assessed": true,
+        "actuallySupports": true,
+        "method": "direct_passage",
+        "note": "Görev süresi kesin günlerle pasajda açıkça geçiyor."
+      },
+      "verificationLevel": "passage_reviewed",
+      "humanReview": {
+        "reviewed": false,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "synthetic": false
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "ev-005-1",
+      "claimId": "claim-005",
+      "claimVersion": 1,
+      "candidateId": "src-2026-0011",
+      "relation": "supports",
+      "locator": {
+        "url": "https://ataturkansiklopedisi.gov.tr/detay/388/",
+        "title": "Mustafa Kemal'in Sofya Ataşemiliterliği",
+        "author": "Zekeriya Türkmen",
+        "institution": "Atatürk Ansiklopedisi",
+        "page": null,
+        "section": null,
+        "locator": null
+      },
+      "shortQuote": "Sofya Askerî Ataşeliğine de 27 Ekim 1913 tarihinde Kurmay Binbaşı Mustafa Kemal (Atatürk) atanmıştır.",
+      "accessDate": "2026-10-23",
+      "dateRange": {
+        "start": "1913-10-27",
+        "end": "1915-01-20",
+        "precision": "day",
+        "certainty": "exact",
+        "display": "27 Ekim 1913 – 20 Ocak 1915"
+      },
+      "supportAssessment": {
+        "assessed": true,
+        "actuallySupports": true,
+        "method": "direct_passage",
+        "note": "Atama tarihi bu pasajda; icra dönemi başka pasajda: '20 Kasım 1913 – 25 Ocak 1915 tarihleri arasında Sofya Askerî Ataşelik görevini yürüten Mustafa Kemal'. İki tarih semantiği farklıdır — çelişki adayı olarak kaydedildi."
+      },
+      "verificationLevel": "passage_reviewed",
+      "humanReview": {
+        "reviewed": false,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "synthetic": false
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "ev-005-b",
+      "claimId": "claim-005",
+      "claimVersion": 1,
+      "candidateId": null,
+      "relation": "supports",
+      "locator": {
+        "url": "https://ataturkansiklopedisi.gov.tr/detay/388/",
+        "title": "Mustafa Kemal'in Sofya Ataşemiliterliği",
+        "author": "Zekeriya Türkmen",
+        "institution": "Atatürk Ansiklopedisi",
+        "page": null,
+        "section": "icra dönemi",
+        "locator": null
+      },
+      "shortQuote": "20 Kasım 1913 – 25 Ocak 1915 tarihleri arasında Sofya Askerî Ataşelik görevini yürüten Mustafa Kemal",
+      "accessDate": "2026-10-23",
+      "dateRange": {
+        "start": "1913-11-20",
+        "end": "1915-01-25",
+        "precision": "day",
+        "certainty": "exact",
+        "display": "20 Kasım 1913 – 25 Ocak 1915 (icra dönemi)"
+      },
+      "supportAssessment": {
+        "assessed": true,
+        "actuallySupports": true,
+        "method": "direct_passage",
+        "note": "İcra dönemi pasajı; atama tarihinden farklı aralık."
+      },
+      "verificationLevel": "passage_reviewed",
+      "humanReview": {
+        "reviewed": false,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "synthetic": false
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "ev-006-1",
+      "claimId": "claim-006",
+      "claimVersion": 1,
+      "candidateId": "src-2026-0015",
+      "relation": "supports",
+      "locator": {
+        "url": "https://ataturkansiklopedisi.gov.tr/detay/4084/",
+        "title": "Çanakkale Cephesi",
+        "author": "Murat Karataş",
+        "institution": "Atatürk Ansiklopedisi",
+        "page": null,
+        "section": null,
+        "locator": null
+      },
+      "shortQuote": "20 Ocak 1915'te 19'uncu Tümen Komutanı olarak cephede göreve atanmış, 10 Aralık 1915'te cepheden ayrılmıştır.",
+      "accessDate": "2026-10-23",
+      "dateRange": {
+        "start": "1915-01-20",
+        "end": "1915-12-10",
+        "precision": "day",
+        "certainty": "exact",
+        "display": "20 Ocak 1915 – 10 Aralık 1915"
+      },
+      "supportAssessment": {
+        "assessed": true,
+        "actuallySupports": true,
+        "method": "direct_passage",
+        "note": "Cephe görevi kesin tarihlerle pasajda açıkça geçiyor."
+      },
+      "verificationLevel": "passage_reviewed",
+      "humanReview": {
+        "reviewed": false,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "synthetic": false
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "ev-006-1-v2",
+      "claimId": "claim-006",
+      "claimVersion": 2,
+      "candidateId": "src-2026-0015",
+      "relation": "supports",
+      "locator": {
+        "url": "https://ataturkansiklopedisi.gov.tr/detay/4084/",
+        "title": "Çanakkale Cephesi",
+        "author": "Murat Karataş",
+        "institution": "Atatürk Ansiklopedisi",
+        "page": null,
+        "section": null,
+        "locator": null
+      },
+      "shortQuote": "20 Ocak 1915'te 19'uncu Tümen Komutanı olarak cephede göreve atanmış, 10 Aralık 1915'te cepheden ayrılmıştır.",
+      "accessDate": "2026-10-23",
+      "dateRange": {
+        "start": "1915-01-20",
+        "end": "1915-12-10",
+        "precision": "day",
+        "certainty": "exact",
+        "display": "20 Ocak 1915 – 10 Aralık 1915"
+      },
+      "supportAssessment": {
+        "assessed": true,
+        "actuallySupports": true,
+        "method": "direct_passage",
+        "note": "Cephe görevi kesin tarihlerle pasajda açıkça geçiyor. [v2 metnine göre yeniden değerlendirildi]"
+      },
+      "verificationLevel": "passage_reviewed",
+      "humanReview": {
+        "reviewed": false,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "synthetic": false
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "ev-007-1",
+      "claimId": "claim-007",
+      "claimVersion": 1,
+      "candidateId": "src-2026-0029",
+      "relation": "supports",
+      "locator": {
+        "url": "https://atam.gov.tr/e-yayinlar/ilk-defa-yayinlanan-belgelerle-mustafa-kemal-pasa-ve-16nci-kolordu-komutanligi-1915-1917/",
+        "title": "İlk Defa Yayınlanan Belgelerle Mustafa Kemal Paşa ve 16'ncı Kolordu Komutanlığı (1915-1917)",
+        "author": "Oral Ateş",
+        "institution": "Atatürk Araştırma Merkezi (ATAM)",
+        "page": null,
+        "section": "kitap tanıtım/giriş",
+        "locator": null
+      },
+      "shortQuote": "Bilindiği üzere Mustafa Kemal Atatürk 19 Ağustos 1915-18 Aralık 1916 tarihleri arasında, 16'ncı Kolordu Komutanlığı emrindeki askerlerle birlikte son derece zor koşullar altında kahramanca görev yapmıştır.",
+      "accessDate": "2026-10-23",
+      "dateRange": {
+        "start": "1915-08-19",
+        "end": "1916-12-18",
+        "precision": "day",
+        "certainty": "exact",
+        "display": "19 Ağustos 1915 – 18 Aralık 1916"
+      },
+      "supportAssessment": {
+        "assessed": true,
+        "actuallySupports": true,
+        "method": "direct_passage",
+        "note": "Kitabın kendi tanıtım/giriş metninden; komuta dönemini kesin tarihlerle verir. NOT: kitap künyesinde ISBN 978-975-17-6251-1, arşiv listesinde 978-975-17-6277-1 görünüyor — künye farkı denetim notuna işlendi."
+      },
+      "verificationLevel": "passage_reviewed",
+      "humanReview": {
+        "reviewed": false,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "synthetic": false
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "ev-008-1",
+      "claimId": "claim-008",
+      "claimVersion": 1,
+      "candidateId": "src-2026-0018",
+      "relation": "supports",
+      "locator": {
+        "url": "https://ataturkansiklopedisi.gov.tr/detay/105/",
+        "title": "Karlsbad Günleri ve Günlüğü",
+        "author": null,
+        "institution": "Atatürk Ansiklopedisi",
+        "page": null,
+        "section": null,
+        "locator": null
+      },
+      "shortQuote": "Mustafa Kemal Atatürk, 30 Haziran 1918 Pazar gününden 28 Temmuz 1918 Pazar gününe kadar tuttuğu ve yaklaşık bir aylık süreyi kapsayan günlüğünde",
+      "accessDate": "2026-10-23",
+      "dateRange": {
+        "start": "1918-06-30",
+        "end": "1918-07-28",
+        "precision": "day",
+        "certainty": "exact",
+        "display": "30 Haziran 1918 – 28 Temmuz 1918"
+      },
+      "supportAssessment": {
+        "assessed": true,
+        "actuallySupports": true,
+        "method": "direct_passage",
+        "note": "Günlük dönemi 28 Temmuz bitişli pasaj."
+      },
+      "verificationLevel": "passage_reviewed",
+      "humanReview": {
+        "reviewed": false,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "synthetic": false
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "ev-008-b",
+      "claimId": "claim-008",
+      "claimVersion": 1,
+      "candidateId": null,
+      "relation": "contradicts",
+      "locator": {
+        "url": "https://ataturkansiklopedisi.gov.tr/detay/4078/",
+        "title": "Bilinmeyen Hatıralarıyla Atatürk, 1912-1916 Yılları Arasındaki Hâtıraları",
+        "author": "Nurettin Poyraz",
+        "institution": "Atatürk Ansiklopedisi",
+        "page": null,
+        "section": "Karlsbad günlüğü bölümü",
+        "locator": null
+      },
+      "shortQuote": "Mustafa Kemal Paşa, Karlsbad'da iken 30 Haziran-27 Temmuz 1918 tarihleri arasını kapsayan, başına gelen olayları kaydettiği hatıralarını kaleme aldı.",
+      "accessDate": "2026-10-23",
+      "dateRange": {
+        "start": "1918-06-30",
+        "end": "1918-07-27",
+        "precision": "day",
+        "certainty": "exact",
+        "display": "30 Haziran – 27 Temmuz 1918"
+      },
+      "supportAssessment": {
+        "assessed": true,
+        "actuallySupports": true,
+        "method": "direct_passage",
+        "note": "Aynı günlük için 27 Temmuz bitişli pasaj — detay maddesiyle çelişiyor (çelişki adayı)."
+      },
+      "verificationLevel": "passage_reviewed",
+      "humanReview": {
+        "reviewed": false,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "synthetic": false
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "ev-009-1",
+      "claimId": "claim-009",
+      "claimVersion": 1,
+      "candidateId": "src-2026-0019",
+      "relation": "supports",
+      "locator": {
+        "url": "https://ataturkansiklopedisi.gov.tr/detay/353/",
+        "title": "Mondros Mütarekesi",
+        "author": null,
+        "institution": "Atatürk Ansiklopedisi",
+        "page": null,
+        "section": null,
+        "locator": null
+      },
+      "shortQuote": "heyet, İstanbul'dan gelecek cevabı beklemeden mütarekeyi imzaladı (30 Ekim 1918)",
+      "accessDate": "2026-10-23",
+      "dateRange": {
+        "start": "1918-10-30",
+        "end": "1918-10-30",
+        "precision": "day",
+        "certainty": "exact",
+        "display": "30 Ekim 1918"
+      },
+      "supportAssessment": {
+        "assessed": true,
+        "actuallySupports": true,
+        "method": "direct_passage",
+        "note": "İmza tarihi parantez içinde açıkça geçiyor."
+      },
+      "verificationLevel": "passage_reviewed",
+      "humanReview": {
+        "reviewed": false,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "synthetic": false
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "ev-010-1",
+      "claimId": "claim-010",
+      "claimVersion": 1,
+      "candidateId": "src-2026-0021",
+      "relation": "supports",
+      "locator": {
+        "url": "https://ataturkansiklopedisi.gov.tr/detay/291/",
+        "title": "Sina ve Filistin Cephesi",
+        "author": "Nasır Yüceer",
+        "institution": "Atatürk Ansiklopedisi",
+        "page": null,
+        "section": null,
+        "locator": null
+      },
+      "shortQuote": "13 Kasım 1918 tarihinden 16 Mayıs 1919 tarihine kadar İstanbul'da kalarak memleketin genel durumunu yakın arkadaşlarıyla kritik eden Mustafa Kemal Paşa",
+      "accessDate": "2026-10-23",
+      "dateRange": {
+        "start": "1917",
+        "end": "1919",
+        "precision": "range",
+        "certainty": "exact",
+        "display": "1917–1919"
+      },
+      "supportAssessment": {
+        "assessed": true,
+        "actuallySupports": true,
+        "method": "direct_passage",
+        "note": "1919 İstanbul dönemi bu pasajla; madde kapsamı 1917 (Yıldırım Orduları Grubu) ile başlar — kapsam aralığı maddenin bölüm yapısından çıkar."
+      },
+      "verificationLevel": "passage_reviewed",
+      "humanReview": {
+        "reviewed": false,
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "synthetic": false
+    }
+  ]
+}
