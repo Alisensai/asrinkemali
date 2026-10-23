@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "selanikteki-ataturk-evi",
+  "slug": "selanikteki-ataturk-evi",
+  "title": "Atatürk'ün Selanik'teki Evi",
+  "type": "place",
+  "date": {
+    "start": null,
+    "end": null,
+    "precision": "unknown",
+    "certainty": "unknown",
+    "display": "Tarih bilinmiyor",
+    "note": "Evin inşa tarihi ve Atatürk'ün burada yaşadığı dönemin sınırları kaynakta kesin olarak verilmediği için tarih alanı boş bırakılmıştır."
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "subject",
+      "note": "1881'de Selanik'te bu evde doğduğu kabul edilir."
+    }
+  ],
+  "locations": [
+    {
+      "name": "Atatürk'ün Selanik'teki Evi",
+      "city": "Selanik",
+      "country": "Yunanistan",
+      "note": "Apostolou Pavlou Caddesi'nde, günümüzde müze olarak kullanılan tarihî konut."
+    }
+  ],
+  "categories": [
+    "mekan",
+    "cumhuriyet"
+  ],
+  "summary": "Atatürk'ün Selanik'teki Evi, Mustafa Kemal Atatürk'ün 1881'de doğduğu kabul edilen tarihî konuttur. Yapı günümüzde müze olarak ziyarete açıktır.",
+  "description": "Selanik'te Apostolou Pavlou Caddesi'nde yer alan üç katlı ev, Atatürk'ün doğduğu ev olarak kabul edilir. Yapı çeşitli dönemlerde onarım ve düzenleme geçirmiş, günümüzdeki müze biçimini 2013 yılında tamamlanan restorasyon sonrasında almıştır. Ev, Türkiye'nin Selanik Başkonsolosluğu arazisi içinde yer alır ve ziyarete açıktır. Kayıt, evin inşa tarihi ve Atatürk'ün burada yaşadığı dönem kesinleştirilmediği için taslak aşamasındadır.",
+  "source": {
+    "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "institutionType": "institutional",
+    "institutionUrl": "https://ataturkansiklopedisi.gov.tr/",
+    "title": "Atatürk Ansiklopedisi: Atatürk'ün Selanik'teki Evi",
+    "url": "https://ataturkansiklopedisi.gov.tr/detay/882/Atatürk’ün-Selanik’teki-Evi",
+    "accessedAt": "2026-10-23",
+    "publishedAt": null,
+    "archiveIdentifier": "882",
+    "note": "Kurumsal ansiklopedi maddesi; evin konumu, onarımları ve müze statüsünü açıklar."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "collection": "Atatürk Ansiklopedisi",
+      "identifier": "882",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/882/Atatürk’ün-Selanik’teki-Evi",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal madde, evin Selanik'teki konumunu ve 2013 restorasyonunu belgeler."
+    }
+  ],
+  "rights": {
+    "status": "unknown",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal sayfadaki metin ve görsellerin yeniden kullanım koşulları doğrulanmadı. Kayıt taslaktır; hiçbir görsel indirilmez ve yalnızca kaynak sayfaya bağlantı verilir."
+  },
+  "image": null,
+  "verification": {
+    "status": "draft",
+    "reviewedBy": null,
+    "reviewedAt": null,
+    "checks": {
+      "sourceReachable": false,
+      "dateVerified": false,
+      "rightsVerified": false,
+      "quoteVerified": false,
+      "duplicateChecked": false
+    },
+    "notes": "Kayıt taslaktır. Evin inşa tarihi ve Atatürk'ün burada yaşadığı dönem kesinleştirilmedi; hak/lisans durumu doğrulanmadı. Yayın öncesinde kurumsal kaynak ve tarih ayrıntıları yeniden incelenmelidir."
+  },
+  "tags": [
+    "Selanik",
+    "Atatürk Evi",
+    "müze",
+    "1881",
+    "Yunanistan"
+  ],
+  "relatedIds": [
+    "samsun-cikarmasi-1919",
+    "anitkabir"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}
