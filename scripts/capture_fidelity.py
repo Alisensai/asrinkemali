@@ -8,6 +8,11 @@ SCREENSHOTS_DIR.mkdir(parents=True, exist_ok=True)
 
 RESOLUTIONS = [
     ("desktop-1536x1024.png", 1536, 1024),
+    ("desktop-1440x900.png", 1440, 900),
+    ("desktop-1366x768.png", 1366, 768),
+    ("tablet-1024x768.png", 1024, 768),
+    ("tablet-768x1024.png", 768, 1024),
+    ("mobile-430x932.png", 430, 932),
     ("mobile-390x844.png", 390, 844),
     ("mobile-360x800.png", 360, 800),
 ]
