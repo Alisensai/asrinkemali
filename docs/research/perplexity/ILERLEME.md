@@ -16,13 +16,13 @@ güncellenen ilerleme defteridir.
 | 2 | Depo incelemesi (şema, katalog, PR #14/#15/#17) | Tamamlandı — bkz. `DEPO-ANALIZI.md` |
 | 3 | Veri sözleşmesi (`tools/historical-research/lib/types.mjs`) | Tamamlandı |
 | 4 | Çekirdek yazılım (okuyucu, boşluk analizi, aday havuzu, URL güvenliği, tekrar, provenans, dry-run) | Tamamlandı |
-| 5 | Otomatik testler (node:test) | Tamamlandı — 137 test, 0 hata |
+| 5 | Otomatik testler (node:test) | Tamamlandı — 75 test, 0 hata |
 | 6 | Gerçek arşiv boşluk analizi raporu | Tamamlandı — bkz. `BOSLUK-RAPORU-2026-10-23.md` |
-| 7 | Gerçek kaynak adayı araştırması (1881–1918) | Tamamlandı — 36 aday, 0 sentetik |
+| 7 | Gerçek kaynak adayı araştırması (1881–1918) | Tamamlandı — 32 aday, 0 sentetik |
 | 8 | Web paneli `/arastirma-laboratuvari` (yalnız dev) | Tamamlandı — kapı `MKA_RESEARCH_LAB=1` |
 | 9 | Entegrasyon dokümanı | Tamamlandı — bkz. `INTEGRASYON.md` |
 | 10 | Test raporu | Tamamlandı — bkz. `TEST-RAPORU.md` |
-| 11 | Push + taslak PR | Tamamlandı — PR #18 (taslak) |
+| 11 | Push + taslak PR | Tamamlandı — PR #19 (taslak) |
 
 ## Kritik kararlar
 
@@ -45,9 +45,10 @@ güncellenen ilerleme defteridir.
 ## Değişiklik günlüğü
 
 - 2026-10-23: Aşama 1–2 tamamlandı; depo analizi yazıldı.
-- 2026-10-23: Aşama 3–5: çekirdek modül + 137 test yazıldı, tamamı geçti.
+- 2026-10-23: Aşama 3–5: çekirdek modül + 75 test yazıldı, tamamı geçti.
 - 2026-10-23: Aşama 6: gerçek 168 kayıtlık arşivde boşluk analizi çalıştırıldı.
-- 2026-10-23: Aşama 7: 36 gerçek kaynak adayı toplandı ve doğrulandı (ayrıntılar
+- 2026-10-23: Aşama 7: 32 gerçek kaynak adayı toplandı ve doğrulandı (ayrıntılar
   `KAYNAK-ADAYLARI-RAPORU.md`).
 - 2026-10-23: Aşama 8: dev-özel laboratuvar paneli eklendi; production'da kapalı.
-- 2026-10-23: Aşama 9–11: entegrasyon dokümanı, test raporu, push ve taslak PR #18.
+- 2026-10-23: Aşama 9–11: entegrasyon dokümanı, test raporu, push ve taslak PR #19
+  (https://github.com/Alisensai/asrinkemali/pull/19, commit 220ec54).
