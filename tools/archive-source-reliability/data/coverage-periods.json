@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "1.0.0",
+  "period": {
+    "id": "1881-1918",
+    "label": "Atatürk'ün 1881-1918 dönemi",
+    "start": "1881-01-01",
+    "end": "1918-12-31",
+    "note": "Bu dönem, doğumdan Mondros Mütarekesi'ne kadar olan süreyi kapsar. Kayıt tarihi ile Atatürk'ün biyografik olay tarihi aynı şey değildir."
+  },
+  "phases": [
+    {
+      "id": "birth-childhood",
+      "label": "Doğum, Selanik ve ilk eğitim",
+      "start": "1881-01-01",
+      "end": "1895-12-31",
+      "keywords": ["Selanik", "Şemsi Efendi", "doğum", "çocukluk", "ilkokul", "rüştiye", "mahalle mektebi"]
+    },
+    {
+      "id": "military-education",
+      "label": "Manastır, Harp Okulu ve Erkân-ı Harbiye",
+      "start": "1896-01-01",
+      "end": "1904-12-31",
+      "keywords": ["Manastır", "Harp Okulu", "Harbiye", "Erkân-ı Harbiye", "Erkan-ı Harbiye", "İstanbul", "military education"]
+    },
+    {
+      "id": "early-officer",
+      "label": "Şam ve erken subaylık",
+      "start": "1905-01-01",
+      "end": "1907-12-31",
+      "keywords": ["Şam", "5. Ordu", "Beşinci Ordu", "Suriye", "kurmay yüzbaşı"]
+    },
+    {
+      "id": "salonika-cup",
+      "label": "Selanik, İttihat ve Terakki, Hareket Ordusu",
+      "start": "1908-01-01",
+      "end": "1911-09-30",
+      "keywords": ["Selanik", "İttihat", "Terakki", "Hareket Ordusu", "31 Mart", "Picardie", "Meşrutiyet"]
+    },
+    {
+      "id": "tripoli-balkan",
+      "label": "Trablusgarp ve Balkan Savaşları",
+      "start": "1911-10-01",
+      "end": "1913-09-30",
+      "keywords": ["Trablusgarp", "Derne", "Balkan", "Londra", "Edirne", "Çatalca", "Gelibolu"]
+    },
+    {
+      "id": "sofia",
+      "label": "Sofya Ataşemiliterliği",
+      "start": "1913-10-01",
+      "end": "1915-02-02",
+      "keywords": ["Sofya", "ataşemiliter", "Bulgaristan", "askerî ataşe"]
+    },
+    {
+      "id": "wwi",
+      "label": "Çanakkale, Doğu ve Sina-Filistin cepheleri",
+      "start": "1915-02-03",
+      "end": "1918-12-31",
+      "keywords": ["Çanakkale", "Anafartalar", "Conkbayır", "Arıburnu", "Doğu Cephesi", "Sina", "Filistin", "Yıldırım", "Hicaz", "Suriye"]
+    }
+  ]
+}

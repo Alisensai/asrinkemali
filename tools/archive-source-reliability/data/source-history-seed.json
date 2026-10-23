@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "description": "v06 arşiv genişlemesinde düzeltilen dört TBMM kaynak URL'sinin başlangıç geçmişi. Bu dosya yalnızca kaynak geçmişi defterini tohumlamak için kullanılır; arşiv kayıtlarını değiştirmez.",
+  "changedAt": "2026-10-23",
+  "author": "OpenCode v07 kaynak geçmişi aracı",
+  "reason": "v06 URL doğrulamasında kaynak sayfası veya doğrudan CDN adresi güncellendi; eski URL korunuyor.",
+  "evidence": "v06 arşiv genişleme PR #14 URL düzeltmeleri ve TBMM Kurtuluş Savaşı Müzesi sayfa/CDN kontrolleri.",
+  "changes": [
+    {
+      "recordId": "i-tbmm-binasi",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "from": "https://kurtulussavasimuzesi.tbmm.gov.tr/meclisacilis",
+      "to": "https://kurtulussavasimuzesi.tbmm.gov.tr/tarihce",
+      "reason": "Meclis açılış sayfası tarihçe sayfasına yönlendirildi; özgün URL korunuyor.",
+      "evidence": "TBMM Kurtuluş Savaşı Müzesi sitesinde meclisacilis yolu tarihce sayfasına yönleniyor; kayıt tarihçe sayfasına bağlandı."
+    },
+    {
+      "recordId": "tbmm-acilis-fotografi-1920",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "from": "https://kurtulussavasimuzesi.tbmm.gov.tr/meclisacilis",
+      "to": "https://cdn.tbmm.gov.tr/KurtulusSavasiMuzeWeb/MeclisAcilis/23Nisan1920Gunu.jpg",
+      "reason": "Meclis açılış sayfası yerine doğrudan TBMM CDN görsel adresi kullanıldı.",
+      "evidence": "Görselin doğrudan kaynağı TBMM CDN üzerindeki 23Nisan1920Gunu.jpg dosyası olarak doğrulandı."
+    },
+    {
+      "recordId": "ii-inonu-zaferi-fotografi-1921",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "from": "https://kurtulussavasimuzesi.tbmm.gov.tr/fotograf",
+      "to": "https://cdn.tbmm.gov.tr/KurtulusSavasiMuzeWeb/Fotograf/6.jpg",
+      "reason": "Fotoğraf galerisi sayfası yerine doğrudan TBMM CDN görsel adresi kullanıldı.",
+      "evidence": "Görselin doğrudan kaynağı TBMM CDN üzerindeki Fotograf/6.jpg dosyası olarak doğrulandı."
+    },
+    {
+      "recordId": "meclis-onunde-dua-1920",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "from": "https://kurtulussavasimuzesi.tbmm.gov.tr/fotograf",
+      "to": "https://cdn.tbmm.gov.tr/KurtulusSavasiMuzeWeb/Fotograf/2.jpg",
+      "reason": "Fotoğraf galerisi sayfası yerine doğrudan TBMM CDN görsel adresi kullanıldı.",
+      "evidence": "Görselin doğrudan kaynağı TBMM CDN üzerindeki Fotograf/2.jpg dosyası olarak doğrulandı."
+    }
+  ]
+}
