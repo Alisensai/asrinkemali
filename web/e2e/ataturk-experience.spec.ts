@@ -1,10 +1,11 @@
 import { expect, test, type Locator, type Page } from "@playwright/test";
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 // Beklenen sayılar sabit yazılmaz; diskteki arşiv verisinden türetilir (68 ve 168 kayıtlık veriyle çalışır).
 type RawRecord = { slug: string; type: string; date: { start: string | null }; verification: { status: string } };
-const repoRoot = path.resolve(__dirname, "..", "..");
+const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const allRecords: RawRecord[] = ["content/archive/records", "data/archive/catalog"].flatMap((directory) => { const full = path.join(repoRoot, directory); return existsSync(full) ? readdirSync(full).filter((name) => name.endsWith(".json")).map((name) => JSON.parse(readFileSync(path.join(full, name), "utf8")) as RawRecord) : []; });
 const published = allRecords.filter((record) => record.verification.status === "published");
 const unpublished = allRecords.filter((record) => record.verification.status !== "published");

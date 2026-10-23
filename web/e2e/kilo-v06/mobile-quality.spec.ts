@@ -33,7 +33,7 @@ for (const [w, h] of viewports) {
     const viewportWidth = await page.evaluate(() => window.innerWidth);
     expect(scrollWidth).toBeLessThanOrEqual(viewportWidth + 2);
     
-    if (w <= 1024) {
+    if (w <= 960) {
       const menuBtn = page.getByRole("button", { name: "MENÜ" });
       await expect(menuBtn).toBeVisible();
       await menuBtn.click();

@@ -29,13 +29,13 @@ test("arsiv arama filtreler sayfalama", async ({ page }) => {
   await form.getByRole("button", { name: "Arşivde ara" }).click();
   await expect(page).toHaveURL(/q=/);
   await expect(page).toHaveURL(/tur=olay/);
-  await expect(page.getByRole("link", { name: /İzmir/ })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "İzmir'in İşgali" })).toBeVisible();
 });
 
 test("arsiv detay kaynak hak inceleme", async ({ page }) => {
   await page.goto("/arsiv/cumhuriyetin-ilani-1923");
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
-  await expect(page.getByText(/Orijinal kaynak|kaynak/i).first()).toBeVisible();
+  await expect(page.getByRole("link", { name: "Kurumsal kaynak sayfasını aç" })).toBeVisible();
   await expect(page.getByText(/uzman onayı bekliyor/i).first()).toBeVisible();
   await expect(page.getByRole("link", { name: /indir/i })).toHaveCount(0);
   const r = await page.goto("/arsiv/ii-inonu-zaferi-fotografi-1921");
@@ -44,7 +44,7 @@ test("arsiv detay kaynak hak inceleme", async ({ page }) => {
 
 test("kronoloji filtreleri ve hatalar", async ({ page }) => {
   await page.goto("/kronoloji?yil=1923&ay=10&gun=29");
-  await expect(page.getByText(/Cumhuriyet/)).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Cumhuriyet'in İlanı" })).toBeVisible();
   await page.goto("/kronoloji?yil=9999");
   await expect(page.getByRole("status")).toBeVisible();
 });
@@ -52,6 +52,7 @@ test("kronoloji filtreleri ve hatalar", async ({ page }) => {
 test("mobil menu ve arama modal klavye", async ({ page }) => {
   const vp = page.viewportSize();
   if ((vp?.width ?? 0) > 960) test.skip();
+  await page.goto("/");
   const menuButton = page.getByRole("button", { name: "MENÜ" });
   await expect(menuButton).toBeVisible();
   await page.keyboard.press("Tab");

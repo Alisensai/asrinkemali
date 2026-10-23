@@ -7,7 +7,9 @@ const archiveRecords = ["content/archive/records", "data/archive/catalog"].flatM
 const archiveTotal = archiveRecords.length;
 const archivePublished = archiveRecords.filter((record) => record.verification.status === "published").length;
 
-async function expectNoOverflow(page: Page) { const size = await page.evaluate(() => ({ width: document.documentElement.scrollWidth, viewport: innerWidth })); expect(size.width).toBeLessThanOrEqual(size.viewport + 2); }
+async function expectNoOverflow(page: Page) {
+  await expect.poll(async () => page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(2);
+}
 
 test("katalog sayaçları gerçek veriden hesaplanır ve yayın kapısı korunur", async ({ page }, testInfo) => {
   await page.goto("/arsiv");
