@@ -1,0 +1,131 @@
+/**
+ * Raporlama — JSON, CSV ve Markdown çıktıları.
+ */
+
+import fs from "node:fs/promises";
+import path from "node:path";
+import { assertNoCatalogWrite } from "./types.mjs";
+
+/**
+ * Boşluk raporunu Markdown'a çevirir.
+ * @param {GapReport} report
+ */
+export function gapReportToMarkdown(report) {
+  const lines = [];
+  lines.push("# Arşiv Boşluk Analizi Raporu");
+  lines.push("");
+  lines.push(`- Toplam kayıt: **${report.counts.total}** (yayımlandı: ${report.counts.published}, incelendi: ${report.counts.reviewed}, taslak: ${report.counts.draft})`);
+  lines.push(`- Hedef dönem: **${report.targetPeriod.targetStart}–${report.targetPeriod.targetEnd}**`);
+  lines.push(`- Hedef dönemdeki kayıt-yıl örneklemi: **${report.targetPeriod.targetRecords}** (arşivin %${(report.targetPeriod.share * 100).toFixed(1)}'i)`);
+  lines.push("");
+  lines.push("## Yıl Dağılımı");
+  lines.push("");
+  lines.push("| Yıl | Kayıt |");
+  lines.push("|---|---:|");
+  const years = Object.keys(report.recordsByYear).map(Number).sort((a, b) => a - b);
+  for (const year of years) {
+    lines.push(`| ${year} | ${report.recordsByYear[year]} |`);
+  }
+  lines.push("");
+  lines.push("## Tema Kapsamı");
+  lines.push("");
+  lines.push("| Tema | Kayıt | Kapsam |");
+  lines.push("|---|---:|---|");
+  for (const theme of report.themeCoverage) {
+    lines.push(`| ${theme.label} | ${theme.records} | ${theme.coverage} |`);
+  }
+  lines.push("");
+  lines.push("## Hedef Dönemde Boşluklar");
+  lines.push("");
+  if (report.missingRanges.length === 0) {
+    lines.push("Boş yıl bulunamadı.");
+  } else {
+    lines.push("| Aralık | Not |");
+    lines.push("|---|---|");
+    for (const range of report.missingRanges) {
+      lines.push(`| ${range.start}–${range.end} | ${range.note} |`);
+    }
+  }
+  lines.push("");
+  lines.push("## Yöntem Notları");
+  lines.push("");
+  for (const note of report.notes) {
+    lines.push(`- **${note.code}:** ${note.message}`);
+  }
+  lines.push("");
+  return lines.join("\n");
+}
+
+/**
+ * Aday havuzunu Markdown'a çevirir.
+ */
+export function poolToMarkdown(pool, summary) {
+  const lines = [];
+  lines.push("# Kaynak Adayları Havuzu");
+  lines.push("");
+  lines.push("Bu havuz YAYIMLANMIŞ ARŞİV DEĞİLDİR. Hiçbir aday, insan onayı olmadan arşive aktarılmaz.");
+  lines.push("");
+  lines.push(`- Toplam aday: **${summary.total}** (sentetik: ${summary.synthetic})`);
+  lines.push("");
+  lines.push("## Durum Dağılımı");
+  lines.push("");
+  lines.push("| Durum | Aday |");
+  lines.push("|---|---:|");
+  for (const [state, count] of Object.entries(summary.byState)) {
+    lines.push(`| ${state} | ${count} |`);
+  }
+  lines.push("");
+  lines.push("## Adaylar");
+  lines.push("");
+  lines.push("| Kimlik | Başlık | Kurum | Dönem | Durum | Doğrulama |");
+  lines.push("|---|---|---|---|---|---|");
+  for (const candidate of pool) {
+    const period = candidate.periodStart ? `${candidate.periodStart}–${candidate.periodEnd ?? ""}` : (candidate.eventYear ?? "—");
+    const flags = [
+      candidate.verification?.citationComplete ? "künye ✓" : "künye ✗",
+      candidate.verification?.rightsKnown ? "hak ✓" : "hak ✗",
+      candidate.verification?.humanReviewed ? "insan ✓" : "insan ✗",
+    ].join(" ");
+    lines.push(`| ${candidate.id} | ${candidate.title} | ${candidate.institution} | ${period} | ${candidate.state} | ${flags} |`);
+  }
+  lines.push("");
+  return lines.join("\n");
+}
+
+/**
+ * CSV çıktısı (adaylar için). Tırnak kaçışları güvenli uygulanır.
+ */
+export function poolToCsv(pool) {
+  const header = ["id", "title", "institution", "url", "state", "periodStart", "periodEnd", "eventYear", "documentType", "sourceNature", "synthetic", "citationComplete", "rightsKnown", "humanReviewed"];
+  const escape = (value) => {
+    const text = String(value ?? "");
+    return /[",\n]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text;
+  };
+  const rows = [header.join(",")];
+  for (const candidate of pool) {
+    rows.push([
+      candidate.id,
+      candidate.title,
+      candidate.institution,
+      candidate.url,
+      candidate.state,
+      candidate.periodStart ?? "",
+      candidate.periodEnd ?? "",
+      candidate.eventYear ?? "",
+      candidate.documentType,
+      candidate.sourceNature,
+      candidate.synthetic ? "true" : "false",
+      candidate.verification?.citationComplete ? "true" : "false",
+      candidate.verification?.rightsKnown ? "true" : "false",
+      candidate.verification?.humanReviewed ? "true" : "false",
+    ].map(escape).join(","));
+  }
+  return rows.join("\n") + "\n";
+}
+
+/** Raporu dosyaya yazar (korumalı yollar hariç). */
+export async function writeReport(targetPath, content) {
+  assertNoCatalogWrite(targetPath);
+  await fs.mkdir(path.dirname(targetPath), { recursive: true });
+  await fs.writeFile(targetPath, content, "utf8");
+}
