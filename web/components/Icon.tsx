@@ -1,4 +1,4 @@
-export type IconName = "calendar" | "contrast" | "search" | "museum" | "home" | "menu" | "document" | "image" | "book" | "map" | "arrow-left" | "arrow-right" | "speech" | "quote" | "check";
+export type IconName = "calendar" | "contrast" | "search" | "museum" | "home" | "menu" | "document" | "image" | "book" | "map" | "arrow-left" | "arrow-right" | "speech" | "quote" | "check" | "external";
 
 export function Icon({ name, size = 18 }: { name: IconName; size?: number }) {
   const common = { width: size, height: size, viewBox: "0 0 24 24", "aria-hidden": true } as const;
@@ -15,6 +15,7 @@ export function Icon({ name, size = 18 }: { name: IconName; size?: number }) {
   if (name === "speech") return <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /><path d="M8 9h8M8 13h5" /></svg>;
   if (name === "quote") return <svg {...common} fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" /></svg>;
   if (name === "check") return <svg {...common} fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12" /></svg>;
+  if (name === "external") return <svg {...common} fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3" /></svg>;
   const points = name === "arrow-left" ? "15 18 9 12 15 6" : "9 18 15 12 9 6";
   return <svg {...common} fill="none" stroke="currentColor" strokeWidth="2"><polyline points={points} /></svg>;
 }
