@@ -1,0 +1,113 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "balikesir-zagnos-pasa-nutku-1923",
+  "slug": "balikesir-zagnos-pasa-nutku-1923",
+  "title": "Atatürk'ün Balıkesir Zağnos Paşa Camii'nde Verdiği Nutku",
+  "type": "speech",
+  "date": {
+    "start": "1923-02-07",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "7 Şubat 1923"
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "speaker"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Balıkesir",
+      "city": "Balıkesir",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "konusma",
+    "siyaset",
+    "milli-mucadele"
+  ],
+  "summary": "Mustafa Kemal Paşa, Batı Anadolu gezisi sırasında 7 Şubat 1923'te Balıkesir Zağnos Paşa Camii'nde halka hitaben bir nutuk verdi.",
+  "description": "Balıkesir nutku, Atatürk'ün 14 Ocak-17 Şubat 1923 arasındaki Batı Anadolu gezisinin önemli duraklarından birinde verdiği konuşmadır. Konuşmada saltanatın kaldırılması, halifelik ve yeni devletin siyasi düzeni gibi konular halka açık bir dille ele alındı. Kaynak maddede nutkun yeri, tarihi ve siyasi bağlamı ayrıntılı biçimde değerlendirilir.",
+  "source": {
+    "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "institutionType": "institutional",
+    "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+    "title": "Atatürk Ansiklopedisi: Atatürk'ün Balıkesir Zağnos Paşa Camii'nde Verdiği Nutku",
+    "url": "https://www.ataturkansiklopedisi.gov.tr/detay/863/balikesir-zagnos-pasa-nutku-1923",
+    "citation": "Atatürk Ansiklopedisi, “Atatürk'ün Balıkesir Zağnos Paşa Camii'nde Verdiği Nutku”, yazar ZEKİ ÇEVİK, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/863/balikesir-zagnos-pasa-nutku-1923",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2024-05-28",
+    "archiveIdentifier": "863",
+    "note": "Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "collection": "Atatürk Ansiklopedisi",
+      "identifier": "863",
+      "url": "https://www.ataturkansiklopedisi.gov.tr/detay/863/balikesir-zagnos-pasa-nutku-1923",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal ansiklopedi maddesine dayanan tek kaynaklı provenans kaydı."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "quotation": {
+    "text": "Kaç milyonerimiz var? Hiç. Dolayısıyla biraz parası olanlara da düşman olacak değiliz. Bilakis memleketimizde birçok milyonerlerin hatta milyarderlerin yetişmesine çalışacağız…",
+    "speaker": "Mustafa Kemal Atatürk",
+    "work": "Balıkesir Zağnos Paşa Camii Nutku",
+    "date": "1923-02-07",
+    "context": "Atatürk'ün 7 Şubat 1923'te Balıkesir Zağnos Paşa Camii'nde verdiği nutukta, memlekette sınıf esasına dayalı bir yapı olmadığını anlatırken sarf ettiği sözler.",
+    "sourceUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/863/balikesir-zagnos-pasa-nutku-1923",
+    "sourceTitle": "Atatürk Ansiklopedisi: Atatürk'ün Balıkesir Zağnos Paşa Camii'nde Verdiği Nutku",
+    "evidence": {
+      "sourceExcerpt": "Bizim memleketimizde büyük sermaye sahibi olan insanlar olmadığını söylemiş ve eklemiştir: “Kaç milyonerimiz var? Hiç. Dolayısıyla biraz parası olanlara da düşman olacak değiliz. Bilakis memleketimizde birçok milyonerlerin hatta milyarderlerin yetişmesine çalışacağız…”",
+      "retrievedAt": "2026-10-23",
+      "verifiedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+      "method": "institutional_transcription",
+      "note": "Alıntı, Atatürk Ansiklopedisi maddesindeki kurumsal transkripsiyondan alınmıştır."
+    },
+    "verified": true
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": true,
+      "duplicateChecked": true
+    },
+    "notes": "Nutkun tarihi, yeri ve alıntı metni Atatürk Ansiklopedisi maddesindeki kurumsal transkripsiyonla karşılaştırıldı. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "Balıkesir",
+    "Zağnos Paşa",
+    "nutuk",
+    "1923",
+    "Atatürk"
+  ],
+  "relatedIds": [
+    "saltanatin-kaldirilmasi-1922"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

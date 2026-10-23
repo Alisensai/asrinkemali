@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "ibb-lozan-mektubu-1923",
+  "slug": "ibb-lozan-mektubu-1923",
+  "title": "Lozan Görüşmelerinde İsmet İnönü'nün Fransız Murahhasına Mektubu",
+  "type": "document",
+  "date": {
+    "start": "1923-07-24",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "24 Temmuz 1923"
+  },
+  "people": [
+    {
+      "name": "İsmet İnönü",
+      "role": "author"
+    },
+    {
+      "name": "General Pelle",
+      "role": "other"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Lozan",
+      "city": "Lozan",
+      "country": "İsviçre"
+    }
+  ],
+  "categories": [
+    "siyaset",
+    "hukuk",
+    "milli-mucadele"
+  ],
+  "summary": "Lozan'da Türk heyeti reisi İsmet İnönü'nün Fransız murahhası General Pelle'ye hitaben yazdığı 24 Temmuz 1923 tarihli mektup.",
+  "description": "İBB Atatürk Kitaplığı'nda Bel_Mtf_070690 demirbaş numarasıyla kayıtlı belge, Lozan görüşmeleri sırasında Türk heyeti reisi İsmet İnönü'nün Fransız murahhassı General Pelle'ye hitaben yazdığı mektuptur. Belge, Lozan Barış Antlaşması'nın imzalandığı gün olan 24 Temmuz 1923 tarihini taşır. Görsel, kurumsal kaynak sayfasına bağlantıyla sunulur.",
+  "source": {
+    "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+    "institutionType": "archive",
+    "institutionUrl": "https://sayisalarsiv.ibb.gov.tr/",
+    "title": "İBB Atatürk Kitaplığı: Lozan Görüşmelerinde İsmet İnönü'nün Fransız Murahhasına Mektubu",
+    "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070690",
+    "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Bel_Mtf_070690, “Lozan Görüşmelerinde İsmet İnönü'nün Fransız Murahhasına Mektubu”, erişim 23.10.2026, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070690",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1923-07-24",
+    "archiveIdentifier": "Bel_Mtf_070690",
+    "note": "İBB Atatürk Kitaplığı Sayısal Arşiv katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Görsel indirilmedi."
+  },
+  "provenance": [
+    {
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "collection": "İBB Atatürk Kitaplığı Sayısal Arşiv",
+      "identifier": "Bel_Mtf_070690",
+      "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070690",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal katalog kaydı ve demirbaş numarasına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "İBB Atatürk Kitaplığı",
+    "imageReuse": "link_only",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": {
+    "kind": "digitized_original",
+    "url": null,
+    "sourcePageUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070690",
+    "alt": "Lozan görüşmelerinde İsmet İnönü'nün Fransız murahhasına yazdığı mektup",
+    "credit": "İBB Atatürk Kitaplığı",
+    "width": null,
+    "height": null,
+    "mimeType": null,
+    "localPath": null,
+    "displayPolicy": "source_link_only"
+  },
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Katalog kaydı ve belge tarihi 23.10.2026 tarihinde doğrulandı; görsel indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "Lozan",
+    "İsmet İnönü",
+    "1923",
+    "mektup",
+    "diplomasi"
+  ],
+  "relatedIds": [
+    "lozan-baris-antlasmasi-1923"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

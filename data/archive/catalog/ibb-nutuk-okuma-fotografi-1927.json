@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "ibb-nutuk-okuma-fotografi-1927",
+  "slug": "ibb-nutuk-okuma-fotografi-1927",
+  "title": "Atatürk'ün Nutuk'u Okurken Çekilen Fotoğraf",
+  "type": "photograph",
+  "date": {
+    "start": "1927-10-15",
+    "end": "1927-10-20",
+    "precision": "range",
+    "certainty": "exact",
+    "display": "15-20 Ekim 1927",
+    "note": "Arşiv kaydında tarih [t.y.]; fotoğrafın Nutuk'un okunduğu 15-20 Ekim 1927 oturumlarına ait olduğu başlıktan anlaşılır."
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "subject"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "fotograf",
+    "konusma",
+    "tbmm"
+  ],
+  "summary": "Atatürk'ün Nutuk'u TBMM'de okuduğu oturumlar sırasında çekilmiş fotoğraf.",
+  "description": "İBB Atatürk Kitaplığı'nda Bel_Mtf_026164 demirbaş numarasıyla kayıtlı fotoğraf, Atatürk'ün ünlü Nutuk'unu okurken görüntülendiği anı belgeler. Arşiv kaydında tarih [t.y.] olarak geçer; fotoğrafın Nutuk'un okunduğu 15-20 Ekim 1927 oturumlarına ait olduğu başlıktan anlaşılır. Görsel, kurumsal kaynak sayfasına bağlantıyla sunulur.",
+  "source": {
+    "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+    "institutionType": "archive",
+    "institutionUrl": "https://sayisalarsiv.ibb.gov.tr/",
+    "title": "İBB Atatürk Kitaplığı: Atatürk'ün Nutuk'u Okurken Çekilen Fotoğraf",
+    "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_026164",
+    "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Bel_Mtf_026164, “Atatürk'ün Nutuk'u Okurken Çekilen Fotoğraf”, erişim 23.10.2026, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_026164",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1927-10-15",
+    "archiveIdentifier": "Bel_Mtf_026164",
+    "note": "İBB Atatürk Kitaplığı Sayısal Arşiv katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Görsel indirilmedi."
+  },
+  "provenance": [
+    {
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "collection": "İBB Atatürk Kitaplığı Sayısal Arşiv",
+      "identifier": "Bel_Mtf_026164",
+      "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_026164",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal katalog kaydı ve demirbaş numarasına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "İBB Atatürk Kitaplığı",
+    "imageReuse": "link_only",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": {
+    "kind": "digitized_original",
+    "url": null,
+    "sourcePageUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_026164",
+    "alt": "Atatürk'ün TBMM'de Nutuk'u okurken çekilmiş fotoğrafı",
+    "credit": "İBB Atatürk Kitaplığı",
+    "width": null,
+    "height": null,
+    "mimeType": null,
+    "localPath": null,
+    "displayPolicy": "source_link_only"
+  },
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Katalog kaydı ve fotoğraf başlığı 23.10.2026 tarihinde doğrulandı. Arşiv tarihi [t.y.] olduğu için 15-20 Ekim 1927 aralığı, Nutuk'un TBMM'de okunduğu oturumlara dayanılarak belirlendi; görsel indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "Nutuk",
+    "TBMM",
+    "fotoğraf",
+    "1927",
+    "Atatürk"
+  ],
+  "relatedIds": [
+    "nutuk-1928"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

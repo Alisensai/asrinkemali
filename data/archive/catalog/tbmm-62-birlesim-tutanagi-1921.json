@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "tbmm-62-birlesim-tutanagi-1921",
+  "slug": "tbmm-62-birlesim-tutanagi-1921",
+  "title": "TBMM 62. Birleşim Tutanağı (5 Ağustos 1921)",
+  "type": "document",
+  "date": {
+    "start": "1921-08-05",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "5 Ağustos 1921"
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "official",
+      "note": "Dönemin siyasi lideri."
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "tbmm",
+    "milli-mucadele",
+    "siyaset"
+  ],
+  "summary": "5 Ağustos 1921'de yapılan 62. Birleşim'in tutanağı, Mustafa Kemal Paşa'ya başkomutanlık yetkisi veren kanunun kabul edildiği oturumun resmî kaydıdır.",
+  "description": "Tutanak, Birinci Dönem İkinci Yasama Yılı'nın 62. Birleşiminde başkomutanlık kanununun görüşülmesi ve kabulüne ilişkin kayıtları içerir. Kanun, Sakarya Meydan Muharebesi öncesinde komuta birliğini sağlamayı amaçlıyordu. PDF bağlantısı resmî TBMM tutanak dizinine aittir; dosya indirilmemiştir.",
+  "source": {
+    "institution": "Türkiye Büyük Millet Meclisi",
+    "institutionType": "official",
+    "institutionUrl": "https://www.tbmm.gov.tr/",
+    "title": "TBMM Tutanak Dergisi, Dönem 1, Cilt 12, 62. Birleşim",
+    "url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c012/tbmm01012062.pdf",
+    "citation": "TBMM Tutanak Dergisi, Dönem 1, Cilt 12, 62. Birleşim, 5 Ağustos 1921, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c012/tbmm01012062.pdf",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1921-08-05",
+    "archiveIdentifier": "Dönem 1, Cilt 12, 62. Birleşim",
+    "note": "Resmî TBMM Tutanak Dergisi PDF'i; bağlantı HTTPS üzerinden 200 yanıtı verdi. PDF indirilmedi ve depoya eklenmedi."
+  },
+  "provenance": [
+    {
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "collection": "TBMM Tutanak Dergisi",
+      "identifier": "Dönem 1, Cilt 12, 62. Birleşim",
+      "url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c012/tbmm01012062.pdf",
+      "accessedAt": "2026-10-23",
+      "note": "TBMM tutanak dizinindeki resmî birleşim kaydına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Türkiye Büyük Millet Meclisi",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Birleşim tarihi ve resmî PDF bağlantısı TBMM tutanak diziniyle doğrulandı; PDF içeriği indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "TBMM",
+    "Başkomutanlık",
+    "Sakarya",
+    "tutanak",
+    "5 Ağustos 1921"
+  ],
+  "relatedIds": [
+    "baskomutanlik-kanunu-1921"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}
