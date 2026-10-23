@@ -295,6 +295,21 @@ class ReleaseCheckTests(unittest.TestCase):
         checker.check_html(self.root, "static", self.report, True, 0.1, 0, cache)
         self.assertEqual(len(cache), 1)
 
+    def test_node_modules_backup_directories_are_ignored(self):
+        self.write("node_modules.external/package/tsconfig.json", '{"compilerOptions": {"strict": true,}}')
+        checker.check_json_data(self.root, "next", self.report)
+        self.assertNotIn("invalid-json", {item["code"] for item in self.report["findings"]})
+
+    def test_external_archive_catalog_is_counted(self):
+        web = self.root / "web"
+        self.write("content/archive/records/example.json", json.dumps({
+            "verification": {"status": "published"}
+        }))
+        self.assertEqual(checker.external_archive_stats(web), {
+            "total": 1, "published": 1, "reviewed": 0, "draft": 0,
+            "published_events": 0,
+        })
+
     def test_markdown_report_contains_finding(self):
         report = {"target": "static", "fail_on": "none", "targets": {"static": "CHECKED"},
                   "git": {}, "findings": [{"severity": "error", "target": "static", "code": "broken-route",

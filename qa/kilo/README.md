@@ -1,16 +1,16 @@
-﻿# Kilo QA Suite - Test Paketi
-Bu dizin, PR #2 (statik sürüm - wt-pr2/antigravity) ve PR #1 (Next.js web sürümü - wt-pr1/web) ile entegrasyon sürümlerini kıyaslamak ve kaliteyi denetlemek için oluşturulmuştur.
+# Kilo QA Suite
 
-## Amaç
-- Responsive regresyon testleri (10 çözünürlük)
-- Erişilebilirlik smoke testleri (Playwright + axe-core)
-- Performans taramaları
-- Kırık bağlantı, hash hedefleri, boş durum, carousel senaryoları
-- Manuel/otomatik hata takibi
+Bu paket V0.5 entegrasyonundaki gerçek `web/` Next.js uygulamasını denetler.
 
-## Test Hedefleri
-- **Statik prototip**: Ana kök dizindeki index.html (kilo/)
-- **Web/Next.js sürümü**: C:\Users\Ali\AsrinKemaliCalisma\AsrinKemaliCalisma\cline\wt-pr1\web/
+- `responsive-regression.mjs`: 320×568 ile 1536×1024 arasındaki 10 viewport'ta HTTP durumu ve yatay taşmayı doğrular, ekran görüntüsü üretir.
+- `a11y-smoke.mjs`: skip-link odağını ve axe-core serious/critical ihlallerini denetler.
+- `run-all.mjs`: iki paketi sıralı çalıştırır ve ilk başarısızlıkta hata kodu döndürür.
 
-## Çalıştırma
-Detaylı komutlar için qa/kilo/README.md dosyasına bakın.
+Önce `web/` uygulamasını `http://127.0.0.1:4173` adresinde başlatın. Ardından depo kökünde:
+
+```powershell
+npm ci
+npm run test:next:all
+```
+
+JSON raporları ve ekran görüntüleri `qa/kilo/results/` altında üretilir; bu çalışma çıktıları Git'e eklenmez.

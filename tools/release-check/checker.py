@@ -112,12 +112,38 @@ def issue(report: dict, target: str, severity: str, code: str, message: str, pat
 def files_under(root: Path, suffixes: set[str] | None = None) -> list[Path]:
     files = []
     for current, dirs, names in os.walk(root):
-        dirs[:] = sorted(d for d in dirs if d not in IGNORE_DIRS)
+        dirs[:] = sorted(
+            d for d in dirs
+            if d not in IGNORE_DIRS and not d.startswith("node_modules.")
+        )
         for name in sorted(names):
             path = Path(current) / name
             if suffixes is None or path.suffix.lower() in suffixes:
                 files.append(path)
     return files
+
+
+def external_archive_stats(web_root: Path) -> dict[str, int]:
+    """Count the repository archive catalog used by the Next server adapter."""
+    stats = {"total": 0, "published": 0, "reviewed": 0, "draft": 0, "published_events": 0}
+    for relative in (("content", "archive", "records"), ("data", "archive", "catalog")):
+        directory = web_root.parent.joinpath(*relative)
+        if not directory.is_dir():
+            continue
+        for path in sorted(directory.glob("*.json")):
+            try:
+                record = json.loads(path.read_text(encoding="utf-8"))
+            except (OSError, UnicodeError, json.JSONDecodeError):
+                continue
+            if not isinstance(record, dict):
+                continue
+            stats["total"] += 1
+            status = record.get("verification", {}).get("status")
+            if status in {"published", "reviewed", "draft"}:
+                stats[status] += 1
+            if status == "published" and record.get("type") == "event":
+                stats["published_events"] += 1
+    return stats
 
 
 def is_source(value: object) -> bool:
@@ -753,9 +779,28 @@ def check_target(root: Path, target: str, report: dict, max_file_mb: float, exte
         check_unused_assets(root, report)
         data_path = root / "lib" / "site-data.ts"
         collections_report = archive_validator.validate_site_collections(data_path, target)
+        external_stats = external_archive_stats(root)
+        if external_stats["total"]:
+            collections_report["collection_counts"]["archiveRecords"] = external_stats["total"]
+            collections_report["collection_counts"]["chronology"] = external_stats["published_events"]
+            collections_report["findings"] = [
+                finding for finding in collections_report["findings"]
+                if finding["code"] != "missing-archive-content"
+                and not (
+                    finding["code"] == "missing-published-content"
+                    and finding["path"].endswith(":chronology")
+                )
+            ]
         report["data_collections"] = collections_report["collection_counts"]
         report["findings"].extend(collections_report["findings"])
         archive_report = archive_validator.validate_file(data_path, target)
+        if external_stats["total"]:
+            archive_report["record_count"] = external_stats["total"]
+            archive_report["published_count"] = external_stats["published"]
+            archive_report["findings"] = [
+                finding for finding in archive_report["findings"]
+                if finding["code"] != "missing-archive-content"
+            ]
         report["archive"] = {key: value for key, value in archive_report.items() if key != "findings"}
         report["findings"].extend(archive_report["findings"])
     check_json_data(root, target, report)
