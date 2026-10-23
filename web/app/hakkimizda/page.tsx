@@ -13,13 +13,34 @@ export default function AboutPage() {
       <div className="prose">
         <h2>Yayın ilkeleri</h2>
         <p>
-          Asrın Kemali; Mustafa Kemal Atatürk, Cumhuriyet tarihi ve kültürel hafıza alanında kaynaklı içerik üretmeyi amaçlar. Bir kamu kurumu, resmî enstitü, dernek veya Atatürk&apos;ün resmî temsilcisi değildir.
+          Asrın Kemali; Mustafa Kemal Atatürk, Cumhuriyet tarihi ve kültürel hafıza alanında kaynaklı içerik üretmeyi amaçlayan bağımsız bir dijital kültür platformudur. Resmî bir kamu kurumu, kurulmamış dernek veya Atatürk&apos;ün resmî temsilcisi değildir.
         </p>
 
         <blockquote>
           “Tarih yazmak, tarih yapmak kadar mühimdir. Yazan yapana sadık kalmazsa değişmeyen hakikat insanlığı şaşırtacak bir mahiyet alır.”
           <footer>— Mustafa Kemal Atatürk, 1931</footer>
         </blockquote>
+
+        <div className="prose-pillars">
+          <div className="prose-pillar">
+            <h3>Bağımsız Kültür İnisiyatifi</h3>
+            <p>
+              Hiçbir resmî unvan, kamu kurumu veya enstitü izlenimi oluşturmadan, sivil bir saygı ve şeffaflıkla hareket eder.
+            </p>
+          </div>
+          <div className="prose-pillar">
+            <h3>Birincil Kaynak Titizliği</h3>
+            <p>
+              TBMM, TTK, Devlet Arşivleri ve Atatürk Ansiklopedisi gibi kurumsal arşiv envanterlerine ve açık erişim kayıtlarına dayanır.
+            </p>
+          </div>
+          <div className="prose-pillar">
+            <h3>Şeffaf Dijital Temsil</h3>
+            <p>
+              Yapay zekâ canlandırmaları açıkça &ldquo;temsilî&rdquo; olarak etiketlenir; tarihî belgelerde provenans, lisans ve belge tarihi aranır.
+            </p>
+          </div>
+        </div>
 
         <h2>Kaynak ve görsel politikası</h2>
         <p>
