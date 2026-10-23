@@ -1,6 +1,6 @@
 ﻿import { expect, test } from "@playwright/test";
 
-async function expectNoOverflow(page: any) {
+async function expectNoOverflow(page: import("@playwright/test").Page) {
   const d = await page.evaluate(() => ({ scrollWidth: document.documentElement.scrollWidth, viewportWidth: window.innerWidth }));
   expect(d.scrollWidth).toBeLessThanOrEqual(d.viewportWidth + 3);
 }
