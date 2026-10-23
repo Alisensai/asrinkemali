@@ -27,7 +27,7 @@ export function FeaturedShowcase({ records }: { records: readonly ArchiveRecord[
             ÖNE ÇIKAN ARŞİV KAYITLARI
           </h2>
           <p className={styles.sectionSubtitle}>
-            Kurumsal kaynaklardan taranmış, provenansı belgelenmiş ve uzman incelemesinden geçen birincil tarihî kayıtlar.
+            Kurumsal kaynak ve provenans denetiminden geçen kayıtlar. İnsan tarih uzmanının incelemesi ayrıca gereklidir.
           </p>
         </div>
         <Link href="/arsiv" className={styles.headerActionLink}>

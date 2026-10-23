@@ -1,12 +1,18 @@
 import { expect, test, type Page } from "@playwright/test";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
+
+const repositoryRoot = path.resolve(process.cwd(), "..");
+const archiveRecords = ["content/archive/records", "data/archive/catalog"].flatMap((relative) => { const directory = path.join(repositoryRoot, relative); return existsSync(directory) ? readdirSync(directory).filter((name) => name.endsWith(".json")).map((name) => JSON.parse(readFileSync(path.join(directory, name), "utf8"))) : []; });
+const archiveTotal = archiveRecords.length;
+const archivePublished = archiveRecords.filter((record) => record.verification.status === "published").length;
 
 async function expectNoOverflow(page: Page) { const size = await page.evaluate(() => ({ width: document.documentElement.scrollWidth, viewport: innerWidth })); expect(size.width).toBeLessThanOrEqual(size.viewport + 2); }
 
-test("68 kayıt bağlıdır, yalnız 62 yayın kapısından geçer", async ({ page }, testInfo) => {
+test("katalog sayaçları gerçek veriden hesaplanır ve yayın kapısı korunur", async ({ page }, testInfo) => {
   await page.goto("/arsiv");
-  await expect(page.getByText("68 kayıt bağlı; 62 kayıt katalogda görüntülenebilir.")).toBeVisible();
-  await expect(page.getByText("62 sonuç")).toBeVisible();
+  await expect(page.getByText(`${archiveTotal} kayıt bağlı; ${archivePublished} kayıt katalogda görüntülenebilir.`)).toBeVisible();
+  await expect(page.getByText(`${archivePublished} sonuç`)).toBeVisible();
   await expect(page.getByText("uzman tarihçi incelemesi bekler")).toBeVisible();
   await expect(page.getByRole("link", { name: /Sonraki/ })).toBeVisible();
   await expectNoOverflow(page);

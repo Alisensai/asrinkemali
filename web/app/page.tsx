@@ -6,11 +6,15 @@ import { ResearchHub } from "@/components/home/ResearchHub";
 import { Hero } from "@/components/Hero";
 import { Publications } from "@/components/Publications";
 import { ShortcutGrid } from "@/components/ShortcutGrid";
-import { getPublishedArchiveRecords } from "@/lib/archive";
+import { archiveStats, getPublishedArchiveRecords } from "@/lib/archive";
 import { archiveCollections, chronology, heroSlides, publications, shortcuts } from "@/lib/site-data";
 
 export default function HomePage() {
   const publishedRecords = getPublishedArchiveRecords();
+  const stats = archiveStats();
+  const liveHeroSlides = heroSlides.map((slide) => slide.id === "arsiv" ? { ...slide, summary: `${stats.total} kaynaklı kayıt bağlı; katalogda görüntülenen ${stats.published} kayıt insan tarih uzmanı incelemesi bekliyor.` } : slide);
+  const collectionTypes = ["photograph", "document", "publication"] as const;
+  const liveCollections = archiveCollections.map((collection, index) => ({ ...collection, status: `${stats.byType[collectionTypes[index]]} kayıt görüntülenebilir` }));
 
   // En prestijli ve farklı türleri temsil eden küratör kayıtları
   const curatedSlugs = [
@@ -28,14 +32,14 @@ export default function HomePage() {
 
   return (
     <main id="icerik">
-      <Hero slides={heroSlides} />
+      <Hero slides={liveHeroSlides} />
       <ShortcutGrid items={shortcuts} />
       <FeaturedShowcase records={showcaseRecords} />
       <div className="container content-grid">
         <Publications items={publications} />
         <Chronology entries={chronology} />
       </div>
-      <Archive collections={archiveCollections} />
+      <Archive collections={liveCollections} />
       <ResearchHub />
       <ProjectManifesto />
       <section className="lower-sections container" aria-label="Gelecek çalışmalar ve duyurular">
