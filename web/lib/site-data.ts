@@ -46,5 +46,6 @@ export const searchItems: SearchItem[] = [
   { title: "Tarih kronolojisi", kind: "Sayfa", href: "/kronoloji", keywords: "kronoloji zaman çizgisi tarih" },
   { title: "Arşiv", kind: "Sayfa", href: "/arsiv", keywords: "belge fotoğraf kitap koleksiyon" },
   { title: "Yayınlar", kind: "Sayfa", href: "/yayinlar", keywords: "araştırma makale yayın" },
+  { title: "Tarihte Bugün", kind: "Sayfa", href: "/tarihte-bugun", keywords: "gün ay kaynaklı olay tarih" },
   { title: "Hakkımızda", kind: "Sayfa", href: "/hakkimizda", keywords: "bağımsız proje ilkeler" },
 ];
