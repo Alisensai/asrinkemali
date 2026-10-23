@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-kars-antlasmasi",
+  "record_path": "data/archive/catalog/ayk-kars-antlasmasi.json",
+  "record_snapshot_sha256": "17e2c5642c7c4d934339c198aa4fceaa2c1945dab5f9062930bb5031f33727f7",
+  "record_snapshot": {
+    "title": "Kars Antlaşması",
+    "type": "document",
+    "date": {
+      "start": "1921-10-13",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "13 Ekim 1921",
+      "note": "Tarih, Atatürk Ansiklopedisi maddesindeki olay tarihinden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/528/kars-antlasmasi",
+    "citation": "Bilâl N. Şimşir, \"Kars Antlaşması\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/528/kars-antlasmasi.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

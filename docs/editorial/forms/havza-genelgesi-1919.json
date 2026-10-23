@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "havza-genelgesi-1919",
+  "record_path": "data/archive/catalog/havza-genelgesi-1919.json",
+  "record_snapshot_sha256": "8c90cfa49c9eebbbd8a9da63f033289c40fa316d1b5f44d30a7ab62e0114d1d4",
+  "record_snapshot": {
+    "title": "Havza Genelgesi",
+    "type": "event",
+    "date": {
+      "start": "1919-05-28",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "28 Mayıs 1919"
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/768/havza-genelgesi-1919",
+    "citation": "Atatürk Ansiklopedisi, “Havza Genelgesi”, yazar Zekeriya TÜRKMEN, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/768/havza-genelgesi-1919",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

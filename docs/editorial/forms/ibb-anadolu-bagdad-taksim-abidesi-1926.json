@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ibb-anadolu-bagdad-taksim-abidesi-1926",
+  "record_path": "data/archive/catalog/ibb-anadolu-bagdad-taksim-abidesi-1926.json",
+  "record_snapshot_sha256": "1f7a06b9422ed2bc92167c70e71297f2732f6b05ef4da0c68a846f8033eacba1",
+  "record_snapshot": {
+    "title": "Anadolu-Bağdad Demiryolları’nın Taksim Abidesi Bağışına Dair Belge (1926)",
+    "type": "document",
+    "date": {
+      "start": "1926-09-09",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "9 Eylül 1926",
+      "note": "Belge tarihi İBB Atatürk Kitaplığı katalog kaydından alınmıştır."
+    },
+    "source_institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+    "source_url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070796",
+    "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Bel_Mtf_070796, “Anadolu-Bağdad Demiryolları’nın Taksim Abidesi Bağışına Dair Belge”, 9 Eylül 1926, erişim 2026-10-23, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070796",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

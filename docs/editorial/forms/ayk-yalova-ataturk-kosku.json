@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-yalova-ataturk-kosku",
+  "record_path": "data/archive/catalog/ayk-yalova-ataturk-kosku.json",
+  "record_snapshot_sha256": "b7ee71cb786043b262be26d3c70c15b46aea7fed40cb92480ed04cc08c0bbbbb",
+  "record_snapshot": {
+    "title": "Yalova Atatürk Köşkü",
+    "type": "place",
+    "date": {
+      "start": "1929-01-01",
+      "end": null,
+      "precision": "year",
+      "certainty": "exact",
+      "display": "1929",
+      "note": "Tarih, Atatürk Ansiklopedisi maddesindeki yıl bilgisinden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/96/yalova-ataturk-kosku",
+    "citation": "Emin Alp MALKOÇ, \"Yalova Atatürk Köşkü\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/96/yalova-ataturk-kosku.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

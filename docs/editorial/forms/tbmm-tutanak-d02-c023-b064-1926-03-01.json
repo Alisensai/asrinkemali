@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "tbmm-tutanak-d02-c023-b064-1926-03-01",
+  "record_path": "data/archive/catalog/tbmm-tutanak-d02-c023-b064-1926-03-01.json",
+  "record_snapshot_sha256": "9979758812c3839a2ee8cde836d6b9fe92da931ad1e0102838135beab097f1ed",
+  "record_snapshot": {
+    "title": "TBMM Tutanak Dergisi, II. Dönem, 23. Cilt, 64. Birleşim (1 Mart 1926)",
+    "type": "document",
+    "date": {
+      "start": "1926-03-01",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "1 Mart 1926",
+      "note": "Oturum tarihi TBMM Tutanak Dergisi fihristinden alınmıştır."
+    },
+    "source_institution": "Türkiye Büyük Millet Meclisi",
+    "source_url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c023/tbmm02023064.pdf",
+    "citation": "TBMM Tutanak Dergisi, II. Dönem, 23. Cilt, 64. Birleşim, 1 Mart 1926, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c023/tbmm02023064.pdf",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

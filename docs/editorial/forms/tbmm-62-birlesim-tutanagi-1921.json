@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "tbmm-62-birlesim-tutanagi-1921",
+  "record_path": "data/archive/catalog/tbmm-62-birlesim-tutanagi-1921.json",
+  "record_snapshot_sha256": "866c4e93e81c25d36bc15b6b5a2acb3d895c50ae058132b45ac3266b0a052574",
+  "record_snapshot": {
+    "title": "TBMM 62. Birleşim Tutanağı (5 Ağustos 1921)",
+    "type": "document",
+    "date": {
+      "start": "1921-08-05",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "5 Ağustos 1921"
+    },
+    "source_institution": "Türkiye Büyük Millet Meclisi",
+    "source_url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c012/tbmm01012062.pdf",
+    "citation": "TBMM Tutanak Dergisi, Dönem 1, Cilt 12, 62. Birleşim, 5 Ağustos 1921, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c012/tbmm01012062.pdf",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "ibb-canonica-taksim-abidesi-mektubu-1928",
+  "slug": "ibb-canonica-taksim-abidesi-mektubu-1928",
+  "title": "Pietro Canonica’nın Taksim Abidesi Komitesine Mektubu (1928)",
+  "type": "document",
+  "date": {
+    "start": "1928-08-08",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "8 Ağustos 1928",
+    "note": "Belge tarihi İBB Atatürk Kitaplığı katalog kaydından alınmıştır."
+  },
+  "people": [
+    {
+      "name": "Pietro Canonica",
+      "role": "author",
+      "note": "Heykeltıraş; mektubun yazarı."
+    },
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "subject"
+    }
+  ],
+  "locations": [
+    {
+      "name": "İstanbul",
+      "city": "İstanbul",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "mekan",
+    "kultur"
+  ],
+  "summary": "Heykeltıraş Pietro Canonica’nın Taksim Abidesi Komitesine yazdığı, Roma’daki sınavlar nedeniyle İstanbul’a gelemeyeceğini ve anıtı yapmayı onur saydığını belirten 8 Ağustos 1928 tarihli mektup.",
+  "description": "İBB Atatürk Kitaplığı Sayısal Arşivi’nde Bel_Mtf_070895 demirbaş numarasıyla kayıtlı belge, heykeltıraş Pietro Canonica’nın Gazi Mustafa Kemal Paşa’nın Taksim Meydanı’ndaki abidesi için oluşturulan komiteye hitaben yazdığı mektuptur. Canonica, Güzel Sanatlar Akademisi sınavları için Roma’ya gitmek zorunda kaldığını, Atatürk’ün anıtını inşa etmenin kendisi için onur olduğunu ve komiteye şükranlarını ifade eder. Belge, kurumsal katalog kaydına bağlantıyla sunulur; dosya indirilmemiştir.",
+  "source": {
+    "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+    "institutionType": "archive",
+    "institutionUrl": "https://sayisalarsiv.ibb.gov.tr/",
+    "title": "İBB Atatürk Kitaplığı: Canonica’nın Taksim Abidesi Komitesine Mektubu",
+    "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070895",
+    "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Bel_Mtf_070895, “Canonica’nın Taksim Abidesi Komitesine Mektubu”, 8 Ağustos 1928, erişim 2026-10-23, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070895",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1928-08-08",
+    "archiveIdentifier": "Bel_Mtf_070895",
+    "note": "İBB Atatürk Kitaplığı Sayısal Arşiv katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Dosya indirilmedi."
+  },
+  "provenance": [
+    {
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "collection": "İBB Atatürk Kitaplığı Sayısal Arşiv",
+      "identifier": "Bel_Mtf_070895",
+      "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070895",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal katalog kaydı ve demirbaş numarasına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "İBB Atatürk Kitaplığı",
+    "imageReuse": "link_only",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": {
+    "kind": "digitized_original",
+    "url": null,
+    "sourcePageUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070895",
+    "alt": "Pietro Canonica’nın Taksim Abidesi Komitesine Mektubu (1928)",
+    "credit": "İBB Atatürk Kitaplığı",
+    "width": null,
+    "height": null,
+    "mimeType": null,
+    "localPath": null,
+    "displayPolicy": "source_link_only"
+  },
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Katalog kaydı ve belge tarihi 23.10.2026 tarihinde doğrulandı; dosya indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "İBB Atatürk Kitaplığı",
+    "Taksim Abidesi",
+    "Pietro Canonica",
+    "1928",
+    "belge"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

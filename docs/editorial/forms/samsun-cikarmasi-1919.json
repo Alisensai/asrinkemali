@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "samsun-cikarmasi-1919",
+  "record_path": "content/archive/records/samsun-cikarmasi-1919.json",
+  "record_snapshot_sha256": "f174bc0d3cec69bc0a346e6cd0d28788b7b762f840d87f9c4d2bc6207620606e",
+  "record_snapshot": {
+    "title": "Mustafa Kemal'in Samsun'a Çıkışı",
+    "type": "event",
+    "date": {
+      "start": "1919-05-19",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "19 Mayıs 1919"
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://ataturkansiklopedisi.gov.tr/detay/324/Millî-Bayramlar",
+    "citation": "Atatürk Ansiklopedisi: Millî Bayramlar",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

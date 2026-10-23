@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "atam-turkiye-cumhuriyeti-tarihi-3-cilt-2025",
+  "slug": "atam-turkiye-cumhuriyeti-tarihi-3-cilt-2025",
+  "title": "Türkiye Cumhuriyeti Tarihi 3 Cilt Takım (Ciltli)",
+  "type": "publication",
+  "date": {
+    "start": "2025-01-01",
+    "end": null,
+    "precision": "year",
+    "certainty": "exact",
+    "display": "2025",
+    "note": "Basım yılı ATAM kitap künyesinden alınmıştır."
+  },
+  "people": [
+    {
+      "name": "ATAM Editör Kurulu",
+      "role": "author",
+      "note": "Editör kurulu"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "yayin",
+    "cumhuriyet"
+  ],
+  "summary": "Türkiye Cumhuriyeti tarihini üç ciltte ele alan, ATAM Editör Kurulu tarafından hazırlanmış kapsamlı yayın.",
+  "description": "Atatürk Araştırma Merkezi tarafından 2025 yılında yayımlanan üç ciltlik takım, Türkiye Cumhuriyeti tarihini kapsamlı biçimde ele alır. Kitap künyesinde ISBN 978-975-17-6285-6 ve yayın no 547-548-549 olarak kayıtlıdır. Yayın sayfası yalnızca bağlantı olarak sunulur; kitap dosyası indirilmemiştir.",
+  "source": {
+    "institution": "Atatürk Araştırma Merkezi Yayınları",
+    "institutionType": "institutional",
+    "institutionUrl": "https://atam.gov.tr/",
+    "title": "ATAM Yayınları: Türkiye Cumhuriyeti Tarihi 3 Cilt Takım (Ciltli)",
+    "url": "https://atam.gov.tr/kitaplar/turkiye-cumhuriyeti-tarihi-3-cilt-takim-ciltli/",
+    "citation": "ATAM Editör Kurulu, Türkiye Cumhuriyeti Tarihi 3 Cilt Takım (Ciltli), Atatürk Araştırma Merkezi Yayınları, Ankara 2025, ISBN 978-975-17-6285-6, Yayın No. 547-548-549.",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2025-01-01",
+    "archiveIdentifier": "978-975-17-6285-6",
+    "note": "Kitap künyesi (yazar/editoryal kurul, ISBN, basım yılı) ATAM yayın sayfasından doğrulandı; kitap dosyası indirilmedi."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Araştırma Merkezi Yayınları",
+      "collection": "ATAM Yayınları",
+      "identifier": "978-975-17-6285-6",
+      "url": "https://atam.gov.tr/kitaplar/turkiye-cumhuriyeti-tarihi-3-cilt-takim-ciltli/",
+      "accessedAt": "2026-10-23",
+      "note": "ATAM kitap detay sayfasındaki künye tablosuna dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Araştırma Merkezi Yayınları",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Kitap künyesi ATAM yayın sayfasındaki yazar, ISBN ve basım yılı bilgileriyle doğrulandı; kitap dosyası indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "Türkiye Cumhuriyeti Tarihi",
+    "ATAM",
+    "2025",
+    "üç cilt"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

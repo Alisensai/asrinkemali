@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-galatasaray-lisesi",
+  "record_path": "data/archive/catalog/ayk-galatasaray-lisesi.json",
+  "record_snapshot_sha256": "47699b5a58711005d593098e857aae3ad2e00f70594dd19f23dc101ac7932ab3",
+  "record_snapshot": {
+    "title": "Galatasaray Lisesi",
+    "type": "place",
+    "date": {
+      "start": "1868-01-01",
+      "end": null,
+      "precision": "year",
+      "certainty": "exact",
+      "display": "1868",
+      "note": "Tarih, Atatürk Ansiklopedisi maddesindeki yıl bilgisinden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/475/galatasaray-lisesi",
+    "citation": "Vahdettin ENGİN, \"Galatasaray Lisesi\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/475/galatasaray-lisesi.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-birinci-basin-kurultayi-25-27-mayis-1935",
+  "record_path": "data/archive/catalog/ayk-birinci-basin-kurultayi-25-27-mayis-1935.json",
+  "record_snapshot_sha256": "4b2cc589e4b7a30904a0fb726403ad7632e42a0a376c96de4629f5b7c7d3ad44",
+  "record_snapshot": {
+    "title": "Birinci Basın Kurultayı (25-27 Mayıs 1935)",
+    "type": "event",
+    "date": {
+      "start": "1935-05-25",
+      "end": "1935-05-27",
+      "precision": "range",
+      "certainty": "exact",
+      "display": "25-27 Mayıs 1935",
+      "note": "Tarih aralığı, Atatürk Ansiklopedisi maddesindeki ifadeden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/723/birinci-basin-kurultayi-25-27-mayis-1935",
+    "citation": "Meltem Selimoğlu, \"Birinci Basın Kurultayı (25-27 Mayıs 1935)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/723/birinci-basin-kurultayi-25-27-mayis-1935.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

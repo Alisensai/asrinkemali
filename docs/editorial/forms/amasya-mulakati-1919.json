@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "amasya-mulakati-1919",
+  "record_path": "data/archive/catalog/amasya-mulakati-1919.json",
+  "record_snapshot_sha256": "ec33f5236ebdf19eed847d720968dd1a35d0c2620259aec046b0ecdfb165b298",
+  "record_snapshot": {
+    "title": "Amasya Mülakatı",
+    "type": "event",
+    "date": {
+      "start": "1919-10-22",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "22 Ekim 1919"
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/209/amasya-mulakati-1919",
+    "citation": "Atatürk Ansiklopedisi, “Amasya Mülakatı”, yazar Hikmet Özdemir, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/209/amasya-mulakati-1919",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

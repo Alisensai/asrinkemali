@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "atam-bogazlar-meselesi-2025",
+  "record_path": "data/archive/catalog/atam-bogazlar-meselesi-2025.json",
+  "record_snapshot_sha256": "c1d8bbe519fc8a9ec3e206e38f906bc2e48b4c2c458f6e2ade250ae44698c5ab",
+  "record_snapshot": {
+    "title": "Boğazlar Meselesi",
+    "type": "publication",
+    "date": {
+      "start": "2025-01-01",
+      "end": null,
+      "precision": "year",
+      "certainty": "exact",
+      "display": "2025",
+      "note": "Basım yılı ATAM kitap künyesinden alınmıştır."
+    },
+    "source_institution": "Atatürk Araştırma Merkezi Yayınları",
+    "source_url": "https://atam.gov.tr/kitaplar/bogazlar-meselesi/",
+    "citation": "Abdurrahman Bozkurt, Boğazlar Meselesi, Atatürk Araştırma Merkezi Yayınları, Ankara 2025, ISBN 978-975-17-6377-8, Yayın No. 616.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

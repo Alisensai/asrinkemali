@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-nyon-konferansi-10-14-eylul-1937",
+  "record_path": "data/archive/catalog/ayk-nyon-konferansi-10-14-eylul-1937.json",
+  "record_snapshot_sha256": "4e1683fa832fd6a9c2da6e3d571f6f0fcb7520b6a1d2a0d294de5642fa74b12a",
+  "record_snapshot": {
+    "title": "Nyon Konferansı (10-14 Eylül 1937)",
+    "type": "event",
+    "date": {
+      "start": "1937-09-10",
+      "end": "1937-09-14",
+      "precision": "range",
+      "certainty": "exact",
+      "display": "10-14 Eylül 1937",
+      "note": "Tarih aralığı, Atatürk Ansiklopedisi maddesindeki ifadeden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/500/nyon-konferansi-10-14-eylul-1937",
+    "citation": "Tuğba BELENLİ, \"Nyon Konferansı (10-14 Eylül 1937)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/500/nyon-konferansi-10-14-eylul-1937.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

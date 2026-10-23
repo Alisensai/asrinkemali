@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ibb-dolmabahce-naas-ziyaret-usulu-1938",
+  "record_path": "data/archive/catalog/ibb-dolmabahce-naas-ziyaret-usulu-1938.json",
+  "record_snapshot_sha256": "51a0d16b914fd2ad28b504514f32461c414bdc14c85fbbc8b64c176522819227",
+  "record_snapshot": {
+    "title": "Dolmabahçe Sarayı’nda Atatürk’ün Naaşının Ziyaret Usulüne Dair Belge (1938)",
+    "type": "document",
+    "date": {
+      "start": "1938-11-16",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "16 Kasım 1938",
+      "note": "Belge tarihi İBB Atatürk Kitaplığı katalog kaydından alınmıştır."
+    },
+    "source_institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+    "source_url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070563",
+    "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Bel_Mtf_070563, “Dolmabahçe Sarayı’nda Atatürk’ün Naaşının Ziyaret Usulü”, 16 Kasım 1938, erişim 2026-10-23, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070563",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

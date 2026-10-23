@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-ataturk-ve-dolmabahce-sarayi",
+  "record_path": "data/archive/catalog/ayk-ataturk-ve-dolmabahce-sarayi.json",
+  "record_snapshot_sha256": "c02ce340e631f1f05e495d51414d8930790205eae2f271140c1e236988d5b6fe",
+  "record_snapshot": {
+    "title": "Atatürk ve Dolmabahçe Sarayı",
+    "type": "place",
+    "date": {
+      "start": "1843-01-01",
+      "end": "1856-12-31",
+      "precision": "range",
+      "certainty": "exact",
+      "display": "1843-1856",
+      "note": "Tarih aralığı, Atatürk Ansiklopedisi maddesindeki ifadeden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/840/ataturk-ve-dolmabahce-sarayi",
+    "citation": "Nevin Yazıcı,Emine Kısıklı, \"Atatürk ve Dolmabahçe Sarayı\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/840/ataturk-ve-dolmabahce-sarayi.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

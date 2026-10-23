@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "lozan-baris-antlasmasi-1923",
+  "record_path": "content/archive/records/lozan-baris-antlasmasi-1923.json",
+  "record_snapshot_sha256": "66691a027433762b0299687b3835afc220e1486a1d85b86ed1fd79f310751108",
+  "record_snapshot": {
+    "title": "Lozan Barış Antlaşması",
+    "type": "event",
+    "date": {
+      "start": "1923-07-24",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "24 Temmuz 1923"
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://ataturkansiklopedisi.gov.tr/detay/627/Lozan-Barış-Antlaşması",
+    "citation": "Atatürk Ansiklopedisi: Lozan Barış Antlaşması",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

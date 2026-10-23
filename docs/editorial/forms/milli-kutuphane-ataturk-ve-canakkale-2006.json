@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "milli-kutuphane-ataturk-ve-canakkale-2006",
+  "record_path": "data/archive/catalog/milli-kutuphane-ataturk-ve-canakkale-2006.json",
+  "record_snapshot_sha256": "4b812934095f742917f9567ccfe60f8cddf5f539694217a5b095ec5042b64eef",
+  "record_snapshot": {
+    "title": "Atatürk ve Çanakkale",
+    "type": "publication",
+    "date": {
+      "start": "2006-01-01",
+      "end": null,
+      "precision": "year",
+      "certainty": "estimated",
+      "display": "2006",
+      "note": "Katalog kaydında yayın tarihi alanı boş; yayın yılı yer numarasındaki yıl önekinden değerlendirildi."
+    },
+    "source_institution": "Millî Kütüphane",
+    "source_url": "https://dijital-kutuphane.mkutup.gov.tr/tr/books/catalog/details/109289",
+    "citation": "Millî Kütüphane Dijital Kütüphane, “Atatürk ve Çanakkale”, Yer No. 2006 AD 5745, erişim 23.10.2026, https://dijital-kutuphane.mkutup.gov.tr/tr/books/catalog/details/109289",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

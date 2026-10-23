@@ -11,4 +11,7 @@ Thumbs.db
 .coverage/
 playwright-report/
 test-results/
+release-check-reports/
 qa/kilo/results/
+__pycache__/
+*.pyc

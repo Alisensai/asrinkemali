@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ibb-nutuk-okuma-fotografi-1927",
+  "record_path": "data/archive/catalog/ibb-nutuk-okuma-fotografi-1927.json",
+  "record_snapshot_sha256": "8c33bd09c205d67661593ca314d01c1f339ef5b91b27109d671339342a2554af",
+  "record_snapshot": {
+    "title": "Atatürk'ün Nutuk'u Okurken Çekilen Fotoğraf",
+    "type": "photograph",
+    "date": {
+      "start": "1927-10-15",
+      "end": "1927-10-20",
+      "precision": "range",
+      "certainty": "exact",
+      "display": "15-20 Ekim 1927",
+      "note": "Arşiv kaydında tarih [t.y.]; fotoğrafın Nutuk'un okunduğu 15-20 Ekim 1927 oturumlarına ait olduğu başlıktan anlaşılır."
+    },
+    "source_institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+    "source_url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_026164",
+    "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Bel_Mtf_026164, “Atatürk'ün Nutuk'u Okurken Çekilen Fotoğraf”, erişim 23.10.2026, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_026164",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

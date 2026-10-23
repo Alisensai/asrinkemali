@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "atam-ataturkun-annesi-zubeyde-hanim-1997",
+  "record_path": "data/archive/catalog/atam-ataturkun-annesi-zubeyde-hanim-1997.json",
+  "record_snapshot_sha256": "4ede1531f129bde2495ef4701fe5b3c85d1b022f1255508452286567c5dcc166",
+  "record_snapshot": {
+    "title": "Atatürk’ün Annesi Zübeyde Hanım",
+    "type": "publication",
+    "date": {
+      "start": "1997-01-01",
+      "end": null,
+      "precision": "year",
+      "certainty": "exact",
+      "display": "1997",
+      "note": "Basım yılı ATAM kitap künyesinden alınmıştır."
+    },
+    "source_institution": "Atatürk Araştırma Merkezi Yayınları",
+    "source_url": "https://atam.gov.tr/kitaplar/ataturkun-annesi-zubeyde-hanim/",
+    "citation": "Cemil Sönmez, Atatürk’ün Annesi Zübeyde Hanım, Atatürk Araştırma Merkezi Yayınları, Ankara 1997, ISBN 975-16-0942-9, Yayın No. 245.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

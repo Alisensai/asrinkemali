@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-chester-projesi-imtiyazi-1923",
+  "record_path": "data/archive/catalog/ayk-chester-projesi-imtiyazi-1923.json",
+  "record_snapshot_sha256": "2cb1892207cc3a5ed024821ad771fdccc646792e9d022f688dbc850f1f02cbd5",
+  "record_snapshot": {
+    "title": "Chester Projesi (İmtiyazı) (1923)",
+    "type": "event",
+    "date": {
+      "start": "1923-04-10",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "10 Nisan 1923",
+      "note": "Tarih, Atatürk Ansiklopedisi maddesindeki olay tarihinden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/597/chester-projesi-imtiyazi-1923",
+    "citation": "Sevilay ÖZER, \"Chester Projesi (İmtiyazı) (1923)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/597/chester-projesi-imtiyazi-1923.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

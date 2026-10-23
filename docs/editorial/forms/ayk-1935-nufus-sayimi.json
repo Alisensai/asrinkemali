@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-1935-nufus-sayimi",
+  "record_path": "data/archive/catalog/ayk-1935-nufus-sayimi.json",
+  "record_snapshot_sha256": "4709250dba36516f826d57573cc4011df1a2b6583cbee3b964e770d03ef7f338",
+  "record_snapshot": {
+    "title": "1935 Nüfus Sayımı",
+    "type": "event",
+    "date": {
+      "start": "1935-10-20",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "20 Ekim 1935",
+      "note": "Tarih, Atatürk Ansiklopedisi maddesindeki olay tarihinden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/4083/1935-nufus-sayimi",
+    "citation": "Nasrullah UZMAN, \"1935 Nüfus Sayımı\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/4083/1935-nufus-sayimi.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

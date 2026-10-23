@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-briand-kellog-pakti-1928",
+  "record_path": "data/archive/catalog/ayk-briand-kellog-pakti-1928.json",
+  "record_snapshot_sha256": "ae68b9c80177ee275100ac4628adccd3db0e596d5c5043e786449e34020c90db",
+  "record_snapshot": {
+    "title": "Briand- Kellog Paktı (1928)",
+    "type": "event",
+    "date": {
+      "start": "1928-08-27",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "27 Ağustos 1928",
+      "note": "Tarih, Atatürk Ansiklopedisi maddesindeki olay tarihinden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/736/briand-kellog-pakti-1928",
+    "citation": "Nur Bilge Criss, \"Briand- Kellog Paktı (1928)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/736/briand-kellog-pakti-1928.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

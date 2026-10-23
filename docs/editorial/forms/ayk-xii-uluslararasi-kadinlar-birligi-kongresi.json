@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-xii-uluslararasi-kadinlar-birligi-kongresi",
+  "record_path": "data/archive/catalog/ayk-xii-uluslararasi-kadinlar-birligi-kongresi.json",
+  "record_snapshot_sha256": "fcf4ed824122b564ab5308f4ed2c9a1df7b4556fb86503422eeab8c3a2c8349d",
+  "record_snapshot": {
+    "title": "XII. Uluslararası Kadınlar Birliği Kongresi",
+    "type": "event",
+    "date": {
+      "start": "1935-04-18",
+      "end": "1935-04-24",
+      "precision": "range",
+      "certainty": "exact",
+      "display": "18-24 Nisan 1935",
+      "note": "Tarih aralığı, Atatürk Ansiklopedisi maddesindeki ifadeden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/126/xii-uluslararasi-kadinlar-birligi-kongresi",
+    "citation": "Gülben MAT, \"XII. Uluslararası Kadınlar Birliği Kongresi\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/126/xii-uluslararasi-kadinlar-birligi-kongresi.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

@@ -30,21 +30,21 @@
     "institution": "Türkiye Büyük Millet Meclisi",
     "institutionType": "official",
     "institutionUrl": "https://kurtulussavasimuzesi.tbmm.gov.tr/",
-    "title": "Kurtuluş Savaşı Müzesi: Fotoğraflar",
-    "url": "https://kurtulussavasimuzesi.tbmm.gov.tr/fotograf",
+    "title": "Kurtuluş Savaşı Müzesi: II. İnönü Zaferi Fotoğrafı",
+    "url": "https://cdn.tbmm.gov.tr/KurtulusSavasiMuzeWeb/Fotograf/6.jpg",
     "accessedAt": "2026-10-23",
     "publishedAt": null,
     "archiveIdentifier": "Fotograf/6.jpg",
-    "note": "Kurumsal albümde II. İnönü Zaferi başlığı ve 10 Nisan 1921 tarihiyle listelenir."
+    "note": "Kurumsal fotoğraf albümündeki II. İnönü Zaferi fotoğrafının doğrudan CDN adresi; görsel dosyası indirilmedi."
   },
   "provenance": [
     {
       "institution": "Türkiye Büyük Millet Meclisi",
       "collection": "Kurtuluş Savaşı Müzesi Fotoğraf Albümü",
       "identifier": "Fotograf/6.jpg",
-      "url": "https://kurtulussavasimuzesi.tbmm.gov.tr/fotograf",
+      "url": "https://cdn.tbmm.gov.tr/KurtulusSavasiMuzeWeb/Fotograf/6.jpg",
       "accessedAt": "2026-10-23",
-      "note": "Görsel, kurumsal albümde 10 Nisan 1921 tarihli II. İnönü Zaferi kutlaması olarak tanımlanır."
+      "note": "Görsel, kurumsal albümde 10 Nisan 1921 tarihli II. İnönü Zaferi kutlaması olarak tanımlanır; doğrudan CDN adresi kullanılmıştır."
     }
   ],
   "rights": {

@@ -51,4 +51,9 @@ export function queryArchive(records: readonly ArchiveRecord[], filters: Archive
   const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize)); const page = Math.min(filters.page, pageCount); return { total: filtered.length, page, pageCount, items: filtered.slice((page - 1) * pageSize, page * pageSize) };
 }
 export function archiveQueryString(filters: ArchiveFilters, page: number) { const params = new URLSearchParams(); if (filters.q) params.set("q", filters.q); if (filters.type) params.set("tur", Object.entries(TYPE_ALIASES).find(([, value]) => value === filters.type)?.[0] ?? filters.type); if (filters.category) params.set("kategori", filters.category); if (filters.source) params.set("kaynak", filters.source); if (filters.city) params.set("sehir", filters.city); if (filters.yearFrom) params.set("baslangic", String(filters.yearFrom)); if (filters.yearTo) params.set("bitis", String(filters.yearTo)); if (page > 1) params.set("sayfa", String(page)); return params.toString(); }
-export function archiveStats() { const all = getAllArchiveRecords(); return { total: all.length, published: all.filter((record) => record.verification.status === "published").length, reviewed: all.filter((record) => record.verification.status === "reviewed").length, draft: all.filter((record) => record.verification.status === "draft").length }; }
+export function archiveStats() {
+  const all = getAllArchiveRecords(); const publishedRecords = all.filter((record) => record.verification.status === "published");
+  const byType: Record<ArchiveRecordType, number> = { photograph: 0, document: 0, speech: 0, event: 0, publication: 0, place: 0 };
+  for (const record of publishedRecords) byType[record.type] += 1;
+  return { total: all.length, published: publishedRecords.length, reviewed: all.filter((record) => record.verification.status === "reviewed").length, draft: all.filter((record) => record.verification.status === "draft").length, displayableDetailPages: publishedRecords.filter((record) => /^[a-z0-9-]{1,120}$/.test(record.slug)).length, byType };
+}

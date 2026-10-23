@@ -17,25 +17,25 @@ function codes(result) {
   return errorCodes(result);
 }
 
-test("gerçek arşiv 68 kayıtla temiz doğrulanır", async () => {
+test("gerçek arşiv 168 kayıtla temiz doğrulanır", async () => {
   const result = await validateFixture(archive.records, archive);
   assert.equal(result.ok, true, JSON.stringify(result.errors, null, 2));
-  assert.equal(result.stats.total, 68);
-  assert.equal(result.stats.byStatus.published, 62);
-  assert.equal(result.stats.byStatus.reviewed, 5);
+  assert.equal(result.stats.total, 168);
+  assert.equal(result.stats.byStatus.published, 151);
+  assert.equal(result.stats.byStatus.reviewed, 16);
   assert.equal(result.stats.byStatus.draft, 1);
   assert.deepEqual(result.stats.byType, {
     photograph: 9,
-    document: 13,
+    document: 35,
     speech: 2,
-    event: 29,
-    publication: 12,
-    place: 3,
+    event: 69,
+    publication: 35,
+    place: 18,
   });
   assert.equal(result.stats.withQuotation, 2);
-  assert.equal(result.stats.withImage, 11);
+  assert.equal(result.stats.withImage, 21);
   assert.equal(result.stats.unknownDates, 1);
-  assert.equal(result.stats.linkOnly, 50);
+  assert.equal(result.stats.linkOnly, 150);
   assert.equal(result.stats.hostedFiles, 0);
   assert.equal(result.stats.metadataOnly, 0);
 });

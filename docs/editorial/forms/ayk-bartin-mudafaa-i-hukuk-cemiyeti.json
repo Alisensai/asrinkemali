@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-bartin-mudafaa-i-hukuk-cemiyeti",
+  "record_path": "data/archive/catalog/ayk-bartin-mudafaa-i-hukuk-cemiyeti.json",
+  "record_snapshot_sha256": "08b5a921a8ebf642ac3720e4f39873aa9bab2c22faab7241d8f910cf447b0796",
+  "record_snapshot": {
+    "title": "Bartın Müdafaa-i Hukuk Cemiyeti",
+    "type": "event",
+    "date": {
+      "start": "1919-10-16",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "16 Ekim 1919",
+      "note": "Tarih, Atatürk Ansiklopedisi maddesindeki olay tarihinden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/1007/bartin-mudafaa-i-hukuk-cemiyeti",
+    "citation": "Yenal ÜNAL, \"Bartın Müdafaa-i Hukuk Cemiyeti\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/1007/bartin-mudafaa-i-hukuk-cemiyeti.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

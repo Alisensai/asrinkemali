@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "montro-bogazlar-sozlesmesi-1936",
+  "record_path": "data/archive/catalog/montro-bogazlar-sozlesmesi-1936.json",
+  "record_snapshot_sha256": "9fba41869b136bdf51d59fc56a6e17feb3e3740ef0b6fc7367b811ff9272ef7f",
+  "record_snapshot": {
+    "title": "Montrö Boğazlar Sözleşmesi",
+    "type": "event",
+    "date": {
+      "start": "1936-07-20",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "20 Temmuz 1936"
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/355/montro-bogazlar-sozlesmesi-1936",
+    "citation": "Atatürk Ansiklopedisi, “Montrö Boğazlar Sözleşmesi”, yazar Mehmet Seyfettin Erol, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/355/montro-bogazlar-sozlesmesi-1936",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

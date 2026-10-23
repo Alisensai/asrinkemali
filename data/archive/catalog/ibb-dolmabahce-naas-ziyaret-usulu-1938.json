@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "ibb-dolmabahce-naas-ziyaret-usulu-1938",
+  "slug": "ibb-dolmabahce-naas-ziyaret-usulu-1938",
+  "title": "Dolmabahçe Sarayı’nda Atatürk’ün Naaşının Ziyaret Usulüne Dair Belge (1938)",
+  "type": "document",
+  "date": {
+    "start": "1938-11-16",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "16 Kasım 1938",
+    "note": "Belge tarihi İBB Atatürk Kitaplığı katalog kaydından alınmıştır."
+  },
+  "people": [
+    {
+      "name": "İstanbul Belediyesi",
+      "role": "author",
+      "note": "Belgeyi gönderen kurum."
+    },
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "subject"
+    }
+  ],
+  "locations": [
+    {
+      "name": "İstanbul",
+      "city": "İstanbul",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "mekan",
+    "cumhuriyet"
+  ],
+  "summary": "İstanbul Belediyesi Reisliği’nin, Dolmabahçe Sarayı’nda bulunan Atatürk’ün naaşının 16 Kasım 1938’den itibaren hangi usullerle ziyaret edileceğini bildiren yazısı.",
+  "description": "Belge, İstanbul Belediyesi Reisliği tarafından gönderilen ve Dolmabahçe Sarayı’nda bulunan Atatürk’ün aziz naaşının 16/11/1938 Çarşamba günü saat ondan itibaren hangi usullerle ziyaret edileceğini bildiren yazıdır. İBB Atatürk Kitaplığı’nda Bel_Mtf_070563 demirbaş numarasıyla kayıtlıdır. Kurumsal katalog kaydına bağlantı verilir; belge indirilmemiştir.",
+  "source": {
+    "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+    "institutionType": "archive",
+    "institutionUrl": "https://sayisalarsiv.ibb.gov.tr/",
+    "title": "İBB Atatürk Kitaplığı: Dolmabahçe Sarayı’nda Atatürk’ün Naaşının Ziyaret Usulü",
+    "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070563",
+    "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Bel_Mtf_070563, “Dolmabahçe Sarayı’nda Atatürk’ün Naaşının Ziyaret Usulü”, 16 Kasım 1938, erişim 2026-10-23, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070563",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1938-11-16",
+    "archiveIdentifier": "Bel_Mtf_070563",
+    "note": "İBB Atatürk Kitaplığı Sayısal Arşiv katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Dosya indirilmedi."
+  },
+  "provenance": [
+    {
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "collection": "İBB Atatürk Kitaplığı Sayısal Arşiv",
+      "identifier": "Bel_Mtf_070563",
+      "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070563",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal katalog kaydı ve demirbaş numarasına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "İBB Atatürk Kitaplığı",
+    "imageReuse": "link_only",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": {
+    "kind": "digitized_original",
+    "url": null,
+    "sourcePageUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070563",
+    "alt": "Dolmabahçe Sarayı’nda Atatürk’ün Naaşının Ziyaret Usulüne Dair Belge (1938)",
+    "credit": "İBB Atatürk Kitaplığı",
+    "width": null,
+    "height": null,
+    "mimeType": null,
+    "localPath": null,
+    "displayPolicy": "source_link_only"
+  },
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Katalog kaydı ve belge tarihi 23.10.2026 tarihinde doğrulandı; dosya indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "İBB Atatürk Kitaplığı",
+    "Dolmabahçe Sarayı",
+    "16 Kasım 1938",
+    "ziyaret",
+    "belge"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

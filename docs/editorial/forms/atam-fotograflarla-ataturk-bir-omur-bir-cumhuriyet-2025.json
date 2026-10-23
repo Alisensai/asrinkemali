@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "atam-fotograflarla-ataturk-bir-omur-bir-cumhuriyet-2025",
+  "record_path": "data/archive/catalog/atam-fotograflarla-ataturk-bir-omur-bir-cumhuriyet-2025.json",
+  "record_snapshot_sha256": "5f9bcf233ef72904f106a19027e3b3a7adba7e08160e5eb83ada33f8407e7d8d",
+  "record_snapshot": {
+    "title": "Fotoğraflarla Atatürk: Bir Ömür, Bir Cumhuriyet",
+    "type": "publication",
+    "date": {
+      "start": "2025-01-01",
+      "end": null,
+      "precision": "year",
+      "certainty": "exact",
+      "display": "2025",
+      "note": "Basım yılı ATAM kitap künyesinden alınmıştır."
+    },
+    "source_institution": "Atatürk Araştırma Merkezi Yayınları",
+    "source_url": "https://atam.gov.tr/kitaplar/fotograflarla-ataturk-bir-omur-bir-cumhuriyet/",
+    "citation": "Ahmet Kılınç (ed.), Fotoğraflarla Atatürk: Bir Ömür, Bir Cumhuriyet, Atatürk Araştırma Merkezi Yayınları, Ankara 2025, ISBN 978-975-17-6385-3, Yayın No. 618.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

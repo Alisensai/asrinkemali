@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-1927-nufus-sayimi",
+  "record_path": "data/archive/catalog/ayk-1927-nufus-sayimi.json",
+  "record_snapshot_sha256": "2cdca26222b395067ea7837687b6cca1a61536bb47ad6b6e5c4847ed25967c6e",
+  "record_snapshot": {
+    "title": "1927 Nüfus Sayımı",
+    "type": "event",
+    "date": {
+      "start": "1927-10-28",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "28 Ekim 1927",
+      "note": "Tarih, Atatürk Ansiklopedisi maddesindeki olay tarihinden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/170/1927-nufus-sayimi",
+    "citation": "Oktay Şimşek, \"1927 Nüfus Sayımı\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/170/1927-nufus-sayimi.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

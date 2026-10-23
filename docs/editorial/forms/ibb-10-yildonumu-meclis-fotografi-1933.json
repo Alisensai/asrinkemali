@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ibb-10-yildonumu-meclis-fotografi-1933",
+  "record_path": "data/archive/catalog/ibb-10-yildonumu-meclis-fotografi-1933.json",
+  "record_snapshot_sha256": "a3e70b73fc9984751e167f3cf2a4b3c544ae336cc0eeee0c8f308a185b8251a7",
+  "record_snapshot": {
+    "title": "Cumhuriyet'in 10. Yıldönümünde TBMM'den Çıkarken Fotoğraf",
+    "type": "photograph",
+    "date": {
+      "start": "1933-10-29",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "29 Ekim 1933",
+      "note": "Arşiv kaydında tarih [t.y.]; tarih, fotoğraf başlığındaki 'Cumhuriyetin 10. yıldönümü' ifadesine göre belirlendi."
+    },
+    "source_institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+    "source_url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_026166",
+    "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Bel_Mtf_026166, “Cumhuriyet'in 10. Yıldönümünde TBMM'den Çıkarken Fotoğraf”, erişim 23.10.2026, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_026166",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

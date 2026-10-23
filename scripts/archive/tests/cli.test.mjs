@@ -22,13 +22,13 @@ test("CLI --json başarılı sonucu ve çıkış kodunu döndürür", () => {
   assert.equal(result.status, 0, result.stderr);
   const payload = JSON.parse(result.stdout);
   assert.equal(payload.ok, true);
-  assert.equal(payload.stats.total, 68);
-  assert.equal(payload.stats.byStatus.published, 62);
-  assert.equal(payload.stats.byStatus.reviewed, 5);
+  assert.equal(payload.stats.total, 168);
+  assert.equal(payload.stats.byStatus.published, 151);
+  assert.equal(payload.stats.byStatus.reviewed, 16);
   assert.equal(payload.stats.byStatus.draft, 1);
   assert.equal(payload.stats.withQuotation, 2);
-  assert.equal(payload.stats.withImage, 11);
-  assert.equal(payload.stats.linkOnly, 50);
+  assert.equal(payload.stats.withImage, 21);
+  assert.equal(payload.stats.linkOnly, 150);
   assert.equal(payload.stats.hostedFiles, 0);
   assert.equal(payload.stats.metadataOnly, 0);
   assert.equal(payload.errors.length, 0);

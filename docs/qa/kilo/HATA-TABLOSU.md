@@ -1,4 +1,4 @@
 # Hata Tablosu
 
-| Onem | Kategori | Yeniden Uretme | Ekran Goruntusu | Beklenen | Gercek | Durum | Oneri |
-|---|---|---|---|---|---|---|---|
+| Onem | Kategori | Sayfa/Route | Yeniden Uretme | Ekran Goruntusu | Beklenen | Gercek | Durum | Oneri |
+|---|---|---|---|---|---|---|---|---|

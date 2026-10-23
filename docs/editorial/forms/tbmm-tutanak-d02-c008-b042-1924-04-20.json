@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "tbmm-tutanak-d02-c008-b042-1924-04-20",
+  "record_path": "data/archive/catalog/tbmm-tutanak-d02-c008-b042-1924-04-20.json",
+  "record_snapshot_sha256": "d3adf9dbb0c6a4e48fb08fb5193de294c8e7f55ed059af665b3a5842c32cd4b5",
+  "record_snapshot": {
+    "title": "TBMM Tutanak Dergisi, II. Dönem, 8. Cilt, 42. Birleşim (20 Nisan 1924)",
+    "type": "document",
+    "date": {
+      "start": "1924-04-20",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "20 Nisan 1924",
+      "note": "Oturum tarihi TBMM Tutanak Dergisi fihristinden alınmıştır."
+    },
+    "source_institution": "Türkiye Büyük Millet Meclisi",
+    "source_url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c008/tbmm02008042.pdf",
+    "citation": "TBMM Tutanak Dergisi, II. Dönem, 8. Cilt, 42. Birleşim, 20 Nisan 1924, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c008/tbmm02008042.pdf",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

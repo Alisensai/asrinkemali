@@ -55,7 +55,8 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 a {
@@ -75,9 +76,9 @@ input {
   font: inherit;
 }
 
-button:focus-visible, a:focus-visible, input:focus-visible {
+button:focus-visible, a:focus-visible, input:focus-visible, [tabindex]:focus-visible {
   outline: 2px solid var(--gold-bright);
-  outline-offset: 3px;
+  outline-offset: 2px;
 }
 
 .container {
@@ -238,6 +239,8 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   position: relative;
   z-index: 10;
   border-bottom: 1px solid var(--border-subtle);
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 .masthead {
@@ -249,6 +252,8 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   position: relative;
   isolation: isolate;
   padding: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .masthead::before {
@@ -1619,15 +1624,34 @@ body.high-contrast .hero-vignette {
 }
 
 .page-empty {
-  min-height: 230px;
+  min-height: 240px;
+  padding: 40px 36px;
+  border: 1px solid var(--border-gold);
+  background: radial-gradient(ellipse at top left, rgba(42, 11, 15, 0.92) 0%, rgba(18, 5, 7, 0.96) 100%);
+  border-radius: 2px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
+  gap: 12px;
 }
 
 .page-empty h2 {
   margin: 0;
-  font-size: clamp(24px, 3vw, 36px);
+  color: var(--gold-pale);
+  font-family: var(--font-serif-display);
+  font-size: clamp(22px, 2.5vw, 32px);
+  letter-spacing: 1.2px;
+}
+
+.page-empty p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 14.5px;
+  line-height: 1.6;
+  max-width: 680px;
 }
 
 .archive-page-filters {
@@ -1651,16 +1675,73 @@ body.high-contrast .hero-vignette {
 }
 
 .prose, .record-detail {
-  max-width: 860px;
-  color: var(--text-secondary);
-  font-size: 18px;
-  line-height: 1.75;
+  max-width: 820px;
+  color: var(--cream);
+  font-family: var(--font-serif-body);
+  font-size: 19px;
+  line-height: 1.8;
+}
+
+.prose > p:first-of-type::first-letter {
+  float: left;
+  font-family: var(--font-serif-display);
+  font-size: 52px;
+  line-height: 0.85;
+  padding-right: 14px;
+  padding-top: 6px;
+  color: var(--gold-bright);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
 }
 
 .prose h2 {
   color: var(--gold-pale);
   font-family: var(--font-serif-display);
-  margin: 36px 0 8px;
+  font-size: clamp(24px, 2.4vw, 32px);
+  letter-spacing: 1.2px;
+  margin: 44px 0 16px;
+  border-bottom: 1px solid rgba(209, 163, 109, 0.3);
+  padding-bottom: 8px;
+}
+
+.prose h3 {
+  color: var(--gold-bright);
+  font-family: var(--font-serif-display);
+  font-size: 20px;
+  letter-spacing: 0.8px;
+  margin: 28px 0 12px;
+}
+
+.prose blockquote {
+  margin: 32px 0;
+  padding: 22px 28px;
+  border-left: 4px solid var(--gold);
+  background: radial-gradient(ellipse at top left, rgba(55, 12, 16, 0.85) 0%, rgba(20, 6, 8, 0.95) 100%);
+  border-radius: 2px;
+  font-style: italic;
+  font-size: 20px;
+  color: #ffffff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+}
+
+.prose ul, .prose ol {
+  padding-left: 24px;
+  margin: 16px 0;
+  color: var(--text-secondary);
+}
+
+.prose li {
+  margin-bottom: 8px;
+  line-height: 1.65;
+}
+
+.prose a {
+  color: var(--gold-bright);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.prose a:hover {
+  color: #ffffff;
 }
 
 .record-detail dl {
@@ -1837,36 +1918,50 @@ body.high-contrast .hero-vignette {
   .masthead {
     min-height: 84px;
     padding: 8px 0;
+    gap: 8px;
   }
   .identity {
+    margin-left: 0;
     gap: 8px;
     min-width: 0;
+    flex: 1 1 auto;
   }
   .identity-crest-wrapper, .identity-crest {
-    width: 58px;
-    height: 58px;
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+  }
+  .identity-copy {
+    min-width: 0;
+    overflow: hidden;
   }
   .identity-name {
-    font-size: clamp(19px, 5.5vw, 26px);
-    letter-spacing: 1.2px;
+    font-size: clamp(17px, 4.8vw, 24px);
+    letter-spacing: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .identity-motto {
     font-size: 7.5px;
-    letter-spacing: 0.8px;
+    letter-spacing: 0.6px;
     white-space: normal;
-    max-width: 170px;
-    line-height: 1.2;
+    max-width: 160px;
+    line-height: 1.15;
   }
   .masthead-actions {
     gap: 6px;
     flex-shrink: 0;
+    margin-top: 0;
   }
   .header-search span, .museum-button span {
     display: none;
   }
   .header-search, .museum-button {
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
     padding: 0;
     display: inline-flex;
     align-items: center;
@@ -1989,6 +2084,61 @@ body.high-contrast .hero-vignette {
   .footer-bottom {
     flex-direction: column;
     gap: 8px;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    width: min(calc(100% - 16px), var(--container));
+  }
+  .masthead {
+    gap: 6px;
+    min-height: 76px;
+    padding: 6px 0;
+  }
+  .identity {
+    gap: 6px;
+    margin-left: 0;
+  }
+  .identity-crest-wrapper, .identity-crest {
+    width: 44px;
+    height: 44px;
+  }
+  .identity-name {
+    font-size: 16px;
+    letter-spacing: 0.8px;
+  }
+  .identity-motto {
+    font-size: 6.8px;
+    letter-spacing: 0.4px;
+    max-width: 135px;
+    line-height: 1.15;
+  }
+  .masthead-actions {
+    gap: 4px;
+  }
+  .header-search, .museum-button {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 44px;
+  }
+  .menu-links {
+    grid-template-columns: 1fr;
+    padding: 10px 14px 16px;
+  }
+}
+
+@media (forced-colors: active) {
+  .header-search, .museum-button, .mobile-menu-toggle, .button {
+    border: 1px solid ButtonBorder !important;
+  }
+  button:focus-visible, a:focus-visible, input:focus-visible, [tabindex]:focus-visible {
+    outline: 2px solid Highlight !important;
+    outline-offset: 2px !important;
+  }
+  .menu-links {
+    border: 1px solid CanvasText !important;
   }
 }
 

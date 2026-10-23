@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "atam-ataturk-evleri-ataturk-muzeleri-1993",
+  "slug": "atam-ataturk-evleri-ataturk-muzeleri-1993",
+  "title": "Atatürk Evleri Atatürk Müzeleri",
+  "type": "publication",
+  "date": {
+    "start": "1993-01-01",
+    "end": null,
+    "precision": "year",
+    "certainty": "exact",
+    "display": "1993",
+    "note": "Basım yılı ATAM kitap künyesinden alınmıştır."
+  },
+  "people": [
+    {
+      "name": "Mehmet Önder",
+      "role": "author"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "yayin",
+    "mekan"
+  ],
+  "summary": "Mehmet Önder’in Atatürk evlerini ve Atatürk müzelerini tanıtan ATAM yayını.",
+  "description": "Atatürk Araştırma Merkezi tarafından 1993 yılında yayımlanan eser, Mehmet Önder imzasıyla Atatürk evlerini ve Atatürk müzelerini tanıtır. Kitap künyesinde ISBN 975-16-0077-4, yayın no 14 ve 116 sayfa bilgisi yer alır. Yayın sayfası yalnızca bağlantı olarak sunulur.",
+  "source": {
+    "institution": "Atatürk Araştırma Merkezi Yayınları",
+    "institutionType": "institutional",
+    "institutionUrl": "https://atam.gov.tr/",
+    "title": "ATAM Yayınları: Atatürk Evleri Atatürk Müzeleri",
+    "url": "https://atam.gov.tr/kitaplar/ataturk-evleri-ataturk-muzeleri/",
+    "citation": "Mehmet Önder, Atatürk Evleri Atatürk Müzeleri, Atatürk Araştırma Merkezi Yayınları, Ankara 1993, ISBN 975-16-0077-4, Yayın No. 14.",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1993-01-01",
+    "archiveIdentifier": "975-16-0077-4",
+    "note": "Kitap künyesi (yazar/editoryal kurul, ISBN, basım yılı) ATAM yayın sayfasından doğrulandı; kitap dosyası indirilmedi."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Araştırma Merkezi Yayınları",
+      "collection": "ATAM Yayınları",
+      "identifier": "975-16-0077-4",
+      "url": "https://atam.gov.tr/kitaplar/ataturk-evleri-ataturk-muzeleri/",
+      "accessedAt": "2026-10-23",
+      "note": "ATAM kitap detay sayfasındaki künye tablosuna dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Araştırma Merkezi Yayınları",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Kitap künyesi ATAM yayın sayfasındaki yazar, ISBN ve basım yılı bilgileriyle doğrulandı; kitap dosyası indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "Atatürk Evleri",
+    "Atatürk Müzeleri",
+    "Mehmet Önder",
+    "ATAM",
+    "1993"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}
