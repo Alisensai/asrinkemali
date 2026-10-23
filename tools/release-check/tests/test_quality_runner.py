@@ -25,6 +25,14 @@ class QualityRunnerTests(unittest.TestCase):
     def setUp(self):
         self.report = {"checks": [], "findings": []}
 
+    def test_unittest_failure_summary_counts_passes_and_failures_precisely(self):
+        output = "Ran 5 tests in 0.1s\n\nFAILED (failures=1, errors=1)"
+        self.assertEqual(quality_runner._test_counts("release-checker-tests", output, 1), (3, 2))
+
+    def test_unittest_failure_without_summary_counts_one_failed_test(self):
+        output = "Ran 5 tests in 0.1s\n\nFAILED"
+        self.assertEqual(quality_runner._test_counts("release-checker-tests", output, 1), (4, 1))
+
     @patch("quality_runner.run_step")
     def test_registry_error_fails_both_dependency_audits(self, run_step):
         failed = {"error": {"code": "ECONNRESET"}, "message": "registry unavailable"}
