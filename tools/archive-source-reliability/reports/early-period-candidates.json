@@ -1,0 +1,977 @@
+{
+  "candidates": [
+    {
+      "archiveIdentifier": "AYK-243",
+      "author": "Volkan AKSOY",
+      "coverageType": "dedicated",
+      "definition": "Muallim Şemsi Efendi tarafından Selanik'te kurulan Mustafa Kemal Atatürk'ün eğitim aldığı okul.",
+      "discovery": {
+        "discoveredAt": "2026-10-23",
+        "method": "AYK kamuya açık katalog/API taraması",
+        "query": "Selanik, Şemsi Efendi, ilk eğitim"
+      },
+      "gapPhases": [
+        "birth-childhood"
+      ],
+      "humanApproved": false,
+      "id": "ayk-243",
+      "ingest": false,
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "keywords": [
+        "Selanik",
+        "Şemsi Efendi",
+        "Mustafa Kemal Atatürk"
+      ],
+      "matchedGaps": [
+        {
+          "directCount": 0,
+          "label": "Doğum, Selanik ve ilk eğitim",
+          "phaseId": "birth-childhood",
+          "status": "associated-only"
+        }
+      ],
+      "period": "1881-1895",
+      "phaseLabels": [
+        "Doğum, Selanik ve ilk eğitim"
+      ],
+      "policyViolation": null,
+      "priority": "high",
+      "publishedAt": "2022-02-23",
+      "rightsNotes": "Sayfaya bağlantı verilebilir; metin/görsel yeniden kullanım hakkı doğrulanmadı.",
+      "sourceId": "AYK-243",
+      "status": "unverified",
+      "title": "Şemsi Efendi Mektebi",
+      "titleCollisionIds": [],
+      "url": "https://www.ataturkansiklopedisi.gov.tr/detay/243/semsi-efendi-mektebi",
+      "urlCheck": {
+        "error": null,
+        "finalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/243/semsi-efendi-mektebi",
+        "httpStatus": 200,
+        "status": "ok"
+      },
+      "verificationNotes": "Aday yalnızca kamuya açık AYK kataloğundan bulundu; metin, tarih ve künye bağımsız uzman tarafından doğrulanmadı.",
+      "verificationRequired": true,
+      "whyCandidate": "1881-1895 doğum/ilk eğitim evresinde doğrudan biyografik kayıt yok; bu madde Atatürk'ün ilk okulunu doğrudan konu ediyor."
+    },
+    {
+      "archiveIdentifier": "AYK-291",
+      "author": "Nasır Yüceer",
+      "coverageType": "dedicated",
+      "definition": "Mustafa Kemal Atatürk'ün Yıldırım Orduları Komutanı olarak Sina ve Filistin cephesinde yer alması.",
+      "discovery": {
+        "discoveredAt": "2026-10-23",
+        "method": "AYK kamuya açık katalog/API taraması",
+        "query": "Sina, Filistin, Yıldırım Orduları"
+      },
+      "gapPhases": [
+        "wwi"
+      ],
+      "humanApproved": false,
+      "id": "ayk-291",
+      "ingest": false,
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "keywords": [
+        "Mustafa Kemal Atatürk",
+        "Yıldırım Orduları",
+        "Filistin Cephesi",
+        "7. Ordu",
+        "İskenderun Sancağı"
+      ],
+      "matchedGaps": [
+        {
+          "directCount": 0,
+          "label": "Çanakkale, Doğu ve Sina-Filistin cepheleri",
+          "phaseId": "wwi",
+          "status": "associated-only"
+        }
+      ],
+      "period": "1917-1918",
+      "phaseLabels": [
+        "Çanakkale, Doğu ve Sina-Filistin cepheleri"
+      ],
+      "policyViolation": null,
+      "priority": "high",
+      "publishedAt": "2021-02-28",
+      "rightsNotes": "Sayfaya bağlantı verilebilir; yeniden kullanım hakkı doğrulanmadı.",
+      "sourceId": "AYK-291",
+      "status": "unverified",
+      "title": "Sina ve Filistin Cephesi'nde Atatürk",
+      "titleCollisionIds": [],
+      "url": "https://www.ataturkansiklopedisi.gov.tr/detay/291/sina-ve-filistin-cephesinde-ataturk",
+      "urlCheck": {
+        "error": null,
+        "finalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/291/sina-ve-filistin-cephesinde-ataturk",
+        "httpStatus": 200,
+        "status": "ok"
+      },
+      "verificationNotes": "Aday kaynak; bağımsız uzman doğrulaması gerekir.",
+      "verificationRequired": true,
+      "whyCandidate": "1917-1918 Sina/Filistin evresinde doğrudan kayıt yok; bu madde Yıldırım Orduları komutanlığını konu ediyor."
+    },
+    {
+      "archiveIdentifier": "AYK-388",
+      "author": "Zekeriya TÜRKMEN",
+      "coverageType": "dedicated",
+      "definition": "Mustafa Kemal Atatürk'ün 1913-1915 yılları arasında ataşemiliter olarak Sofya'da bulunması.",
+      "discovery": {
+        "discoveredAt": "2026-10-23",
+        "method": "AYK kamuya açık katalog/API taraması",
+        "query": "Sofya Ataşemiliterliği, 1913-1915"
+      },
+      "gapPhases": [
+        "sofia"
+      ],
+      "humanApproved": false,
+      "id": "ayk-388",
+      "ingest": false,
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "keywords": [
+        "Ataşemiliter",
+        "Mustafa Kemal Atatürk",
+        "Sofya",
+        "Bulgaristan"
+      ],
+      "matchedGaps": [
+        {
+          "directCount": 0,
+          "label": "Sofya Ataşemiliterliği",
+          "phaseId": "sofia",
+          "status": "missing"
+        }
+      ],
+      "period": "1913-1915",
+      "phaseLabels": [
+        "Sofya Ataşemiliterliği"
+      ],
+      "policyViolation": null,
+      "priority": "high",
+      "publishedAt": "2020-11-30",
+      "rightsNotes": "Sayfaya bağlantı verilebilir; yeniden kullanım hakkı doğrulanmadı.",
+      "sourceId": "AYK-388",
+      "status": "unverified",
+      "title": "Mustafa Kemal'in Sofya Ataşemiliterliği",
+      "titleCollisionIds": [],
+      "url": "https://www.ataturkansiklopedisi.gov.tr/detay/388/mustafa-kemalin-sofya-atasemiliterligi",
+      "urlCheck": {
+        "error": null,
+        "finalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/388/mustafa-kemalin-sofya-atasemiliterligi",
+        "httpStatus": 200,
+        "status": "ok"
+      },
+      "verificationNotes": "Aday kaynak; tarihler ve görev unvanı bağımsız kaynakla doğrulanmalı.",
+      "verificationRequired": true,
+      "whyCandidate": "1913-1915 Sofya evresinde arşivde hiç kayıt yok; bu madde dönemi doğrudan konu ediyor."
+    },
+    {
+      "archiveIdentifier": "AYK-407",
+      "author": "Hasan Taner Kerimoğlu",
+      "coverageType": "dedicated",
+      "definition": "Mustafa Kemal Atatürk'ün Derne Komutanlığını üstlendiği görev ve yaptıkları.",
+      "discovery": {
+        "discoveredAt": "2026-10-23",
+        "method": "AYK kamuya açık katalog/API taraması",
+        "query": "Trablusgarp, Derne, Mustafa Kemal"
+      },
+      "gapPhases": [
+        "tripoli-balkan"
+      ],
+      "humanApproved": false,
+      "id": "ayk-407",
+      "ingest": false,
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "keywords": [
+        "Mustafa Kemal Atatürk",
+        "Derne",
+        "Tobruk",
+        "Uşi Antlaşması"
+      ],
+      "matchedGaps": [
+        {
+          "directCount": 0,
+          "label": "Trablusgarp ve Balkan Savaşları",
+          "phaseId": "tripoli-balkan",
+          "status": "associated-only"
+        }
+      ],
+      "period": "1911-1912",
+      "phaseLabels": [
+        "Trablusgarp ve Balkan Savaşları"
+      ],
+      "policyViolation": null,
+      "priority": "high",
+      "publishedAt": "2021-07-08",
+      "rightsNotes": "Sayfaya bağlantı verilebilir; yeniden kullanım hakkı doğrulanmadı.",
+      "sourceId": "AYK-407",
+      "status": "unverified",
+      "title": "Trablusgarp Savaşı'nda Atatürk",
+      "titleCollisionIds": [],
+      "url": "https://www.ataturkansiklopedisi.gov.tr/detay/407/trablusgarp-savasinda-ataturk",
+      "urlCheck": {
+        "error": null,
+        "finalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/407/trablusgarp-savasinda-ataturk",
+        "httpStatus": 200,
+        "status": "ok"
+      },
+      "verificationNotes": "Aday yalnızca AYK kataloğundan bulundu; askerî ayrıntılar bağımsız kaynakla doğrulanmalı.",
+      "verificationRequired": true,
+      "whyCandidate": "1911-1913 Trablusgarp/Balkan evresinde doğrudan kayıt yok; bu madde Derne Komutanlığı'nı doğrudan konu ediyor."
+    },
+    {
+      "archiveIdentifier": "AYK-4078",
+      "author": "Serpil SÜRMELİ",
+      "coverageType": "dedicated",
+      "definition": "I. Dünya Savaşı'nda Çanakkale Cephesi'nde Türk komutan.",
+      "discovery": {
+        "discoveredAt": "2026-10-23",
+        "method": "AYK kamuya açık katalog/API taraması",
+        "query": "Birinci Dünya Savaşı, Mustafa Kemal"
+      },
+      "gapPhases": [
+        "wwi"
+      ],
+      "humanApproved": false,
+      "id": "ayk-4078",
+      "ingest": false,
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "keywords": [
+        "I. Dünya Savaşı",
+        "Çanakkale Cephesi",
+        "Anafartalar",
+        "Conkbayırı"
+      ],
+      "matchedGaps": [
+        {
+          "directCount": 0,
+          "label": "Çanakkale, Doğu ve Sina-Filistin cepheleri",
+          "phaseId": "wwi",
+          "status": "associated-only"
+        }
+      ],
+      "period": "1914-1918",
+      "phaseLabels": [
+        "Çanakkale, Doğu ve Sina-Filistin cepheleri"
+      ],
+      "policyViolation": null,
+      "priority": "high",
+      "publishedAt": "2021-03-30",
+      "rightsNotes": "Sayfaya bağlantı verilebilir; yeniden kullanım hakkı doğrulanmadı.",
+      "sourceId": "AYK-4078",
+      "status": "unverified",
+      "title": "Birinci Dünya Savaşı'nda Mustafa Kemal (Atatürk)",
+      "titleCollisionIds": [],
+      "url": "https://www.ataturkansiklopedisi.gov.tr/detay/4078/birinci-dunya-savasinda-mustafa-kemal-ataturk",
+      "urlCheck": {
+        "error": null,
+        "finalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/4078/birinci-dunya-savasinda-mustafa-kemal-ataturk",
+        "httpStatus": 200,
+        "status": "ok"
+      },
+      "verificationNotes": "Aday kaynak; bağımsız uzman doğrulaması gerekir.",
+      "verificationRequired": true,
+      "whyCandidate": "1914-1918 savaş evresini bütüncül ele alır; Çanakkale ve sonraki cepheler için bağlam sağlar."
+    },
+    {
+      "archiveIdentifier": "AYK-4084",
+      "author": "Murat KARATAŞ",
+      "coverageType": "dedicated",
+      "definition": "I. Dünya Savaşı'nda Çanakkale Cephesi'nde Mustafa Kemal'in komutanlığı ve başarıları.",
+      "discovery": {
+        "discoveredAt": "2026-10-23",
+        "method": "AYK kamuya açık katalog/API taraması",
+        "query": "Çanakkale, Anafartalar, Mustafa Kemal"
+      },
+      "gapPhases": [
+        "wwi"
+      ],
+      "humanApproved": false,
+      "id": "ayk-4084",
+      "ingest": false,
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "keywords": [
+        "Asker",
+        "Komutan",
+        "Anafartalar",
+        "Conkbayırı"
+      ],
+      "matchedGaps": [
+        {
+          "directCount": 0,
+          "label": "Çanakkale, Doğu ve Sina-Filistin cepheleri",
+          "phaseId": "wwi",
+          "status": "associated-only"
+        }
+      ],
+      "period": "1915",
+      "phaseLabels": [
+        "Çanakkale, Doğu ve Sina-Filistin cepheleri"
+      ],
+      "policyViolation": null,
+      "priority": "high",
+      "publishedAt": "2022-09-22",
+      "rightsNotes": "Sayfaya bağlantı verilebilir; yeniden kullanım hakkı doğrulanmadı.",
+      "sourceId": "AYK-4084",
+      "status": "unverified",
+      "title": "Çanakkale Cephesi'nde Mustafa Kemal (Atatürk)",
+      "titleCollisionIds": [],
+      "url": "https://www.ataturkansiklopedisi.gov.tr/detay/4084/canakkale-cephesinde-mustafa-kemal-ataturk",
+      "urlCheck": {
+        "error": null,
+        "finalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/4084/canakkale-cephesinde-mustafa-kemal-ataturk",
+        "httpStatus": 200,
+        "status": "ok"
+      },
+      "verificationNotes": "Aday kaynak; askerî tarih ayrıntıları bağımsız kaynakla doğrulanmalı.",
+      "verificationRequired": true,
+      "whyCandidate": "1915 Çanakkale evresinde doğrudan kayıt yok; bu madde cephe komutanlığını doğrudan konu ediyor."
+    },
+    {
+      "archiveIdentifier": "AYK-4899",
+      "author": "Şerafettin Turan",
+      "coverageType": "broad",
+      "definition": "Anafartalar kahramanı, Türk Kurtuluş Savaşı'nın önderi, Türkiye Cumhuriyeti'nin kurucusu ve ilk Cumhurbaşkanı.",
+      "discovery": {
+        "discoveredAt": "2026-10-23",
+        "method": "AYK kamuya açık katalog/API taraması",
+        "query": "Atatürk biyografisi, 1881-1938"
+      },
+      "gapPhases": [
+        "birth-childhood",
+        "military-education",
+        "early-officer",
+        "salonika-cup",
+        "tripoli-balkan",
+        "sofia",
+        "wwi"
+      ],
+      "humanApproved": false,
+      "id": "ayk-4899",
+      "ingest": false,
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "keywords": [
+        "Lider",
+        "Devlet Adamı",
+        "Asker",
+        "Biyografi"
+      ],
+      "matchedGaps": [
+        {
+          "directCount": 0,
+          "label": "Doğum, Selanik ve ilk eğitim",
+          "phaseId": "birth-childhood",
+          "status": "associated-only"
+        },
+        {
+          "directCount": 0,
+          "label": "Manastır, Harp Okulu ve Erkân-ı Harbiye",
+          "phaseId": "military-education",
+          "status": "reference-only"
+        },
+        {
+          "directCount": 0,
+          "label": "Şam ve erken subaylık",
+          "phaseId": "early-officer",
+          "status": "missing"
+        },
+        {
+          "directCount": 0,
+          "label": "Selanik, İttihat ve Terakki, Hareket Ordusu",
+          "phaseId": "salonika-cup",
+          "status": "context-only"
+        },
+        {
+          "directCount": 0,
+          "label": "Trablusgarp ve Balkan Savaşları",
+          "phaseId": "tripoli-balkan",
+          "status": "associated-only"
+        },
+        {
+          "directCount": 0,
+          "label": "Sofya Ataşemiliterliği",
+          "phaseId": "sofia",
+          "status": "missing"
+        },
+        {
+          "directCount": 0,
+          "label": "Çanakkale, Doğu ve Sina-Filistin cepheleri",
+          "phaseId": "wwi",
+          "status": "associated-only"
+        }
+      ],
+      "period": "1881-1938",
+      "phaseLabels": [
+        "Doğum, Selanik ve ilk eğitim",
+        "Manastır, Harp Okulu ve Erkân-ı Harbiye",
+        "Şam ve erken subaylık",
+        "Selanik, İttihat ve Terakki, Hareket Ordusu",
+        "Trablusgarp ve Balkan Savaşları",
+        "Sofya Ataşemiliterliği",
+        "Çanakkale, Doğu ve Sina-Filistin cepheleri"
+      ],
+      "policyViolation": null,
+      "priority": "high",
+      "publishedAt": "2020-12-21",
+      "rightsNotes": "Sayfaya bağlantı verilebilir; metin/görsel yeniden kullanım hakkı doğrulanmadı.",
+      "sourceId": "AYK-4899",
+      "status": "unverified",
+      "title": "Atatürk, Gazi Mustafa Kemal (1881-10 Kasım 1938)",
+      "titleCollisionIds": [],
+      "url": "https://www.ataturkansiklopedisi.gov.tr/detay/4899/ataturk-gazi-mustafa-kemal-1881-10-kasim-1938",
+      "urlCheck": {
+        "error": null,
+        "finalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/4899/ataturk-gazi-mustafa-kemal-1881-10-kasim-1938",
+        "httpStatus": 200,
+        "status": "ok"
+      },
+      "verificationNotes": "Genel biyografi maddesi; evreye özel ayrıntılar için bağımsız kaynaklarla çapraz doğrulama gerekir.",
+      "verificationRequired": true,
+      "whyCandidate": "Erken dönemin tamamı için genel biyografik çerçeve sağlar; özellikle Harp Okulu/Erkân-ı Harbiye ve Şam dönemleri için evreye özel AYK maddesi bulunamadı."
+    },
+    {
+      "archiveIdentifier": "AYK-617",
+      "author": "Zekeriya TÜRKMEN",
+      "coverageType": "dedicated",
+      "definition": "31 Mart isyanına karşı Selanik'ten yola çıkan Hareket Ordusu'ndaki Mustafa Kemal'in kurmaylık görevi.",
+      "discovery": {
+        "discoveredAt": "2026-10-23",
+        "method": "AYK kamuya açık katalog/API taraması",
+        "query": "Hareket Ordusu, 31 Mart, Mustafa Kemal"
+      },
+      "gapPhases": [
+        "salonika-cup"
+      ],
+      "humanApproved": false,
+      "id": "ayk-617",
+      "ingest": false,
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "keywords": [
+        "31 Mart İsyanı",
+        "Selanik",
+        "İttihat ve Terakki",
+        "Hareket Ordusu",
+        "Mustafa Kemal Atatürk",
+        "II. Meşrutiyet"
+      ],
+      "matchedGaps": [
+        {
+          "directCount": 0,
+          "label": "Selanik, İttihat ve Terakki, Hareket Ordusu",
+          "phaseId": "salonika-cup",
+          "status": "context-only"
+        }
+      ],
+      "period": "1909",
+      "phaseLabels": [
+        "Selanik, İttihat ve Terakki, Hareket Ordusu"
+      ],
+      "policyViolation": null,
+      "priority": "high",
+      "publishedAt": "2021-02-10",
+      "rightsNotes": "Sayfaya bağlantı verilebilir; yeniden kullanım hakkı doğrulanmadı.",
+      "sourceId": "AYK-617",
+      "status": "unverified",
+      "title": "Hareket Ordusu ve Kurmay Yüzbaşı Mustafa Kemal",
+      "titleCollisionIds": [],
+      "url": "https://www.ataturkansiklopedisi.gov.tr/detay/617/hareket-ordusu-ve-kurmay-yuzbasi-mustafa-kemal",
+      "urlCheck": {
+        "error": null,
+        "finalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/617/hareket-ordusu-ve-kurmay-yuzbasi-mustafa-kemal",
+        "httpStatus": 200,
+        "status": "ok"
+      },
+      "verificationNotes": "Aday yalnızca kamuya açık AYK kataloğundan bulundu; bağımsız uzman doğrulaması gerekir.",
+      "verificationRequired": true,
+      "whyCandidate": "1908-1911 Selanik/İttihat ve Terakki evresinde doğrudan kayıt yok; bu madde Hareket Ordusu'ndaki rolü konu ediyor."
+    },
+    {
+      "archiveIdentifier": "AYK-685",
+      "author": "İsmet Görgülü",
+      "coverageType": "dedicated",
+      "definition": "Mustafa Kemal Paşa'nın Balkan Savaşları'ndaki rolü ve başarıları.",
+      "discovery": {
+        "discoveredAt": "2026-10-23",
+        "method": "AYK kamuya açık katalog/API taraması",
+        "query": "Balkan Savaşı, Mustafa Kemal"
+      },
+      "gapPhases": [
+        "tripoli-balkan"
+      ],
+      "humanApproved": false,
+      "id": "ayk-685",
+      "ingest": false,
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "keywords": [
+        "Şark Siyaseti",
+        "Londra Barış Antlaşması",
+        "Osmanlı Devleti",
+        "Karadağ"
+      ],
+      "matchedGaps": [
+        {
+          "directCount": 0,
+          "label": "Trablusgarp ve Balkan Savaşları",
+          "phaseId": "tripoli-balkan",
+          "status": "associated-only"
+        }
+      ],
+      "period": "1912-1913",
+      "phaseLabels": [
+        "Trablusgarp ve Balkan Savaşları"
+      ],
+      "policyViolation": null,
+      "priority": "high",
+      "publishedAt": "2021-01-06",
+      "rightsNotes": "Sayfaya bağlantı verilebilir; yeniden kullanım hakkı doğrulanmadı.",
+      "sourceId": "AYK-685",
+      "status": "unverified",
+      "title": "Balkan Savaşı'nda Atatürk",
+      "titleCollisionIds": [],
+      "url": "https://www.ataturkansiklopedisi.gov.tr/detay/685/balkan-savasinda-ataturk",
+      "urlCheck": {
+        "error": null,
+        "finalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/685/balkan-savasinda-ataturk",
+        "httpStatus": 200,
+        "status": "ok"
+      },
+      "verificationNotes": "Aday kaynak; bağımsız uzman doğrulaması gerekir.",
+      "verificationRequired": true,
+      "whyCandidate": "Balkan Savaşları evresinde doğrudan kayıt yok; bu madde Atatürk'ün rolünü doğrudan konu ediyor."
+    },
+    {
+      "archiveIdentifier": "AYK-1025",
+      "author": "Umut AKCAKAYA",
+      "coverageType": "context",
+      "definition": "Osmanlı Devleti'nin I. Dünya Harbi'nde savaştığı cephelerden biri.",
+      "discovery": {
+        "discoveredAt": "2026-10-23",
+        "method": "AYK kamuya açık katalog/API taraması",
+        "query": "Hicaz Cephesi, I. Dünya Savaşı"
+      },
+      "gapPhases": [
+        "wwi"
+      ],
+      "humanApproved": false,
+      "id": "ayk-1025",
+      "ingest": false,
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "keywords": [
+        "Hicaz Cephesi",
+        "Şerif Hüseyin",
+        "Medine Müdafaası",
+        "Arapçılık",
+        "Fahrettin Paşa"
+      ],
+      "matchedGaps": [
+        {
+          "directCount": 0,
+          "label": "Çanakkale, Doğu ve Sina-Filistin cepheleri",
+          "phaseId": "wwi",
+          "status": "associated-only"
+        }
+      ],
+      "period": "1916-1918",
+      "phaseLabels": [
+        "Çanakkale, Doğu ve Sina-Filistin cepheleri"
+      ],
+      "policyViolation": null,
+      "priority": "medium",
+      "publishedAt": "2023-05-24",
+      "rightsNotes": "Sayfaya bağlantı verilebilir; yeniden kullanım hakkı doğrulanmadı.",
+      "sourceId": "AYK-1025",
+      "status": "unverified",
+      "title": "Hicaz Cephesi",
+      "titleCollisionIds": [],
+      "url": "https://www.ataturkansiklopedisi.gov.tr/detay/1025/hicaz-cephesi",
+      "urlCheck": {
+        "error": null,
+        "finalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1025/hicaz-cephesi",
+        "httpStatus": 200,
+        "status": "ok"
+      },
+      "verificationNotes": "Bağlam adayı; Atatürk ile doğrudan ilişkisi ayrıca doğrulanmalı.",
+      "verificationRequired": true,
+      "whyCandidate": "I. Dünya Savaşı'nın Osmanlı cephe bağlamını tamamlar; ancak doğrudan Atatürk biyografisi değildir."
+    },
+    {
+      "archiveIdentifier": "AYK-160",
+      "author": "Nâsır Yüceer",
+      "coverageType": "context",
+      "definition": "II. Abdülhamid idaresine karşı başlayan fiilî hareket.",
+      "discovery": {
+        "discoveredAt": "2026-10-23",
+        "method": "AYK kamuya açık katalog/API taraması",
+        "query": "31 Mart Vakası, Hareket Ordusu"
+      },
+      "gapPhases": [
+        "salonika-cup"
+      ],
+      "humanApproved": false,
+      "id": "ayk-160",
+      "ingest": false,
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "keywords": [
+        "II. Abdülhamid",
+        "İttihat ve Terakki Cemiyeti",
+        "Selanik",
+        "İstanbul"
+      ],
+      "matchedGaps": [
+        {
+          "directCount": 0,
+          "label": "Selanik, İttihat ve Terakki, Hareket Ordusu",
+          "phaseId": "salonika-cup",
+          "status": "context-only"
+        }
+      ],
+      "period": "1909",
+      "phaseLabels": [
+        "Selanik, İttihat ve Terakki, Hareket Ordusu"
+      ],
+      "policyViolation": null,
+      "priority": "medium",
+      "publishedAt": "2020-12-06",
+      "rightsNotes": "Sayfaya bağlantı verilebilir; yeniden kullanım hakkı doğrulanmadı.",
+      "sourceId": "AYK-160",
+      "status": "unverified",
+      "title": "31 Mart Vakası",
+      "titleCollisionIds": [],
+      "url": "https://www.ataturkansiklopedisi.gov.tr/detay/160/31-mart-vakasi",
+      "urlCheck": {
+        "error": null,
+        "finalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/160/31-mart-vakasi",
+        "httpStatus": 200,
+        "status": "ok"
+      },
+      "verificationNotes": "Bağlam adayı; Atatürk ile ilişkisi ayrıca doğrulanmalı.",
+      "verificationRequired": true,
+      "whyCandidate": "Hareket Ordusu ve 31 Mart bağlamını tamamlar; doğrudan Atatürk biyografisi değildir."
+    },
+    {
+      "archiveIdentifier": "AYK-513",
+      "author": "Nevin Yazıcı",
+      "coverageType": "dedicated",
+      "definition": "12-18 Eylül 1910 tarihleri arasında Fransa'da yapılan askerî tatbikat.",
+      "discovery": {
+        "discoveredAt": "2026-10-23",
+        "method": "AYK kamuya açık katalog/API taraması",
+        "query": "Picardie Manevraları, 1910"
+      },
+      "gapPhases": [
+        "salonika-cup"
+      ],
+      "humanApproved": false,
+      "id": "ayk-513",
+      "ingest": false,
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "keywords": [
+        "Mareşal Foch",
+        "Kolağası Mustafa Kemal",
+        "Tatbikat",
+        "Picardie"
+      ],
+      "matchedGaps": [
+        {
+          "directCount": 0,
+          "label": "Selanik, İttihat ve Terakki, Hareket Ordusu",
+          "phaseId": "salonika-cup",
+          "status": "context-only"
+        }
+      ],
+      "period": "1910",
+      "phaseLabels": [
+        "Selanik, İttihat ve Terakki, Hareket Ordusu"
+      ],
+      "policyViolation": null,
+      "priority": "medium",
+      "publishedAt": "2021-02-23",
+      "rightsNotes": "Sayfaya bağlantı verilebilir; yeniden kullanım hakkı doğrulanmadı.",
+      "sourceId": "AYK-513",
+      "status": "unverified",
+      "title": "Picardie Manevraları",
+      "titleCollisionIds": [],
+      "url": "https://www.ataturkansiklopedisi.gov.tr/detay/513/picardie-manevralari",
+      "urlCheck": {
+        "error": null,
+        "finalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/513/picardie-manevralari",
+        "httpStatus": 200,
+        "status": "ok"
+      },
+      "verificationNotes": "Aday kaynak; Atatürk'ün manevradaki rolü bağımsız kaynakla doğrulanmalı.",
+      "verificationRequired": true,
+      "whyCandidate": "Selanik/İttihat evresinin uluslararası askerî gözlem ayağını temsil eder; doğrudan Atatürk biyografisi için bağlam sağlar."
+    },
+    {
+      "archiveIdentifier": "AYK-706",
+      "author": "İhsan Şerif Kaymaz",
+      "coverageType": "context",
+      "definition": "1889'da kurulan, I. Dünya Savaşı'nda etkin rol alan siyasal örgüt.",
+      "discovery": {
+        "discoveredAt": "2026-10-23",
+        "method": "AYK kamuya açık katalog/API taraması",
+        "query": "İttihat ve Terakki, II. Meşrutiyet"
+      },
+      "gapPhases": [
+        "salonika-cup"
+      ],
+      "humanApproved": false,
+      "id": "ayk-706",
+      "ingest": false,
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "keywords": [
+        "I. Dünya Savaşı",
+        "Milli Mücadele",
+        "II. Abdülhamid",
+        "II. Meşrutiyet"
+      ],
+      "matchedGaps": [
+        {
+          "directCount": 0,
+          "label": "Selanik, İttihat ve Terakki, Hareket Ordusu",
+          "phaseId": "salonika-cup",
+          "status": "context-only"
+        }
+      ],
+      "period": "1889-1918",
+      "phaseLabels": [
+        "Selanik, İttihat ve Terakki, Hareket Ordusu"
+      ],
+      "policyViolation": null,
+      "priority": "medium",
+      "publishedAt": "2020-11-25",
+      "rightsNotes": "Sayfaya bağlantı verilebilir; yeniden kullanım hakkı doğrulanmadı.",
+      "sourceId": "AYK-706",
+      "status": "unverified",
+      "title": "İttihat ve Terakki Cemiyeti / Fırkası",
+      "titleCollisionIds": [],
+      "url": "https://www.ataturkansiklopedisi.gov.tr/detay/706/ittihat-ve-terakki-cemiyeti-firkasi",
+      "urlCheck": {
+        "error": null,
+        "finalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/706/ittihat-ve-terakki-cemiyeti-firkasi",
+        "httpStatus": 200,
+        "status": "ok"
+      },
+      "verificationNotes": "Bağlam adayı; Atatürk ile ilişkisi ayrıca doğrulanmalı.",
+      "verificationRequired": true,
+      "whyCandidate": "1908-1911 Selanik/İttihat evresinin siyasal bağlamını sağlar; doğrudan Atatürk biyografisi değildir."
+    }
+  ],
+  "discoveredAt": "2026-10-23",
+  "filtered": [],
+  "phaseCoverage": [
+    {
+      "broadCount": 1,
+      "candidateCoverage": "dedicated",
+      "candidateIds": [
+        "AYK-243",
+        "AYK-4899"
+      ],
+      "candidateTitles": [
+        "Şemsi Efendi Mektebi",
+        "Atatürk, Gazi Mustafa Kemal (1881-10 Kasım 1938)"
+      ],
+      "contextCount": 0,
+      "dedicatedCount": 1,
+      "directCount": 0,
+      "inPeriodRecordCount": 1,
+      "label": "Doğum, Selanik ve ilk eğitim",
+      "phaseId": "birth-childhood"
+    },
+    {
+      "broadCount": 1,
+      "candidateCoverage": "broad-only",
+      "candidateIds": [
+        "AYK-4899"
+      ],
+      "candidateTitles": [
+        "Atatürk, Gazi Mustafa Kemal (1881-10 Kasım 1938)"
+      ],
+      "contextCount": 0,
+      "dedicatedCount": 0,
+      "directCount": 0,
+      "inPeriodRecordCount": 0,
+      "label": "Manastır, Harp Okulu ve Erkân-ı Harbiye",
+      "phaseId": "military-education"
+    },
+    {
+      "broadCount": 1,
+      "candidateCoverage": "broad-only",
+      "candidateIds": [
+        "AYK-4899"
+      ],
+      "candidateTitles": [
+        "Atatürk, Gazi Mustafa Kemal (1881-10 Kasım 1938)"
+      ],
+      "contextCount": 0,
+      "dedicatedCount": 0,
+      "directCount": 0,
+      "inPeriodRecordCount": 0,
+      "label": "Şam ve erken subaylık",
+      "phaseId": "early-officer"
+    },
+    {
+      "broadCount": 1,
+      "candidateCoverage": "dedicated",
+      "candidateIds": [
+        "AYK-4899",
+        "AYK-617",
+        "AYK-160",
+        "AYK-513",
+        "AYK-706"
+      ],
+      "candidateTitles": [
+        "Atatürk, Gazi Mustafa Kemal (1881-10 Kasım 1938)",
+        "Hareket Ordusu ve Kurmay Yüzbaşı Mustafa Kemal",
+        "31 Mart Vakası",
+        "Picardie Manevraları",
+        "İttihat ve Terakki Cemiyeti / Fırkası"
+      ],
+      "contextCount": 2,
+      "dedicatedCount": 2,
+      "directCount": 0,
+      "inPeriodRecordCount": 1,
+      "label": "Selanik, İttihat ve Terakki, Hareket Ordusu",
+      "phaseId": "salonika-cup"
+    },
+    {
+      "broadCount": 1,
+      "candidateCoverage": "dedicated",
+      "candidateIds": [
+        "AYK-407",
+        "AYK-4899",
+        "AYK-685"
+      ],
+      "candidateTitles": [
+        "Trablusgarp Savaşı'nda Atatürk",
+        "Atatürk, Gazi Mustafa Kemal (1881-10 Kasım 1938)",
+        "Balkan Savaşı'nda Atatürk"
+      ],
+      "contextCount": 0,
+      "dedicatedCount": 2,
+      "directCount": 0,
+      "inPeriodRecordCount": 1,
+      "label": "Trablusgarp ve Balkan Savaşları",
+      "phaseId": "tripoli-balkan"
+    },
+    {
+      "broadCount": 1,
+      "candidateCoverage": "dedicated",
+      "candidateIds": [
+        "AYK-388",
+        "AYK-4899"
+      ],
+      "candidateTitles": [
+        "Mustafa Kemal'in Sofya Ataşemiliterliği",
+        "Atatürk, Gazi Mustafa Kemal (1881-10 Kasım 1938)"
+      ],
+      "contextCount": 0,
+      "dedicatedCount": 1,
+      "directCount": 0,
+      "inPeriodRecordCount": 0,
+      "label": "Sofya Ataşemiliterliği",
+      "phaseId": "sofia"
+    },
+    {
+      "broadCount": 1,
+      "candidateCoverage": "dedicated",
+      "candidateIds": [
+        "AYK-291",
+        "AYK-4078",
+        "AYK-4084",
+        "AYK-4899",
+        "AYK-1025"
+      ],
+      "candidateTitles": [
+        "Sina ve Filistin Cephesi'nde Atatürk",
+        "Birinci Dünya Savaşı'nda Mustafa Kemal (Atatürk)",
+        "Çanakkale Cephesi'nde Mustafa Kemal (Atatürk)",
+        "Atatürk, Gazi Mustafa Kemal (1881-10 Kasım 1938)",
+        "Hicaz Cephesi"
+      ],
+      "contextCount": 1,
+      "dedicatedCount": 3,
+      "directCount": 0,
+      "inPeriodRecordCount": 1,
+      "label": "Çanakkale, Doğu ve Sina-Filistin cepheleri",
+      "phaseId": "wwi"
+    }
+  ],
+  "policy": {
+    "archiveWritePaths": [
+      "data/archive/catalog",
+      "content/archive/records"
+    ],
+    "filtering": "Arşivde aynı kurum kimliği, URL veya normalize URL bulunan adaylar listeye alınmaz.",
+    "ingest": false,
+    "manualVerification": "Her aday için insan uzman; kaynak sayfası, tarih, künye, telif ve arşiv uygunluğunu doğrulamalıdır.",
+    "neverIngestAutomatically": true,
+    "status": "Adaylar doğrulanmamıştır; arşiv kaydı değildir."
+  },
+  "policyViolations": [],
+  "schemaVersion": "1.0.0",
+  "summary": {
+    "broadCandidates": 1,
+    "broadOnlyPhases": 2,
+    "byCoverageType": [
+      {
+        "count": 9,
+        "key": "dedicated"
+      },
+      {
+        "count": 3,
+        "key": "context"
+      },
+      {
+        "count": 1,
+        "key": "broad"
+      }
+    ],
+    "byPriority": [
+      {
+        "count": 9,
+        "key": "high"
+      },
+      {
+        "count": 4,
+        "key": "medium"
+      }
+    ],
+    "contextCandidates": 3,
+    "dedicatedCandidates": 9,
+    "eligibleCandidates": 13,
+    "filteredAlreadyInArchive": 0,
+    "highPriority": 9,
+    "humanApproved": 0,
+    "lowPriority": 0,
+    "mediumPriority": 4,
+    "phasesWithCandidates": 7,
+    "phasesWithoutCandidates": 0,
+    "policyViolations": 0,
+    "seedCandidates": 13,
+    "unverified": 13
+  }
+}
