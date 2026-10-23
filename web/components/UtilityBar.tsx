@@ -1,5 +1,18 @@
-type UtilityBarProps = { dateLabel: string; quote: string; onSearch?: () => void };
+"use client";
 
-export function UtilityBar({ dateLabel, quote, onSearch }: UtilityBarProps) {
-  return <aside aria-label="Yardımcı gezinme"><time>{dateLabel}</time><q>{quote}</q><button type="button" onClick={onSearch}>Arşivde ara</button></aside>;
+import { useState } from "react";
+import { Icon } from "./Icon";
+
+export function UtilityBar({ onSearch }: { onSearch: () => void }) {
+  const [highContrast, setHighContrast] = useState(false);
+  const [dateLabel] = useState(() => new Intl.DateTimeFormat("tr-TR", { day: "numeric", month: "long", year: "numeric", weekday: "long", timeZone: "Europe/Istanbul" }).format(new Date()));
+
+  function toggleContrast() {
+    setHighContrast((current) => {
+      document.body.classList.toggle("high-contrast", !current);
+      return !current;
+    });
+  }
+
+  return <div className="utility-bar"><div className="container utility-inner"><div className="utility-date"><Icon name="calendar" size={14} /><time suppressHydrationWarning>{dateLabel}</time></div><p className="utility-quote">Bağımsız tarih ve kültür platformu • Kaynak denetimli içerik</p><div className="utility-right"><button className="plain-icon a11y-btn" type="button" aria-label="Yüksek kontrast modunu aç veya kapat" aria-pressed={highContrast} onClick={toggleContrast}><Icon name="contrast" size={14} /><span>Erişilebilirlik</span></button><span className="utility-divider" aria-hidden="true" /><span className="lang-item active" aria-label="Etkin dil Türkçe">TR</span><span className="utility-divider" aria-hidden="true" /><button className="plain-icon icon-only-btn" type="button" aria-label="Sitede ara" onClick={onSearch}><Icon name="search" size={14} /></button></div></div></div>;
 }

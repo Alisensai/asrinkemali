@@ -1,15 +1,11 @@
+import Link from "next/link";
 import { Archive } from "@/components/Archive";
 import { Chronology } from "@/components/Chronology";
-import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
-import { Masthead } from "@/components/Masthead";
-import { Navigation } from "@/components/Navigation";
 import { Publications } from "@/components/Publications";
-import { SearchDialog } from "@/components/SearchDialog";
 import { ShortcutGrid } from "@/components/ShortcutGrid";
-import { UtilityBar } from "@/components/UtilityBar";
-import { chronology, heroSlides, primaryNavigation, publications, shortcuts } from "@/lib/site-data";
+import { archiveCollections, chronology, heroSlides, publications, shortcuts } from "@/lib/site-data";
 
 export default function HomePage() {
-  return <main><UtilityBar dateLabel="23 Ekim" quote="Kaynak doğrulaması önceliğimizdir." /><Masthead title="ASRIN KEMALİ" motto="Bir asrın mirası, sonsuzluğun hafızası" /><Navigation items={primaryNavigation} /><SearchDialog /><Hero slide={heroSlides[0]} /><ShortcutGrid items={shortcuts} /><Publications items={publications} /><Chronology entries={chronology} /><Archive records={[]} /><Footer /></main>;
+  return <main id="icerik"><Hero slides={heroSlides} /><ShortcutGrid items={shortcuts} /><div className="container content-grid"><Publications items={publications} /><Chronology entries={chronology} /></div><Archive collections={archiveCollections} /><section className="statement-section"><div className="container statement-inner"><div className="statement-mark" aria-hidden="true">MKA</div><div className="statement-content"><div className="eyebrow">HAKKIMIZDA</div><h2>Tarihî hafıza, güvenilir kaynaklarla yaşar.</h2><p>Asrın Kemali, Mustafa Kemal Atatürk&apos;e ilişkin tarih, kültür ve arşiv çalışmalarına odaklanan bağımsız bir dijital projedir. Kamu kurumu, resmî enstitü veya mevcut bir dernek değildir.</p><Link href="/hakkimizda" className="text-link">Proje ilkelerimizi okuyun →</Link></div></div></section><section className="lower-sections container"><article><span className="eyebrow">GELECEK ÇALIŞMALAR</span><h2>ARAŞTIRMA VE SÖYLEŞİLER</h2><p>Uzman katkıları ve tarih söyleşileri için planlanan alan henüz faal değildir.</p></article><article><span className="eyebrow">DUYURULAR</span><h2>ETKİNLİK TAKVİMİ</h2><p>Doğrulanmış düzenleyici, tarih ve katılım bilgisi bulunan etkinlikler yayımlandığında burada yer alacaktır.</p></article></section></main>;
 }
