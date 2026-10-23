@@ -1,6 +1,9 @@
 import csv
+from contextlib import redirect_stdout
 from datetime import date, datetime, timezone
+import io
 import json
+import os
 from pathlib import Path
 import sys
 import tempfile
@@ -71,7 +74,10 @@ class EditorialReviewTests(unittest.TestCase):
         return path
 
     def test_inventory_reads_both_archive_roots(self):
-        self.write_record(sample_record(id="record-two"), self.catalog_dir / "record-two.json")
+        self.write_record(
+            sample_record(id="record-two", slug="record-two"),
+            self.catalog_dir / "record-two.json",
+        )
         report = editorial_review.build_inventory(self.root, today=TODAY)
         self.assertEqual(report["summary"]["record_count"], 2)
         self.assertEqual({row["record_id"] for row in report["records"]}, {"record-one", "record-two"})
@@ -279,6 +285,204 @@ class EditorialReviewTests(unittest.TestCase):
         self.assertEqual(json.loads((self.reports_dir / "inventory.json").read_text())["summary"]["record_count"], 1)
         self.assertIn("record-one", (self.reports_dir / "inventory.md").read_text())
         self.assertTrue((self.reports_dir / "inventory.csv").is_file())
+
+    def test_priority_report_orders_source_date_quote_and_rights_risks(self):
+        source_gap = sample_record(id="source-gap")
+        source_gap["source"].update(url="", citation="", title="", note="")
+        self.write_record(source_gap, self.catalog_dir / "source-gap.json")
+        date_gap = sample_record(id="date-gap", date={"precision": "unknown", "certainty": "unknown"})
+        date_gap["date"] = {"precision": "broken"}
+        self.write_record(date_gap, self.catalog_dir / "date-gap.json")
+        quote_gap = sample_record(
+            id="quote-gap",
+            quotation={"text": "Kaynağı belirtilmeyen alıntı"},
+        )
+        self.write_record(quote_gap, self.catalog_dir / "quote-gap.json")
+        rights_gap = sample_record(id="rights-gap", rights={"status": "unknown"})
+        self.write_record(rights_gap, self.catalog_dir / "rights-gap.json")
+
+        report = editorial_review.build_inventory(self.root, today=TODAY)
+        priorities = {row["record_id"]: row["review_priority"] for row in report["records"]}
+        self.assertEqual(priorities["source-gap"]["level"], "P0")
+        self.assertEqual(priorities["date-gap"]["level"], "P0")
+        self.assertEqual(priorities["quote-gap"]["level"], "P0")
+        self.assertEqual(priorities["rights-gap"]["level"], "P1")
+        self.assertEqual(priorities["record-one"]["level"], "P3")
+        self.assertEqual(priorities["record-one"]["human_expert_review_status"], "ai_review_only")
+        self.assertEqual(
+            priorities["record-one"]["human_publication_approval_status"],
+            "pending",
+        )
+
+    def test_schema_report_diffs_archive_versions_and_form_schema_independently(self):
+        old_schema = sample_record(id="old-schema", schemaVersion="1.0.0")
+        new_schema = sample_record(id="new-schema", schemaVersion="1.1.0", provenance=[])
+        self.write_record(old_schema, self.catalog_dir / "old-schema.json")
+        self.write_record(new_schema, self.catalog_dir / "new-schema.json")
+
+        schema_report = editorial_review.build_inventory(
+            self.root, today=TODAY
+        )["schema_compatibility"]
+        self.assertEqual(
+            schema_report["archive_schema_version_counts"],
+            {"(missing)": 1, "1.0.0": 1, "1.1.0": 1},
+        )
+        self.assertIn(
+            "provenance",
+            schema_report["archive_fields_by_version"]["1.1.0"],
+        )
+        self.assertEqual(
+            schema_report["editorial_form_schema_version_expected"],
+            editorial_review.FORM_SCHEMA_VERSION,
+        )
+        self.assertIn("ayrı sürüm alanlarıdır", schema_report["interpretation"])
+
+    def test_update_adds_only_missing_forms_and_writes_all_report_formats(self):
+        self.write_record(
+            sample_record(id="record-two", slug="record-two"),
+            self.catalog_dir / "record-two.json",
+        )
+        first_output = io.StringIO()
+        with redirect_stdout(first_output):
+            exit_code = editorial_review.main([
+                "update",
+                "--root", str(self.root),
+                "--forms-dir", str(self.forms_dir),
+                "--output-dir", str(self.reports_dir),
+            ])
+        first = json.loads(first_output.getvalue())
+        self.assertEqual(exit_code, 0)
+        self.assertEqual(first["created_form_count"], len(first["created_form_ids"]))
+        self.assertEqual(first["inventory_summary"]["record_count"], 2)
+        self.assertEqual(first["form_validation"]["pending_count"], 2)
+        self.assertEqual(first["findings"], [])
+        expected_count = first["inventory_summary"]["record_count"]
+        priority_json = json.loads(
+            (self.reports_dir / "review-priority.json").read_text()
+        )
+        self.assertEqual(priority_json["record_count"], expected_count)
+        self.assertEqual(
+            priority_json["human_expert_review_pending_count"],
+            first["inventory_summary"]["human_review_missing_count"],
+        )
+        self.assertEqual(
+            priority_json["human_publication_approval_pending_count"],
+            first["inventory_summary"]["publication_approval_pending_count"],
+        )
+        self.assertEqual(
+            json.loads((self.reports_dir / "schema-compatibility.json").read_text())["archive_record_count"],
+            expected_count,
+        )
+        self.assertIn(
+            "## Arşiv kayıt şemaları",
+            (self.reports_dir / "schema-compatibility.md").read_text(encoding="utf-8"),
+        )
+        for stem in ("inventory", "review-priority", "schema-compatibility"):
+            self.assertTrue((self.reports_dir / f"{stem}.json").is_file())
+            self.assertTrue((self.reports_dir / f"{stem}.csv").is_file())
+            self.assertTrue((self.reports_dir / f"{stem}.md").is_file())
+            self.assertTrue((self.reports_dir / f"{stem}.md").read_text(encoding="utf-8").strip())
+        for stem in ("inventory", "review-priority", "schema-compatibility"):
+            with (self.reports_dir / f"{stem}.csv").open(
+                encoding="utf-8-sig", newline=""
+            ) as stream:
+                self.assertTrue(list(csv.DictReader(stream)))
+
+        second_output = io.StringIO()
+        with redirect_stdout(second_output):
+            exit_code = editorial_review.main([
+                "update",
+                "--root", str(self.root),
+                "--forms-dir", str(self.forms_dir),
+                "--output-dir", str(self.reports_dir),
+            ])
+        second = json.loads(second_output.getvalue())
+        self.assertEqual(exit_code, 0)
+        self.assertEqual(second["created_form_count"], 0)
+        self.assertEqual(second["preserved_form_count"], 2)
+        with (self.reports_dir / "review-priority.csv").open(
+            encoding="utf-8-sig", newline=""
+        ) as stream:
+            self.assertEqual(len(list(csv.DictReader(stream))), second["inventory_summary"]["record_count"])
+
+    def test_update_preserves_submitted_human_expert_form_byte_for_byte(self):
+        record = sample_record()
+        editorial_review.create_forms(self.root, self.forms_dir)
+        form_path = self.forms_dir / "record-one.json"
+        form = self._approved_form(record)
+        form_path.write_text(json.dumps(form, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        before = form_path.read_bytes()
+
+        result = editorial_review.update_inventory(self.root, self.forms_dir, self.reports_dir)
+
+        self.assertEqual(form_path.read_bytes(), before)
+        self.assertEqual(result["created_form_count"], 0)
+        self.assertEqual(result["preserved_form_count"], 1)
+
+    @unittest.skipUnless(
+        os.environ.get("EDITORIAL_ARCHIVE_TEST_ROOT"),
+        "Set EDITORIAL_ARCHIVE_TEST_ROOT to run the external archive snapshot integration test.",
+    )
+    def test_external_archive_snapshot_scales_forms_schema_and_reports(self):
+        archive_root = Path(os.environ["EDITORIAL_ARCHIVE_TEST_ROOT"]).resolve()
+        loaded, findings = editorial_review.load_records(archive_root)
+        self.assertTrue(loaded)
+        self.assertEqual(findings, [])
+        with tempfile.TemporaryDirectory() as temporary:
+            temporary_path = Path(temporary)
+            forms_dir = temporary_path / "forms"
+            reports_dir = temporary_path / "reports"
+            result = editorial_review.update_inventory(archive_root, forms_dir, reports_dir)
+
+            expected_count = len(loaded)
+            self.assertEqual(result["inventory_summary"]["record_count"], expected_count)
+            self.assertEqual(result["form_validation"]["record_count"], expected_count)
+            self.assertEqual(result["form_validation"]["form_count"], expected_count)
+            self.assertEqual(result["form_validation"]["pending_count"], expected_count)
+            self.assertEqual(result["created_form_count"], expected_count)
+            self.assertEqual(result["schema_compatibility"]["archive_record_count"], expected_count)
+            self.assertEqual(
+                sum(result["schema_compatibility"]["archive_schema_version_counts"].values()),
+                expected_count,
+            )
+            self.assertEqual(result["form_validation"]["findings"], [])
+            with (reports_dir / "inventory.csv").open(encoding="utf-8-sig", newline="") as stream:
+                self.assertEqual(len(list(csv.DictReader(stream))), expected_count)
+            with (reports_dir / "review-priority.csv").open(
+                encoding="utf-8-sig", newline=""
+            ) as stream:
+                self.assertEqual(len(list(csv.DictReader(stream))), expected_count)
+            priority_json = json.loads(
+                (reports_dir / "review-priority.json").read_text(encoding="utf-8")
+            )
+            schema_json = json.loads(
+                (reports_dir / "schema-compatibility.json").read_text(encoding="utf-8")
+            )
+            self.assertEqual(priority_json["record_count"], expected_count)
+            self.assertEqual(len(priority_json["records"]), expected_count)
+            self.assertEqual(
+                priority_json["human_expert_review_pending_count"],
+                result["inventory_summary"]["human_review_missing_count"],
+            )
+            self.assertEqual(
+                priority_json["human_publication_approval_pending_count"],
+                result["inventory_summary"]["publication_approval_pending_count"],
+            )
+            self.assertEqual(schema_json["archive_record_count"], expected_count)
+            with (reports_dir / "schema-compatibility.csv").open(
+                encoding="utf-8-sig", newline=""
+            ) as stream:
+                schema_rows = list(csv.DictReader(stream))
+            self.assertEqual(
+                len(schema_rows),
+                len(schema_json["archive_schema_version_counts"])
+                + len(schema_json["editorial_form_schema_version_counts"]),
+            )
+            for stem in ("inventory", "review-priority", "schema-compatibility"):
+                self.assertTrue((reports_dir / f"{stem}.json").is_file())
+                self.assertTrue(
+                    (reports_dir / f"{stem}.md").read_text(encoding="utf-8").strip()
+                )
 
     def _approved_form(self, record, reviewer="Tarih uzmanı", editor="Yayın editörü"):
         form = editorial_review.create_review_form(self.path, self.root, record)

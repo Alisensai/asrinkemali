@@ -9,6 +9,7 @@ from datetime import date, datetime, timezone
 import hashlib
 import json
 import re
+from collections import Counter, defaultdict
 from pathlib import Path
 import sys
 from urllib.parse import urlsplit
@@ -38,6 +39,18 @@ FORM_FIELDS = {
 CHECK_VALUES = {"not_reviewed", "pass", "fail", "not_applicable"}
 OUTCOMES = {"pending", "approved", "correction_required", "rejected"}
 RIGHTS_UNCLEAR = {"unknown", "permission_required", "ai_representative", ""}
+SOURCE_GAP_ISSUES = {
+    "missing_source_institution",
+    "missing_source_url",
+    "invalid_source_url",
+    "missing_citation",
+}
+NON_METADATA_REVIEW_ISSUES = {
+    "human_expert_review_pending",
+    "human_editor_publication_approval_pending",
+    "review_form_missing",
+    "stale_record_snapshot",
+}
 
 
 def canonical_json(value: object) -> bytes:
@@ -230,6 +243,7 @@ def _record_row(path: Path, root: Path, record: dict) -> dict:
         "date_end": _text(date_info.get("end")),
         "date_precision": _text(date_info.get("precision")),
         "date_certainty": _text(date_info.get("certainty")),
+        "archive_schema_version": _text(record.get("schemaVersion")) or "(missing)",
         "source_institution": _text(source.get("institution")),
         "source_url": _text(source.get("url")),
         "citation": citation,
@@ -253,6 +267,82 @@ def _record_row(path: Path, root: Path, record: dict) -> dict:
         "record_path": path.relative_to(root).as_posix(),
         "record_snapshot_sha256": sha256_value(record),
         "_record": record,
+    }
+
+
+def _review_priority(row: dict, record: dict) -> dict:
+    issues = set(row["issues"])
+    dimensions = []
+    score = 0
+    urgent = False
+
+    source_issues = sorted(issues & SOURCE_GAP_ISSUES)
+    if source_issues:
+        dimensions.append({"area": "source_and_citation", "issues": source_issues, "weight": 4})
+        score += 4
+        urgent = True
+
+    date_issues = sorted(issues & {"missing_date", "invalid_date_metadata"})
+    if date_issues:
+        dimensions.append({"area": "date", "issues": date_issues, "weight": 4})
+        score += 4
+        urgent = True
+    elif row["date_certainty"] == "estimated" or row["date_precision"] == "unknown":
+        dimensions.append({
+            "area": "date",
+            "issues": ["estimated_or_unknown_date"],
+            "weight": 2,
+        })
+        score += 2
+
+    quotation = record.get("quotation")
+    if isinstance(quotation, dict) and quotation:
+        quote_source = quotation.get("source")
+        quote_url = quotation.get("sourceUrl")
+        if not _text(quote_source) and not _text(quote_url):
+            dimensions.append({
+                "area": "quotation",
+                "issues": ["quotation_source_missing"],
+                "weight": 5,
+            })
+            score += 5
+            urgent = True
+
+    if "rights_unclear" in issues:
+        dimensions.append({
+            "area": "rights",
+            "issues": ["reuse_or_copyright_status_unclear"],
+            "weight": 3,
+        })
+        score += 3
+
+    other_metadata_issues = sorted(
+        issues - SOURCE_GAP_ISSUES
+        - {"missing_date", "invalid_date_metadata", "rights_unclear"}
+        - NON_METADATA_REVIEW_ISSUES
+    )
+    if other_metadata_issues:
+        dimensions.append({
+            "area": "other_metadata",
+            "issues": other_metadata_issues,
+            "weight": 1,
+        })
+        score += 1
+
+    if urgent:
+        level = "P0"
+    elif score:
+        level = "P1"
+    elif other_metadata_issues:
+        level = "P2"
+    else:
+        level = "P3"
+    return {
+        "level": level,
+        "score": score,
+        "dimensions": dimensions,
+        "human_expert_review_status": row["human_expert_review_status"],
+        "human_publication_approval_status": row["human_publication_approval_status"],
     }
 
 
@@ -399,8 +489,11 @@ def build_inventory(
     today = today or datetime.now(timezone.utc).date()
     loaded, findings = load_records(root)
     rows = []
+    schema_fields: dict[str, set[str]] = defaultdict(set)
     for path, record in loaded:
         row = _record_row(path, root, record)
+        version = row["archive_schema_version"]
+        schema_fields[version].update(record.keys())
         form_status, form_errors = _load_review_state(forms_dir, row, record, today)
         row["human_form_status"] = form_status
         row["issues"].extend(form_errors)
@@ -408,6 +501,7 @@ def build_inventory(
         link_result = (link_results or {}).get(url_key, {"status": "not_checked"})
         row["source_access_status"] = link_result.get("status", "not_checked")
         row["source_access_detail"] = link_result
+        row["review_priority"] = _review_priority(row, record)
         rows.append(row)
     duplicate_candidates, source_conflicts = _pairwise_groups(rows)
     identifier_collisions = _identifier_collision_groups(rows)
@@ -455,6 +549,12 @@ def build_inventory(
         row["record_id"] for row in rows
         if row["human_publication_approval_status"] != "approval_claim_present_identity_unverified"
     ]
+    schema_compatibility = build_schema_compatibility(
+        loaded,
+        forms_dir,
+        {version: sorted(fields) for version, fields in schema_fields.items()},
+    )
+    priority_counts = Counter(row["review_priority"]["level"] for row in rows)
     summary = {
         "record_count": len(rows),
         "invalid_record_count": len(findings),
@@ -478,6 +578,7 @@ def build_inventory(
         "conflicting_source_group_count": len(source_conflicts),
         "publication_approval_pending_count": len(pending_publications),
         "publication_approval_pending_ids": pending_publications,
+        "review_priority_counts": dict(sorted(priority_counts.items())),
     }
     return {
         "schema_version": 1,
@@ -488,10 +589,70 @@ def build_inventory(
         "probable_duplicate_groups": duplicate_candidates,
         "identifier_collision_groups": identifier_collisions,
         "conflicting_source_groups": source_conflicts,
+        "schema_compatibility": schema_compatibility,
         "findings": findings,
         "historical_truth_limitation": (
             "URL syntax, prior sourceReachable claims, HTTP status, and a human-entered form do not independently "
             "prove document authenticity, historical correctness, attribution, rights, or reviewer identity."
+        ),
+    }
+
+
+def build_schema_compatibility(
+    loaded: list[tuple[Path, dict]],
+    forms_dir: Path | None,
+    archive_fields_by_version: dict[str, list[str]],
+) -> dict:
+    archive_versions = Counter(
+        _text(record.get("schemaVersion")) or "(missing)" for _, record in loaded
+    )
+    form_versions: Counter[str] = Counter()
+    form_errors = []
+    if forms_dir is not None and forms_dir.is_dir():
+        for path in sorted(forms_dir.rglob("*.json")):
+            try:
+                form = json.loads(path.read_text(encoding="utf-8"))
+            except (OSError, UnicodeError, json.JSONDecodeError):
+                form_versions["(invalid_json)"] += 1
+                form_errors.append(path.relative_to(forms_dir).as_posix())
+                continue
+            version = form.get("schema_version") if isinstance(form, dict) else None
+            form_versions[_text(version) or "(missing)"] += 1
+
+    fields_by_version = {
+        version: set(fields) for version, fields in archive_fields_by_version.items()
+    }
+    version_differences = []
+    versions = sorted(fields_by_version)
+    for version in versions:
+        other_fields = set().union(
+            *(fields_by_version[other] for other in versions if other != version)
+        ) if len(versions) > 1 else set()
+        version_differences.append({
+            "archive_schema_version": version,
+            "fields_unique_to_version": sorted(fields_by_version[version] - other_fields),
+            "fields_absent_from_version": sorted(other_fields - fields_by_version[version]),
+        })
+
+    unsupported_forms = sum(
+        count for version, count in form_versions.items()
+        if version != FORM_SCHEMA_VERSION
+    )
+    return {
+        "archive_record_count": len(loaded),
+        "archive_schema_version_counts": dict(sorted(archive_versions.items())),
+        "archive_fields_by_version": {
+            version: sorted(fields) for version, fields in sorted(fields_by_version.items())
+        },
+        "archive_version_field_differences": version_differences,
+        "editorial_form_schema_version_expected": FORM_SCHEMA_VERSION,
+        "editorial_form_schema_version_counts": dict(sorted(form_versions.items())),
+        "editorial_forms_with_unsupported_or_missing_schema_version": unsupported_forms,
+        "editorial_forms_with_invalid_json": len(form_errors),
+        "invalid_editorial_form_paths": form_errors,
+        "interpretation": (
+            "Arşiv kaydındaki schemaVersion ile editörlük formundaki schema_version ayrı sürüm alanlarıdır; "
+            "değerleri bağımsız raporlanır ve eşit olmaları beklenmez."
         ),
     }
 
@@ -713,6 +874,7 @@ def write_reports(inventory: dict, output_dir: Path) -> None:
     (output_dir / "inventory.json").write_text(public_inventory, encoding="utf-8")
     fields = [
         "record_id", "record_slug", "title", "type", "date_start", "date_end", "date_precision", "date_certainty",
+        "archive_schema_version", "review_priority", "priority_score", "priority_reasons",
         "source_institution", "source_url", "citation", "recorded_source_access_claim", "source_access_status",
         "rights_status", "ai_review_status", "human_expert_review_status", "human_form_status",
         "human_publication_approval_status", "verification_status", "quotation_present", "issues", "risk_flags",
@@ -723,16 +885,203 @@ def write_reports(inventory: dict, output_dir: Path) -> None:
         writer.writeheader()
         for row in inventory["records"]:
             safe_row = dict(row)
+            safe_row["review_priority"] = row["review_priority"]["level"]
+            safe_row["priority_score"] = row["review_priority"]["score"]
+            safe_row["priority_reasons"] = [
+                f"{item['area']}:{','.join(item['issues'])}"
+                for item in row["review_priority"]["dimensions"]
+            ]
             for field in fields:
-                value = safe_row.get(field, "")
-                if isinstance(value, list):
-                    value = "; ".join(str(item) for item in value)
-                value = str(value)
-                if value.lstrip(" \t\r\n").startswith(("=", "+", "-", "@")):
-                    value = "'" + value
-                safe_row[field] = value
+                safe_row[field] = _csv_safe_value(safe_row.get(field, ""))
             writer.writerow(safe_row)
     (output_dir / "inventory.md").write_text(render_markdown(inventory), encoding="utf-8")
+    write_priority_reports(inventory, output_dir)
+    write_schema_compatibility_reports(inventory["schema_compatibility"], output_dir)
+
+
+def _csv_safe_value(value: object) -> str:
+    if isinstance(value, list):
+        value = "; ".join(str(item) for item in value)
+    result = str(value)
+    return "'" + result if result.lstrip(" \t\r\n").startswith(("=", "+", "-", "@")) else result
+
+
+def write_priority_reports(inventory: dict, output_dir: Path) -> None:
+    level_order = {"P0": 0, "P1": 1, "P2": 2, "P3": 3}
+    priority_rows = sorted(
+        inventory["records"],
+        key=lambda row: (
+            level_order.get(row["review_priority"]["level"], 99),
+            -row["review_priority"]["score"],
+            row["record_id"].casefold(),
+        ),
+    )
+    report = {
+        "generated_at": inventory["generated_at"],
+        "record_count": len(priority_rows),
+        "priority_counts": inventory["summary"]["review_priority_counts"],
+        "human_expert_review_pending_count": inventory["summary"]["human_review_missing_count"],
+        "human_publication_approval_pending_count": inventory["summary"][
+            "publication_approval_pending_count"
+        ],
+        "records": [
+            {
+                "record_id": row["record_id"],
+                "title": row["title"],
+                "record_path": row["record_path"],
+                "priority": row["review_priority"],
+                "source_citation": row["citation"],
+                "date": {
+                    "start": row["date_start"],
+                    "end": row["date_end"],
+                    "precision": row["date_precision"],
+                    "certainty": row["date_certainty"],
+                },
+                "quotation_present": row["quotation_present"],
+                "rights_status": row["rights_status"],
+            }
+            for row in priority_rows
+        ],
+        "priority_method": (
+            "P0: kaynak/künye veya tarih eksik/geçersiz ya da atfedilen alıntının kaynak bilgisi yok; "
+            "P1: hak durumu belirsiz veya tarih tahmini/bilinmiyor; P2: diğer kayıtlı metadata eksikleri; "
+            "P3: metadata eksiği saptanmadı. Bu sıralama tarihî hüküm veya onay değildir."
+        ),
+    }
+    (output_dir / "review-priority.json").write_text(
+        json.dumps(report, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    fields = [
+        "record_id", "title", "priority", "score", "dimensions", "source_citation",
+        "date_start", "date_end", "date_precision", "date_certainty", "quotation_present",
+        "rights_status", "human_expert_review_status", "human_publication_approval_status",
+        "record_path",
+    ]
+    with (output_dir / "review-priority.csv").open("w", encoding="utf-8-sig", newline="") as stream:
+        writer = csv.DictWriter(stream, fieldnames=fields)
+        writer.writeheader()
+        for row in priority_rows:
+            priority = row["review_priority"]
+            values = {
+                "record_id": row["record_id"],
+                "title": row["title"],
+                "priority": priority["level"],
+                "score": priority["score"],
+                "dimensions": [
+                    f"{item['area']}:{','.join(item['issues'])}"
+                    for item in priority["dimensions"]
+                ],
+                "source_citation": row["citation"],
+                "date_start": row["date_start"],
+                "date_end": row["date_end"],
+                "date_precision": row["date_precision"],
+                "date_certainty": row["date_certainty"],
+                "quotation_present": row["quotation_present"],
+                "rights_status": row["rights_status"],
+                "human_expert_review_status": priority["human_expert_review_status"],
+                "human_publication_approval_status": priority["human_publication_approval_status"],
+                "record_path": row["record_path"],
+            }
+            writer.writerow({key: _csv_safe_value(value) for key, value in values.items()})
+
+    lines = [
+        "# İnsan incelemesi öncelik raporu",
+        "",
+        f"- **Kayıt:** {report['record_count']}",
+        f"- **Öncelik dağılımı:** {', '.join(f'{key}={value}' for key, value in report['priority_counts'].items())}",
+        f"- **İnsan uzman incelemesi bekleyen:** {report['human_expert_review_pending_count']}",
+        f"- **İnsan editör yayın onayı bekleyen:** {report['human_publication_approval_pending_count']}",
+        "",
+        f"> {report['priority_method']}",
+        "",
+        "| Öncelik | Puan | Kayıt | İncelenecek alanlar |",
+        "|---|---:|---|---|",
+    ]
+    for row in priority_rows:
+        priority = row["review_priority"]
+        dimensions = "; ".join(
+            f"{item['area']}: {', '.join(item['issues'])}"
+            for item in priority["dimensions"]
+        ) or "Otomatik metadata açığı saptanmadı; insan uzman incelemesi yine zorunlu."
+        lines.append(
+            f"| {priority['level']} | {priority['score']} | "
+            f"`{_md_escape(row['record_id'])}` — {_md_escape(row['title'])} | {_md_escape(dimensions)} |"
+        )
+    (output_dir / "review-priority.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def write_schema_compatibility_reports(schema_report: dict, output_dir: Path) -> None:
+    (output_dir / "schema-compatibility.json").write_text(
+        json.dumps(schema_report, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    fields = [
+        "schema_domain", "schema_version", "record_count", "fields_unique_to_version",
+        "fields_absent_from_version",
+    ]
+    with (output_dir / "schema-compatibility.csv").open("w", encoding="utf-8-sig", newline="") as stream:
+        writer = csv.DictWriter(stream, fieldnames=fields)
+        writer.writeheader()
+        archive_counts = schema_report["archive_schema_version_counts"]
+        differences = {
+            item["archive_schema_version"]: item
+            for item in schema_report["archive_version_field_differences"]
+        }
+        for version, count in archive_counts.items():
+            difference = differences.get(version, {})
+            writer.writerow({
+                "schema_domain": "archive_record",
+                "schema_version": _csv_safe_value(version),
+                "record_count": count,
+                "fields_unique_to_version": _csv_safe_value(
+                    difference.get("fields_unique_to_version", [])
+                ),
+                "fields_absent_from_version": _csv_safe_value(
+                    difference.get("fields_absent_from_version", [])
+                ),
+            })
+        for version, count in schema_report["editorial_form_schema_version_counts"].items():
+            writer.writerow({
+                "schema_domain": "editorial_form",
+                "schema_version": _csv_safe_value(version),
+                "record_count": count,
+                "fields_unique_to_version": "",
+                "fields_absent_from_version": "",
+            })
+
+    lines = [
+        "# Arşiv ve inceleme formu şema uyumluluğu",
+        "",
+        "## Arşiv kayıt şemaları",
+        "",
+        "| Arşiv sürümü | Kayıt | Sürüme özgü alanlar | Diğer sürümlerde bulunan fakat burada olmayan alanlar |",
+        "|---|---:|---|---|",
+    ]
+    differences = {
+        item["archive_schema_version"]: item
+        for item in schema_report["archive_version_field_differences"]
+    }
+    for version, count in schema_report["archive_schema_version_counts"].items():
+        difference = differences.get(version, {})
+        lines.append(
+            f"| `{_md_escape(version)}` | {count} | "
+            f"{_md_escape(', '.join(difference.get('fields_unique_to_version', [])) or '—')} | "
+            f"{_md_escape(', '.join(difference.get('fields_absent_from_version', [])) or '—')} |"
+        )
+    lines.extend([
+        "",
+        "## Editörlük formu şeması",
+        "",
+        f"- Beklenen editörlük formu sürümü: `{_md_escape(schema_report['editorial_form_schema_version_expected'])}`",
+        f"- Form sürümlerinin dağılımı: {_md_escape(', '.join(f'{version}={count}' for version, count in schema_report['editorial_form_schema_version_counts'].items()) or 'form yok')}",
+        f"- Eksik veya desteklenmeyen sürümlü form sayısı: "
+        f"{schema_report['editorial_forms_with_unsupported_or_missing_schema_version']}",
+        f"- JSON olarak okunamayan form sayısı: {schema_report['editorial_forms_with_invalid_json']}",
+        "",
+        f"> {schema_report['interpretation']}",
+    ])
+    (output_dir / "schema-compatibility.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 def render_markdown(inventory: dict) -> str:
@@ -753,6 +1102,9 @@ def render_markdown(inventory: dict) -> str:
         f"- **Yinelenen ID/slug grubu:** {summary['record_identifier_collision_group_count']}",
         f"- **Çelişkili kaynak grubu:** {summary['conflicting_source_group_count']}",
         f"- **Yayın onayı bekleyen:** {summary['publication_approval_pending_count']}",
+        f"- **İnceleme önceliği:** {', '.join(f'{key}={value}' for key, value in summary['review_priority_counts'].items())}",
+        f"- **Arşiv şema sürümleri:** "
+        f"{', '.join(f'{key}={value}' for key, value in inventory['schema_compatibility']['archive_schema_version_counts'].items())}",
         "",
         "> Bu envanter otomatik triage aracıdır. URL biçimi/HTTP cevabı tarihsel doğruluk, özgünlük, telif veya "
         "insan kimliği kanıtı değildir. İnsan uzman incelemesi olmadan yayın onayı verilmez.",
@@ -817,7 +1169,8 @@ def render_markdown(inventory: dict) -> str:
     if inventory["findings"]:
         lines.extend(["", "## Girdi dosyası bulguları", ""])
         lines.extend(
-            f"- **{finding['severity']}** `{finding['code']}` — `{finding['path']}` "
+            f"- **{finding['severity']}** `{finding['code']}` — "
+            f"`{finding.get('path', ', '.join(finding.get('paths', [])))}` "
             f"{_md_escape(finding.get('message', ''))}"
             for finding in inventory["findings"]
         )
@@ -901,6 +1254,34 @@ def validate_forms(root: Path, forms_dir: Path, today: date | None = None) -> di
     }
 
 
+def update_inventory(root: Path, forms_dir: Path, output_dir: Path) -> dict:
+    form_update = create_forms(root, forms_dir)
+    inventory = build_inventory(root, forms_dir=forms_dir)
+    write_reports(inventory, output_dir)
+    form_validation = validate_forms(root, forms_dir)
+    findings = [
+        *form_update["findings"],
+        *inventory["findings"],
+        *form_validation["findings"],
+    ]
+    return {
+        "created_form_count": len(form_update["created"]),
+        "created_form_ids": form_update["created"],
+        "preserved_form_count": len(form_update["preserved"]),
+        "skipped_form_count": len(form_update["skipped"]),
+        "skipped_forms": form_update["skipped"],
+        "inventory_summary": inventory["summary"],
+        "schema_compatibility": inventory["schema_compatibility"],
+        "form_validation": form_validation,
+        "report_files": [
+            "inventory.json", "inventory.csv", "inventory.md",
+            "review-priority.json", "review-priority.csv", "review-priority.md",
+            "schema-compatibility.json", "schema-compatibility.csv", "schema-compatibility.md",
+        ],
+        "findings": findings,
+    }
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Tarihî arşiv editörlük envanteri ve insan inceleme araçları.")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -916,6 +1297,13 @@ def main(argv: list[str] | None = None) -> int:
     forms_parser = subparsers.add_parser("create-forms", help="Eksik insan inceleme formlarını pending durumunda oluştur.")
     forms_parser.add_argument("--root", type=Path, default=Path("."))
     forms_parser.add_argument("--forms-dir", type=Path, default=Path("docs/editorial/forms"))
+    update_parser = subparsers.add_parser(
+        "update",
+        help="Yeni kayıt formlarını eklemeden, envanter, öncelik ve şema raporlarını yenile.",
+    )
+    update_parser.add_argument("--root", type=Path, default=Path("."))
+    update_parser.add_argument("--forms-dir", type=Path, default=Path("docs/editorial/forms"))
+    update_parser.add_argument("--output-dir", type=Path, default=Path("docs/editorial/reports"))
     validate_parser = subparsers.add_parser("validate-forms", help="İnceleme formlarını salt okunur doğrula.")
     validate_parser.add_argument("--root", type=Path, default=Path("."))
     validate_parser.add_argument("--forms-dir", type=Path, default=Path("docs/editorial/forms"))
@@ -925,6 +1313,14 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.command == "create-forms":
         result = create_forms(args.root.resolve(), args.forms_dir.resolve())
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return 1 if result["findings"] else 0
+    if args.command == "update":
+        result = update_inventory(
+            args.root.resolve(),
+            args.forms_dir.resolve(),
+            args.output_dir.resolve(),
+        )
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return 1 if result["findings"] else 0
     if args.command == "validate-forms":

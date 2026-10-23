@@ -1,6 +1,6 @@
 # Tarihî arşiv editörlük envanteri
 
-- **Üretim zamanı (UTC):** 2026-10-23T15:03:39.502666+00:00
+- **Üretim zamanı (UTC):** 2026-10-23T17:08:35.693839+00:00
 - **Toplam kayıt:** 68
 - **İnsan uzman incelemesi eksik:** 68
 - **Yalnızca AI incelemesi görülen:** 67
@@ -13,6 +13,8 @@
 - **Yinelenen ID/slug grubu:** 0
 - **Çelişkili kaynak grubu:** 0
 - **Yayın onayı bekleyen:** 68
+- **İnceleme önceliği:** P1=5, P3=63
+- **Arşiv şema sürümleri:** 1.0.0=18, 1.1.0=50
 
 > Bu envanter otomatik triage aracıdır. URL biçimi/HTTP cevabı tarihsel doğruluk, özgünlük, telif veya insan kimliği kanıtı değildir. İnsan uzman incelemesi olmadan yayın onayı verilmez.
 

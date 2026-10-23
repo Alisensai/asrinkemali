@@ -20,6 +20,10 @@ python tools/editorial-review/editorial_review.py create-forms `
 python tools/editorial-review/editorial_review.py inventory `
   --root . --forms-dir docs/editorial/forms --output-dir docs/editorial/reports
 
+# Yeni arşiv kayıtlarını bekleyen form olarak ekle ve bütün raporları yenile.
+python tools/editorial-review/editorial_review.py update `
+  --root . --forms-dir docs/editorial/forms --output-dir docs/editorial/reports
+
 # Formları doğrula; bekleyen boş form geçerli durumdur, hata değildir.
 python tools/editorial-review/editorial_review.py validate-forms `
   --root . --forms-dir docs/editorial/forms
@@ -36,7 +40,13 @@ python tools/editorial-review/editorial_review.py inventory `
 
 `inventory` dış ağa çıkmaz. `--check-links` açıkça verilirse en fazla belirtilen sayıda benzersiz adres kontrol edilir; sonuçlar 24 saatlik yerel JSON cache'e yazılır. Yerel hostname ve non-public IP'ye çözümlenen host engellenir; DNS hatası ayrı raporlanır. 301/302 yönlendirme hedefi otomatik izlenmez; 401/403/407/429/451 erişim kısıtı, 404/410 bulunamadı, 5xx/timeout geçici hata olarak ayrı işaretlenir. 405/501 yanıtında yalnızca bir bayt aralığı talep eden GET fallback uygulanır. HTTP 2xx yalnızca sayfanın o anda yanıt verdiğini belirtir; içerik, tarih, alıntı, telif veya kaynak gerçekliğini doğrulamaz. Kontrol edilemeyen/limit dışındaki adresler başarılı sayılmaz.
 
-`create-forms` açıkça çağrılmadıkça form yazmaz; mevcut formu hiçbir zaman üzerine yazmaz. `inventory` rapor klasörüne yalnızca kendi üç çıktısını yazar; arşiv JSON'larını güncellemez. Formlarda kişisel adres, telefon, kimlik numarası veya hassas belge bulundurmayın.
+`create-forms` açıkça çağrılmadıkça form yazmaz; mevcut formu hiçbir zaman üzerine yazmaz. `inventory` ve `update` rapor klasörüne yalnızca rapor dosyalarını yazar; arşiv JSON'larını güncellemez. Formlarda kişisel adres, telefon, kimlik numarası veya hassas belge bulundurmayın.
+
+`update`, katalogdaki kayıtları yeniden tarar; sadece eksik form dosyalarını `pending` olarak oluşturur, mevcut/doldurulmuş formları byte-for-byte korur, formları doğrular ve raporları tek çalıştırmada yeniler. Eski formun kayıt snapshot'ı değişmişse form korunur ve `stale_record_snapshot` bulgusu raporlanır; güncelleme insanın önceki incelemesini değiştirmez. Komut varsayılan olarak offline çalışır.
+
+Her yenileme `inventory.{json,csv,md}`, `review-priority.{json,csv,md}` ve `schema-compatibility.{json,csv,md}` dosyalarını üretir. Öncelik P0; eksik/geçersiz kaynak-künye, tarih veya kaynağı belirtilmemiş alıntı; P1 belirsiz haklar ya da tahmini/bilinmeyen tarih; P2 diğer metadata boşlukları; P3 belirgin metadata boşluğu olmayan kayıtlardır. Bu sıralama araştırma kuyruğudur, tarihsel doğruluk kararı veya onay değildir. İnsan uzman incelemesi ve insan editör yayın onayı ayrı alanlar olarak raporlanır.
+
+Şema raporu arşiv kayıtlarındaki `schemaVersion` dağılımı ve üst düzey alan farklarını editörlük formlarının `schema_version` dağılımından ayrı gösterir. Bu iki sürüm alanı farklı sözleşmelerdir; aynı metin sürümünde olmaları beklenmez. Eksik sürüm metadata'sı veya bozuk form JSON'u ayrıca raporlanır.
 
 ## İnceleme formu ve release gate uyumu
 
@@ -68,4 +78,12 @@ Hash zinciri düzenleme/sıra bozulmasını fark ettirir; defteri tümden deği�
 python -m unittest discover -s tools/editorial-review/tests -v
 ```
 
-Testler iki katalog kökünü, malformed JSON, alan/şema kontrolünü, bekleyen ve doldurulmuş formu, stale snapshot, AI kimlik reddini, yayın onayı alanlarını/tarih sırasını, CSV formula injection, tekrar/kaynak çelişkisi sezgisini, JSON/CSV/Markdown çıktısını, link durum sınıflandırma/cache/limit/rate limitini, redirect takibini kapalı tutmayı ve hash zinciri bozulmasını kapsar. Link testi dış ağa çıkmaz.
+Testler iki katalog kökünü, malformed JSON, alan/şema kontrolünü, bekleyen ve doldurulmuş formu, stale snapshot, AI kimlik reddini, PR #12 yayın kapısı alanları/tarih sırasını, CSV formula injection, tekrar/kaynak çelişkisi sezgisini, tüm JSON/CSV/Markdown raporlarını, öncelik/şema farklarını, idempotent form eklemeyi, link durum sınıflandırma/cache/limit/rate limitini, redirect takibini kapalı tutmayı ve hash zinciri bozulmasını kapsar. Link testleri dış ağa çıkmaz.
+
+Haricî/entegrasyon katalog snapshot'ını ayrıca test etmek için arşiv kökünü `EDITORIAL_ARCHIVE_TEST_ROOT` değişkeniyle verin. Test, kayıt sayısını katalogdan keşfeder; sabit sayıya dayanmaz:
+
+```powershell
+$env:EDITORIAL_ARCHIVE_TEST_ROOT = "C:\path\to\archive-snapshot"
+python -m unittest discover -s tools/editorial-review/tests -p test_editorial_review.py -v
+Remove-Item Env:EDITORIAL_ARCHIVE_TEST_ROOT
+```

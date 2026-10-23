@@ -10,11 +10,18 @@ Repo kökünde:
 python tools/editorial-review/editorial_review.py create-forms --root . --forms-dir docs/editorial/forms
 python tools/editorial-review/editorial_review.py inventory --root . --forms-dir docs/editorial/forms --output-dir docs/editorial/reports
 python tools/editorial-review/editorial_review.py validate-forms --root . --forms-dir docs/editorial/forms
+
+# Yeni kayıt varsa eksik formları ekle, doğrula ve bütün raporları yenile.
+python tools/editorial-review/editorial_review.py update --root . --forms-dir docs/editorial/forms --output-dir docs/editorial/reports
 ```
 
-İlk komut her kayıt için bekleyen JSON form oluşturur, var olan formları korur. Diğer komutlar arşivi ve formu doğrulayarak `inventory.json`, `inventory.csv`, `inventory.md` raporlarını günceller. Yeni kayıtlar bir sonraki envanterde otomatik bulunur. Silinmiş/ID'si değişmiş kayıtların eski formları otomatik silinmez; manuel olarak incelenmelidir. Formdaki `record_snapshot_sha256`, kaynağın inceleme sırasında değiştiğini saptar; eski form tekrar inceleme gerektirir.
+İlk komut her kayıt için bekleyen JSON form oluşturur, var olan formları korur. `update` aynı taramada eksik formları ekler, kayıtları yeniden sayar, tüm raporları üretir ve formları doğrular. Yeni kayıt sayısı veya arşiv boyutu kodda sabit değildir. Var olan formlar hiçbir zaman üzerine yazılmaz; arşiv girdisi değişmişse eski snapshot hash'i stale bulgusu üretir ve uzman formu insan tarafından tekrar incelenene kadar aynen korunur. Silinmiş/ID'si değişmiş kayıtların eski formları otomatik silinmez; manuel olarak incelenmelidir.
 
 Raporlar kaynak erişim durumunu üç farklı kavram olarak sunar: kayıtta önceden `sourceReachable` beyanı, bu çalışmada ağla kontrol durumu ve uzman doğrulaması. Varsayılan durumda ağ isteği yapılmaz ve `source_access_status` `not_checked` kalır. İsteğe bağlı `--check-links` 24 saat cache (geçici/DNS hatası için 5 dakika, erişim kısıtı için 1 saat), 5 saniye varsayılan timeout, host başına en az 1 saniye ara ve varsayılan en fazla 50 benzersiz URL uygular. Yerel hostname veya non-public IP'ye çözümlenen host engellenir. Yönlendirme otomatik izlenmez. 2xx HTTP yanıtı tarihsel doğruluk/özgünlük delili değildir; kaynak belgesinin kendisi incelenmelidir.
+
+`update` varsayılan olarak offline çalışır ve envanter, öncelik ile şema uyumluluk raporlarını JSON/CSV/Markdown biçiminde günceller. Öncelik P0 kaynak/künye, tarih veya kaynak metadata'sı eksik alıntı boşluklarını; P1 belirsiz hak veya tahmini/bilinmeyen tarihi; P2 diğer kayıtlı metadata sorunlarını; P3 saptanmış metadata boşluğu olmadığını belirtir. P3, insan incelemesi tamamlandı demek değildir. Her raporda insan uzman kararı ile ayrı insan editör yayın onayı farklı alanlardadır.
+
+Şema uyumluluk raporu arşiv kayıtlarındaki `schemaVersion` sürümlerini, sürüm başına üst düzey alan farklarını ve editörlük formu `schema_version` dağılımını ayrı gösterir. Bu şema sürümleri farklı sözleşmelere aittir ve eşleşmeleri gerekmez. Eksik sürüm metadata'sı, bozuk form JSON'u ve desteklenmeyen form sürümleri görünür bulgu olarak listelenir.
 
 ## Formu insanın tamamlaması
 
@@ -37,9 +44,7 @@ Oluşturulan rapor kayıt bazında aşağıdakileri kapsar:
 - Eksik/geçersiz kaynak, künye, tarih ve hak alanları; tahmini tarihler, AI temsil görseli, alıntı kaynağı riskleri.
 - Tür ve kurum dağılımları, insan incelemesi/ kaynak / hak eksiği / tahmini tarih / tekrar adayları / çelişkili kaynak iddiaları / onay bekleyen yayın listeleri.
 
-İlk snapshot'ta **68 kayıt** bulunmuştur: `event` 29, `document` 13, `publication` 12, `photograph` 9, `place` 3, `speech` 2. Kaynak kurumları: Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi) 37; Türkiye Büyük Millet Meclisi 15; İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı 8; Atatürk Araştırma Merkezi Yayınları 5; Millî Kütüphane 3. Bu sayılar kod sabiti değil; rapor her çalışmada diskten yeniden hesaplanır.
-
-Mevcut veride 67 kayıt `OpenCode arşiv denetimi (yapay zekâ)` ile işaretlenmiş, birinde reviewer alanı yoktur. İnsan uzman incelemesi doğrulanmış hiçbir form henüz bulunmadığı için 68 kayıt insan incelemesi bekler. `rights.status: unknown` olan 2 kayıt, `date.certainty: estimated` olan 3 kayıt ve `date.precision/certainty: unknown` olan 1 kayıt uzman değerlendirmesi gerektirir. Mevcut kayıtlarda source kurum/URL/künye alanları dolu görünse dahi bu, gerçek kaynağın iddiaları desteklediğini ispatlamaz. Ayrı geçerli insan editör `publicationApproval` kaydı yoksa kayıt yayın onayı bekleyen olarak listelenir.
+Güncel tür, kaynak kurumu ve eksiklik dağılımları `docs/editorial/reports/inventory.md` içinde, kayıt bazındaki ayrıntılar aynı klasördeki JSON/CSV'de tutulur. Bu raporlar `update` komutuyla kayıtlardan yeniden üretilir; dokümanda örnek snapshot sayıları tutulmaz. Kaynak kurum/URL/künye alanlarının dolu olması, gerçek kaynağın iddiaları desteklediğini ispatlamaz. Ayrı geçerli insan editör `publicationApproval` kaydı yoksa kayıt yayın onayı bekleyen olarak listelenir.
 
 Muhtemel tekrarlar, yalnızca eşleşen normalleştirilmiş başlık ve tarih başlangıcıyla; kaynak çelişkileri de bu eşleşme altında farklı kaynak URL/kurum bulunmasıyla işaretlenir. Bu algoritma farklı isimlerle aynı belgeyi, yanlış metadata'yı veya iki ayrı belgenin aynı tarihi paylaşmasını kesin olarak çözemez; liste uzmanın araştırma kuyruğudur.
 
@@ -48,6 +53,8 @@ Muhtemel tekrarlar, yalnızca eşleşen normalleştirilmiş başlık ve tarih ba
 Form şeması `tools/editorial-review/review-form.schema.json`, audit olay şeması `tools/editorial-review/approval-event.schema.json` içindedir. Audit JSONL olayında sıra, insan rolü, form hash'i, kanıt referansları, önceki olay hash'i ve olay hash'i bulunur. `verify-ledger` zinciri doğrular ama olay/approval kaydetmez veya dijital imza üretmez.
 
 Hash zinciri tutarsız değişiklikleri saptamaya yarar; yetkili bir aktör tüm zinciri yeniden oluşturabileceği için tek başına immutable log değildir. Gerçek koruma: PR inceleme izi, kısıtlı branch write erişimi, merge onayı/korumalı dal ve kurum politikası uygunsa imzalı commit zorunluluğu. Bu depo aracı kimlik sağlayıcısı, GitHub branch protection veya anahtar yönetimini değiştirmez.
+
+PR #12 yayın kalite kapısı ile uyum için yayın onayı nesnesi `status: approved`, `authority: human`, `role: human_editor`, `approvedBy` ve timezone içeren `approvedAt` alanlarını kullanır. Uzman formu, ayrı editör onayı yoksa `approved` olamaz. Editörlük araçları onayı arşiv kaydına kopyalamaz ve PR #12 gate kurallarını değiştirmez.
 
 ## Yayın öncesi neden zorunlu?
 
