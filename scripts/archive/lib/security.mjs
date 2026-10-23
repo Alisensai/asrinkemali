@@ -24,6 +24,8 @@ export const ALLOWED_HOSTS = Object.freeze([
   "ataturkansiklopedisi.gov.tr",
   "ayk.gov.tr",
   "millikutuphane.gov.tr",
+  "mkutup.gov.tr",
+  "ibb.gov.tr",
   "devletarsivleri.gov.tr",
   "anitkabir.tsk.tr",
   "tsk.gov.tr",

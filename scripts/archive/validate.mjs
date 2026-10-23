@@ -151,7 +151,9 @@ async function main() {
 
     let linkResult = null;
     if (options.links) {
-      linkResult = await checkArchiveLinks(archive.records);
+      // Millî Kütüphane ve benzeri kurumlar hızlı ardışık HEAD isteklerine 400 dönebiliyor.
+      // Bağlantı denetimini sırayla yürütmek yanlış negatifleri önler.
+      linkResult = await checkArchiveLinks(archive.records, { concurrency: 1 });
       for (const failure of linkResult.failures) {
         const references = failure.references
           .map((reference) => `${reference.recordId ?? "-"}${reference.field}`)

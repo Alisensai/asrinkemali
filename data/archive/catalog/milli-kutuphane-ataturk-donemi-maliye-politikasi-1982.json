@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "milli-kutuphane-ataturk-donemi-maliye-politikasi-1982",
+  "slug": "milli-kutuphane-ataturk-donemi-maliye-politikasi-1982",
+  "title": "Atatürk Dönemi Maliye Politikası",
+  "type": "publication",
+  "date": {
+    "start": "1982-01-01",
+    "end": null,
+    "precision": "year",
+    "certainty": "estimated",
+    "display": "1982",
+    "note": "Katalog kaydında yayın tarihi alanı boş; yayın yılı yer numarasındaki yıl önekinden değerlendirildi."
+  },
+  "people": [],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "yayin",
+    "siyaset",
+    "hukuk"
+  ],
+  "summary": "Atatürk dönemindeki maliye politikalarını ele alan, Millî Kütüphane kataloğunda kayıtlı kitap.",
+  "description": "Millî Kütüphane Dijital Kütüphane kataloğunda 'Atatürk dönemi maliye politikası /' adıyla kayıtlı eser, 546 yaprak ve 24 cm ölçülerindedir. Katalog kaydında yayın tarihi alanı boş olup yer numarası 1982 AD 2826'dır; yayın yılı bu numaradaki 1982 önekinden değerlendirilmiştir. Kayıt, kaynağa bağlantıyla sunulur.",
+  "source": {
+    "institution": "Millî Kütüphane",
+    "institutionType": "library",
+    "institutionUrl": "https://dijital-kutuphane.mkutup.gov.tr/",
+    "title": "Millî Kütüphane Dijital Kütüphane: Atatürk Dönemi Maliye Politikası",
+    "url": "https://dijital-kutuphane.mkutup.gov.tr/tr/books/catalog/details/136684",
+    "citation": "Millî Kütüphane Dijital Kütüphane, “Atatürk Dönemi Maliye Politikası”, Yer No. 1982 AD 2826, erişim 23.10.2026, https://dijital-kutuphane.mkutup.gov.tr/tr/books/catalog/details/136684",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1982-01-01",
+    "archiveIdentifier": "1982 AD 2826",
+    "note": "Millî Kütüphane katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Yayın yılı yer numarasından değerlendirildi."
+  },
+  "provenance": [
+    {
+      "institution": "Millî Kütüphane",
+      "collection": "Millî Kütüphane Dijital Kütüphane",
+      "identifier": "1982 AD 2826",
+      "url": "https://dijital-kutuphane.mkutup.gov.tr/tr/books/catalog/details/136684",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal katalog kaydındaki künye alanlarına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Millî Kütüphane",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "reviewed",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Katalog kaydı ve künye alanları 23.10.2026 tarihinde doğrulandı; yayın yılı yer numarasındaki yıl önekinden değerlendirildiği için kayıt 'incelendi' durumundadır. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "maliye",
+    "Atatürk dönemi",
+    "Millî Kütüphane",
+    "1982",
+    "katalog"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

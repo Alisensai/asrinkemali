@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "tbmm-130-birlesim-tutanagi-1922",
+  "slug": "tbmm-130-birlesim-tutanagi-1922",
+  "title": "TBMM 130. Birleşim Tutanağı (1 Kasım 1922)",
+  "type": "document",
+  "date": {
+    "start": "1922-11-01",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "1 Kasım 1922"
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "official",
+      "note": "Dönemin siyasi lideri."
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "tbmm",
+    "hukuk",
+    "kurulus"
+  ],
+  "summary": "1 Kasım 1922'de yapılan 130. Birleşim'in tutanağı, saltanatın kaldırılmasına ilişkin kararın görüşüldüğü oturumun resmî kaydıdır.",
+  "description": "Tutanak, Birinci Dönem Üçüncü Yasama Yılı'nın 130. Birleşiminde saltanatın kaldırılmasına ilişkin görüşmeleri ve kararı içerir. Karar, TBMM'nin egemenliğin tek temsilcisi olduğunu siyasi ve hukuki düzlemde pekiştirdi. PDF bağlantısı resmî TBMM tutanak dizinine aittir; dosya indirilmemiştir.",
+  "source": {
+    "institution": "Türkiye Büyük Millet Meclisi",
+    "institutionType": "official",
+    "institutionUrl": "https://www.tbmm.gov.tr/",
+    "title": "TBMM Tutanak Dergisi, Dönem 1, Cilt 24, 130. Birleşim",
+    "url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c024/tbmm01024130.pdf",
+    "citation": "TBMM Tutanak Dergisi, Dönem 1, Cilt 24, 130. Birleşim, 1 Kasım 1922, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c024/tbmm01024130.pdf",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1922-11-01",
+    "archiveIdentifier": "Dönem 1, Cilt 24, 130. Birleşim",
+    "note": "Resmî TBMM Tutanak Dergisi PDF'i; bağlantı HTTPS üzerinden 200 yanıtı verdi. PDF indirilmedi ve depoya eklenmedi."
+  },
+  "provenance": [
+    {
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "collection": "TBMM Tutanak Dergisi",
+      "identifier": "Dönem 1, Cilt 24, 130. Birleşim",
+      "url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c024/tbmm01024130.pdf",
+      "accessedAt": "2026-10-23",
+      "note": "TBMM tutanak dizinindeki resmî birleşim kaydına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Türkiye Büyük Millet Meclisi",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Birleşim tarihi ve resmî PDF bağlantısı TBMM tutanak diziniyle doğrulandı; PDF içeriği indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "TBMM",
+    "saltanat",
+    "1 Kasım 1922",
+    "tutanak",
+    "egemenlik"
+  ],
+  "relatedIds": [
+    "saltanatin-kaldirilmasi-1922"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

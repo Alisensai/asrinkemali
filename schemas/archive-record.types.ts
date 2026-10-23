@@ -47,6 +47,7 @@ export type QuoteEvidenceMethod =
   | "institutional_transcription"
   | "facsimile"
   | "published_transcription";
+export type HoldingMode = "external_link" | "hosted_file" | "metadata_only";
 
 export interface ArchiveDate {
   start: string | null;
@@ -76,10 +77,17 @@ export interface ArchiveSource {
   institutionUrl: string;
   title: string;
   url: string;
+  citation?: string;
   accessedAt: string;
   publishedAt?: string | null;
   archiveIdentifier?: string | null;
   note?: string;
+}
+
+export interface ArchiveHolding {
+  mode: HoldingMode;
+  filePath: string | null;
+  note: string;
 }
 
 export interface ArchiveProvenance {
@@ -151,7 +159,7 @@ export interface ArchiveVerification {
 }
 
 export interface ArchiveRecord {
-  schemaVersion: "1.0.0";
+  schemaVersion: "1.0.0" | "1.1.0";
   id: string;
   slug: string;
   title: string;
@@ -166,6 +174,7 @@ export interface ArchiveRecord {
   provenance: ArchiveProvenance[];
   rights: ArchiveRights;
   image: ArchiveImage | null;
+  holding?: ArchiveHolding;
   quotation?: ArchiveQuotation | null;
   verification: ArchiveVerification;
   tags: string[];
@@ -222,5 +231,8 @@ export interface ArchiveValidationResult {
     withQuotation: number;
     withImage: number;
     unknownDates: number;
+    linkOnly: number;
+    hostedFiles: number;
+    metadataOnly: number;
   };
 }

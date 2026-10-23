@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "ibb-erzincan-sapka-fotografi-1926",
+  "slug": "ibb-erzincan-sapka-fotografi-1926",
+  "title": "Erzincan'da Şapka İnkılabı Üzerine Çekilen Grup Fotoğrafı",
+  "type": "photograph",
+  "date": {
+    "start": "1926-01-01",
+    "end": null,
+    "precision": "year",
+    "certainty": "exact",
+    "display": "1926",
+    "note": "Arşiv kaydında tarih [1926] olarak verilmiştir."
+  },
+  "people": [],
+  "locations": [
+    {
+      "name": "Erzincan",
+      "city": "Erzincan",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "fotograf",
+    "toplum",
+    "kultur"
+  ],
+  "summary": "Erzincan'da şapka inkılabı üzerine fotoğraf çektiren bir grubu gösteren 1926 tarihli fotoğraf.",
+  "description": "İBB Atatürk Kitaplığı'nda Krt_014792 demirbaş numarasıyla kayıtlı fotoğraf, Erzincan'da şapka inkılabı sonrasında fotoğraf çektiren bir grubu belgeler. Arşiv kaydında tarih [1926] olarak verilmiştir. Görsel, kurumsal kaynak sayfasına bağlantıyla sunulur.",
+  "source": {
+    "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+    "institutionType": "archive",
+    "institutionUrl": "https://sayisalarsiv.ibb.gov.tr/",
+    "title": "İBB Atatürk Kitaplığı: Erzincan'da Şapka İnkılabı Üzerine Çekilen Grup Fotoğrafı",
+    "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_014792",
+    "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Krt_014792, “Erzincan'da Şapka İnkılabı Üzerine Çekilen Grup Fotoğrafı”, erişim 23.10.2026, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_014792",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1926-01-01",
+    "archiveIdentifier": "Krt_014792",
+    "note": "İBB Atatürk Kitaplığı Sayısal Arşiv katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Görsel indirilmedi."
+  },
+  "provenance": [
+    {
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "collection": "İBB Atatürk Kitaplığı Sayısal Arşiv",
+      "identifier": "Krt_014792",
+      "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_014792",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal katalog kaydı ve demirbaş numarasına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "İBB Atatürk Kitaplığı",
+    "imageReuse": "link_only",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": {
+    "kind": "digitized_original",
+    "url": null,
+    "sourcePageUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_014792",
+    "alt": "Erzincan'da şapka inkılabı üzerine çekilen grup fotoğrafı",
+    "credit": "İBB Atatürk Kitaplığı",
+    "width": null,
+    "height": null,
+    "mimeType": null,
+    "localPath": null,
+    "displayPolicy": "source_link_only"
+  },
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Katalog kaydı ve [1926] tarihi 23.10.2026 tarihinde doğrulandı; görsel indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "Erzincan",
+    "Şapka İnkılabı",
+    "1926",
+    "fotoğraf",
+    "kıyafet"
+  ],
+  "relatedIds": [
+    "sapka-inkilabi-1925"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

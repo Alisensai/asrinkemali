@@ -143,6 +143,7 @@ function recordFields(record) {
     ["date", record.date?.display],
     ["source", record.source?.institution],
     ["source", record.source?.title],
+    ["source", record.source?.citation],
   ];
   for (const tag of asArray(record.tags)) fields.push(["tags", tag]);
   for (const category of asArray(record.categories)) fields.push(["categories", category]);

@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "tbmm-1-birlesim-tutanagi-1928",
+  "slug": "tbmm-1-birlesim-tutanagi-1928",
+  "title": "TBMM 1. Birleşim Tutanağı (1 Kasım 1928)",
+  "type": "document",
+  "date": {
+    "start": "1928-11-01",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "1 Kasım 1928"
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "official",
+      "note": "Dönemin siyasi lideri."
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "tbmm",
+    "kultur",
+    "hukuk"
+  ],
+  "summary": "1 Kasım 1928'de yapılan 1. Birleşim'in tutanağı, yeni Türk harflerinin kabulüne ilişkin kanunun görüşüldüğü oturumun resmî kaydıdır.",
+  "description": "Tutanak, Üçüncü Dönem İkinci Yasama Yılı'nın 1. Birleşiminde Türk harflerinin kabulüne ilişkin kanunun görüşülmesi ve kabulüne dair kayıtları içerir. Harf Devrimi, okuryazarlık ve kamusal iletişim alanında köklü bir dönüşüm başlattı. PDF bağlantısı resmî TBMM tutanak dizinine aittir; dosya indirilmemiştir.",
+  "source": {
+    "institution": "Türkiye Büyük Millet Meclisi",
+    "institutionType": "official",
+    "institutionUrl": "https://www.tbmm.gov.tr/",
+    "title": "TBMM Tutanak Dergisi, Dönem 3, Cilt 5, 1. Birleşim",
+    "url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d03/c005/tbmm03005001.pdf",
+    "citation": "TBMM Tutanak Dergisi, Dönem 3, Cilt 5, 1. Birleşim, 1 Kasım 1928, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d03/c005/tbmm03005001.pdf",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1928-11-01",
+    "archiveIdentifier": "Dönem 3, Cilt 5, 1. Birleşim",
+    "note": "Resmî TBMM Tutanak Dergisi PDF'i; bağlantı HTTPS üzerinden 200 yanıtı verdi. PDF indirilmedi ve depoya eklenmedi."
+  },
+  "provenance": [
+    {
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "collection": "TBMM Tutanak Dergisi",
+      "identifier": "Dönem 3, Cilt 5, 1. Birleşim",
+      "url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d03/c005/tbmm03005001.pdf",
+      "accessedAt": "2026-10-23",
+      "note": "TBMM tutanak dizinindeki resmî birleşim kaydına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Türkiye Büyük Millet Meclisi",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Birleşim tarihi ve resmî PDF bağlantısı TBMM tutanak diziniyle doğrulandı; PDF içeriği indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "TBMM",
+    "Harf Devrimi",
+    "1 Kasım 1928",
+    "tutanak",
+    "alfabe"
+  ],
+  "relatedIds": [
+    "harf-devrimi-1928"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

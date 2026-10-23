@@ -72,55 +72,74 @@ export async function loadSchema(root, fileName) {
   };
 }
 
+export const RECORD_DIRS = Object.freeze([
+  { relative: ["content", "archive", "records"], source: "legacy" },
+  { relative: ["data", "archive", "catalog"], source: "catalog" },
+]);
+
 export async function loadRecords(root) {
   const resolvedRoot = resolveRoot(root);
-  const recordsDir = path.join(resolvedRoot, "content", "archive", "records");
   const errors = [];
   const warnings = [];
   const records = [];
   const files = [];
-  let entries;
-  try {
-    entries = await fs.readdir(recordsDir, { withFileTypes: true });
-  } catch (error) {
-    return {
-      records,
-      files,
-      errors: [`Kayıt dizini okunamadı: ${error.message}`],
-      warnings,
-    };
-  }
-  const jsonFiles = entries
-    .filter((entry) => entry.isFile() && entry.name.toLowerCase().endsWith(".json"))
-    .map((entry) => entry.name)
-    .sort((a, b) => a.localeCompare(b, "tr"));
-  if (jsonFiles.length === 0) {
-    errors.push("Kayıt dizininde hiç JSON dosyası yok.");
-  }
-  for (const name of jsonFiles) {
-    const filePath = path.join(recordsDir, name);
-    const result = await readJsonFile(filePath);
-    warnings.push(...result.warnings.map((warning) => `${name}: ${warning}`));
-    if (result.errors.length > 0) {
-      errors.push(...result.errors.map((error) => `${name}: ${error}`));
+  let foundDirectory = false;
+
+  for (const directory of RECORD_DIRS) {
+    const recordsDir = path.join(resolvedRoot, ...directory.relative);
+    const label = directory.relative.join("/");
+    let entries;
+    try {
+      entries = await fs.readdir(recordsDir, { withFileTypes: true });
+    } catch (error) {
+      if (error.code !== "ENOENT") {
+        errors.push(`Kayıt dizini okunamadı (${label}): ${error.message}`);
+      }
       continue;
     }
-    const data = result.data;
-    if (Array.isArray(data)) {
-      data.forEach((record, index) => {
-        records.push(record);
-        files.push({ file: name, index });
-      });
-    } else if (data && typeof data === "object") {
-      records.push(data);
-      files.push({ file: name, index: null });
-    } else {
-      errors.push(`${name}: kök değer nesne veya dizi olmalı.`);
+    foundDirectory = true;
+    const jsonFiles = entries
+      .filter((entry) => entry.isFile() && entry.name.toLowerCase().endsWith(".json"))
+      .map((entry) => entry.name)
+      .sort((a, b) => a.localeCompare(b, "tr"));
+    if (jsonFiles.length === 0) {
+      warnings.push(`${label}: dizinde JSON dosyası yok.`);
+      continue;
     }
-    if (records.length > MAX_RECORDS) {
-      errors.push(`Kayıt sayısı ${MAX_RECORDS} sınırını aşıyor.`);
-      break;
+    for (const name of jsonFiles) {
+      const filePath = path.join(recordsDir, name);
+      const result = await readJsonFile(filePath);
+      warnings.push(...result.warnings.map((warning) => `${label}/${name}: ${warning}`));
+      if (result.errors.length > 0) {
+        errors.push(...result.errors.map((error) => `${label}/${name}: ${error}`));
+        continue;
+      }
+      const data = result.data;
+      if (Array.isArray(data)) {
+        data.forEach((record, index) => {
+          records.push(record);
+          files.push({ file: name, index, source: directory.source, path: `${label}/${name}` });
+        });
+      } else if (data && typeof data === "object") {
+        records.push(data);
+        files.push({ file: name, index: null, source: directory.source, path: `${label}/${name}` });
+      } else {
+        errors.push(`${label}/${name}: kök değer nesne veya dizi olmalı.`);
+      }
+      if (records.length > MAX_RECORDS) {
+        errors.push(`Kayıt sayısı ${MAX_RECORDS} sınırını aşıyor.`);
+        break;
+      }
     }
+    if (records.length > MAX_RECORDS) break;
+  }
+
+  if (!foundDirectory) {
+    errors.push(
+      "Kayıt dizini okunamadı: content/archive/records veya data/archive/catalog bulunamadı."
+    );
+  } else if (records.length === 0) {
+    errors.push("Kayıt dizinlerinde hiç JSON dosyası yok.");
   }
   return { records, files, errors, warnings };
 }

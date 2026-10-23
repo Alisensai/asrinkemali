@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "cumhuriyetin-onuncu-yil-kutlamalari-1933",
+  "slug": "cumhuriyetin-onuncu-yil-kutlamalari-1933",
+  "title": "Cumhuriyet'in Onuncu Yıl Kutlamaları",
+  "type": "event",
+  "date": {
+    "start": "1933-10-29",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "29 Ekim 1933"
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "official"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "cumhuriyet",
+    "kultur"
+  ],
+  "summary": "Cumhuriyet'in ilanının onuncu yılı, 29 Ekim 1933'te yurt genelinde törenler, yayınlar ve etkinliklerle kutlandı.",
+  "description": "Onuncu yıl kutlamaları, Cumhuriyet rejiminin halkla bütünleşmesini ve modernleşme anlatısını güçlendiren geniş kapsamlı bir kamusal etkinlik olarak düzenlendi. Kutlamalar için özel bir kanun çıkarıldı ve 29 Ekim 1933'te Ankara başta olmak üzere ülke genelinde törenler yapıldı. Kaynak maddede hazırlık süreci, kutlama programı ve dönemin basınına yansımaları ele alınır.",
+  "source": {
+    "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "institutionType": "institutional",
+    "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+    "title": "Atatürk Ansiklopedisi: Cumhuriyet'in Onuncu Yıl Kutlamaları",
+    "url": "https://www.ataturkansiklopedisi.gov.tr/detay/606/cumhuriyetin-onuncu-yil-kutlamalari-1933",
+    "citation": "Atatürk Ansiklopedisi, “Cumhuriyet'in Onuncu Yıl Kutlamaları”, yazar Yasemin DOĞANER, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/606/cumhuriyetin-onuncu-yil-kutlamalari-1933",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2020-11-18",
+    "archiveIdentifier": "606",
+    "note": "Atatürk Ansiklopedisi maddesi; kaynak sayfası 23.10.2026 tarihinde erişildi. Madde metni kopyalanmadı, yalnızca künye ve tarih doğrulandı."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "collection": "Atatürk Ansiklopedisi",
+      "identifier": "606",
+      "url": "https://www.ataturkansiklopedisi.gov.tr/detay/606/cumhuriyetin-onuncu-yil-kutlamalari-1933",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal ansiklopedi maddesine dayanan tek kaynaklı provenans kaydı."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "quotation": null,
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Atatürk Ansiklopedisi maddesi, tarih ve künye bilgisi 23.10.2026 tarihinde kontrol edildi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "Onuncu Yıl",
+    "29 Ekim 1933",
+    "Cumhuriyet Bayramı",
+    "kutlama",
+    "Ankara"
+  ],
+  "relatedIds": [
+    "onuncu-yil-nutku-1933"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

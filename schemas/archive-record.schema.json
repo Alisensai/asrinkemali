@@ -27,7 +27,10 @@
   ],
   "properties": {
     "schemaVersion": {
-      "const": "1.0.0"
+      "enum": [
+        "1.0.0",
+        "1.1.0"
+      ]
     },
     "id": {
       "type": "string",
@@ -117,6 +120,9 @@
         }
       ]
     },
+    "holding": {
+      "$ref": "#/$defs/holding"
+    },
     "quotation": {
       "oneOf": [
         {
@@ -160,6 +166,36 @@
     }
   },
   "$defs": {
+    "holding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "filePath",
+        "note"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "external_link",
+            "hosted_file",
+            "metadata_only"
+          ]
+        },
+        "filePath": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 300
+        },
+        "note": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 600
+        }
+      }
+    },
     "date": {
       "type": "object",
       "additionalProperties": false,
@@ -309,6 +345,11 @@
           "type": "string",
           "format": "uri",
           "maxLength": 500
+        },
+        "citation": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 700
         },
         "accessedAt": {
           "type": "string",

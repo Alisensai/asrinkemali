@@ -9,8 +9,8 @@ import { todayInHistory, NO_RECORDS_MESSAGE } from "../lib/today.mjs";
 const archive = await loadArchive();
 const records = archive.records;
 
-test("örnek arşiv 12-20 kayıt ve altı türü kapsar", () => {
-  assert.ok(records.length >= 12 && records.length <= 20);
+test("arşiv 68 kayıt ve altı türü kapsar", () => {
+  assert.equal(records.length, 68);
   assert.deepEqual(
     [...new Set(records.map((record) => record.type))].sort(),
     ["document", "event", "photograph", "place", "publication", "speech"].sort()
@@ -26,7 +26,7 @@ test("yayımlanmış kayıtlar kaynak, provenans ve yayın haklarına sahiptir",
     "institutional_terms",
   ]);
   const published = records.filter((record) => record.verification.status === "published");
-  assert.equal(published.length, 15);
+  assert.equal(published.length, 62);
   for (const record of published) {
     assert.ok(record.source?.url, `${record.id}: kaynak URL'si yok`);
     assert.ok(record.provenance?.some((item) => item.url === record.source.url), `${record.id}: kaynak provenansta yok`);
@@ -46,7 +46,7 @@ test("yayımlanmış kayıtlar kaynak, provenans ve yayın haklarına sahiptir",
 
 test("alıntılar yalnızca doğrulanmış kayıtlarda ve kaynak kanıtıyla bulunur", () => {
   const quoted = records.filter((record) => record.quotation);
-  assert.equal(quoted.length, 1);
+  assert.equal(quoted.length, 2);
   for (const record of quoted) {
     assert.equal(record.verification.status, "published");
     assert.equal(record.quotation.verified, true);
@@ -79,12 +79,24 @@ test("23 Ekim için doğrulanmış kayıt yoktur ve sabit mesaj döner", () => {
 
 test("Tarihte Bugün yalnızca gerçek takvim günü eşleşmelerini döndürür", () => {
   const cumhuriyet = todayInHistory(records, "2026-10-29");
-  assert.deepEqual(cumhuriyet.records.map((record) => record.id), ["cumhuriyetin-ilani-1923"]);
+  assert.deepEqual(
+    cumhuriyet.records.map((record) => record.id),
+    [
+      "cumhuriyetin-ilani-1923",
+      "cumhuriyetin-onuncu-yil-kutlamalari-1933",
+      "cumhuriyetin-on-besinci-yil-kutlamalari-1938",
+    ]
+  );
 
   const withSpeech = todayInHistory(records, "2026-10-29", { types: ["event", "speech"] });
   assert.deepEqual(
     withSpeech.records.map((record) => record.id),
-    ["cumhuriyetin-ilani-1923", "onuncu-yil-nutku-1933"]
+    [
+      "cumhuriyetin-ilani-1923",
+      "cumhuriyetin-onuncu-yil-kutlamalari-1933",
+      "onuncu-yil-nutku-1933",
+      "cumhuriyetin-on-besinci-yil-kutlamalari-1938",
+    ]
   );
 
   const kasim = todayInHistory(records, "2026-11-01");
@@ -106,13 +118,18 @@ test("Türkçe arama gerçek arşivde ı/i, İ/i ve ş/s eşitlemesiyle çalış
   assert.ok(searchRecords(records, "meclis").length >= 3);
 });
 
+test("kaynak künyesi Türkçe aramada bulunur", () => {
+  const hits = searchRecords(records, "026166");
+  assert.ok(hits.some((hit) => hit.record.id === "ibb-10-yildonumu-meclis-fotografi-1933"));
+});
+
 test("kategori, tür ve yıl süzgeçleri gerçek arşivde çalışır", () => {
   assert.ok(searchRecords(records, "kategori:egitim").length >= 2);
   assert.ok(searchRecords(records, "tur:fotograf").length >= 2);
   assert.ok(searchRecords(records, "yil:1923").length >= 2);
   assert.ok(searchRecords(records, { year: 1923, type: "event" }).length >= 2);
   assert.ok(searchRecords(records, "etiket:TBMM").length >= 2);
-  assert.equal(searchRecords(records, { q: "tur:fotograf", includeNonPublished: true }).length, 3);
+  assert.equal(searchRecords(records, { q: "tur:fotograf", includeNonPublished: true }).length, 9);
 });
 
 test("doğrulama gerçek arşivde sıfır hata üretir", async () => {

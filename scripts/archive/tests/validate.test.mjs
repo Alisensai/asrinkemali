@@ -17,24 +17,129 @@ function codes(result) {
   return errorCodes(result);
 }
 
-test("gerçek arşiv 18 kayıtla temiz doğrulanır", async () => {
+test("gerçek arşiv 68 kayıtla temiz doğrulanır", async () => {
   const result = await validateFixture(archive.records, archive);
   assert.equal(result.ok, true, JSON.stringify(result.errors, null, 2));
-  assert.equal(result.stats.total, 18);
-  assert.equal(result.stats.byStatus.published, 15);
-  assert.equal(result.stats.byStatus.reviewed, 2);
+  assert.equal(result.stats.total, 68);
+  assert.equal(result.stats.byStatus.published, 62);
+  assert.equal(result.stats.byStatus.reviewed, 5);
   assert.equal(result.stats.byStatus.draft, 1);
   assert.deepEqual(result.stats.byType, {
-    photograph: 3,
-    document: 1,
-    speech: 1,
-    event: 8,
-    publication: 2,
+    photograph: 9,
+    document: 13,
+    speech: 2,
+    event: 29,
+    publication: 12,
     place: 3,
   });
-  assert.equal(result.stats.withQuotation, 1);
-  assert.equal(result.stats.withImage, 3);
+  assert.equal(result.stats.withQuotation, 2);
+  assert.equal(result.stats.withImage, 11);
   assert.equal(result.stats.unknownDates, 1);
+  assert.equal(result.stats.linkOnly, 50);
+  assert.equal(result.stats.hostedFiles, 0);
+  assert.equal(result.stats.metadataOnly, 0);
+});
+
+const V11_CITATION = "Atatürk Ansiklopedisi, “Örnek Kayıt”, erişim 23.10.2026.";
+
+test("1.1.0 kaydı kaynak künyesi ve barındırma bilgisi ister", async () => {
+  const record = makeRecord({ schemaVersion: "1.1.0" });
+  const result = await validateFixture([record], archive);
+  assert.ok(codes(result).includes("KAYNAK_KUNYE"));
+  assert.ok(codes(result).includes("KAYIT_BARINDIRMA"));
+});
+
+test("dış bağlantı modunda dosya yolu kabul edilmez", async () => {
+  const record = makeRecord({
+    schemaVersion: "1.1.0",
+    source: { citation: V11_CITATION },
+    holding: {
+      mode: "external_link",
+      filePath: "data/archive/files/ornek.pdf",
+      note: "Dış bağlantı modunda dosya yolu bulunmamalıdır.",
+    },
+  });
+  const result = await validateFixture([record], archive);
+  assert.ok(codes(result).includes("BARINDIRMA_DOSYA"));
+});
+
+test("barındırılan dosya güvenli yol ve açık hak gerektirir", async () => {
+  const unsafe = makeRecord({
+    schemaVersion: "1.1.0",
+    source: { citation: V11_CITATION },
+    holding: {
+      mode: "hosted_file",
+      filePath: "../ornek.pdf",
+      note: "Dizin dışına çıkan dosya yolu denemesi.",
+    },
+  });
+  const unsafeResult = await validateFixture([unsafe], archive);
+  assert.ok(codes(unsafeResult).includes("BARINDIRMA_DOSYA"));
+
+  const closedRights = makeRecord({
+    schemaVersion: "1.1.0",
+    source: { citation: V11_CITATION },
+    holding: {
+      mode: "hosted_file",
+      filePath: "data/archive/files/ornek.pdf",
+      note: "Telif durumu doğrulanmamış dosya.",
+    },
+  });
+  const closedResult = await validateFixture([closedRights], archive);
+  assert.ok(codes(closedResult).includes("BARINDIRMA_HAK"));
+});
+
+test("metadata_only modu dosya yolu kabul etmez ve istatistiklere yansır", async () => {
+  const external = makeRecord({
+    id: "dis-baglanti",
+    slug: "dis-baglanti",
+    title: "Dış Bağlantı Kaydı",
+    schemaVersion: "1.1.0",
+    source: { citation: V11_CITATION },
+    holding: { mode: "external_link", filePath: null, note: "Yalnızca dış bağlantı." },
+  });
+  const hosted = makeRecord({
+    id: "barindirilan",
+    slug: "barindirilan",
+    title: "Barındırılan Kayıt",
+    schemaVersion: "1.1.0",
+    source: { citation: V11_CITATION },
+    rights: { status: "public_domain" },
+    holding: {
+      mode: "hosted_file",
+      filePath: "data/archive/files/ornek.pdf",
+      note: "Kamu malı olduğu varsayılan test dosyası.",
+    },
+  });
+  const metadata = makeRecord({
+    id: "yalniz-metadata",
+    slug: "yalniz-metadata",
+    title: "Yalnızca Metadata Kaydı",
+    schemaVersion: "1.1.0",
+    source: { citation: V11_CITATION },
+    holding: { mode: "metadata_only", filePath: null, note: "Yalnızca künye." },
+  });
+  const badMetadata = makeRecord({
+    id: "hatali-metadata",
+    slug: "hatali-metadata",
+    title: "Hatalı Metadata Kaydı",
+    schemaVersion: "1.1.0",
+    source: { citation: V11_CITATION },
+    holding: {
+      mode: "metadata_only",
+      filePath: "data/archive/files/ornek.pdf",
+      note: "Metadata modunda dosya yolu olmamalı.",
+    },
+  });
+
+  const result = await validateFixture([external, hosted, metadata], archive);
+  assert.equal(result.ok, true, JSON.stringify(result.errors, null, 2));
+  assert.equal(result.stats.linkOnly, 1);
+  assert.equal(result.stats.hostedFiles, 1);
+  assert.equal(result.stats.metadataOnly, 1);
+
+  const badResult = await validateFixture([badMetadata], archive);
+  assert.ok(codes(badResult).includes("BARINDIRMA_DOSYA"));
 });
 
 test("alıntısız yayımlanmış kayıtta quoteVerified false kabul edilir", async () => {

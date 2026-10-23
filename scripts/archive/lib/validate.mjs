@@ -32,6 +32,7 @@ const PUBLISHABLE_INSTITUTIONS = new Set([
   "library",
   "academic",
 ]);
+const HOSTABLE_RIGHTS = new Set(["public_domain", "open_license"]);
 
 function issue(code, recordId, path, message) {
   return { code, recordId: recordId ?? null, path, message };
@@ -127,6 +128,9 @@ function checkSource(record, recordId, errors, warnings) {
   if (!source) return;
   checkUrl(source.url, "$.source.url", recordId, errors);
   checkUrl(source.institutionUrl, "$.source.institutionUrl", recordId, errors);
+  if (record.schemaVersion === "1.1.0" && (typeof source.citation !== "string" || source.citation.trim().length < 10)) {
+    errors.push(issue("KAYNAK_KUNYE", recordId, "$.source.citation", "1.1.0 kaydında kaynak künyesi zorunlu."));
+  }
   const isPublished = record.verification?.status === "published";
   const isReviewed = record.verification?.status === "reviewed";
   if ((isPublished || isReviewed) && !PUBLISHABLE_INSTITUTIONS.has(source.institutionType)) {
@@ -177,6 +181,52 @@ function checkRights(record, recordId, errors, warnings) {
   }
   checkUrl(rights.licenseUrl, "$.rights.licenseUrl", recordId, errors);
   checkUrl(rights.termsUrl, "$.rights.termsUrl", recordId, errors);
+}
+
+function checkHolding(record, recordId, errors, warnings) {
+  const holding = record.holding;
+  if (record.schemaVersion === "1.1.0" && !holding) {
+    errors.push(issue("KAYIT_BARINDIRMA", recordId, "$.holding", "1.1.0 kaydında barındırma bilgisi zorunlu."));
+    return;
+  }
+  if (!holding) return;
+
+  if (holding.mode === "external_link") {
+    if (holding.filePath != null) {
+      errors.push(issue("BARINDIRMA_DOSYA", recordId, "$.holding.filePath", "Dış bağlantı modunda dosya yolu boş olmalı."));
+    }
+    if (record.rights?.imageReuse === "permitted") {
+      warnings.push(issue("BARINDIRMA_LINK", recordId, "$.holding.mode", "Dış bağlantı modunda görsel yeniden kullanımı 'permitted' olarak işaretlenmiş."));
+    }
+    return;
+  }
+
+  if (holding.mode === "hosted_file") {
+    if (typeof holding.filePath !== "string" || holding.filePath.length === 0) {
+      errors.push(issue("BARINDIRMA_DOSYA", recordId, "$.holding.filePath", "Barındırılan dosya için yol zorunlu."));
+    } else {
+      if (!holding.filePath.startsWith("data/archive/files/")) {
+        errors.push(issue("BARINDIRMA_DOSYA", recordId, "$.holding.filePath", "Dosya data/archive/files/ altında olmalı."));
+      }
+      if (holding.filePath.includes("..") || pathIsAbsolute(holding.filePath)) {
+        errors.push(issue("BARINDIRMA_DOSYA", recordId, "$.holding.filePath", "Dosya yolu dizin dışına çıkamaz."));
+      }
+    }
+    if (!HOSTABLE_RIGHTS.has(record.rights?.status)) {
+      errors.push(issue("BARINDIRMA_HAK", recordId, "$.holding.mode", "Dosya barındırmak için kamu malı veya açık lisans gerekli."));
+    }
+    return;
+  }
+
+  if (holding.mode === "metadata_only") {
+    if (holding.filePath != null) {
+      errors.push(issue("BARINDIRMA_DOSYA", recordId, "$.holding.filePath", "Yalnızca metadata modunda dosya yolu boş olmalı."));
+    }
+  }
+}
+
+function pathIsAbsolute(value) {
+  return /^[a-zA-Z]:[\\/]/.test(value) || value.startsWith("\\\\") || value.startsWith("/");
 }
 
 function checkImage(record, recordId, errors, warnings, root) {
@@ -403,6 +453,9 @@ function emptyStats() {
     withQuotation: 0,
     withImage: 0,
     unknownDates: 0,
+    linkOnly: 0,
+    hostedFiles: 0,
+    metadataOnly: 0,
   };
 }
 
@@ -458,6 +511,9 @@ export async function validateArchive({
     if (record.quotation) stats.withQuotation += 1;
     if (record.image) stats.withImage += 1;
     if (record.date?.certainty === "unknown" || !record.date?.start) stats.unknownDates += 1;
+    if (record.holding?.mode === "external_link") stats.linkOnly += 1;
+    if (record.holding?.mode === "hosted_file") stats.hostedFiles += 1;
+    if (record.holding?.mode === "metadata_only") stats.metadataOnly += 1;
 
     const pollution = findPrototypePollutionKeys(record, basePath);
     for (const path of pollution) {
@@ -474,6 +530,7 @@ export async function validateArchive({
     checkDate(record, recordId, errors, warnings);
     checkSource(record, recordId, errors, warnings);
     checkRights(record, recordId, errors, warnings);
+    checkHolding(record, recordId, errors, warnings);
     checkImage(record, recordId, errors, warnings, root);
     checkQuotation(record, recordId, errors, warnings);
     checkPublicationGate(record, recordId, errors);
