@@ -23,5 +23,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="tr" className={`${display.variable} ${playfair.variable} ${body.variable} ${sans.variable}`}><body><SiteHeader />{children}<Footer /></body></html>;
+  return <html lang="tr" data-scroll-behavior="smooth" className={`${display.variable} ${playfair.variable} ${body.variable} ${sans.variable}`}><body><SiteHeader />{children}<Footer /></body></html>;
 }

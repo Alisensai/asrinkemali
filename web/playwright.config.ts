@@ -7,6 +7,8 @@ const viewports = [
   { name: "mobile-390x844", width: 390, height: 844 },
   { name: "mobile-360x800", width: 360, height: 800 },
 ];
+const port = Number(process.env.E2E_PORT ?? 4173);
+const baseURL = `http://127.0.0.1:${port}`;
 
 export default defineConfig({
   testDir: "./e2e",
@@ -16,11 +18,11 @@ export default defineConfig({
   fullyParallel: false,
   workers: 1,
   reporter: [["list"], ["html", { open: "never", outputFolder: "playwright-report" }]],
-  use: { baseURL: "http://127.0.0.1:4173", trace: "retain-on-failure", screenshot: "only-on-failure" },
+  use: { baseURL, trace: "retain-on-failure", screenshot: "only-on-failure" },
   projects: viewports.map((viewport) => ({ name: viewport.name, use: { browserName: "chromium", viewport: { width: viewport.width, height: viewport.height } } })),
   webServer: {
-    command: "npm run dev -- --hostname 127.0.0.1 --port 4173",
-    url: "http://127.0.0.1:4173",
+    command: `npm run dev -- --hostname 127.0.0.1 --port ${port}`,
+    url: baseURL,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
   },
