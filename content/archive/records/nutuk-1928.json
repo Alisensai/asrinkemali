@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "nutuk-1928",
+  "slug": "nutuk-1928",
+  "title": "Nutuk",
+  "type": "publication",
+  "date": {
+    "start": "1928-07-01",
+    "end": null,
+    "precision": "month",
+    "certainty": "exact",
+    "display": "Temmuz 1928",
+    "note": "Nutuk 15-20 Ekim 1927'de okunmuştur; bu kayıt Türk Tayyare Cemiyeti'nin Temmuz 1928'deki ilk baskısını tarihler."
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "author",
+      "note": "Nutuk'un yazarı ve 1927'deki kurultayda metni okuyan konuşmacı."
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye",
+      "note": "Kaynak maddedeki kaynakça bilgisine göre ilk baskı Ankara'da yapılmıştır."
+    }
+  ],
+  "categories": [
+    "yayin",
+    "konusma",
+    "cumhuriyet"
+  ],
+  "summary": "Mustafa Kemal Atatürk'ün Nutuk'u 15-20 Ekim 1927'de Cumhuriyet Halk Fırkası'nın İkinci Büyük Kurultayı'nda okundu. Metin, Temmuz 1928'de Türk Tayyare Cemiyeti tarafından iki cilt olarak yayımlandı.",
+  "description": "Nutuk, 19 Mayıs 1919'dan 20 Ekim 1927'ye kadar uzanan dönemi Atatürk'ün kendi anlatımıyla ele alır. Eserin ilk cildi konuşma metnini ve metin içinde kullanılan belgeleri, ikinci cildi ise Vesikalar başlığı altında toplanan belgeleri içerir. Atatürk Ansiklopedisi maddesine göre metin ve belge cildinde toplam 531 belge kullanılmıştır. Nutuk, Cumhuriyet tarihinin temel birincil kaynaklarından biri kabul edilir.",
+  "source": {
+    "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "institutionType": "institutional",
+    "institutionUrl": "https://ataturkansiklopedisi.gov.tr/",
+    "title": "Atatürk Ansiklopedisi: Atatürk'ün Nutuk Adlı Eseri",
+    "url": "https://ataturkansiklopedisi.gov.tr/detay/878/Atatürk’ün-Nutuk-Adlı-Eseri",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2020-12-31",
+    "archiveIdentifier": "878",
+    "note": "Kurumsal ansiklopedi maddesi; Nutuk'un okunuşunu, ilk baskısını, cilt yapısını ve belge sayısını açıklar."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "collection": "Atatürk Ansiklopedisi",
+      "identifier": "878",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/878/Atatürk’ün-Nutuk-Adlı-Eseri",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal madde, Nutuk'un 1927'de okunuşunu ve Temmuz 1928'deki ilk baskısını belgeler."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal ansiklopedi sayfasında yeniden kullanım lisansı doğrulanmadı; metin ve görsel kopyalanmaz, yalnızca kaynak sayfaya bağlantı verilir."
+  },
+  "image": null,
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Kaynak sayfa 23 Ekim 2026'da erişildi. Kurumsal madde okumayı 15-20 Ekim 1927, ilk baskıyı Temmuz 1928 olarak verir; kayıt ilk baskı tarihini esas alır. Doğrudan alıntı kullanılmadı."
+  },
+  "tags": [
+    "Nutuk",
+    "Atatürk",
+    "1927",
+    "1928",
+    "Türk Tayyare Cemiyeti"
+  ],
+  "relatedIds": [
+    "onuncu-yil-nutku-1933",
+    "cumhuriyetin-ilani-1923"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

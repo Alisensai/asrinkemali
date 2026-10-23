@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lozan-baris-antlasmasi-1923",
+  "slug": "lozan-baris-antlasmasi-1923",
+  "title": "Lozan Barış Antlaşması",
+  "type": "event",
+  "date": {
+    "start": "1923-07-24",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "24 Temmuz 1923"
+  },
+  "people": [
+    {
+      "name": "İsmet İnönü",
+      "role": "official",
+      "note": "Lozan görüşmelerinde Türk heyetinin başkanı."
+    }
+  ],
+  "locations": [
+    {
+      "name": "Lozan",
+      "city": "Lozan",
+      "country": "İsviçre"
+    }
+  ],
+  "categories": [
+    "siyaset",
+    "kurulus"
+  ],
+  "summary": "Lozan Barış Antlaşması 24 Temmuz 1923'te İsviçre'nin Lozan kentinde imzalandı. Antlaşma, Türk Kurtuluş Savaşı'nın diplomatik sonucunu uluslararası düzeyde tescil etti.",
+  "description": "I. Dünya Savaşı sonrasında imzalanan Sevr Antlaşması'nın uygulanamaz olduğunu gösteren askerî ve siyasi mücadelenin ardından Türkiye, Lozan'da yeni sınırlarını ve egemenlik haklarını uluslararası alanda kabul ettirdi. Görüşmelere TBMM hükümeti adına katılan Türk heyeti, antlaşma metnini 24 Temmuz 1923'te imzaladı. Lozan, Cumhuriyet'in ilanına giden sürecin diplomatik temelini oluşturdu.",
+  "source": {
+    "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "institutionType": "institutional",
+    "institutionUrl": "https://ataturkansiklopedisi.gov.tr/",
+    "title": "Atatürk Ansiklopedisi: Lozan Barış Antlaşması",
+    "url": "https://ataturkansiklopedisi.gov.tr/detay/627/Lozan-Barış-Antlaşması",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2021-02-17",
+    "archiveIdentifier": "627",
+    "note": "Kurumsal ansiklopedi maddesi; antlaşmanın tarihini, görüşme sürecini ve siyasi sonuçlarını açıklar."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "collection": "Atatürk Ansiklopedisi",
+      "identifier": "627",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/627/Lozan-Barış-Antlaşması",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal madde, 24 Temmuz 1923 imza tarihini ve antlaşmanın kapsamını belgeler."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal ansiklopedi sayfasında yeniden kullanım lisansı doğrulanmadı; metin ve görsel kopyalanmaz, yalnızca kaynak sayfaya bağlantı verilir."
+  },
+  "image": null,
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Kaynak sayfa 23 Ekim 2026'da erişildi; imza tarihi ve görüşme bağlamı kurumsal maddeyle doğrulandı. Doğrudan alıntı kullanılmadı."
+  },
+  "tags": [
+    "Lozan",
+    "24 Temmuz 1923",
+    "barış",
+    "diplomasi",
+    "İsviçre"
+  ],
+  "relatedIds": [
+    "saltanatin-kaldirilmasi-1922",
+    "cumhuriyetin-ilani-1923"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

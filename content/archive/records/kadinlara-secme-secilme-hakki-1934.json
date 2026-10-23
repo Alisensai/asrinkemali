@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "kadinlara-secme-secilme-hakki-1934",
+  "slug": "kadinlara-secme-secilme-hakki-1934",
+  "title": "Kadınlara Milletvekili Seçme ve Seçilme Hakkı",
+  "type": "event",
+  "date": {
+    "start": "1934-12-05",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "5 Aralık 1934"
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "official",
+      "note": "Kadınların siyasal haklarının genişletilmesini destekleyen Cumhurbaşkanı."
+    },
+    {
+      "name": "İsmet İnönü",
+      "role": "official",
+      "note": "Kanun teklifini TBMM'ye sunan dönemin Başbakanı."
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "toplum",
+    "hukuk",
+    "cumhuriyet"
+  ],
+  "summary": "5 Aralık 1934'te kabul edilen kanunla Türk kadınları milletvekili seçme ve seçilme hakkını kazandı. Düzenleme, 1924 Anayasası'nın ilgili maddelerinde değişiklik yapılarak hayata geçirildi.",
+  "description": "Türk kadınları 1930'da belediye seçimlerinde, 1933'te muhtar ve ihtiyar meclisi seçimlerinde oy kullanma ve seçilme hakkı elde etmişti. 5 Aralık 1934'te kabul edilen kanunla 1924 Anayasası'nın 10. ve 11. maddeleri değiştirildi ve kadınlara milletvekili seçme ve seçilme hakkı tanındı. Böylece kadınlar siyasal temsil alanında erkeklerle eşit haklara kavuştu.",
+  "source": {
+    "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "institutionType": "institutional",
+    "institutionUrl": "https://ataturkansiklopedisi.gov.tr/",
+    "title": "Atatürk Ansiklopedisi: Atatürk Döneminde Kadın Hakları",
+    "url": "https://ataturkansiklopedisi.gov.tr/detay/919/Atatürk-Döneminde-Kadın-Hakları",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2020-11-27",
+    "archiveIdentifier": "919",
+    "note": "Kurumsal ansiklopedi maddesi; 5 Aralık 1934 tarihli 2598 sayılı kanunu ve kadın hakları sürecini açıklar."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "collection": "Atatürk Ansiklopedisi",
+      "identifier": "919",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/919/Atatürk-Döneminde-Kadın-Hakları",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal madde, 5 Aralık 1934 tarihli 2598 sayılı kanunu ve anayasa değişikliğini belgeler."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal ansiklopedi sayfasında yeniden kullanım lisansı doğrulanmadı; metin ve görsel kopyalanmaz, yalnızca kaynak sayfaya bağlantı verilir."
+  },
+  "image": null,
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Kaynak sayfa 23 Ekim 2026'da erişildi; 5 Aralık 1934 tarihi ve 2598 sayılı kanun bilgisi kurumsal maddeyle doğrulandı. Doğrudan alıntı kullanılmadı."
+  },
+  "tags": [
+    "kadın hakları",
+    "seçme ve seçilme",
+    "5 Aralık 1934",
+    "TBMM",
+    "eşitlik"
+  ],
+  "relatedIds": [
+    "1924-anayasasi",
+    "cumhuriyetin-ilani-1923"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

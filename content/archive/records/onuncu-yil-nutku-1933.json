@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "onuncu-yil-nutku-1933",
+  "slug": "onuncu-yil-nutku-1933",
+  "title": "Onuncu Yıl Nutku",
+  "type": "speech",
+  "date": {
+    "start": "1933-10-29",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "29 Ekim 1933"
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "speaker",
+      "note": "Nutku Ankara Hipodrom'da okuyan Cumhurbaşkanı."
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara Hipodromu",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "konusma",
+    "cumhuriyet",
+    "kultur"
+  ],
+  "summary": "Mustafa Kemal Atatürk, Cumhuriyet'in onuncu yıl dönümünde 29 Ekim 1933'te Ankara Hipodrom'da Onuncu Yıl Nutku'nu okudu. Nutuk, Cumhuriyet'in ilk on yılına ve geleceğe ilişkin değerlendirmeler içerir.",
+  "description": "Onuncu Yıl Nutku, Cumhuriyet'in onuncu yıl kutlamaları kapsamında Ankara Hipodrom'da verildi. Atatürk, konuşmasında Millî Mücadele'nin ve Cumhuriyet'in kazanımlarını değerlendirdi; eğitim, kültür ve çağdaşlaşma hedeflerini dile getirdi. Konuşma radyo aracılığıyla ülke geneline ulaştırıldı. Atatürk Ansiklopedisi maddesi, nutkun hazırlık sürecini, taslak düzeltmelerini ve metnin son hâlini belgeler.",
+  "source": {
+    "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "institutionType": "institutional",
+    "institutionUrl": "https://ataturkansiklopedisi.gov.tr/",
+    "title": "Atatürk Ansiklopedisi: Onuncu Yıl Nutku",
+    "url": "https://ataturkansiklopedisi.gov.tr/detay/503/Onuncu-Yıl-Nutku",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2021-03-22",
+    "archiveIdentifier": "503",
+    "note": "Kurumsal ansiklopedi maddesi; nutkun tarihini, bağlamını, taslak sürecini ve metnini açıklar."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "collection": "Atatürk Ansiklopedisi",
+      "identifier": "503",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/503/Onuncu-Yıl-Nutku",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal madde, 29 Ekim 1933 tarihli konuşmanın metnini ve bağlamını belgeler."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal ansiklopedi sayfasında yeniden kullanım lisansı doğrulanmadı; metin ve görsel kopyalanmaz, yalnızca kaynak sayfaya bağlantı verilir."
+  },
+  "image": null,
+  "quotation": {
+    "text": "Az zamanda çok ve büyük işler yaptık. Bu işlerin en büyüğü, temeli Türk kahramanlığı ve yüksek Türk kültürü olan Türkiye Cumhuriyeti’dir.",
+    "speaker": "Mustafa Kemal Atatürk",
+    "work": "Onuncu Yıl Nutku",
+    "date": "1933-10-29",
+    "context": "Cumhuriyet'in onuncu yıl dönümünde, 29 Ekim 1933'te Ankara Hipodrom'da Türk milletine hitaben verilen nutuk.",
+    "sourceUrl": "https://ataturkansiklopedisi.gov.tr/detay/503/Onuncu-Yıl-Nutku",
+    "sourceTitle": "Atatürk Ansiklopedisi: Onuncu Yıl Nutku",
+    "evidence": {
+      "sourceExcerpt": "Az zamanda çok ve büyük işler yaptık. Bu işlerin en büyüğü, temeli Türk kahramanlığı ve yüksek Türk kültürü olan Türkiye Cumhuriyeti’dir.",
+      "retrievedAt": "2026-10-23",
+      "verifiedBy": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "method": "institutional_transcription",
+      "note": "Alıntı, kurumsal ansiklopedi maddesindeki konuşma metninden birebir alınmıştır. Görsel tasarımdaki metin kaynak olarak kullanılmamıştır."
+    },
+    "verified": true
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": true,
+      "duplicateChecked": true
+    },
+    "notes": "Kaynak sayfa 23 Ekim 2026'da erişildi; nutkun tarihi, bağlamı ve alıntı metni kurumsal ansiklopedi maddesiyle karşılaştırıldı. Alıntı, kaynak pasajında birebir doğrulandı."
+  },
+  "tags": [
+    "Onuncu Yıl Nutku",
+    "29 Ekim 1933",
+    "söylev",
+    "Cumhuriyet",
+    "Ankara"
+  ],
+  "relatedIds": [
+    "cumhuriyetin-ilani-1923",
+    "nutuk-1928"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

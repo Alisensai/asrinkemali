@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "saltanatin-kaldirilmasi-1922",
+  "slug": "saltanatin-kaldirilmasi-1922",
+  "title": "Saltanatın Kaldırılması",
+  "type": "event",
+  "date": {
+    "start": "1922-11-01",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "1 Kasım 1922"
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "official",
+      "note": "Saltanatın kaldırılması sürecini yürüten TBMM ve hükümetin önde gelen lideri."
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "siyaset",
+    "kurulus",
+    "hukuk"
+  ],
+  "summary": "TBMM 1 Kasım 1922'de saltanatı kaldırdı. Karar, Osmanlı hanedanının siyasi egemenliğine son verdi ve Lozan görüşmeleri öncesinde Ankara hükümetinin temsil yetkisini netleştirdi.",
+  "description": "Mudanya Mütarekesi sonrasında İstanbul hükümetinin Lozan görüşmelerine katılma girişimi, saltanatın kaldırılmasını gündeme getirdi. TBMM, 1 Kasım 1922'de saltanatı hilafetten ayırarak kaldırdı. Böylece Osmanlı Devleti'nin siyasi düzeni resmen sona erdi ve millet egemenliğine dayanan TBMM hükümeti uluslararası temsil yetkisini tek başına üstlendi.",
+  "source": {
+    "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "institutionType": "institutional",
+    "institutionUrl": "https://ataturkansiklopedisi.gov.tr/",
+    "title": "Atatürk Ansiklopedisi: Saltanatın Kaldırılması",
+    "url": "https://ataturkansiklopedisi.gov.tr/detay/222/Saltanatın-Kaldırılması",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2021-03-23",
+    "archiveIdentifier": "222",
+    "note": "Kurumsal ansiklopedi maddesi; 1 Kasım 1922 kararının siyasi bağlamını ve Lozan sürecini açıklar."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "collection": "Atatürk Ansiklopedisi",
+      "identifier": "222",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/222/Saltanatın-Kaldırılması",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal madde, saltanatın kaldırılmasını TBMM kararı ve Lozan diplomasisi bağlamında belgeler."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal ansiklopedi sayfasında yeniden kullanım lisansı doğrulanmadı; metin ve görsel kopyalanmaz, yalnızca kaynak sayfaya bağlantı verilir."
+  },
+  "image": null,
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Kaynak sayfa 23 Ekim 2026'da erişildi; karar tarihi ve Lozan bağlantısı kurumsal maddeyle doğrulandı. Doğrudan alıntı kullanılmadı."
+  },
+  "tags": [
+    "saltanat",
+    "1 Kasım 1922",
+    "TBMM",
+    "egemenlik",
+    "Lozan"
+  ],
+  "relatedIds": [
+    "lozan-baris-antlasmasi-1923",
+    "cumhuriyetin-ilani-1923"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}
