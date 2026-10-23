@@ -1,0 +1,188 @@
+{
+  "schemaVersion": "1.0.0",
+  "categories": [
+    {
+      "id": "kurulus",
+      "label": "Kuruluş ve Egemenlik",
+      "description": "Meclisin açılışı, cumhuriyetin ilanı ve egemenliğin kurumsallaşması."
+    },
+    {
+      "id": "siyaset",
+      "label": "Siyaset ve Diplomasi",
+      "description": "Siyasi kararlar, antlaşmalar ve devletlerarası ilişkiler."
+    },
+    {
+      "id": "hukuk",
+      "label": "Hukuk ve Anayasa",
+      "description": "Anayasa, kanun ve hukuk reformları."
+    },
+    {
+      "id": "egitim",
+      "label": "Eğitim",
+      "description": "Eğitim kurumları, öğretim birliği ve okullaşma."
+    },
+    {
+      "id": "kultur",
+      "label": "Kültür ve Dil",
+      "description": "Dil, alfabe, kültür ve yayın alanındaki gelişmeler."
+    },
+    {
+      "id": "toplum",
+      "label": "Toplum ve Kadın Hakları",
+      "description": "Toplumsal haklar, kadınların siyasal ve sosyal katılımı."
+    },
+    {
+      "id": "milli-mucadele",
+      "label": "Millî Mücadele",
+      "description": "1919-1923 dönemi askerî ve siyasi mücadele."
+    },
+    {
+      "id": "fotograf",
+      "label": "Fotoğraf",
+      "description": "Kurumsal arşivlerde belgelenen tarihsel fotoğraflar."
+    },
+    {
+      "id": "yayin",
+      "label": "Yayın ve Kitap",
+      "description": "Kitap, süreli yayın ve basılı belge niteliğindeki kayıtlar."
+    },
+    {
+      "id": "mekan",
+      "label": "Mekân ve Miras",
+      "description": "Tarihsel yapılar, müzeler ve anıt alanları."
+    },
+    {
+      "id": "tbmm",
+      "label": "TBMM",
+      "description": "Türkiye Büyük Millet Meclisi ve kurumsal tarihi."
+    },
+    {
+      "id": "cumhuriyet",
+      "label": "Cumhuriyet",
+      "description": "Cumhuriyet rejimi, bayramları ve kurumsal gelişimi."
+    },
+    {
+      "id": "konusma",
+      "label": "Konuşma ve Nutuk",
+      "description": "Atatürk'ün söylev, nutuk ve demeçleri."
+    }
+  ],
+  "types": [
+    {
+      "id": "photograph",
+      "label": "Fotoğraf",
+      "description": "Kurumsal bir koleksiyonda tanımlanan tarihsel fotoğraf."
+    },
+    {
+      "id": "document",
+      "label": "Belge",
+      "description": "Anayasa, kanun, tutanak veya resmî belge."
+    },
+    {
+      "id": "speech",
+      "label": "Konuşma",
+      "description": "Tarihi ve bağlamı belgelenmiş söylev veya nutuk."
+    },
+    {
+      "id": "event",
+      "label": "Olay",
+      "description": "Takvim günü ve yılı belgelenmiş tarihsel olay."
+    },
+    {
+      "id": "publication",
+      "label": "Kitap / Yayın",
+      "description": "Kitap, süreli yayın veya yayımlanmış eser."
+    },
+    {
+      "id": "place",
+      "label": "Mekân",
+      "description": "Tarihsel yapı, müze, anıt veya kentsel mekân."
+    }
+  ],
+  "rightsStatuses": [
+    {
+      "id": "public_domain",
+      "label": "Kamu malı",
+      "description": "Kurumsal kaynakta kamu malı olduğu açıkça belirtilen eser."
+    },
+    {
+      "id": "open_license",
+      "label": "Açık lisans",
+      "description": "Lisans adı ve lisans URL'si doğrulanmış açık kullanım."
+    },
+    {
+      "id": "official_link_only",
+      "label": "Yalnızca resmî kaynağa bağlantı",
+      "description": "Kurumsal kaynak; yeniden kullanım lisansı doğrulanmadığı için metin veya görsel kopyalanmaz."
+    },
+    {
+      "id": "institutional_terms",
+      "label": "Kurumsal kullanım koşulları",
+      "description": "Kurumun yayımladığı kullanım koşulları doğrulanmış; kopyalama yapılmaz."
+    },
+    {
+      "id": "unknown",
+      "label": "Bilinmiyor",
+      "description": "Hak sahipliği veya lisans durumu doğrulanmadı; yalnızca taslak."
+    },
+    {
+      "id": "permission_required",
+      "label": "İzin gerekli",
+      "description": "Kullanım için hak sahibinden izin gerekir; yayımlanamaz."
+    },
+    {
+      "id": "ai_representative",
+      "label": "AI / temsili görsel",
+      "description": "Tarihsel fotoğraf değildir; yapay zekâ ile üretilmiş temsili görseldir."
+    }
+  ],
+  "verificationStatuses": [
+    {
+      "id": "draft",
+      "label": "Taslak",
+      "description": "Kaynak, tarih veya hak bilgisi henüz doğrulanmadı."
+    },
+    {
+      "id": "reviewed",
+      "label": "İncelendi",
+      "description": "Kaynak ve tarih kontrol edildi; yayın kapısındaki bazı koşullar açık."
+    },
+    {
+      "id": "published",
+      "label": "Yayımlandı",
+      "description": "Tüm yayın kapısı koşulları sağlandı ve denetim kaydı tamamlandı."
+    }
+  ],
+  "institutionTypes": [
+    {
+      "id": "official",
+      "label": "Resmî kurum",
+      "description": "TBMM, bakanlık veya kamu kurumu."
+    },
+    {
+      "id": "institutional",
+      "label": "Kurumsal yayın",
+      "description": "Kamu kurumuna bağlı araştırma merkezi veya ansiklopedi."
+    },
+    {
+      "id": "archive",
+      "label": "Arşiv",
+      "description": "Devlet arşivi veya müze arşivi."
+    },
+    {
+      "id": "library",
+      "label": "Kütüphane",
+      "description": "Millî Kütüphane veya kurumsal kütüphane kataloğu."
+    },
+    {
+      "id": "academic",
+      "label": "Akademik",
+      "description": "Üniversite veya hakemli akademik yayın."
+    },
+    {
+      "id": "other",
+      "label": "Diğer",
+      "description": "Yayın için tek başına yeterli olmayan kaynak türü."
+    }
+  ]
+}

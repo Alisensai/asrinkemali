@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "1924-anayasasi",
+  "slug": "1924-anayasasi",
+  "title": "1924 Anayasası",
+  "type": "document",
+  "date": {
+    "start": "1924-04-20",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "20 Nisan 1924"
+  },
+  "people": [],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "hukuk",
+    "cumhuriyet",
+    "siyaset"
+  ],
+  "summary": "1924 Anayasası 20 Nisan 1924'te TBMM tarafından kabul edildi. 491 sayılı Teşkilat-ı Esasiye Kanunu, Cumhuriyet'in ilk anayasal düzenini kurarak 1960 yılına kadar yürürlükte kaldı.",
+  "description": "1924 Anayasası, 1921 Teşkilat-ı Esasiye Kanunu'nun yerini aldı ve 1876 Kanun-i Esasi'yi yürürlükten kaldırdı. Anayasa, devletin cumhuriyet olduğunu ve egemenliğin kayıtsız şartsız millete ait olduğunu hükme bağladı. Yasama yetkisi TBMM'ye, yürütme yetkisi Cumhurbaşkanı ve Bakanlar Kurulu'na verildi. Metin, Cumhuriyet döneminin hukuk ve devlet düzeninin temel çerçevesini oluşturdu.",
+  "source": {
+    "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "institutionType": "institutional",
+    "institutionUrl": "https://ataturkansiklopedisi.gov.tr/",
+    "title": "Atatürk Ansiklopedisi: 1924 Anayasası",
+    "url": "https://ataturkansiklopedisi.gov.tr/detay/168/1924-Anayasası",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2021-02-23",
+    "archiveIdentifier": "168",
+    "note": "Kurumsal ansiklopedi maddesi; anayasanın kabul tarihini, 491 sayılı kanun numarasını ve kurumsal yapısını açıklar."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "collection": "Atatürk Ansiklopedisi",
+      "identifier": "168",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/168/1924-Anayasası",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal madde, 20 Nisan 1924 tarihli 491 sayılı Teşkilat-ı Esasiye Kanunu'nu belgeler."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal ansiklopedi sayfasında yeniden kullanım lisansı doğrulanmadı; metin ve görsel kopyalanmaz, yalnızca kaynak sayfaya bağlantı verilir."
+  },
+  "image": null,
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Kaynak sayfa 23 Ekim 2026'da erişildi; kabul tarihi ve 491 sayılı kanun numarası kurumsal maddeyle doğrulandı. Doğrudan alıntı kullanılmadı."
+  },
+  "tags": [
+    "1924 Anayasası",
+    "Teşkilat-ı Esasiye",
+    "20 Nisan 1924",
+    "hukuk",
+    "egemenlik"
+  ],
+  "relatedIds": [
+    "cumhuriyetin-ilani-1923",
+    "tevhid-i-tedrisat-1924"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}
