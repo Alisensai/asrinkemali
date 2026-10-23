@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#250907" />
+  <meta name="description" content="Asrın Kemali: Mustafa Kemal Atatürk'ün yaşamını, eserlerini ve dönemin tarihî belgelerini kaynaklarla incelemeyi amaçlayan bağımsız dijital tarih ve kültür platformu." />
+  <meta property="og:title" content="Asrın Kemali | Bir Asrın Mirası, Sonsuzluğun Hafızası" />
+  <meta property="og:description" content="Bağımsız dijital tarih, kültür ve araştırma platformu." />
+  <title>Asrın Kemali | Tarih, Hafıza, Miras</title>
+  <link rel="icon" type="image/webp" href="assets/mka-arma.webp" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#icerik">İçeriğe geç</a>
+  <div class="utility-bar">
+    <div class="container utility-inner">
+      <div class="utility-date"><span class="symbol">▤</span><time id="today-date"></time></div>
+      <div class="utility-phrase">BİR ASRIN MİRASI, SONSUZLUĞUN HAFIZASI</div>
+      <div class="utility-right">
+        <button class="plain-icon" id="contrast-toggle" type="button" aria-label="Yüksek kontrastı aç veya kapat" title="Yüksek kontrast">◉ <span>ERİŞİLEBİLİRLİK</span></button>
+        <span class="utility-divider" aria-hidden="true"></span>
+        <span class="lang-current" aria-label="Site dili Türkçe">TR ▾</span>
+        <button class="plain-icon search-launch" type="button" aria-label="Sitede ara" title="Ara">⌕</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header" id="ust">
+    <div class="container masthead">
+      <a href="#ust" class="identity" aria-label="Asrın Kemali ana sayfa">
+        <img class="identity-crest" src="assets/mka-arma.webp" width="132" height="132" alt="MKA — Asrın Kemali amblemi" />
+        <span class="identity-copy"><span class="identity-name">ASRIN KEMALİ</span><span class="identity-motto">BİR ASRIN MİRASI, SONSUZLUĞUN HAFIZASI</span></span>
+      </a>
+      <div class="masthead-actions"><button class="header-search search-launch" type="button">⌕ <span>Arşivde Ara</span></button><a class="museum-button" href="#dijital-muze"><span aria-hidden="true">♜</span> Dijital Müze</a></div>
+    </div>
+    <nav class="main-nav" aria-label="Ana menü">
+      <div class="container nav-inner">
+        <button id="mobile-menu-toggle" type="button" class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-menu">☰ <span>MENÜ</span></button>
+        <div id="main-menu" class="menu-links">
+          <a class="active" href="#ust" aria-current="page">⌂ <span>ANA SAYFA</span></a>
+          <a href="#ataturk">ATATÜRK</a>
+          <a href="#kronoloji">KRONOLOJİ</a>
+          <a href="#arsiv">ARŞİV</a>
+          <a href="#belgeler">BELGELER</a>
+          <a href="#fotograflar">FOTOĞRAFLAR</a>
+          <a href="#yayinlar">YAYINLAR</a>
+          <a href="#akademi">AKADEMİ</a>
+          <a href="#etkinlikler">ETKİNLİKLER</a>
+          <a href="#kurumsal">KURUMSAL</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="icerik">
+    <section class="hero" aria-label="Asrın Kemali tanıtım">
+      <div class="hero-art" role="img" aria-label="Mustafa Kemal Atatürk'ün yapay zekâ ile üretilmiş temsili görseli"></div>
+      <div class="hero-vignette"></div>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow" id="hero-kicker">TARİH • KÜLTÜR • ARAŞTIRMA</span>
+          <h1><span id="hero-pretitle">GAZİ MUSTAFA KEMAL</span><strong id="hero-title">ATATÜRK</strong></h1>
+          <p id="hero-description">Bir milletin tarihini, belgeleriyle ve hafızasıyla keşfedin.</p>
+          <div class="hero-actions">
+            <a href="#arsiv" class="button button-red">▤ <span>ARŞİVİ KEŞFET</span><span aria-hidden="true">→</span></a>
+            <a href="#kronoloji" class="button button-outline">KRONOLOJİYİ İNCELE <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="hero-pagination" aria-label="Tanıtım slaytları"><span class="current-slide">01</span><span class="pagination-line"></span><button class="slide-dot selected" type="button" data-slide="0" aria-label="1. tanıtımı göster" aria-current="true">01</button><button class="slide-dot" type="button" data-slide="1" aria-label="2. tanıtımı göster">02</button><button class="slide-dot" type="button" data-slide="2" aria-label="3. tanıtımı göster">03</button></div>
+        </div>
+        <div class="hero-edge-note"><div class="edge-line"></div><span>BAĞIMSIZ DİJİTAL TARİH PLATFORMU</span><div class="edge-line"></div><small>Atatürk'ün yaşamı, kaynaklar ve tarihî hafıza</small></div>
+      </div>
+      <button class="hero-arrow hero-prev" type="button" id="hero-prev" aria-label="Önceki tanıtım">‹</button>
+      <button class="hero-arrow hero-next" type="button" id="hero-next" aria-label="Sonraki tanıtım">›</button>
+      <span class="hero-art-disclosure">Kapak görseli: Yapay zekâ ile hazırlanmış temsili canlandırma.</span>
+    </section>
+
+    <section class="shortcuts container" aria-label="Hızlı erişim">
+      <a class="shortcut" href="#fotograflar" style="--tile-image:url('assets/fotograf-arsivi.webp')"><span class="tile-symbol">▧</span><span>FOTOĞRAF<br/>ARŞİVİ</span><span class="shortcut-arrow">↗</span></a>
+      <a class="shortcut" href="#belgeler" style="--tile-image:url('assets/belge-merkezi.webp')"><span class="tile-symbol">▤</span><span>BELGE<br/>MERKEZİ</span><span class="shortcut-arrow">↗</span></a>
+      <a class="shortcut" href="#dijital-muze" style="--tile-image:url('assets/dijital-kutuphane.webp')"><span class="tile-symbol">♜</span><span>DİJİTAL<br/>KÜTÜPHANE</span><span class="shortcut-arrow">↗</span></a>
+      <a class="shortcut" href="#kronoloji" style="--tile-image:url('assets/tarih-atlasi.webp')"><span class="tile-symbol">◎</span><span>TARİH<br/>KRONOLOJİSİ</span><span class="shortcut-arrow">↗</span></a>
+    </section>
+
+    <div class="container content-grid" id="yayinlar">
+      <section class="publications section-head-wrapper">
+        <div class="section-topline"><h2>GÜNCEL YAYINLAR</h2><a href="#arsiv">Tüm İçerikler <span aria-hidden="true">→</span></a></div>
+        <div class="publication-grid">
+          <a class="publication-card" href="#ataturk" style="--publication-image:url('assets/arastirma.webp')"><span class="publication-tag">TARİH</span><h3>Atatürk'ün Hayatı ve Dönüm Noktaları</h3><span class="publication-meta">Temel kronoloji <span aria-hidden="true">→</span></span></a>
+          <a class="publication-card" href="#kronoloji" style="--publication-image:url('assets/makale.webp')"><span class="publication-tag">KRONOLOJİ</span><h3>Milli Mücadele'den Cumhuriyet'e</h3><span class="publication-meta">Tarihsel dönemler <span aria-hidden="true">→</span></span></a>
+          <a class="publication-card" href="#belgeler" style="--publication-image:url('assets/tarihi-belge.webp')"><span class="publication-tag">ARŞİV</span><h3>Nutuk ve Birincil Kaynaklara Giriş</h3><span class="publication-meta">Kaynak rehberi <span aria-hidden="true">→</span></span></a>
+        </div>
+        <p class="subtle-note">Bu bölüm ilk sürümde örnek içerik kartları içerir; araştırma yazıları kaynak incelemesinden sonra yayımlanacaktır.</p>
+      </section>
+      <aside class="timeline-teaser" id="kronoloji">
+        <div class="timeline-heading"><h2>▦ &nbsp;TARİH KRONOLOJİSİ</h2><span>1881 — 1938</span></div>
+        <ol class="timeline-items">
+          <li><time datetime="1881">1881</time><p>Mustafa Kemal'in Selanik'te doğumu.</p></li>
+          <li><time datetime="1919-05-19">1919</time><p>19 Mayıs: Samsun'a çıkışı.</p></li>
+          <li><time datetime="1920-04-23">1920</time><p>23 Nisan: Türkiye Büyük Millet Meclisinin açılışı.</p></li>
+          <li><time datetime="1923-10-29">1923</time><p>29 Ekim: Cumhuriyet'in ilanı.</p></li>
+          <li><time datetime="1938-11-10">1938</time><p>10 Kasım: Atatürk'ün vefatı.</p></li>
+        </ol>
+        <a class="timeline-all" href="#ataturk">Kronolojiyi Keşfet →</a>
+      </aside>
+    </div>
+
+    <section class="archive-main container" id="arsiv">
+      <div class="archive-heading"><div><div class="eyebrow">DİJİTAL KOLEKSİYON</div><h2>ARŞİVİ KEŞFEDİN</h2></div><p>Belgeleri, tarihî kayıtları ve araştırma başlıklarını tek merkezden inceleyin.</p></div>
+      <div class="archive-tabs" role="group" aria-label="Arşiv kategorileri">
+        <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">Tümü</button>
+        <button type="button" class="filter-btn" data-filter="photography" aria-pressed="false">Fotoğraf</button>
+        <button type="button" class="filter-btn" data-filter="documents" aria-pressed="false">Belge</button>
+        <button type="button" class="filter-btn" data-filter="library" aria-pressed="false">Kütüphane</button>
+      </div>
+      <div class="archive-grid">
+        <article id="fotograflar" class="archive-card" data-category="photography"><div class="archive-image" style="--archive-img:url('assets/fotograf-arsivi.webp')"></div><div class="archive-card-inner"><span>FOTOĞRAF</span><h3>Fotoğraf Koleksiyonu</h3><p>Tarihî fotoğraflar için kaynak ve lisans denetimli katalog.</p><span class="card-status">Katalog hazırlanıyor</span></div></article>
+        <article id="belgeler" class="archive-card" data-category="documents"><div class="archive-image" style="--archive-img:url('assets/belge-merkezi.webp')"></div><div class="archive-card-inner"><span>BELGE</span><h3>Belge ve Yazışmalar</h3><p>Orijinal belge bağlantıları ve açıklamalı arşiv rehberleri.</p><span class="card-status">Katalog hazırlanıyor</span></div></article>
+        <article id="dijital-muze" class="archive-card" data-category="library"><div class="archive-image" style="--archive-img:url('assets/dijital-kutuphane.webp')"></div><div class="archive-card-inner"><span>KÜTÜPHANE</span><h3>Dijital Kütüphane</h3><p>Yayınlara ve birincil kaynaklara erişim için başlangıç dizini.</p><span class="card-status">Katalog hazırlanıyor</span></div></article>
+      </div>
+    </section>
+
+    <section class="statement-section" id="ataturk"><div class="container statement-inner"><div class="statement-mark">MKA</div><div><div class="eyebrow">HAKKIMIZDA</div><h2>Tarihî hafıza, güvenilir kaynaklarla yaşar.</h2><p>Asrın Kemali, Mustafa Kemal Atatürk'e ilişkin tarih, kültür ve arşiv çalışmalarına odaklanan bağımsız bir dijital projedir. Kamu kurumu, resmî enstitü veya mevcut bir dernek değildir.</p><a href="#kurumsal" class="text-link">Proje ilkelerimizi okuyun →</a></div></div></section>
+
+    <section class="lower-sections container">
+      <article id="akademi"><span class="eyebrow">GELECEK PROJELER</span><h2>AKADEMİ VE SÖYLEŞİLER</h2><p>Uzman katkıları, açık dersler ve tarih söyleşileri için ayrılmış gelişim alanı. Henüz faal bir akademi bulunmuyor.</p></article>
+      <article id="etkinlikler"><span class="eyebrow">DUYURULAR</span><h2>ETKİNLİK TAKVİMİ</h2><p>Gerçekleştirilecek etkinlikler duyurulmaya başladığında burada tarih, konum, katılım ve düzenleyici bilgileri yayımlanacak.</p></article>
+    </section>
+  </main>
+
+  <footer id="kurumsal" class="site-footer"><div class="container footer-top"><div class="footer-brand"><img src="assets/mka-arma.webp" width="72" height="72" alt="MKA amblemi"/><div><strong>ASRIN KEMALİ</strong><p>Bir asrın mirası, sonsuzluğun hafızası.</p></div></div><div><h2>İLETİŞİM</h2><a href="mailto:asrinkemali@gmail.com">asrinkemali@gmail.com</a><p>Bağımsız dijital tarih ve kültür projesi.</p></div></div><div class="container footer-bottom"><span>© <span id="copyright-year"></span> Asrın Kemali • Tüm hakları saklıdır.</span><span>Bu site resmî devlet kurumu veya Atatürk'ün resmî temsilcisi değildir. Görsel canlandırmalar yapay zekâ ile üretilmiştir.</span></div></footer>
+
+  <dialog id="search-dialog" class="search-dialog" aria-labelledby="search-title"><div class="search-modal-content"><div class="search-modal-heading"><h2 id="search-title">ARŞİVDE ARA</h2><button id="search-close" type="button" aria-label="Aramayı kapat">×</button></div><label for="site-search-input">Sayfa, bölüm veya konu ara</label><input id="site-search-input" type="search" placeholder="Örn. Nutuk, fotoğraf, kronoloji..." autocomplete="off"/><div id="search-results" role="status" aria-live="polite"></div></div></dialog>
+</body>
+</html>
