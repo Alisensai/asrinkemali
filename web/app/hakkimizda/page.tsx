@@ -17,8 +17,8 @@ export default function AboutPage() {
         </p>
 
         <blockquote>
-          “Tarih yazmak, tarih yapmak kadar mühimdir. Yazan yapana sadık kalmazsa değişmeyen hakikat insanlığı şaşırtacak bir mahiyet alır.”
-          <footer>— Mustafa Kemal Atatürk, 1931</footer>
+          “Tarihî hakikat, yalnızca doğrulanmış birincil belgeler ve kurum arşivleri üzerinden inşa edilebilir. Belgesi ve kaynağı bulunmayan anlatı, tarih değil ancak temennidir.”
+          <footer>— Asrın Kemali Yayın ve Arşiv İlkesi</footer>
         </blockquote>
 
         <div className="prose-pillars">

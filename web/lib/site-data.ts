@@ -3,6 +3,7 @@ import type { ArchiveCollection, ArchiveRecord, ChronologyEntry, HeroSlide, Link
 export const primaryNavigation: LinkItem[] = [
   { label: "Ana sayfa", href: "/" },
   { label: "Atatürk", href: "/ataturk" },
+  { label: "Sergiler", href: "/sergiler" },
   { label: "Kronoloji", href: "/kronoloji" },
   { label: "Arşiv", href: "/arsiv" },
   { label: "Belgeler", href: "/arsiv?tur=belge" },
@@ -47,5 +48,6 @@ export const searchItems: SearchItem[] = [
   { title: "Arşiv", kind: "Sayfa", href: "/arsiv", keywords: "belge fotoğraf kitap koleksiyon" },
   { title: "Yayınlar", kind: "Sayfa", href: "/yayinlar", keywords: "araştırma makale yayın" },
   { title: "Tarihte Bugün", kind: "Sayfa", href: "/tarihte-bugun", keywords: "gün ay kaynaklı olay tarih" },
+  { title: "Küratöryel Sergiler", kind: "Sayfa", href: "/sergiler", keywords: "sergi müze sanal galeri vitrin anlatım cumhuriyet milli mücadele" },
   { title: "Hakkımızda", kind: "Sayfa", href: "/hakkimizda", keywords: "bağımsız proje ilkeler" },
 ];
