@@ -1,14 +1,9 @@
 import type { NextConfig } from "next";
+import { headerOptionsFromEnv, NO_STORE_ROUTES, securityHeaders } from "./lib/security/headers";
 
-// Temel güvenlik başlıkları. CSP bilinçli olarak eklenmedi: Next.js satır içi betikleri için
-// nonce altyapısı gerekir; MKA FORTRESS çalışmasında ele alınacak (docs/integration/V06-CLAUDE-HARDENING.md).
-const securityHeaders = [
-  { key: "X-Content-Type-Options", value: "nosniff" },
-  { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-  { key: "X-Frame-Options", value: "DENY" },
-  { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=(), usb=()" },
-  { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
-];
+// MKA FORTRESS: güvenlik başlıkları ve CSP `lib/security/headers.ts` içinde tanımlıdır.
+// ASRIN_CSP_MODE=report-only|off|enforce (varsayılan enforce), ASRIN_ENABLE_HSTS=1 yalnız HTTPS dağıtımında.
+const headerOptions = headerOptionsFromEnv(process.env);
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -16,7 +11,10 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   turbopack: { root: process.cwd() },
   async headers() {
-    return [{ source: "/:path*", headers: securityHeaders }];
+    return [
+      { source: "/:path*", headers: securityHeaders(headerOptions) },
+      ...NO_STORE_ROUTES.map((source) => ({ source, headers: [{ key: "Cache-Control", value: "no-store, max-age=0" }] })),
+    ];
   },
 };
 
