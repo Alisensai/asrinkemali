@@ -1,0 +1,2255 @@
+{
+  "schemaVersion": "1.0.0",
+  "meta": {
+    "title": "MKA Evidence Engine — Kaynak Adayları Havuzu",
+    "targetPeriod": {
+      "start": 1881,
+      "end": 1918
+    },
+    "note": "Bu havuz yayımlanmış arşiv DEĞİLDİR. Hiçbir aday insan onayı olmadan arşive aktarılmaz. Tüm kaynaklar 23.10.2026 tarihinde tek tek okunarak doğrulanmıştır; hiçbir künye uydurulmamıştır.",
+    "generatedAt": "2026-10-23T00:00:00Z",
+    "generator": "tools/historical-research (Perplexity ajanı)"
+  },
+  "candidates": [
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0001",
+      "title": "Atatürk, Gazi Mustafa Kemal (1881-10 Kasım 1938)",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/4899/Atat%C3%BCrk,-Gazi-Mustafa-Kemal-(1881-10-Kas%C4%B1m-1938)",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [],
+      "publishedAt": "2020-12-20",
+      "eventYear": null,
+      "periodStart": 1881,
+      "periodEnd": 1938,
+      "people": [
+        "Mustafa Kemal Atatürk"
+      ],
+      "locations": [
+        "Selanik",
+        "İstanbul"
+      ],
+      "documentType": "article",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "cocukluk",
+        "genel"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": false,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "Ana biyografi maddesi; 1881 doğumundan 1938'e kadar."
+      },
+      "state": "insufficient_info",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "insufficient_info",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [
+        "claim-001"
+      ],
+      "archiveIdentifier": "AYK-4899",
+      "citation": "\"Atatürk, Gazi Mustafa Kemal (1881-10 Kasım 1938)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/4899/Atat%C3%BCrk,-Gazi-Mustafa-Kemal-(1881-10-Kas%C4%B1m-1938).",
+      "synthetic": false,
+      "notes": "Ana biyografi maddesi; 1881 doğumundan 1938'e kadar."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0002",
+      "title": "Ali Rıza Efendi (1841-1886)",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/179/Ali-R%C4%B1za-Efendi-(1841-1886)",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [
+        {
+          "name": "Ali Güler"
+        }
+      ],
+      "publishedAt": "2024-05-18",
+      "eventYear": null,
+      "periodStart": 1841,
+      "periodEnd": 1886,
+      "people": [
+        "Ali Rıza Efendi"
+      ],
+      "locations": [
+        "Selanik"
+      ],
+      "documentType": "article",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "cocukluk",
+        "kisiler"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": true,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "Atatürk'ün babası."
+      },
+      "state": "awaiting_human_review",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "awaiting_human_review",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [],
+      "archiveIdentifier": "AYK-179",
+      "citation": "Ali Güler, \"Ali Rıza Efendi (1841-1886)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/179/Ali-R%C4%B1za-Efendi-(1841-1886).",
+      "synthetic": false,
+      "notes": "Atatürk'ün babası."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0003",
+      "title": "Zübeyde Hanım (1857-1923)",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/83/Z%C3%BCbeyde-Han%C4%B1m-(1857-1923)",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [
+        {
+          "name": "Mehmet Emin Elmacı"
+        }
+      ],
+      "publishedAt": "2021-08-11",
+      "eventYear": null,
+      "periodStart": 1857,
+      "periodEnd": 1923,
+      "people": [
+        "Zübeyde Hanım"
+      ],
+      "locations": [
+        "Selanik",
+        "İzmir"
+      ],
+      "documentType": "article",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "cocukluk",
+        "kisiler"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": true,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "Atatürk'ün annesi."
+      },
+      "state": "awaiting_human_review",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "awaiting_human_review",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [],
+      "archiveIdentifier": "AYK-83",
+      "citation": "Mehmet Emin Elmacı, \"Zübeyde Hanım (1857-1923)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/83/Z%C3%BCbeyde-Han%C4%B1m-(1857-1923).",
+      "synthetic": false,
+      "notes": "Atatürk'ün annesi."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0004",
+      "title": "Makbule Atadan (1885-1956)",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/237/Makbule-Atadan-(1885-1956)",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [
+        {
+          "name": "Mehmet Emin Elmacı"
+        }
+      ],
+      "publishedAt": "2021-02-17",
+      "eventYear": null,
+      "periodStart": 1885,
+      "periodEnd": 1956,
+      "people": [
+        "Makbule Atadan"
+      ],
+      "locations": [
+        "Selanik"
+      ],
+      "documentType": "article",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "cocukluk",
+        "kisiler"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": true,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "Atatürk'ün kız kardeşi."
+      },
+      "state": "awaiting_human_review",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "awaiting_human_review",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [],
+      "archiveIdentifier": "AYK-237",
+      "citation": "Mehmet Emin Elmacı, \"Makbule Atadan (1885-1956)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/237/Makbule-Atadan-(1885-1956).",
+      "synthetic": false,
+      "notes": "Atatürk'ün kız kardeşi."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0005",
+      "title": "Şemsi Efendi Mektebi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/243/%C5%9Eemsi-Efendi-Mektebi",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [
+        {
+          "name": "Volkan Aksoy"
+        }
+      ],
+      "publishedAt": "2022-02-22",
+      "eventYear": null,
+      "periodStart": 1872,
+      "periodEnd": 1917,
+      "people": [
+        "Şemsi Efendi",
+        "Mustafa Kemal Atatürk"
+      ],
+      "locations": [
+        "Selanik"
+      ],
+      "documentType": "article",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "egitim",
+        "selanik"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": true,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "Mustafa Kemal'in ilk öğrenim gördüğü mahalle mektebinin kuruluşu (1872) ve eğitim kadrosu. Sayfada kayıt yılı belirtilmediğinden eventYear boş bırakıldı."
+      },
+      "state": "awaiting_human_review",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "awaiting_human_review",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [],
+      "archiveIdentifier": "AYK-243",
+      "citation": "Volkan Aksoy, \"Şemsi Efendi Mektebi\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/243/%C5%9Eemsi-Efendi-Mektebi.",
+      "synthetic": false,
+      "notes": "Mustafa Kemal'in ilk öğrenim gördüğü mahalle mektebinin kuruluşu (1872) ve eğitim kadrosu. Sayfada kayıt yılı belirtilmediğinden eventYear boş bırakıldı."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0006",
+      "title": "Atatürk'ün Eğitim ve Öğretim Gördüğü Kurumlar",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/875/Atat%C3%BCrk%E2%80%99%C3%BCn-E%C4%9Fitim-ve-%C3%96%C4%9Fretim-G%C3%B6rd%C3%BC%C4%9F%C3%BC-Kurumlar",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [
+        {
+          "name": "Ali Güler"
+        }
+      ],
+      "publishedAt": "2020-12-30",
+      "eventYear": null,
+      "periodStart": 1887,
+      "periodEnd": 1905,
+      "people": [
+        "Mustafa Kemal Atatürk"
+      ],
+      "locations": [
+        "Selanik",
+        "Manastır",
+        "İstanbul"
+      ],
+      "documentType": "article",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "egitim"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": true,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "Öğrenim hayatı 1887–1905: Şemsi Efendi Mektebi, Selanik Askerî Rüştiyesi, Manastır Askerî İdadisi, Harp Okulu, Erkân-ı Harbiye."
+      },
+      "state": "awaiting_human_review",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "awaiting_human_review",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [
+        "claim-002"
+      ],
+      "archiveIdentifier": "AYK-875",
+      "citation": "Ali Güler, \"Atatürk'ün Eğitim ve Öğretim Gördüğü Kurumlar\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/875/Atat%C3%BCrk%E2%80%99%C3%BCn-E%C4%9Fitim-ve-%C3%96%C4%9Fretim-G%C3%B6rd%C3%BC%C4%9F%C3%BC-Kurumlar.",
+      "synthetic": false,
+      "notes": "Öğrenim hayatı 1887–1905: Şemsi Efendi Mektebi, Selanik Askerî Rüştiyesi, Manastır Askerî İdadisi, Harp Okulu, Erkân-ı Harbiye."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0007",
+      "title": "Trablusgarp Savaşı'nda Atatürk",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/407/Trablusgarp-Sava%C5%9F%C4%B1%E2%80%99nda-Atat%C3%BCrk",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [
+        {
+          "name": "Hasan Taner Kerimoğlu"
+        }
+      ],
+      "publishedAt": "2021-07-07",
+      "eventYear": 1911,
+      "periodStart": 1908,
+      "periodEnd": 1912,
+      "people": [
+        "Mustafa Kemal Atatürk"
+      ],
+      "locations": [
+        "Derne",
+        "Trablusgarp"
+      ],
+      "documentType": "article",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "trablusgarp"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": true,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "Derne Komutanlığı; Trablusgarp Savaşı 1911–1912."
+      },
+      "state": "awaiting_human_review",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "awaiting_human_review",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [
+        "claim-003"
+      ],
+      "archiveIdentifier": "AYK-407",
+      "citation": "Hasan Taner Kerimoğlu, \"Trablusgarp Savaşı'nda Atatürk\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/407/Trablusgarp-Sava%C5%9F%C4%B1%E2%80%99nda-Atat%C3%BCrk.",
+      "synthetic": false,
+      "notes": "Derne Komutanlığı; Trablusgarp Savaşı 1911–1912."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0008",
+      "title": "Balkan Savaşı'nda Atatürk",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/685/Balkan-Sava%C5%9F%C4%B1%E2%80%99nda-Atat%C3%BCrk",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [
+        {
+          "name": "İsmet Görgülü"
+        }
+      ],
+      "publishedAt": "2021-01-05",
+      "eventYear": 1912,
+      "periodStart": 1912,
+      "periodEnd": 1913,
+      "people": [
+        "Mustafa Kemal Atatürk"
+      ],
+      "locations": [
+        "Bulgaristan Cephesi",
+        "Edirne"
+      ],
+      "documentType": "article",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "balkan-savaslari"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": true,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "Görev dönemi 1 Aralık 1912–10 Ağustos 1913."
+      },
+      "state": "awaiting_human_review",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "awaiting_human_review",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [
+        "claim-004"
+      ],
+      "archiveIdentifier": "AYK-685",
+      "citation": "İsmet Görgülü, \"Balkan Savaşı'nda Atatürk\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/685/Balkan-Sava%C5%9F%C4%B1%E2%80%99nda-Atat%C3%BCrk.",
+      "synthetic": false,
+      "notes": "Görev dönemi 1 Aralık 1912–10 Ağustos 1913."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0009",
+      "title": "Birinci Dünya Savaşı'nda Mustafa Kemal (Atatürk)",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/4078/Birinci-D%C3%BCnya-Sava%C5%9F%C4%B1%E2%80%99nda-Mustafa-Kemal-(Atat%C3%BCrk)",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [
+        {
+          "name": "Serpil Sürmeli"
+        }
+      ],
+      "publishedAt": "2021-03-29",
+      "eventYear": null,
+      "periodStart": 1913,
+      "periodEnd": 1918,
+      "people": [
+        "Mustafa Kemal Atatürk"
+      ],
+      "locations": [
+        "Çanakkale",
+        "Doğu Anadolu",
+        "Sina-Filistin"
+      ],
+      "documentType": "article",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "canakkale",
+        "dogu-cephesi",
+        "1917-1918"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": true,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "I. Dünya Savaşı boyunca Mustafa Kemal'in tüm cephelerdeki görevleri."
+      },
+      "state": "awaiting_human_review",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "awaiting_human_review",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [
+        "claim-006"
+      ],
+      "archiveIdentifier": "AYK-4078",
+      "citation": "Serpil Sürmeli, \"Birinci Dünya Savaşı'nda Mustafa Kemal (Atatürk)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/4078/Birinci-D%C3%BCnya-Sava%C5%9F%C4%B1%E2%80%99nda-Mustafa-Kemal-(Atat%C3%BCrk).",
+      "synthetic": false,
+      "notes": "I. Dünya Savaşı boyunca Mustafa Kemal'in tüm cephelerdeki görevleri."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0010",
+      "title": "Çanakkale Cephesi'nde Mustafa Kemal (ATATÜRK)",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/4084/%C3%87anakkale-Cephesi%E2%80%99nde-Mustafa-Kemal-(ATAT%C3%9CRK)",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [
+        {
+          "name": "Murat Karataş"
+        }
+      ],
+      "publishedAt": "2022-09-21",
+      "eventYear": 1915,
+      "periodStart": 1914,
+      "periodEnd": 1916,
+      "people": [
+        "Mustafa Kemal Atatürk"
+      ],
+      "locations": [
+        "Anafartalar",
+        "Çanakkale"
+      ],
+      "documentType": "article",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "canakkale"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": true,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "Çanakkale Cephesi'ndeki komutanlık görevleri."
+      },
+      "state": "awaiting_human_review",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "awaiting_human_review",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [
+        "claim-006"
+      ],
+      "archiveIdentifier": "AYK-4084",
+      "citation": "Murat Karataş, \"Çanakkale Cephesi'nde Mustafa Kemal (ATATÜRK)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/4084/%C3%87anakkale-Cephesi%E2%80%99nde-Mustafa-Kemal-(ATAT%C3%9CRK).",
+      "synthetic": false,
+      "notes": "Çanakkale Cephesi'ndeki komutanlık görevleri."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0011",
+      "title": "Mustafa Kemal'in Sofya Ataşemiliterliği",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/388/Mustafa-Kemal%E2%80%99in-Sofya-Ata%C5%9Femiliterli%C4%9Fi",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [],
+      "publishedAt": "2020-11-29",
+      "eventYear": 1913,
+      "periodStart": 1913,
+      "periodEnd": 1915,
+      "people": [
+        "Mustafa Kemal Atatürk"
+      ],
+      "locations": [
+        "Sofya"
+      ],
+      "documentType": "article",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "balkan-savaslari",
+        "1917-1918"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": false,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "Ataşemiliterlik dönemi 27 Ekim 1913–20 Ocak 1915."
+      },
+      "state": "insufficient_info",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "insufficient_info",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [
+        "claim-005"
+      ],
+      "archiveIdentifier": "AYK-388",
+      "citation": "\"Mustafa Kemal'in Sofya Ataşemiliterliği\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/388/Mustafa-Kemal%E2%80%99in-Sofya-Ata%C5%9Femiliterli%C4%9Fi.",
+      "synthetic": false,
+      "notes": "Ataşemiliterlik dönemi 27 Ekim 1913–20 Ocak 1915."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0012",
+      "title": "Sina ve Filistin Cephesi'nde Atatürk",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/291/Sina-ve-Filistin-Cephesi%E2%80%99nde-Atat%C3%BCrk",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [
+        {
+          "name": "Nasır Yüceer"
+        }
+      ],
+      "publishedAt": "2021-02-27",
+      "eventYear": 1918,
+      "periodStart": 1917,
+      "periodEnd": 1919,
+      "people": [
+        "Mustafa Kemal Atatürk"
+      ],
+      "locations": [
+        "Sina-Filistin Cephesi",
+        "Şam"
+      ],
+      "documentType": "article",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "1917-1918",
+        "dogu-cephesi"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": true,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "Yıldırım Orduları Komutanlığı; Mayıs 1919 İstanbul'dan ayrılışa kadar."
+      },
+      "state": "awaiting_human_review",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "awaiting_human_review",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [
+        "claim-010"
+      ],
+      "archiveIdentifier": "AYK-291",
+      "citation": "Nasır Yüceer, \"Sina ve Filistin Cephesi'nde Atatürk\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/291/Sina-ve-Filistin-Cephesi%E2%80%99nde-Atat%C3%BCrk.",
+      "synthetic": false,
+      "notes": "Yıldırım Orduları Komutanlığı; Mayıs 1919 İstanbul'dan ayrılışa kadar."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0013",
+      "title": "Hicaz Cephesi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/1025/Hicaz-Cephesi",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [
+        {
+          "name": "Umut Akcakaya"
+        }
+      ],
+      "publishedAt": "2023-05-23",
+      "eventYear": 1917,
+      "periodStart": 1916,
+      "periodEnd": 1919,
+      "people": [],
+      "locations": [
+        "Hicaz",
+        "Medine"
+      ],
+      "documentType": "article",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "1917-1918"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": true,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "Hicaz İsyanı ve Medine Müdafaası 1916–1919; Mustafa Kemal'in Hicaz Kuvve-i Seferiyesi görevi."
+      },
+      "state": "awaiting_human_review",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "awaiting_human_review",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [],
+      "archiveIdentifier": "AYK-1025",
+      "citation": "Umut Akcakaya, \"Hicaz Cephesi\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/1025/Hicaz-Cephesi.",
+      "synthetic": false,
+      "notes": "Hicaz İsyanı ve Medine Müdafaası 1916–1919; Mustafa Kemal'in Hicaz Kuvve-i Seferiyesi görevi."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0014",
+      "title": "Afetinan'ın M. Kemal Atatürk'ün Karlsbad Hatıraları",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/105/Afetinan%E2%80%99%C4%B1n-M.-Kemal-Atat%C3%BCrk%E2%80%99%C3%BCn-Karlsbad-Hat%C4%B1ralar%C4%B1",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [
+        {
+          "name": "Hakan Uzun"
+        }
+      ],
+      "publishedAt": "2021-08-09",
+      "eventYear": 1918,
+      "periodStart": 1916,
+      "periodEnd": 1918,
+      "people": [
+        "Mustafa Kemal Atatürk",
+        "Afetinan"
+      ],
+      "locations": [
+        "Karlsbad"
+      ],
+      "documentType": "article",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "1917-1918",
+        "kisiler"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": true,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "30 Haziran–28 Temmuz 1918 Karlsbad günleri."
+      },
+      "state": "awaiting_human_review",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "awaiting_human_review",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [
+        "claim-008"
+      ],
+      "archiveIdentifier": "AYK-105",
+      "citation": "Hakan Uzun, \"Afetinan'ın M. Kemal Atatürk'ün Karlsbad Hatıraları\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/105/Afetinan%E2%80%99%C4%B1n-M.-Kemal-Atat%C3%BCrk%E2%80%99%C3%BCn-Karlsbad-Hat%C4%B1ralar%C4%B1.",
+      "synthetic": false,
+      "notes": "30 Haziran–28 Temmuz 1918 Karlsbad günleri."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0015",
+      "title": "Mondros Mütarekesi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/353/Mondros-M%C3%BCtarekesi",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [
+        {
+          "name": "Mehmet Okur"
+        }
+      ],
+      "publishedAt": "2021-02-22",
+      "eventYear": 1918,
+      "periodStart": 1914,
+      "periodEnd": 1918,
+      "people": [],
+      "locations": [
+        "Mondros"
+      ],
+      "documentType": "article",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "1917-1918"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": true,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "30 Ekim 1918'de imzalanan ateşkes."
+      },
+      "state": "awaiting_human_review",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "awaiting_human_review",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [
+        "claim-009"
+      ],
+      "archiveIdentifier": "AYK-353",
+      "citation": "Mehmet Okur, \"Mondros Mütarekesi\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/353/Mondros-M%C3%BCtarekesi.",
+      "synthetic": false,
+      "notes": "30 Ekim 1918'de imzalanan ateşkes."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0016",
+      "title": "Ali Fuat Cebesoy (1882-1968)",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/171/Ali-Fuat-Cebesoy-(1882-1968)",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [
+        {
+          "name": "Ayfer Özçelik"
+        }
+      ],
+      "publishedAt": "2020-12-16",
+      "eventYear": null,
+      "periodStart": 1882,
+      "periodEnd": 1968,
+      "people": [
+        "Ali Fuat Cebesoy"
+      ],
+      "locations": [
+        "Selanik",
+        "Şam"
+      ],
+      "documentType": "article",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "kisiler",
+        "selanik",
+        "egitim"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": true,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "Atatürk'ün sınıf ve silah arkadaşı; Harp Okulu ve Şam dönemi."
+      },
+      "state": "awaiting_human_review",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "awaiting_human_review",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [],
+      "archiveIdentifier": "AYK-171",
+      "citation": "Ayfer Özçelik, \"Ali Fuat Cebesoy (1882-1968)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/171/Ali-Fuat-Cebesoy-(1882-1968).",
+      "synthetic": false,
+      "notes": "Atatürk'ün sınıf ve silah arkadaşı; Harp Okulu ve Şam dönemi."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0017",
+      "title": "İttihat ve Terakki Cemiyeti / Fırkası",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/706/%C4%B0ttihat-ve-Terakki-Cemiyeti-/-F%C4%B1rkas%C4%B1",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [
+        {
+          "name": "İhsan Şerif Kaymaz"
+        }
+      ],
+      "publishedAt": "2020-11-24",
+      "eventYear": 1908,
+      "periodStart": 1889,
+      "periodEnd": 1926,
+      "people": [],
+      "locations": [
+        "Selanik",
+        "İstanbul"
+      ],
+      "documentType": "article",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "kisiler",
+        "genel"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": true,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "Mustafa Kemal'in ilişkili olduğu siyasal hareket; 1908–1918 dönemi."
+      },
+      "state": "awaiting_human_review",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "awaiting_human_review",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [],
+      "archiveIdentifier": "AYK-706",
+      "citation": "İhsan Şerif Kaymaz, \"İttihat ve Terakki Cemiyeti / Fırkası\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/706/%C4%B0ttihat-ve-Terakki-Cemiyeti-/-F%C4%B1rkas%C4%B1.",
+      "synthetic": false,
+      "notes": "Mustafa Kemal'in ilişkili olduğu siyasal hareket; 1908–1918 dönemi."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0018",
+      "title": "Enver Paşa (1882-1922)",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/666/Enver-Pa%C5%9Fa-(1882-1922)",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [
+        {
+          "name": "Mustafa Çolak"
+        }
+      ],
+      "publishedAt": "2021-03-27",
+      "eventYear": null,
+      "periodStart": 1882,
+      "periodEnd": 1922,
+      "people": [
+        "Enver Paşa"
+      ],
+      "locations": [
+        "İstanbul"
+      ],
+      "documentType": "article",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "kisiler",
+        "trablusgarp",
+        "balkan-savaslari"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": true,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "Osmanlı Harbiye Nazırı; I. Dünya Savaşı'nın önde gelen komutanı."
+      },
+      "state": "awaiting_human_review",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "awaiting_human_review",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [],
+      "archiveIdentifier": "AYK-666",
+      "citation": "Mustafa Çolak, \"Enver Paşa (1882-1922)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/666/Enver-Pa%C5%9Fa-(1882-1922).",
+      "synthetic": false,
+      "notes": "Osmanlı Harbiye Nazırı; I. Dünya Savaşı'nın önde gelen komutanı."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0019",
+      "title": "Ali Fethi Okyar (1880-1943)",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/169/Ali-Fethi-Okyar-(1880-1943)",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [
+        {
+          "name": "Şaduman Halıcı"
+        }
+      ],
+      "publishedAt": "2020-12-15",
+      "eventYear": null,
+      "periodStart": 1880,
+      "periodEnd": 1943,
+      "people": [
+        "Ali Fethi Okyar"
+      ],
+      "locations": [
+        "Selanik"
+      ],
+      "documentType": "article",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "kisiler",
+        "selanik",
+        "egitim"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": true,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "Harp Okulu sınıf arkadaşı."
+      },
+      "state": "awaiting_human_review",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "awaiting_human_review",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [],
+      "archiveIdentifier": "AYK-169",
+      "citation": "Şaduman Halıcı, \"Ali Fethi Okyar (1880-1943)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/169/Ali-Fethi-Okyar-(1880-1943).",
+      "synthetic": false,
+      "notes": "Harp Okulu sınıf arkadaşı."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0020",
+      "title": "Şerif Hüseyin (1848 [1852?]-1931)",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/244/%C5%9Eerif-H%C3%BCseyin-(1848-%5B1852?]-1931)",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [
+        {
+          "name": "İsmail Köse"
+        }
+      ],
+      "publishedAt": "2021-08-12",
+      "eventYear": 1916,
+      "periodStart": 1848,
+      "periodEnd": 1931,
+      "people": [
+        "Şerif Hüseyin"
+      ],
+      "locations": [
+        "Mekke",
+        "Hicaz"
+      ],
+      "documentType": "article",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "kisiler",
+        "1917-1918"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": true,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "1916 Arap İsyanı bağlamında Hicaz Cephesi'nin karşısındaki aktör."
+      },
+      "state": "awaiting_human_review",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "awaiting_human_review",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [],
+      "archiveIdentifier": "AYK-244",
+      "citation": "İsmail Köse, \"Şerif Hüseyin (1848 [1852?]-1931)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/244/%C5%9Eerif-H%C3%BCseyin-(1848-%5B1852?]-1931).",
+      "synthetic": false,
+      "notes": "1916 Arap İsyanı bağlamında Hicaz Cephesi'nin karşısındaki aktör."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0021",
+      "title": "Fahrettin Altay (1880-1974)",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/444/Fahrettin-Altay-(1880-1974)",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [
+        {
+          "name": "Hamit Pehlivanlı"
+        }
+      ],
+      "publishedAt": "2021-07-26",
+      "eventYear": null,
+      "periodStart": 1880,
+      "periodEnd": 1974,
+      "people": [
+        "Fahrettin Altay"
+      ],
+      "locations": [],
+      "documentType": "article",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "kisiler",
+        "balkan-savaslari",
+        "canakkale"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": true,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "Balkan Savaşları ve I. Dünya Savaşı'nda görev aldı."
+      },
+      "state": "awaiting_human_review",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "awaiting_human_review",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [],
+      "archiveIdentifier": "AYK-444",
+      "citation": "Hamit Pehlivanlı, \"Fahrettin Altay (1880-1974)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/444/Fahrettin-Altay-(1880-1974).",
+      "synthetic": false,
+      "notes": "Balkan Savaşları ve I. Dünya Savaşı'nda görev aldı."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0022",
+      "title": "Kâzım Karabekir (1882-1948)",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/552/K%C3%A2z%C4%B1m-Karabekir-(1882-1948)",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [
+        {
+          "name": "Muhammet Erat"
+        }
+      ],
+      "publishedAt": "2021-02-14",
+      "eventYear": null,
+      "periodStart": 1882,
+      "periodEnd": 1948,
+      "people": [
+        "Kâzım Karabekir"
+      ],
+      "locations": [
+        "Doğu Anadolu"
+      ],
+      "documentType": "article",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "kisiler",
+        "canakkale",
+        "dogu-cephesi"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": true,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "Doğu Cephesi komutanı."
+      },
+      "state": "awaiting_human_review",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "awaiting_human_review",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [],
+      "archiveIdentifier": "AYK-552",
+      "citation": "Muhammet Erat, \"Kâzım Karabekir (1882-1948)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/552/K%C3%A2z%C4%B1m-Karabekir-(1882-1948).",
+      "synthetic": false,
+      "notes": "Doğu Cephesi komutanı."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0023",
+      "title": "İbrahim Süreyya Yiğit (1880-1952)",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/1864/%C4%B0brahim-S%C3%BCreyya-Yi%C4%9Fit-(1880-1952)",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [],
+      "publishedAt": "2024-10-23",
+      "eventYear": null,
+      "periodStart": 1880,
+      "periodEnd": 1952,
+      "people": [
+        "İbrahim Süreyya Yiğit"
+      ],
+      "locations": [],
+      "documentType": "article",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "kisiler"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": false,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "Dönem subayı ve siyasetçi."
+      },
+      "state": "insufficient_info",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "insufficient_info",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [],
+      "archiveIdentifier": "AYK-1864",
+      "citation": "\"İbrahim Süreyya Yiğit (1880-1952)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/1864/%C4%B0brahim-S%C3%BCreyya-Yi%C4%9Fit-(1880-1952).",
+      "synthetic": false,
+      "notes": "Dönem subayı ve siyasetçi."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0024",
+      "title": "Ali Çetinkaya (1878-1949)",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/207/Ali-%C3%87etinkaya-(1878-1949)",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [
+        {
+          "name": "Ahmet Esenkaya"
+        }
+      ],
+      "publishedAt": "2021-07-08",
+      "eventYear": null,
+      "periodStart": 1878,
+      "periodEnd": 1949,
+      "people": [
+        "Ali Çetinkaya"
+      ],
+      "locations": [],
+      "documentType": "article",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "kisiler",
+        "balkan-savaslari"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": true,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "Balkan Savaşları'nda görev alan subay."
+      },
+      "state": "awaiting_human_review",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "awaiting_human_review",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [],
+      "archiveIdentifier": "AYK-207",
+      "citation": "Ahmet Esenkaya, \"Ali Çetinkaya (1878-1949)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/207/Ali-%C3%87etinkaya-(1878-1949).",
+      "synthetic": false,
+      "notes": "Balkan Savaşları'nda görev alan subay."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0025",
+      "title": "Mehmet Hayri Tarhan (1880-1934)",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/1769/Mehmet-Hayri-Tarhan-(1880-1934)",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [
+        {
+          "name": "Güzin Çaykıran"
+        }
+      ],
+      "publishedAt": "2024-03-26",
+      "eventYear": 1915,
+      "periodStart": 1880,
+      "periodEnd": 1934,
+      "people": [
+        "Mehmet Hayri Tarhan"
+      ],
+      "locations": [
+        "Çanakkale"
+      ],
+      "documentType": "article",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "kisiler",
+        "canakkale"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": true,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "Çanakkale'de Mustafa Kemal'in emrinde komutan."
+      },
+      "state": "awaiting_human_review",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "awaiting_human_review",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [],
+      "archiveIdentifier": "AYK-1769",
+      "citation": "Güzin Çaykıran, \"Mehmet Hayri Tarhan (1880-1934)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/detay/1769/Mehmet-Hayri-Tarhan-(1880-1934).",
+      "synthetic": false,
+      "notes": "Çanakkale'de Mustafa Kemal'in emrinde komutan."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0026",
+      "title": "Kemalettin Sami Paşa (1884-1934)",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "url": "https://ataturkansiklopedisi.gov.tr/bilgi/kemalettin-sami-pasa-1884-1934/",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [
+        {
+          "name": "Halil Bal"
+        }
+      ],
+      "publishedAt": null,
+      "eventYear": null,
+      "periodStart": 1884,
+      "periodEnd": 1934,
+      "people": [
+        "Kemalettin Sami Paşa"
+      ],
+      "locations": [],
+      "documentType": "article",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "kisiler",
+        "canakkale"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": false,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "Çanakkale Savaşları'nda Mustafa Kemal ile birlikte görev yapan komutan."
+      },
+      "state": "insufficient_info",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "insufficient_info",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [],
+      "archiveIdentifier": null,
+      "citation": "Halil Bal, \"Kemalettin Sami Paşa (1884-1934)\", Atatürk Ansiklopedisi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/bilgi/kemalettin-sami-pasa-1884-1934/.",
+      "synthetic": false,
+      "notes": "Çanakkale Savaşları'nda Mustafa Kemal ile birlikte görev yapan komutan."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0027",
+      "title": "Liman Von Sanders (1855-1929)",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "institutionType": "institutional",
+      "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+      "url": "https://ataturkansiklopedisi.gov.tr/bilgi/liman-von-sanders-1855-1929/",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [
+        {
+          "name": "İsmet Görgülü"
+        }
+      ],
+      "publishedAt": null,
+      "eventYear": null,
+      "periodStart": 1913,
+      "periodEnd": 1919,
+      "people": [
+        "Liman von Sanders"
+      ],
+      "locations": [
+        "İstanbul",
+        "Sina-Filistin"
+      ],
+      "documentType": "article",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "kisiler",
+        "canakkale",
+        "1917-1918"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": false,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "Osmanlı ordusundaki Alman genel; 1913–1919 dönemi."
+      },
+      "state": "insufficient_info",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "insufficient_info",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [],
+      "archiveIdentifier": null,
+      "citation": "İsmet Görgülü, \"Liman Von Sanders (1855-1929)\", Atatürk Ansiklopedisi, erişim 23.10.2026, https://ataturkansiklopedisi.gov.tr/bilgi/liman-von-sanders-1855-1929/.",
+      "synthetic": false,
+      "notes": "Osmanlı ordusundaki Alman genel; 1913–1919 dönemi."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0028",
+      "title": "Kurmay Yüzbaşı Mustafa Kemal: Selanik'ten İstanbul'a (Hareket Ordusu Kurmay Başkanı)",
+      "institution": "Atatürk Araştırma Merkezi (ATAM)",
+      "institutionType": "official",
+      "institutionUrl": "https://atam.gov.tr/",
+      "url": "https://atam.gov.tr/kitaplar/kurmay-yuzbasi-mustafa-kemal/",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [],
+      "publishedAt": "2008",
+      "eventYear": null,
+      "periodStart": 1905,
+      "periodEnd": 1913,
+      "people": [
+        "Mustafa Kemal Atatürk"
+      ],
+      "locations": [
+        "Selanik",
+        "İstanbul"
+      ],
+      "documentType": "book",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "egitim",
+        "harp-akademisi",
+        "ilk-gorevler",
+        "selanik"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Araştırma Merkezi (ATAM)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": false,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "ATAM kitabı, 2008; Kurmay Yüzbaşı Mustafa Kemal'in 31 Mart sonrası görevleri."
+      },
+      "state": "insufficient_info",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "insufficient_info",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [],
+      "archiveIdentifier": null,
+      "citation": "Kurmay Yüzbaşı Mustafa Kemal: Selanik'ten İstanbul'a, Atatürk Araştırma Merkezi, 2008, https://atam.gov.tr/kitaplar/kurmay-yuzbasi-mustafa-kemal/.",
+      "synthetic": false,
+      "notes": "ATAM kitabı, 2008; Kurmay Yüzbaşı Mustafa Kemal'in 31 Mart sonrası görevleri."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0029",
+      "title": "Atatürk (Hikmet Özdemir)",
+      "institution": "Atatürk Araştırma Merkezi (ATAM)",
+      "institutionType": "official",
+      "institutionUrl": "https://atam.gov.tr/",
+      "url": "https://atam.gov.tr/kitaplar/ataturk/",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [
+        {
+          "name": "Hikmet Özdemir"
+        }
+      ],
+      "publishedAt": "2023",
+      "eventYear": null,
+      "periodStart": 1881,
+      "periodEnd": 1938,
+      "people": [
+        "Mustafa Kemal Atatürk"
+      ],
+      "locations": [],
+      "documentType": "book",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "genel",
+        "cocukluk",
+        "egitim"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Araştırma Merkezi (ATAM)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": true,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "ATAM kitabı, 2023; aile, eğitim, askerlik ve savaş yıllarını kapsayan biyografi."
+      },
+      "state": "awaiting_human_review",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "awaiting_human_review",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [],
+      "archiveIdentifier": null,
+      "citation": "Hikmet Özdemir, Atatürk, Atatürk Araştırma Merkezi, 2023, https://atam.gov.tr/kitaplar/ataturk/.",
+      "synthetic": false,
+      "notes": "ATAM kitabı, 2023; aile, eğitim, askerlik ve savaş yıllarını kapsayan biyografi."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0030",
+      "title": "İlk Defa Yayınlanan Belgelerle Mustafa Kemal Paşa ve 16'ncı Kolordu Komutanlığı (1915-1917)",
+      "institution": "Atatürk Araştırma Merkezi (ATAM)",
+      "institutionType": "official",
+      "institutionUrl": "https://atam.gov.tr/",
+      "url": "https://atam.gov.tr/e-yayin/ilk-defa-yayinlanan-belgelerle-mustafa-kemal-pasa-ve-16nci-kolordu-komutanligi-1915-1917/",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [
+        {
+          "name": "Oral Ateş"
+        }
+      ],
+      "publishedAt": "2025",
+      "eventYear": 1916,
+      "periodStart": 1915,
+      "periodEnd": 1917,
+      "people": [
+        "Mustafa Kemal Atatürk"
+      ],
+      "locations": [
+        "Doğu Anadolu"
+      ],
+      "documentType": "book",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "dogu-cephesi"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Atatürk Araştırma Merkezi (ATAM)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": true,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "ATAM e-yayın, 2025; ilk kez yayımlanan arşiv belgeleriyle 16. Kolordu Komutanlığı."
+      },
+      "state": "awaiting_human_review",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "awaiting_human_review",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [
+        "claim-007"
+      ],
+      "archiveIdentifier": null,
+      "citation": "Oral Ateş, İlk Defa Yayınlanan Belgelerle Mustafa Kemal Paşa ve 16'ncı Kolordu Komutanlığı (1915-1917), ATAM e-yayın, 2025, https://atam.gov.tr/e-yayin/ilk-defa-yayinlanan-belgelerle-mustafa-kemal-pasa-ve-16nci-kolordu-komutanligi-1915-1917/.",
+      "synthetic": false,
+      "notes": "ATAM e-yayın, 2025; ilk kez yayımlanan arşiv belgeleriyle 16. Kolordu Komutanlığı."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0031",
+      "title": "Belgelerle Mustafa Kemal Atatürk",
+      "institution": "T.C. Cumhurbaşkanlığı Devlet Arşivleri Başkanlığı",
+      "institutionType": "archive",
+      "institutionUrl": "https://www.devletarsivleri.gov.tr/",
+      "url": "https://www.devletarsivleri.gov.tr/cdn/file/download?fileId=88",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [],
+      "publishedAt": null,
+      "eventYear": null,
+      "periodStart": 1881,
+      "periodEnd": 1938,
+      "people": [
+        "Mustafa Kemal Atatürk"
+      ],
+      "locations": [],
+      "documentType": "archive_document",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "genel",
+        "cocukluk",
+        "egitim"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "T.C. Cumhurbaşkanlığı Devlet Arşivleri Başkanlığı",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": false,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "Devlet Arşivleri Başkanlığı'nın özgün belge derlemesi (PDF). Yazar ve yayın tarihi sayfada belirtilmemiş. Derleme düzeyinde ikincil kaynak sayılır; içindeki tek tek belgeler birincildir ve insan incelemesinde ayrıca sınıflandırılmalıdır."
+      },
+      "state": "insufficient_info",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "insufficient_info",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [],
+      "archiveIdentifier": null,
+      "citation": "Belgelerle Mustafa Kemal Atatürk, T.C. Cumhurbaşkanlığı Devlet Arşivleri Başkanlığı (PDF), erişim 23.10.2026, https://www.devletarsivleri.gov.tr/cdn/file/download?fileId=88.",
+      "synthetic": false,
+      "notes": "Devlet Arşivleri Başkanlığı'nın özgün belge derlemesi (PDF). Yazar ve yayın tarihi sayfada belirtilmemiş. Derleme düzeyinde ikincil kaynak sayılır; içindeki tek tek belgeler birincildir ve insan incelemesinde ayrıca sınıflandırılmalıdır."
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "src-2026-0032",
+      "title": "Atatürk Belgeliği",
+      "institution": "Millî Kütüphane (Atatürk Belgeliği)",
+      "institutionType": "library",
+      "institutionUrl": "https://www.millikutuphane.gov.tr/",
+      "url": "https://www.millikutuphane.gov.tr/page/Ataturk-Belgeligi",
+      "urlStatus": "reachable",
+      "urlCheckedAt": "2026-10-23",
+      "authors": [],
+      "publishedAt": null,
+      "eventYear": null,
+      "periodStart": 1881,
+      "periodEnd": 1938,
+      "people": [
+        "Mustafa Kemal Atatürk"
+      ],
+      "locations": [
+        "Ankara"
+      ],
+      "documentType": "catalog",
+      "sourceNature": "secondary",
+      "researchThemes": [
+        "genel"
+      ],
+      "rights": {
+        "status": "official_link_only",
+        "license": null,
+        "licenseUrl": null,
+        "termsUrl": null,
+        "credit": "Millî Kütüphane (Atatürk Belgeliği)",
+        "imageReuse": "not_downloaded",
+        "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi. Yeniden kullanım lisansı doğrulanmadı."
+      },
+      "accessedAt": "2026-10-23",
+      "verification": {
+        "urlReachable": true,
+        "citationComplete": false,
+        "rightsKnown": true,
+        "duplicateChecked": true,
+        "aiReviewed": true,
+        "humanReviewed": false,
+        "notes": "Millî Kütüphane bünyesindeki özel koleksiyon (1983'ten beri); 3.053 eser. Katalog sayfası."
+      },
+      "state": "insufficient_info",
+      "stateHistory": [
+        {
+          "state": "new",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Kaynak 23.10.2026'da keşfedildi."
+        },
+        {
+          "state": "insufficient_info",
+          "at": "2026-10-23T00:00:00Z",
+          "note": "Yapay zekâ künye doğrulaması; insan onayı değildir."
+        }
+      ],
+      "relatedArchiveIds": [],
+      "claims": [],
+      "archiveIdentifier": null,
+      "citation": "Atatürk Belgeliği, Millî Kütüphane, erişim 23.10.2026, https://www.millikutuphane.gov.tr/page/Ataturk-Belgeligi.",
+      "synthetic": false,
+      "notes": "Millî Kütüphane bünyesindeki özel koleksiyon (1983'ten beri); 3.053 eser. Katalog sayfası."
+    }
+  ]
+}
