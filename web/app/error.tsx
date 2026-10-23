@@ -1,0 +1,2 @@
+"use client";
+export default function ErrorPage({ reset }: { error: Error & { digest?: string }; reset: () => void }) { return <main id="icerik" className="not-found container"><p className="eyebrow">BEKLENMEYEN HATA</p><h1>Sayfa yüklenemedi</h1><p>İşlem tamamlanamadı. Yeniden deneyebilirsiniz.</p><button className="button button-outline" type="button" onClick={reset}>Yeniden dene</button></main>; }
