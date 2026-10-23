@@ -1,14 +1,14 @@
-import { expect, test } from "@playwright/test";
+ï»¿import { expect, test } from "@playwright/test";
 
-async function expectNoOverflow(page) {
+async function expectNoOverflow(page: any) {
   const d = await page.evaluate(() => ({ scrollWidth: document.documentElement.scrollWidth, viewportWidth: window.innerWidth }));
   expect(d.scrollWidth).toBeLessThanOrEqual(d.viewportWidth + 3);
 }
 
 const routes = ["/", "/ataturk", "/kronoloji", "/arsiv", "/yayinlar", "/hakkimizda"];
 for (const route of routes) {
-  test(`rota ${route} yukleniyor ve yatay tasma yok`, async ({ page }) => {
-    const errors = [];
+  test(`rota ${route} yÃ¼kleniyor ve yatay taÅŸma yok`, async ({ page }) => {
+    const errors: string[] = [];
     page.on("console", (msg) => { if (msg.type() === "error") errors.push(msg.text()); });
     page.on("pageerror", (err) => errors.push(err.message));
     const resp = await page.goto(route);
@@ -22,21 +22,21 @@ for (const route of routes) {
 
 test("arsiv arama filtreler sayfalama", async ({ page }) => {
   await page.goto("/arsiv");
-  await expect(page.getByText(/kayit bagli/)).toBeVisible();
-  const form = page.getByRole("form", { name: "Arþiv arama ve filtreleri" });
-  await form.getByLabel("Baþlýk veya anahtar kelime").fill("ÝZMÝR");
-  await form.getByLabel("Kayýt türü").selectOption("olay");
-  await form.getByRole("button", { name: "Arþivde ara" }).click();
+  await expect(page.getByText(/kayÄ±t baÄŸlÄ±/)).toBeVisible();
+  const form = page.getByRole("form", { name: "ArÅŸiv arama ve filtreleri" });
+  await form.getByLabel("BaÅŸlÄ±k veya anahtar kelime").fill("Ä°ZMÄ°R");
+  await form.getByLabel("KayÄ±t tÃ¼rÃ¼").selectOption("olay");
+  await form.getByRole("button", { name: "ArÅŸivde ara" }).click();
   await expect(page).toHaveURL(/q=/);
   await expect(page).toHaveURL(/tur=olay/);
-  await expect(page.getByRole("link", { name: /Ýzmir/ })).toBeVisible();
+  await expect(page.getByRole("link", { name: /Ä°zmir/ })).toBeVisible();
 });
 
 test("arsiv detay kaynak hak inceleme", async ({ page }) => {
   await page.goto("/arsiv/cumhuriyetin-ilani-1923");
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
   await expect(page.getByText(/Orijinal kaynak|kaynak/i).first()).toBeVisible();
-  await expect(page.getByText(/uzman onayý bekliyor/i).first()).toBeVisible();
+  await expect(page.getByText(/uzman onayÄ± bekliyor/i).first()).toBeVisible();
   await expect(page.getByRole("link", { name: /indir/i })).toHaveCount(0);
   const r = await page.goto("/arsiv/ii-inonu-zaferi-fotografi-1921");
   expect(r?.status()).toBe(404);
@@ -49,9 +49,10 @@ test("kronoloji filtreleri ve hatalar", async ({ page }) => {
   await expect(page.getByRole("status")).toBeVisible();
 });
 
-test("mobil menu ve arama modal klavye", async ({ page }, testInfo) => {
-  if ((page.viewportSize()?.width ?? 0) > 960) test.skip();
-  const menuButton = page.getByRole("button", { name: "MENÜ" });
+test("mobil menu ve arama modal klavye", async ({ page }) => {
+  const vp = page.viewportSize();
+  if ((vp?.width ?? 0) > 960) test.skip();
+  const menuButton = page.getByRole("button", { name: "MENÃœ" });
   await expect(menuButton).toBeVisible();
   await page.keyboard.press("Tab");
   await menuButton.focus();
@@ -60,9 +61,8 @@ test("mobil menu ve arama modal klavye", async ({ page }, testInfo) => {
   await page.keyboard.press("Escape");
   await expect(menuButton).toHaveAttribute("aria-expanded", "false");
   
-  // search
   await page.goto("/");
-  await page.getByRole("button", { name: "Arþivde Ara" }).click();
+  await page.getByRole("button", { name: "ArÅŸivde Ara" }).click();
   const dialog = page.getByRole("dialog");
   await expect(dialog).toBeVisible();
   await expect(page.getByRole("searchbox")).toBeFocused();

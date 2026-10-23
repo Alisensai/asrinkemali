@@ -1,4 +1,4 @@
-import { expect, test, devices } from "@playwright/test";
+﻿import { expect, test } from "@playwright/test";
 
 const routes = [
   { path: "/", name: "anasayfa" },
@@ -10,8 +10,8 @@ const routes = [
 ];
 
 for (const route of routes) {
-  test(`cross-browser: ${route.name} yukleme ve temel kontroller`, async ({ page, browserName }) => {
-    const errors = [];
+  test(`cross-browser: ${route.name} yükleme ve temel kontroller`, async ({ page, browserName }) => {
+    const errors: string[] = [];
     page.on("console", (msg) => { if (msg.type() === "error") errors.push(msg.text()); });
     page.on("pageerror", (err) => errors.push(err.message));
     
@@ -20,7 +20,6 @@ for (const route of routes) {
     await page.waitForLoadState("domcontentloaded");
     await page.waitForTimeout(500);
     
-    // Check no horizontal overflow
     const scrollWidth = await page.evaluate(() => document.documentElement.scrollWidth);
     const viewportWidth = await page.evaluate(() => window.innerWidth);
     expect(scrollWidth, `overflow on ${route.path} ${browserName}`).toBeLessThanOrEqual(viewportWidth + 2);

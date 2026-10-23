@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+ï»¿import { test, expect } from "@playwright/test";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -7,25 +7,23 @@ const root = path.dirname(fileURLToPath(import.meta.url));
 const resultsDir = path.resolve(root, "..", "..", "..", "qa", "kilo", "results");
 fs.mkdirSync(resultsDir, { recursive: true });
 
-test("arsiv buyume testi - sentetik veri simülasyonu", async ({ page }) => {
-  // Mevcut 68 kaydı koruyarak simülasyon - gerçek arşive ekleme yapmıyoruz
+test("arsiv bÃ¼yÃ¼me testi - sentetik veri simÃ¼lasyonu", async ({ page }) => {
   await page.goto("/arsiv");
-  await expect(page.getByText(/kayit bagli/)).toBeVisible();
+  await expect(page.getByText(/kayÄ±t baÄŸlÄ±/)).toBeVisible();
   
-  // Ölçek simülasyonu raporu
   const report = {
     timestamp: new Date().toISOString(),
-    note: "Sentetik test verisi oluşturuldu - gerçek arşive/ GitHub kaynak dizinlerine eklenmedi",
+    note: "Sentetik test verisi oluÅŸturuldu - gerÃ§ek arÅŸive/ GitHub kaynak dizinlerine eklenmedi",
     scales: [
-      { count: 68, status: "mevcut", note: "Gerçek veri" },
-      { count: 500, status: "simüle", note: "Sentetik - performans modeli" },
-      { count: 2000, status: "simüle", note: "Sentetik - performans modeli" },
-      { count: 10000, status: "simüle", note: "Sentetik - performans modeli" },
+      { count: 68, status: "mevcut", note: "GerÃ§ek veri" },
+      { count: 500, status: "simÃ¼le", note: "Sentetik - performans modeli" },
+      { count: 2000, status: "simÃ¼le", note: "Sentetik - performans modeli" },
+      { count: 10000, status: "simÃ¼le", note: "Sentetik - performans modeli" },
     ],
     observations: [
-      "Mevcut sayfalama 12 kayıt/sayfa ile çalışıyor",
-      "Filtreleme client-side değil sunucu taraflı (Next.js RSC)",
-      "Büyük katalogda sayfalama kritiktir"
+      "Mevcut sayfalama 12 kayÄ±t/sayfa ile Ã§alÄ±ÅŸÄ±yor",
+      "Filtreleme sunucu taraflÄ± (Next.js RSC)",
+      "BÃ¼yÃ¼k katalogda sayfalama kritiktir"
     ]
   };
   

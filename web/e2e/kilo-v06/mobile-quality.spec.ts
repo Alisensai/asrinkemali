@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+ï»¿import { expect, test, type Page } from "@playwright/test";
 
 const viewports = [
   [320, 568],
@@ -12,11 +12,16 @@ const viewports = [
   [1536, 1024],
 ];
 
+async function expectNoOverflow(page: Page) {
+  const d = await page.evaluate(() => ({ scrollWidth: document.documentElement.scrollWidth, viewportWidth: window.innerWidth }));
+  expect(d.scrollWidth).toBeLessThanOrEqual(d.viewportWidth + 2);
+}
+
 for (const [w, h] of viewports) {
   test(`mobil-kalite: ${w}x${h} ana sayfa kontrolleri`, async ({ browser }) => {
     const ctx = await browser.newContext({ viewport: { width: w, height: h }, deviceScaleFactor: w < 768 ? 2 : 1 });
     const page = await ctx.newPage();
-    const errors = [];
+    const errors: string[] = [];
     page.on("console", (msg) => { if (msg.type() === "error") errors.push(msg.text()); });
     page.on("pageerror", (err) => errors.push(err.message));
     
@@ -28,9 +33,8 @@ for (const [w, h] of viewports) {
     const viewportWidth = await page.evaluate(() => window.innerWidth);
     expect(scrollWidth).toBeLessThanOrEqual(viewportWidth + 2);
     
-    // Mobil menü testi
     if (w <= 1024) {
-      const menuBtn = page.getByRole("button", { name: "MENÜ" });
+      const menuBtn = page.getByRole("button", { name: "MENÃœ" });
       await expect(menuBtn).toBeVisible();
       await menuBtn.click();
       await expect(menuBtn).toHaveAttribute("aria-expanded", "true");
@@ -38,8 +42,7 @@ for (const [w, h] of viewports) {
       await expect(menuBtn).toHaveAttribute("aria-expanded", "false");
     }
     
-    // Arama
-    const searchBtn = page.getByRole("button", { name: /Araþivde Ara/i }).first();
+    const searchBtn = page.getByRole("button", { name: /ArÅŸivde Ara/i }).first();
     if (await searchBtn.isVisible()) {
       await searchBtn.click();
       const dialog = page.getByRole("dialog");
@@ -53,18 +56,13 @@ for (const [w, h] of viewports) {
   });
 }
 
-test("mobil-kalite: arþiv filtreler ve sayfalama", async ({ page }) => {
+test("mobil-kalite: arÅŸiv filtreler ve sayfalama", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/arsiv");
-  const form = page.getByRole("form", { name: "Arþiv arama ve filtreleri" });
+  const form = page.getByRole("form", { name: "ArÅŸiv arama ve filtreleri" });
   await expect(form).toBeVisible();
-  await form.getByLabel("Baþlýk veya anahtar kelime").fill("Cumhuriyet");
-  await form.getByRole("button", { name: "Arþivde ara" }).click();
+  await form.getByLabel("BaÅŸlÄ±k veya anahtar kelime").fill("Cumhuriyet");
+  await form.getByRole("button", { name: "ArÅŸivde ara" }).click();
   await expect(page).toHaveURL(/q=/);
   await expectNoOverflow(page);
 });
-
-async function expectNoOverflow(page) {
-  const d = await page.evaluate(() => ({ scrollWidth: document.documentElement.scrollWidth, viewportWidth: window.innerWidth }));
-  expect(d.scrollWidth).toBeLessThanOrEqual(d.viewportWidth + 2);
-}
