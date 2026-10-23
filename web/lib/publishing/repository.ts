@@ -12,8 +12,12 @@ export function getAllPublications(): readonly PublicationRecord[] {
   if (cache) return cache;
   const directory = path.join(rootDirectory(), "content", "publications", "records");
   if (!existsSync(directory)) return (cache = Object.freeze([]));
-  const records = readdirSync(directory).filter((name) => name.endsWith(".json")).sort((a, b) => a.localeCompare(b, "tr")).map((name) => JSON.parse(readFileSync(path.join(directory, name), "utf8")) as PublicationRecord);
-  cache = Object.freeze(records.filter((record) => validatePublication(record).ok));
+  // Tek bir bozuk dosya tüm yayın sayfalarını ve site haritasını düşürmesin: atlanır ve sunucu günlüğüne yazılır.
+  const records = readdirSync(directory).filter((name) => name.endsWith(".json")).sort((a, b) => a.localeCompare(b, "tr")).flatMap((name) => {
+    try { return [JSON.parse(readFileSync(path.join(directory, name), "utf8")) as PublicationRecord]; } catch (error) { console.warn(`[yayın] ${name} okunamadı ve atlandı: ${(error as Error).message}`); return []; }
+  });
+  const seenSlugs = new Set<string>();
+  cache = Object.freeze(records.filter((record) => { if (!validatePublication(record).ok || seenSlugs.has(record.slug)) return false; seenSlugs.add(record.slug); return true; }));
   return cache;
 }
 

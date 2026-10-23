@@ -237,3 +237,31 @@ export function buildAtaturkExperience(input: readonly ArchiveRecord[]): Ataturk
     typeCounts: TYPE_ORDER.map((type) => ({ type, label: typeLabel(type), count: records.filter((record) => record.type === type).length })).filter((item) => item.count > 0),
   };
 }
+
+/**
+ * İstemciye giden yükü küçültmek için az sayıda farklı değer alan metin alanları tek bir
+ * dize tablosunda tutulur (ör. inceleme notu 151 kayıtta aynıdır). `unpackExperienceRecords`
+ * birebir aynı kayıtları geri üretir; bileşen çıktısı değişmez.
+ */
+const SHARED_FIELDS = ["typeLabel", "institution", "institutionUrl", "rightsLabel", "rightsNote", "credit", "imageNote", "reviewLabel", "reviewNote", "dateNote", "periodId"] as const;
+type SharedField = (typeof SHARED_FIELDS)[number];
+export type PackedExperienceRecords = { strings: (string | null)[]; rows: Array<Omit<ExperienceRecord, SharedField> & { shared: number[] }> };
+
+export function packExperienceRecords(records: readonly ExperienceRecord[]): PackedExperienceRecords {
+  const strings: (string | null)[] = []; const index = new Map<string | null, number>();
+  const intern = (value: string | null) => { let position = index.get(value); if (position === undefined) { position = strings.length; strings.push(value); index.set(value, position); } return position; };
+  const rows = records.map((record) => {
+    const row: Record<string, unknown> = { ...record };
+    for (const field of SHARED_FIELDS) delete row[field];
+    return { ...(row as Omit<ExperienceRecord, SharedField>), shared: SHARED_FIELDS.map((field) => intern(record[field])) };
+  });
+  return { strings, rows };
+}
+
+export function unpackExperienceRecords(packed: PackedExperienceRecords): ExperienceRecord[] {
+  return packed.rows.map(({ shared, ...row }) => {
+    const record = { ...row } as Record<string, unknown>;
+    SHARED_FIELDS.forEach((field, position) => { record[field] = packed.strings[shared[position]]; });
+    return record as ExperienceRecord;
+  });
+}
