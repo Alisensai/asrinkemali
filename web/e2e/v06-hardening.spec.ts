@@ -83,7 +83,14 @@ test("yayımlanmış her arşiv ayrıntısı açılır, kimliğini ve HTTPS kayn
 test("taslak, incelemedeki ve bilinmeyen kayıtların ayrıntıları 404 döner", async ({ request }, testInfo) => {
   test.skip(!primary(testInfo.project.name), "görünümden bağımsız");
   expect(unpublished.length).toBeGreaterThan(0);
-  for (const slug of [...unpublished.map((record) => record.slug), "olmayan-kayit", "..%2F..%2Fpackage.json", "a".repeat(200), "BUYUK-HARF"]) expect((await request.get(`/arsiv/${slug}`)).status(), slug).toBe(404);
+  for (const slug of [...unpublished.map((record) => record.slug), "olmayan-kayit", "a".repeat(200), "BUYUK-HARF"]) expect((await request.get(`/arsiv/${slug}`)).status(), slug).toBe(404);
+  // Kodlanmış yol geçişi: sunucu türüne göre 400 (istek reddedilir, ör. Linux `next dev`) veya 404 döner.
+  // Güvenlik özelliği belirli kod değil, dosyanın asla sunulmamasıdır.
+  for (const slug of ["..%2F..%2Fpackage.json", "..%2f..%2f..%2fweb%2fpackage.json", "%2e%2e%2f%2e%2e%2fpackage.json"]) {
+    const response = await request.get(`/arsiv/${slug}`);
+    expect([400, 404], slug).toContain(response.status());
+    expect(await response.text(), slug).not.toContain('"dependencies"');
+  }
   for (const slug of ["olmayan-yayin", "../x", "taslak-yazi"]) expect((await request.get(`/yayinlar/${slug}`)).status(), slug).toBe(404);
 });
 
