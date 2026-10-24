@@ -13,6 +13,7 @@ const browsers = process.env.ASRIN_CROSS_BROWSER === "1" ? (["chromium", "firefo
 
 export default defineConfig({
   testDir: "./e2e",
+  testIgnore: ["**/qa-unified/**"],
   outputDir: "./test-results",
   timeout: 30_000,
   expect: { timeout: 7_000 },
@@ -30,7 +31,7 @@ export default defineConfig({
     })),
   ),
   webServer: {
-    command: `npm run dev -- --hostname 127.0.0.1 --port ${port}`,
+    command: `npm run dev -- --webpack --hostname 127.0.0.1 --port ${port}`,
     url: baseURL,
     reuseExistingServer: false,
     timeout: 120_000,

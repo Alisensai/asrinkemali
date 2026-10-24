@@ -1,0 +1,54 @@
+name: Unified QA smoke
+
+on:
+  pull_request:
+    paths:
+      - "tools/qa-unified/**"
+      - "scripts/archive/**"
+      - "tools/release-check/**"
+      - "tools/editorial-review/**"
+      - "qa/kilo/scripts/**"
+      - "web/e2e/qa-unified/**"
+      - "web/playwright.qa-unified.config.ts"
+      - "web/app/**"
+      - "web/components/**"
+      - "web/lib/**"
+      - "web/package.json"
+      - "web/package-lock.json"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/qa-unified.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  qa-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install locked web dependencies
+        working-directory: web
+        run: npm ci --no-audit --no-fund
+      - name: Install Chromium
+        working-directory: web
+        run: npx playwright install --with-deps chromium
+      - name: Run manifest-selected unit tests
+        run: node tools/qa-unified/cli.mjs run --suite=unit --mode=unit
+      - name: Run isolated development smoke
+        run: node tools/qa-unified/cli.mjs run --suite=smoke --mode=dev
+      - name: Upload run artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-unified-${{ github.run_id }}
+          path: qa/results/
+          if-no-files-found: ignore
+          retention-days: 7
