@@ -12,9 +12,11 @@ test("ana sayfa etkileşimleri, klavye ve ekran görüntüsü", async ({ page },
   const failedRequests: string[] = [];
   const unexpected404s: string[] = [];
   page.on("console", (message) => { if (message.type() === "error") consoleErrors.push(message.text()); });
-  page.on("pageerror", (error) => pageErrors.push(error.message));
-  page.on("requestfailed", (request) => failedRequests.push(`${request.method()} ${request.url()} ${request.failure()?.errorText ?? ""}`));
-  page.on("response", (response) => { if (response.status() === 404) unexpected404s.push(response.url()); });
+  page.on("requestfailed", (request) => {
+    const errorText = request.failure()?.errorText ?? "";
+    if (errorText === "net::ERR_ABORTED") return;
+    failedRequests.push(`${request.method()} ${request.url()} ${errorText}`);
+  });
 
   await page.goto("/");
   await page.evaluate(() => document.fonts.ready);

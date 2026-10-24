@@ -21,7 +21,7 @@ function integer(value: string | undefined, min: number, max: number) {
   return parsed >= min && parsed <= max ? parsed : undefined;
 }
 
-export function istanbulToday() {
+function istanbulToday() {
   const parts = new Intl.DateTimeFormat("en-US", {
     timeZone: "Europe/Istanbul",
     month: "numeric",

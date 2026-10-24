@@ -90,6 +90,7 @@ export function SearchDialog({ open, onClose }: { open: boolean; onClose: () => 
               id="site-search-input"
               name="q"
               type="search"
+              aria-label="Sayfa veya bölüm ara"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               placeholder="Örn. Nutuk, Çankaya, Lozan..."
