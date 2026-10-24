@@ -25,9 +25,20 @@ test("E/F/G: ata içerilme, farklı SHA ile eşdeğer patch ve kısmi içerilme 
     r.git("checkout", "-q", "-b", "feature"); r.write("c.txt", "yeni\n"); const c1 = r.commit("c"); r.write("d.txt", "diger\n"); const c2 = r.commit("d");
     r.git("checkout", "-q", "main"); r.git("merge", "-q", "--no-ff", "-m", "merge feature", "feature"); const merged = r.git("rev-parse", "HEAD");
     assert.equal(classifyInclusion(r.adapter, c2, merged).status, "ancestor_included", "E: açık PR ama geçmişte");
-    r.git("checkout", "-q", "-b", "integration", r.base); r.git("cherry-pick", c1); r.git("cherry-pick", c2); const picked = r.git("rev-parse", "HEAD");
+    r.git("checkout", "-q", "-b", "integration", r.base);
+    r.git("cherry-pick", c1);
+    // Git can reuse an identical commit ID on fast CI runners; force new author dates.
+    r.git("commit", "--amend", "--no-edit", "--date", "2001-01-01T00:00:00Z");
+    r.git("cherry-pick", c2);
+    r.git("commit", "--amend", "--no-edit", "--date", "2001-01-02T00:00:00Z");
+    const picked = r.git("rev-parse", "HEAD");
+    assert.notEqual(c2, picked, "F: different SHA required to test patch-equivalence");
     assert.equal(classifyInclusion(r.adapter, c2, picked).status, "content_equivalent_likely", "F: aynı yama, farklı SHA");
-    r.git("checkout", "-q", "-b", "partial", r.base); r.git("cherry-pick", c1); const partial = r.git("rev-parse", "HEAD");
+    r.git("checkout", "-q", "-b", "partial", r.base);
+    r.git("cherry-pick", c1);
+    r.git("commit", "--amend", "--no-edit", "--date", "2001-01-03T00:00:00Z");
+    const partial = r.git("rev-parse", "HEAD");
+    assert.notEqual(c1, partial, "G: partial branch must use distinct SHA");
     const result = classifyInclusion(r.adapter, c2, partial);
     assert.equal(result.status, "partially_included"); assert.equal(result.matched, 1); assert.equal(result.total, 2);
     assert.equal(classifyInclusion(r.adapter, c2, r.base).status, "not_included");
