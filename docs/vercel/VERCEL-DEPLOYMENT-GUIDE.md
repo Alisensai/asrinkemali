@@ -44,26 +44,38 @@ Vercel Kontrol Paneli (`vercel.com`) veya CLI üzerinden proje bağlanırken aş
 
 Sitenin kamuya açık hale gelmeden önce doğrulanması için **iki katmanlı erişim koruması** tasarlanmıştır:
 
-### Katman A: Vercel Yerleşik Dağıtım Koruması (Deployment Protection)
-- **Vercel Authentication (Önerilen - Vercel Pro/Team):**
+### Katman A (BİRİNCİL TAVSİYE): Vercel Yerleşik Dağıtım Koruması (Deployment Protection)
+- **Vercel Authentication (Vercel Pro / Enterprise):**
   - Vercel Dashboard -> Proje -> Settings -> Deployment Protection -> **Vercel Authentication: ENABLED**.
-  - Tüm preview URL'leri (ör. `asrinkemali-git-*.vercel.app`) yalnızca Vercel hesabına sahip yetkili ekip üyelerine açılır; dışarıdan gelen istekler Vercel SSO ekranına yönlendirilir.
-- **Password Protection (Alternatif):**
-  - Standart şifreli erişim kapısı ile tüm önizlemeler tek bir parola ardına gizlenir.
+  - Tüm preview URL'leri (ör. `asrinkemali-git-*.vercel.app`) Vercel edge seviyesinde korunur. Yalnızca Vercel takımına eklenmiş yetkili geliştiriciler Vercel SSO ile oturum açarak erişebilir.
+  - Bu yöntem statik dosyalar (`_next/static`) dahil tüm kaynakları tam olarak gizler.
+- **Vercel Password Protection (Vercel Pro):**
+  - Takım üyesi olmayan harici tarihçi veya paydaş incelemeleri için Vercel edge şifre koruması açılabilir.
 
 ### Katman B: MKA FORTRESS Dahili Preview Koruması (`web/proxy.ts` & `access-contract.ts`)
-Vercel Hobby planında veya üçüncü taraf harici önizlemelerde, Next.js Proxy katmanımız tam güvenlik sağlar:
-- **Ortam Değişkenleri:**
+Vercel Hobby planında (veya yerel simülasyon ortamında) yerleşik Vercel Authentication bulunmadığında, Next.js Proxy/Middleware katmanımız devreye girer:
+- **Otomatik Ortam Algılama:**
+  - Vercel, önizleme dağıtımlarında `VERCEL_ENV=preview` ortam değişkenini otomatik olarak tanımlar.
+  - Kodumuz hem `ASRIN_DEPLOY_ENV=preview` hem de `VERCEL_ENV=preview` bayraklarını algılar; değişken tanımlanması unutulsa dahi önizleme korumasız olarak dışarıya açılmaz.
+- **Ortam Değişkenleri Şablonu:**
   ```env
   ASRIN_DEPLOY_ENV=preview
   ASRIN_PREVIEW_USER=onizleme
-  ASRIN_PREVIEW_PASSWORD_SHA256=4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945
+  ASRIN_PREVIEW_PASSWORD_SHA256=<KENDI_URETTIGINIZ_GUCLU_PAROLANIN_64_HEX_SHA256_OZETI>
   ```
-- **Davranış:**
-  1. `ASRIN_DEPLOY_ENV=preview` olduğunda, HTTP Basic Authorization başlığı olmadan gelen tüm istekler `401 Unauthorized` ile durdurulur.
-  2. Ortam değişkenleri tanımlanmamış veya bozuksa site açılmaz; **fail-closed 503** döner.
-  3. Tüm yanıtlara `X-Robots-Tag: noindex, nofollow, noarchive` eklenerek arama motorlarının dizine eklemesi kesin olarak engellenir.
-  4. Platform canlılık denetimi `/api/health` izleme ve deployment kontrolleri için serbest bırakılır.
+  *(SHA-256 özeti üretmek için: `echo -n "GizliParolaniz123!" | sha256sum`)*
+
+> [!CAUTION]
+> **KRİTİK GİZLİLİK KURALI:**  
+> Düz metin parolaları veya tahmin edilebilir zayıf parola özetlerini ASLA depoya, commit geçmişine veya dokümantasyona yazmayın.  
+> Parola yalnızca SHA-256 özeti olarak Vercel Dashboard'un şifrelenmiş Environment Variables kasasına girilmelidir.
+
+- **Dahili Basic Auth Sınırlamaları ve Davranış:**
+  1. `VERCEL_ENV=preview` veya `ASRIN_DEPLOY_ENV=preview` algılandığında, kimlik bilgileri yapılandırılmamışsa site **fail-closed 503** döner (güvenli varsayılan; kamuya ifşa engellenir).
+  2. Tüm HTML sayfaları (`/`, `/arsiv/*`, `/ataturk`, `/sergiler/*` vb.) ve API uç noktaları (`/api/*`) HTTP Basic doğrulaması gerektirir (`401 Unauthorized`).
+  3. Tüm yanıtlara `X-Robots-Tag: noindex, nofollow, noarchive` eklenir.
+  4. Platform canlılık denetimi (`/api/health`) izleme sistemleri için serbest bırakılır.
+  5. **Statik Dosya Ayrımı:** `web/proxy.ts` içindeki performans kuralı gereğince `_next/static/*`, `_next/image/*`, `assets/*` ve `favicon.ico` dosyaları middleware kapsamı dışındadır. Bu dosyalar yalnızca derlenmiş genel CSS/JS kodlarını içerir; hiçbir hassas arşiv belgesi veya editoryal veri bu yollarda bulunmaz.
 
 ---
 
@@ -78,14 +90,35 @@ Vercel Dashboard -> Settings -> Environment Variables bölümünde tanımlanmas�
 | `ASRIN_DEPLOY_ENV` | Preview | `preview` | Dahili erişim korumasını ve noindex etiketini açar. |
 | `ASRIN_DEPLOY_ENV` | Production | `production` | Kamusal yayını açar. |
 | `ASRIN_PREVIEW_USER` | Preview | `onizleme` | Preview kullanıcı adı. |
-| `ASRIN_PREVIEW_PASSWORD_SHA256` | Preview | `<64 hex sha256>` | Preview parolasının SHA-256 özeti (düz metin parola girilmez!). |
+| `ASRIN_PREVIEW_PASSWORD_SHA256` | Preview | `<64_HEX_SHA256_HASH>` | Preview parolasının SHA-256 özeti (düz metin parola girilmez!). |
 | `ASRIN_CSP_MODE` | Tüm Ortamlar | `enforce` | İçerik Güvenlik Politikası (CSP) modu. |
 | `ASRIN_ENABLE_HSTS` | Production | `1` | Yalnızca canlı özel domainde HSTS'i (31536000 sn) etkinleştirir. |
 | `ASRIN_RESEARCH_LAB` | Production | `0` | Araştırma laboratuvarı deney rotasını canlıda kapalı tutar. |
 
 ---
 
-## 5. Domain Hazırlığı ve Natro DNS Yapılandırma Rehberi
+## 5. Vercel Monorepo Uyumluluğu: Üst Dizin Dosyaları
+
+Next.js uygulamamız `web/` dizinindedir; ancak platformun tarihî ve editoryal verileri depo kökündeki dizinlerde yer almaktadır:
+- `content/archive/records` (168 arşiv belgesi)
+- `content/exhibitions` (Küratörlü sergiler)
+- `content/publications` (Süreli yayınlar)
+- `data/archive/catalog` (Arşiv katalog verisi)
+- `schemas/archive-record.types.ts` (TypeScript tip tanımları)
+
+`web/lib/archive.ts` ve diğer servisler, `repositoryRoot()` fonksiyonu aracılığıyla çalışma dizininin üst dizinine (`..`) erişerek bu JSON dosyalarını okur.
+
+> [!IMPORTANT]
+> **VERCEL DASHBOARD AYARI ZORUNLUDUR:**  
+> Vercel Dashboard üzerinde:  
+> **Project Settings -> General -> Root Directory** ayarında:  
+> 1. Root Directory olarak **`web`** seçilmelidir.  
+> 2. Hemen altındaki **"Include source files outside of the Root Directory"** seçeneği **MUTLAKA İŞARETLENMELİDİR (CHECKED)**.  
+> Bu seçenek işaretlenmezse Vercel derleme kapsayıcısı kök dizindeki `content/` ve `data/` klasörlerini kopyalamaz; bu durumda arşiv sayfaları boş döner veya statik derleme başarısız olur.
+
+---
+
+## 6. Domain Hazırlığı ve Natro DNS Yapılandırma Rehberi
 
 **Domain:** `asrinkemali.com.tr`  
 **DNS Sağlayıcı:** Natro (`ns1.natrohost.com`, `ns2.natrohost.com`)  
@@ -104,7 +137,10 @@ Desteklenecek iki adres mevcuttur:
 |---|---|---|---|---|
 | **A** | `@` (veya `asrinkemali.com.tr`) | `76.76.21.21` | `3600` (veya `300`) | Kök alan adını Vercel Anycast IP'sine yönlendirir. |
 | **CNAME** | `www` | `cname.vercel-dns.com.` | `3600` | www alt alan adını Vercel kenar ağına yönlendirir. |
-| **TXT** *(Gerekirse)* | `_vercel` | `vc-domain-verify=asrinkemali.com.tr,...` | `3600` | Vercel'in alan adı sahipliğini doğrulaması için özel belirteç. |
+| **TXT** *(Doğrulama İstenirse)* | `_vercel` | *(Vercel Dashboard'un ürettiği dinamik belirteç)* | `3600` | Vercel'in alan adı sahipliğini doğrulaması için özel belirteç. |
+
+> [!NOTE]
+> `_vercel` TXT doğrulama değeri proje ve takım bazında Vercel tarafından rastgele üretilen bir tokendir (`vc-domain-verify=asrinkemali.com.tr,xxxxxxxxxxxx`). Bu değer uydurulamaz; Vercel Dashboard'da domain eklendiğinde ekranda gösterilen tam değer girilmelidir.
 
 ### Natro DNS Panelinde Kayıt Giriş Adımları:
 1. `www.natro.com` adresine giderek kurumsal hesap bilgileriyle giriş yapın.

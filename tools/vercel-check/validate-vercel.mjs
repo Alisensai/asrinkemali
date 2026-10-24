@@ -48,10 +48,10 @@ export function validateVercelConfig() {
 
   const accessContractPath = join(WEB_DIR, "lib", "security", "access-contract.ts");
   const accessContract = readFileSync(accessContractPath, "utf-8");
-  const hasPreviewGuard = accessContract.includes('env.ASRIN_DEPLOY_ENV !== "preview"');
+  const hasPreviewGuard = accessContract.includes('env.VERCEL_ENV === "preview"') && accessContract.includes('ASRIN_DEPLOY_ENV === "preview"');
   const hasPreview503 = accessContract.includes("preview-auth-not-configured") && accessContract.includes("503");
   const hasNoindex = accessContract.includes("X-Robots-Tag") && accessContract.includes("noindex");
-  recordCheck("VCL-04", "Preview fail-closed (503) koruması ve X-Robots-Tag: noindex", Boolean(hasPreviewGuard && hasPreview503 && hasNoindex));
+  recordCheck("VCL-04", "Preview fail-closed (503) koruması ve Vercel VERCEL_ENV algılama", Boolean(hasPreviewGuard && hasPreview503 && hasNoindex));
 
   const guidePath = join(DOCS_DIR, "VERCEL-DEPLOYMENT-GUIDE.md");
   if (!existsSync(guidePath)) {
@@ -64,6 +64,16 @@ export function validateVercelConfig() {
   const hasTxt = guideContent.includes("_vercel");
   const hasNatroSteps = guideContent.includes("Natro DNS Panelinde Kayıt Giriş Adımları");
   recordCheck("VCL-05", "Natro DNS A (76.76.21.21), CNAME ve TXT doğrulaması kılavuzu", Boolean(hasApexA && hasCname && hasTxt && hasNatroSteps));
+
+  // VCL-06: Dokümantasyonda sabit/kırılabilir parola özeti bulunmaması kontrolü
+  const hasNoHardcodedHash = !guideContent.includes("4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945");
+  recordCheck("VCL-06", "Dokümantasyonda sabit parola özeti bulunmaması (placeholder kullanımı)", Boolean(hasNoHardcodedHash));
+
+  // VCL-07: Monorepo üst dizin erişimi (content/ ve data/ mevcudiyeti)
+  const hasContentDir = existsSync(join(ROOT_DIR, "content", "archive", "records"));
+  const hasDataDir = existsSync(join(ROOT_DIR, "data", "archive", "catalog"));
+  const guideMentionsIncludeSource = guideContent.includes("Include source files outside of the Root Directory");
+  recordCheck("VCL-07", "Monorepo arşiv/veri dizinleri mevcudiyeti ve Vercel Root Directory ayar beyanı", Boolean(hasContentDir && hasDataDir && guideMentionsIncludeSource));
 
   return checks.every((c) => c.passed);
 }

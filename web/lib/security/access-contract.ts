@@ -120,7 +120,9 @@ export type AccessDecision = { action: "allow"; headers?: Record<string, string>
  */
 export function decideAccess(pathname: string, authorization: string | null, env: Record<string, string | undefined>, provider: AuthenticationProvider | null = REGISTERED_PROVIDER): AccessDecision {
   if (isAdminPath(pathname) && !provider) return { action: "deny", status: 404, reason: "admin-disabled-no-provider" };
-  if (env.ASRIN_DEPLOY_ENV !== "preview") return { action: "allow" };
+  // Önizleme algılama: ASRIN_DEPLOY_ENV=preview veya Vercel'in yerleşik VERCEL_ENV=preview ortamı
+  const isPreview = env.ASRIN_DEPLOY_ENV === "preview" || env.VERCEL_ENV === "preview";
+  if (!isPreview) return { action: "allow" };
   const noindex = { "X-Robots-Tag": "noindex, nofollow, noarchive" };
   if (ALWAYS_PUBLIC.includes(pathname)) return { action: "allow", headers: noindex };
   const user = env.ASRIN_PREVIEW_USER; const passwordHash = env.ASRIN_PREVIEW_PASSWORD_SHA256?.toLowerCase();

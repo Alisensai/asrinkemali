@@ -32,25 +32,56 @@ describe("ASRIN KEMALİ — Vercel ve Resmî Domain Yapılandırma Testleri", ()
       assert.match(decision.headers["X-Robots-Tag"], /noindex/);
     });
 
-    test("decideAccess: Preview ortamında yetkisiz istekler 401 ve WWW-Authenticate Basic almalı", () => {
+    test("decideAccess: Vercel yerleşik VERCEL_ENV=preview otomatik algılanmalı ve yapılandırılmamışsa fail-closed (503) dönmeli", () => {
+      // Geliştirici ASRIN_DEPLOY_ENV tanımlamayı unutsa bile Vercel preview'da site asla açık kalmamalıdır
+      const vercelPreviewUnconfigured = { VERCEL: "1", VERCEL_ENV: "preview" };
+      const decision = decideAccess("/", null, vercelPreviewUnconfigured);
+
+      assert.equal(decision.action, "deny");
+      assert.equal(decision.status, 503);
+      assert.equal(decision.reason, "preview-auth-not-configured");
+      assert.match(decision.headers["X-Robots-Tag"], /noindex/);
+    });
+
+    test("decideAccess: Dinamik sentetik parola özeti ile Preview ortamında yetkisiz istekler 401 almalı", async () => {
+      const { createHash, randomUUID } = await import("node:crypto");
+      const syntheticPass = randomUUID();
+      const dynamicHash = createHash("sha256").update(syntheticPass).digest("hex");
+
       const configuredEnv = {
         ASRIN_DEPLOY_ENV: "preview",
-        ASRIN_PREVIEW_USER: "onizleme",
-        ASRIN_PREVIEW_PASSWORD_SHA256: "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        ASRIN_PREVIEW_USER: "onizleme-test",
+        ASRIN_PREVIEW_PASSWORD_SHA256: dynamicHash
       };
 
+      // Yetkisiz erişim denemesi (Authorization başlığı yok)
       const unauthenticated = decideAccess("/", null, configuredEnv);
       assert.equal(unauthenticated.action, "deny");
       assert.equal(unauthenticated.status, 401);
       assert.ok(unauthenticated.headers["WWW-Authenticate"].includes("Basic"));
       assert.match(unauthenticated.headers["X-Robots-Tag"], /noindex/);
+
+      // Yanlış parola denemesi
+      const wrongAuth = `Basic ${Buffer.from("onizleme-test:yanlis-parola").toString("base64")}`;
+      const wrongDecision = decideAccess("/", wrongAuth, configuredEnv);
+      assert.equal(wrongDecision.action, "deny");
+      assert.equal(wrongDecision.status, 401);
+
+      // Doğru parola ile erişim
+      const correctAuth = `Basic ${Buffer.from(`onizleme-test:${syntheticPass}`).toString("base64")}`;
+      const correctDecision = decideAccess("/", correctAuth, configuredEnv);
+      assert.equal(correctDecision.action, "allow");
+      assert.match(correctDecision.headers["X-Robots-Tag"], /noindex/);
     });
 
-    test("decideAccess: Preview ortamında bile platform canlılık denetimi (/api/health) açık kalmalı", () => {
+    test("decideAccess: Preview ortamında bile platform canlılık denetimi (/api/health) açık kalmalı", async () => {
+      const { createHash, randomUUID } = await import("node:crypto");
+      const dynamicHash = createHash("sha256").update(randomUUID()).digest("hex");
+
       const configuredEnv = {
-        ASRIN_DEPLOY_ENV: "preview",
+        VERCEL_ENV: "preview",
         ASRIN_PREVIEW_USER: "onizleme",
-        ASRIN_PREVIEW_PASSWORD_SHA256: "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        ASRIN_PREVIEW_PASSWORD_SHA256: dynamicHash
       };
 
       const healthCheck = decideAccess("/api/health", null, configuredEnv);
