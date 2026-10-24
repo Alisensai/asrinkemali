@@ -17,6 +17,18 @@ export interface ArchiveQualityFlags {
   dateUncertain: boolean;
   quoteNeedsReview: boolean;
   aiRepresentative: boolean;
+  sourceIsMediaFile: boolean;
+}
+
+export function isMediaFileUrl(value: string): boolean {
+  try {
+    const url = new URL(value);
+    return ["jpg", "jpeg", "png", "gif", "webp", "tif", "tiff"].includes(
+      url.pathname.split(".").at(-1)?.toLocaleLowerCase("en-US") ?? "",
+    );
+  } catch {
+    return false;
+  }
 }
 
 export function safeHttpsUrl(value: string): string | null {
@@ -35,6 +47,7 @@ export function getArchiveQualityFlags(record: ArchiveRecord): ArchiveQualityFla
     dateUncertain: record.date.certainty !== "exact" || record.date.precision === "unknown",
     quoteNeedsReview: Boolean(record.quotation),
     aiRepresentative: record.image?.kind === "ai_representative" || record.rights.status === "ai_representative",
+    sourceIsMediaFile: isMediaFileUrl(record.source.url),
   };
 }
 
@@ -77,6 +90,7 @@ export function summarizeArchive(records: readonly ArchiveRecord[]) {
   let missingSource = 0;
   let rightsUnclear = 0;
   let dateUncertain = 0;
+  let sourceIsMediaFile = 0;
   let humanReviewUnverified = 0;
 
   for (const record of records) {
@@ -88,6 +102,7 @@ export function summarizeArchive(records: readonly ArchiveRecord[]) {
     if (flags.missingSource) missingSource += 1;
     if (flags.rightsUnclear) rightsUnclear += 1;
     if (flags.dateUncertain) dateUncertain += 1;
+    if (flags.sourceIsMediaFile) sourceIsMediaFile += 1;
     humanReviewUnverified += 1;
   }
 
@@ -99,6 +114,7 @@ export function summarizeArchive(records: readonly ArchiveRecord[]) {
     missingSource,
     rightsUnclear,
     dateUncertain,
+    sourceIsMediaFile,
     humanReviewUnverified,
   };
 }

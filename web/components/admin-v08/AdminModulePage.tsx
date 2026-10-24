@@ -4,8 +4,9 @@ import { ROLE_SECTIONS, ROLE_LABELS, ADMIN_ROLES, ADMIN_SECTIONS, canAccessSecti
 import type { AdminSection } from "@/lib/admin-v08/access-control";
 import { getCurrentAdminSession } from "@/lib/admin-v08/auth";
 import { filterArchiveRecords, getArchiveQualityFlags, safeHttpsUrl, summarizeArchive, type ArchiveQuery } from "@/lib/admin-v08/archive";
-import { buildScheduleDryRun, buildTodayAdminBrief, loadEditorialForms } from "@/lib/admin-v08/data";
+import { buildAdminSystemSnapshot, buildScheduleDryRun, buildTodayAdminBrief, loadEditorialForms } from "@/lib/admin-v08/data";
 import { getReviewFormState } from "@/lib/admin-v08/reviews";
+import { ADMIN_SECURITY_FINDINGS } from "@/lib/admin-v08/security-findings";
 import { getAllArchiveRecords } from "@/lib/archive";
 import { getAllPublications } from "@/lib/publishing/repository";
 import { ArchiveTable } from "./ArchiveTable";
@@ -197,7 +198,8 @@ function SourcesOverview() {
   const sorted = [...records].sort((a, b) => {
     const riskA = getArchiveQualityFlags(a);
     const riskB = getArchiveQualityFlags(b);
-    return Number(riskB.missingSource || riskB.rightsUnclear) - Number(riskA.missingSource || riskA.rightsUnclear);
+    return Number(riskB.missingSource || riskB.rightsUnclear || riskB.sourceIsMediaFile) -
+      Number(riskA.missingSource || riskA.rightsUnclear || riskA.sourceIsMediaFile);
   });
   return (
     <>
@@ -205,6 +207,7 @@ function SourcesOverview() {
         <MetricCard label="Eksik kaynak alanı" value={report.missingSource} detail="Kurum, kaynak adı veya URL" />
         <MetricCard label="Hak durumu belirsiz" value={report.rightsUnclear} detail="Otomatik değerlendirme; hukuk görüşü değildir" />
         <MetricCard label="Tarihi belirsiz" value={report.dateUncertain} detail="Yaklaşık veya bilinmeyen tarih" />
+        <MetricCard label="Ham medya kaynak URL'si" value={report.sourceIsMediaFile} detail="Landing page ve kullanım bağlamı insan kontrolü bekliyor" />
         <MetricCard label="Katalog kaydı" value={report.total} detail="Tüm arşiv türleri" />
       </div>
       <div className={styles.tableWrap}><table className={styles.dataTable}>
@@ -213,9 +216,19 @@ function SourcesOverview() {
         <tbody>{sorted.map((record) => {
           const flags = getArchiveQualityFlags(record);
           const sourceUrl = safeHttpsUrl(record.source.url);
-          return <tr key={record.id}><td><Link className={styles.tableLink} href={`/yonetim/arsiv/${encodeURIComponent(record.slug)}`}>{record.title}</Link></td><td>{record.source.institution}<small>{sourceUrl ? <a href={sourceUrl} target="_blank" rel="noopener noreferrer">{record.source.title || sourceUrl}</a> : "Güvenli HTTPS bağlantısı yok"}</small></td><td>{record.source.citation || "Künye belirtilmemiş"}</td><td><span className={styles.status}>{record.rights.status}</span></td><td>{[flags.missingSource && "Kaynak alanı", flags.rightsUnclear && "Hak belirsiz", flags.aiRepresentative && "AI temsili"].filter(Boolean).join(" · ") || "—"}</td></tr>;
+          const institutionUrl = safeHttpsUrl(record.source.institutionUrl);
+          return <tr key={record.id}><td><Link className={styles.tableLink} href={`/yonetim/arsiv/${encodeURIComponent(record.slug)}`}>{record.title}</Link></td><td>{record.source.institution}<small>{sourceUrl ? <a href={sourceUrl} target="_blank" rel="noopener noreferrer">{record.source.title || sourceUrl}</a> : "Güvenli HTTPS bağlantısı yok"}{institutionUrl ? <a href={institutionUrl} target="_blank" rel="noopener noreferrer">Kurum sayfası</a> : null}</small></td><td>{record.source.citation || "Künye belirtilmemiş"}</td><td><span className={styles.status}>{record.rights.status}</span></td><td>{[flags.missingSource && "Kaynak alanı", flags.rightsUnclear && "Hak belirsiz", flags.aiRepresentative && "AI temsili", flags.sourceIsMediaFile && "Ham medya dosyası; landing page insan kontrolü gerekli"].filter(Boolean).join(" · ") || "—"}</td></tr>;
         })}</tbody>
       </table></div>
+      <section className={styles.panel}>
+        <h2>Güvenlik ve kaynak inceleme bulguları</h2>
+        <ul className={styles.list}>{ADMIN_SECURITY_FINDINGS.map((finding) => (
+          <li key={finding.id}>
+            <span><strong>{finding.id} · {finding.severity}</strong><small>{finding.risk}</small><small>Kanıt: {finding.evidence}</small><small>Sorumlu: {finding.owner}</small><small>Öneri: {finding.proposedFix}</small></span>
+            <strong>{finding.humanDecisionNeeded ? "İnsan kararı gerekli" : "Teknik"}</strong>
+          </li>
+        ))}</ul>
+      </section>
     </>
   );
 }
@@ -253,8 +266,30 @@ async function ModuleContents({ section, params }: { section: AdminSection; para
       return <UsersAndRoles />;
     case "audit":
       return <div className={styles.emptyState}><h2>Kalıcı denetim günlüğü yapılandırılmamış</h2><p>Tipli olay sözleşmesi mevcut olsa da audit repository’si bulunmuyor. Bu nedenle geçmiş olaylar gösterilmez ve kullanıcı işlemleri başlatılmaz.</p></div>;
-    case "system":
-      return <><div className={styles.notice}><strong>GitHub ve CI durumu: bilinmiyor</strong><p>Sunucu tarafı GitHub adapterı veya CI API bağlantısı yapılandırılmadı. Tarihî raporlar canlı durum gibi gösterilmez.</p></div><div className={styles.twoColumn}><div className={styles.panel}><h2>Bağlı veri</h2><p>Arşiv kataloğu ve editorial form dosyaları yerel repository’den salt okunur yüklenir.</p></div><div className={styles.panel}><h2>Kapalı altyapı</h2><p>Kimlik sağlayıcısı, kalıcı audit, kalıcı makale yazımı ve gerçek zamanlayıcı etkin değil.</p></div></div></>;
+    case "system": {
+      const snapshot = buildAdminSystemSnapshot();
+      const readiness = snapshot.readiness;
+      return <>
+        <div className={styles.notice} role="status">
+          <strong>Yayın kalite kapısı: {readiness.releaseGate.status === "blocked" ? "İNSAN İNCELEMESİ BEKLİYOR" : "İNSAN TEYİDİ GEREKLİ"}</strong>
+          <p>Bu teknik görünüm, yayın uygunluğu veya tarihî doğruluk beyanı değildir. Kayıt onayları, doğrulanmış insan aktörleriyle ve güncel içerik SHA-256 özetiyle ayrıca incelenmelidir.</p>
+        </div>
+        <section className={styles.metricGrid} aria-label="Sistem doğrulanmış verileri">
+          <MetricCard label="Katalog durumu" value={readiness.archive.status} detail={`${readiness.archive.count} kayıt; son içerik güncellemesi ${snapshot.latestRecordUpdate ?? "belirtilmemiş"}`} />
+          <MetricCard label="İnceleme formları" value={readiness.editorial.status} detail={`${readiness.editorial.count} form; ${snapshot.reviewCounts.pending} bekliyor, ${snapshot.reviewCounts.stale} eski, ${snapshot.reviewCounts.invalid} geçersiz`} />
+          <MetricCard label="Yayın kayıtları" value={snapshot.publicationCount} detail="Repository verisinden salt okunur" />
+          <MetricCard label="Zamanlayıcı" value="dry-run" detail={`${snapshot.schedule.ready} aday, ${snapshot.schedule.skipped} atlanan; yürütme kapalı`} />
+          <MetricCard label="Kimlik sağlayıcısı" value={readiness.identity} detail="Yönetim erişimi kapalı" />
+          <MetricCard label="Kalıcı DB / audit" value={`${readiness.database} / ${readiness.audit}`} detail="Yazma ve karar kaydı yapılandırılmadı" />
+          <MetricCard label="CI bağlantısı" value={readiness.ci} detail="Token veya adapter yok; son senkron zamanı yok" />
+          <MetricCard label="Release hazır" value="hayır" detail={`Açık incelemeler: ${readiness.releaseGate.pending + readiness.releaseGate.stale + readiness.releaseGate.invalid + readiness.releaseGate.unverifiedSubmissions}`} />
+        </section>
+        <div className={styles.twoColumn}>
+          <div className={styles.panel}><h2>Üretim sınırı</h2><p>Bu snapshot yerel katalog ve formlardan hesaplanır. Kimlik sağlayıcısı, kalıcı repository, audit ledger ve CI adapterı bağlı değildir; bunlar başarılı veya sağlıklı olarak varsayılmaz.</p><time dateTime={readiness.capturedAt}>Ölçüm zamanı: {readiness.capturedAt}</time></div>
+          <div className={styles.panel}><h2>İnsan onayı ayrı kapıdır</h2><p>Uzman incelemesi ile editör yayın onayı farklı aktörler gerektirir. İçerik özeti değişirse önceki karar geçersizdir. Eksik onay yayın kapısını kapalı tutar.</p></div>
+        </div>
+      </>;
+    }
     default:
       return <div className={styles.emptyState}><h2>Bu modül salt okunur kapsamda değil</h2><p>İstenen alan mevcut yönetim sözleşmesinde bulunmuyor.</p></div>;
   }

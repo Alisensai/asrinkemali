@@ -5,6 +5,7 @@ import path from "node:path";
 const protectedRoutes = [
   "/yonetim",
   "/yonetim/arsiv",
+  "/yonetim/arsiv/1924-anayasasi",
   "/yonetim/incelemeler",
   "/yonetim/yayinlar",
   "/yonetim/makaleler",
@@ -19,11 +20,20 @@ const protectedRoutes = [
 test("admin routes remain fail-closed without a trusted identity provider", async ({ page }) => {
   for (const route of protectedRoutes) {
     const response = await page.goto(route);
-    expect(response?.status(), route).toBe(200);
-    await expect(page.getByRole("heading", { name: "Yönetim paneli erişime kapalı" })).toBeVisible();
-    await expect(page.getByText(/güvenilir bir sunucu tarafı kimlik sağlayıcısı/)).toBeVisible();
-    await expect(page.getByText(/onay işlemi üretim ortamında etkin değildir/)).toBeVisible();
+    expect(response?.status(), route).toBe(404);
+    await expect(page.getByRole("heading", { name: "Sayfa bulunamadı" })).toBeVisible();
+    await expect(page.getByText("Arşiv Yönetimi")).toHaveCount(0);
+    await expect(page.getByText("1924 Anayasası")).toHaveCount(0);
   }
+});
+
+test("client-controlled identity hints do not open administration routes", async ({ page }) => {
+  await page.setExtraHTTPHeaders({ "x-admin-role": "system_admin", authorization: "Basic ZGVtbzpkZW1v" });
+  await page.addInitScript(() => localStorage.setItem("role", "system_admin"));
+  const response = await page.goto("/yonetim?role=system_admin&token=demo");
+  expect(response?.status()).toBe(404);
+  await expect(page.getByRole("heading", { name: "Sayfa bulunamadı" })).toBeVisible();
+  await expect(page.getByText("Arşiv Yönetimi")).toHaveCount(0);
 });
 
 test("admin access-denied page fits the requested mobile and desktop widths", async ({ page }, testInfo) => {
@@ -32,7 +42,7 @@ test("admin access-denied page fits the requested mobile and desktop widths", as
   for (const width of [320, 360, 390, 430, 768, 1024, 1440, 1536]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto("/yonetim");
-    await expect(page.getByRole("heading", { name: "Yönetim paneli erişime kapalı" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Sayfa bulunamadı" })).toBeVisible();
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
     expect(overflow, `${width}px horizontal overflow`).toBeLessThanOrEqual(2);
     if (testInfo.project.name === "desktop-1536x1024" && [360, 1536].includes(width)) {

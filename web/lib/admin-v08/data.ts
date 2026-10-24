@@ -9,6 +9,8 @@ import { getAllPublications } from "../publishing/repository";
 import { planScheduledPublications } from "../publishing/scheduler";
 import { prepareTodayBrief } from "../publishing/today";
 import { isReviewForm, type ReviewForm } from "./reviews";
+import { getReviewFormState } from "./reviews";
+import { buildAdminReadinessReport } from "./readiness";
 
 function projectRoot() {
   const cwd = process.cwd();
@@ -65,6 +67,45 @@ export function buildScheduleDryRun(now = new Date()) {
     ledger = parsed as PublicationLedgerEntry[];
   }
   return planScheduledPublications(getAllPublications(), ledger, now.toISOString());
+}
+
+export function buildAdminSystemSnapshot(now = new Date()) {
+  const records = getAllArchiveRecords();
+  const formData = loadEditorialForms();
+  const recordsById = new Map(records.map((record) => [record.id, record]));
+  const reviewCounts = { pending: 0, stale: 0, invalid: 0, submitted_claim_unverified: 0 };
+
+  for (const form of formData.forms) {
+    reviewCounts[getReviewFormState(form, recordsById.get(form.record_id))] += 1;
+  }
+
+  const schedule = buildScheduleDryRun(now);
+  const publications = getAllPublications();
+  const latestRecordUpdate = records
+    .map((record) => record.updatedAt)
+    .filter((value): value is string => typeof value === "string" && !Number.isNaN(Date.parse(value)))
+    .sort((left, right) => Date.parse(right) - Date.parse(left))[0] ?? null;
+
+  return Object.freeze({
+    readiness: buildAdminReadinessReport({
+      archiveAvailable: records.length > 0,
+      archiveCount: records.length,
+      formsAvailable: formData.available,
+      formCount: formData.forms.length,
+      pendingForms: reviewCounts.pending,
+      staleForms: reviewCounts.stale,
+      invalidForms: reviewCounts.invalid,
+      unverifiedSubmissions: reviewCounts.submitted_claim_unverified,
+      identityProviderConfigured: false,
+      durableDatabaseConfigured: false,
+      auditRepositoryConfigured: false,
+      ciStatus: "unavailable",
+    }, now),
+    reviewCounts: Object.freeze(reviewCounts),
+    publicationCount: publications.length,
+    schedule: Object.freeze({ ready: schedule.ready.length, skipped: schedule.skipped.length, mode: "dry_run" as const }),
+    latestRecordUpdate,
+  });
 }
 
 export function findArchiveRecord(slug: string): ArchiveRecord | undefined {
