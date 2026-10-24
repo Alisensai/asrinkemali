@@ -18,7 +18,7 @@ test.describe("MKA Evidence Workbench 2.0 — Görev 28 E2E", () => {
 
     // Prodüksiyon ortamında araştırma paneli kapalıdır (fail-closed 404)
     if (res?.status() === 404) {
-      await expect(page.getByRole("heading", { name: "Sayfa bulunamadı" })).toBeVisible();
+      await expect(page.getByRole("heading", { name: "Arşiv Kaydı veya Sayfa Bulunamadı" })).toBeVisible();
       const overflow = await page.evaluate(
         () => document.documentElement.scrollWidth > window.innerWidth + 1
       );
@@ -78,7 +78,7 @@ test.describe("MKA Evidence Workbench 2.0 — Görev 28 E2E", () => {
 
     // Prodüksiyon ortamında araştırma paneli ve dışa aktarım kapalıdır (fail-closed 404)
     if (res?.status() === 404) {
-      await expect(page.getByRole("heading", { name: "Sayfa bulunamadı" })).toBeVisible();
+      await expect(page.getByRole("heading", { name: "Arşiv Kaydı veya Sayfa Bulunamadı" })).toBeVisible();
       const claimsRes = await request.get("/api/arastirma-laboratuvari/export?format=claims-v2");
       expect(claimsRes.status()).toBe(404);
       return;

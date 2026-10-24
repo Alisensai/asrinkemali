@@ -77,5 +77,5 @@ test("rotalar dürüst boş durum ve 404 döndürür", async ({ page }) => {
   await expect(page.getByText("Henüz doğrulanmış yayın bulunmuyor.")).toBeVisible();
   const missing = await page.goto("/arsiv/yayinda-olmayan-kayit");
   expect(missing?.status()).toBe(404);
-  await expect(page.getByRole("heading", { name: "Sayfa bulunamadı" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Arşiv Kaydı veya Sayfa Bulunamadı" })).toBeVisible();
 });
