@@ -34,7 +34,7 @@ test("Türkçe arama ve paylaşılabilir filtreler gerçek sonuç döndürür", 
   await expectNoOverflow(page);
 });
 
-test("detay kaynak, hak ve inceleme durumunu gösterir; kapalı kayıtlar 404 olur", async ({ page }) => {
+test("detay kaynak, hak ve inceleme durumunu gösterir; kapalı kayıtlar 404 olur", async ({ page, request }) => {
   await page.goto("/arsiv/cumhuriyetin-ilani-1923");
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Cumhuriyet");
   await expect(page.getByText("Orijinal kaynak")).toBeVisible();
@@ -42,10 +42,13 @@ test("detay kaynak, hak ve inceleme durumunu gösterir; kapalı kayıtlar 404 ol
   await expect(page.getByText("uzman onayı bekliyor", { exact: false }).first()).toBeVisible();
   await expect(page.getByText("dosya indirme hizmeti sunmaz")).toBeVisible();
   await expect(page.getByRole("link", { name: /indir/i })).toHaveCount(0);
-  const reviewed = await page.goto("/arsiv/ii-inonu-zaferi-fotografi-1921");
-  expect(reviewed?.status()).toBe(404);
-  const draft = await page.goto("/arsiv/selanikteki-ataturk-evi");
-  expect(draft?.status()).toBe(404);
+  // Next'in geliştirme sunucusu, sayfa modüllerini derlerken ardışık 404 navigasyonunu
+  // iptal edebiliyor. HTTP sözleşmesini doğrudan istek bağlamında denetlemek, üretimdeki
+  // fail-closed davranışı aynı kesinlikle doğrular; ortak 404 arayüzü ayrı E2E'lerde test edilir.
+  const reviewed = await request.get("/arsiv/ii-inonu-zaferi-fotografi-1921");
+  expect(reviewed.status()).toBe(404);
+  const draft = await request.get("/arsiv/selanikteki-ataturk-evi");
+  expect(draft.status()).toBe(404);
 });
 
 test("kronoloji tarih filtreleri ve hatalı girdiler güvenli çalışır", async ({ page }) => {

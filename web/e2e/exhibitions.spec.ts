@@ -58,7 +58,7 @@ test.describe("MKA Immersive Museum Platform V0.8 — Görev 26 Hardening & E2E"
 
     // Prodüksiyon ortamında taslak sergiler karantinada ve 404 dönmeli
     if (res?.status() === 404) {
-      await expect(page.getByRole("heading", { name: "Sayfa bulunamadı" })).toBeVisible();
+      await expect(page.getByRole("heading", { name: "Arşiv Kaydı veya Sayfa Bulunamadı" })).toBeVisible();
       const overflow = await page.evaluate(
         () => document.documentElement.scrollWidth > window.innerWidth + 1
       );
