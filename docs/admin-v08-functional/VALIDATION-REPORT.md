@@ -16,6 +16,7 @@ Bu rapor mevcut feature dalındaki gerçek çalıştırmaları özetler; product
 | Hata | 0 |
 | Uyarı | 11 |
 | İnsan uzman incelemesi bekleyen kayıt | 168 |
+| Development route/responsive Playwright | 3 geçti / 0 başarısız |
 | Production route Playwright | 2 geçti / 0 başarısız |
 | Editorial-review Python suite | 45 geçti / 0 başarısız; 1 harici arşiv testi atlandı |
 | npm audit (tüm bağımlılıklar + production) | Her iki denetim başarıyla tamamlandı |
@@ -30,6 +31,8 @@ Release quality raporu gerçek `web/` uygulamasını ve arşiv verisini kulland�
 
 Gerçek `next start` üzerinde `/yonetim/*` istekleri güvenilir provider olmadan HTTP 404 döndürdü; `x-admin-role`, Basic auth, localStorage ve query parametreleri erişim açmadı. Next.js layout içindeki `notFound()` uygulama kökündeki genel 404 sınırına yükseliyor; yanıt yönetim verisi göstermiyor. Üretim kimlik doğrulama ve yetkili kullanıcı akışı bu nedenle test edilemez ve bu PR tarafından etkinleştirilmez.
 
+Development Playwright kontrolü, korumalı yönetim rotalarını ve client-controlled identity hint'lerini doğruladı; 320, 360, 390, 430, 768, 1024, 1440 ve 1536 px genişliklerde yatay taşma bulmadı. `docs/admin-v08/screenshots/` altındaki mobil ve masaüstü görüntüler bu erişim-kapalı 404 durumunu gösterir; yetkili admin arayüzü ekran görüntüsü değildir.
+
 ## Komutlar
 
 ```powershell
@@ -38,6 +41,7 @@ npm test
 npm run lint
 npm run typecheck
 npm run build
+npx playwright test e2e/admin-v08.spec.ts --project=desktop-1536x1024
 npx playwright test --config=playwright.admin.prod.config.ts
 
 cd ..
