@@ -48,11 +48,19 @@ export function securityHeaders({ mode, development, hsts }: SecurityHeaderOptio
   return headers;
 }
 
-/** Ortam değişkenlerinden seçenekler; bilinmeyen CSP modu güvenli varsayılana (enforce) düşer. */
+/**
+ * Ortam değişkenlerinden seçenekler.
+ *
+ * CSP'yi tamamen kapatmak yalnız yerel geliştirme için desteklenir. Production'da
+ * yanlışlıkla `ASRIN_CSP_MODE=off` verilmesi, bütün XSS savunma katmanını kaldırır;
+ * bu nedenle üretim varsayılanına (enforce) kapalı-başarısız düşer. Report-only,
+ * kontrollü politika gözlemi için açıkça istenirse korunur.
+ */
 export function headerOptionsFromEnv(env: Record<string, string | undefined>): SecurityHeaderOptions {
   const requested = env.ASRIN_CSP_MODE;
-  const mode: CspMode = requested === "report-only" || requested === "off" ? requested : "enforce";
-  return { mode, development: env.NODE_ENV === "development", hsts: env.ASRIN_ENABLE_HSTS === "1" };
+  const development = env.NODE_ENV === "development";
+  const mode: CspMode = requested === "report-only" || (requested === "off" && development) ? requested : "enforce";
+  return { mode, development, hsts: env.ASRIN_ENABLE_HSTS === "1" };
 }
 
 /** Hiçbir yanıtta önbelleğe alınmaması gereken operasyonel uç noktalar. */
