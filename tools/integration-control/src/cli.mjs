@@ -84,7 +84,8 @@ const COMMANDS = { unit: { name: "web unit", command: "npm", args: ["test"], cwd
 export function resolveCommand(name) {
   if (COMMANDS[name]) return COMMANDS[name];
   const spec = name.startsWith("e2e:") ? name.slice(4) : null;
-  if (spec && /^e2e\/[A-Za-z0-9._/-]+\.spec\.ts$/.test(spec) && !spec.includes("..")) return { name: `e2e ${spec}`, command: "npx", args: ["playwright", "test", spec, "--project=desktop-1536x1024", "--reporter=line"], cwd: "web", timeoutMs: 900_000 };
+  // Prova e2e'si her zaman kendi rastgele portunu kullanır; başka ajanın sunucusuna bağlanmaz.
+  if (spec && /^e2e\/[A-Za-z0-9._/-]+\.spec\.ts$/.test(spec) && !spec.includes("..")) return { name: `e2e ${spec}`, command: "npx", args: ["playwright", "test", spec, "--project=desktop-1536x1024", "--reporter=line"], cwd: "web", timeoutMs: 900_000, env: { ASRIN_E2E_PORT: String(50000 + Math.floor(Math.random() * 9000)) } };
   throw new Error(`Bilinmeyen veya güvensiz prova komutu: ${name.slice(0, 60)}`);
 }
 

@@ -13,7 +13,9 @@ export function classifyReleaseReport(report) {
   const findings = report.findings ?? [];
   const editorial = findings.filter((finding) => EDITORIAL_CODES.has(finding.code));
   const count = (code) => findings.filter((finding) => finding.code === code).length;
-  const records = (code) => [...new Set(findings.filter((finding) => finding.code === code).map((finding) => finding.path || finding.record_id || finding.target).filter(Boolean))];
+  // Kayıt yolları depo-göreli yapılır (CI çalıştırıcı/kullanıcı dizinleri rapora girmez).
+  const relative = (value) => String(value).replaceAll("\\", "/").replace(/^.*?((?:content|data)\/archive\/)/, "$1");
+  const records = (code) => [...new Set(findings.filter((finding) => finding.code === code).map((finding) => finding.path || finding.record_id || finding.target).filter(Boolean).map(relative))];
   const legal = findings.filter((finding) => LEGAL_CODES.test(finding.code));
   const external = findings.filter((finding) => EXTERNAL_CODES.test(finding.code) && !EDITORIAL_CODES.has(finding.code));
   const security = (report.security_findings ?? []).filter((finding) => ["critical", "high", "error"].includes(finding.severity));

@@ -95,12 +95,13 @@ test("yönetim rotası × kapalı-başarısız proxy etkileşimi çapraz çakı�
 });
 
 test("W/Y: teknik CI yeşil olsa da insan onayı yoksa EDITORIAL_BLOCKED; RELEASE_READY verilmez", () => {
-  const report = { release_ready: false, checks: [{ name: "web-e2e", exit_code: 0, tests_passed: 342, tests_failed: 0 }, { name: "web-lint", exit_code: 0 }], findings: [...Array(3).fill({ severity: "critical", code: "published-without-human-review", path: "a.json" }), ...Array(3).fill({ severity: "critical", code: "unauthorized-published-record", path: "a.json" }), { severity: "warning", code: "HAK_BELIRSIZ" }] };
+  const report = { release_ready: false, checks: [{ name: "web-e2e", exit_code: 0, tests_passed: 342, tests_failed: 0 }, { name: "web-lint", exit_code: 0 }], findings: [...Array(3).fill({ severity: "critical", code: "published-without-human-review", path: "/home/runner/work/r/r/content/archive/records/a.json" }), ...Array(3).fill({ severity: "critical", code: "unauthorized-published-record", path: "a.json" }), { severity: "warning", code: "HAK_BELIRSIZ" }] };
   const result = classifyReleaseReport(report);
   assert.ok(result.gates.includes("TECHNICAL_READY_FOR_REVIEW") && result.gates.includes("EDITORIAL_BLOCKED"));
   assert.ok(!result.gates.includes("RELEASE_READY"));
   assert.equal(result.editorial.missingHumanExpertReview, 3); assert.equal(result.editorial.missingEditorPublicationApproval, 3);
   assert.equal(result.legal.findings, 1); assert.equal(result.deployment.authorized, false);
+  assert.deepEqual(result.editorial.sampleRecords.missingExpert, ["content/archive/records/a.json"], "CI çalıştırıcı yolu rapora girmez");
   const failing = classifyReleaseReport({ checks: [{ name: "web-e2e", exit_code: 1 }, { name: "x", exit_code: null }], findings: [] });
   assert.ok(!failing.gates.includes("TECHNICAL_READY_FOR_REVIEW")); assert.equal(failing.technical.notRun, 1, "V: çalışmayan NOT_RUN, geçti sayılmaz");
   assert.equal(classifyReleaseReport(null).gate, "UNKNOWN");

@@ -68,9 +68,35 @@ test("AB/V: zaman aşımı blocked, bulunamayan komut not_run; prova başarısı
   const r = repo();
   try {
     r.git("checkout", "-q", "-b", "x"); r.write("ok.mjs", "process.exit(0)\n"); r.write("bad.mjs", "process.exit(3)\n"); r.write("slow.mjs", "setTimeout(()=>{}, 10000)\n"); const x = r.commit("scripts");
-    const result = executeRehearsal({ repoDir: r.dir, baseSha: r.base, steps: [{ pr: 1, sha: x }], commands: [{ name: "ok", command: "node", args: ["ok.mjs"] }, { name: "slow", command: "node", args: ["slow.mjs"], timeoutMs: 500 }, { name: "missing-dir", command: "node", args: ["x"], cwd: "yok" }, { name: "bad", command: "node", args: ["bad.mjs"] }] });
-    assert.deepEqual(result.commands.map((command) => command.status), ["pass", "blocked", "not_run", "fail"]);
-    assert.equal(result.status, "test_failed"); assert.equal(result.mainRepoUnchanged, true);
+    const blocked = executeRehearsal({ repoDir: r.dir, baseSha: r.base, steps: [{ pr: 1, sha: x }], commands: [{ name: "ok", command: "node", args: ["ok.mjs"] }, { name: "slow", command: "node", args: ["slow.mjs"], timeoutMs: 500 }, { name: "after", command: "node", args: ["ok.mjs"] }] });
+    assert.deepEqual(blocked.commands.map((command) => command.status), ["pass", "blocked", "not_run"]);
+    assert.equal(blocked.commands[2].reason, "önceki adım engellendi"); assert.equal(blocked.status, "insufficient_information");
+    const failed = executeRehearsal({ repoDir: r.dir, baseSha: r.base, steps: [{ pr: 1, sha: x }], commands: [{ name: "missing-dir", command: "node", args: ["x"], cwd: "yok" }, { name: "bad", command: "node", args: ["bad.mjs"] }] });
+    assert.deepEqual(failed.commands.map((command) => command.status), ["not_run", "fail"]);
+    assert.equal(failed.status, "test_failed"); assert.equal(failed.mainRepoUnchanged, true);
+  } finally { rmSync(r.dir, { recursive: true, force: true }); }
+});
+
+test("ortam hatası (port dolu) test başarısızlığı sayılmaz: blocked", () => {
+  const r = repo();
+  try {
+    r.git("checkout", "-q", "-b", "x"); r.write("port.mjs", "console.error('Error: http://127.0.0.1:49173 is already used, make sure that nothing is running on the port/url'); process.exit(1)\n"); const x = r.commit("p");
+    const result = executeRehearsal({ repoDir: r.dir, baseSha: r.base, steps: [{ pr: 1, sha: x }], commands: [{ name: "e2e", command: "node", args: ["port.mjs"] }] });
+    assert.equal(result.commands[0].status, "blocked"); assert.match(result.commands[0].reason, /ortam/); assert.equal(result.status, "insufficient_information");
+  } finally { rmSync(r.dir, { recursive: true, force: true }); }
+});
+
+test("temizlik: üretilen dosya (next-env.d.ts) geri alınır, başka değişiklik silmeyi engeller", () => {
+  const r = repo();
+  try {
+    r.write("web/next-env.d.ts", "orijinal\n"); r.write("web/kaynak.ts", "x\n"); const head = r.commit("web");
+    const result = executeRehearsal({ repoDir: r.dir, baseSha: head, steps: [], commands: [{ name: "gen", command: "node", args: ["-e", "require('fs').writeFileSync('web/next-env.d.ts','yeniden üretildi')"] }], keep: true });
+    const dir = path.join(os.tmpdir(), result.id);
+    assert.equal(cleanupRehearsal(r.dir, dir), "removed", "yalnız üretilen dosya değişmişse temizlenir");
+    const second = executeRehearsal({ repoDir: r.dir, baseSha: head, steps: [], commands: [{ name: "edit", command: "node", args: ["-e", "require('fs').writeFileSync('web/kaynak.ts','elle')"] }], keep: true });
+    const secondDir = path.join(os.tmpdir(), second.id);
+    assert.match(cleanupRehearsal(r.dir, secondDir), /refused.*web\/kaynak\.ts/);
+    run("git", ["worktree", "remove", "--force", secondDir], { cwd: r.dir });
   } finally { rmSync(r.dir, { recursive: true, force: true }); }
 });
 
