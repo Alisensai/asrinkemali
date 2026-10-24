@@ -2,9 +2,29 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ContentPage } from "@/components/ContentPage";
-import { Icon } from "@/components/Icon";
-import { getPublishedArchiveRecord, getPublishedArchiveRecords, reviewLabel, typeLabel } from "@/lib/archive";
+import { Icon, type IconName } from "@/components/Icon";
+import { MuseumPlaque } from "@/components/design-system";
+import {
+  getPublishedArchiveRecord,
+  getPublishedArchiveRecordById,
+  getPublishedArchiveRecords,
+  reviewLabel,
+  typeLabel,
+} from "@/lib/archive";
+import type { ArchiveRecordType } from "../../../../schemas/archive-record.types";
 import styles from "../../content-platform.module.css";
+
+function getTypeIcon(type: ArchiveRecordType): IconName {
+  switch (type) {
+    case "photograph": return "image";
+    case "document": return "document";
+    case "speech": return "speech";
+    case "event": return "calendar";
+    case "publication": return "book";
+    case "place": return "map";
+    default: return "document";
+  }
+}
 
 export function generateStaticParams() {
   return getPublishedArchiveRecords().map((record) => ({ slug: record.slug }));
@@ -34,6 +54,10 @@ export default async function ArchiveDetailPage({ params }: { params: Promise<{ 
   const record = getPublishedArchiveRecord(slug);
   if (!record) notFound();
 
+  const relatedRecords = (record.relatedIds ?? [])
+    .map((id) => getPublishedArchiveRecordById(id))
+    .filter((r): r is NonNullable<typeof r> => Boolean(r));
+
   return (
     <ContentPage eyebrow={typeLabel(record.type).toLocaleUpperCase("tr-TR")} title={record.title}>
       <article className={styles.detail}>
@@ -42,7 +66,7 @@ export default async function ArchiveDetailPage({ params }: { params: Promise<{ 
             <Icon name="arrow-left" size={14} /> Dijital Arşive Dön
           </Link>
           <span className={styles.reviewBadge}>
-            <Icon name="check" size={12} /> {reviewLabel(record.verification.status)}
+            <Icon name="document" size={12} /> {reviewLabel(record.verification.status)}
           </span>
         </div>
 
@@ -64,11 +88,21 @@ export default async function ArchiveDetailPage({ params }: { params: Promise<{ 
                 <figcaption className={styles.detailMediaCaption}>
                   <span>{record.image.credit}</span>
                   <span className={styles.detailMediaBadge}>
-                    {record.image.kind === "ai_representative" ? "Temsili Görsel" : "Orijinal Arşiv Belgesi"}
+                    {record.image.kind === "ai_representative" ? "Yapay Zekâ Temsili Görsel" : "Orijinal Arşiv Belgesi"}
                   </span>
                 </figcaption>
               </figure>
-            ) : null}
+            ) : (
+              <MuseumPlaque
+                id={record.id}
+                title={record.title}
+                category={record.categories[0]}
+                institution={record.source.institution}
+                date={record.date.display}
+                rights={record.rights.status.replaceAll("_", " ")}
+                sourceUrl={record.source.url}
+              />
+            )}
 
             {record.quotation ? (
               <aside className={styles.detailQuoteCallout} aria-label="Mustafa Kemal Atatürk Alıntısı">
@@ -97,6 +131,31 @@ export default async function ArchiveDetailPage({ params }: { params: Promise<{ 
                   <li key={tag} className={styles.tagPill}>#{tag}</li>
                 ))}
               </ul>
+            ) : null}
+
+            {relatedRecords.length > 0 ? (
+              <section className={styles.relatedSection} aria-label="İlişkili arşiv kayıtları">
+                <h3 className={styles.relatedHeading}>
+                  <Icon name="museum" size={16} /> İlişkili Arşiv Kayıtları
+                </h3>
+                <div className={styles.relatedGrid}>
+                  {relatedRecords.map((rel) => (
+                    <Link
+                      key={rel.id}
+                      href={`/arsiv/${rel.slug}`}
+                      className={styles.relatedCard}
+                      aria-label={`${rel.title} - ${typeLabel(rel.type)} kaydı detayı`}
+                    >
+                      <span className={styles.relatedCardType}>
+                        <Icon name={getTypeIcon(rel.type)} size={12} />
+                        {typeLabel(rel.type)}
+                      </span>
+                      <h4 className={styles.relatedCardTitle}>{rel.title}</h4>
+                      <time className={styles.relatedCardTime}>{rel.date.display}</time>
+                    </Link>
+                  ))}
+                </div>
+              </section>
             ) : null}
           </div>
 

@@ -17,6 +17,7 @@ let cachedRecords: readonly ArchiveRecord[] | undefined;
 export function getAllArchiveRecords(): readonly ArchiveRecord[] { if (!cachedRecords) { const root = repositoryRoot(); cachedRecords = Object.freeze([...readDirectory(path.join(root, "content", "archive", "records")), ...readDirectory(path.join(root, "data", "archive", "catalog"))]); } return cachedRecords; }
 export function getPublishedArchiveRecords() { return getAllArchiveRecords().filter((record) => record.verification.status === "published"); }
 export function getPublishedArchiveRecord(slug: string) { if (!/^[a-z0-9-]{1,120}$/.test(slug)) return undefined; return getPublishedArchiveRecords().find((record) => record.slug === slug); }
+export function getPublishedArchiveRecordById(id: string) { if (!id) return undefined; return getPublishedArchiveRecords().find((record) => record.id === id); }
 export function typeLabel(type: ArchiveRecordType) { return TYPE_LABELS[type]; }
 export function reviewLabel(status: VerificationStatus) { if (status === "published") return "Kaynak denetimli · uzman onayı bekliyor"; if (status === "reviewed") return "Yapay zekâ incelemesinde"; return "Taslak · yayıma kapalı"; }
 export function normalizeTurkish(value: string) { return value.toLocaleLowerCase("tr-TR").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ı/g, "i").replace(/ş/g, "s").replace(/ğ/g, "g").replace(/ü/g, "u").replace(/ö/g, "o").replace(/ç/g, "c"); }
