@@ -13,6 +13,7 @@ const browsers = process.env.ASRIN_CROSS_BROWSER === "1" ? (["chromium", "firefo
 
 export default defineConfig({
   testDir: "./e2e",
+  testIgnore: ["**/qa-unified/**"],
   outputDir: "./test-results",
   timeout: 30_000,
   expect: { timeout: 7_000 },

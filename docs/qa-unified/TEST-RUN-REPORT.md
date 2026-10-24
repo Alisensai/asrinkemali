@@ -50,8 +50,16 @@ Desktop ve mobile ekran görüntüleri:
 | Sürümlü JSON, JSON'dan Markdown, sınıflandırma, run-id/commit/artifact ve baseline karşılaştırması | Tamamlandı; post-commit raporları ve parity testleri |
 | Deterministik geçici dizin sentetik deneyleri ve modül QA kontratı | Tamamlandı; fixture veya kaynak katalog yazımı yok |
 | Bağımsız, düşük maliyetli QA CI | Tamamlandı; `qa-unified.yml` manifest-selected unit ve Chromium dev smoke'u çalıştırıp `qa/results/` artifact'larını `always()` ile 7 gün yükler. Test adımları `continue-on-error` kullanmaz; başarısız/`NOT_RUN` exit kodu job'u başarısız kılar. |
-| PR CI sonucu | Bu rapor yazılırken PR henüz açılmadığından beklemede; açılıştan sonra GitHub Actions sonucu ayrıca doğrulanmalı. CI workflow'u release/editoryal gate'in yerine geçmez veya onu gevşetmez. |
+| PR CI sonucu | İlk PR koşumunda `qa-smoke` ve `Asrin Kemali CI` geçti. `Next.js CI` ve `Release quality` içindeki E2E adımı aşağıda açıklanan test keşif çakışmasıyla başarısız oldu; düzeltme commit'i sonrası workflow'lar yeniden doğrulanacak. CI workflow'u release/editoryal gate'in yerine geçmez veya onu gevşetmez. |
 | Kaynak arşiv/form/yayın kayıtları, insan onayları, deployment/DNS veya üçüncü taraf ağ testi | Değiştirilmedi / yapılmadı |
 | PR #33 baseline | 23 integration-control testinden 22 geçti, 1 mevcut başarısız: `tools/integration-control/tests/git.test.mjs` aynı patch-id için `ancestor_included` döndürüyor, test `content_equivalent_likely` bekliyor. Bu #33 taban bulgusudur; #33 dosyaları değiştirilmedi. |
 
 Kapsam dışındaki UI etkileşimleri (menü/modal klavye akışı, arşiv filtreleri, tarih hata durumları), axe, PR #25 network filtresi ve entegre olmayan modüller mevcut ürüne göre sahipleri tarafından tamamlanmalıdır. Modül envanteri ve devirler: [Kilo PR #7/#13 envanteri](KILO-PR07-PR13-INVENTORY.md), [üst akış devri](UPSTREAM-HANDOFF.md), [sonraki görev sözleşmesi](NEXT-PROMPTS-INTEGRATION.md).
+
+## PR CI'da bulunan test keşif çakışması
+
+PR'ın ilk GitHub koşumunda `Next.js CI` ve `Release quality` içindeki genel `npm run test:e2e` komutu yeni `web/e2e/qa-unified/performance.spec.ts` dosyasını varsayılan `web/playwright.config.ts` altında da keşfetti. Bu genel koşu `ASRIN_QA_MODE` sağlamadığı için dosyanın beş viewport projesinin tamamı `Expected: "production", Received: undefined` ile başarısız oldu; E2E toplamı 413 geçti / 5 başarısızdı. Bu QA test izolasyonu regresyonuydu, yayın kapısı bulgularından ayrı tutuldu.
+
+Varsayılan config'e `testIgnore: ["**/qa-unified/**"]` eklendi. Unified CLI'nin `playwright.qa-unified.config.ts` config'i bu dışlamayı kullanmaz; doğrudan production performans suite'i düzeltmeden sonra 1/1 geçti ve genel `npx playwright test --list` çıktısı QA-only dosyaları içermedi. Bu düzeltme commit'inden sonra GitHub workflow'ları yeniden çalışmalıdır. Release readiness hâlâ ayrı kapıdadır; PR Release Quality raporundaki kritik/uzman incelemesi engelleri QA test sonucu değildir ve kaldırılmamıştır.
+
+İlk GitHub Release Quality raporu toplamda 650 test geçti / 5 başarısız; ayrıca 303 critical, 11 warning ve 168 expert review bildirdi, `Release-ready: False` sonucu verdi. Beş E2E testi yukarıdaki config çakışmasıdır; editoryal/uzman review bulguları ise ayrı yayın engelleridir. Bu anlık rapor sayıları yalnız gözlenen sonuçtur, sabit test beklentisi değildir.
