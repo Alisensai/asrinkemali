@@ -1,7 +1,10 @@
 import type { PublicationRecord, PublicationStatus } from "../../../schemas/publication-record.types";
 
 const ID = /^[a-z0-9][a-z0-9-]{2,119}$/;
-const ISO_DATE = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z$/;
+const ISO_DATE = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})(?:\.(\d{3}))?Z$/;
+const CALENDAR_DATE = /^(\d{4})-(\d{2})-(\d{2})$/;
+const MAX_BODY_BLOCKS = 200;
+const MAX_BODY_CHARACTERS = 180_000;
 const TRANSITIONS: Record<PublicationStatus, readonly PublicationStatus[]> = {
   draft: ["in_review"],
   in_review: ["draft", "approved"],
@@ -13,7 +16,19 @@ const TRANSITIONS: Record<PublicationStatus, readonly PublicationStatus[]> = {
 export interface PublicationValidationResult { ok: boolean; errors: string[] }
 
 function nonEmpty(value: string | undefined) { return Boolean(value?.trim()); }
-function isIso(value: string | null | undefined) { return Boolean(value && ISO_DATE.test(value) && !Number.isNaN(Date.parse(value))); }
+function isIso(value: string | null | undefined) {
+  if (!value) return false;
+  const match = ISO_DATE.exec(value); if (!match) return false;
+  const date = new Date(value);
+  return !Number.isNaN(date.getTime()) && date.getUTCFullYear() === Number(match[1]) && date.getUTCMonth() + 1 === Number(match[2]) && date.getUTCDate() === Number(match[3]) && date.getUTCHours() === Number(match[4]) && date.getUTCMinutes() === Number(match[5]) && date.getUTCSeconds() === Number(match[6]) && date.getUTCMilliseconds() === Number(match[7] ?? 0);
+}
+function isCalendarDate(value: unknown) {
+  if (typeof value !== "string") return false;
+  const match = CALENDAR_DATE.exec(value); if (!match) return false;
+  const year = Number(match[1]); const month = Number(match[2]); const day = Number(match[3]);
+  const date = new Date(Date.UTC(year, month - 1, day));
+  return date.getUTCFullYear() === year && date.getUTCMonth() === month - 1 && date.getUTCDate() === day;
+}
 const isObject = (value: unknown): value is Record<string, unknown> => typeof value === "object" && value !== null && !Array.isArray(value);
 
 /** Kaynakça bağlantısı: ayrıştırılabilir, kimlik bilgisi içermeyen, boşluksuz gerçek bir HTTPS adresi. */
@@ -31,7 +46,10 @@ function structuralErrors(record: unknown): string[] {
   for (const field of ["body", "bibliography"]) if (Array.isArray(record[field]) && (record[field] as unknown[]).some((item) => !isObject(item))) errors.push(`${field} öğeleri nesne olmalıdır.`);
   if (!isObject(record.rights)) errors.push("Hak bilgisi nesne olmalıdır.");
   if (record.approval !== null && !isObject(record.approval)) errors.push("Onay bilgisi nesne veya null olmalıdır.");
-  if (record.automation !== null && record.automation !== undefined && !isObject(record.automation)) errors.push("Otomasyon bilgisi nesne veya null olmalıdır.");
+  if (record.automation !== null && record.automation !== undefined) {
+    if (!isObject(record.automation)) errors.push("Otomasyon bilgisi nesne veya null olmalıdır.");
+    else if (!Array.isArray(record.automation.sourceArchiveIds) || typeof record.automation.mode !== "string" || typeof record.automation.maxCostCents !== "number" || typeof record.automation.actualCostCents !== "number") errors.push("Otomasyon bilgisi eksik veya geçersizdir.");
+  }
   return errors;
 }
 
@@ -45,12 +63,12 @@ export function validatePublication(input: PublicationRecord): PublicationValida
   if (!["research_article", "biography", "historical_analysis", "sourced_article"].includes(record.kind)) errors.push("Geçersiz yayın türü.");
   for (const [label, value] of [["başlık", record.title], ["özet", record.summary], ["kategori", record.category]] as const) if (!nonEmpty(value)) errors.push(`${label} boş olamaz.`);
   if (!record.authors.length || record.authors.some((author) => !nonEmpty(author))) errors.push("En az bir yazar gereklidir.");
-  if (!record.body.length || record.body.some((block) => !["heading", "paragraph"].includes(block.type) || !nonEmpty(block.text))) errors.push("Yayın gövdesi güvenli, yapılandırılmış metin blokları içermelidir.");
+  if (!record.body.length || record.body.length > MAX_BODY_BLOCKS || record.body.some((block) => !["heading", "paragraph"].includes(block.type) || !nonEmpty(block.text)) || record.body.reduce((sum, block) => sum + (typeof block.text === "string" ? block.text.length : 0), 0) > MAX_BODY_CHARACTERS) errors.push("Yayın gövdesi güvenli, yapılandırılmış ve boyutu sınırlı metin blokları içermelidir.");
   if (!record.bibliography.length) errors.push("En az bir kaynakça kaydı gereklidir.");
   for (const source of record.bibliography) {
     if (!nonEmpty(source.id) || !nonEmpty(source.title) || !nonEmpty(source.institution)) errors.push("Kaynakça künyesi eksik.");
     if (!isSafeHttpsUrl(source.url)) errors.push("Kaynakça bağlantıları geçerli HTTPS adresi olmalıdır.");
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(source.accessedAt)) errors.push("Kaynak erişim tarihi YYYY-AA-GG biçiminde olmalıdır.");
+    if (!isCalendarDate(source.accessedAt)) errors.push("Kaynak erişim tarihi geçerli bir YYYY-AA-GG takvim tarihi olmalıdır.");
   }
   if (!record.relatedArchiveIds.length || record.relatedArchiveIds.some((id) => !ID.test(id))) errors.push("En az bir geçerli arşiv kaydı ilişkisi gereklidir.");
   if (![record.createdAt, record.updatedAt].every(isIso)) errors.push("Oluşturulma ve güncellenme zamanları UTC ISO biçiminde olmalıdır.");
