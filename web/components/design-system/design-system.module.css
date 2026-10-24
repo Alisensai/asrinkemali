@@ -1,0 +1,615 @@
+/**
+ * ASRIN KEMALİ (MKA) — Design System Modular Styles
+ * Uses exclusively mka-tokens.css custom properties
+ */
+
+/* ==========================================================================
+   1. BUTTONS & ACTIONS
+   ========================================================================== */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--mka-space-2);
+  font-family: var(--mka-font-sans);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--mka-radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color var(--mka-transition-fast),
+              border-color var(--mka-transition-fast),
+              color var(--mka-transition-fast),
+              transform var(--mka-transition-fast),
+              box-shadow var(--mka-transition-fast);
+  white-space: normal;
+  text-align: center;
+  max-width: 100%;
+  word-break: break-word;
+  user-select: none;
+  min-height: var(--mka-touch-target-min);
+  position: relative;
+  overflow: hidden;
+}
+
+.button:focus-visible {
+  outline: var(--mka-focus-ring);
+  outline-offset: var(--mka-focus-offset);
+}
+
+.button:disabled,
+.button[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.55;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+/* Button Variants */
+.buttonPrimary {
+  background-color: var(--mka-color-red-card);
+  color: var(--mka-color-white);
+  border-color: var(--mka-border-gold);
+  box-shadow: var(--mka-shadow-sm);
+}
+
+.buttonPrimary:hover:not(:disabled):not([aria-disabled="true"]) {
+  background-color: var(--mka-surface-card-hover);
+  border-color: var(--mka-color-gold-bright);
+  box-shadow: var(--mka-shadow-glow);
+}
+
+.buttonPrimary:active:not(:disabled):not([aria-disabled="true"]) {
+  transform: translateY(1px);
+}
+
+.buttonSecondary {
+  background-color: transparent;
+  color: var(--mka-color-gold-bright);
+  border-color: var(--mka-border-gold);
+}
+
+.buttonSecondary:hover:not(:disabled):not([aria-disabled="true"]) {
+  background-color: rgba(209, 163, 109, 0.12);
+  border-color: var(--mka-color-gold-bright);
+  color: var(--mka-color-white);
+}
+
+.buttonGhost {
+  background-color: transparent;
+  color: var(--mka-color-sand);
+  border-color: transparent;
+}
+
+.buttonGhost:hover:not(:disabled):not([aria-disabled="true"]) {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--mka-color-white);
+}
+
+.buttonOutline {
+  background-color: rgba(16, 10, 11, 0.6);
+  color: var(--mka-color-white);
+  border-color: var(--mka-border-subtle);
+}
+
+.buttonOutline:hover:not(:disabled):not([aria-disabled="true"]) {
+  border-color: var(--mka-border-gold);
+  background-color: rgba(16, 10, 11, 0.9);
+}
+
+/* Button Sizes */
+.buttonSm {
+  padding: var(--mka-space-1) var(--mka-space-3);
+  font-size: var(--mka-text-xs);
+  min-height: 36px;
+}
+
+.buttonMd {
+  padding: var(--mka-space-2) var(--mka-space-5);
+  font-size: var(--mka-text-sm);
+  min-height: var(--mka-touch-target-min);
+}
+
+.buttonLg {
+  padding: var(--mka-space-3) var(--mka-space-6);
+  font-size: var(--mka-text-base);
+  min-height: 52px;
+}
+
+.buttonFullWidth {
+  width: 100%;
+}
+
+.spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: currentColor;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   2. TEXT LINK
+   ========================================================================== */
+.textLink {
+  color: var(--mka-color-gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-family: inherit;
+  transition: color var(--mka-transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mka-space-1);
+}
+
+.textLink:hover {
+  color: var(--mka-color-gold-bright);
+}
+
+.textLink:focus-visible {
+  outline: var(--mka-focus-ring);
+  outline-offset: var(--mka-focus-offset);
+  border-radius: var(--mka-radius-sm);
+}
+
+.textLinkQuiet {
+  color: var(--mka-color-sand);
+  text-decoration: none;
+}
+
+.textLinkQuiet:hover {
+  color: var(--mka-color-gold-bright);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   3. BADGES & LABELS
+   ========================================================================== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mka-space-1);
+  padding: 3px var(--mka-space-2);
+  border-radius: var(--mka-radius-sm);
+  font-family: var(--mka-font-sans);
+  font-size: var(--mka-text-xs);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: normal;
+  max-width: 100%;
+  word-break: break-word;
+  line-height: 1.3;
+}
+
+.badgePublished {
+  background-color: rgba(70, 45, 15, 0.4);
+  color: var(--mka-color-gold-pale);
+  border: 1px solid var(--mka-border-gold);
+}
+
+.badgeReviewed {
+  background-color: var(--mka-color-info-bg);
+  color: var(--mka-color-info-text);
+  border: 1px solid var(--mka-color-info-border);
+}
+
+.badgeUnverified {
+  background-color: var(--mka-color-warning-bg);
+  color: var(--mka-color-warning-text);
+  border: 1px solid var(--mka-color-warning-border);
+}
+
+.badgeAi {
+  background-color: rgba(50, 15, 20, 0.5);
+  color: var(--mka-color-gold-bright);
+  border: 1px dashed var(--mka-border-gold);
+}
+
+.badgeNeutral {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--mka-color-sand);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.badgeType {
+  background-color: rgba(30, 5, 6, 0.65);
+  color: var(--mka-color-gold);
+  border: 1px solid var(--mka-border-subtle);
+}
+
+/* ==========================================================================
+   4. STATUS NOTE / ARCHIVAL DISCLAIMER
+   ========================================================================== */
+.statusNote {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--mka-space-3);
+  padding: var(--mka-space-3) var(--mka-space-4);
+  border-radius: var(--mka-radius-md);
+  font-family: var(--mka-font-sans);
+  font-size: var(--mka-text-sm);
+  line-height: var(--mka-leading-normal);
+  margin-block: var(--mka-space-3);
+}
+
+.statusNoteInfo {
+  background-color: var(--mka-color-info-bg);
+  border: 1px solid var(--mka-color-info-border);
+  color: var(--mka-color-info-text);
+}
+
+.statusNoteWarning {
+  background-color: var(--mka-color-warning-bg);
+  border: 1px solid var(--mka-color-warning-border);
+  color: var(--mka-color-warning-text);
+}
+
+.statusNoteProvenance {
+  background-color: rgba(20, 7, 9, 0.7);
+  border: 1px solid var(--mka-border-gold);
+  color: var(--mka-color-sand);
+}
+
+.statusNoteAi {
+  background-color: rgba(30, 8, 10, 0.65);
+  border: 1px dashed var(--mka-border-gold);
+  color: var(--mka-color-gold-pale);
+}
+
+.statusNoteIcon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.statusNoteBody {
+  flex: 1;
+}
+
+.statusNoteTitle {
+  font-weight: 700;
+  margin-bottom: var(--mka-space-1);
+}
+
+/* ==========================================================================
+   5. MUSEUM PLAQUE (Medyasız veya Kurumsal Kayıtlar için Tipografik Sunum)
+   ========================================================================== */
+.plaque {
+  background: linear-gradient(145deg, #18090b 0%, #100507 100%);
+  border: 1px solid var(--mka-border-gold);
+  border-radius: var(--mka-radius-md);
+  padding: var(--mka-space-5);
+  position: relative;
+  box-shadow: var(--mka-shadow-md);
+  font-family: var(--mka-font-body);
+  display: flex;
+  flex-direction: column;
+  gap: var(--mka-space-3);
+}
+
+.plaque::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(209, 163, 109, 0.2);
+  border-radius: var(--mka-radius-sm);
+  pointer-events: none;
+}
+
+.plaqueHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--mka-space-2);
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--mka-border-subtle);
+  padding-bottom: var(--mka-space-2);
+}
+
+.plaqueId {
+  font-family: var(--mka-font-sans);
+  font-size: var(--mka-text-xs);
+  color: var(--mka-color-muted);
+  letter-spacing: 0.05em;
+}
+
+.plaqueTitle {
+  font-family: var(--mka-font-title);
+  font-size: var(--mka-text-xl);
+  color: var(--mka-color-white);
+  line-height: var(--mka-leading-snug);
+  margin: 0;
+}
+
+.plaqueMetaGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--mka-space-3);
+  font-family: var(--mka-font-sans);
+  font-size: var(--mka-text-xs);
+}
+
+.plaqueMetaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.plaqueMetaLabel {
+  color: var(--mka-color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 11px;
+}
+
+.plaqueMetaValue {
+  color: var(--mka-color-sand);
+  font-weight: 500;
+}
+
+.plaqueFooter {
+  border-top: 1px solid var(--mka-border-subtle);
+  padding-top: var(--mka-space-2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--mka-space-2);
+  flex-wrap: wrap;
+  font-family: var(--mka-font-sans);
+  font-size: var(--mka-text-xs);
+  color: var(--mka-color-muted);
+}
+
+/* ==========================================================================
+   6. SURFACE / CARD CONTAINERS
+   ========================================================================== */
+.surface {
+  background-color: var(--mka-surface-page);
+  border-radius: var(--mka-radius-md);
+  position: relative;
+  transition: box-shadow var(--mka-transition-base),
+              border-color var(--mka-transition-base);
+}
+
+.elevation0 {
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+.elevation1 {
+  background-color: var(--mka-surface-elevated);
+  border: 1px solid var(--mka-border-subtle);
+  box-shadow: var(--mka-shadow-sm);
+}
+
+.elevation2 {
+  background-color: var(--mka-surface-card);
+  border: 1px solid var(--mka-border-gold);
+  box-shadow: var(--mka-shadow-md);
+}
+
+.elevation3 {
+  background-color: var(--mka-surface-modal);
+  border: 1px solid var(--mka-border-gold-strong);
+  box-shadow: var(--mka-shadow-lg);
+}
+
+.goldBorder {
+  border: 1px solid var(--mka-border-gold);
+}
+
+.withGlow:hover {
+  box-shadow: var(--mka-shadow-glow), var(--mka-shadow-md);
+  border-color: var(--mka-color-gold-bright);
+}
+
+/* ==========================================================================
+   7. DIVIDER
+   ========================================================================== */
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-block: var(--mka-space-6);
+  width: 100%;
+}
+
+.dividerLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--mka-border-gold), transparent);
+  border: none;
+  margin: 0;
+}
+
+.dividerOrnament {
+  padding-inline: var(--mka-space-3);
+  color: var(--mka-color-gold);
+  font-size: var(--mka-text-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   8. FORM FIELDS & INPUTS
+   ========================================================================== */
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mka-space-1);
+  margin-bottom: var(--mka-space-4);
+  font-family: var(--mka-font-sans);
+}
+
+.label {
+  font-size: var(--mka-text-sm);
+  font-weight: 600;
+  color: var(--mka-color-sand);
+  display: flex;
+  align-items: center;
+  gap: var(--mka-space-1);
+}
+
+.requiredAsterisk {
+  color: var(--mka-color-error-text);
+}
+
+.input,
+.select,
+.textarea {
+  font-family: var(--mka-font-sans);
+  font-size: var(--mka-text-base);
+  color: var(--mka-color-white);
+  background-color: rgba(16, 10, 11, 0.85);
+  border: 1px solid var(--mka-border-subtle);
+  border-radius: var(--mka-radius-md);
+  padding: var(--mka-space-2) var(--mka-space-3);
+  min-height: var(--mka-touch-target-min);
+  transition: border-color var(--mka-transition-fast),
+              box-shadow var(--mka-transition-fast);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--mka-color-gold-bright);
+  box-shadow: 0 0 0 2px rgba(231, 191, 140, 0.25);
+}
+
+.inputError,
+.selectError,
+.textareaError {
+  border-color: var(--mka-color-error-border);
+}
+
+.inputError:focus,
+.selectError:focus,
+.textareaError:focus {
+  border-color: var(--mka-color-error-text);
+  box-shadow: 0 0 0 2px rgba(220, 60, 70, 0.3);
+}
+
+.helpText {
+  font-size: var(--mka-text-xs);
+  color: var(--mka-color-muted);
+}
+
+.errorText {
+  font-size: var(--mka-text-xs);
+  color: var(--mka-color-error-text);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   9. BREADCRUMB
+   ========================================================================== */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  font-family: var(--mka-font-sans);
+  font-size: var(--mka-text-xs);
+  color: var(--mka-color-muted);
+  margin-bottom: var(--mka-space-4);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.breadcrumbList {
+  display: flex;
+  align-items: center;
+  gap: var(--mka-space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumbItem {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mka-space-2);
+}
+
+.breadcrumbSeparator {
+  color: var(--mka-color-dim);
+}
+
+.breadcrumbCurrent {
+  color: var(--mka-color-gold-bright);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   10. EMPTY STATE
+   ========================================================================== */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--mka-space-8) var(--mka-space-4);
+  border: 1px dashed var(--mka-border-subtle);
+  border-radius: var(--mka-radius-lg);
+  background-color: rgba(16, 10, 11, 0.5);
+  margin-block: var(--mka-space-6);
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.emptyStateIcon {
+  color: var(--mka-color-gold);
+  margin-bottom: var(--mka-space-3);
+  opacity: 0.8;
+}
+
+.emptyStateTitle {
+  font-family: var(--mka-font-title);
+  font-size: var(--mka-text-xl);
+  color: var(--mka-color-white);
+  margin: 0 0 var(--mka-space-2) 0;
+}
+
+.emptyStateDescription {
+  font-family: var(--mka-font-sans);
+  font-size: var(--mka-text-sm);
+  color: var(--mka-color-muted);
+  max-width: 440px;
+  margin: 0 0 var(--mka-space-5) 0;
+  line-height: var(--mka-leading-normal);
+}
+
+.emptyStateActions {
+  display: flex;
+  align-items: center;
+  gap: var(--mka-space-3);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   ACCESSIBILITY & RESPONSIVE ADJUSTMENTS
+   ========================================================================== */
+@media (max-width: 480px) {
+  .plaqueMetaGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .emptyStateActions {
+    flex-direction: column;
+    width: 100%;
+  }
+}
