@@ -94,7 +94,7 @@ export function ExhibitionHero({
 
         <div className={styles.heroControlsRow}>
           <div className={styles.curatorCredits}>
-            <span className={styles.curatorLabel}>Küratöryel İnceleme:</span>
+            <span className={styles.curatorLabel}>Küratör (kayıt beyanı, onay değildir):</span>
             <span className={styles.curatorName}>{curator}</span>
           </div>
 
