@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "name": "mka-fortress-waf-rulesets",
-  "version": "1.1.1",
-  "description": "ASRIN KEMALİ WAF ve Hız Sınırlama Kuralları Matrisi (Sertleştirilmiş)",
+  "version": "1.2.0",
+  "description": "ASRIN KEMALİ WAF ve Hız Sınırlama Kuralları Matrisi (Sıfır-Atlatma / Zero-Skip Mimari)",
   "rulesets": [
     {
       "id": "WAF-01-SENSITIVE-FILES",
@@ -18,7 +18,7 @@
       "priority": 2,
       "phase": "http_request_firewall_custom",
       "description": "Otomatik zafiyet tarayıcılarını ve exploit araçlarını engelle",
-      "blocked_user_agents": ["sqlmap", "nikto", "nmap", "acunetix", "masscan", "zgrab"]
+      "blocked_user_agents": ["sqlmap", "nikto", "nmap", "acunetix", "masscan", "zgrab", "gobuster", "dirbuster"]
     },
     {
       "id": "WAF-03-HTTP-METHODS",
@@ -33,7 +33,7 @@
       "action": "block",
       "priority": 4,
       "phase": "http_request_firewall_custom",
-      "description": "Açık XSS, SQLi ve Yol Geçişi saldırılarını arama rotaları dahil her yerde engelle",
+      "description": "Açık XSS, SQLi, RCE ve Yol Geçişi saldırılarını /arsiv dahil tüm rotalarda engelle",
       "attack_patterns": [
         "<script",
         "javascript:",
@@ -42,19 +42,22 @@
         "../",
         "..%2f",
         "union select",
-        "' or '1'='1"
+        "union all select",
+        "' or '1'='1",
+        "'; drop table",
+        "drop table",
+        "waitfor delay",
+        "information_schema",
+        "sleep("
       ]
     },
     {
-      "id": "WAF-05-TURKISH-SEARCH-WHITELIST",
-      "action": "skip",
+      "id": "WAF-MANAGED-CRS",
+      "action": "execute",
       "priority": 5,
-      "phase": "http_request_firewall_custom",
-      "description": "Saldırı imzası taşımayan temiz Türkçe arşiv arama sorgularını yanlış pozitiften koru",
-      "allowed_routes": ["/arsiv", "/arastirma", "/kronoloji"],
-      "exempt_characters": ["ç", "ğ", "ı", "ö", "ş", "ü", "Ç", "Ğ", "İ", "Ö", "Ş", "Ü"],
-      "max_query_length": 256,
-      "disallowed_payload_characters": ["<", ">", "--", ";", "/*"]
+      "phase": "http_request_firewall_managed",
+      "description": "Cloudflare Managed Ruleset (OWASP Core Ruleset) çalıştırma",
+      "managed_ruleset_id": "efb7b8c94f9e413c848e4f101965f14e"
     },
     {
       "id": "RATELIMIT-01-SEARCH",

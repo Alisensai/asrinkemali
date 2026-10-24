@@ -1,54 +1,65 @@
-# ASRIN KEMALİ — Kaynak Sunucu Doğrulama ve mTLS / Tunnel Mimarisi
+# ASRIN KEMALİ — Kaynak Sunucu Doğrulama ve Origin Kimlik Protokolleri Karşılaştırması
 
-Bu belge, **ASRIN KEMALİ** web sunucularının doğrudan internet saldırılarına karşı görünmez kılınması (Origin Cloaking) için iki kademeli güven protokolünü açıklar.
-
-## 1. Yöntem A: Cloudflare Authenticated Origin Pulls (mTLS)
-
-Authenticated Origin Pulls, kenar CDN ile kaynak sunucu arasında karşılıklı TLS (Mutual TLS - mTLS) el sıkışması gerçekleştirir. Kaynak sunucu, gelen isteğin istemci sertifikasını (Cloudflare Origin CA) doğrular; sertifikasız hiçbir istek kabul edilmez.
-
-### Nginx Yapılandırması:
-```nginx
-# Cloudflare Origin Pull CA sertifikası
-ssl_client_certificate /etc/ssl/certs/cloudflare-origin-pull-ca.pem;
-ssl_verify_client on;
-
-# Yalnızca geçerli Cloudflare sertifikasına sahip istekler işlenir
-error_page 495 496 497 =403 /origin-denied.html;
-```
+Bu belge, **ASRIN KEMALİ** web sunucularının doğrudan internetten ve yetkisiz Cloudflare bölgelerinden gelebilecek saldırılara karşı korunması için 4 temel yöntemi mimari, güvenlik ve operasyonel açılardan karşılaştırır.
 
 ---
 
-## 2. Yöntem B: Cloudflare Tunnel (Önerilen Mimari)
+## 1. Kritik Güvenlik Problemi: Neden Yalnızca IP İzin Listesi Yetersizdir? (Kiracı Taklit Riski)
 
-Cloudflare Tunnel (`cloudflared`), kaynak sunucuda hiçbir açık gelen port (Inbound Port 80/443) bırakmaz. Sunucu, Cloudflare Anycast ağına güvenli giden (Outbound) TLS tünelleri açar.
+Cloudflare Anycast IP adresleri kamuya açıktır. Kaynak sunucuda yalnızca `origin-firewall.sh` ile Cloudflare IP bloklarına izin verilirse:
+- İnternetten doğrudan IP taramaları engellenir (L3/L4 koruması sağlanır).
+- **ANCAK (Kiracı Taklit Riski / Tenant Impersonation Bypass):** Kötü niyetli bir saldırgan, kendi açtığı başka bir Cloudflare hesabında DNS hedefini bizim sunucumuzun IP'si olarak tanımlayabilir.
+- İstek Cloudflare üzerinden geçeceği için kaynak IP yine geçerli bir Cloudflare IP'si olacaktır.
+- Bu durumda saldırgan bizim WAF kurallarımızı, hız limitlerimizi ve PROJECT BLACKOUT kontrollerimizi tamamen atlatabilir (**WAF Bypass via Tenant Impersonation**).
 
-### Avantajları:
-- **Sıfır Açık Port:** Sunucuda port 80 veya 443'ün internete açık olmasına gerek yoktur.
-- **DDoS İmkânsızlığı:** Doğrudan kaynak IP üzerinden DDoS veya port taraması yapılamaz.
-- **Statik IP Zorunluluğu Yok:** Dinamik veya özel IP arkasındaki ortamlarda bile güvenle çalışır.
-
-### Örnek `cloudflared` Yapılandırması (`/etc/cloudflared/config.yml`):
-```yaml
-tunnel: a5b4c3d2-mka-fortress-production
-credentials-file: /etc/cloudflared/mka-tunnel.json
-
-ingress:
-  - hostname: asrinkemali.org
-    service: http://localhost:3000
-    originRequest:
-      connectTimeout: 10s
-      noTLSVerify: false
-  - hostname: www.asrinkemali.org
-    service: http://localhost:3000
-  - service: http_status:404
-```
+Bu nedenle, **kriptografik köken kimlik doğrulaması ZORUNLUDUR**.
 
 ---
 
-## 3. Güvenlik Seviyesi Karşılaştırması
+## 2. 4 Yöntemin Detaylı Karşılaştırması
 
-| Kriter | Doğrudan IP | IP Whitelist (Firewall) | Authenticated Origin Pull | Cloudflare Tunnel |
+| Kriter | 1. Yalnızca IP Beyaz Liste (IP Whitelist) | 2. Origin TLS (Strict SNI) | 3. Authenticated Origin Pull (mTLS) | 4. Cloudflare Tunnel (`cloudflared`) |
 |---|---|---|---|---|
-| Doğrudan Saldırı Riski | Yüksek | Düşük | Çok Düşük | **Sıfır** |
-| WAF Bypass Riski | Yüksek | Yok (IP bilinse de engellenir) | Yok (Kriptografik) | **Yok** |
-| Açık Port İhtiyacı | 80/443 | 80/443 | 80/443 | **0 (Yok)** |
+| **Doğrudan IP Koruması** | Var (iptables DROP) | Var (iptables DROP) | Var (iptables DROP) | **Mükemmel (Açık port yok)** |
+| **Bölge Taklidi Koruması** | **YOK (Açık)** | Kısmi (Host başlığı zorunlu) | **TAM (Kriptografik mTLS)** | **TAM (Sıfır Güven Tünel)** |
+| **İnternete Açık Port** | 80, 443 | 443 | 443 | **Sıfır (0 açık port)** |
+| **Sertifika Yönetimi** | Yok | Let's Encrypt / Origin CA | Cloudflare Zone CA | Otomatik Token / Kasa |
+| **Operasyonel Karmaşıklık** | Çok Düşük | Düşük | Orta | Düşük |
+| **Güvenlik Derecesi** | Düşük-Orta | Orta | Yüksek | **En Yüksek (CIS L2)** |
+
+---
+
+## 3. ASRIN KEMALİ İçin En Az Ayrıcalıklı Tavsiye Edilen En Güvenli Mimari
+
+### Birincil Tercih: Cloudflare Tunnel (`cloudflared`)
+- **Neden?**
+  1. Sunucuda port 80 veya 443'ün internete açılmasına gerek kalmaz.
+  2. Saldırgan sunucunun gerçek IP'sini keşfetse bile hiçbir port açık olmadığı için doğrudan port taraması veya DDoS yapamaz.
+  3. Yalnızca bizim Cloudflare hesabımızda oluşturulmuş tünel belirteci (`credentials-file`) ile gelen istekler işlenir.
+- **Örnek Yapılandırma (`/etc/cloudflared/config.yml`):**
+  ```yaml
+  tunnel: mka-fortress-production-tunnel
+  credentials-file: /etc/cloudflared/mka-tunnel.json
+
+  ingress:
+    - hostname: asrinkemali.org
+      service: http://localhost:3000
+    - hostname: www.asrinkemali.org
+      service: http://localhost:3000
+    - service: http_status:404
+  ```
+
+### İkincil Tercih (Ters Vekil / VPS için): Authenticated Origin Pulls (Zone-Level mTLS)
+- Klasik Nginx veya Caddy kullanılıyorsa, Cloudflare genel CA sertifikası yerine **özel Zone-Level CA sertifikası** yüklenmelidir:
+  ```nginx
+  # Yalnızca bizim zone'umuza ait Cloudflare istemci sertifikası kabul edilir
+  ssl_client_certificate /etc/ssl/certs/cloudflare-zone-origin-pull.pem;
+  ssl_verify_client on;
+  ```
+
+---
+
+## 4. Dürüst Durum Beyanı
+
+> [!NOTE]
+> Bu belge ve repodaki konfigürasyon dosyaları **altyapı şablonudur**. Projenin mevcut aşamasında canlı bir Cloudflare Enterprise/Pro hesabı, aktif Cloudflare Tunnel veya mTLS sertifikası bulunmamaktadır. Bu korumalar canlı yayına geçiş öncesi dağıtım aşamasında devreye alınacaktır.

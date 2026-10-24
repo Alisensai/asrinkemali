@@ -2,12 +2,17 @@
 # ASRIN KEMALİ — MKA FORTRESS X V1.1
 # Cloudflare WAF v5 Ruleset & Rate Limiting Yapılandırması (Terraform / OpenTofu)
 # ==============================================================================
-# GÜVENLİK SIKILAŞTIRMASI:
-# - Arama sayfasında olmak WAF denetimlerini topluca atlatmaya YETMEZ.
-# - Saldırı imzaları (XSS, SQLi, Path Traversal) /arsiv veya /arastirma rotasında
-#   olsa dahi her koşulda ENGELLENİR.
-# - Türkçe karakterler (ç, ğ, ı, ö, ş, ü, İ) ve normal tarihî aramalar
-#   yanlış pozitif vermeden güvenle işlenir.
+# GÜVENLİK MİMARİSİ VE SERTLEŞTİRME (V1.1 Görev 10):
+# 1. Geniş kapsamlı "action = skip" ve "ruleset = current" muafiyetleri TAMAMEN
+#    KALDIRILMIŞTIR. Hiçbir arama sayfası veya parametre güvenlik kurallarını atlayamaz.
+# 2. Özel güvenlik kuralları (Custom Rules) YALNIZCA "block" veya "challenge" uygular;
+#    arka kapı veya kural atlama mantığı içermez.
+# 3. XSS, SQLi, Path Traversal, Hassas Dosya Taramaları ve Kötü Amaçlı Botlar
+#    tüm rotalarda (/arsiv dahil) koşulsuz engellenir.
+# 4. Temiz Türkçe karakterli (ç, ğ, ı, ö, ş, ü, İ) arama sorguları, saldırı imzası
+#    taşımadığı sürece kuralları doğal olarak tetiklemez ve engellenmez.
+# 5. Cloudflare Managed Rules (OWASP CRS) entegrasyonu, genel atlama yerine
+#    hassasiyet seviyesi (paranoia level) optimizasyonuyla tasarlanmıştır.
 # ==============================================================================
 
 terraform {
@@ -33,16 +38,16 @@ variable "environment" {
 }
 
 # ------------------------------------------------------------------------------
-# 1. Özel Güvenlik Kuralları (Öncelik Sıralı / Priority Ordered)
+# 1. Özel Güvenlik Kuralları (Custom WAF Rules — Sıfır Atlatma / Zero Skip)
 # ------------------------------------------------------------------------------
 resource "cloudflare_ruleset" "waf_custom_security" {
   zone_id     = var.zone_id
   name        = "mka-fortress-custom-firewall-rules"
-  description = "ASRIN KEMALİ çok katmanlı WAF kuralları"
+  description = "ASRIN KEMALİ çok katmanlı özel WAF güvenlik kuralları"
   kind        = "zone"
   phase       = "http_request_firewall_custom"
 
-  # Kural 1: Hassas dosya ve gizli dizin erişimlerini koşulsuz engelle (P0)
+  # Kural 1: Hassas dosya ve gizli dizin erişimlerini koşulsuz engelle
   rules {
     action      = "block"
     description = "Hassas dizin (.env, .git, .bak, config) ve yönetim yolu taramalarını engelle"
@@ -50,15 +55,15 @@ resource "cloudflare_ruleset" "waf_custom_security" {
     enabled     = true
   }
 
-  # Kural 2: Bilinen güvenlik tarayıcılarını ve istismar araçlarını koşulsuz engelle (P1)
+  # Kural 2: Bilinen güvenlik tarayıcılarını ve istismar araçlarını koşulsuz engelle
   rules {
     action      = "block"
     description = "Otomatik zafiyet tarayıcılarını ve exploit araçlarını engelle"
-    expression  = "(http.user_agent contains \"sqlmap\" or http.user_agent contains \"nikto\" or http.user_agent contains \"nmap\" or http.user_agent contains \"acunetix\" or http.user_agent contains \"masscan\" or http.user_agent contains \"zgrab\")"
+    expression  = "(http.user_agent contains \"sqlmap\" or http.user_agent contains \"nikto\" or http.user_agent contains \"nmap\" or http.user_agent contains \"acunetix\" or http.user_agent contains \"masscan\" or http.user_agent contains \"zgrab\" or http.user_agent contains \"gobuster\" or http.user_agent contains \"dirbuster\")"
     enabled     = true
   }
 
-  # Kural 3: Geçersiz HTTP metotlarını engelle (P2)
+  # Kural 3: Geçersiz ve tehlikeli HTTP metotlarını engelle
   rules {
     action      = "block"
     description = "Salt-okunur kamusal sitede geçersiz HTTP metotlarını (TRACE, TRACK, CONNECT, DELETE, PUT) engelle"
@@ -66,32 +71,43 @@ resource "cloudflare_ruleset" "waf_custom_security" {
     enabled     = true
   }
 
-  # Kural 4: Açık saldırı imzalarını ve enjeksiyon denemelerini rotadan bağımsız engelle (P3)
-  # DİKKAT: Bu kural /arsiv veya /arastirma rotalarında da aktiftir; hiçbir arama muafiyeti
-  # bu saldırı desenlerini atlatamaz.
+  # Kural 4: Açık XSS, SQLi ve Yol Geçişi saldırı imzalarını tüm rotalarda engelle
+  # DİKKAT: Bu kural /arsiv, /arastirma ve /kronoloji dahil her yerde aktiftir.
   rules {
     action      = "block"
     description = "Açık XSS, SQLi ve Yol Geçişi (Path Traversal) saldırılarını tüm rotalarda engelle"
-    expression  = "(http.request.uri.query contains \"<script\" or http.request.uri.query contains \"javascript:\" or http.request.uri.query contains \"onerror=\" or http.request.uri.query contains \"onload=\" or http.request.uri.query contains \"../\" or http.request.uri.query contains \"..%2f\" or http.request.uri.query contains \"union select\" or http.request.uri.query contains \"' or '1'='1\")"
-    enabled     = true
-  }
-
-  # Kural 5: Yalnızca TEMİZ Türkçe karakterli arama sorgularında gereksiz paranoyak filtreleri atla (P4)
-  # Koşul: Sorgu açık saldırı imzası İÇERMİYORSA ve izin verilen temiz karakter kümesindeyse
-  # yalnızca belirli OWASP heuristik kuralları atlanır.
-  rules {
-    action = "skip"
-    action_parameters {
-      ruleset = "current"
-    }
-    description = "Saldırı imzası barındırmayan temiz Türkçe arama sorgularını yanlış pozitiften koru"
-    expression  = "(http.request.method == \"GET\" and (http.request.uri.path == \"/arsiv\" or http.request.uri.path == \"/arastirma\" or http.request.uri.path == \"/kronoloji\") and len(http.request.uri.query) lt 256 and not (http.request.uri.query contains \"<\" or http.request.uri.query contains \">\" or http.request.uri.query contains \"--\" or http.request.uri.query contains \";\" or http.request.uri.query contains \"/*\"))"
+    expression  = "(http.request.uri.query contains \"<script\" or http.request.uri.query contains \"javascript:\" or http.request.uri.query contains \"onerror=\" or http.request.uri.query contains \"onload=\" or http.request.uri.query contains \"../\" or http.request.uri.query contains \"..%2f\" or http.request.uri.query contains \"union select\" or http.request.uri.query contains \"union all select\" or http.request.uri.query contains \"' or '1'='1\" or http.request.uri.query contains \"drop table\" or http.request.uri.query contains \"waitfor delay\" or http.request.uri.query contains \"information_schema\" or http.request.uri.query contains \"sleep(\")"
     enabled     = true
   }
 }
 
 # ------------------------------------------------------------------------------
-# 2. Adaptif Hız Sınırlama (Rate Limiting) Kuralları
+# 2. Cloudflare Managed Ruleset (OWASP Core Ruleset) Entegrasyon Şablonu
+# ------------------------------------------------------------------------------
+# Managed Ruleset (Cloudflare Yönetilen Kurallar), özel kuralların ardından çalışır.
+# Türkçe arama sorgularında gereksiz paranoyak alarmları önlemek için genel WAF
+# atlanmaz; OWASP CRS hassasiyeti (anomaly score threshold) standart seviyede tutulur.
+# ------------------------------------------------------------------------------
+resource "cloudflare_ruleset" "waf_managed_tuning" {
+  zone_id     = var.zone_id
+  name        = "mka-fortress-managed-ruleset"
+  description = "Cloudflare Managed Ruleset ve OWASP CRS yapılandırması"
+  kind        = "zone"
+  phase       = "http_request_firewall_managed"
+
+  rules {
+    action = "execute"
+    action_parameters {
+      id = "efb7b8c94f9e413c848e4f101965f14e" # Cloudflare Managed Ruleset ID
+    }
+    description = "Cloudflare Managed Ruleset çalıştırma"
+    expression  = "true"
+    enabled     = true
+  }
+}
+
+# ------------------------------------------------------------------------------
+# 3. Adaptif Hız Sınırlama (Rate Limiting) Kuralları
 # ------------------------------------------------------------------------------
 resource "cloudflare_ruleset" "rate_limiting_rules" {
   zone_id     = var.zone_id

@@ -24,34 +24,37 @@ function recordCheck(id, description, passed, detail = "") {
 }
 
 // ------------------------------------------------------------------------------
-// 1. WAF ve Rate Limiting Kuralları Doğrulaması (Sertleştirilmiş)
+// 1. WAF ve Rate Limiting Kuralları Doğrulaması (Sıfır-Atlatma / Zero-Skip)
 // ------------------------------------------------------------------------------
 export function validateWafRules() {
   const wafPath = join(INFRA_DIR, "waf", "waf-rulesets.json");
-  if (!existsSync(wafPath)) {
-    recordCheck("WAF-01", "WAF kuralları JSON dosyası mevcudiyeti", false, "Dosya bulunamadı");
+  const tfPath = join(INFRA_DIR, "waf", "cloudflare-ruleset.tf");
+
+  if (!existsSync(wafPath) || !existsSync(tfPath)) {
+    recordCheck("WAF-01", "WAF kuralları JSON ve TF dosyaları mevcudiyeti", false, "Dosyalar eksik");
     return false;
   }
-  const wafData = JSON.parse(readFileSync(wafPath, "utf-8"));
-  recordCheck("WAF-01", "WAF kuralları JSON dosyası mevcudiyeti", true);
 
-  // Hassas dizin engelleme kontrolü
-  const sensitiveRule = wafData.rulesets.find((r) => r.id === "WAF-01-SENSITIVE-FILES");
-  const hasEnv = sensitiveRule?.target_patterns?.includes("/.env");
-  const hasGit = sensitiveRule?.target_patterns?.includes("/.git");
-  recordCheck("WAF-02", "Hassas dizin (.env, .git) engelleme kuralı", Boolean(hasEnv && hasGit));
+  const wafData = JSON.parse(readFileSync(wafPath, "utf-8"));
+  const tfContent = readFileSync(tfPath, "utf-8");
+  recordCheck("WAF-01", "WAF kuralları JSON ve TF dosyaları mevcudiyeti", true);
+
+  // KRİTİK GÜVENLİK KONTROLÜ: 'action = skip' veya 'ruleset = current' KULLANILMAMALI!
+  const hasSkipInTf = tfContent.includes("action = \"skip\"") || tfContent.includes("ruleset = \"current\"");
+  const hasSkipInJson = wafData.rulesets.some((r) => r.action === "skip");
+  recordCheck("WAF-02", "Geniş kapsamlı WAF atlama (action=skip / ruleset=current) yokluğu", Boolean(!hasSkipInTf && !hasSkipInJson));
 
   // Açık saldırı imzaları engelleme kuralı (WAF-04)
   const exploitRule = wafData.rulesets.find((r) => r.id === "WAF-04-EXPLOIT-PAYLOADS");
   const hasXssBlock = exploitRule?.attack_patterns?.includes("<script");
   const hasSqliBlock = exploitRule?.attack_patterns?.includes("union select");
-  recordCheck("WAF-03", "Açık XSS ve SQLi saldırılarını engelleme kuralı", Boolean(hasXssBlock && hasSqliBlock));
+  const hasTraversalBlock = exploitRule?.attack_patterns?.includes("../");
+  recordCheck("WAF-03", "Açık XSS, SQLi ve Yol Geçişi saldırılarını engelleme kuralı", Boolean(hasXssBlock && hasSqliBlock && hasTraversalBlock));
 
-  // Türkçe Arama Yanlış Pozitif Koruması ve Saldırı Karakter Kısıtlaması (WAF-05)
-  const turkishRule = wafData.rulesets.find((r) => r.id === "WAF-05-TURKISH-SEARCH-WHITELIST");
-  const hasDiacritics = turkishRule?.exempt_characters?.includes("ç") && turkishRule?.exempt_characters?.includes("ğ");
-  const hasDisallowedChars = turkishRule?.disallowed_payload_characters?.includes("<") && turkishRule?.disallowed_payload_characters?.includes("--");
-  recordCheck("WAF-04", "Temiz Türkçe arama muafiyeti ve saldırı karakter kısıtlaması", Boolean(hasDiacritics && hasDisallowedChars));
+  // Managed Ruleset Entegrasyonu
+  const hasManagedTf = tfContent.includes("phase       = \"http_request_firewall_managed\"");
+  const hasManagedJson = wafData.rulesets.some((r) => r.id === "WAF-MANAGED-CRS");
+  recordCheck("WAF-04", "Cloudflare Managed Ruleset (OWASP CRS) entegrasyonu", Boolean(hasManagedTf && hasManagedJson));
 
   // Rate Limiting Kuralları ve Sağlık Uç Noktası İstisnası
   const rateLimitRule = wafData.rulesets.find((r) => r.id === "RATELIMIT-02-GENERAL-PAGES");
@@ -88,7 +91,7 @@ export function validateProxyConfigs() {
 }
 
 // ------------------------------------------------------------------------------
-// 3. Linux Çekirdek (sysctl) ve Ağ Sertleştirme Doğrulaması (IPv4 & IPv6)
+// 3. Linux Çekirdek (sysctl) ve Ağ Sertleştirme Doğrulaması (IPv4, IPv6, Eval Yokluğu)
 // ------------------------------------------------------------------------------
 export function validateHostHardening() {
   const sysctlPath = join(INFRA_DIR, "host-hardening", "sysctl-fortress.conf");
@@ -107,17 +110,17 @@ export function validateHostHardening() {
   recordCheck("HOST-01", "Linux çekirdek CIS Seviye 2 (SYN cookies, rp_filter, ASLR)", Boolean(hasSyncookies && hasRpFilter && hasAslr));
 
   const egressContent = readFileSync(egressPath, "utf-8");
-  const hasLoopback = egressContent.includes("-o lo -j ACCEPT");
-  const hasDnsAllowed = egressContent.includes("--dport 53 -j ACCEPT");
-  const hasPackageMirror = egressContent.includes("PACKAGE_MIRROR_HTTP");
+  const hasNoEvalEgress = !egressContent.includes("eval \"$cmd\"") && !egressContent.includes("eval \"$");
+  const hasStrictMode = egressContent.includes("BLOCKED_EXTERNAL_HTTP");
   const hasIpv6Egress = egressContent.includes("ip6tables -A FORTRESS_EGRESS6 -j DROP");
-  recordCheck("HOST-02", "Egress güncelleme izinleri ve IPv6 çıkış engeli", Boolean(hasLoopback && hasDnsAllowed && hasPackageMirror && hasIpv6Egress));
+  recordCheck("HOST-02", "Egress betiğinde eval yokluğu, strict mod ve IPv6 engeli", Boolean(hasNoEvalEgress && hasStrictMode && hasIpv6Egress));
 
   const originFwContent = readFileSync(originFwPath, "utf-8");
+  const hasNoEvalOrigin = !originFwContent.includes("eval \"$cmd\"") && !originFwContent.includes("eval \"$");
   const hasIpv6Support = originFwContent.includes("CLOUDFLARE_IN6") && originFwContent.includes("ip6tables");
-  const hasSshProtection = originFwContent.includes("--dport $SSH_PORT -j ACCEPT");
+  const hasSshValidation = originFwContent.includes("SSH_PORT (1-65535");
   const hasAutoRollback = originFwContent.includes("AUTO_ROLLBACK");
-  recordCheck("HOST-03", "Origin Firewall IPv6 desteği, SSH koruması ve otomatik rollback", Boolean(hasIpv6Support && hasSshProtection && hasAutoRollback));
+  recordCheck("HOST-03", "Origin Firewall eval yokluğu, IPv6 desteği, SSH port doğrulaması ve rollback", Boolean(hasNoEvalOrigin && hasIpv6Support && hasSshValidation && hasAutoRollback));
 
   return true;
 }
@@ -200,18 +203,19 @@ export function validateDisasterRecovery() {
 
   const workerContent = readFileSync(edgeWorkerPath, "utf-8");
   const hasLockdownHandling = workerContent.includes("level === 3") && workerContent.includes("503");
-  const hasDegradedHandling = workerContent.includes("state_store_unreachable") && workerContent.includes("sanitizeBlackoutLevel");
-  recordCheck("DR-03", "Edge Worker LOCKDOWN ve durum deposu kesintisi (fail-safe) yönetimi", Boolean(hasLockdownHandling && hasDegradedHandling));
+  const hasStrictSanitization = workerContent.includes("/^[0-3]$/.test") && !workerContent.includes("parseInt(");
+  recordCheck("DR-03", "Edge Worker LOCKDOWN ve parseInt içermeyen katı sanitization", Boolean(hasLockdownHandling && hasStrictSanitization));
 
   const adapterContent = readFileSync(adapterPath, "utf-8");
   const hasHonestSession = adapterContent.includes("requires_infrastructure") && !adapterContent.includes("revokedSessionsCount += count");
-  recordCheck("DR-04", "BLACKOUT adaptöründe dürüst altyapı durumu (sahte sayaç yokluğu)", Boolean(hasHonestSession));
+  const hasNonDistributed = adapterContent.includes("isDistributed(): boolean");
+  recordCheck("DR-04", "BLACKOUT adaptöründe dürüst altyapı durumu ve dağıtık olmama beyanı", Boolean(hasHonestSession && hasNonDistributed));
 
   return true;
 }
 
 export function runAllValidations() {
-  console.log("=== ASRIN KEMALİ Altyapı Güvenlik ve Dry-Run Denetimi (V1.1 Hardened) ===");
+  console.log("=== ASRIN KEMALİ Altyapı Güvenlik ve Dry-Run Denetimi (V1.1 Görev 10 Hardened) ===");
   validateWafRules();
   validateProxyConfigs();
   validateHostHardening();

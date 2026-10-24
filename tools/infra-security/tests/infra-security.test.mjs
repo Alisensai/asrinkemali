@@ -108,10 +108,20 @@ describe("MKA FORTRESS X V1.1 — Sertleştirilmiş Altyapı ve Güvenlik Testle
     });
   });
 
-  describe("2. WAF Davranışsal ve Negatif Güvenlik Testleri", () => {
+  describe("2. WAF Davranışsal ve Negatif Güvenlik Testleri (Sıfır-Atlatma Mimarisi)", () => {
     const wafData = JSON.parse(readFileSync("infra/fortress-x-v11/waf/waf-rulesets.json", "utf-8"));
+    const tfRuleset = readFileSync("infra/fortress-x-v11/waf/cloudflare-ruleset.tf", "utf-8");
     const exploitRule = wafData.rulesets.find((r) => r.id === "WAF-04-EXPLOIT-PAYLOADS");
-    const turkishRule = wafData.rulesets.find((r) => r.id === "WAF-05-TURKISH-SEARCH-WHITELIST");
+
+    test("SIFIR-ATLATMA DOĞRULAMASI: WAF kurallarında genel bypass ('action = skip' / 'ruleset = current') bulunmamalı", () => {
+      // Terraform şablonunda hiçbir 'action = "skip"' veya 'ruleset = "current"' olmamalı
+      assert.ok(!tfRuleset.includes('action = "skip"'), "Terraform içinde geniş WAF atlama (action = skip) bulunmamalı");
+      assert.ok(!tfRuleset.includes('ruleset = "current"'), "Terraform içinde 'ruleset = current' atlatma direktifi bulunmamalı");
+
+      // JSON şablonunda da hiçbir skip eylemi bulunmamalı
+      const hasSkipAction = wafData.rulesets.some((r) => r.action === "skip");
+      assert.equal(hasSkipAction, false, "JSON kurallarında hiçbir skip eylemi bulunmamalı");
+    });
 
     test("NEGATİF TEST: /arsiv rotasına gönderilen XSS yükü WAF filtresini atlatamamalı", () => {
       const maliciousQueries = [
@@ -123,27 +133,24 @@ describe("MKA FORTRESS X V1.1 — Sertleştirilmiş Altyapı ve Güvenlik Testle
       ];
 
       for (const query of maliciousQueries) {
-        // 1. Exploit kuralı bu saldırıyı yakalamalı
         const matchedExploit = exploitRule.attack_patterns.some((pattern) => query.toLowerCase().includes(pattern.toLowerCase()));
         assert.ok(matchedExploit, `XSS saldırısı WAF-04 tarafından yakalanmalı: ${query}`);
-
-        // 2. Türkçe arama muafiyeti kuralı bu saldırıya ASLA izin vermemeli (yasaklı karakter filtresi)
-        const hasDisallowedChar = turkishRule.disallowed_payload_characters.some((char) => query.includes(char));
-        const hasAttackKeyword = exploitRule.attack_patterns.some((pattern) => query.toLowerCase().includes(pattern.toLowerCase()));
-        assert.ok(hasDisallowedChar || hasAttackKeyword, `Arama muafiyeti XSS yükünü atlatamamalı: ${query}`);
       }
     });
 
-    test("NEGATİF TEST: /arsiv rotasına gönderilen SQLi yükü arama istisnasından kaçamamalı", () => {
+    test("NEGATİF TEST: /arsiv rotasına gönderilen SQLi yükü WAF filtresinden kaçamamalı", () => {
       const sqlInjections = [
         "union select 1,2,3",
+        "union all select 1,2,3",
         "' or '1'='1",
-        "'; drop table users; --"
+        "'; drop table users; --",
+        "waitfor delay '0:0:5'",
+        "information_schema.tables",
+        "sleep(5)"
       ];
 
       for (const sqli of sqlInjections) {
-        const matchedExploit = exploitRule.attack_patterns.some((p) => sqli.toLowerCase().includes(p.toLowerCase())) ||
-          turkishRule.disallowed_payload_characters.some((c) => sqli.includes(c));
+        const matchedExploit = exploitRule.attack_patterns.some((p) => sqli.toLowerCase().includes(p.toLowerCase()));
         assert.ok(matchedExploit, `SQLi saldırısı engellenmeli: ${sqli}`);
       }
     });
@@ -160,7 +167,7 @@ describe("MKA FORTRESS X V1.1 — Sertleştirilmiş Altyapı ve Güvenlik Testle
       }
     });
 
-    test("POZİTİF TEST: Temiz Türkçe arama terimleri saldırı filtresine takılmadan izin almalı", () => {
+    test("POZİTİF TEST: Temiz Türkçe arama terimleri exploit kalıplarına takılmadan izin almalı", () => {
       const legitimateSearches = [
         "Mustafa Kemal Çanakkale Zaferi 1915",
         "Nutuk ve TBMM Belgeleri",
@@ -170,17 +177,15 @@ describe("MKA FORTRESS X V1.1 — Sertleştirilmiş Altyapı ve Güvenlik Testle
       ];
 
       for (const cleanQuery of legitimateSearches) {
-        // Exploit kalıplarından hiçbirini içermemeli
         const hasExploit = exploitRule.attack_patterns.some((p) => cleanQuery.toLowerCase().includes(p.toLowerCase()));
         assert.equal(hasExploit, false, `Temiz Türkçe sorgu exploit sayılmamalı: ${cleanQuery}`);
-
-        // Yasaklı karakter (<, >, --, ;, /*) içermemeli
-        const hasDisallowed = turkishRule.disallowed_payload_characters.some((c) => cleanQuery.includes(c));
-        assert.equal(hasDisallowed, false, `Temiz sorgu yasaklı karakter içermemeli: ${cleanQuery}`);
-
-        // Sorgu boyutu sınır içinde olmalı
-        assert.ok(cleanQuery.length < turkishRule.max_query_length);
       }
+    });
+
+    test("MANAGED CRS KONTROLÜ: Cloudflare Managed Ruleset (OWASP CRS) yapılandırması mevcut olmalı", () => {
+      assert.ok(tfRuleset.includes('"http_request_firewall_managed"'), "Managed phase bulunmalı");
+      assert.ok(tfRuleset.includes('action = "execute"'), "execute aksiyonu bulunmalı");
+      assert.ok(tfRuleset.includes('"waf_managed_tuning"'), "waf_managed_tuning kaynağı bulunmalı");
     });
   });
 
@@ -190,23 +195,37 @@ describe("MKA FORTRESS X V1.1 — Sertleştirilmiş Altyapı ve Güvenlik Testle
       assert.equal(sanitizeBlackoutLevel(1), 1);
       assert.equal(sanitizeBlackoutLevel(2), 2);
       assert.equal(sanitizeBlackoutLevel(3), 3);
+      assert.equal(sanitizeBlackoutLevel("0"), 0);
+      assert.equal(sanitizeBlackoutLevel("1"), 1);
       assert.equal(sanitizeBlackoutLevel("2"), 2);
+      assert.equal(sanitizeBlackoutLevel("3"), 3);
       assert.equal(sanitizeBlackoutLevel(" 3 "), 3);
     });
 
-    test("sanitizeBlackoutLevel: Bozuk ve geçersiz verileri güvenle reddetmeli (null dönmeli)", () => {
+    test("sanitizeBlackoutLevel: parseInt zafiyeti ve tip dönüşüm hataları (2admin, 1.99, 0foo) kesinlikle reddedilmeli", () => {
+      // parseInt("2admin", 10) === 2 döner; katı sanitization ise null dönmelidir
+      assert.equal(sanitizeBlackoutLevel("2admin"), null, "'2admin' gibi zararlı girdiler reddedilmeli");
+      assert.equal(sanitizeBlackoutLevel("0foo"), null, "'0foo' reddedilmeli");
+      assert.equal(sanitizeBlackoutLevel("1.99"), null, "Küsüratlı dize reddedilmeli");
+      assert.equal(sanitizeBlackoutLevel(1.5), null, "Float sayı tipi reddedilmeli");
+      assert.equal(sanitizeBlackoutLevel([2]), null, "Dizi tipi reddedilmeli");
+      assert.equal(sanitizeBlackoutLevel({ level: 2 }), null, "Nesne tipi reddedilmeli");
       assert.equal(sanitizeBlackoutLevel(null), null);
       assert.equal(sanitizeBlackoutLevel(undefined), null);
       assert.equal(sanitizeBlackoutLevel("corrupted"), null);
       assert.equal(sanitizeBlackoutLevel("-1"), null);
+      assert.equal(sanitizeBlackoutLevel(-1), null);
       assert.equal(sanitizeBlackoutLevel(4), null);
+      assert.equal(sanitizeBlackoutLevel("4"), null);
       assert.equal(sanitizeBlackoutLevel(99), null);
       assert.equal(sanitizeBlackoutLevel("NaN"), null);
-      assert.equal(sanitizeBlackoutLevel({}), null);
+      assert.equal(sanitizeBlackoutLevel(NaN), null);
+      assert.equal(sanitizeBlackoutLevel(true), null);
+      assert.equal(sanitizeBlackoutLevel(false), null);
+      assert.equal(sanitizeBlackoutLevel(""), null);
     });
 
     test("resolveBlackoutLevel: KV deposu kesintisinde fail-open NORMAL olmamalı, WATCH (1) veya son bilinen durumu korumalı", async () => {
-      // 1. Depo erişilemez (Hata fırlatan KV simülasyonu)
       const faultyEnv = {
         BLACKOUT_KV: {
           get: async () => {
@@ -219,6 +238,12 @@ describe("MKA FORTRESS X V1.1 — Sertleştirilmiş Altyapı ve Güvenlik Testle
       assert.equal(result.isDegraded, true);
       // Asla 0 (NORMAL) olmamalı; en az 1 (WATCH) olmalı ki hassas rotalar açık kalmasın
       assert.ok(result.level >= 1, "Kesintide fail-open 0 olmamalı");
+    });
+
+    test("edge-blackout-worker.js: İzolat belleği dağıtık olmama uyarısı ve KV gereksinimi belgelenmiş olmalı", () => {
+      const workerContent = readFileSync("infra/fortress-x-v11/disaster-recovery/blackout-edge-fallback/edge-blackout-worker.js", "utf-8");
+      assert.ok(workerContent.includes("PoP"), "Çoklu PoP uyarısı bulunmalı");
+      assert.ok(workerContent.includes("dağıtık"), "Dağıtık olmama uyarısı bulunmalı");
     });
 
     test("handleEdgeRequest: LOCKDOWN (3) seviyesinde statik 503 blackout sayfası dönmeli", async () => {
@@ -254,6 +279,16 @@ describe("MKA FORTRESS X V1.1 — Sertleştirilmiş Altyapı ve Güvenlik Testle
   });
 
   describe("4. Ağ ve Güvenlik Duvarı Sıkılaştırma Testleri", () => {
+    test("origin-firewall.sh ve egress-lockdown.sh: Güvenlik betiklerinde 'eval' ASLA kullanılmamalı", () => {
+      const originFw = readFileSync("infra/fortress-x-v11/origin-shield/origin-firewall.sh", "utf-8");
+      const egressFw = readFileSync("infra/fortress-x-v11/host-hardening/egress-lockdown.sh", "utf-8");
+
+      assert.ok(!/(^|\n)\s*eval\s+/.test(originFw), "origin-firewall.sh içinde 'eval' komutu bulunmamalı");
+      assert.ok(!originFw.includes("eval \"$"), "origin-firewall.sh içinde 'eval \"$' bulunmamalı");
+      assert.ok(!/(^|\n)\s*eval\s+/.test(egressFw), "egress-lockdown.sh içinde 'eval' komutu bulunmamalı");
+      assert.ok(!egressFw.includes("eval \"$"), "egress-lockdown.sh içinde 'eval \"$' bulunmamalı");
+    });
+
     test("origin-firewall.sh: Hem IPv4 hem de IPv6 (ip6tables) desteği barındırmalı", () => {
       const script = readFileSync("infra/fortress-x-v11/origin-shield/origin-firewall.sh", "utf-8");
       assert.ok(script.includes("CLOUDFLARE_IN"));
@@ -262,17 +297,31 @@ describe("MKA FORTRESS X V1.1 — Sertleştirilmiş Altyapı ve Güvenlik Testle
       assert.ok(script.includes("2606:4700::/32"), "Cloudflare IPv6 CIDR bulunmalı");
     });
 
-    test("origin-firewall.sh: SSH yönetim portunu (22) korumalı, kilitlenmeyi önlemeli", () => {
+    test("origin-firewall.sh: SSH port doğrulaması yapmalı (1-65535) ve erişimi korumalı", () => {
       const script = readFileSync("infra/fortress-x-v11/origin-shield/origin-firewall.sh", "utf-8");
       assert.ok(script.includes("--dport $SSH_PORT -j ACCEPT"));
       assert.ok(script.includes("AUTO_ROLLBACK"), "Otomatik geri alma parametresi bulunmalı");
+      assert.ok(script.includes("65535"), "SSH portu üst sınır (65535) doğrulaması bulunmalı");
     });
 
-    test("egress-lockdown.sh: Sistem güncelleme depolarına ve DNS'e izin vermeli", () => {
+    test("egress-lockdown.sh: Strict modu bilinmeyen dış HTTP/HTTPS'i loglayıp engellemeli, Maintenance modu güncellemelere izin vermeli", () => {
       const script = readFileSync("infra/fortress-x-v11/host-hardening/egress-lockdown.sh", "utf-8");
-      assert.ok(script.includes("--dport 53 -j ACCEPT"));
-      assert.ok(script.includes("PACKAGE_MIRROR_HTTP"));
+      assert.ok(script.includes("--dport 53 -j ACCEPT"), "DNS çıkışına izin verilmeli");
+      assert.ok(script.includes("--mode=strict"), "Strict mod seçeneği olmalı");
+      assert.ok(script.includes("--mode=maintenance"), "Maintenance mod seçeneği olmalı");
+      assert.ok(script.includes("FORTRESS-SSRF-BLOCKED"), "SSRF koruma logu bulunmalı");
+      assert.ok(script.includes("PACKAGE_MIRROR_HTTP"), "Bakım modu paket aynası izni bulunmalı");
       assert.ok(script.includes("ip6tables -A FORTRESS_EGRESS6 -j DROP"), "IPv6 kaçak çıkışı engellenmeli");
+    });
+
+    test("origin-pull-mtls.md: 4 Origin koruma mimarisini karşılaştırmalı ve IP taklit riskini belgelemeli", () => {
+      const doc = readFileSync("infra/fortress-x-v11/origin-shield/origin-pull-mtls.md", "utf-8");
+      assert.ok(doc.includes("Authenticated Origin Pulls"), "mTLS seçeneği yer almalı");
+      assert.ok(doc.includes("Cloudflare Tunnel"), "Cloudflare Tunnel seçeneği yer almalı");
+      assert.ok(doc.includes("Strict SNI"), "Strict SNI seçeneği yer almalı");
+      assert.ok(doc.includes("IP Beyaz Liste"), "IP Beyaz liste seçeneği yer almalı");
+      assert.ok(doc.includes("Kiracı Taklit Riski") || doc.toLowerCase().includes("tenant impersonation"), "Kiracı taklidi zafiyeti açıklanmalı");
+      assert.ok(doc.includes("Tavsiye Edilen En Güvenli Mimari"), "Tavsiye bölümü bulunmalı");
     });
   });
 
