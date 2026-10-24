@@ -10,7 +10,7 @@ import {
   blackoutRouteDecision,
   checkApprovals,
   classifyEvent,
-  currentBlackoutLevel,
+  currentBlackoutState,
   escalate,
   evaluateIncident,
   executeActions,
@@ -278,25 +278,36 @@ test("[BO-19] kanıt koruma, kanıt kaydını depoya ekler; depodan silme arayü
   await executeActions([{ type: "preserve_evidence" }], ports, { incidentId: "INC-7", level: 1, reason: "x", ledger, dryRun: false });
   assert.equal(sys.evidence.length, 1);
   const portsSource = readFileSync(path.join(webRoot, "lib", "security", "blackout", "ports.ts"), "utf8");
-  const sinkInterface = portsSource.match(/interface EvidenceSink \{[^}]*\}/)[0];
+  const sinkInterface = portsSource.match(/interface EvidenceSink[^{]*\{[^}]*\}/)[0];
   assert.doesNotMatch(sinkInterface, /delete|remove|purge|clear|truncate/i);
 });
 
 // ---------------------------------------------------------------------------
 // 9. Varsayılan yapılandırma ve kaynak güvencesi
 // ---------------------------------------------------------------------------
-test("[BO-20] varsayılan yapılandırma: durum deposu yok, etkin düzey NORMAL; depo hatası WATCH'a düşer", async () => {
+test("[BO-20] varsayılan yapılandırma: durum deposu yok, etkin düzey NORMAL; depo hatası ve geçersiz kayıt degraded olur", async () => {
   assert.equal(REGISTERED_STATE_STORE, null);
-  assert.equal(await currentBlackoutLevel(), 0);
-  assert.equal(await currentBlackoutLevel({ currentLevel: async () => { throw new Error("down"); } }), 1);
-  assert.equal(await currentBlackoutLevel({ currentLevel: async () => 9 }), 0);
+  assert.deepEqual(await currentBlackoutState(), { level: 0, degraded: false, source: "not_configured", version: null });
+  const down = await currentBlackoutState({ read: async () => { throw new Error("down"); } }, NOW);
+  assert.equal(down.degraded, true);
+  assert.equal(down.source, "store_unavailable");
+  const bad = await currentBlackoutState({ read: async () => ({ level: 9 }) }, NOW);
+  assert.equal(bad.degraded, true);
+  assert.equal(bad.source, "invalid_record");
 });
 
-test("[BO-21] BLACKOUT kaynağı dosya silme/yazma, süreç sonlandırma veya ağ çağrısı içermez; proxy'ye bağlı değildir", () => {
+test("[BO-21] BLACKOUT kaynağı dosya silme/yazma, süreç sonlandırma veya genel ağ çağrısı içermez; proxy yalnız FORTRESS'ten sonra çağırır", () => {
   const dir = path.join(webRoot, "lib", "security", "blackout");
-  for (const file of readdirSync(dir).filter((f) => f.endsWith(".ts"))) {
+  const files = [
+    ...readdirSync(dir).filter((f) => f.endsWith(".ts")),
+    ...readdirSync(path.join(dir, "adapters")).filter((f) => f.endsWith(".ts")).map((f) => path.join("adapters", f)),
+  ];
+  assert.ok(files.length >= 14, "adaptörler dahil tüm dosyalar taranır");
+  for (const file of files) {
     const src = readFileSync(path.join(dir, file), "utf8");
-    assert.doesNotMatch(src, /node:fs|from "fs"|unlink|rmSync|rmdir|writeFile|child_process|process\.exit|\bfetch\(/, file);
+    assert.doesNotMatch(src, /node:fs|from "fs"|unlink|rmSync|rmdir|writeFile|child_process|process\.exit|\bfetch\(|globalThis\.fetch/, file);
   }
-  assert.doesNotMatch(readFileSync(path.join(webRoot, "proxy.ts"), "utf8"), /blackout/i, "ilk sürümde canlı istek yoluna bağlanmaz");
+  const proxy = readFileSync(path.join(webRoot, "proxy.ts"), "utf8");
+  assert.ok(proxy.indexOf("decideAccess(") < proxy.indexOf("blackoutGate("), "FORTRESS kararı önce");
+  assert.match(proxy, /if \(decision\.action === "allow"\) \{[\s\S]*blackoutGate\(/, "BLACKOUT yalnız FORTRESS izin verdiğinde çalışır (asla gevşetmez)");
 });

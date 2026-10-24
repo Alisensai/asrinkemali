@@ -1,8 +1,23 @@
 # PROJECT BLACKOUT: kritik güvenlik ihlali müdahale sistemi
 
 **Kod:** `web/lib/security/blackout/`
-**Testler:** `web/tests/security-blackout.test.mjs` (21 test)
-**Durum:** Karar motoru, açık arayüzler ve testler hazır. **Production istek yoluna bağlı değil**, gerçek port uygulaması yok ve hiçbir gerçek sistemi kesmiyor.
+**Testler:** `web/tests/security-blackout.test.mjs` (21 test), `web/tests/security-blackout-integration.test.mjs` (18 test)
+**Durum (Görev 09):** Karar motoru, rota politikası, proxy geçiş katmanı, olay müdahale denetleyicisi ve port sözleşmeleri hazır. `proxy.ts` FORTRESS kararından sonra BLACKOUT kararını uyguluyor. **Paylaşılan durum deposu kayıtlı olmadığından etkin düzey her zaman NORMAL** ve canlı davranış değişmiyor. Gerçek port bağlı değil; hiçbir gerçek sistem kesilmiyor.
+**Edge sözleşmesi:** [BLACKOUT-INTEGRATION-CONTRACT.md](BLACKOUT-INTEGRATION-CONTRACT.md) · **Port ve hizmet gereksinimleri:** [PORTS.md](PORTS.md)
+
+## Ne gerçekten çalışıyor, ne test seviyesinde, ne altyapı bekliyor
+
+| Bileşen | Durum | Kanıt |
+|---|---|---|
+| Rota sınıflandırması ve düzey etki tablosu (`routes.ts`) | **Çalışıyor** (saf kod, her istekte) | BI-01, BI-02 |
+| Proxy geçiş katmanı (`proxy-guard.ts`, `proxy.ts`) | **Canlı istek yolunda.** Depo yokken her zaman `allow`; davranış değişmiyor. Beklenmeyen hatada fail-closed (hassas yüzeyler 503). | BI-03, production güvenlik E2E |
+| Durum kaydı doğrulama ve degraded çözümleme (`state.ts`) | **Çalışıyor**, ancak okunacak kayıtlı depo yok | BI-03, BO-20 |
+| Olay değerlendirme, onay kapısı, durum makinesi, kanıt defteri | **Kod hazır ve testli.** Çağıran bir olay kaynağı veya arayüz yok. | BO-01…19, BI-04…14 |
+| Olay müdahale denetleyicisi (`controller.ts`) | **Test seviyesinde.** Bellek ikizleri ve sahte onay doğrulayıcısıyla. Varsayılan dry-run. | BI-04…14 |
+| HTTPS durum deposu adaptörü | **Yazıldı, bağımsız test edildi, bağlı değil** | BI-15, BI-16 |
+| Bellek içi adaptörler | **Yalnız test ikizi.** Production sayılmaz (`test_double`). | BI-13 |
+| Paylaşılan durum deposu, onay doğrulayıcısı (OIDC+MFA), oturum deposu, WORM kanıt, bildirim, kayıt imzası (KMS) | **Altyapı gerektiriyor** (`requires_infrastructure`) | BI-13, PORTS.md |
+| Veritabanı yazma kilidi | **Uygulanamaz:** uygulamada veritabanı yok; iddia edilmiyor | PORTS.md |
 
 ## Tasarım ilkeleri
 
@@ -102,18 +117,49 @@ Tam döngü testi (BO-15), sahte portlarla NORMAL → LOCKDOWN → NORMAL geçi�
 | `SafeModeSwitch` | Salt-okunur güvenli mod | Yok |
 | `ResponderNotifier` | Ekibe bildirim | Yok: e-posta/çağrı hizmeti |
 | `EvidenceSink` | Değiştirilemez kanıt deposu (yalnız `append`) | Yok: WORM depolama |
-| `BlackoutStateStore` | Tüm örneklerin okuduğu etkin düzey | Yok (`REGISTERED_STATE_STORE = null`, düzey hep NORMAL). Depo erişilemezse WATCH'a düşer (BO-20). |
+| `BlackoutStateStore` | Tüm örneklerin ve edge'in okuduğu kayıt: `read()` + `compareAndSet()` | Yok (`REGISTERED_STATE_STORE = null`, düzey hep NORMAL). Depo erişilemez veya kayıt geçersizse **degraded** (BO-20, BI-03). |
 
-Port eksikse eylem `requires_infrastructure` döner. Bir portun hatası diğer eylemleri durdurmaz (BO-13, BO-14).
+Port eksikse eylem `requires_infrastructure` döner. Bir portun hatası diğer eylemleri durdurmaz (BO-13, BO-14). Ayrıntılar ve gereken hizmetler: [PORTS.md](PORTS.md).
+
+## Rota etkileri (`routes.ts`)
+
+| Rota sınıfı | NORMAL | WATCH | RESTRICTED | LOCKDOWN |
+|---|---|---|---|---|
+| `health` (`/api/health`, `/api/ready`) | ✔ | ✔ | ✔ | ✔ |
+| `admin` (`/admin`, `/yonetim`, `/panel`, `/editor`, `/api/admin`, `/api/editor`) | ✔ (FORTRESS: 404) | ✔ (FORTRESS: 404) | ✖ 503 | ✖ 503 |
+| `research` (`/arastirma-laboratuvari`, `/api/arastirma-laboratuvari/*`) | ✔ (production: 404) | ✔ | ✖ 503 | ✖ 503 |
+| `public_api` (`/api/health-integration`, diğer `/api/*`) | ✔ | ✔ | GET/HEAD ✔, yazma ✖ | ✖ 503 |
+| `public_page` (diğer her şey) | ✔ | ✔ | ✔ | GET/HEAD ✔, yazma ✖ |
+| **Depo kesintisi / geçersiz kayıt** (degraded) | En az RESTRICTED etkisi: hassas yüzeyler kapalı, okuma sürer | | | |
+
+- Yol normalizasyonu: küçük harf, `%xx` çözme, `\` → `/`, çift ve sondaki eğik çizgi. Çözülemeyen kodlama `admin` sayılır (BI-02).
+- BLACKOUT, FORTRESS kararından sonra çalışır ve onu **asla gevşetmez** (BO-21).
+
+## Olay müdahale denetleyicisi (`controller.ts`)
+
+- `previewPlan(events, requestedBy)` → onaylayanların imzalayacağı plan ve `planSha256`.
+- `respond({ events, requestedBy, approvals })`:
+  - değerlendirme → onay → uygulanabilir en yüksek düzey → yürütme → CAS ile durum yazımı → kanıt.
+  - RESTRICTED/LOCKDOWN yalnız düzeyin tüm eylemleri iki kişiden onay almışsa uygulanır; aksi hâlde en fazla WATCH (`levelLimitedBy`).
+- `previewRecovery` / `recover`: bir kademe iniş, bekleme süresi, kontrol listesi, onay, ters eylemler, CAS.
+- **Kalıcılık sonucu** (`persistence`), dürüstçe raporlanır:
+  - `persisted`
+  - `dry_run` (varsayılan)
+  - `requires_infrastructure` (depo yok; yalnız bu süreç görür)
+  - `store_unavailable` (düzey değişmez)
+  - `version_conflict` (eşzamanlı yazım; düzey uygulanmış sayılmaz)
+  - `failed`
+  - `not_needed`
+- Aynı olay tekrar gönderilirse eylemler yeniden yürütülmez, durum yeniden yazılmaz (`duplicate`).
+- Düzeyi doğrudan ayarlayan genel yöntem yoktur (BI-07).
 
 ## Production'a bağlama (ayrı, onaylı görev)
 
 Şu sırayla yapılmalı:
-1. Paylaşılan durum deposu
+1. Paylaşılan durum deposu (`HttpBlackoutStateStore` veya eşdeğeri; uygunluk kontrolü)
 2. Kimlik sağlayıcısı + `ApprovalVerifier` (OIDC, MFA/FIDO2)
-3. WORM kanıt deposu
-4. Bildirim kanalı
-5. `proxy.ts` içinde `blackoutRouteDecision(await currentBlackoutLevel(), request)` çağrısı (FORTRESS proxy sahibi ile)
-6. Tatbikat (`test_harness` kaynağı) ve geri dönüş provası
-
-İlk sürüm bilinçli olarak `proxy.ts`'e dokunmuyor (BO-21).
+3. KMS ile kayıt imzası + `StateRecordVerifier`
+4. WORM kanıt deposu + bildirim kanalı
+5. `REGISTERED_STATE_STORE` kaydı (proxy bağlantısı hazır; ek kod gerekmez)
+6. Edge kurallarının sözleşmeye uyarlanması (Antigravity)
+7. Tatbikat (`test_harness` kaynağı) ve geri dönüş provası

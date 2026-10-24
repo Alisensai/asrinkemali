@@ -1,24 +1,52 @@
 import { ALLOWED_ACTION_TYPES, FORBIDDEN_ACTION_TYPES, type BlackoutLevel, type ResponseAction, type SessionScope } from "./types.ts";
 import type { EvidenceEntry } from "./evidence.ts";
+import { resolveBlackoutState, type BlackoutStateReader, type ResolvedBlackoutState, type StoredBlackoutState } from "./state.ts";
 
 /**
  * Altyapı entegrasyon arayüzleri ve yürütücü.
  *
- * Bu repoda hiçbir port için gerçek uygulama YOKTUR (kimlik sağlayıcısı, oturum deposu,
- * veritabanı, WAF/CDN, kalıcı durum deposu bulunmuyor). Yürütücü varsayılan olarak dry-run
- * çalışır; port eksikse eylem "requires_infrastructure" döner ve hiçbir şey kesilmez.
+ * Bu repoda hiçbir port production'a BAĞLI DEĞİLDİR (kimlik sağlayıcısı, oturum deposu,
+ * veritabanı, WAF/CDN, kalıcı durum deposu bulunmuyor). `adapters/` altında bağımsız test
+ * edilen bir HTTPS durum deposu adaptörü ve kendini "test_double" olarak tanıtan bellek içi
+ * adaptörler vardır; bellek içi adaptörler production entegrasyonu sayılmaz.
+ * Yürütücü varsayılan olarak dry-run çalışır; port eksikse eylem "requires_infrastructure"
+ * döner ve hiçbir şey kesilmez.
  * Yasak eylemler (veri silme, yedek imhası, günlük yok etme) her koşulda reddedilir.
  */
 
-export interface SessionRevoker { revoke(scope: SessionScope, reason: string): Promise<{ revoked: number }> }
-export interface CriticalApiGate { setEnabled(enabled: boolean, reason: string): Promise<void> }
-export interface WriteGuard { setFrozen(frozen: boolean, reason: string): Promise<void> }
-export interface SafeModeSwitch { setReadOnly(readOnly: boolean, reason: string): Promise<void> }
-export interface ResponderNotifier { notify(message: { incidentId: string; level: BlackoutLevel; summary: string }): Promise<void> }
-/** Değiştirilemez kanıt deposu (WORM). Arayüzde bilinçli olarak silme yöntemi yoktur. */
-export interface EvidenceSink { append(entry: EvidenceEntry): Promise<void> }
-/** Paylaşılan BLACKOUT düzeyi deposu (çok örnekli dağıtımda tüm sunucular aynı düzeyi okur). */
-export interface BlackoutStateStore { currentLevel(): Promise<BlackoutLevel> }
+/** Port tanımlayıcısı: raporlarda gerçek entegrasyon ile test ikizini ayırt etmek için. */
+export interface PortDescriptor {
+  kind: "external" | "test_double";
+  /** "memory": süreç belleği (yeniden başlatmada kaybolur, örnekler arası paylaşılmaz). */
+  persistence: "remote" | "memory";
+  /** Bellek içi ikizler hiçbir zaman production'a uygun sayılmaz. */
+  productionEligible: boolean;
+  description: string;
+}
+interface Described { readonly descriptor?: PortDescriptor }
+
+/** Gerçek iptal sayısı döndürmelidir; oturum deposu yoksa port tanımlanmaz (sahte sayı yok). */
+export interface SessionRevoker extends Described { revoke(scope: SessionScope, reason: string): Promise<{ revoked: number }> }
+export interface CriticalApiGate extends Described { setEnabled(enabled: boolean, reason: string): Promise<void> }
+export interface WriteGuard extends Described { setFrozen(frozen: boolean, reason: string): Promise<void> }
+export interface SafeModeSwitch extends Described { setReadOnly(readOnly: boolean, reason: string): Promise<void> }
+export interface ResponderNotifier extends Described { notify(message: { incidentId: string; level: BlackoutLevel; summary: string }): Promise<void> }
+/**
+ * Değiştirilemez kanıt deposu (WORM). Arayüzde bilinçli olarak silme yöntemi yoktur.
+ * `append`, zincir sürekliliğini (previousHash = son hash, sequence = son + 1) doğrulamalı ve
+ * uymayan kaydı reddetmelidir. Aynı kaydın yeniden gönderimi (aynı hash) idempotent kabul edilir.
+ */
+export interface EvidenceSink extends Described { append(entry: EvidenceEntry): Promise<void> }
+
+export type CompareAndSetResult = { ok: true; version: number } | { ok: false; reason: "version_conflict"; currentVersion: number };
+/**
+ * Paylaşılan BLACKOUT düzeyi deposu (çok örnekli dağıtımda tüm sunucular ve edge aynı kaydı okur).
+ * Koşulsuz `setLevel` bilinçli olarak YOKTUR: yazma yalnız beklenen sürüm eşleşirse yapılır.
+ */
+export interface BlackoutStateStore extends BlackoutStateReader, Described {
+  read(): Promise<unknown>;
+  compareAndSet(expectedVersion: number, next: StoredBlackoutState): Promise<CompareAndSetResult>;
+}
 
 export interface BlackoutPorts {
   sessions?: SessionRevoker;
@@ -32,16 +60,30 @@ export interface BlackoutPorts {
 /** Kayıtlı paylaşılan durum deposu YOKTUR; etkin düzey her zaman NORMAL okunur. */
 export const REGISTERED_STATE_STORE: BlackoutStateStore | null = null;
 
-export async function currentBlackoutLevel(store: BlackoutStateStore | null = REGISTERED_STATE_STORE): Promise<BlackoutLevel> {
-  if (!store) return 0;
-  try {
-    const level = await store.currentLevel();
-    return level === 1 || level === 2 || level === 3 ? level : 0;
-  } catch {
-    // Depo erişilemezse son bilinen düzey bilinmez; ayrıcalıklı yüzeyler zaten kapalı-başarısız
-    // olduğundan herkese açık okuma kesilmez. İzleme düzeyine geçilir ve olay kaydedilmelidir.
-    return 1;
-  }
+/** Etkin düzeyi çözer (bkz. state.ts `resolveBlackoutState`): depo yoksa NORMAL, hata/geçersizse degraded. */
+export function currentBlackoutState(store: BlackoutStateStore | BlackoutStateReader | null = REGISTERED_STATE_STORE, now: number = Date.now()): Promise<ResolvedBlackoutState> {
+  return resolveBlackoutState(store, now);
+}
+
+export type PortName = "sessions" | "criticalApi" | "writes" | "safeMode" | "notifier" | "evidence" | "stateStore";
+export type PortStatus = "connected" | "test_double" | "requires_infrastructure";
+
+/** Her portun gerçek durumu. Tanımlayıcısı olmayan port "external" sayılmaz; test ikizi kabul edilir. */
+export function describePorts(ports: BlackoutPorts, stateStore: BlackoutStateStore | null = REGISTERED_STATE_STORE): Record<PortName, PortStatus> {
+  const status = (port: Described | undefined | null): PortStatus => {
+    if (!port) return "requires_infrastructure";
+    const d = port.descriptor;
+    return d && d.kind === "external" && d.persistence === "remote" && d.productionEligible ? "connected" : "test_double";
+  };
+  return {
+    sessions: status(ports.sessions), criticalApi: status(ports.criticalApi), writes: status(ports.writes),
+    safeMode: status(ports.safeMode), notifier: status(ports.notifier), evidence: status(ports.evidence), stateStore: status(stateStore),
+  };
+}
+
+/** Production'a hazırlık: tüm portlar gerçek ve uzak olmalı. Bugün false döner. */
+export function productionReady(ports: BlackoutPorts, stateStore: BlackoutStateStore | null = REGISTERED_STATE_STORE): boolean {
+  return Object.values(describePorts(ports, stateStore)).every((s) => s === "connected");
 }
 
 export type ExecutionStatus = "dry_run" | "executed" | "requires_infrastructure" | "failed" | "refused";
@@ -69,8 +111,9 @@ export async function executeActions(actions: readonly ResponseAction[], ports: 
     if (!run) { results.push({ action: type, status: "requires_infrastructure" }); continue; }
     if (dryRun) { results.push({ action: type, status: "dry_run" }); continue; }
     try {
-      await run();
-      results.push({ action: type, status: "executed" });
+      const outcome = await run();
+      const revoked = type === "revoke_sessions" && outcome && typeof (outcome as { revoked?: unknown }).revoked === "number" ? (outcome as { revoked: number }).revoked : undefined;
+      results.push({ action: type, status: "executed", ...(revoked !== undefined ? { detail: `iptal-edilen-oturum=${revoked}` } : {}) });
     } catch (error) {
       // Bir eylemin hatası diğerlerini durdurmaz; ayrıntı redakte edilmeden kanıta yazılmaz.
       results.push({ action: type, status: "failed", detail: error instanceof Error ? error.name : "error" });

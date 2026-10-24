@@ -134,7 +134,7 @@
 | 92 | Tamper Detection | IMPLEMENTED | Arşiv bütünlük farkı (CI), yedek kurcalama doğrulaması, hash zincirli denetim ve kanıt kayıtları. Testli (FORTRESS 15/15, BO-18). |
 | 93 | Emergency Access Revocation | PARTIAL | BLACKOUT `revoke_sessions` (şüpheli: tek onay, ayrıcalıklı/tümü: iki onay) ve `SessionRevoker` arayüzü. Testli, ancak oturum deposu yok. |
 | 94 | Automated Credential Revocation | REQUIRES_INFRASTRUCTURE | IdP ve sır kasası API'si gerekir. BLACKOUT'ta bunun için ayrı port henüz yok. |
-| 95 | Critical Database Read-Only Lockdown | PARTIAL | BLACKOUT LOCKDOWN: `freeze_writes` + salt-okunur güvenli mod. Durum değiştiren istekler ve sağlık dışı API'ler 503, sayfalar okunur (BO-15, BO-17). Bugün veritabanı yok; `proxy.ts`'e bağlı değil. |
+| 95 | Critical Database Read-Only Lockdown | PARTIAL | BLACKOUT LOCKDOWN: `freeze_writes` + salt-okunur güvenli mod. Durum değiştiren istekler ve sağlık dışı API'ler 503, sayfalar okunur (BO-15, BO-17). Rota etkisi `proxy.ts` üzerinden canlı istek yolunda, ancak paylaşılan durum deposu kayıtlı olmadığından etkin düzey NORMAL. Veritabanı yok; veritabanı kilitlemesi iddia edilmiyor. |
 | 96 | Emergency Network Quarantine | REQUIRES_INFRASTRUCTURE | Ağ izolasyonu kenar/bulutta. Uygulama düzeyinde BLACKOUT RESTRICTED/LOCKDOWN rota kararı var. |
 | 97 | Incident Evidence Preservation | PARTIAL | BLACKOUT kanıt defteri: yalnız ekleme, hash zinciri, redaksiyon, silme işlevi yok (BO-18, BO-19). WORM `EvidenceSink` uygulaması yok. |
 | 98 | Independent Recovery Environment | REQUIRES_INFRASTRUCTURE | Ayrı hesap/bölgede temiz kurtarma ortamı |
@@ -143,7 +143,7 @@
 
 | # | Kontrol | Durum | ASRIN KEMALİ kanıtı / gerekçe |
 |---|---|---|---|
-| 99 | PROJECT BLACKOUT | PARTIAL | Kritik ihlal **doğrulandığında** (çok kaynak veya kanıtlı araç bulgusu) güvenli moda alma (LOCKDOWN), erişimi kesme (oturum iptali, kritik API kapatma) ve verileri koruma (yazma dondurma, kanıt defteri). İki kişilik insan onayı, kademeli geri dönüş, 21 test. **Veri imhası yok:** silme, yedek imhası ve günlük yok etme tanımsız ve reddediliyor (BO-12). Production'a bağlı değil; port uygulamaları yok. Bkz. `BLACKOUT.md`. |
+| 99 | PROJECT BLACKOUT | PARTIAL | Kritik ihlal **doğrulandığında** (çok kaynak veya kanıtlı araç bulgusu) güvenli moda alma (LOCKDOWN), erişimi kesme (oturum iptali, kritik API kapatma) ve verileri koruma (yazma dondurma, kanıt defteri). İki kişilik insan onayı, kademeli geri dönüş, 21 test. **Veri imhası yok:** silme, yedek imhası ve günlük yok etme tanımsız ve reddediliyor (BO-12). `proxy.ts` FORTRESS'ten sonra BLACKOUT kararını uyguluyor (depo yok → NORMAL, davranış değişmez); olay müdahale denetleyicisi, CAS'lı durum kaydı, HTTPS durum deposu adaptörü ve 18 entegrasyon testi (Görev 09). Gerçek port, depo ve onay doğrulayıcısı yok. Bkz. `BLACKOUT.md`. |
 
 ## Ek öneriler (özgün listede yok)
 

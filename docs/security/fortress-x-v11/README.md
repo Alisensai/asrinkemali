@@ -6,6 +6,8 @@
 | [CONTROL-MATRIX.md](CONTROL-MATRIX.md) | Özgün 99 maddenin ASRIN KEMALİ durumu (5 uygulandı, 25 kısmi, 13 eksik, 10 kapsam dışı, 46 altyapı gerektiriyor) + ayrı ek öneriler (E1–E13) |
 | [BLACKOUT.md](BLACKOUT.md) | PROJECT BLACKOUT mimarisi, düzeyler, onaylar, geri dönüş |
 | [INFRASTRUCTURE-REQUIREMENTS.md](INFRASTRUCTURE-REQUIREMENTS.md) | Repo dışından sağlanması gereken altyapı ve öncelik sırası |
+| [BLACKOUT-INTEGRATION-CONTRACT.md](BLACKOUT-INTEGRATION-CONTRACT.md) | Antigravity (edge/altyapı) için BLACKOUT sözleşmesi ve PR #73 değişiklik önerileri |
+| [PORTS.md](PORTS.md) | Port sözleşmeleri, gereken harici hizmetler, güvenli bağlantı, bugünkü durum |
 | [PR72-CSP-REVIEW.md](PR72-CSP-REVIEW.md) | Codex PR #72 CSP düzeltmesinin incelemesi; production `report-only` riski |
 
 ## Katmanlar
@@ -22,7 +24,7 @@ Next.js uygulaması
   ├─ safe-url.ts (mevcut)              href izin listesi
   ├─ editoryal güven kapıları (mevcut) insan onayı olmadan yayın/sergi yok
   ├─ access-contract.ts (mevcut)       RBAC · MFA şartı · görev ayrılığı · CSRF · çerez · denetim zinciri
-  └─ blackout/ (YENİ, bağlı değil)     olay → karar → onay → port → kanıt · salt-okunur güvenli mod
+  └─ blackout/ (proxy'de, depo yok→NORMAL) rota politikası · olay → karar → onay → CAS durum → kanıt
   ▼
 Veri: repo içi JSON (salt-okunur) · tarayıcıda okuma listeleri · [ALTYAPI] WORM kanıt/yedek deposu
   ▲
@@ -33,12 +35,14 @@ CI/CD: lint · typecheck · birim/e2e · supply-chain audit · secrets · integr
 ## Bu dalda değişmeyenler
 
 V1.0 test ve güvenlik kapıları olduğu gibi duruyor:
-- `proxy.ts`, `headers.ts`, `access-contract.ts`, `safe-url.ts`
-- editoryal güven yapılandırması
+- `headers.ts` (PR #72 CSP düzeltmesi dahil), `access-contract.ts`, `safe-url.ts`
+- editoryal güven yapılandırması ve 302 insan onayı bulgusu
 - workflow'lar
 - Playwright dosyaları
 
-Yeni kod yalnız `web/lib/security/blackout/`, yeni testler (`security-blackout`, `security-fortress-x-matrix`) ve bu belgeler.
+Tek dar kapsamlı uygulama değişikliği `proxy.ts` (Görev 09): FORTRESS kararından **sonra** BLACKOUT geçişi eklendi. FORTRESS önceliği korunuyor; BLACKOUT yalnız ek kısıt uygulayabilir. Kayıtlı durum deposu yokken davranış değişmez.
+
+Diğer yeni kod `web/lib/security/blackout/` altında. Yeni testler: `security-blackout`, `security-blackout-integration`, `security-fortress-x-matrix`.
 
 ## Sahiplik
 
