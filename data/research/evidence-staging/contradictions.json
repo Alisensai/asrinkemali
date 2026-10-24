@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-10-23T19:45:12.116Z",
+  "note": "Adaylar kesin tarihî çelişki DEĞİLDİR; insan incelemesi bekler.",
+  "candidates": [
+    {
+      "id": "cdx-claim-005-ev-005-1-ev-005-b",
+      "field": "event_date",
+      "evidenceIds": [
+        "ev-005-1",
+        "ev-005-b"
+      ],
+      "claimId": "claim-005",
+      "description": "İddia claim-005 için iki kaynak örtüşen ancak uçları farklı kesin aralıklar raporluyor: \"27 Ekim 1913 – 20 Ocak 1915\" (Atatürk Ansiklopedisi) ve \"20 Kasım 1913 – 25 Ocak 1915 (icra dönemi)\" (Atatürk Ansiklopedisi). Uç farkı, farklı tarih semantiğinden (kapsam/atama/icra) de kaynaklanabilir; kanıt konumları karşılaştırılmalı. Bu aday kesin çelişki DEĞİLDİR.",
+      "status": "needs_review",
+      "createdAt": "2026-10-23T19:45:12.116Z"
+    },
+    {
+      "id": "cdx-claim-008-ev-008-1-ev-008-b",
+      "field": "event_date",
+      "evidenceIds": [
+        "ev-008-1",
+        "ev-008-b"
+      ],
+      "claimId": "claim-008",
+      "description": "İddia claim-008 için iki kaynak örtüşen ancak uçları farklı kesin aralıklar raporluyor: \"30 Haziran 1918 – 28 Temmuz 1918\" (Atatürk Ansiklopedisi) ve \"30 Haziran – 27 Temmuz 1918\" (Atatürk Ansiklopedisi). Uç farkı, farklı tarih semantiğinden (kapsam/atama/icra) de kaynaklanabilir; kanıt konumları karşılaştırılmalı. Bu aday kesin çelişki DEĞİLDİR.",
+      "status": "needs_review",
+      "createdAt": "2026-10-23T19:45:12.116Z"
+    }
+  ]
+}
