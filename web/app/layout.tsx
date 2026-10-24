@@ -6,7 +6,7 @@ import "./globals.css";
 
 const display = Cinzel({ subsets: ["latin"], variable: "--font-cinzel", display: "swap" });
 const playfair = Playfair_Display({ subsets: ["latin", "latin-ext"], weight: ["700", "800", "900"], variable: "--font-playfair", display: "swap" });
-const body = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "600", "700"], style: ["normal", "italic"], variable: "--font-cormorant", display: "swap" });
+const body = Cormorant_Garamond({ subsets: ["latin"], variable: "--font-cormorant", display: "swap" });
 const sans = Montserrat({ subsets: ["latin"], variable: "--font-montserrat", display: "swap" });
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 const canIndex = Boolean(process.env.NEXT_PUBLIC_SITE_URL);
