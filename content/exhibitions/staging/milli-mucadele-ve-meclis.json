@@ -1,0 +1,224 @@
+{
+  "id": "milli-mucadele-ve-meclis",
+  "slug": "milli-mucadele-ve-meclis",
+  "title": "Millî Mücadele ve Meclis'in Kuruluşu",
+  "summary": "19 Mayıs 1919'da Samsun'a çıkıştan 23 Nisan 1920'de Türkiye Büyük Millet Meclisi'nin açılışına uzanan bağımsızlık yürüyüşünün birincil kaynakları.",
+  "theme": "milli_mucadele",
+  "themeLabel": "Millî Mücadele",
+  "chronologicalScope": {
+    "startYear": 1919,
+    "endYear": 1920,
+    "displayRange": "1919 – 1920"
+  },
+  "coverImage": {
+    "src": "/assets/masthead-archive-temsili.webp",
+    "alt": "TBMM'nin açılış gününü ve Millî Mücadele'yi temsil eden dijital sergi kapak görseli",
+    "credit": "Asrın Kemali Dijital Müze Küratörlüğü",
+    "isRepresentative": true
+  },
+  "curator": {
+    "name": "Asrın Kemali Araştırma Kurulu",
+    "role": "Müze Küratörlüğü",
+    "note": "Sergideki kayıtlar TBMM Kurtuluş Savaşı Müzesi ve Atatürk Araştırma Merkezi envanterine dayanır."
+  },
+  "sections": [
+    {
+      "id": "meclis-giris",
+      "order": 1,
+      "type": "hero",
+      "kicker": "DİJİTAL SERGİ SALONU II",
+      "title": "Milletin Kendi Kaderini Tayini",
+      "subtitle": "Amasya'dan Ankara Hacıbayram'a Meclis Yolu",
+      "leadParagraph": "1919'da milletin istiklalini yine milletin azim ve kararının kurtaracağı ilkesiyle başlayan yürüyüş, 23 Nisan 1920 Cuma günü Ankara'da Meclis'in açılışıyla kurumsal bir meşruiyet kalesine dönüştü.",
+      "curatorNote": "Bu sergideki fotoğraf ve belgeler 'temsilî' etiketli olup, orijinal arşivler TBMM açık erişiminde tescillidir.",
+      "actions": {
+        "primaryLabel": "SERGİ SALONUNA GİR",
+        "secondaryLabel": "BELGELERİ İNCELE"
+      }
+    },
+    {
+      "id": "meclis-anlatisi",
+      "order": 2,
+      "type": "narrative",
+      "kicker": "KURULUŞUN İLK GÜNÜ",
+      "title": "Hacıbayram'dan İlk Meclis Binasına",
+      "content": [
+        "23 Nisan 1920 Cuma günü kılınan cuma namazının ardından dualarla açılan Meclis binası, yurdun dört bir yanından gelen mebuslarla bağımsızlık iradesinin tek merkezi oldu.",
+        "Mustafa Kemal Paşa'nın liderliğinde toplanan Meclis, henüz düzenli ordu kurulmadan önce hem cepheyi idare eden hem de millet egemenliğini temsil eden olağanüstü bir kurucu meclis niteliğindeydi.",
+        "Bu ilk Meclis, hiçbir yabancı mandayı kabul etmeyerek tam bağımsızlık andını Misak-ı Millî çerçevesinde hayata geçirdi."
+      ],
+      "historicalContext": "19 Mayıs 1919 Samsun çıkarması ile 23 Nisan 1920 Meclis açılışı arasındaki kurucu dönem.",
+      "highlightQuote": {
+        "text": "Milletin istiklalini yine milletin azim ve kararı kurtaracaktır.",
+        "speaker": "Amasya Genelgesi",
+        "context": "22 Haziran 1919 Amasya Tamimi Kararı",
+        "verifiedSourceNote": "Atatürk Araştırma Merkezi Belgeler Arşivi"
+      }
+    },
+    {
+      "id": "meclis-belge-vitrini",
+      "order": 3,
+      "type": "archive_showcase",
+      "kicker": "ÖNE ÇIKAN ARŞİV BELGESİ",
+      "title": "Meclis Önünde Dua Kaydı (#501)",
+      "summary": "23 Nisan 1920 açılış günü I. Meclis binası önünde toplanan heyet ve halkın tarihî tanıklığı.",
+      "primaryDocument": {
+        "archiveSlug": "meclis-onunde-dua-1920",
+        "title": "Meclis Önünde Dua",
+        "institution": "TBMM Kurtuluş Savaşı Müzesi Koleksiyonu",
+        "dateDisplay": "23 Nisan 1920",
+        "documentType": "photograph",
+        "rightsStatus": "public_domain",
+        "citation": "TBMM Kurtuluş Savaşı Müzesi (Katalog #501)",
+        "sourceUrl": "https://www.tbmm.gov.tr/",
+        "description": "23 Nisan 1920'de Ankara'da TBMM binası önünde açılış merasimi sırasında çekilen tarihî fotoğraf kaydı.",
+        "isRepresentativeVisual": true
+      },
+      "contextualNotes": [
+        "Kayıt, TBMM Kurtuluş Savaşı Müzesi'nin tescilli fotoğraf koleksiyonuna atıfta bulunur.",
+        "Görseller platformda temsilî olarak işaretlenmiştir; orijinal negatifler devlet envanterindedir."
+      ],
+      "relatedArchiveSlugs": [
+        "tbmm-acilisi-1920",
+        "tbmm-acilis-fotografi-1920",
+        "i-tbmm-binasi"
+      ]
+    },
+    {
+      "id": "meclis-zaman-cizelgesi",
+      "order": 4,
+      "type": "timeline",
+      "kicker": "TARİHÎ YÜRÜYÜŞ",
+      "title": "Amasya'dan Ankara'ya Meclis Yolu",
+      "introText": "Millî iradenin örgütlenme takvimi:",
+      "events": [
+        {
+          "id": "olay-samsun",
+          "year": 1919,
+          "exactDate": "1919-05-19",
+          "dateCertainty": "exact",
+          "title": "Samsun'a Çıkış",
+          "description": "Mustafa Kemal Paşa 9. Ordu Müfettişi sıfatıyla Samsun'a ayak basarak Millî Mücadele'yi fiilen başlattı.",
+          "eventDate": "19 Mayıs 1919",
+          "documentDate": "19 Mayıs 1919",
+          "archiveSlug": "samsun-cikarmasi-1919",
+          "institution": "Atatürk Araştırma Merkezi"
+        },
+        {
+          "id": "olay-meclis-binasi",
+          "year": 1920,
+          "exactDate": "1920-04-23",
+          "dateCertainty": "exact",
+          "title": "I. TBMM Binasının Hazırlanması",
+          "description": "Ankara Ulus Meydanı'ndaki bina, halkın imecesiyle Meclis çalışmalarına uygun hale getirildi.",
+          "eventDate": "Nisan 1920",
+          "documentDate": "1920",
+          "archiveSlug": "i-tbmm-binasi",
+          "institution": "Kurtuluş Savaşı Müzesi"
+        },
+        {
+          "id": "olay-tbmm-acilis",
+          "year": 1920,
+          "exactDate": "1920-04-23",
+          "dateCertainty": "exact",
+          "title": "Büyük Millet Meclisi'nin Açılışı",
+          "description": "Ankara'da I. Meclis binasında ilk toplantı yapıldı; Sinop mebusu Şerif Bey en yaşlı üye sıfatıyla açılış nutkunu okudu.",
+          "eventDate": "23 Nisan 1920",
+          "documentDate": "23 Nisan 1920",
+          "archiveSlug": "tbmm-acilisi-1920",
+          "institution": "TBMM / Atatürk Araştırma Merkezi"
+        }
+      ]
+    },
+    {
+      "id": "meclis-galerisi",
+      "order": 5,
+      "type": "document_gallery",
+      "kicker": "KAYNAK PLAKETLERİ",
+      "title": "I. Meclis ve Kurtuluş Belgeleri",
+      "lead": "TBMM Açık Erişim ve Kurtuluş Savaşı Müzesi tescilli kayıtlar:",
+      "items": [
+        {
+          "archiveSlug": "tbmm-acilisi-1920",
+          "title": "TBMM'nin Açılışı Olay Kaydı",
+          "institution": "TBMM Açık Erişim Arşivi",
+          "dateDisplay": "23 Nisan 1920",
+          "documentType": "event",
+          "rightsStatus": "public_domain",
+          "description": "Ankara'da ilk meclisin açılışı ve kurucu parlamento kararları."
+        },
+        {
+          "archiveSlug": "samsun-cikarmasi-1919",
+          "title": "Samsun'a Ayak Basış",
+          "institution": "Atatürk Ansiklopedisi",
+          "dateDisplay": "19 Mayıs 1919",
+          "documentType": "event",
+          "rightsStatus": "public_domain",
+          "description": "Millî Mücadele meşalesinin Samsun'da yakılması."
+        },
+        {
+          "archiveSlug": "amasya-tamimi-1919",
+          "title": "Amasya Genelgesi Tam Metni",
+          "institution": "Atatürk Araştırma Merkezi",
+          "dateDisplay": "22 Haziran 1919",
+          "documentType": "document",
+          "rightsStatus": "public_domain",
+          "description": "Millî egemenliğin ilk yazılı ilkesi."
+        }
+      ]
+    },
+    {
+      "id": "meclis-kaynak-paneli",
+      "order": 6,
+      "type": "source_panel",
+      "kicker": "KURUMSAL DOĞRULAMA",
+      "title": "Birincil Arşiv Belgeleri",
+      "statement": "Tüm belgeler TBMM Açık Erişim Tutanak Arşivi ve Atatürk Araştırma Merkezi envanter kayıtlarıyla ilişkilidir.",
+      "sources": [
+        {
+          "id": "kaynak-tbmm-tutanak",
+          "title": "TBMM Zabıt Ceridesi Cilt 1",
+          "institution": "TBMM Tutanak Hizmetleri Başkanlığı",
+          "catalogId": "Dönem 1, Cilt 1",
+          "sourceUrl": "https://www.tbmm.gov.tr/",
+          "rightsNote": "Kamuya açık resmî parlamento tutanağı",
+          "verificationBadge": "Resmî Kurumsal Arşiv",
+          "humanReviewed": true
+        }
+      ]
+    },
+    {
+      "id": "meclis-kapanis",
+      "order": 7,
+      "type": "closing",
+      "kicker": "KÜRATÖRYAL BİTİŞ",
+      "title": "Milletin Evi Ankara",
+      "epilogue": "Türkiye Büyük Millet Meclisi'nin kuruluşu, bir ulusun kendi mukadderatını bizzat eline aldığı eşsiz bir irade zaferidir.",
+      "curatorSignoff": "Asrın Kemali Küratoryal Heyeti • Ankara",
+      "sourcesSummary": "Bu sergi 3 resmî olay kaydı ve 2 kurum fotoğrafı kaynak gösterilerek kurgulanmıştır.",
+      "suggestedExhibitions": [
+        {
+          "slug": "cumhuriyetin-ilani",
+          "title": "Cumhuriyet'in İlanı ve Yeni Devletin Temelleri",
+          "theme": "Cumhuriyet'in İlanı"
+        }
+      ]
+    }
+  ],
+  "relatedArchiveRecordSlugs": [
+    "meclis-onunde-dua-1920",
+    "tbmm-acilisi-1920",
+    "samsun-cikarmasi-1919",
+    "i-tbmm-binasi"
+  ],
+  "editorialReview": {
+    "status": "published",
+    "reviewedBy": "Asrın Kemali Araştırma ve Küratörlük Kurulu",
+    "reviewedAt": "2026-10-23",
+    "version": "1.0.0",
+    "isSyntheticPreview": true,
+    "notes": "TBMM ve Kurtuluş Savaşı Müzesi arşiv verileri referans alınmıştır."
+  },
+  "createdAt": "2026-10-23T20:00:00.000Z",
+  "updatedAt": "2026-10-23T20:00:00.000Z"
+}
