@@ -3,7 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ContentPage } from "@/components/ContentPage";
 import { Icon } from "@/components/Icon";
+import { RelatedArchiveRecords } from "@/components/RelatedArchiveRecords";
 import { getPublishedArchiveRecord, getPublishedArchiveRecords, reviewLabel, typeLabel } from "@/lib/archive";
+import { areRecommendationsEnabled, getRecommendations } from "@/lib/recommendations";
 import styles from "../../content-platform.module.css";
 
 // Yalnız derlemede üretilen yayımlanmış kayıtlar sunulur; bilinmeyen slug sunucu render'ı yapılmadan 404 döner.
@@ -36,6 +38,7 @@ export default async function ArchiveDetailPage({ params }: { params: Promise<{ 
   const { slug } = await params;
   const record = getPublishedArchiveRecord(slug);
   if (!record) notFound();
+  const recommendations = areRecommendationsEnabled(process.env) ? getRecommendations(record, getPublishedArchiveRecords()) : null;
 
   return (
     <ContentPage eyebrow={typeLabel(record.type).toLocaleUpperCase("tr-TR")} title={record.title}>
@@ -93,6 +96,8 @@ export default async function ArchiveDetailPage({ params }: { params: Promise<{ 
             <div className={styles.detailDescription}>
               <p>{record.description ?? record.summary}</p>
             </div>
+
+            {recommendations ? <RelatedArchiveRecords items={recommendations.items} /> : null}
 
             {record.tags?.length ? (
               <ul className={styles.tagList} aria-label="Kayıt etiketleri">
