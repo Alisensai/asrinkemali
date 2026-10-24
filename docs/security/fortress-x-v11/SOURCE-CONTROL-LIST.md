@@ -2,109 +2,110 @@
 
 Bu dosya değiştirilmeden tutulur. `CONTROL-MATRIX.md` madde numaralarını ve adlarını buradan alır. `web/tests/security-fortress-x-matrix.test.mjs` birebir eşleşmeyi doğrular.
 
-Liste 100 maddedir (görev metninde "99 kontrol" deniyordu; numaralar olduğu gibi korundu).
+Liste 99 maddedir. "Firewall" numarasız bir başlıktır, madde değildir. İlk kayıtta yanlışlıkla "1. Firewall" olarak numaralanmış ve bütün maddeler bir sıra kaymıştı; kullanıcı düzeltmesiyle giderildi (2026-10-24).
 
 TBMM ve Üst Düzey Kurumsal Güvenlik Sistemleri
 
-1. Firewall
-2. Next-Generation Firewall (NGFW)
-3. Web Application Firewall (WAF)
-4. Intrusion Detection System (IDS)
-5. Intrusion Prevention System (IPS)
-6. Anti-DDoS Protection
-7. Security Information and Event Management (SIEM)
-8. Endpoint Detection and Response (EDR)
-9. Extended Detection and Response (XDR)
-10. Security Operations Center (SOC)
-11. Siber Olaylara Müdahale Ekibi (SOME)
-12. Network Access Control (NAC)
-13. Virtual Private Network (VPN)
-14. SSL/TLS Encryption
-15. Malware Sandbox
-16. Secure Email Gateway
-17. Endpoint Protection Platform (EPP)
-18. Vulnerability Management
-19. Penetration Testing
-20. Identity and Access Management (IAM)
-21. Load Balancer
-22. Centralized Syslog / EventLog
-23. MITRE ATT&CK Framework
-24. OWASP Security Standards
-25. ISO/IEC 27001
-26. Disaster Recovery
-27. Zero Trust Architecture
-28. Network Segmentation
-29. Global CDN / Anycast
-30. Enterprise Bot Management
-31. Adaptive Rate Limiting
-32. Behavioral Threat Analysis
-33. IP Reputation Intelligence
-34. Adaptive Security Challenges
-35. Origin Server Protection
-36. Server Hardening
-37. Runtime Threat Detection
-38. Outbound Traffic Filtering
-39. Hardware Security Keys
-40. FIDO2 / Passkeys
-41. Privileged Access Management (PAM)
-42. Role-Based Access Control (RBAC)
-43. Just-in-Time Privileged Access
-44. Device Trust Verification
-45. Session Hijacking Protection
-46. Continuous Authentication
-47. SQL Injection Protection
-48. Cross-Site Scripting (XSS) Protection
-49. Cross-Site Request Forgery (CSRF) Protection
-50. API Security Gateway
-51. Object-Level Authorization
-52. Secrets Management
-53. Database Encryption
-54. Secure File Upload Scanning
-55. Static Application Security Testing (SAST)
-56. Dynamic Application Security Testing (DAST)
-57. Software Composition Analysis (SCA)
-58. Security Orchestration, Automation and Response (SOAR)
-59. User and Entity Behavior Analytics (UEBA)
-60. Honeytokens / Deception Technology
-61. Immutable Audit Logs
-62. Automated Incident Isolation
-63. Immutable Offline Backups
-64. Automated Disaster Recovery
-65. Cloud Security Posture Management (CSPM)
-66. Container Runtime Security
-67. Kubernetes Security Policies
-68. Infrastructure as Code Security Scanning
-69. Supply Chain Security
-70. Software Bill of Materials (SBOM)
-71. DNSSEC
-72. DNS Filtering
-73. Certificate Transparency Monitoring
-74. HTTP Security Headers
-75. Content Security Policy (CSP)
-76. Subresource Integrity (SRI)
-77. Multi-Factor Authentication (MFA)
-78. Risk-Based Authentication
-79. Database Activity Monitoring
-80. Data Loss Prevention (DLP)
-81. Cloud Workload Protection (CWPP)
-82. Attack Surface Management (ASM)
-83. External Attack Surface Monitoring (EASM)
-84. Threat Intelligence Platform (TIP)
-85. Continuous Security Validation
-86. Breach and Attack Simulation (BAS)
-87. Automated Vulnerability Patching
-88. Secure CI/CD Pipeline
-89. Runtime Application Self-Protection (RASP)
-90. File Integrity Monitoring (FIM)
-91. Cryptographic Key Rotation
-92. Hardware Security Module (HSM)
-93. Tamper Detection
-94. Emergency Access Revocation
-95. Automated Credential Revocation
-96. Critical Database Read-Only Lockdown
-97. Emergency Network Quarantine
-98. Incident Evidence Preservation
-99. Independent Recovery Environment
-100. PROJECT BLACKOUT — Kritik ihlal doğrulandığında sistemi güvenli moda alma, saldırganın erişimini kesme ve verileri koruma.
+Firewall
+
+1. Next-Generation Firewall (NGFW)
+2. Web Application Firewall (WAF)
+3. Intrusion Detection System (IDS)
+4. Intrusion Prevention System (IPS)
+5. Anti-DDoS Protection
+6. Security Information and Event Management (SIEM)
+7. Endpoint Detection and Response (EDR)
+8. Extended Detection and Response (XDR)
+9. Security Operations Center (SOC)
+10. Siber Olaylara Müdahale Ekibi (SOME)
+11. Network Access Control (NAC)
+12. Virtual Private Network (VPN)
+13. SSL/TLS Encryption
+14. Malware Sandbox
+15. Secure Email Gateway
+16. Endpoint Protection Platform (EPP)
+17. Vulnerability Management
+18. Penetration Testing
+19. Identity and Access Management (IAM)
+20. Load Balancer
+21. Centralized Syslog / EventLog
+22. MITRE ATT&CK Framework
+23. OWASP Security Standards
+24. ISO/IEC 27001
+25. Disaster Recovery
+26. Zero Trust Architecture
+27. Network Segmentation
+28. Global CDN / Anycast
+29. Enterprise Bot Management
+30. Adaptive Rate Limiting
+31. Behavioral Threat Analysis
+32. IP Reputation Intelligence
+33. Adaptive Security Challenges
+34. Origin Server Protection
+35. Server Hardening
+36. Runtime Threat Detection
+37. Outbound Traffic Filtering
+38. Hardware Security Keys
+39. FIDO2 / Passkeys
+40. Privileged Access Management (PAM)
+41. Role-Based Access Control (RBAC)
+42. Just-in-Time Privileged Access
+43. Device Trust Verification
+44. Session Hijacking Protection
+45. Continuous Authentication
+46. SQL Injection Protection
+47. Cross-Site Scripting (XSS) Protection
+48. Cross-Site Request Forgery (CSRF) Protection
+49. API Security Gateway
+50. Object-Level Authorization
+51. Secrets Management
+52. Database Encryption
+53. Secure File Upload Scanning
+54. Static Application Security Testing (SAST)
+55. Dynamic Application Security Testing (DAST)
+56. Software Composition Analysis (SCA)
+57. Security Orchestration, Automation and Response (SOAR)
+58. User and Entity Behavior Analytics (UEBA)
+59. Honeytokens / Deception Technology
+60. Immutable Audit Logs
+61. Automated Incident Isolation
+62. Immutable Offline Backups
+63. Automated Disaster Recovery
+64. Cloud Security Posture Management (CSPM)
+65. Container Runtime Security
+66. Kubernetes Security Policies
+67. Infrastructure as Code Security Scanning
+68. Supply Chain Security
+69. Software Bill of Materials (SBOM)
+70. DNSSEC
+71. DNS Filtering
+72. Certificate Transparency Monitoring
+73. HTTP Security Headers
+74. Content Security Policy (CSP)
+75. Subresource Integrity (SRI)
+76. Multi-Factor Authentication (MFA)
+77. Risk-Based Authentication
+78. Database Activity Monitoring
+79. Data Loss Prevention (DLP)
+80. Cloud Workload Protection (CWPP)
+81. Attack Surface Management (ASM)
+82. External Attack Surface Monitoring (EASM)
+83. Threat Intelligence Platform (TIP)
+84. Continuous Security Validation
+85. Breach and Attack Simulation (BAS)
+86. Automated Vulnerability Patching
+87. Secure CI/CD Pipeline
+88. Runtime Application Self-Protection (RASP)
+89. File Integrity Monitoring (FIM)
+90. Cryptographic Key Rotation
+91. Hardware Security Module (HSM)
+92. Tamper Detection
+93. Emergency Access Revocation
+94. Automated Credential Revocation
+95. Critical Database Read-Only Lockdown
+96. Emergency Network Quarantine
+97. Incident Evidence Preservation
+98. Independent Recovery Environment
+99. PROJECT BLACKOUT — Kritik ihlal doğrulandığında sistemi güvenli moda alma, saldırganın erişimini kesme ve verileri koruma.
 
 Not: İlk 26 madde, TBMM'nin kamuya açık bilişim ilanlarında geçen teknolojileri ve güvenlik alanlarını temel alır; hepsinin kurumda aktif kullanıldığı doğrulanmış değildir. Diğer maddeler, sitene eklenebilecek kurumsal güvenlik önerileridir. Son aşamada gerçek veri imhası yerine güvenli izolasyon ve kurtarma mekanizması kullanılmalıdır.

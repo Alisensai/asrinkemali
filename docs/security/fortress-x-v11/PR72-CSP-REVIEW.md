@@ -4,7 +4,7 @@
 - **Dal / commit:** `feature/codex-v11-application-security` @ `58548d3` → `integration/asrinkemali-v11-fortress-x`
 - **Değişen dosyalar:** `web/lib/security/headers.ts`, `web/tests/security-headers.test.mjs`
 - **İnceleme tarihi:** 2026-10-24
-- **Karar:** **Henüz entegrasyona alınmadı.** CI teknik olarak yeşil (aşağıda); alma kararı kullanıcıda. `report-only` riski açık.
+- **Karar (kullanıcı, 2026-10-24):** **Entegrasyona ALINMAYACAK.** Önce production `report-only` riski kapatılmalı: zorunlu `Content-Security-Policy` hiçbir production modunda kaldırılmamalı. Düzeltilmiş commit ve teknik CI kontrolleri doğrulandıktan sonra karar yeniden değerlendirilecek.
 
 ## PR'ın düzelttiği
 
@@ -32,7 +32,7 @@ Yerel doğrulama: PR'ın `headers.ts` dosyası üzerinde `headerOptionsFromEnv({
 - **Önem:** Orta/yüksek (savunma derinliği). React kaçışlama ve `dangerouslySetInnerHTML` yokluğu birincil XSS korumasını sürdürüyor. Ancak CSP, bunların atlatıldığı durumda son katman.
 - **Önerilen düzeltme** (Codex, `headers.ts`):
   1. Production'da report-only **zorunlu politikanın yerine geçmemeli, onun yanına eklenmeli**. Yani `report-only` modunda production hem `Content-Security-Policy` hem de (aday katı politika için) `Content-Security-Policy-Report-Only` göndermeli. Report-only'nin tek başına kullanımı yalnız `NODE_ENV=development`'ta olmalı.
-  2. Report-only'nin anlamı olması için raporlama uç noktası (`report-to` + `Reporting-Endpoints`) gerekiyor. Bu bir altyapı gereksinimi (SIEM/merkezi günlük, matris #7, #22). Uç nokta yokken report-only yalnız gözlemsiz bir başlıktır.
+  2. Report-only'nin anlamı olması için raporlama uç noktası (`report-to` + `Reporting-Endpoints`) gerekiyor. Bu bir altyapı gereksinimi (SIEM/merkezi günlük, matris #6, #21). Uç nokta yokken report-only yalnız gözlemsiz bir başlıktır.
   3. Test: `NODE_ENV=production, ASRIN_CSP_MODE=report-only` → `Content-Security-Policy` başlığı **var** olmalı.
 
 ## CI durumu (head `58548d3`, tamamlandı)
