@@ -184,9 +184,12 @@ describe("MKA Immersive Museum Hardening & Security Gate Tests (Task 26)", () =>
     assert.doesNotMatch(srcInspector, /<span[^>]*>BİRİNCİL TARİHÎ KAYNAK<\/span>/);
     // Yalnızca tarafsız katalog kaydı ve doğrulanmış pill
     assert.match(srcInspector, /KATALOG KAYDI/);
-    assert.match(srcInspector, /source\.isVerified\s*\?/);
-    assert.match(srcInspector, /DOĞRULANMIŞ KAYNAK/);
+    // V1.0: rozet, sergi verisinden türetilen güven durumuna bağlı (sabit isVerified yok).
+    assert.match(srcInspector, /source\.trust\?\.state\s*===\s*"verified"\s*\?/);
     assert.match(srcInspector, /İNCELEME BEKLİYOR/);
+    const sourceTrust = readFileSync(path.join(root, "lib", "exhibitions", "source-trust.ts"), "utf8");
+    assert.match(sourceTrust, /DOĞRULANMIŞ KAYNAK/);
+    assert.match(sourceTrust, /İNCELEME BEKLİYOR/);
     assert.match(srcInspector, /TEMSİLÎ GÖRSEL/);
   });
 

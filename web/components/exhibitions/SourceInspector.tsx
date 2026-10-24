@@ -3,6 +3,8 @@
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import styles from "./exhibitions.module.css";
+import type { SourceTrust } from "@/lib/exhibitions/source-trust";
+import { safeHref } from "@/lib/security/safe-url";
 
 export interface InspectedSource {
   title: string;
@@ -14,7 +16,11 @@ export interface InspectedSource {
   description?: string;
   archiveSlug?: string;
   sourceUrl?: string;
-  isVerified?: boolean;
+  /**
+   * Veriye dayalı güven durumu (`resolveSourceTrust`). Bileşenler bunu kendileri
+   * belirleyemez; sergi görünümü sergi verisinden türetip ekler. Yoksa "inceleme bekliyor".
+   */
+  trust?: SourceTrust;
   isRepresentativeVisual?: boolean;
 }
 
@@ -98,10 +104,12 @@ export function SourceInspector({ source, isOpen, onClose }: SourceInspectorProp
               </svg>
               KATALOG KAYDI
             </span>
-            {source.isVerified ? (
-              <span className={styles.verifiedPill}>DOĞRULANMIŞ KAYNAK</span>
+            {source.trust?.state === "verified" ? (
+              <span className={styles.verifiedPill} title={source.trust.description}>{source.trust.label}</span>
             ) : (
-              <span className={styles.unverifiedNotice}>İNCELEME BEKLİYOR</span>
+              <span className={styles.unverifiedNotice} title={source.trust?.description}>
+                {source.trust?.label ?? "İNCELEME BEKLİYOR"}
+              </span>
             )}
             {source.isRepresentativeVisual && (
               <span className={styles.representativePill}>TEMSİLÎ GÖRSEL</span>
@@ -174,9 +182,9 @@ export function SourceInspector({ source, isOpen, onClose }: SourceInspectorProp
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </Link>
-            ) : source.sourceUrl ? (
+            ) : safeHref(source.sourceUrl) ? (
               <a
-                href={source.sourceUrl}
+                href={safeHref(source.sourceUrl) ?? undefined}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.primaryArchiveLink}
