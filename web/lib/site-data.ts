@@ -9,6 +9,7 @@ export const primaryNavigation: LinkItem[] = [
   { label: "Belgeler", href: "/arsiv?tur=belge" },
   { label: "Fotoğraflar", href: "/arsiv?tur=fotograf" },
   { label: "Yayınlar", href: "/yayinlar" },
+  { label: "Keşfet", href: "/kesfet" },
   { label: "Hakkımızda", href: "/hakkimizda" },
 ];
 
@@ -49,5 +50,6 @@ export const searchItems: SearchItem[] = [
   { title: "Yayınlar", kind: "Sayfa", href: "/yayinlar", keywords: "araştırma makale yayın" },
   { title: "Tarihte Bugün", kind: "Sayfa", href: "/tarihte-bugun", keywords: "gün ay kaynaklı olay tarih" },
   { title: "Küratöryel Sergiler", kind: "Sayfa", href: "/sergiler", keywords: "sergi müze sanal galeri vitrin anlatım cumhuriyet milli mücadele" },
+  { title: "Keşfet & Öneriler", kind: "Sayfa", href: "/kesfet", keywords: "keşfet öneri akıllı arama tema dönem ilişkili kayıtlar" },
   { title: "Hakkımızda", kind: "Sayfa", href: "/hakkimizda", keywords: "bağımsız proje ilkeler" },
 ];
