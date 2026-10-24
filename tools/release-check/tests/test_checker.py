@@ -153,6 +153,12 @@ class ReleaseCheckTests(unittest.TestCase):
         checker.check_next_sources(self.root, self.report)
         self.assertNotIn("broken-route", {item["code"] for item in self.report["findings"]})
 
+    def test_next_route_handler_is_recognized(self):
+        self.write("app/page.tsx", '<a href="/api/export">Dışa Aktar</a>')
+        self.write("app/api/export/route.ts", 'export async function GET() {}')
+        checker.check_next_sources(self.root, self.report)
+        self.assertNotIn("broken-route", {item["code"] for item in self.report["findings"]})
+
     def test_next_source_broken_anchor_is_reported(self):
         self.write("app/page.tsx", '<a href="#missing">Anchor</a>')
         checker.check_next_sources(self.root, self.report)
@@ -196,6 +202,12 @@ class ReleaseCheckTests(unittest.TestCase):
 
     def test_next_button_with_event_is_allowed(self):
         self.write("app/page.tsx", '<button type="button" onClick={() => run()}>Run</button>')
+        checker.check_next_sources(self.root, self.report)
+        self.assertNotIn("button-without-action", {item["code"] for item in self.report["findings"]})
+
+    def test_next_button_with_href_is_allowed(self):
+        self.write("app/page.tsx", '<button href="/about">Link Button</button>')
+        self.write("app/about/page.tsx", '<main>About</main>')
         checker.check_next_sources(self.root, self.report)
         self.assertNotIn("button-without-action", {item["code"] for item in self.report["findings"]})
 

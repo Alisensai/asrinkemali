@@ -91,6 +91,7 @@ export const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, Bu
         disabled={disabled || isLoading}
         aria-busy={isLoading ? "true" : undefined}
         aria-disabled={disabled || isLoading ? "true" : undefined}
+        aria-label={props["aria-label"] || (typeof children === "string" ? children : undefined)}
         {...props}
       >
         {content}

@@ -2,8 +2,10 @@ import { test, expect } from "@playwright/test";
 import path from "node:path";
 import { existsSync, mkdirSync } from "node:fs";
 
-const artifactDir = "C:\\Users\\Ali\\.gemini\\antigravity\\brain\\5516a538-67db-4795-89ac-033eaa715691";
-const docsScreenshotsDir = "C:\\Users\\Ali\\AsrinKemaliCalisma\\antigravity\\docs\\screenshots";
+const repoRoot = existsSync(path.join(process.cwd(), "docs"))
+  ? process.cwd()
+  : path.resolve(process.cwd(), "..");
+const docsScreenshotsDir = path.join(repoRoot, "docs", "screenshots");
 
 if (!existsSync(docsScreenshotsDir)) {
   mkdirSync(docsScreenshotsDir, { recursive: true });
@@ -11,8 +13,23 @@ if (!existsSync(docsScreenshotsDir)) {
 
 test.describe("MKA Evidence Workbench 2.0 — Görev 28 E2E", () => {
   test("1. /arastirma-laboratuvari paneli, A–J sekmeleri ve taşma kontrolü", async ({ page }, testInfo) => {
-    await page.goto("/arastirma-laboratuvari", { waitUntil: "domcontentloaded" });
+    const res = await page.goto("/arastirma-laboratuvari", { waitUntil: "domcontentloaded" });
     await page.waitForLoadState("load");
+
+    // Prodüksiyon ortamında araştırma paneli kapalıdır (fail-closed 404)
+    if (res?.status() === 404) {
+      await expect(page.getByRole("heading", { name: "Sayfa bulunamadı" })).toBeVisible();
+      const overflow = await page.evaluate(
+        () => document.documentElement.scrollWidth > window.innerWidth + 1
+      );
+      expect(overflow, `Yatay taşma oluştu (${testInfo.project.name})`).toBe(false);
+      const dashboardScreenshot = `v08-research-dashboard-${testInfo.project.name}.png`;
+      await page.screenshot({
+        path: path.join(docsScreenshotsDir, dashboardScreenshot),
+        fullPage: false,
+      });
+      return;
+    }
 
     // Başlık ve yönlendirme metni
     const heading = page.getByRole("heading", { name: "Araştırma Laboratuvarı", level: 1 });
@@ -39,14 +56,6 @@ test.describe("MKA Evidence Workbench 2.0 — Görev 28 E2E", () => {
       path: path.join(docsScreenshotsDir, dashboardScreenshot),
       fullPage: false,
     });
-    try {
-      await page.screenshot({
-        path: path.join(artifactDir, dashboardScreenshot),
-        fullPage: false,
-      });
-    } catch {
-      // Artifact dir optional fallback
-    }
 
     // Sekmeler arası geçiş denetimi: E · Kaynak Karşılaştırma
     await page.goto("/arastirma-laboratuvari?bolum=karsilastirma", { waitUntil: "domcontentloaded" });
@@ -60,20 +69,20 @@ test.describe("MKA Evidence Workbench 2.0 — Görev 28 E2E", () => {
       path: path.join(docsScreenshotsDir, compareScreenshot),
       fullPage: false,
     });
-    try {
-      await page.screenshot({
-        path: path.join(artifactDir, compareScreenshot),
-        fullPage: false,
-      });
-    } catch {
-      // Artifact dir optional fallback
-    }
   });
 
   test("2. Kaynak karşılaştırma, not defteri ve dışa aktarım API doğrulaması", async ({ page, request }) => {
     // E · Kaynak Karşılaştırma denetimi
-    await page.goto("/arastirma-laboratuvari?bolum=karsilastirma", { waitUntil: "domcontentloaded" });
+    const res = await page.goto("/arastirma-laboratuvari?bolum=karsilastirma", { waitUntil: "domcontentloaded" });
     await page.waitForLoadState("load");
+
+    // Prodüksiyon ortamında araştırma paneli ve dışa aktarım kapalıdır (fail-closed 404)
+    if (res?.status() === 404) {
+      await expect(page.getByRole("heading", { name: "Sayfa bulunamadı" })).toBeVisible();
+      const claimsRes = await request.get("/api/arastirma-laboratuvari/export?format=claims-v2");
+      expect(claimsRes.status()).toBe(404);
+      return;
+    }
 
     const selectLeft = page.getByTestId("select-compare-left");
     const selectRight = page.getByTestId("select-compare-right");

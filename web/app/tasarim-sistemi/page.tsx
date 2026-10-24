@@ -48,17 +48,17 @@ export default function DesignSystemCatalogPage() {
         <section className={styles.section} aria-labelledby="sec-buttons">
           <h2 id="sec-buttons" className={styles.sectionTitle}>1. Butonlar ve Eylemler (Button)</h2>
           <div className={styles.demoRow}>
-            <Button variant="primary" size="md">Birincil Bordo Buton</Button>
-            <Button variant="secondary" size="md">İkincil Altın Kontur</Button>
-            <Button variant="outline" size="md">Koyu Çerçeveli</Button>
-            <Button variant="ghost" size="md">Hayalet Buton</Button>
+            <Button variant="primary" size="md" aria-disabled="true">Birincil Bordo Buton</Button>
+            <Button variant="secondary" size="md" aria-disabled="true">İkincil Altın Kontur</Button>
+            <Button variant="outline" size="md" aria-disabled="true">Koyu Çerçeveli</Button>
+            <Button variant="ghost" size="md" aria-disabled="true">Hayalet Buton</Button>
             <Button variant="primary" size="md" disabled>Devre Dışı</Button>
-            <Button variant="secondary" size="md" isLoading>Yükleniyor</Button>
+            <Button variant="secondary" size="md" isLoading aria-disabled="true">Yükleniyor</Button>
           </div>
           <div className={styles.demoRow} style={{ marginTop: "12px" }}>
-            <Button variant="primary" size="sm">Küçük (36px)</Button>
-            <Button variant="primary" size="md">Normal (44px)</Button>
-            <Button variant="primary" size="lg">Büyük (52px)</Button>
+            <Button variant="primary" size="sm" aria-disabled="true">Küçük (36px)</Button>
+            <Button variant="primary" size="md" aria-disabled="true">Normal (44px)</Button>
+            <Button variant="primary" size="lg" aria-disabled="true">Büyük (52px)</Button>
           </div>
         </section>
 

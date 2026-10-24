@@ -106,6 +106,7 @@ export function CollectionForm({
           type="submit"
           disabled={isSubmitting}
           className={styles.btnPrimary}
+          aria-label={isSubmitting ? 'Kaydediliyor…' : submitLabel}
         >
           {isSubmitting ? 'Kaydediliyor…' : submitLabel}
         </button>

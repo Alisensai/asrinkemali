@@ -38,11 +38,11 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
       {(actionLabel && (actionHref || onAction)) && (
         <div className={styles.emptyStateActions}>
           {actionHref ? (
-            <Button variant="secondary" size="md" href={actionHref}>
+            <Button variant="secondary" size="md" href={actionHref} aria-label={actionLabel}>
               {actionLabel}
             </Button>
           ) : (
-            <Button variant="secondary" size="md" onClick={onAction}>
+            <Button variant="secondary" size="md" onClick={onAction} aria-label={actionLabel}>
               {actionLabel}
             </Button>
           )}

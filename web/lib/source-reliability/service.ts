@@ -4,9 +4,12 @@ import type {
   CatalogSourceHealthDTO,
   EarlyPeriodCandidateDTO,
   EarlyPeriodCoverageDTO,
+  FindingCategory,
+  FindingSeverity,
   HumanReviewWorklistDTO,
   SourceFindingDTO,
 } from "./types.ts";
+
 
 const REPO_ROOT = path.resolve(process.cwd(), "..");
 const TOOLS_DIR = path.join(REPO_ROOT, "tools", "archive-source-reliability");
@@ -123,6 +126,36 @@ export function getCatalogSourceHealth(): CatalogSourceHealthDTO {
   };
 }
 
+const VALID_FINDING_CATEGORIES: ReadonlySet<string> = new Set<FindingCategory>([
+  "date",
+  "source_sufficiency",
+  "rights",
+  "duplicate",
+  "provenance",
+  "human_review",
+]);
+
+function toFindingCategory(cat?: string): FindingCategory {
+  if (cat && VALID_FINDING_CATEGORIES.has(cat)) {
+    return cat as FindingCategory;
+  }
+  return "source_sufficiency";
+}
+
+const VALID_FINDING_SEVERITIES: ReadonlySet<string> = new Set<FindingSeverity>([
+  "critical",
+  "error",
+  "warning",
+  "info",
+]);
+
+function toFindingSeverity(sev?: string): FindingSeverity {
+  if (sev && VALID_FINDING_SEVERITIES.has(sev)) {
+    return sev as FindingSeverity;
+  }
+  return "warning";
+}
+
 /**
  * Belirli bir kayıt için kaynak denetimi bulgularını listeler.
  */
@@ -133,8 +166,8 @@ export function getSourceFindingsForRecord(recordId: string): SourceFindingDTO[]
     .filter((f) => f.recordId === recordId)
     .map((f) => ({
       recordId: f.recordId,
-      category: (f.category as any) ?? "source_sufficiency",
-      severity: (f.severity as any) ?? "warning",
+      category: toFindingCategory(f.category),
+      severity: toFindingSeverity(f.severity),
       message: f.message,
       field: f.field,
       observedValue: f.observedValue,
@@ -142,6 +175,7 @@ export function getSourceFindingsForRecord(recordId: string): SourceFindingDTO[]
       humanActionRequired: Boolean(f.humanActionRequired ?? true),
     }));
 }
+
 
 /**
  * 1881-1918 erken dönem evre kapsamını ve akademik boşlukları döndürür.
@@ -181,6 +215,23 @@ export function getEarlyPeriodCoverage(): EarlyPeriodCoverageDTO {
   };
 }
 
+interface RawCandidateItem {
+  id: string;
+  sourceId?: string;
+  title: string;
+  url?: string;
+  sourceUrl?: string;
+  institution?: string;
+  period?: string;
+  whyCandidate?: string;
+}
+
+function isRawCandidateItem(val: unknown): val is RawCandidateItem {
+  if (typeof val !== "object" || val === null) return false;
+  const obj = val as Record<string, unknown>;
+  return typeof obj.id === "string" && typeof obj.title === "string";
+}
+
 /**
  * Erken dönem için taranmış ancak henüz doğrulanmamış 13 adayı döndürür.
  * İNVARİANT: Asla ingest: true veya humanApproved: true olamaz!
@@ -189,21 +240,24 @@ export function get13EarlyPeriodCandidates(): EarlyPeriodCandidateDTO[] {
   try {
     if (fs.existsSync(CANDIDATES_DATA_PATH)) {
       const raw = fs.readFileSync(CANDIDATES_DATA_PATH, "utf8");
-      const parsed = JSON.parse(raw);
-      if (Array.isArray(parsed.candidates)) {
-        return parsed.candidates.map((c: any) => ({
-          id: c.id,
-          sourceId: c.sourceId ?? c.id,
-          title: c.title,
-          sourceUrl: c.url ?? c.sourceUrl ?? "",
-          institution: c.institution ?? "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
-          period: c.period ?? "1881-1918",
-          status: "unverified" as const,
-          ingest: false as const,
-          humanApproved: false as const,
-          verificationRequired: true as const,
-          whyCandidate: c.whyCandidate ?? "",
-        }));
+      const parsed: unknown = JSON.parse(raw);
+      if (typeof parsed === "object" && parsed !== null && "candidates" in parsed) {
+        const candidateList = (parsed as { candidates: unknown }).candidates;
+        if (Array.isArray(candidateList)) {
+          return candidateList.filter(isRawCandidateItem).map((c) => ({
+            id: c.id,
+            sourceId: c.sourceId ?? c.id,
+            title: c.title,
+            sourceUrl: c.url ?? c.sourceUrl ?? "",
+            institution: c.institution ?? "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+            period: c.period ?? "1881-1918",
+            status: "unverified" as const,
+            ingest: false as const,
+            humanApproved: false as const,
+            verificationRequired: true as const,
+            whyCandidate: c.whyCandidate ?? "",
+          }));
+        }
       }
     }
   } catch {
@@ -211,6 +265,7 @@ export function get13EarlyPeriodCandidates(): EarlyPeriodCandidateDTO[] {
   }
   return [];
 }
+
 
 /**
  * İnsan uzman ve editör onayı bekleyen kayıtların iş listesini döndürür.

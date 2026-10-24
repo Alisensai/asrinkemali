@@ -170,6 +170,7 @@ export function ArchiveRecordCard({
               onClick={onToggleReadLater}
               className={`${styles.cardActionBtn} ${item.readLater ? styles.cardActionBtnActive : ''}`}
               aria-pressed={item.readLater}
+              aria-label={item.readLater ? "Sonra okundu olarak işaretli" : "Sonra oku olarak işaretle"}
             >
               <span>{item.readLater ? '✓ İşaretli' : '🔖 Sonra oku'}</span>
             </button>

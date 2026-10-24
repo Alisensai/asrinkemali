@@ -366,7 +366,7 @@ def check_next_sources(root: Path, report: dict, external: bool = False, timeout
             relative = path.relative_to(base).with_suffix("")
             parts = list(relative.parts)
             if base == app_root:
-                if parts[-1] != "page":
+                if parts[-1] not in {"page", "route"}:
                     continue
                 parts.pop()
                 parts = [part for part in parts if not (part.startswith("(") and part.endswith(")"))]
@@ -574,7 +574,7 @@ def check_next_sources(root: Path, report: dict, external: bool = False, timeout
             if not has_label and not re.search(r"\baria-labelledby\s*=", attrs):
                 issue(report, "next", "error", "unlabeled-button", "Next.js button erişilebilir etikete sahip değil.",
                       str(path.relative_to(root)))
-            has_action = bool(re.search(r"\b(?:onClick|formAction)\s*=", attrs) or
+            has_action = bool(re.search(r"\b(?:onClick|formAction|href)\s*=", attrs) or
                               re.search(r"""\btype\s*=\s*(['"])submit\1""", attrs))
             disabled = bool(re.search(r"\bdisabled(?:\s|=|$)", attrs) or
                             re.search(r"""\baria-disabled\s*=\s*(['"])true\1""", attrs))

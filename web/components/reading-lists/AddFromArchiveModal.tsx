@@ -190,6 +190,7 @@ export function AddFromArchiveModal({
                     disabled={alreadyInCollection || isCurrentlyAdding}
                     className={alreadyInCollection ? styles.btnSecondary : styles.btnPrimary}
                     style={{ minHeight: '38px', padding: '0.4rem 0.85rem', fontSize: '0.8rem', whiteSpace: 'nowrap' }}
+                    aria-label={isCurrentlyAdding ? `${rec.title} ekleniyor` : alreadyInCollection ? `${rec.title} listede` : `${rec.title} listeye ekle`}
                   >
                     {isCurrentlyAdding ? 'Ekleniyor…' : alreadyInCollection ? '✓ Listede' : '+ Ekle'}
                   </button>

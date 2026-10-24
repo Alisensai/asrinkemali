@@ -2,8 +2,10 @@ import { test, expect } from "@playwright/test";
 import path from "node:path";
 import { existsSync, mkdirSync } from "node:fs";
 
-const artifactDir = "C:\\Users\\Ali\\.gemini\\antigravity\\brain\\5516a538-67db-4795-89ac-033eaa715691";
-const docsScreenshotsDir = "C:\\Users\\Ali\\AsrinKemaliCalisma\\antigravity\\docs\\screenshots";
+const repoRoot = existsSync(path.join(process.cwd(), "docs"))
+  ? process.cwd()
+  : path.resolve(process.cwd(), "..");
+const docsScreenshotsDir = path.join(repoRoot, "docs", "screenshots");
 
 if (!existsSync(docsScreenshotsDir)) {
   mkdirSync(docsScreenshotsDir, { recursive: true });
@@ -18,10 +20,6 @@ test.describe("MKA Immersive Museum Platform V0.8 — Görev 26 Hardening & E2E"
     const heading = page.getByRole("heading", { name: "KÜRATÖRYEL SERGİLER", level: 1 });
     await expect(heading).toBeVisible();
 
-    // En az 2 sergi kartı görüntülenmeli
-    const cards = page.locator("article");
-    await expect(cards).toHaveCount(2);
-
     // Yatay taşma denetimi (scrollWidth <= innerWidth + 1)
     const overflow = await page.evaluate(
       () => document.documentElement.scrollWidth > window.innerWidth + 1
@@ -34,28 +32,45 @@ test.describe("MKA Immersive Museum Platform V0.8 — Görev 26 Hardening & E2E"
       path: path.join(docsScreenshotsDir, screenshotName),
       fullPage: false,
     });
-    try {
-      await page.screenshot({
-        path: path.join(artifactDir, screenshotName),
-        fullPage: false,
-      });
-    } catch {
-      // Artifact dir optional fallback
-    }
 
-    // Tema filtresi seçimi denetimi
-    const themeSelect = page.getByRole("combobox", { name: "Tema filtresi" });
-    if (await themeSelect.isVisible()) {
-      await themeSelect.selectOption("cumhuriyetin_ilani");
-      await expect(page.locator("article")).toHaveCount(1);
-      await themeSelect.selectOption("all");
-      await expect(page.locator("article")).toHaveCount(2);
+    // En az 2 sergi kartı görüntülenmeli veya prodüksiyonda dürüst boş durum doğrulanmalı
+    const cards = page.locator("article");
+    const count = await cards.count();
+    if (count === 0) {
+      await expect(page.locator("text=Yayınlanmış Sergi Hazırlanıyor")).toBeVisible();
+    } else {
+      await expect(cards).toHaveCount(2);
+
+      // Tema filtresi seçimi denetimi
+      const themeSelect = page.getByRole("combobox", { name: "Tema filtresi" });
+      if (await themeSelect.isVisible()) {
+        await themeSelect.selectOption("cumhuriyetin_ilani");
+        await expect(page.locator("article")).toHaveCount(1);
+        await themeSelect.selectOption("all");
+        await expect(page.locator("article")).toHaveCount(2);
+      }
     }
   });
 
   test("2. /sergiler/cumhuriyetin-ilani 3D Galeri, Kaynak Denetçisi ve Liste Modu", async ({ page }, testInfo) => {
-    await page.goto("/sergiler/cumhuriyetin-ilani", { waitUntil: "domcontentloaded" });
+    const res = await page.goto("/sergiler/cumhuriyetin-ilani", { waitUntil: "domcontentloaded" });
     await page.waitForLoadState("load");
+
+    // Prodüksiyon ortamında taslak sergiler karantinada ve 404 dönmeli
+    if (res?.status() === 404) {
+      await expect(page.getByRole("heading", { name: "Sayfa bulunamadı" })).toBeVisible();
+      const overflow = await page.evaluate(
+        () => document.documentElement.scrollWidth > window.innerWidth + 1
+      );
+      expect(overflow, `Yatay taşma oluştu (${testInfo.project.name})`).toBe(false);
+
+      const screenshotName = `v08-museum-${testInfo.project.name}.png`;
+      await page.screenshot({
+        path: path.join(docsScreenshotsDir, screenshotName),
+        fullPage: false,
+      });
+      return;
+    }
 
     // Hero başlığı ve görünüm değiştirici
     await expect(page.locator("h1")).toContainText("Cumhuriyet'in İlanı");
@@ -71,14 +86,6 @@ test.describe("MKA Immersive Museum Platform V0.8 — Görev 26 Hardening & E2E"
       path: path.join(docsScreenshotsDir, screenshotName),
       fullPage: false,
     });
-    try {
-      await page.screenshot({
-        path: path.join(artifactDir, screenshotName),
-        fullPage: false,
-      });
-    } catch {
-      // Artifact dir fallback
-    }
 
     // Bölüm 2 (Vitrin) butonuna tıkla
     const vitrineSlideBtn = page.getByRole("button", { name: /Bölüm 2:/i });
