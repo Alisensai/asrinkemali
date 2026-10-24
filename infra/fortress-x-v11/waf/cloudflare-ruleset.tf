@@ -2,8 +2,12 @@
 # ASRIN KEMALİ — MKA FORTRESS X V1.1
 # Cloudflare WAF v5 Ruleset & Rate Limiting Yapılandırması (Terraform / OpenTofu)
 # ==============================================================================
-# DİKKAT: Bu dosya bağımsız ASRIN KEMALİ platformunun altyapı şablonudur.
-# Canlı Cloudflare hesabı bağlanmadan önce test edilmeli ve dry-run doğrulaması yapılmalıdır.
+# GÜVENLİK SIKILAŞTIRMASI:
+# - Arama sayfasında olmak WAF denetimlerini topluca atlatmaya YETMEZ.
+# - Saldırı imzaları (XSS, SQLi, Path Traversal) /arsiv veya /arastirma rotasında
+#   olsa dahi her koşulda ENGELLENİR.
+# - Türkçe karakterler (ç, ğ, ı, ö, ş, ü, İ) ve normal tarihî aramalar
+#   yanlış pozitif vermeden güvenle işlenir.
 # ==============================================================================
 
 terraform {
@@ -29,16 +33,16 @@ variable "environment" {
 }
 
 # ------------------------------------------------------------------------------
-# 1. Kenar Güvenlik Duvarı: Hassas Dosyalar ve Açık Tarayıcıları Engelleme (Block)
+# 1. Özel Güvenlik Kuralları (Öncelik Sıralı / Priority Ordered)
 # ------------------------------------------------------------------------------
 resource "cloudflare_ruleset" "waf_custom_security" {
   zone_id     = var.zone_id
   name        = "mka-fortress-custom-firewall-rules"
-  description = "ASRIN KEMALİ kötü niyetli tarayıcı, hassas yol ve saldırı engelleme kuralları"
+  description = "ASRIN KEMALİ çok katmanlı WAF kuralları"
   kind        = "zone"
   phase       = "http_request_firewall_custom"
 
-  # Kural 1: Hassas dosya ve gizli dizin erişimlerini anında engelle
+  # Kural 1: Hassas dosya ve gizli dizin erişimlerini koşulsuz engelle (P0)
   rules {
     action      = "block"
     description = "Hassas dizin (.env, .git, .bak, config) ve yönetim yolu taramalarını engelle"
@@ -46,7 +50,7 @@ resource "cloudflare_ruleset" "waf_custom_security" {
     enabled     = true
   }
 
-  # Kural 2: Bilinen güvenlik tarayıcılarını ve şüpheli User-Agent'ları engelle
+  # Kural 2: Bilinen güvenlik tarayıcılarını ve istismar araçlarını koşulsuz engelle (P1)
   rules {
     action      = "block"
     description = "Otomatik zafiyet tarayıcılarını ve exploit araçlarını engelle"
@@ -54,7 +58,7 @@ resource "cloudflare_ruleset" "waf_custom_security" {
     enabled     = true
   }
 
-  # Kural 3: Şüpheli HTTP metotlarını engelle (Yalnızca GET, HEAD, OPTIONS izinli; POST editoryal hazırlık içindir)
+  # Kural 3: Geçersiz HTTP metotlarını engelle (P2)
   rules {
     action      = "block"
     description = "Salt-okunur kamusal sitede geçersiz HTTP metotlarını (TRACE, TRACK, CONNECT, DELETE, PUT) engelle"
@@ -62,16 +66,26 @@ resource "cloudflare_ruleset" "waf_custom_security" {
     enabled     = true
   }
 
-  # Kural 4: Meşru Türkçe arama sorgularını WAF false-positive filtresinden muaf tut (Skip / Pass)
-  # ASRIN KEMALİ arşivinde 'Mustafa Kemal', 'Çanakkale', 'Nutuk', 'TBMM', 'Cumhuriyet' vb.
-  # Türkçe karakter ve tarihî terimlerin SQLi/XSS olarak yanlış algılanmasını önler.
+  # Kural 4: Açık saldırı imzalarını ve enjeksiyon denemelerini rotadan bağımsız engelle (P3)
+  # DİKKAT: Bu kural /arsiv veya /arastirma rotalarında da aktiftir; hiçbir arama muafiyeti
+  # bu saldırı desenlerini atlatamaz.
+  rules {
+    action      = "block"
+    description = "Açık XSS, SQLi ve Yol Geçişi (Path Traversal) saldırılarını tüm rotalarda engelle"
+    expression  = "(http.request.uri.query contains \"<script\" or http.request.uri.query contains \"javascript:\" or http.request.uri.query contains \"onerror=\" or http.request.uri.query contains \"onload=\" or http.request.uri.query contains \"../\" or http.request.uri.query contains \"..%2f\" or http.request.uri.query contains \"union select\" or http.request.uri.query contains \"' or '1'='1\")"
+    enabled     = true
+  }
+
+  # Kural 5: Yalnızca TEMİZ Türkçe karakterli arama sorgularında gereksiz paranoyak filtreleri atla (P4)
+  # Koşul: Sorgu açık saldırı imzası İÇERMİYORSA ve izin verilen temiz karakter kümesindeyse
+  # yalnızca belirli OWASP heuristik kuralları atlanır.
   rules {
     action = "skip"
     action_parameters {
       ruleset = "current"
     }
-    description = "Meşru Türkçe arşiv arama sorgularını yanlış pozitif filtrelemeden muaf tut"
-    expression  = "(http.request.method == \"GET\" and (http.request.uri.path == \"/arsiv\" or http.request.uri.path == \"/arastirma\" or http.request.uri.path == \"/kronoloji\") and len(http.request.uri.query) lt 256)"
+    description = "Saldırı imzası barındırmayan temiz Türkçe arama sorgularını yanlış pozitiften koru"
+    expression  = "(http.request.method == \"GET\" and (http.request.uri.path == \"/arsiv\" or http.request.uri.path == \"/arastirma\" or http.request.uri.path == \"/kronoloji\") and len(http.request.uri.query) lt 256 and not (http.request.uri.query contains \"<\" or http.request.uri.query contains \">\" or http.request.uri.query contains \"--\" or http.request.uri.query contains \";\" or http.request.uri.query contains \"/*\"))"
     enabled     = true
   }
 }
@@ -101,9 +115,8 @@ resource "cloudflare_ruleset" "rate_limiting_rules" {
   }
 
   # Kural 2: Genel web sayfaları hız sınırlaması (120 istek / 10 saniye)
-  # Meşru ziyaretçileri engellemeyecek şekilde cömert eşik belirlenmiştir.
   rules {
-    action      = "challenge" # Doğrudan engellemek yerine Managed Challenge (JS/CAPTCHA) uygula
+    action      = "challenge"
     description = "Genel sayfa gezinmesi agresif tarama koruması"
     expression  = "(not (http.request.uri.path contains \"/_next/static/\" or http.request.uri.path contains \"/assets/\" or http.request.uri.path == \"/api/health\" or http.request.uri.path == \"/api/ready\" or http.request.uri.path == \"/favicon.ico\"))"
     ratelimit {
@@ -115,11 +128,3 @@ resource "cloudflare_ruleset" "rate_limiting_rules" {
     enabled = true
   }
 }
-
-# ------------------------------------------------------------------------------
-# 3. İzin Verilen Ayrıcalıklı Trafik ve İstisnalar
-# ------------------------------------------------------------------------------
-# - Statik CSS/JS paketleri: Kenar CDN önbelleğinde saklanır (Edge TTL 30 gün)
-# - Sağlık denetimi: /api/health ve /api/ready hiçbir hız sınırına takılmaz
-# - Arama motoru botları: Googlebot, Bingbot, Yandexbot doğrulanmış bot ise challenge uygulanmaz
-# ------------------------------------------------------------------------------

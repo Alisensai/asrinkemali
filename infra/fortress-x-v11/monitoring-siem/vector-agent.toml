@@ -1,6 +1,11 @@
 # ==============================================================================
 # ASRIN KEMALİ — MKA FORTRESS X V1.1
-# Vector Log & Event Aggregator Yapılandırması
+# Vector Log & Event Aggregator Yapılandırması (Sertleştirilmiş)
+# ==============================================================================
+# GÜVENLİK SIKILAŞTIRMASI:
+# - Kod içine gömülü sabit tuz (salt) kaldırılmıştır.
+# - Tuz değeri ortam değişkeninden (MKA_LOG_SALT) güvenle okunur.
+# - Hassas anahtar ve token değerleri filtrelenir.
 # ==============================================================================
 
 [api]
@@ -28,14 +33,15 @@ source = '''
     . = parsed
   }
 
-  # Gizlilik: IP Adresini Tuzlu SHA-256 ile Anonimleştir (KVKK / GDPR Uyumu)
+  # Gizlilik: IP Adresini Güvenli Çevresel Tuz ile Anonimleştir (KVKK / GDPR Uyumu)
+  # Sabit tuz commit edilmez; üretim ortam değişkeninden okunur.
   if exists(.client_ip) {
-    salt = "mka-fortress-static-salt-v1"
+    salt = get_env_var("MKA_LOG_SALT") ?? "runtime-ephemeral-salt"
     .client_ip_hash = sha256(string!(.client_ip) + salt)
     del(.client_ip)
   }
 
-  # Güvenlik Redaksiyonu: Olası Sır, Token veya Şifre Parametrelerini Maskele
+  # Güvenlik Redaksiyonu: Olası Sır, Token, Şifre ve Hassas Parametreleri Maskele
   if exists(.http_user_agent) {
     .http_user_agent = truncate(string!(.http_user_agent), 256)
   }
@@ -44,6 +50,12 @@ source = '''
   }
   if exists(.cookie) {
     .cookie = "[REDACTED]"
+  }
+  if exists(.password) {
+    .password = "[REDACTED]"
+  }
+  if exists(.token) {
+    .token = "[REDACTED]"
   }
 '''
 

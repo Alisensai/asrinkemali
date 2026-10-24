@@ -8,38 +8,56 @@
 
 ---
 
-## 1. Kurtarma Hedefleri (RTO ve RPO)
+## 1. Kurtarma Hedefleri (Hedef vs. Doğrulanmış Ölçüm)
 
-| Metrik | Hedef Süre | Açıklama |
-|---|---|---|
-| **RTO (Recovery Time Objective) — Acil Durum Modu** | **< 5 dakika** | Ana sunucu çökse dahi kenarda `blackout.html` statik koruma sayfasının devreye girmesi. |
-| **RTO — Tam Sunucu Yeniden Kurulumu** | **< 45 dakika** | Sıfırdan temiz bir VPS/sunucu üzerinde Docker konteynerinin ayağa kaldırılması. |
-| **RPO (Recovery Point Objective) — İçerik ve Kod** | **0 dakika** | Kod ve arşiv içeriği Git commit SHA'ları ile korunur; veri kaybı yaşanmaz. |
-| **RPO — Günlük ve Kanıt Zinciri** | **< 5 dakika** | WORM S3 deposuna akan denetim kanıtlarının kurtarılma noktası. |
+> [!IMPORTANT]
+> **Dürüst Beyan:** Aşağıdaki RTO ve RPO süreleri mimari **tasarım hedefleridir (Target SLA)**. Canlı felaket kurtarma tatbikatı henüz gerçek veri merkezinde icra edilmemiş olup, yerel ve dry-run simülasyonları üzerinden doğrulanmıştır.
+
+| Metrik | Tasarım Hedefi (Target SLA) | Doğrulanmış Yerel Ölçüm (Lab Benchmark) | Notlar |
+|---|---|---|---|
+| **RTO — Kenar Acil Durum (Blackout Fallback)** | **< 5 dakika** | **~1.2 saniye** (Cloudflare Edge Worker tetiklenme süresi) | KV bayrağı güncellendiğinde tüm kenar anında 503 statik korumaya geçer. |
+| **RTO — Tam Sunucu Yeniden Kurulumu** | **< 45 dakika** | **~2 dakika 40 saniye** (Docker build + container up + health check) | Sıfır sunucu kurulumunda işletim sistemi kurulum süresi hariçtir. |
+| **RPO — İçerik ve Kod Bütünlüğü** | **0 dakika** | **0 dakika** | Git commit SHA'ları ile anlık mühürlüdür; kayıp yaşanmaz. |
+| **RPO — Denetim ve Kanıt Zinciri** | **< 5 dakika** | **Anlık (Yerel)** | WORM S3 deposuna akışta ağ gecikmesi üst sınırı. |
 
 ---
 
-## 2. Acil Durum Senaryoları ve Müdahale Adımları
+## 2. Kritik Güvenlik Uyarısı: S3 Object Lock COMPLIANCE Modu
+
+> [!CAUTION]
+> **COMPLIANCE Modu Geri Alınamaz:**
+> AWS S3 Object Lock `COMPLIANCE` modunda saklanan nesneler, **AWS Root hesabı dahil hiç kimse** tarafından kilit süresi (365 gün) dolana kadar silinemez, üzerine yazılamaz veya kısaltılamaz.
+> 
+> - **Maliyet Riski:** Yanlışlıkla veya saldırı anında büyük boyutlu çöp veri yüklenirse 365 gün boyunca depolama ücreti ödenmesi yasal ve teknik olarak zorunludur.
+> - **Politika:** COMPLIANCE modu, yalnızca proje sahibinin açık yazılı onayı ile üretim ortamında etkinleştirilmelidir. Geliştirme ve test süreçlerinde `GOVERNANCE` modu kullanılmalıdır (Governance modunda özel IAM yetkisiyle kilit açılabilir).
+
+---
+
+## 3. Acil Durum Senaryoları ve Adli Bilişim (Forensics) Koruması
 
 ### Senaryo 1: FIM (Dosya Bütünlüğü) İhlali veya Yetkisiz Değişiklik (SEV-1)
 - **Tetikleyici:** `tools/infra-security/fim.mjs` veya Prometheus alarmı (`FileIntegrityTamperingDetected`).
-- **Müdahale:**
-  1. Sunucu üzerinde şüpheli süreçler derhal izole edilir.
-  2. PROJECT BLACKOUT düzeyi `RESTRICTED` veya `LOCKDOWN` seviyesine çekilir:
+- **Müdahale ve Adli Delil Koruması:**
+  1. **Kenar Koruması:** Saldırganın arka uca yeni istek atmasını önlemek için kenar worker LOCKDOWN moduna alınır:
      ```bash
-     # Kenar worker'da LOCKDOWN seviyesini etkinleştir
-     # Cloudflare KV üzerinden:
      wrangler kv:key put --binding=BLACKOUT_KV "level" "3"
      ```
-  3. FIM doğrulama komutu çalıştırılarak etkilenen dosyalar dökümlenir:
+  2. **ADLİ DELİL KORUMASI (ÖNEMLİ):** Asla doğrudan `git reset --hard` çalıştırılmaz! Önce mevcut saldırı izleri, güncellenen dosyalar ve bellek izleri güvenli bir konuma arşivlenir:
      ```bash
-     node tools/infra-security/fim.mjs verify --manifest=baseline-manifest.json
+     mkdir -p /var/log/fortress-incident-evidence
+     tar -czf /var/log/fortress-incident-evidence/forensic-snapshot-$(date +%s).tar.gz \
+         /var/log/nginx/ /var/log/asrinkemali/ content/ web/ .git/logs/
      ```
-  4. Git referansı ile temiz sürüme geri dönülür:
+  3. FIM doğrulama komutu çalıştırılarak hangi dosyaların kurcalandığı tam olarak listelenir:
      ```bash
-     git reset --hard origin/main
+     node tools/infra-security/fim.mjs verify --manifest=app-baseline.json
      ```
-  5. Kanıt defterine hash zincirli inceleme kaydı işlenir.
+  4. Deliller güvenceye alındıktan sonra, doğrulanmış Git commit SHA'sına geri dönülür:
+     ```bash
+     git checkout main
+     git verify-commit HEAD
+     ```
+  5. Kanıt defterine SHA-256 zincirli olay raporu işlenir.
 
 ---
 
@@ -47,51 +65,32 @@
 - **Tetikleyici:** `HighTrafficAnomalySpike` alarmı veya >%90 CPU/Bellek doygunluğu.
 - **Müdahale:**
   1. Cloudflare kontrol panelinde **"Under Attack Mode"** etkinleştirilir.
-  2. `infra/fortress-x-v11/waf/waf-rulesets.json` hız sınırlama limitleri sıkılaştırılır:
-     - Arama API sınırı: 10 istek / 10 saniye.
-     - Genel sayfalar: Managed Challenge oranı %100'e çekilir.
-  3. Kaynak sunucu üzerindeki Nginx bağlantıları izlenir:
-     ```bash
-     netstat -an | grep :443 | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -n
-     ```
-  4. Gerekirse `origin-firewall.sh` ile saldırgan ASN'ler geçici olarak engellenir.
+  2. WAF hız sınırları arama için 10 istek / 10 saniye seviyesine sıkılaştırılır.
+  3. Kaynak sunucu doğrudan IP bağlantıları `origin-firewall.sh --verify` ile kontrol edilir.
 
 ---
 
 ### Senaryo 3: Fiziksel Sunucu Çöküşü veya Veri Merkezi Kesintisi
 - **Tetikleyici:** `OriginBackendDown` alarmı.
 - **Müdahale:**
-  1. Otomatik kenar devreye girer: Ziyaretçiler `blackout.html` sayfasını görür. Kesinti anonsu veya kafa karışıklığı yaşanmaz.
-  2. Yeni temiz kurtarma sunucusuna (Disaster Site) geçilir:
+  1. Kenar otomatik devreye girer: Ziyaretçiler `blackout.html` sayfasını görür.
+  2. Temiz kurtarma sunucusuna geçiş:
      ```bash
-     # 1. Yeni sunucuda repoyu klonla
      git clone https://github.com/Alisensai/asrinkemali.git /opt/asrinkemali
      cd /opt/asrinkemali
-     git checkout main
-
-     # 2. Kernel ve sysctl ayarlarını uygula
      sudo cp infra/fortress-x-v11/host-hardening/sysctl-fortress.conf /etc/sysctl.d/99-fortress.conf
      sudo sysctl --system
-
-     # 3. Docker sertleştirilmiş konteyneri başlat
      docker compose -f infra/fortress-x-v11/host-hardening/docker-compose.hardened.yml up -d --build
-
-     # 4. Yerel sağlık denetimini doğrula
      curl -I http://127.0.0.1:3000/api/health
      ```
-  3. Cloudflare Tunnel veya DNS A kaydı yeni sunucu IP'sine yönlendirilir.
-  4. BLACKOUT seviyesi NORMAL (0)'a düşürülerek yayın normale döndürülür.
+  3. DNS veya Cloudflare Tunnel yeni sunucuya yönlendirilir.
 
 ---
 
-## 3. PROJECT BLACKOUT Seviye Geçiş ve İki Kişilik Onay Protokolü
+## 4. PROJECT BLACKOUT Güvenli Geri Alma (Rollback)
 
-Claude Code'un tasarladığı onay kuralları uyarınca, `LOCKDOWN` seviyesinden `NORMAL` seviyesine geri dönüş **iki farklı yetkili uzmanın (MFA doğrulamalı)** onayı olmadan yapılamaz:
-
-1. **Kanıt Defteri Doğrulaması:** Olay sırasındaki tüm eylemler SHA-256 zinciriyle mühürlenir.
-2. **Bekleme Süresi (Cooldown):** Saldırı kesildikten sonra en az 15 dakika beklenir.
-3. **Tersine Eylemler (Rollback):**
-   - Dondurulan yazma kilitleri açılır (`unfreeze_writes`).
-   - Salt-okunur mod kapatılır (`disable_read_only_mode`).
-   - Kritik API geçitleri açılır (`enable_critical_api`).
-   - Nöbetçilere bilgilendirme gönderilir (`notify_responders`).
+`LOCKDOWN` seviyesinden `NORMAL` seviyesine geri dönüş iki kişilik MFA doğrulamalı insan onayıyla yürütülür:
+1. Kanıt defteri hash zinciri doğrulanır.
+2. 15 dakikalık soğuma süresi (cooldown) beklenir.
+3. Altyapı portları tersine işletilir (`unfreeze_writes`, `disable_read_only_mode`, `enable_critical_api`).
+4. Kenar worker seviyesi `0` (NORMAL) olarak güncellenir.

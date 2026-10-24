@@ -5,7 +5,7 @@
  * Kuru Çalıştırma Altyapı ve Güvenlik Doğrulayıcısı (Dry-Run Infrastructure Validator)
  * ==============================================================================
  * Bu araç tüm altyapı şablonlarını, WAF kurallarını, kernel ayarlarını ve
- * Dockerfile politikalarını üretime zarar vermeden statik olarak doğrular.
+ * Dockerfile politikalarını üretime zarar vermeden statik ve davranışsal olarak doğrular.
  * ==============================================================================
  */
 
@@ -24,7 +24,7 @@ function recordCheck(id, description, passed, detail = "") {
 }
 
 // ------------------------------------------------------------------------------
-// 1. WAF ve Rate Limiting Kuralları Doğrulaması
+// 1. WAF ve Rate Limiting Kuralları Doğrulaması (Sertleştirilmiş)
 // ------------------------------------------------------------------------------
 export function validateWafRules() {
   const wafPath = join(INFRA_DIR, "waf", "waf-rulesets.json");
@@ -41,15 +41,22 @@ export function validateWafRules() {
   const hasGit = sensitiveRule?.target_patterns?.includes("/.git");
   recordCheck("WAF-02", "Hassas dizin (.env, .git) engelleme kuralı", Boolean(hasEnv && hasGit));
 
-  // Türkçe Arama Yanlış Pozitif Koruması Doğrulaması
-  const turkishRule = wafData.rulesets.find((r) => r.id === "WAF-04-TURKISH-SEARCH-WHITELIST");
+  // Açık saldırı imzaları engelleme kuralı (WAF-04)
+  const exploitRule = wafData.rulesets.find((r) => r.id === "WAF-04-EXPLOIT-PAYLOADS");
+  const hasXssBlock = exploitRule?.attack_patterns?.includes("<script");
+  const hasSqliBlock = exploitRule?.attack_patterns?.includes("union select");
+  recordCheck("WAF-03", "Açık XSS ve SQLi saldırılarını engelleme kuralı", Boolean(hasXssBlock && hasSqliBlock));
+
+  // Türkçe Arama Yanlış Pozitif Koruması ve Saldırı Karakter Kısıtlaması (WAF-05)
+  const turkishRule = wafData.rulesets.find((r) => r.id === "WAF-05-TURKISH-SEARCH-WHITELIST");
   const hasDiacritics = turkishRule?.exempt_characters?.includes("ç") && turkishRule?.exempt_characters?.includes("ğ");
-  recordCheck("WAF-03", "Türkçe arama sorgusu muafiyeti kuralı", Boolean(hasDiacritics));
+  const hasDisallowedChars = turkishRule?.disallowed_payload_characters?.includes("<") && turkishRule?.disallowed_payload_characters?.includes("--");
+  recordCheck("WAF-04", "Temiz Türkçe arama muafiyeti ve saldırı karakter kısıtlaması", Boolean(hasDiacritics && hasDisallowedChars));
 
   // Rate Limiting Kuralları ve Sağlık Uç Noktası İstisnası
   const rateLimitRule = wafData.rulesets.find((r) => r.id === "RATELIMIT-02-GENERAL-PAGES");
   const healthExempt = rateLimitRule?.exempt_routes?.includes("/api/health");
-  recordCheck("WAF-04", "/api/health ve statik varlıklar hız sınırı muafiyeti", Boolean(healthExempt));
+  recordCheck("WAF-05", "/api/health ve statik varlıklar hız sınırı muafiyeti", Boolean(healthExempt));
 
   return true;
 }
@@ -81,14 +88,15 @@ export function validateProxyConfigs() {
 }
 
 // ------------------------------------------------------------------------------
-// 3. Linux Çekirdek (sysctl) ve Ağ Sertleştirme Doğrulaması
+// 3. Linux Çekirdek (sysctl) ve Ağ Sertleştirme Doğrulaması (IPv4 & IPv6)
 // ------------------------------------------------------------------------------
 export function validateHostHardening() {
   const sysctlPath = join(INFRA_DIR, "host-hardening", "sysctl-fortress.conf");
   const egressPath = join(INFRA_DIR, "host-hardening", "egress-lockdown.sh");
+  const originFwPath = join(INFRA_DIR, "origin-shield", "origin-firewall.sh");
 
-  if (!existsSync(sysctlPath) || !existsSync(egressPath)) {
-    recordCheck("HOST-01", "sysctl ve egress dosyaları mevcudiyeti", false);
+  if (!existsSync(sysctlPath) || !existsSync(egressPath) || !existsSync(originFwPath)) {
+    recordCheck("HOST-01", "sysctl, egress ve origin güvenlik dosyaları", false);
     return false;
   }
 
@@ -101,8 +109,15 @@ export function validateHostHardening() {
   const egressContent = readFileSync(egressPath, "utf-8");
   const hasLoopback = egressContent.includes("-o lo -j ACCEPT");
   const hasDnsAllowed = egressContent.includes("--dport 53 -j ACCEPT");
-  const hasSsrfBlock = egressContent.includes("BLOCKED_EXTERNAL_HTTP");
-  recordCheck("HOST-02", "Egress trafik kısıtlaması ve SSRF önleme kuralları", Boolean(hasLoopback && hasDnsAllowed && hasSsrfBlock));
+  const hasPackageMirror = egressContent.includes("PACKAGE_MIRROR_HTTP");
+  const hasIpv6Egress = egressContent.includes("ip6tables -A FORTRESS_EGRESS6 -j DROP");
+  recordCheck("HOST-02", "Egress güncelleme izinleri ve IPv6 çıkış engeli", Boolean(hasLoopback && hasDnsAllowed && hasPackageMirror && hasIpv6Egress));
+
+  const originFwContent = readFileSync(originFwPath, "utf-8");
+  const hasIpv6Support = originFwContent.includes("CLOUDFLARE_IN6") && originFwContent.includes("ip6tables");
+  const hasSshProtection = originFwContent.includes("--dport $SSH_PORT -j ACCEPT");
+  const hasAutoRollback = originFwContent.includes("AUTO_ROLLBACK");
+  recordCheck("HOST-03", "Origin Firewall IPv6 desteği, SSH koruması ve otomatik rollback", Boolean(hasIpv6Support && hasSshProtection && hasAutoRollback));
 
   return true;
 }
@@ -134,14 +149,15 @@ export function validateContainerSecurity() {
 }
 
 // ------------------------------------------------------------------------------
-// 5. İzleme, Loglama ve Olay Taksonomisi Doğrulaması
+// 5. İzleme, Loglama ve Olay Taksonomisi Doğrulaması (Gizli Tuz Kontrolü)
 // ------------------------------------------------------------------------------
 export function validateMonitoring() {
   const logSchemaPath = join(INFRA_DIR, "monitoring-siem", "log-schema.json");
+  const vectorPath = join(INFRA_DIR, "monitoring-siem", "vector-agent.toml");
   const alertRulesPath = join(INFRA_DIR, "monitoring-siem", "alert-rules.yml");
 
-  if (!existsSync(logSchemaPath) || !existsSync(alertRulesPath)) {
-    recordCheck("MON-01", "Log şeması ve alert kuralları dosyaları", false);
+  if (!existsSync(logSchemaPath) || !existsSync(vectorPath) || !existsSync(alertRulesPath)) {
+    recordCheck("MON-01", "Log şeması, vector ve alert dosyaları", false);
     return false;
   }
 
@@ -150,10 +166,15 @@ export function validateMonitoring() {
   const hasTraceId = Boolean(schema.properties?.trace?.properties?.id);
   recordCheck("MON-01", "ECS log şeması ve KVKK uyumlu IP hash deseni", Boolean(hasIpHashPattern && hasTraceId));
 
+  const vectorContent = readFileSync(vectorPath, "utf-8");
+  const hasNoStaticSalt = !vectorContent.includes("mka-fortress-static-salt");
+  const hasEnvSalt = vectorContent.includes("get_env_var(\"MKA_LOG_SALT\")");
+  recordCheck("MON-02", "Vector yapılandırmasında sabit tuz yokluğu ve ortam değişkeni kullanımı", Boolean(hasNoStaticSalt && hasEnvSalt));
+
   const alerts = readFileSync(alertRulesPath, "utf-8");
   const hasSev1 = alerts.includes("SEV-1");
   const hasFimAlert = alerts.includes("FileIntegrityTamperingDetected");
-  recordCheck("MON-02", "Güvenlik taksonomisi ve FIM SEV-1 kuralı", Boolean(hasSev1 && hasFimAlert));
+  recordCheck("MON-03", "Güvenlik taksonomisi ve FIM SEV-1 kuralı", Boolean(hasSev1 && hasFimAlert));
 
   return true;
 }
@@ -178,19 +199,19 @@ export function validateDisasterRecovery() {
   recordCheck("DR-02", "blackout.html harici bağımsızlıksız ve kurumsal tasarım uyumlu", Boolean(hasNoExternalScripts && hasMotto));
 
   const workerContent = readFileSync(edgeWorkerPath, "utf-8");
-  const hasLockdownHandling = workerContent.includes("blackoutLevel === 3") && workerContent.includes("503");
-  const hasHealthBypass = workerContent.includes("/api/health");
-  recordCheck("DR-03", "Edge Worker LOCKDOWN statik yönlendirmesi ve sağlık istisnası", Boolean(hasLockdownHandling && hasHealthBypass));
+  const hasLockdownHandling = workerContent.includes("level === 3") && workerContent.includes("503");
+  const hasDegradedHandling = workerContent.includes("state_store_unreachable") && workerContent.includes("sanitizeBlackoutLevel");
+  recordCheck("DR-03", "Edge Worker LOCKDOWN ve durum deposu kesintisi (fail-safe) yönetimi", Boolean(hasLockdownHandling && hasDegradedHandling));
 
   const adapterContent = readFileSync(adapterPath, "utf-8");
-  const hasPortsFactory = adapterContent.includes("createInfraBlackoutPorts");
-  recordCheck("DR-04", "BLACKOUT altyapı port adaptörü uyumluluğu", Boolean(hasPortsFactory));
+  const hasHonestSession = adapterContent.includes("requires_infrastructure") && !adapterContent.includes("revokedSessionsCount += count");
+  recordCheck("DR-04", "BLACKOUT adaptöründe dürüst altyapı durumu (sahte sayaç yokluğu)", Boolean(hasHonestSession));
 
   return true;
 }
 
 export function runAllValidations() {
-  console.log("=== ASRIN KEMALİ Altyapı Güvenlik ve Dry-Run Denetimi ===");
+  console.log("=== ASRIN KEMALİ Altyapı Güvenlik ve Dry-Run Denetimi (V1.1 Hardened) ===");
   validateWafRules();
   validateProxyConfigs();
   validateHostHardening();
