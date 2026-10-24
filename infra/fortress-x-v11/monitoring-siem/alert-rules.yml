@@ -1,0 +1,103 @@
+# ==============================================================================
+# ASRIN KEMALİ — MKA FORTRESS X V1.1
+# Güvenlik Eşik Alarmları ve Olay Sınıflandırma Taksonomisi
+# ==============================================================================
+
+groups:
+  - name: mka_fortress_security_alerts
+    rules:
+      # ------------------------------------------------------------------------
+      # SEV-1: KRİTİK ACİL DURUM (Doğrudan Servis Çöküşü veya Kurcalama)
+      # ------------------------------------------------------------------------
+      - alert: FileIntegrityTamperingDetected
+        expr: mka_fim_tampered_files_count > 0
+        for: 0m
+        labels:
+          severity: SEV-1
+          category: integrity
+        annotations:
+          summary: "Kritik Dosya Bütünlüğü İhlali (FIM Alarmı)"
+          description: "Kaynak kod veya arşiv kayıtlarında yetkisiz hash uyuşmazlığı tespit edildi. Acil müdahale ve inceleme gereklidir."
+
+      - alert: OriginBackendDown
+        expr: probe_success{job="nextjs_health"} == 0
+        for: 1m
+        labels:
+          severity: SEV-1
+          category: availability
+        annotations:
+          summary: "Next.js Kaynak Sunucu Yanıt Vermiyor"
+          description: "Kaynak sunucu 1 dakikadır sağlık denetiminden geçemiyor. Kenar statik fallback (blackout.html) devreye girdi."
+
+      # ------------------------------------------------------------------------
+      # SEV-2: YÜKSEK TEHDİT (Hacimsel DDoS veya WAF Engelleme Dalgası)
+      # ------------------------------------------------------------------------
+      - alert: HighTrafficAnomalySpike
+        expr: rate(http_requests_total[2m]) > 5 * avg_over_time(rate(http_requests_total[1h])[1h])
+        for: 2m
+        labels:
+          severity: SEV-2
+          category: ddos
+        annotations:
+          summary: "Trafikte Ani Patlama Tespit Edildi (DDoS Şüphesi)"
+          description: "İstek hacmi son 1 saatlik ortalamanın 5 katını aştı. L7 DDoS mitigation devreye alınmalıdır."
+
+      - alert: ExcessiveWafBlocks
+        expr: rate(cloudflare_waf_blocks_total[5m]) > 20
+        for: 2m
+        labels:
+          severity: SEV-2
+          category: waf
+        annotations:
+          summary: "WAF Engelleme Sayısında Olağandışı Artış"
+          description: "Dakikada 20'den fazla zararlı istek engellendi. Dağıtık tarama veya botnet aktivitesi şüphesi."
+
+      # ------------------------------------------------------------------------
+      # SEV-3: ORTA TEHDİT (Yol Taramaları ve 4xx Anomalisi)
+      # ------------------------------------------------------------------------
+      - alert: Elevated4xxProbeRate
+        expr: sum(rate(http_requests_total{status=~"404|403"}[5m])) > 10
+        for: 5m
+        labels:
+          severity: SEV-3
+          category: scanning
+        annotations:
+          summary: "Yüksek 4xx Hata Oranı (Güvenlik Taraması)"
+          description: "Geçersiz yollara yönelik otomatik tarama faaliyeti tespit edildi."
+
+      # ------------------------------------------------------------------------
+      # SEV-4: DÜŞÜK TEHDİT (İzleme ve Uyarım)
+      # ------------------------------------------------------------------------
+      - alert: CspReportRateElevated
+        expr: rate(csp_reports_total[15m]) > 5
+        for: 10m
+        labels:
+          severity: SEV-4
+          category: csp
+        annotations:
+          summary: "CSP İhlal Bildirimlerinde Artış"
+          description: "İstemci tarayıcılarından gelen CSP raporlarında artış gözlemlendi."
+
+# ==============================================================================
+# GÜVENLİK OLAYI VE ESKALASYON TAKSONOMİSİ
+# ==============================================================================
+# SEV-1 (Kritik):
+# - Tanım: Bütünlük bozulması, aktif yetkisiz değişiklik, tam servis çöküşü.
+# - Yanıt Süresi (SLA): < 15 dakika.
+# - Aksiyon: PagerDuty / Acil nöbetçi uyarısı, PROJECT BLACKOUT RESTRICTED veya LOCKDOWN incelemesi.
+#
+# SEV-2 (Yüksek):
+# - Tanım: Hacimsel L7 DDoS atağı, yoğun WAF engellemesi, 502/504 oranında artış.
+# - Yanıt Süresi (SLA): < 1 saat.
+# - Aksiyon: Kenar hız sınırlama sıkılaştırma, Cloudflare Under Attack modunun değerlendirilmesi.
+#
+# SEV-3 (Orta):
+# - Tanım: Keşif amaçlı port/yol taramaları, zafiyet araçları, tekil IP spam'i.
+# - Yanıt Süresi (SLA): < 4 saat.
+# - Aksiyon: IP reputation listesine ekleme, şüpheli ASN geçici kısıtlaması.
+#
+# SEV-4 (Düşük):
+# - Tanım: İstemci kaynaklı hatalar, tekil CSP uyarıları, geçici ağ gecikmeleri.
+# - Yanıt Süresi (SLA): Günlük denetim.
+# - Aksiyon: Günlük analizi ve haftalık güvenlik raporu.
+# ==============================================================================

@@ -1,0 +1,62 @@
+# ==============================================================================
+# ASRIN KEMALİ — MKA FORTRESS X V1.1
+# Sertleştirilmiş Docker Compose Dağıtımı
+# ==============================================================================
+
+version: '3.8'
+
+services:
+  asrinkemali-web:
+    build:
+      context: ../..
+      dockerfile: infra/fortress-x-v11/host-hardening/Dockerfile.hardened
+    image: asrinkemali-web:v1.1-hardened
+    container_name: asrinkemali-production-app
+    restart: unless-stopped
+    
+    # 1. Salt-Okunur Dosya Sistemi
+    read_only: true
+    
+    # 2. Yetki Yükseltme ve Linux Kabiliyetleri Koruması
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+      
+    # 3. Yalnızca İhtiyaç Duyulan Güvenli Geçici Bellek (tmpfs)
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m
+      
+    # 4. Kaynak Sınırları ve Çatal Bombası (Fork Bomb) Koruması
+    pids_limit: 100
+    deploy:
+      resources:
+        limits:
+          cpus: '1.5'
+          memory: 1024M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+
+    # 5. Günlük Boyut Sınırları (Disk Dolması Koruması)
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "5"
+
+    ports:
+      - "127.0.0.1:3000:3000"
+
+    environment:
+      - NODE_ENV=production
+      - ASRIN_CSP_MODE=enforce
+      - ASRIN_ENABLE_HSTS=1
+
+    networks:
+      - fortress_internal_net
+
+networks:
+  fortress_internal_net:
+    driver: bridge
+    internal: true

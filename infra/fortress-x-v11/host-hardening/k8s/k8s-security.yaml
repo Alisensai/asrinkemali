@@ -1,0 +1,99 @@
+# ==============================================================================
+# ASRIN KEMALİ — MKA FORTRESS X V1.1
+# Kubernetes Güvenlik Politikaları (NetworkPolicy & Pod Security Standard)
+# ==============================================================================
+
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: fortress-network-policy
+  namespace: asrinkemali
+spec:
+  podSelector:
+    matchLabels:
+      app: asrinkemali-web
+  policyTypes:
+    - Ingress
+    - Egress
+  
+  # Yalnızca Ingress Denetleyicisinden Gelen HTTP Trafiğine İzin Ver
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: ingress-nginx
+      ports:
+        - protocol: TCP
+          port: 3000
+
+  # Yalnızca Dahili DNS (CoreDNS) Ulaşımına İzin Ver (Dışarıya Rastgele İstekler Engellenir)
+  egress:
+    - to:
+        - namespaceSelector: {}
+          podSelector:
+            matchLabels:
+              k8s-app: kube-dns
+      ports:
+        - protocol: UDP
+          port: 53
+        - protocol: TCP
+          port: 53
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: asrinkemali-web
+  namespace: asrinkemali
+  labels:
+    app: asrinkemali-web
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: asrinkemali-web
+  template:
+    metadata:
+      labels:
+        app: asrinkemali-web
+    spec:
+      # Pod Düzeyinde Güvenlik
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        fsGroup: 10001
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: web
+          image: asrinkemali-web:v1.1-hardened
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+          # Konteyner Düzeyinde Katı Sıkılaştırma (PSA: Restricted)
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
+          resources:
+            limits:
+              cpu: "1000m"
+              memory: "1024Mi"
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+          readinessProbe:
+            httpGet:
+              path: /api/ready
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 15
