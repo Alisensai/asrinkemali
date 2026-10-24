@@ -6,6 +6,9 @@ import { Icon } from "@/components/Icon";
 import { getPublishedArchiveRecord, getPublishedArchiveRecords, reviewLabel, typeLabel } from "@/lib/archive";
 import styles from "../../content-platform.module.css";
 
+// Yalnız derlemede üretilen yayımlanmış kayıtlar sunulur; bilinmeyen slug sunucu render'ı yapılmadan 404 döner.
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return getPublishedArchiveRecords().map((record) => ({ slug: record.slug }));
 }
@@ -48,7 +51,7 @@ export default async function ArchiveDetailPage({ params }: { params: Promise<{ 
 
         <div className={styles.detailLayout}>
           <div className={styles.detailMain}>
-            {record.image?.url && record.image.displayPolicy === "embedded_allowed" ? (
+            {record.image?.url?.startsWith("https://") && record.image.displayPolicy === "embedded_allowed" ? (
               <figure className={styles.detailMediaFrame}>
                 <div className={styles.detailMediaContainer}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}

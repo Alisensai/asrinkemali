@@ -2,19 +2,20 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
-import type { ExperienceRecord, ExperienceTheme } from "@/lib/ataturk-experience";
+import { unpackExperienceRecords, type ExperienceTheme, type PackedExperienceRecords } from "@/lib/ataturk-experience";
 import type { ArchiveRecordType } from "../../../schemas/archive-record.types";
 import { RecordDetails } from "./RecordDetails";
 import { TypeBadge } from "./TypeBadge";
 import styles from "./ataturk-experience.module.css";
 
-type Props = { records: ExperienceRecord[]; themes: ExperienceTheme[]; typeCounts: { type: ArchiveRecordType; label: string; count: number }[] };
+type Props = { packed: PackedExperienceRecords; themes: ExperienceTheme[]; typeCounts: { type: ArchiveRecordType; label: string; count: number }[] };
 type TypeFilter = "all" | ArchiveRecordType;
 
 const PAGE_SIZE = 12;
 const COVERAGE_LABELS = { available: "Kaynaklı kayıt var", partial: "Kısmi kapsam", none: "Kayıt bekleniyor" } as const;
 
-export function ExhibitionExplorer({ records, themes, typeCounts }: Props) {
+export function ExhibitionExplorer({ packed, themes, typeCounts }: Props) {
+  const records = useMemo(() => unpackExperienceRecords(packed), [packed]);
   const [type, setType] = useState<TypeFilter>("all");
   const [theme, setTheme] = useState("all");
   const [limit, setLimit] = useState(PAGE_SIZE);
