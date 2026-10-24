@@ -1,8 +1,8 @@
 import "server-only";
 
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
-import { researchLabEnabled } from "./candidates";
+import { researchLabEnabled } from "./candidates.ts";
 
 /**
  * MKA Evidence Workbench — staging veri yükleyici (sunucu tarafı).
@@ -13,6 +13,7 @@ import { researchLabEnabled } from "./candidates";
  *  - Staging verisi YAYINLANMIŞ arşiv değildir; yalnız geliştirme panelinde
  *    görünür. Dışa aktarım dosyaları gerçek arşive otomatik yazılmaz.
  *  - Kaynak metinleri yalnız kısa alıntı olarak taşınır (telif güvenliği).
+ *  - Dosya boyutu sınırı (5MB), path traversal engeli ve BOM koruması uygulanır.
  */
 
 export type WorkbenchClaimRevision = {
@@ -97,17 +98,33 @@ export type WorkbenchData = {
   contradictions: WorkbenchContradiction[];
 };
 
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
+
 function repositoryRoot() {
   const cwd = process.cwd();
   return existsSync(path.join(cwd, "data", "research", "evidence-staging")) ? cwd : path.resolve(cwd, "..");
 }
 
-function readJson<T>(root: string, file: string, pick: (parsed: Record<string, unknown>) => T[]): T[] {
-  const filePath = path.join(root, "data", "research", "evidence-staging", file);
+export function readStagingJson<T>(root: string, file: string, pick: (parsed: Record<string, unknown>) => T[]): T[] {
+  if (process.env.NODE_ENV === "production") return [];
+  const stagingDir = path.resolve(root, "data", "research", "evidence-staging");
+  const filePath = path.resolve(stagingDir, file);
+
+  // Path traversal guard
+  if (!filePath.startsWith(stagingDir)) return [];
   if (!existsSync(filePath)) return [];
+
   try {
-    const parsed = JSON.parse(readFileSync(filePath, "utf8"));
-    return pick(parsed as Record<string, unknown>);
+    const stat = statSync(filePath);
+    if (stat.size > MAX_FILE_SIZE) return [];
+
+    let raw = readFileSync(filePath, "utf8");
+    if (raw.charCodeAt(0) === 0xfeff) {
+      raw = raw.slice(1);
+    }
+    const parsed = JSON.parse(raw);
+    if (typeof parsed !== "object" || parsed === null) return [];
+    return pick(parsed as Record<string, unknown>) ?? [];
   } catch {
     return [];
   }
@@ -119,11 +136,11 @@ export function loadWorkbench(): WorkbenchData {
   if (cached) return cached;
   const root = repositoryRoot();
   const data: WorkbenchData = {
-    claims: readJson<WorkbenchClaim>(root, "claims-v2.json", (parsed) => parsed.claims as WorkbenchClaim[]),
-    evidence: readJson<WorkbenchEvidence>(root, "evidence.json", (parsed) => parsed.evidence as WorkbenchEvidence[]),
-    audits: readJson<WorkbenchAudit>(root, "candidate-audits.json", (parsed) => parsed.audits as WorkbenchAudit[]),
-    notes: readJson<WorkbenchNote>(root, "notes.json", (parsed) => parsed.notes as WorkbenchNote[]),
-    contradictions: readJson<WorkbenchContradiction>(root, "contradictions.json", (parsed) => parsed.candidates as WorkbenchContradiction[]),
+    claims: readStagingJson<WorkbenchClaim>(root, "claims-v2.json", (parsed) => (Array.isArray(parsed.claims) ? (parsed.claims as WorkbenchClaim[]) : [])),
+    evidence: readStagingJson<WorkbenchEvidence>(root, "evidence.json", (parsed) => (Array.isArray(parsed.evidence) ? (parsed.evidence as WorkbenchEvidence[]) : [])),
+    audits: readStagingJson<WorkbenchAudit>(root, "candidate-audits.json", (parsed) => (Array.isArray(parsed.audits) ? (parsed.audits as WorkbenchAudit[]) : [])),
+    notes: readStagingJson<WorkbenchNote>(root, "notes.json", (parsed) => (Array.isArray(parsed.notes) ? (parsed.notes as WorkbenchNote[]) : [])),
+    contradictions: readStagingJson<WorkbenchContradiction>(root, "contradictions.json", (parsed) => (Array.isArray(parsed.candidates) ? (parsed.candidates as WorkbenchContradiction[]) : [])),
   };
   cached = data;
   return data;
@@ -136,6 +153,15 @@ export function clearWorkbenchCache() {
 /** Panel açık mı? Aynı kapı kuralı (production → her zaman kapalı). */
 export function workbenchEnabled(): boolean {
   return researchLabEnabled();
+}
+
+/** Formül enjeksiyonu korumalı CSV hücre biçimlendirici. */
+export function formatCsvCell(value: unknown): string {
+  const text = String(value ?? "");
+  if (/^[=+\-@\t\r]/.test(text) || /^\s/.test(text)) {
+    return `'${text.replace(/"/g, '""')}`;
+  }
+  return `"${text.replace(/"/g, '""')}"`;
 }
 
 /** İddia durum etiketleri. */

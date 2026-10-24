@@ -165,6 +165,62 @@
 }
 
 /* --------------------------------------------------------------------------
+   2B. HIZLI YIL SEÇİM ÇUBUĞU (KRONOLOJİ)
+   -------------------------------------------------------------------------- */
+.quickYearsBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  margin-top: -12px;
+  padding: 10px 14px;
+  background: rgba(20, 6, 8, 0.75);
+  border: 1px solid rgba(209, 163, 109, 0.25);
+  border-radius: 2px;
+}
+
+.quickYearsLabel {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+}
+
+.quickYearChip {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 2px;
+  border: 1px solid rgba(209, 163, 109, 0.35);
+  background: rgba(20, 8, 10, 0.6);
+  color: var(--gold-pale);
+  text-decoration: none;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.quickYearChip:hover {
+  background: rgba(45, 14, 18, 0.85);
+  border-color: var(--gold);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.quickYearChipActive {
+  background: linear-gradient(180deg, #991a21 0%, #761217 100%);
+  border-color: var(--gold-bright);
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 2px 10px rgba(153, 26, 33, 0.5), 0 0 8px rgba(209, 163, 109, 0.3);
+}
+
+/* --------------------------------------------------------------------------
    3. SONUÇ BAŞLIĞI VE SAYAÇ
    -------------------------------------------------------------------------- */
 .resultHeader {
@@ -410,6 +466,15 @@
 
 .detail p {
   color: var(--cream);
+}
+
+.detailTopNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-bottom: 8px;
 }
 
 .detailBack {
@@ -775,6 +840,105 @@
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.5px;
+}
+
+/* --------------------------------------------------------------------------
+   7B. ALTI KAYIT TÜRÜ VARYANTLARI (SIX-TYPE CARD THEMES)
+   -------------------------------------------------------------------------- */
+.card[data-record-type="photograph"] {
+  border-left: 3px solid rgba(209, 163, 109, 0.7);
+}
+.card[data-record-type="document"] {
+  border-left: 3px solid rgba(231, 191, 140, 0.7);
+}
+.card[data-record-type="speech"] {
+  border-left: 3px solid rgba(180, 50, 60, 0.7);
+}
+.card[data-record-type="event"] {
+  border-left: 3px solid rgba(212, 140, 80, 0.7);
+}
+.card[data-record-type="publication"] {
+  border-left: 3px solid rgba(160, 120, 90, 0.7);
+}
+.card[data-record-type="place"] {
+  border-left: 3px solid rgba(140, 160, 120, 0.7);
+}
+
+/* --------------------------------------------------------------------------
+   7C. İLİŞKİLİ ARŞİV KAYITLARI (RELATED ARCHIVE RECORDS)
+   -------------------------------------------------------------------------- */
+.relatedSection {
+  margin-top: 20px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(209, 163, 109, 0.25);
+  display: grid;
+  gap: 16px;
+}
+
+.relatedHeading {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-serif-display);
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: var(--gold-pale);
+  text-transform: uppercase;
+}
+
+.relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.relatedCard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 16px;
+  border: 1px solid rgba(209, 163, 109, 0.3);
+  background: rgba(22, 7, 9, 0.85);
+  border-radius: 2px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.relatedCard:hover {
+  border-color: var(--gold-bright);
+  background: rgba(38, 12, 15, 0.95);
+  transform: translateY(-2px);
+}
+
+.relatedCardType {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.relatedCardTitle {
+  margin: 0;
+  font-family: var(--font-serif-title);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--cream);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.relatedCardTime {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: rgba(225, 211, 197, 0.65);
 }
 
 /* --------------------------------------------------------------------------

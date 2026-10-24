@@ -67,7 +67,7 @@ export function FeaturedShowcase({ records }: { records: readonly ArchiveRecord[
                   <time>{record.date.display}</time>
                 </span>
                 <span className={styles.metaItem}>
-                  <Icon name="check" size={13} />
+                  <Icon name="document" size={13} />
                   Kaynak Denetimli
                 </span>
               </div>

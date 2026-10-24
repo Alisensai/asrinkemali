@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "task": "MKA-ANTIGRAVITY-16-DESIGN-SYSTEM",
+  "version": "0.8.0",
+  "status": "IMPLEMENTED",
+  "owner": "ANTIGRAVITY",
+  "baseCommit": "abd3369a65cecfd07f80f28f0d097478b8e40540",
+  "tokensFile": "web/styles/mka-tokens.css",
+  "componentDirectory": "web/components/design-system",
+  "tokenLayers": {
+    "primitive": [
+      "--mka-color-black",
+      "--mka-color-night",
+      "--mka-color-red-deep",
+      "--mka-color-red-masthead",
+      "--mka-color-red-nav",
+      "--mka-color-red-card",
+      "--mka-color-red-accent",
+      "--mka-color-gold",
+      "--mka-color-gold-bright",
+      "--mka-color-gold-pale",
+      "--mka-color-cream",
+      "--mka-color-sand",
+      "--mka-color-muted",
+      "--mka-space-1",
+      "--mka-space-2",
+      "--mka-space-3",
+      "--mka-space-4",
+      "--mka-space-5",
+      "--mka-space-6",
+      "--mka-space-8",
+      "--mka-space-10",
+      "--mka-space-12",
+      "--mka-space-16",
+      "--mka-radius-sm",
+      "--mka-radius-md",
+      "--mka-radius-lg",
+      "--mka-z-header",
+      "--mka-z-nav",
+      "--mka-z-modal"
+    ],
+    "semantic": [
+      "--mka-surface-page",
+      "--mka-surface-masthead",
+      "--mka-surface-nav",
+      "--mka-surface-card",
+      "--mka-surface-elevated",
+      "--mka-surface-modal",
+      "--mka-surface-plaque",
+      "--mka-text-primary",
+      "--mka-text-secondary",
+      "--mka-text-muted",
+      "--mka-text-gold",
+      "--mka-border-gold",
+      "--mka-border-subtle",
+      "--mka-focus-ring"
+    ]
+  },
+  "primitives": [
+    {
+      "name": "Button",
+      "file": "web/components/design-system/Button.tsx",
+      "variants": ["primary", "secondary", "ghost", "outline"],
+      "a11y": "aria-busy, aria-disabled, min 44px mobile touch target"
+    },
+    {
+      "name": "TextLink",
+      "file": "web/components/design-system/TextLink.tsx",
+      "features": ["Next.js Link integration", "rel=noopener noreferrer for external", "javascript: scheme blocking"]
+    },
+    {
+      "name": "Badge",
+      "file": "web/components/design-system/Badge.tsx",
+      "variants": ["published", "reviewed", "unverified", "ai", "type", "neutral"],
+      "epistemicRule": "published does not imply human historian verification"
+    },
+    {
+      "name": "StatusNote",
+      "file": "web/components/design-system/StatusNote.tsx",
+      "variants": ["info", "warning", "provenance", "ai"],
+      "a11y": "role=note"
+    },
+    {
+      "name": "MuseumPlaque",
+      "file": "web/components/design-system/MuseumPlaque.tsx",
+      "features": ["Typographic accession metadata without fake placeholder imagery"]
+    },
+    {
+      "name": "Surface",
+      "file": "web/components/design-system/Surface.tsx",
+      "elevations": [0, 1, 2, 3]
+    },
+    {
+      "name": "Divider",
+      "file": "web/components/design-system/Divider.tsx",
+      "features": ["Ornamental gold diamond accent", "role=separator"]
+    },
+    {
+      "name": "FormField",
+      "file": "web/components/design-system/FormField.tsx",
+      "features": ["Label htmlFor linking", "aria-describedby for help/error", "aria-invalid", "Input", "Select"]
+    },
+    {
+      "name": "Breadcrumb",
+      "file": "web/components/design-system/Breadcrumb.tsx",
+      "features": ["nav aria-label", "aria-current=page"]
+    },
+    {
+      "name": "EmptyState",
+      "file": "web/components/design-system/EmptyState.tsx",
+      "features": ["Honest unpopulated state", "Recovery action CTA", "role=status"]
+    }
+  ],
+  "downstreamHandoff": {
+    "prompt17": {
+      "area": "Site Header, Masthead & Home Shell",
+      "tokens": ["--mka-surface-masthead", "--mka-surface-nav", "--mka-color-gold-bright"]
+    },
+    "prompt18": {
+      "area": "Archive Explorer & Record Cards",
+      "primitives": ["MuseumPlaque", "EmptyState", "Badge", "FormField"]
+    },
+    "prompt19": {
+      "area": "Ataturk Life Journey & Rail",
+      "tokens": ["--mka-space-*", "--mka-font-title", "--mka-border-gold"]
+    },
+    "prompt26": {
+      "area": "Immersive Museum & Vitrine Panels",
+      "primitives": ["Surface", "StatusNote", "Button"]
+    },
+    "prompt30": {
+      "area": "Final 9 Viewport Visual QA & Regression Suite",
+      "viewports": [320, 360, 375, 390, 430, 768, 1024, 1440, 1536]
+    }
+  }
+}

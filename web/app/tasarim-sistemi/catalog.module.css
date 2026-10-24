@@ -1,0 +1,70 @@
+.catalogPage {
+  padding-block: var(--mka-space-8);
+  min-height: 80vh;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.catalogHeader {
+  margin-bottom: var(--mka-space-6);
+  max-width: 100%;
+}
+
+.catalogTitle {
+  font-family: var(--mka-font-display);
+  font-size: var(--mka-text-3xl);
+  color: var(--mka-color-white);
+  margin: var(--mka-space-2) 0 var(--mka-space-3) 0;
+  word-break: break-word;
+}
+
+.catalogLead {
+  font-family: var(--mka-font-sans);
+  font-size: var(--mka-text-base);
+  color: var(--mka-color-sand);
+  max-width: 800px;
+  line-height: var(--mka-leading-relaxed);
+  word-break: break-word;
+}
+
+.section {
+  margin-block: var(--mka-space-6);
+}
+
+.sectionTitle {
+  font-family: var(--mka-font-title);
+  font-size: var(--mka-text-2xl);
+  color: var(--mka-color-gold-bright);
+  margin-bottom: var(--mka-space-4);
+}
+
+.demoRow {
+  display: flex;
+  align-items: center;
+  gap: var(--mka-space-3);
+  flex-wrap: wrap;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--mka-space-4);
+}
+
+.demoSurface {
+  padding: var(--mka-space-5);
+}
+
+.demoSurface h3 {
+  font-family: var(--mka-font-title);
+  font-size: var(--mka-text-lg);
+  color: var(--mka-color-white);
+  margin: 0 0 var(--mka-space-2) 0;
+}
+
+.demoSurface p {
+  font-family: var(--mka-font-sans);
+  font-size: var(--mka-text-sm);
+  color: var(--mka-color-muted);
+  margin: 0;
+}

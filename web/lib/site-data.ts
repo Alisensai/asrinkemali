@@ -3,11 +3,13 @@ import type { ArchiveCollection, ArchiveRecord, ChronologyEntry, HeroSlide, Link
 export const primaryNavigation: LinkItem[] = [
   { label: "Ana sayfa", href: "/" },
   { label: "Atatürk", href: "/ataturk" },
+  { label: "Sergiler", href: "/sergiler" },
   { label: "Kronoloji", href: "/kronoloji" },
   { label: "Arşiv", href: "/arsiv" },
   { label: "Belgeler", href: "/arsiv?tur=belge" },
   { label: "Fotoğraflar", href: "/arsiv?tur=fotograf" },
   { label: "Yayınlar", href: "/yayinlar" },
+  { label: "Keşfet", href: "/kesfet" },
   { label: "Hakkımızda", href: "/hakkimizda" },
 ];
 
@@ -21,13 +23,13 @@ export const heroSlides: HeroSlide[] = [
   { id: "ataturk", eyebrow: "BAĞIMSIZ TARİH VE KÜLTÜR PLATFORMU", pretitle: "GAZİ MUSTAFA KEMAL", title: "ATATÜRK", summary: "Yaşamı, düşünce dünyası ve dönemine ilişkin kaynaklı içerikler için hazırlanan dijital rehber.", primaryAction: { label: "Arşivi keşfet", href: "/arsiv" }, secondaryAction: { label: "Kronolojiyi incele", href: "/kronoloji" }, image: heroImage },
   { id: "arsiv", eyebrow: "KAYNAK, LİSANS VE PROVENANS ODAKLI", pretitle: "TARİHİN İZİNDE", title: "ARŞİV", summary: "Katalog sayıları gerçek arşiv verisinden hesaplanır; erişilebilir kayıtlar insan tarih uzmanı incelemesi bekler.", primaryAction: { label: "Arşivi keşfet", href: "/arsiv" }, secondaryAction: { label: "Proje ilkeleri", href: "/hakkimizda" }, image: heroImage },
   { id: "hafiza", eyebrow: "BİR ASRIN MİRASI, SONSUZLUĞUN HAFIZASI", pretitle: "GEÇMİŞTEN GELECEĞE", title: "HAFIZA", summary: "Tarihî materyali bağlamından koparmadan korumayı ve erişilebilir kılmayı amaçlayan bağımsız proje.", primaryAction: { label: "Hakkımızda", href: "/hakkimizda" }, secondaryAction: { label: "Yayınlar", href: "/yayinlar" }, image: heroImage },
-  { id: "kutuphane", eyebrow: "DOĞRULANMIŞ KAYNAKLAR İÇİN HAZIRLANIYOR", pretitle: "BİRİNCİL KAYNAKLAR", title: "KÜTÜPHANE", summary: "Açık erişimli metin ve katalog bağlantıları, telif ve kaynak incelemesinin ardından yayımlanacak.", primaryAction: { label: "Katalog durumu", href: "/arsiv?tur=kitap" }, secondaryAction: { label: "Proje ilkeleri", href: "/hakkimizda" }, image: heroImage },
+  { id: "kutuphane", eyebrow: "DOĞRULANMIŞ KAYNAKLAR İÇİN HAZIRLANIYOR", pretitle: "BİRİNCİL KAYNAKLAR", title: "KÜTÜPHANE", summary: "Açık erişimli metin ve katalog bağlantıları, telif ve kaynak incelemesinin ardından yayımlanacak.", primaryAction: { label: "Katalog durumu", href: "/arsiv?tur=yayin" }, secondaryAction: { label: "Proje ilkeleri", href: "/hakkimizda" }, image: heroImage },
 ];
 
 export const shortcuts: Shortcut[] = [
   { label: "Arşivi", kicker: "Fotoğraf", href: "/arsiv?tur=fotograf", icon: "image", image: { src: "/assets/fotograf-arsivi.webp", alt: "Temsili fotoğraf arşivi kolajı", isIllustrative: true } },
   { label: "Merkezi", kicker: "Belge", href: "/arsiv?tur=belge", icon: "document", image: { src: "/assets/belge-merkezi.webp", alt: "Temsili belge görseli", isIllustrative: true } },
-  { label: "Kütüphane", kicker: "Dijital", href: "/arsiv?tur=kitap", icon: "book", image: { src: "/assets/dijital-kutuphane.webp", alt: "Temsili dijital kütüphane görseli", isIllustrative: true } },
+  { label: "Kütüphane", kicker: "Dijital", href: "/arsiv?tur=yayin", icon: "book", image: { src: "/assets/dijital-kutuphane.webp", alt: "Temsili dijital kütüphane görseli", isIllustrative: true } },
   { label: "Kronolojisi", kicker: "Tarih", href: "/kronoloji", icon: "map", image: { src: "/assets/tarih-atlasi.webp", alt: "Temsili tarih atlası görseli", isIllustrative: true } },
 ];
 
@@ -47,5 +49,7 @@ export const searchItems: SearchItem[] = [
   { title: "Arşiv", kind: "Sayfa", href: "/arsiv", keywords: "belge fotoğraf kitap koleksiyon" },
   { title: "Yayınlar", kind: "Sayfa", href: "/yayinlar", keywords: "araştırma makale yayın" },
   { title: "Tarihte Bugün", kind: "Sayfa", href: "/tarihte-bugun", keywords: "gün ay kaynaklı olay tarih" },
+  { title: "Küratöryel Sergiler", kind: "Sayfa", href: "/sergiler", keywords: "sergi müze sanal galeri vitrin anlatım cumhuriyet milli mücadele" },
+  { title: "Keşfet & Öneriler", kind: "Sayfa", href: "/kesfet", keywords: "keşfet öneri akıllı arama tema dönem ilişkili kayıtlar" },
   { title: "Hakkımızda", kind: "Sayfa", href: "/hakkimizda", keywords: "bağımsız proje ilkeler" },
 ];

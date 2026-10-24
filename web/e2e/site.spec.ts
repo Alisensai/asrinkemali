@@ -17,6 +17,7 @@ test("ana sayfa etkileşimleri, klavye ve ekran görüntüsü", async ({ page },
   const network = collectFailedRequests(page, new URL(testInfo.project.use.baseURL!).origin);
   page.on("response", (response) => { if (response.status() === 404) unexpected404s.push(response.url()); });
 
+
   await page.goto("/");
   await page.evaluate(() => document.fonts.ready);
   await expect(page.getByRole("heading", { level: 1 })).toContainText("ATATÜRK");

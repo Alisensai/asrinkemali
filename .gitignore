@@ -11,6 +11,7 @@ Thumbs.db
 .coverage/
 playwright-report/
 test-results/
+test-results*/
 release-check-reports/
 reports/publishing-integration/
 qa/kilo/results/

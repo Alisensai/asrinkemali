@@ -4,6 +4,12 @@ import { loadWorkbench } from "@/lib/research-evidence/workbench";
 
 export const dynamic = "force-dynamic";
 
+
+const NO_CACHE_HEADERS = {
+  "cache-control": "no-store, no-cache, must-revalidate, max-age=0",
+  "pragma": "no-cache",
+};
+
 /**
  * Dışa aktarım API'si (yalnız geliştirme ortamı kapısı arkasında).
  * Production'da her durumda 404. Çıktılar gerçek arşive otomatik yazılmaz.
@@ -11,7 +17,7 @@ export const dynamic = "force-dynamic";
  */
 export async function GET(request: Request) {
   if (!researchLabEnabled()) {
-    return NextResponse.json({ error: "not found" }, { status: 404 });
+    return NextResponse.json({ error: "not found" }, { status: 404, headers: NO_CACHE_HEADERS });
   }
   const format = new URL(request.url).searchParams.get("format") ?? "";
   const workbench = loadWorkbench();
@@ -20,17 +26,32 @@ export async function GET(request: Request) {
     case "claims-v2":
       return NextResponse.json(
         { schemaVersion: "2.0.0", claims: workbench.claims },
-        { headers: { "content-disposition": 'attachment; filename="claims-v2.json"' } }
+        {
+          headers: {
+            ...NO_CACHE_HEADERS,
+            "content-disposition": 'attachment; filename="claims-v2.json"',
+          },
+        }
       );
     case "evidence":
       return NextResponse.json(
         { schemaVersion: "1.0.0", evidence: workbench.evidence },
-        { headers: { "content-disposition": 'attachment; filename="evidence.json"' } }
+        {
+          headers: {
+            ...NO_CACHE_HEADERS,
+            "content-disposition": 'attachment; filename="evidence.json"',
+          },
+        }
       );
     case "audits":
       return NextResponse.json(
         { schemaVersion: "1.0.0", audits: workbench.audits },
-        { headers: { "content-disposition": 'attachment; filename="candidate-audits.json"' } }
+        {
+          headers: {
+            ...NO_CACHE_HEADERS,
+            "content-disposition": 'attachment; filename="candidate-audits.json"',
+          },
+        }
       );
     case "evidence-csv": {
       const header = "id,claimId,claimVersion,relation,institution,title,author,verificationLevel,supports,quote";
@@ -51,16 +72,25 @@ export async function GET(request: Request) {
           .join(",")
       );
       const csv = [header, ...rows].join("\r\n");
+
       return new NextResponse(csv, {
         headers: {
+          ...NO_CACHE_HEADERS,
           "content-type": "text/csv; charset=utf-8",
           "content-disposition": 'attachment; filename="evidence.csv"',
         },
       });
     }
     default:
-      return NextResponse.json({ error: "unknown format" }, { status: 400 });
+      return NextResponse.json({ error: "unknown format" }, { status: 400, headers: NO_CACHE_HEADERS });
   }
+}
+
+export async function HEAD() {
+  if (!researchLabEnabled()) {
+    return new NextResponse(null, { status: 404, headers: NO_CACHE_HEADERS });
+  }
+  return new NextResponse(null, { status: 200, headers: NO_CACHE_HEADERS });
 }
 
 /** Formül enjeksiyonu koruması: hücre başı = + - @ veya boşlukla başlıyorsa tek tırnak öneki. */
@@ -71,3 +101,4 @@ function csvCell(value: unknown) {
   }
   return `"${text.replace(/"/g, '""')}"`;
 }
+

@@ -2,16 +2,90 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import type { LinkItem } from "@/lib/site-types";
 import { Icon } from "./Icon";
+
+function subscribeSearch(callback: () => void) {
+  window.addEventListener("popstate", callback);
+  return () => window.removeEventListener("popstate", callback);
+}
+
+function getSearchSnapshot() {
+  return typeof window !== "undefined" ? window.location.search : "";
+}
+
+function getServerSearchSnapshot() {
+  return "";
+}
+
+/**
+ * Computes the single active navigation item index without prefix ambiguity.
+ * Guarantees exactly one or zero items receive aria-current="page".
+ */
+export function computeActiveNavIndex(items: LinkItem[], pathname: string, search = ""): number {
+  if (!items || items.length === 0) return -1;
+  if (pathname === "/") {
+    return items.findIndex((it) => it.href === "/");
+  }
+
+  // 1. If search parameters exist, match query parameters first
+  if (search) {
+    const full = `${pathname}${search}`;
+    const exact = items.findIndex((it) => it.href === full);
+    if (exact !== -1) return exact;
+
+    const currentParams = new URLSearchParams(search);
+    const queryMatch = items.findIndex((it) => {
+      if (!it.href.includes("?")) return false;
+      const [itPath, itQuery] = it.href.split("?");
+      if (itPath !== pathname) return false;
+      const itParams = new URLSearchParams(itQuery);
+      let match = true;
+      for (const [k, v] of itParams.entries()) {
+        if (currentParams.get(k) !== v) {
+          match = false;
+          break;
+        }
+      }
+      return match;
+    });
+    if (queryMatch !== -1) return queryMatch;
+  }
+
+  // 2. Exact pathname match without query (e.g. /arsiv, /ataturk, /kronoloji)
+  const exactPathMatch = items.findIndex((it) => it.href === pathname);
+  if (exactPathMatch !== -1) return exactPathMatch;
+
+  // 3. Sub-route prefix match (e.g. /arsiv/record-slug -> /arsiv)
+  let bestIndex = -1;
+  let bestLen = 0;
+  items.forEach((item, index) => {
+    if (item.href === "/" || item.href.includes("?")) return;
+    if (pathname.startsWith(`${item.href}/`) && item.href.length > bestLen) {
+      bestIndex = index;
+      bestLen = item.href.length;
+    }
+  });
+
+  return bestIndex;
+}
 
 export function Navigation({ items }: { items: LinkItem[] }) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const search = useSyncExternalStore(subscribeSearch, getSearchSnapshot, getServerSearchSnapshot);
+  const [prevPathname, setPrevPathname] = useState(pathname);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const navRef = useRef<HTMLElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
+
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
+    setOpen(false);
+  }
+
+  const activeIndex = computeActiveNavIndex(items, pathname, search);
 
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
@@ -81,8 +155,7 @@ export function Navigation({ items }: { items: LinkItem[] }) {
         </button>
         <div id="main-menu" ref={menuRef} className={`menu-links${open ? " open" : ""}`}>
           {items.map((item, index) => {
-            const route = item.href.split("?")[0];
-            const active = route === "/" ? pathname === "/" : pathname.startsWith(route);
+            const active = index === activeIndex;
             return (
               <Link
                 key={item.href}

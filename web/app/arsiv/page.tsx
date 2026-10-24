@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ContentPage } from "@/components/ContentPage";
 import { Icon, type IconName } from "@/components/Icon";
+import { EmptyState } from "@/components/design-system";
 import { archiveQueryString, archiveStats, getPublishedArchiveRecords, parseArchiveParams, queryArchive, reviewLabel, typeLabel } from "@/lib/archive";
 import type { ArchiveRecordType } from "../../../schemas/archive-record.types";
 import styles from "../content-platform.module.css";
@@ -97,11 +98,19 @@ export default async function ArchivePage({ searchParams }: { searchParams: Prom
           <ul className={styles.cards}>
             {result.items.map((record) => (
               <li key={record.id}>
-                <Link className={styles.card} href={`/arsiv/${record.slug}`}>
+                <Link
+                  className={styles.card}
+                  href={`/arsiv/${record.slug}`}
+                  data-record-type={record.type}
+                  aria-label={`${record.title} - ${typeLabel(record.type)} kaydı detayı`}
+                >
                   <div className={styles.cardContent}>
                     <span className={styles.cardMeta}>
-                      <time>{record.date.display}</time>
-                      <span className={styles.cardTypeBadge}>
+                      <time>
+                        {record.date.display}
+                        {record.date.certainty === "estimated" ? " (tahmini)" : ""}
+                      </time>
+                      <span className={styles.cardTypeBadge} data-type={record.type}>
                         <Icon name={getTypeIcon(record.type)} size={13} />
                         {typeLabel(record.type)}
                       </span>
@@ -112,7 +121,7 @@ export default async function ArchivePage({ searchParams }: { searchParams: Prom
                   </div>
                   <div className={styles.cardFooter}>
                     <span className={styles.reviewBadge}>
-                      <Icon name="check" size={12} />
+                      <Icon name="document" size={12} />
                       {reviewLabel(record.verification.status)}
                     </span>
                     {record.categories?.[0] ? (
@@ -124,10 +133,12 @@ export default async function ArchivePage({ searchParams }: { searchParams: Prom
             ))}
           </ul>
         ) : (
-          <div className="empty-state page-empty">
-            <h2>Aramanızla eşleşen yayımlanabilir kayıt bulunmuyor.</h2>
-            <p>Filtreleri genişletin. İnceleme ve taslak kayıtlar yayın kapısı nedeniyle sonuçlara eklenmez.</p>
-          </div>
+          <EmptyState
+            title="Aramanızla eşleşen yayımlanabilir kayıt bulunmuyor."
+            description="Filtreleri genişletin. İnceleme ve taslak kayıtlar yayın kapısı nedeniyle sonuçlara eklenmez."
+            actionLabel="Filtreleri temizle"
+            actionHref="/arsiv"
+          />
         )}
 
         {result.pageCount > 1 ? (
