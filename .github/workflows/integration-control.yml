@@ -1,0 +1,30 @@
+name: Integration control
+
+# Yalnız tools/integration-control testleri. Çevrimdışı çalışır (gerçek geçici git depoları, sahte GitHub
+# yanıtları); GitHub API'ye veya gizli değişkene ihtiyaç duymaz. Release quality kapısına dokunmaz.
+on:
+  pull_request:
+    paths:
+      - "tools/integration-control/**"
+      - ".github/workflows/integration-control.yml"
+  push:
+    paths:
+      - "tools/integration-control/**"
+      - ".github/workflows/integration-control.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  tool-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24
+      - name: Integration control tests (offline)
+        run: node --test tools/integration-control/tests/*.test.mjs

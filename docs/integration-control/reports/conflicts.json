@@ -1,0 +1,353 @@
+{
+  "analyzedPrs": [
+    2,
+    3,
+    19,
+    20,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28
+  ],
+  "basedOn": {
+    "lastFetchedAt": "2026-10-24T00:13:56.130Z",
+    "target": {
+      "ref": "origin/integration/asrinkemali-v06-release-candidate",
+      "sha": "10cdbfd70e0d2c7d12ed1e71907273d9a1f92b7e"
+    }
+  },
+  "crossPrSemantic": [
+    {
+      "note": "Proxy yönetim rotasını uygulamaya ulaşmadan yanıtlayabilir; panelin kendi erişim reddi sayfası ve testleri etkilenir.",
+      "prs": [
+        26,
+        28
+      ],
+      "rule": "admin-route-intercepted-by-proxy"
+    },
+    {
+      "prs": [
+        25,
+        28
+      ],
+      "rule": "next-config-headers"
+    }
+  ],
+  "pairs": [
+    {
+      "a": 25,
+      "b": 28,
+      "risk": {
+        "level": "high",
+        "reasons": [
+          "kritik alanda ortak dosya: scripts/publishing/dry-run.mjs, web/lib/publishing/scheduler.ts, web/next.config.ts, web/playwright.prod.config.ts",
+          "semantik: next-config-headers"
+        ]
+      },
+      "sameDirectoryOnly": false,
+      "sharedCategories": [
+        "D",
+        "J"
+      ],
+      "sharedCodeFiles": [
+        "scripts/publishing/dry-run.mjs",
+        "web/lib/publishing/scheduler.ts",
+        "web/next.config.ts",
+        "web/playwright.prod.config.ts"
+      ],
+      "sharedFiles": [
+        "scripts/publishing/dry-run.mjs",
+        "web/lib/publishing/scheduler.ts",
+        "web/next.config.ts",
+        "web/playwright.prod.config.ts"
+      ],
+      "sharedScreenshots": [],
+      "textual": {
+        "clean": true,
+        "conflicts": []
+      }
+    },
+    {
+      "a": 26,
+      "b": 28,
+      "risk": {
+        "level": "high",
+        "reasons": [
+          "yalnız aynı dizin (ortak dosya yok)",
+          "semantik: admin-route-intercepted-by-proxy"
+        ]
+      },
+      "sameDirectoryOnly": true,
+      "sharedCategories": [],
+      "sharedCodeFiles": [],
+      "sharedFiles": [],
+      "sharedScreenshots": [],
+      "textual": null
+    },
+    {
+      "a": 19,
+      "b": 24,
+      "risk": {
+        "level": "medium",
+        "reasons": []
+      },
+      "sameDirectoryOnly": false,
+      "sharedCategories": [
+        "H",
+        "other"
+      ],
+      "sharedCodeFiles": [
+        "tools/historical-research/package.json",
+        "tools/historical-research/tests/scale.test.mjs",
+        "web/app/arastirma-laboratuvari/laboratuvar.module.css",
+        "web/app/arastirma-laboratuvari/page.tsx"
+      ],
+      "sharedFiles": [
+        "tools/historical-research/package.json",
+        "tools/historical-research/tests/scale.test.mjs",
+        "web/app/arastirma-laboratuvari/laboratuvar.module.css",
+        "web/app/arastirma-laboratuvari/page.tsx"
+      ],
+      "sharedScreenshots": [],
+      "textual": {
+        "clean": true,
+        "conflicts": []
+      }
+    },
+    {
+      "a": 23,
+      "b": 25,
+      "risk": {
+        "level": "medium",
+        "reasons": []
+      },
+      "sameDirectoryOnly": false,
+      "sharedCategories": [
+        "B"
+      ],
+      "sharedCodeFiles": [
+        "web/app/arsiv/[slug]/page.tsx"
+      ],
+      "sharedFiles": [
+        "web/app/arsiv/[slug]/page.tsx"
+      ],
+      "sharedScreenshots": [],
+      "textual": {
+        "clean": true,
+        "conflicts": []
+      }
+    },
+    {
+      "a": 23,
+      "b": 27,
+      "risk": {
+        "level": "medium",
+        "reasons": []
+      },
+      "sameDirectoryOnly": false,
+      "sharedCategories": [
+        "other"
+      ],
+      "sharedCodeFiles": [
+        "web/app/hakkimizda/page.tsx"
+      ],
+      "sharedFiles": [
+        "web/app/hakkimizda/page.tsx"
+      ],
+      "sharedScreenshots": [],
+      "textual": {
+        "clean": true,
+        "conflicts": []
+      }
+    },
+    {
+      "a": 2,
+      "b": 23,
+      "risk": {
+        "level": "low",
+        "reasons": [
+          "yalnız aynı dizin (ortak dosya yok)"
+        ]
+      },
+      "sameDirectoryOnly": true,
+      "sharedCategories": [],
+      "sharedCodeFiles": [],
+      "sharedFiles": [],
+      "sharedScreenshots": [],
+      "textual": null
+    },
+    {
+      "a": 3,
+      "b": 28,
+      "risk": {
+        "level": "low",
+        "reasons": [
+          "yalnız aynı dizin (ortak dosya yok)"
+        ]
+      },
+      "sameDirectoryOnly": true,
+      "sharedCategories": [],
+      "sharedCodeFiles": [],
+      "sharedFiles": [],
+      "sharedScreenshots": [],
+      "textual": null
+    },
+    {
+      "a": 23,
+      "b": 26,
+      "risk": {
+        "level": "low",
+        "reasons": [
+          "yalnız aynı dizin (ortak dosya yok)"
+        ]
+      },
+      "sameDirectoryOnly": true,
+      "sharedCategories": [],
+      "sharedCodeFiles": [],
+      "sharedFiles": [],
+      "sharedScreenshots": [],
+      "textual": null
+    },
+    {
+      "a": 23,
+      "b": 28,
+      "risk": {
+        "level": "low",
+        "reasons": [
+          "yalnız aynı dizin (ortak dosya yok)"
+        ]
+      },
+      "sameDirectoryOnly": true,
+      "sharedCategories": [],
+      "sharedCodeFiles": [],
+      "sharedFiles": [],
+      "sharedScreenshots": [],
+      "textual": null
+    },
+    {
+      "a": 25,
+      "b": 26,
+      "risk": {
+        "level": "low",
+        "reasons": [
+          "yalnız aynı dizin (ortak dosya yok)"
+        ]
+      },
+      "sameDirectoryOnly": true,
+      "sharedCategories": [],
+      "sharedCodeFiles": [],
+      "sharedFiles": [],
+      "sharedScreenshots": [],
+      "textual": null
+    },
+    {
+      "a": 25,
+      "b": 27,
+      "risk": {
+        "level": "low",
+        "reasons": [
+          "yalnız aynı dizin (ortak dosya yok)"
+        ]
+      },
+      "sameDirectoryOnly": true,
+      "sharedCategories": [],
+      "sharedCodeFiles": [],
+      "sharedFiles": [],
+      "sharedScreenshots": [],
+      "textual": null
+    },
+    {
+      "a": 26,
+      "b": 27,
+      "risk": {
+        "level": "low",
+        "reasons": [
+          "yalnız aynı dizin (ortak dosya yok)"
+        ]
+      },
+      "sameDirectoryOnly": true,
+      "sharedCategories": [],
+      "sharedCodeFiles": [],
+      "sharedFiles": [],
+      "sharedScreenshots": [],
+      "textual": null
+    },
+    {
+      "a": 27,
+      "b": 28,
+      "risk": {
+        "level": "low",
+        "reasons": [
+          "yalnız aynı dizin (ortak dosya yok)"
+        ]
+      },
+      "sameDirectoryOnly": true,
+      "sharedCategories": [],
+      "sharedCodeFiles": [],
+      "sharedFiles": [],
+      "sharedScreenshots": [],
+      "textual": null
+    }
+  ],
+  "schema": "mka-integration/conflicts@1",
+  "semantic": [
+    {
+      "evidence": "13 ekran görüntüsü",
+      "message": "Çok sayıda ekran görüntüsü commitleniyor; testler bunları yeniden üretir ve PR'lar arasında üzerine yazma riski doğar.",
+      "owner": "Prompt 02/30",
+      "pr": 23,
+      "rule": "screenshots"
+    },
+    {
+      "evidence": [
+        "tools/historical-research/package-lock.json"
+      ],
+      "message": "Kilit dosyası değişiyor; tek doğru kilit yeniden üretilmeli, iki tarafın kilidi birleştirilmemeli.",
+      "owner": "Prompt 15",
+      "pr": 24,
+      "rule": "lockfile"
+    },
+    {
+      "evidence": [
+        "web/next.config.ts"
+      ],
+      "message": "next.config.ts değişiyor; CSP/güvenlik başlıkları ve dev/prod farkı korunmalı.",
+      "owner": "Claude Fortress",
+      "pr": 25,
+      "rule": "next-config-headers"
+    },
+    {
+      "evidence": [
+        "web/app/yonetim/admin.module.css",
+        "web/app/yonetim/arsiv/[slug]/page.tsx",
+        "web/app/yonetim/arsiv/page.tsx",
+        "web/app/yonetim/denetim/page.tsx",
+        "web/app/yonetim/error.tsx"
+      ],
+      "message": "Yönetim rotası ekleniyor; PR #28 proxy'si kayıtlı kimlik sağlayıcı yokken /yonetim ve /admin'i 404 yapar (bilinçli kapalı-başarısız). Panel ancak gerçek AuthenticationProvider ile açılmalı.",
+      "owner": "Prompt 14 (Control Center) + Claude Fortress",
+      "pr": 26,
+      "rule": "admin-vs-failclosed-proxy"
+    },
+    {
+      "evidence": [
+        "web/proxy.ts"
+      ],
+      "message": "İstek katmanı (proxy/middleware) değişiyor; tek dosya olabilir, birden çok PR aynı dosyayı yazıyorsa elle birleştirilmeli.",
+      "owner": "Claude Fortress",
+      "pr": 28,
+      "rule": "proxy-or-middleware"
+    },
+    {
+      "evidence": [
+        "web/next.config.ts"
+      ],
+      "message": "next.config.ts değişiyor; CSP/güvenlik başlıkları ve dev/prod farkı korunmalı.",
+      "owner": "Claude Fortress",
+      "pr": 28,
+      "rule": "next-config-headers"
+    }
+  ]
+}
