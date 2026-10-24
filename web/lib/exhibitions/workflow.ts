@@ -3,6 +3,7 @@
  * Sergi İş Akışı Durum Makinesi ve Doğrulama Kuralları
  */
 
+import { editorialTrustConfigured } from "../editorial-trust/configuration.ts";
 import type { ExhibitionRecord, ExhibitionReviewStatus } from "./types";
 
 const ALLOWED_TRANSITIONS: Record<ExhibitionReviewStatus, ExhibitionReviewStatus[]> = {
@@ -110,7 +111,26 @@ export function canTransitionWorkflow(
   return ALLOWED_TRANSITIONS[current]?.includes(target) ?? false;
 }
 
-export function canExposePublicExhibition(record: ExhibitionRecord): boolean {
+/**
+ * Kamuya açık sergi kapısı.
+ *
+ * V0.9 güvenlik denetimi: kayıttaki `editorialReview.status = "published"` ve serbest metin
+ * `reviewedBy` (ör. "… Küratörlük Kurulu") kayıt sahibinin kendi beyanıdır; doğrulanmış insan
+ * kararı DEĞİLDİR. Kamuya açılma, editoryal güven katmanında (Görev 04) güvenilir kimlik
+ * sağlayıcısı + etkin politika ve bu sergi revizyonu için doğrulanmış onay ister. Bu repoda
+ * sağlayıcı/politika olmadığından üretimde hiçbir sergi kamuya açılmaz (fail-closed).
+ */
+export interface ExhibitionTrustContext {
+  /** Editoryal güven katmanı yapılandırıldı mı (sağlayıcı + politika). */
+  trustConfigured: boolean;
+  /** Bu sergi revizyonu için doğrulanmış insan onayı var mı (karar deposundan). */
+  verifiedApproval: boolean;
+}
+
+export function canExposePublicExhibition(
+  record: ExhibitionRecord,
+  trust: ExhibitionTrustContext = { trustConfigured: editorialTrustConfigured(), verifiedApproval: false },
+): boolean {
   if (!record || typeof record !== "object") return false;
   const validation = validateExhibitionRecord(record);
   if (!validation.valid) return false;
@@ -121,6 +141,8 @@ export function canExposePublicExhibition(record: ExhibitionRecord): boolean {
   if (isSyntheticPreview) return false;
   if (status !== "published") return false;
   if (!reviewedBy || reviewedBy.trim().length === 0) return false;
+  // Kayıt içi beyan yeterli değildir: doğrulanmış insan kararı ve yapılandırılmış güven katmanı şart.
+  if (!trust.trustConfigured || !trust.verifiedApproval) return false;
 
   return true;
 }
