@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-10-23T19:45:12.114Z",
+  "notes": [
+    {
+      "schemaVersion": "1.0.0",
+      "id": "note-001",
+      "kind": "research_question",
+      "author": "MKA Evidence Workbench",
+      "createdAt": "2026-10-23T19:45:12.110Z",
+      "updatedAt": "2026-10-23T19:45:12.110Z",
+      "target": {
+        "claimId": "claim-005",
+        "candidateId": null,
+        "evidenceId": null
+      },
+      "text": "claim-005 (Sofya Ataşemiliterliği): kaynak atama tarihini (27 Ekim 1913) ve icra dönemini (20 Kasım 1913 – 25 Ocak 1915) ayrı veriyor; madde başlığı ise 27 Ekim 1913 – 20 Ocak 1915 kullanıyor. İddia hangi aralığa göre yazılmalı? İnsan tarihçi incelemesi gerekli.",
+      "linkedRecordIds": [
+        "ev-005-1",
+        "ev-005-b"
+      ],
+      "history": [
+        {
+          "at": "2026-10-23T19:45:12.110Z",
+          "change": "not oluşturuldu"
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "note-002",
+      "kind": "comparison",
+      "author": "MKA Evidence Workbench",
+      "createdAt": "2026-10-23T19:45:12.110Z",
+      "updatedAt": "2026-10-23T19:45:12.110Z",
+      "target": {
+        "claimId": "claim-008",
+        "candidateId": null,
+        "evidenceId": null
+      },
+      "text": "claim-008 (Karlsbad günlüğü): aynı kurumun iki maddesi bitiş tarihini farklı veriyor (detay/105: 28 Temmuz 1918; detay/4078: 27 Temmuz 1918). Her iki pasaj da alıntı olarak kaydedildi; çelişki adayı üretildi. Kaynaklardan biri diğerinden türemiş olabilir — bağımsızlık incelemesi gerekli.",
+      "linkedRecordIds": [
+        "ev-008-1",
+        "ev-008-b"
+      ],
+      "history": [
+        {
+          "at": "2026-10-23T19:45:12.110Z",
+          "change": "not oluşturuldu"
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "note-003",
+      "kind": "missing_info",
+      "author": "MKA Evidence Workbench",
+      "createdAt": "2026-10-23T19:45:12.110Z",
+      "updatedAt": "2026-10-23T19:45:12.110Z",
+      "target": {
+        "claimId": null,
+        "candidateId": "src-2026-0031",
+        "evidenceId": null
+      },
+      "text": "src-2026-0031 (Devlet Arşivleri 'Belgelerle Mustafa Kemal Atatürk'): künye doğrulanamadı; PDF indirilmedi (telif/boyut). Yayın listesindeki 'Belgelerle Mustafa Kemal Atatürk ve Türk-Bulgar İlişkileri (1913-1938), Ankara 2002' muhtemel eşleşme — insan incelemesi ile künye tamamlanmalı.",
+      "linkedRecordIds": [],
+      "history": [
+        {
+          "at": "2026-10-23T19:45:12.110Z",
+          "change": "not oluşturuldu"
+        }
+      ]
+    },
+    {
+      "schemaVersion": "1.0.0",
+      "id": "note-004",
+      "kind": "commentary",
+      "author": "MKA Evidence Workbench",
+      "createdAt": "2026-10-23T19:45:12.110Z",
+      "updatedAt": "2026-10-23T19:45:12.110Z",
+      "target": {
+        "claimId": null,
+        "candidateId": "src-2026-0029",
+        "evidenceId": null
+      },
+      "text": "ATAM kitabı (src-2026-0029) künyesinde ISBN 978-975-17-6251-1 yazıyor; ATAM arşiv listesi 978-975-17-6277-1 gösteriyor. Fark, baskı/liste hatası olabilir — yayınevi kaynağından doğrulanmalı. Bu bir YORUMDUR, kaynakta yazan ifade değildir.",
+      "linkedRecordIds": [],
+      "history": [
+        {
+          "at": "2026-10-23T19:45:12.110Z",
+          "change": "not oluşturuldu"
+        }
+      ]
+    }
+  ]
+}
