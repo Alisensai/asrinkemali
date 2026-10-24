@@ -1,0 +1,45 @@
+name: Research evidence
+
+# Görev 07: yalnız tools/historical-research testleri ve salt-okunur bütünlük denetimi.
+# Ağ erişimi, gizli değişken veya yayın adımı yoktur. release-quality kapısına dokunmaz;
+# insan onayı eksikliği orada kırmızı kalmaya devam eder.
+on:
+  pull_request:
+    paths:
+      - "tools/historical-research/**"
+      - "data/research/candidates/**"
+      - "data/archive/catalog/**"
+      - "content/archive/records/**"
+      - "scripts/archive/**"
+      - ".github/workflows/research-evidence.yml"
+  push:
+    paths:
+      - "tools/historical-research/**"
+      - "data/research/candidates/**"
+      - ".github/workflows/research-evidence.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  evidence-engine:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24
+      - name: Integrity snapshot (before)
+        run: node tools/historical-research/cli.mjs integrity > "$RUNNER_TEMP/integrity-before.json"
+      - name: Evidence engine tests
+        working-directory: tools/historical-research
+        run: npm test
+      - name: Evidence report (read-only, deterministic)
+        run: node tools/historical-research/cli.mjs evidence-report --generated-at 2026-10-24T00:00:00Z --format md
+      - name: Integrity snapshot unchanged
+        run: |
+          node tools/historical-research/cli.mjs integrity > "$RUNNER_TEMP/integrity-after.json"
+          diff "$RUNNER_TEMP/integrity-before.json" "$RUNNER_TEMP/integrity-after.json"

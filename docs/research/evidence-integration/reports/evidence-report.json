@@ -1,0 +1,1661 @@
+{
+  "archiveSnapshotSha": "d545f8ab1881ab58b3ffe7a8ecf2faf10d1eea91a2dda54eb96c1aa004e42582",
+  "blockers": [],
+  "candidateSnapshotSha": "ca9b7671a24506970bb7134d3dc2662300c0075ef1ff7ce1632c57047cdeba26",
+  "claimAssessments": [
+    {
+      "algorithmicLabel": "unverified",
+      "claimId": "claim-001",
+      "counts": {
+        "contradicts": 0,
+        "independentPassageRoots": 0,
+        "partial": 0,
+        "resolvedEdges": 1,
+        "supportsMetadataOnly": 1,
+        "supportsWithPassage": 0,
+        "unresolvedEdges": 0
+      },
+      "edges": [
+        {
+          "candidateId": "src-2026-0001",
+          "grade": "metadata_only",
+          "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+          "reason": null,
+          "relation": "supports"
+        }
+      ],
+      "humanVerified": false,
+      "independentRoots": [],
+      "legacyStatus": null,
+      "limitations": [
+        "Pasajın kaynakta bulunduğu doğrulanmadı.",
+        "Bağımsızlık sezgiseldir (URL, kurum+kimlik, ayna künye); tarihsel bağımsızlık kararı değildir.",
+        "Durum tarihçi onayı değildir."
+      ],
+      "reviewQueue": [
+        {
+          "candidateIds": [
+            "src-2026-0001"
+          ],
+          "code": "PASSAGE_MISSING",
+          "note": "Künye/metadata iddiayı desteklediğini göstermez; belge pasajı gerekir (Prompt 08)."
+        }
+      ],
+      "status": "unverified",
+      "unresolvedEdges": []
+    },
+    {
+      "algorithmicLabel": "unverified",
+      "claimId": "claim-002",
+      "counts": {
+        "contradicts": 0,
+        "independentPassageRoots": 0,
+        "partial": 0,
+        "resolvedEdges": 1,
+        "supportsMetadataOnly": 1,
+        "supportsWithPassage": 0,
+        "unresolvedEdges": 0
+      },
+      "edges": [
+        {
+          "candidateId": "src-2026-0006",
+          "grade": "metadata_only",
+          "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+          "reason": null,
+          "relation": "supports"
+        }
+      ],
+      "humanVerified": false,
+      "independentRoots": [],
+      "legacyStatus": null,
+      "limitations": [
+        "Pasajın kaynakta bulunduğu doğrulanmadı.",
+        "Bağımsızlık sezgiseldir (URL, kurum+kimlik, ayna künye); tarihsel bağımsızlık kararı değildir.",
+        "Durum tarihçi onayı değildir."
+      ],
+      "reviewQueue": [
+        {
+          "candidateIds": [
+            "src-2026-0006"
+          ],
+          "code": "PASSAGE_MISSING",
+          "note": "Künye/metadata iddiayı desteklediğini göstermez; belge pasajı gerekir (Prompt 08)."
+        }
+      ],
+      "status": "unverified",
+      "unresolvedEdges": []
+    },
+    {
+      "algorithmicLabel": "unverified",
+      "claimId": "claim-003",
+      "counts": {
+        "contradicts": 0,
+        "independentPassageRoots": 0,
+        "partial": 0,
+        "resolvedEdges": 1,
+        "supportsMetadataOnly": 1,
+        "supportsWithPassage": 0,
+        "unresolvedEdges": 0
+      },
+      "edges": [
+        {
+          "candidateId": "src-2026-0007",
+          "grade": "metadata_only",
+          "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+          "reason": null,
+          "relation": "supports"
+        }
+      ],
+      "humanVerified": false,
+      "independentRoots": [],
+      "legacyStatus": null,
+      "limitations": [
+        "Pasajın kaynakta bulunduğu doğrulanmadı.",
+        "Bağımsızlık sezgiseldir (URL, kurum+kimlik, ayna künye); tarihsel bağımsızlık kararı değildir.",
+        "Durum tarihçi onayı değildir."
+      ],
+      "reviewQueue": [
+        {
+          "candidateIds": [
+            "src-2026-0007"
+          ],
+          "code": "PASSAGE_MISSING",
+          "note": "Künye/metadata iddiayı desteklediğini göstermez; belge pasajı gerekir (Prompt 08)."
+        }
+      ],
+      "status": "unverified",
+      "unresolvedEdges": []
+    },
+    {
+      "algorithmicLabel": "unverified",
+      "claimId": "claim-004",
+      "counts": {
+        "contradicts": 0,
+        "independentPassageRoots": 0,
+        "partial": 0,
+        "resolvedEdges": 1,
+        "supportsMetadataOnly": 1,
+        "supportsWithPassage": 0,
+        "unresolvedEdges": 0
+      },
+      "edges": [
+        {
+          "candidateId": "src-2026-0008",
+          "grade": "metadata_only",
+          "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+          "reason": null,
+          "relation": "supports"
+        }
+      ],
+      "humanVerified": false,
+      "independentRoots": [],
+      "legacyStatus": null,
+      "limitations": [
+        "Pasajın kaynakta bulunduğu doğrulanmadı.",
+        "Bağımsızlık sezgiseldir (URL, kurum+kimlik, ayna künye); tarihsel bağımsızlık kararı değildir.",
+        "Durum tarihçi onayı değildir."
+      ],
+      "reviewQueue": [
+        {
+          "candidateIds": [
+            "src-2026-0008"
+          ],
+          "code": "PASSAGE_MISSING",
+          "note": "Künye/metadata iddiayı desteklediğini göstermez; belge pasajı gerekir (Prompt 08)."
+        }
+      ],
+      "status": "unverified",
+      "unresolvedEdges": []
+    },
+    {
+      "algorithmicLabel": "unverified",
+      "claimId": "claim-005",
+      "counts": {
+        "contradicts": 0,
+        "independentPassageRoots": 0,
+        "partial": 0,
+        "resolvedEdges": 1,
+        "supportsMetadataOnly": 1,
+        "supportsWithPassage": 0,
+        "unresolvedEdges": 0
+      },
+      "edges": [
+        {
+          "candidateId": "src-2026-0011",
+          "grade": "metadata_only",
+          "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+          "reason": null,
+          "relation": "supports"
+        }
+      ],
+      "humanVerified": false,
+      "independentRoots": [],
+      "legacyStatus": null,
+      "limitations": [
+        "Pasajın kaynakta bulunduğu doğrulanmadı.",
+        "Bağımsızlık sezgiseldir (URL, kurum+kimlik, ayna künye); tarihsel bağımsızlık kararı değildir.",
+        "Durum tarihçi onayı değildir."
+      ],
+      "reviewQueue": [
+        {
+          "candidateIds": [
+            "src-2026-0011"
+          ],
+          "code": "PASSAGE_MISSING",
+          "note": "Künye/metadata iddiayı desteklediğini göstermez; belge pasajı gerekir (Prompt 08)."
+        }
+      ],
+      "status": "unverified",
+      "unresolvedEdges": []
+    },
+    {
+      "algorithmicLabel": "unverified",
+      "claimId": "claim-006",
+      "counts": {
+        "contradicts": 0,
+        "independentPassageRoots": 0,
+        "partial": 1,
+        "resolvedEdges": 2,
+        "supportsMetadataOnly": 1,
+        "supportsWithPassage": 0,
+        "unresolvedEdges": 0
+      },
+      "edges": [
+        {
+          "candidateId": "src-2026-0010",
+          "grade": "metadata_only",
+          "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+          "reason": null,
+          "relation": "supports"
+        },
+        {
+          "candidateId": "src-2026-0009",
+          "grade": "metadata_only",
+          "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+          "reason": null,
+          "relation": "partial"
+        }
+      ],
+      "humanVerified": false,
+      "independentRoots": [],
+      "legacyStatus": null,
+      "limitations": [
+        "Pasajın kaynakta bulunduğu doğrulanmadı.",
+        "Bağımsızlık sezgiseldir (URL, kurum+kimlik, ayna künye); tarihsel bağımsızlık kararı değildir.",
+        "Durum tarihçi onayı değildir."
+      ],
+      "reviewQueue": [
+        {
+          "candidateIds": [
+            "src-2026-0010"
+          ],
+          "code": "PASSAGE_MISSING",
+          "note": "Künye/metadata iddiayı desteklediğini göstermez; belge pasajı gerekir (Prompt 08)."
+        }
+      ],
+      "status": "unverified",
+      "unresolvedEdges": []
+    },
+    {
+      "algorithmicLabel": "unverified",
+      "claimId": "claim-007",
+      "counts": {
+        "contradicts": 0,
+        "independentPassageRoots": 0,
+        "partial": 0,
+        "resolvedEdges": 1,
+        "supportsMetadataOnly": 1,
+        "supportsWithPassage": 0,
+        "unresolvedEdges": 0
+      },
+      "edges": [
+        {
+          "candidateId": "src-2026-0030",
+          "grade": "metadata_only",
+          "institution": "Atatürk Araştırma Merkezi (ATAM)",
+          "reason": null,
+          "relation": "supports"
+        }
+      ],
+      "humanVerified": false,
+      "independentRoots": [],
+      "legacyStatus": null,
+      "limitations": [
+        "Pasajın kaynakta bulunduğu doğrulanmadı.",
+        "Bağımsızlık sezgiseldir (URL, kurum+kimlik, ayna künye); tarihsel bağımsızlık kararı değildir.",
+        "Durum tarihçi onayı değildir."
+      ],
+      "reviewQueue": [
+        {
+          "candidateIds": [
+            "src-2026-0030"
+          ],
+          "code": "PASSAGE_MISSING",
+          "note": "Künye/metadata iddiayı desteklediğini göstermez; belge pasajı gerekir (Prompt 08)."
+        }
+      ],
+      "status": "unverified",
+      "unresolvedEdges": []
+    },
+    {
+      "algorithmicLabel": "unverified",
+      "claimId": "claim-008",
+      "counts": {
+        "contradicts": 0,
+        "independentPassageRoots": 0,
+        "partial": 0,
+        "resolvedEdges": 1,
+        "supportsMetadataOnly": 1,
+        "supportsWithPassage": 0,
+        "unresolvedEdges": 0
+      },
+      "edges": [
+        {
+          "candidateId": "src-2026-0014",
+          "grade": "metadata_only",
+          "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+          "reason": null,
+          "relation": "supports"
+        }
+      ],
+      "humanVerified": false,
+      "independentRoots": [],
+      "legacyStatus": null,
+      "limitations": [
+        "Pasajın kaynakta bulunduğu doğrulanmadı.",
+        "Bağımsızlık sezgiseldir (URL, kurum+kimlik, ayna künye); tarihsel bağımsızlık kararı değildir.",
+        "Durum tarihçi onayı değildir."
+      ],
+      "reviewQueue": [
+        {
+          "candidateIds": [
+            "src-2026-0014"
+          ],
+          "code": "PASSAGE_MISSING",
+          "note": "Künye/metadata iddiayı desteklediğini göstermez; belge pasajı gerekir (Prompt 08)."
+        }
+      ],
+      "status": "unverified",
+      "unresolvedEdges": []
+    },
+    {
+      "algorithmicLabel": "unverified",
+      "claimId": "claim-009",
+      "counts": {
+        "contradicts": 0,
+        "independentPassageRoots": 0,
+        "partial": 0,
+        "resolvedEdges": 1,
+        "supportsMetadataOnly": 1,
+        "supportsWithPassage": 0,
+        "unresolvedEdges": 0
+      },
+      "edges": [
+        {
+          "candidateId": "src-2026-0015",
+          "grade": "metadata_only",
+          "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+          "reason": null,
+          "relation": "supports"
+        }
+      ],
+      "humanVerified": false,
+      "independentRoots": [],
+      "legacyStatus": null,
+      "limitations": [
+        "Pasajın kaynakta bulunduğu doğrulanmadı.",
+        "Bağımsızlık sezgiseldir (URL, kurum+kimlik, ayna künye); tarihsel bağımsızlık kararı değildir.",
+        "Durum tarihçi onayı değildir."
+      ],
+      "reviewQueue": [
+        {
+          "candidateIds": [
+            "src-2026-0015"
+          ],
+          "code": "PASSAGE_MISSING",
+          "note": "Künye/metadata iddiayı desteklediğini göstermez; belge pasajı gerekir (Prompt 08)."
+        }
+      ],
+      "status": "unverified",
+      "unresolvedEdges": []
+    },
+    {
+      "algorithmicLabel": "unverified",
+      "claimId": "claim-010",
+      "counts": {
+        "contradicts": 0,
+        "independentPassageRoots": 0,
+        "partial": 0,
+        "resolvedEdges": 1,
+        "supportsMetadataOnly": 1,
+        "supportsWithPassage": 0,
+        "unresolvedEdges": 0
+      },
+      "edges": [
+        {
+          "candidateId": "src-2026-0012",
+          "grade": "metadata_only",
+          "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+          "reason": null,
+          "relation": "supports"
+        }
+      ],
+      "humanVerified": false,
+      "independentRoots": [],
+      "legacyStatus": null,
+      "limitations": [
+        "Pasajın kaynakta bulunduğu doğrulanmadı.",
+        "Bağımsızlık sezgiseldir (URL, kurum+kimlik, ayna künye); tarihsel bağımsızlık kararı değildir.",
+        "Durum tarihçi onayı değildir."
+      ],
+      "reviewQueue": [
+        {
+          "candidateIds": [
+            "src-2026-0012"
+          ],
+          "code": "PASSAGE_MISSING",
+          "note": "Künye/metadata iddiayı desteklediğini göstermez; belge pasajı gerekir (Prompt 08)."
+        }
+      ],
+      "status": "unverified",
+      "unresolvedEdges": []
+    }
+  ],
+  "claimsSnapshotSha": "e0ce3f229a0622ed5fb11e001ce3453dfaae5ba1caa23d3bd38db1a060adfc3f",
+  "dryRuns": [
+    {
+      "blockers": [
+        "CITATION_INCOMPLETE",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0001",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0002",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0003",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0004",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0005",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0006",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0007",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0008",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0009",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0010",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "CITATION_INCOMPLETE",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0011",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0012",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0013",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0014",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0015",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0016",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0017",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0018",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0019",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0020",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0021",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0022",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "CITATION_INCOMPLETE",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0023",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0024",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0025",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "CITATION_INCOMPLETE",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0026",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "CITATION_INCOMPLETE",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0027",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "CITATION_INCOMPLETE",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0028",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0029",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0030",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "CITATION_INCOMPLETE",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0031",
+      "outcome": "blocked"
+    },
+    {
+      "blockers": [
+        "CITATION_INCOMPLETE",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ],
+      "candidateId": "src-2026-0032",
+      "outcome": "blocked"
+    }
+  ],
+  "duplicates": [],
+  "engineVersion": "mka-evidence-engine/0.7.0+claude-integration.1",
+  "findings": [],
+  "gapAnalysis": {
+    "method": "heuristic_keyword",
+    "missingRanges": [
+      {
+        "end": 1882,
+        "note": "Arşiv kaydı yok.",
+        "start": 1881
+      },
+      {
+        "end": 1907,
+        "note": "Arşiv kaydı yok.",
+        "start": 1884
+      },
+      {
+        "end": 1911,
+        "note": "Arşiv kaydı yok.",
+        "start": 1909
+      },
+      {
+        "end": 1917,
+        "note": "Arşiv kaydı yok.",
+        "start": 1913
+      }
+    ],
+    "themeCoverage": [
+      {
+        "coverage": "none",
+        "label": "Çocukluğu ve aile yaşamı",
+        "records": 0,
+        "theme": "cocukluk"
+      },
+      {
+        "coverage": "sparse",
+        "label": "Selanik dönemi",
+        "records": 1,
+        "theme": "selanik"
+      },
+      {
+        "coverage": "sparse",
+        "label": "İlk öğrenim ve askerî okullar",
+        "records": 1,
+        "theme": "egitim"
+      },
+      {
+        "coverage": "none",
+        "label": "Manastır yılları",
+        "records": 0,
+        "theme": "manastir"
+      },
+      {
+        "coverage": "none",
+        "label": "Harp Okulu",
+        "records": 0,
+        "theme": "harp-okulu"
+      },
+      {
+        "coverage": "none",
+        "label": "Harp Akademisi",
+        "records": 0,
+        "theme": "harp-akademisi"
+      },
+      {
+        "coverage": "none",
+        "label": "İlk askerî görevleri",
+        "records": 0,
+        "theme": "ilk-gorevler"
+      },
+      {
+        "coverage": "none",
+        "label": "Şam dönemi",
+        "records": 0,
+        "theme": "sam"
+      },
+      {
+        "coverage": "none",
+        "label": "Trablusgarp Savaşı",
+        "records": 0,
+        "theme": "trablusgarp"
+      },
+      {
+        "coverage": "none",
+        "label": "Balkan Savaşları",
+        "records": 0,
+        "theme": "balkan-savaslari"
+      },
+      {
+        "coverage": "none",
+        "label": "Çanakkale Savaşları",
+        "records": 0,
+        "theme": "canakkale"
+      },
+      {
+        "coverage": "none",
+        "label": "Doğu Cephesi",
+        "records": 0,
+        "theme": "dogu-cephesi"
+      },
+      {
+        "coverage": "sparse",
+        "label": "1917–1918 dönemi",
+        "records": 1,
+        "theme": "1917-1918"
+      },
+      {
+        "coverage": "none",
+        "label": "Dönemin tarihî kişileri",
+        "records": 0,
+        "theme": "kisiler"
+      },
+      {
+        "coverage": "sparse",
+        "label": "Dönemin tarihî mekânları",
+        "records": 1,
+        "theme": "mekanlar"
+      },
+      {
+        "coverage": "none",
+        "label": "Genel yaşam",
+        "records": 0,
+        "theme": "genel"
+      }
+    ]
+  },
+  "generatedAt": "2026-10-24T12:00:00Z",
+  "humanApprovalState": {
+    "archive": "no_verified_human_approval",
+    "candidates": "no_verified_human_review",
+    "claims": "no_human_verification"
+  },
+  "importEligibleCount": 0,
+  "importEligibleNote": "Güvenilir insan incelemesi kaynağı yok; dry-run 'ok' yalnız teknik taslaktır ve kataloğa yazılmaz.",
+  "limitations": [
+    "Ağ erişimi yok; bağlantı durumu havuzdaki gözlemdir.",
+    "Pasaj doğrulaması yapılmadı (Prompt 08 / insan).",
+    "Bağımsızlık ve tekrar sınıflandırması sezgiseldir.",
+    "Source Reliability (PR #20) ve Authority Registry (Prompt 06) bu tabanda yok; eşleme yapılmadı.",
+    "Tema kapsamı anahtar kelime temellidir."
+  ],
+  "metrics": {
+    "archiveHumanApproved": 0,
+    "archiveRecordFiles": 168,
+    "archiveTechnicalStatus": {
+      "draft": 1,
+      "other": 0,
+      "published": 151,
+      "reviewed": 16
+    },
+    "archiveUniqueIds": 168,
+    "candidateStates": {
+      "awaiting_human_review": 24,
+      "insufficient_info": 8
+    },
+    "canonicalUrlRoots": 32,
+    "claimStatus": {
+      "contested_needs_review": 0,
+      "provisional_support": 0,
+      "unverified": 10
+    },
+    "dryRunOutcomes": {
+      "blocked": 32,
+      "invalid": 0,
+      "ok": 0
+    },
+    "evidenceEdges": 75,
+    "exactDuplicateFindings": 0,
+    "historicalClaims": 10,
+    "humanVerifiedClaims": 0,
+    "possibleDuplicateFindings": 0,
+    "sourceCandidates": 32,
+    "syntheticCandidates": 0,
+    "unresolvedEdges": 7
+  },
+  "periodCoverage": {
+    "absenceNote": "Kayıt yokluğu yalnız 'katalogda kayıt eksik' demektir; olayın yaşanmadığı anlamına gelmez.",
+    "byRecordType": {
+      "place": 3,
+      "publication": 1
+    },
+    "candidateSourcesOverlapping": 32,
+    "distinctRecords": 4,
+    "from": 1881,
+    "inclusive": true,
+    "placeRecordsNote": "Mekân (place) kayıtlarının tarihi kuruluş/inşa tarihidir; Atatürk'ün orada bulunduğu tarih değildir.",
+    "recordYearIncidences": 4,
+    "to": 1918,
+    "unknownDateRecords": 1
+  },
+  "readOnlyIntegrity": {
+    "paths": [
+      {
+        "files": 18,
+        "path": "content/archive/records",
+        "sha256": "ab4b27434a1e32445bcb2ca79c5779064399b8f2bafbd5f6f2eab1ed0a78fb0f"
+      },
+      {
+        "files": 150,
+        "path": "data/archive/catalog",
+        "sha256": "a7aa5b5363c186b829d34099e97e37e15600a461eb1ed6185dfd7417999e3961"
+      },
+      {
+        "files": 168,
+        "path": "docs/editorial/forms",
+        "sha256": "8933bde2a440095cf82e8f5f6b41ccd9b6165730cdcc9b84c54c9eecab5582bb"
+      },
+      {
+        "files": 3,
+        "path": "content/publications",
+        "sha256": "38c5cd4006a9c6fa9ae91bf7498c4a20158d915eb2e955784c6d3ffa4f875db7"
+      },
+      {
+        "files": 1,
+        "path": "data/research/candidates/pool.json",
+        "sha256": "ca9b7671a24506970bb7134d3dc2662300c0075ef1ff7ce1632c57047cdeba26"
+      },
+      {
+        "files": 1,
+        "path": "data/research/candidates/claims.json",
+        "sha256": "e0ce3f229a0622ed5fb11e001ce3453dfaae5ba1caa23d3bd38db1a060adfc3f"
+      }
+    ],
+    "verified": true
+  },
+  "schemaVersion": "evidence-integration-report/1.0.0",
+  "sourceLinkStatus": {
+    "note": "Havuzdaki gözlemlenmiş alan; bu rapor ağa çıkmadı. Erişilebilirlik tarihî doğruluk değildir.",
+    "observed": {
+      "reachable": 32
+    }
+  },
+  "unknownFieldsCount": 17,
+  "warnings": [
+    {
+      "code": "TECHNICAL_PUBLISHED_IS_NOT_HUMAN_APPROVAL",
+      "count": 151
+    }
+  ],
+  "workList": [
+    {
+      "candidateId": "src-2026-0001",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [
+        "authors"
+      ],
+      "period": {
+        "end": 1938,
+        "start": 1881
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [
+        "claim-001"
+      ],
+      "state": "insufficient_info",
+      "title": "Atatürk, Gazi Mustafa Kemal (1881-10 Kasım 1938)",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/4899/Atat%C3%BCrk,-Gazi-Mustafa-Kemal-(1881-10-Kas%C4%B1m-1938)",
+      "waitingBecause": [
+        "CITATION_INCOMPLETE",
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0002",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [],
+      "period": {
+        "end": 1886,
+        "start": 1841
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [],
+      "state": "awaiting_human_review",
+      "title": "Ali Rıza Efendi (1841-1886)",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/179/Ali-R%C4%B1za-Efendi-(1841-1886)",
+      "waitingBecause": [
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0003",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [],
+      "period": {
+        "end": 1923,
+        "start": 1857
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [],
+      "state": "awaiting_human_review",
+      "title": "Zübeyde Hanım (1857-1923)",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/83/Z%C3%BCbeyde-Han%C4%B1m-(1857-1923)",
+      "waitingBecause": [
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0004",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [],
+      "period": {
+        "end": 1956,
+        "start": 1885
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [],
+      "state": "awaiting_human_review",
+      "title": "Makbule Atadan (1885-1956)",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/237/Makbule-Atadan-(1885-1956)",
+      "waitingBecause": [
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0005",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [],
+      "period": {
+        "end": 1917,
+        "start": 1872
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [],
+      "state": "awaiting_human_review",
+      "title": "Şemsi Efendi Mektebi",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/243/%C5%9Eemsi-Efendi-Mektebi",
+      "waitingBecause": [
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0006",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [],
+      "period": {
+        "end": 1905,
+        "start": 1887
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [
+        "claim-002"
+      ],
+      "state": "awaiting_human_review",
+      "title": "Atatürk'ün Eğitim ve Öğretim Gördüğü Kurumlar",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/875/Atat%C3%BCrk%E2%80%99%C3%BCn-E%C4%9Fitim-ve-%C3%96%C4%9Fretim-G%C3%B6rd%C3%BC%C4%9F%C3%BC-Kurumlar",
+      "waitingBecause": [
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0007",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [],
+      "period": {
+        "end": 1912,
+        "start": 1908
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [
+        "claim-003"
+      ],
+      "state": "awaiting_human_review",
+      "title": "Trablusgarp Savaşı'nda Atatürk",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/407/Trablusgarp-Sava%C5%9F%C4%B1%E2%80%99nda-Atat%C3%BCrk",
+      "waitingBecause": [
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0008",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [],
+      "period": {
+        "end": 1913,
+        "start": 1912
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [
+        "claim-004"
+      ],
+      "state": "awaiting_human_review",
+      "title": "Balkan Savaşı'nda Atatürk",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/685/Balkan-Sava%C5%9F%C4%B1%E2%80%99nda-Atat%C3%BCrk",
+      "waitingBecause": [
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0009",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [],
+      "period": {
+        "end": 1918,
+        "start": 1913
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [
+        "claim-006"
+      ],
+      "state": "awaiting_human_review",
+      "title": "Birinci Dünya Savaşı'nda Mustafa Kemal (Atatürk)",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/4078/Birinci-D%C3%BCnya-Sava%C5%9F%C4%B1%E2%80%99nda-Mustafa-Kemal-(Atat%C3%BCrk)",
+      "waitingBecause": [
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0010",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [],
+      "period": {
+        "end": 1916,
+        "start": 1914
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [
+        "claim-006"
+      ],
+      "state": "awaiting_human_review",
+      "title": "Çanakkale Cephesi'nde Mustafa Kemal (ATATÜRK)",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/4084/%C3%87anakkale-Cephesi%E2%80%99nde-Mustafa-Kemal-(ATAT%C3%9CRK)",
+      "waitingBecause": [
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0011",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [
+        "authors"
+      ],
+      "period": {
+        "end": 1915,
+        "start": 1913
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [
+        "claim-005"
+      ],
+      "state": "insufficient_info",
+      "title": "Mustafa Kemal'in Sofya Ataşemiliterliği",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/388/Mustafa-Kemal%E2%80%99in-Sofya-Ata%C5%9Femiliterli%C4%9Fi",
+      "waitingBecause": [
+        "CITATION_INCOMPLETE",
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0012",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [],
+      "period": {
+        "end": 1919,
+        "start": 1917
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [
+        "claim-010"
+      ],
+      "state": "awaiting_human_review",
+      "title": "Sina ve Filistin Cephesi'nde Atatürk",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/291/Sina-ve-Filistin-Cephesi%E2%80%99nde-Atat%C3%BCrk",
+      "waitingBecause": [
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0013",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [],
+      "period": {
+        "end": 1919,
+        "start": 1916
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [],
+      "state": "awaiting_human_review",
+      "title": "Hicaz Cephesi",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/1025/Hicaz-Cephesi",
+      "waitingBecause": [
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0014",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [],
+      "period": {
+        "end": 1918,
+        "start": 1916
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [
+        "claim-008"
+      ],
+      "state": "awaiting_human_review",
+      "title": "Afetinan'ın M. Kemal Atatürk'ün Karlsbad Hatıraları",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/105/Afetinan%E2%80%99%C4%B1n-M.-Kemal-Atat%C3%BCrk%E2%80%99%C3%BCn-Karlsbad-Hat%C4%B1ralar%C4%B1",
+      "waitingBecause": [
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0015",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [],
+      "period": {
+        "end": 1918,
+        "start": 1914
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [
+        "claim-009"
+      ],
+      "state": "awaiting_human_review",
+      "title": "Mondros Mütarekesi",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/353/Mondros-M%C3%BCtarekesi",
+      "waitingBecause": [
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0016",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [],
+      "period": {
+        "end": 1968,
+        "start": 1882
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [],
+      "state": "awaiting_human_review",
+      "title": "Ali Fuat Cebesoy (1882-1968)",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/171/Ali-Fuat-Cebesoy-(1882-1968)",
+      "waitingBecause": [
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0017",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [],
+      "period": {
+        "end": 1926,
+        "start": 1889
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [],
+      "state": "awaiting_human_review",
+      "title": "İttihat ve Terakki Cemiyeti / Fırkası",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/706/%C4%B0ttihat-ve-Terakki-Cemiyeti-/-F%C4%B1rkas%C4%B1",
+      "waitingBecause": [
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0018",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [],
+      "period": {
+        "end": 1922,
+        "start": 1882
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [],
+      "state": "awaiting_human_review",
+      "title": "Enver Paşa (1882-1922)",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/666/Enver-Pa%C5%9Fa-(1882-1922)",
+      "waitingBecause": [
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0019",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [],
+      "period": {
+        "end": 1943,
+        "start": 1880
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [],
+      "state": "awaiting_human_review",
+      "title": "Ali Fethi Okyar (1880-1943)",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/169/Ali-Fethi-Okyar-(1880-1943)",
+      "waitingBecause": [
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0020",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [],
+      "period": {
+        "end": 1931,
+        "start": 1848
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [],
+      "state": "awaiting_human_review",
+      "title": "Şerif Hüseyin (1848 [1852?]-1931)",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/244/%C5%9Eerif-H%C3%BCseyin-(1848-%5B1852?]-1931)",
+      "waitingBecause": [
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0021",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [],
+      "period": {
+        "end": 1974,
+        "start": 1880
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [],
+      "state": "awaiting_human_review",
+      "title": "Fahrettin Altay (1880-1974)",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/444/Fahrettin-Altay-(1880-1974)",
+      "waitingBecause": [
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0022",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [],
+      "period": {
+        "end": 1948,
+        "start": 1882
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [],
+      "state": "awaiting_human_review",
+      "title": "Kâzım Karabekir (1882-1948)",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/552/K%C3%A2z%C4%B1m-Karabekir-(1882-1948)",
+      "waitingBecause": [
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0023",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [
+        "authors"
+      ],
+      "period": {
+        "end": 1952,
+        "start": 1880
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [],
+      "state": "insufficient_info",
+      "title": "İbrahim Süreyya Yiğit (1880-1952)",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/1864/%C4%B0brahim-S%C3%BCreyya-Yi%C4%9Fit-(1880-1952)",
+      "waitingBecause": [
+        "CITATION_INCOMPLETE",
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0024",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [],
+      "period": {
+        "end": 1949,
+        "start": 1878
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [],
+      "state": "awaiting_human_review",
+      "title": "Ali Çetinkaya (1878-1949)",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/207/Ali-%C3%87etinkaya-(1878-1949)",
+      "waitingBecause": [
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0025",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [],
+      "period": {
+        "end": 1934,
+        "start": 1880
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [],
+      "state": "awaiting_human_review",
+      "title": "Mehmet Hayri Tarhan (1880-1934)",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/1769/Mehmet-Hayri-Tarhan-(1880-1934)",
+      "waitingBecause": [
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0026",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [
+        "publishedAt",
+        "archiveIdentifier"
+      ],
+      "period": {
+        "end": 1934,
+        "start": 1884
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [],
+      "state": "insufficient_info",
+      "title": "Kemalettin Sami Paşa (1884-1934)",
+      "url": "https://ataturkansiklopedisi.gov.tr/bilgi/kemalettin-sami-pasa-1884-1934/",
+      "waitingBecause": [
+        "CITATION_INCOMPLETE",
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0027",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [
+        "publishedAt",
+        "archiveIdentifier"
+      ],
+      "period": {
+        "end": 1919,
+        "start": 1913
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [],
+      "state": "insufficient_info",
+      "title": "Liman Von Sanders (1855-1929)",
+      "url": "https://ataturkansiklopedisi.gov.tr/bilgi/liman-von-sanders-1855-1929/",
+      "waitingBecause": [
+        "CITATION_INCOMPLETE",
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0028",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [
+        "authors",
+        "archiveIdentifier"
+      ],
+      "period": {
+        "end": 1913,
+        "start": 1905
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [],
+      "state": "insufficient_info",
+      "title": "Kurmay Yüzbaşı Mustafa Kemal: Selanik'ten İstanbul'a (Hareket Ordusu Kurmay Başkanı)",
+      "url": "https://atam.gov.tr/kitaplar/kurmay-yuzbasi-mustafa-kemal/",
+      "waitingBecause": [
+        "CITATION_INCOMPLETE",
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0029",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [
+        "archiveIdentifier"
+      ],
+      "period": {
+        "end": 1938,
+        "start": 1881
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [],
+      "state": "awaiting_human_review",
+      "title": "Atatürk (Hikmet Özdemir)",
+      "url": "https://atam.gov.tr/kitaplar/ataturk/",
+      "waitingBecause": [
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0030",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [
+        "archiveIdentifier"
+      ],
+      "period": {
+        "end": 1917,
+        "start": 1915
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [
+        "claim-007"
+      ],
+      "state": "awaiting_human_review",
+      "title": "İlk Defa Yayınlanan Belgelerle Mustafa Kemal Paşa ve 16'ncı Kolordu Komutanlığı (1915-1917)",
+      "url": "https://atam.gov.tr/e-yayin/ilk-defa-yayinlanan-belgelerle-mustafa-kemal-pasa-ve-16nci-kolordu-komutanligi-1915-1917/",
+      "waitingBecause": [
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0031",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [
+        "authors",
+        "publishedAt",
+        "archiveIdentifier"
+      ],
+      "period": {
+        "end": 1938,
+        "start": 1881
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [],
+      "state": "insufficient_info",
+      "title": "Belgelerle Mustafa Kemal Atatürk",
+      "url": "https://www.devletarsivleri.gov.tr/cdn/file/download?fileId=88",
+      "waitingBecause": [
+        "CITATION_INCOMPLETE",
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    },
+    {
+      "candidateId": "src-2026-0032",
+      "humanApprovalState": "absent",
+      "linkCheckedAt": "2026-10-23",
+      "linkStatusObserved": "reachable",
+      "missingFields": [
+        "authors",
+        "publishedAt",
+        "archiveIdentifier"
+      ],
+      "period": {
+        "end": 1938,
+        "start": 1881
+      },
+      "possibleDuplicates": [],
+      "relatedClaims": [],
+      "state": "insufficient_info",
+      "title": "Atatürk Belgeliği",
+      "url": "https://www.millikutuphane.gov.tr/page/Ataturk-Belgeligi",
+      "waitingBecause": [
+        "CITATION_INCOMPLETE",
+        "HUMAN_REVIEW_NOT_RECORDED",
+        "HUMAN_REVIEW_REQUIRED",
+        "STATE_NOT_IMPORT_READY"
+      ]
+    }
+  ]
+}

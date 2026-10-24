@@ -1,0 +1,33 @@
+candidateId,title,state,waitingBecause,missingFields,possibleDuplicates,relatedClaims,periodStart,periodEnd,linkStatusObserved,humanApprovalState
+src-2026-0001,"Atatürk, Gazi Mustafa Kemal (1881-10 Kasım 1938)",insufficient_info,CITATION_INCOMPLETE HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,authors,,claim-001,1881,1938,reachable,absent
+src-2026-0002,Ali Rıza Efendi (1841-1886),awaiting_human_review,HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,,,,1841,1886,reachable,absent
+src-2026-0003,Zübeyde Hanım (1857-1923),awaiting_human_review,HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,,,,1857,1923,reachable,absent
+src-2026-0004,Makbule Atadan (1885-1956),awaiting_human_review,HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,,,,1885,1956,reachable,absent
+src-2026-0005,Şemsi Efendi Mektebi,awaiting_human_review,HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,,,,1872,1917,reachable,absent
+src-2026-0006,Atatürk'ün Eğitim ve Öğretim Gördüğü Kurumlar,awaiting_human_review,HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,,,claim-002,1887,1905,reachable,absent
+src-2026-0007,Trablusgarp Savaşı'nda Atatürk,awaiting_human_review,HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,,,claim-003,1908,1912,reachable,absent
+src-2026-0008,Balkan Savaşı'nda Atatürk,awaiting_human_review,HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,,,claim-004,1912,1913,reachable,absent
+src-2026-0009,Birinci Dünya Savaşı'nda Mustafa Kemal (Atatürk),awaiting_human_review,HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,,,claim-006,1913,1918,reachable,absent
+src-2026-0010,Çanakkale Cephesi'nde Mustafa Kemal (ATATÜRK),awaiting_human_review,HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,,,claim-006,1914,1916,reachable,absent
+src-2026-0011,Mustafa Kemal'in Sofya Ataşemiliterliği,insufficient_info,CITATION_INCOMPLETE HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,authors,,claim-005,1913,1915,reachable,absent
+src-2026-0012,Sina ve Filistin Cephesi'nde Atatürk,awaiting_human_review,HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,,,claim-010,1917,1919,reachable,absent
+src-2026-0013,Hicaz Cephesi,awaiting_human_review,HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,,,,1916,1919,reachable,absent
+src-2026-0014,Afetinan'ın M. Kemal Atatürk'ün Karlsbad Hatıraları,awaiting_human_review,HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,,,claim-008,1916,1918,reachable,absent
+src-2026-0015,Mondros Mütarekesi,awaiting_human_review,HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,,,claim-009,1914,1918,reachable,absent
+src-2026-0016,Ali Fuat Cebesoy (1882-1968),awaiting_human_review,HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,,,,1882,1968,reachable,absent
+src-2026-0017,İttihat ve Terakki Cemiyeti / Fırkası,awaiting_human_review,HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,,,,1889,1926,reachable,absent
+src-2026-0018,Enver Paşa (1882-1922),awaiting_human_review,HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,,,,1882,1922,reachable,absent
+src-2026-0019,Ali Fethi Okyar (1880-1943),awaiting_human_review,HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,,,,1880,1943,reachable,absent
+src-2026-0020,Şerif Hüseyin (1848 [1852?]-1931),awaiting_human_review,HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,,,,1848,1931,reachable,absent
+src-2026-0021,Fahrettin Altay (1880-1974),awaiting_human_review,HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,,,,1880,1974,reachable,absent
+src-2026-0022,Kâzım Karabekir (1882-1948),awaiting_human_review,HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,,,,1882,1948,reachable,absent
+src-2026-0023,İbrahim Süreyya Yiğit (1880-1952),insufficient_info,CITATION_INCOMPLETE HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,authors,,,1880,1952,reachable,absent
+src-2026-0024,Ali Çetinkaya (1878-1949),awaiting_human_review,HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,,,,1878,1949,reachable,absent
+src-2026-0025,Mehmet Hayri Tarhan (1880-1934),awaiting_human_review,HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,,,,1880,1934,reachable,absent
+src-2026-0026,Kemalettin Sami Paşa (1884-1934),insufficient_info,CITATION_INCOMPLETE HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,publishedAt archiveIdentifier,,,1884,1934,reachable,absent
+src-2026-0027,Liman Von Sanders (1855-1929),insufficient_info,CITATION_INCOMPLETE HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,publishedAt archiveIdentifier,,,1913,1919,reachable,absent
+src-2026-0028,Kurmay Yüzbaşı Mustafa Kemal: Selanik'ten İstanbul'a (Hareket Ordusu Kurmay Başkanı),insufficient_info,CITATION_INCOMPLETE HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,authors archiveIdentifier,,,1905,1913,reachable,absent
+src-2026-0029,Atatürk (Hikmet Özdemir),awaiting_human_review,HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,archiveIdentifier,,,1881,1938,reachable,absent
+src-2026-0030,İlk Defa Yayınlanan Belgelerle Mustafa Kemal Paşa ve 16'ncı Kolordu Komutanlığı (1915-1917),awaiting_human_review,HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,archiveIdentifier,,claim-007,1915,1917,reachable,absent
+src-2026-0031,Belgelerle Mustafa Kemal Atatürk,insufficient_info,CITATION_INCOMPLETE HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,authors publishedAt archiveIdentifier,,,1881,1938,reachable,absent
+src-2026-0032,Atatürk Belgeliği,insufficient_info,CITATION_INCOMPLETE HUMAN_REVIEW_NOT_RECORDED HUMAN_REVIEW_REQUIRED STATE_NOT_IMPORT_READY,authors publishedAt archiveIdentifier,,,1881,1938,reachable,absent
