@@ -26,8 +26,62 @@ test("the reviewed source control list is complete and contains 99 controls", ()
   assert.deepEqual(issuesFor(assessment), []);
 });
 
+test("ASVS source document references are pinned to the release commit", () => {
+  const data = clone();
+  data.standards.owaspAsvs.catalogDocuments[0].gitBlobSha = "0".repeat(40);
+  assert.ok(issuesFor(data).some((issue) => /source document references do not match/.test(issue)));
+});
+
+test("every control has explicit STRIDE, ATT&CK, and ASVS crosswalk arrays", () => {
+  assert.equal(assessment.controls.length, 99);
+  for (const control of assessment.controls) {
+    assert.ok(Array.isArray(control.strideIds), `control ${control.id} strideIds`);
+    assert.ok(Array.isArray(control.mitreIds), `control ${control.id} mitreIds`);
+    assert.ok(Array.isArray(control.asvsIds), `control ${control.id} asvsIds`);
+    assert.ok(control.mappingNote.trim(), `control ${control.id} mappingNote`);
+  }
+});
+
+test("empty control crosswalk arrays include an explicit scope note", () => {
+  const control = assessment.controls.find((item) => item.strideIds.length === 0
+    && item.mitreIds.length === 0 && item.asvsIds.length === 0);
+  assert.ok(control);
+  assert.match(control.mappingNote, /intentionally empty|intentionally empty|empty/i);
+  const data = clone();
+  data.controls[0].strideIds = ["S-99"];
+  assert.ok(issuesFor(data).some((issue) => /strideIds references unknown id/.test(issue)));
+});
+
+test("control crosswalk fields reject missing arrays and duplicate references", () => {
+  const missing = clone();
+  delete missing.controls[0].mitreIds;
+  assert.ok(issuesFor(missing).some((issue) => /mitreIds must be an array/.test(issue)));
+  const duplicate = clone();
+  duplicate.controls[0].strideIds = ["S-05", "S-05"];
+  assert.ok(issuesFor(duplicate).some((issue) => /must not contain duplicate/.test(issue)));
+});
+
 test("control ids are ordered exactly from 1 through 99", () => {
   assert.deepEqual(assessment.controls.map(({ id }) => id), Array.from({ length: 99 }, (_, i) => i + 1));
+});
+
+test("ASVS ids are backed by pinned official v5.0.0 source documents", async () => {
+  const catalog = JSON.parse(await readFile(resolve(repoRoot, "tools/threat-assurance/catalogs/official-catalogs.json"), "utf8"));
+  assert.equal(assessment.standards.owaspAsvs.releaseCommit, catalog.owaspAsvs.releaseCommit);
+  for (const requirement of assessment.asvs) {
+    const official = catalog.owaspAsvs.requirements.find((item) => item.id === requirement.id);
+    assert.ok(official, requirement.id);
+    assert.equal(requirement.catalogSection, official.section);
+    assert.equal(requirement.catalogUrl, official.sourceUrl);
+    assert.equal(catalog.owaspAsvs.documents.find((doc) => doc.url === official.sourceUrl).gitBlobSha, official.sourceGitBlob);
+  }
+});
+
+test("ASVS catalog references cannot be substituted with unrelated URLs or sections", () => {
+  const data = clone();
+  data.asvs[0].catalogUrl = "https://example.com/fake-asvs";
+  data.asvs[0].catalogSection = "Invented section";
+  assert.ok(issuesFor(data).some((issue) => /catalog section or URL does not match/.test(issue)));
 });
 
 test("control names and order match the recorded PR 71 source-list digest", () => {
@@ -35,6 +89,15 @@ test("control names and order match the recorded PR 71 source-list digest", () =
   data.controls[15].name = "Altered control label";
   assert.ok(issuesFor(data).some((issue) => /source-list SHA-256/.test(issue)));
   assert.match(assessment.controlSource.sha256, /^[0-9a-f]{64}$/);
+});
+
+test("Markdown renders all 99 framework crosswalks and ATT&CK family coverage", () => {
+  const markdown = renderMarkdown(buildReport(assessment));
+  assert.match(markdown, /\| # \| Kontrol \| Durum \| Uygulanabilirlik \| STRIDE \| ATT&CK \| ASVS \| Eşleme notu \|/);
+  assert.match(markdown, /\| Credential abuse \| T1110, T1078 \| FUTURE_ONLY \|/);
+  assert.match(markdown, /T1562\.001.*revoked/i);
+  assert.match(markdown, /enterprise-attack\/enterprise-attack\.json/i);
+  assert.match(markdown, /OWASP\/ASVS\/[0-9a-f]{40}\/5\.0\/en/);
 });
 
 test("the first numbered control is NGFW, not the unnumbered Firewall heading", () => {
@@ -166,13 +229,68 @@ test("ASVS status vocabulary matches the brief", () => {
 test("only catalogued MITRE ATT&CK v20.0 techniques are accepted", () => {
   const data = clone();
   data.mitre[0].id = "T9999";
-  assert.ok(issuesFor(data).some((issue) => /unverified MITRE/.test(issue)));
+  assert.ok(issuesFor(data).some((issue) => /unverified or revoked MITRE/.test(issue)));
 });
 
 test("MITRE technique names must match the catalog", () => {
   const data = clone();
   data.mitre[0].name = "A made-up technique";
-  assert.ok(issuesFor(data).some((issue) => /does not match the MITRE catalog/.test(issue)));
+  assert.ok(issuesFor(data).some((issue) => /does not match the official MITRE catalog/.test(issue)));
+});
+
+test("MITRE technique ids and names are grounded in the pinned official v20.0 catalog", async () => {
+  const catalog = JSON.parse(await readFile(resolve(repoRoot, "tools/threat-assurance/catalogs/official-catalogs.json"), "utf8"));
+  assert.equal(assessment.standards.mitreAttack.releaseCommit, catalog.mitreAttack.releaseCommit);
+  assert.equal(assessment.standards.mitreAttack.sourceSha256, catalog.mitreAttack.sourceSha256);
+  assert.ok(catalog.mitreAttack.sourceUrl.includes(catalog.mitreAttack.releaseCommit));
+  assert.match(catalog.mitreAttack.sourceUrl, /enterprise-attack\/enterprise-attack\.json$/);
+  assert.equal(assessment.mitre.length, 17);
+  assert.ok(catalog.mitreAttack.entries.every((item) => item.revoked === false && item.deprecated === false));
+  assert.deepEqual(catalog.mitreAttack.excludedEntries.map((item) => item.id).sort(), ["T1562", "T1562.001"]);
+  assert.ok(catalog.mitreAttack.excludedEntries.every((item) => item.revoked === true));
+  for (const technique of assessment.mitre) {
+    const official = catalog.mitreAttack.entries.find((item) => item.id === technique.id);
+    assert.ok(official, technique.id);
+    assert.equal(technique.name, official.name);
+    assert.deepEqual(technique.phases, official.phases);
+    assert.equal(technique.url, official.url);
+  }
+});
+
+test("revoked ATT&CK techniques are rejected even if their IDs have the expected shape", () => {
+  const data = clone();
+  data.mitre[0].id = "T1562.001";
+  assert.ok(issuesFor(data).some((issue) => /unverified or revoked MITRE/.test(issue)));
+});
+
+test("MITRE applicability includes rationales and future-only mappings do not imply active controls", () => {
+  const data = clone();
+  const future = data.mitre.find((item) => item.applicability === "FUTURE_ONLY");
+  future.controlState = "ACTIVE";
+  assert.ok(issuesFor(data).some((issue) => /future-only applicability cannot claim an active control state/.test(issue)));
+  const missingRationale = clone();
+  missingRationale.mitre[0].applicabilityRationale = "";
+  assert.ok(issuesFor(missingRationale).some((issue) => /applicability rationale/.test(issue)));
+});
+
+test("requested ATT&CK behavior families are covered and technique references validate", () => {
+  const families = new Set(assessment.mitreCoverage.map((item) => item.family));
+  for (const family of [
+    "Credential abuse", "Privilege escalation", "Persistence", "Defense evasion", "Credential access",
+    "Discovery", "Lateral movement", "Collection", "Exfiltration", "Resource manipulation",
+  ]) assert.ok(families.has(family), family);
+  const data = clone();
+  data.mitreCoverage[0].techniqueIds = ["T9999"];
+  assert.ok(issuesFor(data).some((issue) => /references unknown technique T9999/.test(issue)));
+  assert.ok(assessment.mitreExclusions.some((item) => /revoked/.test(item)));
+});
+
+test("ATT&CK source snapshot is mandatory and pinned to official data", () => {
+  const data = clone();
+  data.standards.mitreAttack.sourceSha256 = "0".repeat(64);
+  assert.ok(issuesFor(data).some((issue) => /does not match the pinned official catalog snapshot/.test(issue)));
+  const missingCatalog = validateAssessment(data, { repoRoot: resolve(repoRoot, "tools") });
+  assert.ok(missingCatalog.some((issue) => /Cannot read official catalog snapshot/.test(issue)));
 });
 
 test("risk rating is derived consistently from qualitative impact and likelihood", () => {
@@ -229,6 +347,7 @@ test("report JSON shape satisfies the committed schema constraints", () => {
   assert.deepEqual(validateReportShape(report, schema), []);
   assert.equal(report.controls.length, 99);
   assert.equal(schema.properties.controls.maxItems, 99);
+  assert.equal(report.mitreCoverage.length, 10);
 });
 
 test("report schema validation rejects missing properties and invalid states", () => {

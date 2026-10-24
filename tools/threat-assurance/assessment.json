@@ -16,12 +16,44 @@
   "standards": {
     "mitreAttack": {
       "version": "20.0",
-      "url": "https://attack.mitre.org/resources/versions/"
+      "url": "https://attack.mitre.org/resources/versions/",
+      "releaseUrl": "https://github.com/mitre-attack/attack-stix-data/releases/tag/v20.0",
+      "sourceUrl": "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/20664a889568dce884a1dac0ec7b12ae3a199f51/enterprise-attack/enterprise-attack.json",
+      "releaseCommit": "20664a889568dce884a1dac0ec7b12ae3a199f51",
+      "sourceSha256": "81113ba98afa2928f3dcff62022539f7ce30c315c32e14422f11ff95ce534352"
     },
     "owaspAsvs": {
       "version": "5.0.0",
       "url": "https://asvs.owasp.org/",
-      "releaseUrl": "https://github.com/OWASP/ASVS/tree/v5.0.0"
+      "releaseUrl": "https://github.com/OWASP/ASVS/tree/v5.0.0",
+      "releaseCommit": "3383877f732ce89a458a1af43288f2f1b1d7db0c",
+      "catalogDocuments": [
+        {
+          "file": "0x11-V2-Validation-and-Business-Logic.md",
+          "url": "https://raw.githubusercontent.com/OWASP/ASVS/3383877f732ce89a458a1af43288f2f1b1d7db0c/5.0/en/0x11-V2-Validation-and-Business-Logic.md",
+          "gitBlobSha": "2b8bf8a6f0f61aae849f88fd8ba2eb5f996fde45"
+        },
+        {
+          "file": "0x12-V3-Web-Frontend-Security.md",
+          "url": "https://raw.githubusercontent.com/OWASP/ASVS/3383877f732ce89a458a1af43288f2f1b1d7db0c/5.0/en/0x12-V3-Web-Frontend-Security.md",
+          "gitBlobSha": "3d94e02905effc5d508787c539e42e4301636be8"
+        },
+        {
+          "file": "0x14-V5-File-Handling.md",
+          "url": "https://raw.githubusercontent.com/OWASP/ASVS/3383877f732ce89a458a1af43288f2f1b1d7db0c/5.0/en/0x14-V5-File-Handling.md",
+          "gitBlobSha": "e8d601cefe4f7ae194e69f32afec6c47f8b231c5"
+        },
+        {
+          "file": "0x15-V6-Authentication.md",
+          "url": "https://raw.githubusercontent.com/OWASP/ASVS/3383877f732ce89a458a1af43288f2f1b1d7db0c/5.0/en/0x15-V6-Authentication.md",
+          "gitBlobSha": "d9fa0025ad5bc804447aa95d1985bacc7ed1970e"
+        },
+        {
+          "file": "0x17-V8-Authorization.md",
+          "url": "https://raw.githubusercontent.com/OWASP/ASVS/3383877f732ce89a458a1af43288f2f1b1d7db0c/5.0/en/0x17-V8-Authorization.md",
+          "gitBlobSha": "eef42095545b35a10c83b4dc2d20833c89daf618"
+        }
+      ]
     },
     "owaspTop10": {
       "version": "2025",
@@ -241,105 +273,2275 @@
     }
   ],
   "controls": [
-    {"id":1,"name":"Next-Generation Firewall (NGFW)","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":[],"currentControl":"No integrated network perimeter configuration is evidenced.","gap":"Hosting/network firewall posture is unknown.","remediation":"Obtain deployment-provider evidence before claiming an NGFW."},
-    {"id":2,"name":"Web Application Firewall (WAF)","state":"TEMPLATE","applicability":"CURRENT","evidenceIds":["pr73-infrastructure"],"currentControl":"WAF rules are present only in open PR #73.","gap":"No integrated or deployed WAF evidence.","remediation":"Integrate, configure, and independently verify the chosen edge WAF."},
-    {"id":3,"name":"Intrusion Detection System (IDS)","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":[],"currentControl":"No active network/host IDS evidence is available.","gap":"Sensor deployment and alert routing are unknown.","remediation":"Verify sensors and alert ownership with the hosting operator."},
-    {"id":4,"name":"Intrusion Prevention System (IPS)","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":[],"currentControl":"No active inline prevention evidence is available.","gap":"Network enforcement is outside the integrated application code.","remediation":"Verify the deployed network controls; do not infer them from application code."},
-    {"id":5,"name":"Anti-DDoS Protection","state":"TEMPLATE","applicability":"CURRENT","evidenceIds":["pr73-infrastructure"],"currentControl":"Edge/anti-DDoS artifacts are proposed in open PR #73 only.","gap":"No active provider protection or capacity evidence.","remediation":"Confirm contracted edge protection and operational limits."},
-    {"id":6,"name":"Security Information and Event Management (SIEM)","state":"TEMPLATE","applicability":"CURRENT","evidenceIds":["pr73-infrastructure","server-log"],"currentControl":"Application logging exists; SIEM configuration is PR-only.","gap":"No centralized ingestion, correlation, retention, or alert proof.","remediation":"Integrate and test a managed log pipeline with an accountable operator."},
-    {"id":7,"name":"Endpoint Detection and Response (EDR)","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":[],"currentControl":"No host or developer endpoint agent evidence.","gap":"Endpoint coverage is unknown.","remediation":"Verify endpoint coverage and response ownership."},
-    {"id":8,"name":"Extended Detection and Response (XDR)","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":[],"currentControl":"No correlated endpoint/network/cloud telemetry evidence.","gap":"XDR operations are unverified.","remediation":"Verify an operational telemetry and response service."},
-    {"id":9,"name":"Security Operations Center (SOC)","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":[],"currentControl":"No staffed monitoring service is evidenced.","gap":"Coverage and escalation ownership are unknown.","remediation":"Document monitoring responsibility and escalation coverage."},
-    {"id":10,"name":"Siber Olaylara Müdahale Ekibi (SOME)","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":["threat-model"],"currentControl":"The threat model calls for response ownership but no assigned team is verified.","gap":"Contacts, response authority, and exercise evidence are absent.","remediation":"Assign incident owners and test a response plan."},
-    {"id":11,"name":"Network Access Control (NAC)","state":"NOT_APPLICABLE","applicability":"NOT_APPLICABLE","evidenceIds":["threat-model"],"currentControl":"The project does not operate an enterprise local network.","gap":"Reassess if managed office/network assets are introduced.","remediation":"Reassess applicability when the operating environment changes."},
-    {"id":12,"name":"Virtual Private Network (VPN)","state":"NOT_VERIFIED","applicability":"FUTURE","evidenceIds":["access-contract"],"currentControl":"No administrative service or VPN deployment is evidenced.","gap":"A future administrative surface would need a verified access path.","remediation":"Choose and verify a private access path before enabling administration."},
-    {"id":13,"name":"SSL/TLS Encryption","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":["headers","github-deployments"],"currentControl":"The application can emit HSTS only when configured; transport termination is external.","gap":"Live TLS configuration and certificate state were not verified.","remediation":"Verify TLS at the deployed edge and enable HSTS only for the confirmed HTTPS domain."},
-    {"id":14,"name":"Malware Sandbox","state":"NOT_APPLICABLE","applicability":"NOT_APPLICABLE","evidenceIds":["research-export"],"currentControl":"The application has no server-side file-upload workflow.","gap":"Reassess if untrusted uploads are introduced.","remediation":"Add isolated scanning before enabling uploads."},
-    {"id":15,"name":"Secure Email Gateway","state":"NOT_APPLICABLE","applicability":"NOT_APPLICABLE","evidenceIds":["threat-model"],"currentControl":"The application does not operate an email system.","gap":"Project email infrastructure is not part of the current app.","remediation":"Reassess if the project operates email."},
-    {"id":16,"name":"Endpoint Protection Platform (EPP)","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":[],"currentControl":"No server/developer endpoint protection evidence.","gap":"Endpoint product and policy are unknown.","remediation":"Verify endpoint protections with the relevant operators."},
-    {"id":17,"name":"Vulnerability Management","state":"PARTIAL","applicability":"CURRENT","evidenceIds":["supply-chain-tool","security-workflow"],"currentControl":"Dependency/workflow audit tooling exists in the repository.","gap":"No complete asset-level vulnerability program or remediation SLA is evidenced.","remediation":"Document owners, scope, cadence, and remediation tracking."},
-    {"id":18,"name":"Penetration Testing","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":["pr74-security-lab"],"currentControl":"An adversarial lab is proposed in open PR #74; no independent penetration test is evidenced.","gap":"No authorized human penetration-test report was verified.","remediation":"Commission a scoped, authorized assessment before claiming penetration testing."},
-    {"id":19,"name":"Identity and Access Management (IAM)","state":"MISSING","applicability":"FUTURE","evidenceIds":["access-contract","editorial-identity"],"currentControl":"Both application identity-provider registrations are null; admin routes fail closed.","gap":"No live IdP, user lifecycle, or administrative session service exists.","remediation":"Require a tested IdP and access lifecycle before adding protected features."},
-    {"id":20,"name":"Load Balancer","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":["github-deployments"],"currentControl":"No deployed load-balancer configuration is verified.","gap":"Hosting topology is unknown.","remediation":"Obtain deployment architecture evidence."},
-    {"id":21,"name":"Centralized Syslog / EventLog","state":"PARTIAL","applicability":"CURRENT","evidenceIds":["server-log"],"currentControl":"Structured application logging helper is integrated.","gap":"Central collection, retention, and alerting are not evidenced.","remediation":"Connect logs to a managed sink and verify retention/alert paths."},
-    {"id":22,"name":"MITRE ATT&CK Framework","state":"PARTIAL","applicability":"CURRENT","evidenceIds":["threat-model"],"currentControl":"This assessment adds a bounded ATT&CK v20.0 mapping.","gap":"No continuously maintained threat-intelligence feed or ATT&CK-driven response is evidenced.","remediation":"Review mappings when the threat model or ATT&CK catalog changes."},
-    {"id":23,"name":"OWASP Security Standards","state":"PARTIAL","applicability":"CURRENT","evidenceIds":["threat-model","headers"],"currentControl":"This assessment maps selected ASVS 5.0.0 and Top 10:2025 areas.","gap":"This is not a complete ASVS verification or certification.","remediation":"Commission a scoped verification against the required ASVS level."},
-    {"id":24,"name":"ISO/IEC 27001","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":[],"currentControl":"No organizational ISMS or certification evidence was reviewed.","gap":"Policies, audits, and certification status are unknown.","remediation":"Do not claim certification; assess organizational requirements separately."},
-    {"id":25,"name":"Disaster Recovery","state":"PARTIAL","applicability":"CURRENT","evidenceIds":["backup-tool","pr73-infrastructure"],"currentControl":"A local repository backup utility exists; runbook proposals are in open PR #73.","gap":"No tested production recovery plan, RTO/RPO, or independent recovery environment.","remediation":"Define and exercise recovery objectives against the deployed platform."},
-    {"id":26,"name":"Zero Trust Architecture","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":["access-contract"],"currentControl":"Fail-closed admin routing exists; no identity/device-aware network architecture is verified.","gap":"No end-to-end Zero Trust deployment evidence.","remediation":"Assess the complete identity, device, and network path before claiming this control."},
-    {"id":27,"name":"Network Segmentation","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":[],"currentControl":"No deployed network topology is available.","gap":"Segmentation cannot be inferred from repository code.","remediation":"Verify hosting network boundaries."},
-    {"id":28,"name":"Global CDN / Anycast","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":["github-deployments"],"currentControl":"No active CDN provider or DNS routing evidence was verified.","gap":"Delivery topology is unknown.","remediation":"Verify the deployed DNS/CDN configuration."},
-    {"id":29,"name":"Enterprise Bot Management","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":["pr73-infrastructure"],"currentControl":"No active bot-management policy is evidenced; edge proposals remain PR-only.","gap":"No deployed bot detection or mitigation proof.","remediation":"Verify edge controls without treating robots/noindex as a security control."},
-    {"id":30,"name":"Adaptive Rate Limiting","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":["research-export"],"currentControl":"No distributed application limiter or provider rule is evidenced.","gap":"Multi-instance rate-limit behavior and thresholds are unknown.","remediation":"Set and test shared/edge limits before exposing costly or stateful endpoints."},
-    {"id":31,"name":"Behavioral Threat Analysis","state":"TEMPLATE","applicability":"CURRENT","evidenceIds":["pr71-blackout"],"currentControl":"Behavioral classification is proposed in open PR #71 only.","gap":"No integrated telemetry or deployed behavioral analysis exists in the reviewed base.","remediation":"Integrate with verified signals, thresholds, and human escalation."},
-    {"id":32,"name":"IP Reputation Intelligence","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":[],"currentControl":"No threat-intelligence feed or edge reputation service is evidenced.","gap":"Feed provider, freshness, and enforcement are unknown.","remediation":"Verify an authorized feed and bounded enforcement policy."},
-    {"id":33,"name":"Adaptive Security Challenges","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":["pr73-infrastructure"],"currentControl":"No deployed challenge service is verified.","gap":"Challenge behavior and accessibility are unknown.","remediation":"Assess an edge challenge only if abuse evidence justifies it."},
-    {"id":34,"name":"Origin Server Protection","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":["pr73-infrastructure"],"currentControl":"Origin access policy appears only as proposed infrastructure artifacts.","gap":"Origin exposure and edge-only access are not verified.","remediation":"Verify origin restrictions in the actual hosting environment."},
-    {"id":35,"name":"Server Hardening","state":"TEMPLATE","applicability":"CURRENT","evidenceIds":["pr73-infrastructure"],"currentControl":"Host/container hardening files are in open PR #73 only.","gap":"No hardened production host is evidenced.","remediation":"Integrate, deploy, and verify the applicable host baseline."},
-    {"id":36,"name":"Runtime Threat Detection","state":"TEMPLATE","applicability":"CURRENT","evidenceIds":["pr73-infrastructure"],"currentControl":"Runtime-monitoring configuration is proposed in open PR #73.","gap":"No deployed runtime sensor or alert path is verified.","remediation":"Validate runtime telemetry and response ownership after deployment."},
-    {"id":37,"name":"Outbound Traffic Filtering","state":"PARTIAL","applicability":"CURRENT","evidenceIds":["headers","threat-model"],"currentControl":"Browser CSP restricts browser connections; server egress is not constrained by this policy.","gap":"No host/network egress policy is verified.","remediation":"Verify infrastructure egress controls independently of browser CSP."},
-    {"id":38,"name":"Hardware Security Keys","state":"NOT_APPLICABLE","applicability":"FUTURE","evidenceIds":["access-contract"],"currentControl":"No live identity provider or privileged user flow exists.","gap":"Hardware-key enforcement becomes relevant if authentication is introduced.","remediation":"Require phishing-resistant authentication for future privileged access."},
-    {"id":39,"name":"FIDO2 / Passkeys","state":"NOT_APPLICABLE","applicability":"FUTURE","evidenceIds":["access-contract"],"currentControl":"No live account authentication is present.","gap":"No passkey enrollment/verification path exists.","remediation":"Select a verified identity provider before enabling accounts."},
-    {"id":40,"name":"Privileged Access Management (PAM)","state":"NOT_VERIFIED","applicability":"FUTURE","evidenceIds":["access-contract"],"currentControl":"No administrative sessions or PAM service is evidenced.","gap":"Privileged operational access is outside the codebase evidence.","remediation":"Verify operator access controls before production administration."},
-    {"id":41,"name":"Role-Based Access Control (RBAC)","state":"PARTIAL","applicability":"FUTURE","evidenceIds":["access-contract","access-tests"],"currentControl":"Role/permission policy helpers are tested, but no provider or active admin surface exists.","gap":"No live authenticated subject is authoritatively bound to those roles.","remediation":"Integrate roles with a verified IdP and test authorization at the service boundary."},
-    {"id":42,"name":"Just-in-Time Privileged Access","state":"NOT_APPLICABLE","applicability":"FUTURE","evidenceIds":["access-contract"],"currentControl":"No active privileged account or elevation workflow.","gap":"Time-bounded elevation is not implemented.","remediation":"Design JIT access before creating privileged accounts."},
-    {"id":43,"name":"Device Trust Verification","state":"NOT_VERIFIED","applicability":"FUTURE","evidenceIds":["access-contract"],"currentControl":"No device management or IdP device signal is evidenced.","gap":"Device posture cannot be checked by current app code.","remediation":"Require verified device posture for future privileged workflows."},
-    {"id":44,"name":"Session Hijacking Protection","state":"PARTIAL","applicability":"FUTURE","evidenceIds":["access-contract","access-tests"],"currentControl":"Session and cookie validators exist; the application does not issue active sessions.","gap":"No live session rotation, revocation, or runtime cookie evidence.","remediation":"Verify the complete session lifecycle before enabling authentication."},
-    {"id":45,"name":"Continuous Authentication","state":"NOT_APPLICABLE","applicability":"FUTURE","evidenceIds":["access-contract"],"currentControl":"No active authenticated user sessions.","gap":"No IdP risk signals or continuous reauthentication flow.","remediation":"Reassess if authenticated services are introduced."},
-    {"id":46,"name":"SQL Injection Protection","state":"NOT_APPLICABLE","applicability":"NOT_APPLICABLE","evidenceIds":["threat-model"],"currentControl":"The reviewed app uses repository JSON and has no SQL database.","gap":"Reassess if a database/query interface is added.","remediation":"Use parameterized queries and test authorization if SQL is introduced."},
-    {"id":47,"name":"Cross-Site Scripting (XSS) Protection","state":"PARTIAL","applicability":"CURRENT","evidenceIds":["threat-model","headers"],"currentControl":"React rendering and a restrictive CSP provide defenses; CSP still permits unsafe-inline.","gap":"No complete sink-by-sink review or strict nonce CSP evidence.","remediation":"Maintain output encoding and remove unsafe-inline when nonce support is verified."},
-    {"id":48,"name":"Cross-Site Request Forgery (CSRF) Protection","state":"NOT_APPLICABLE","applicability":"NOT_APPLICABLE","evidenceIds":["access-contract","research-export"],"currentControl":"No integrated state-changing application endpoint is evidenced; a CSRF contract helper is not an active mutation defense.","gap":"Reassess before adding state-changing routes.","remediation":"Require same-origin and anti-forgery validation before enabling mutations."},
-    {"id":49,"name":"API Security Gateway","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":["research-export","github-deployments"],"currentControl":"A small development-gated export route exists; no production gateway is verified.","gap":"Gateway/WAF enforcement and deployed API inventory are unknown.","remediation":"Verify gateway controls at the actual deployment boundary."},
-    {"id":50,"name":"Object-Level Authorization","state":"NOT_APPLICABLE","applicability":"FUTURE","evidenceIds":["access-contract","research-export"],"currentControl":"No authenticated object mutation or private-object API is evidenced in the integrated app.","gap":"Object authorization must be implemented before user-scoped data is exposed.","remediation":"Apply subject-to-object authorization at the trusted service layer for future private data."},
-    {"id":51,"name":"Secrets Management","state":"PARTIAL","applicability":"CURRENT","evidenceIds":["secrets-tool","security-workflow"],"currentControl":"Repository secret checks exist; no external secrets vault or rotation evidence.","gap":"Secret issuance, runtime delivery, rotation, and incident revocation are unverified.","remediation":"Verify a least-privilege runtime secret-management process."},
-    {"id":52,"name":"Database Encryption","state":"NOT_APPLICABLE","applicability":"NOT_APPLICABLE","evidenceIds":["threat-model"],"currentControl":"No application database or persistent user-data store is evidenced.","gap":"Reassess if a database is introduced.","remediation":"Define encryption/key-management requirements before storing database data."},
-    {"id":53,"name":"Secure File Upload Scanning","state":"NOT_APPLICABLE","applicability":"NOT_APPLICABLE","evidenceIds":["research-export"],"currentControl":"No server-side upload route is evidenced.","gap":"Reassess before adding upload handling.","remediation":"Validate, isolate, and scan uploads before processing."},
-    {"id":54,"name":"Static Application Security Testing (SAST)","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":["security-workflow"],"currentControl":"Lint/type checks are not by themselves SAST; no dedicated SAST result was verified.","gap":"No dedicated static security analyzer evidence.","remediation":"Add and review an appropriate static analyzer before claiming SAST."},
-    {"id":55,"name":"Dynamic Application Security Testing (DAST)","state":"PARTIAL","applicability":"CURRENT","evidenceIds":["security-workflow","header-tests","pr74-security-lab"],"currentControl":"Application security tests exist; PR #74's red-team engine remains open and no active scan was run here.","gap":"No verified production DAST run or authorized independent scanner result.","remediation":"Run approved non-production DAST and retain the exact scope/results."},
-    {"id":56,"name":"Software Composition Analysis (SCA)","state":"PARTIAL","applicability":"CURRENT","evidenceIds":["supply-chain-tool","security-workflow"],"currentControl":"Dependency audit tooling and CI workflow are present.","gap":"This evidence does not establish complete dependency provenance or production inventory.","remediation":"Retain versioned audit output and establish remediation ownership."},
-    {"id":57,"name":"Security Orchestration, Automation and Response (SOAR)","state":"TEMPLATE","applicability":"CURRENT","evidenceIds":["pr71-blackout"],"currentControl":"A response decision engine is proposed in open PR #71 only.","gap":"No integrated orchestration platform or production adapters.","remediation":"Treat as a prototype until integrations, persistence, and approval controls are deployed."},
-    {"id":58,"name":"User and Entity Behavior Analytics (UEBA)","state":"NOT_APPLICABLE","applicability":"FUTURE","evidenceIds":["editorial-identity"],"currentControl":"No active identity/session telemetry is evidenced.","gap":"No user/entity behavior dataset or analytics operation.","remediation":"Reassess only after identity and telemetry exist."},
-    {"id":59,"name":"Honeytokens / Deception Technology","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":[],"currentControl":"No honeytoken deployment is evidenced.","gap":"No monitored deception signal or response procedure.","remediation":"Do not add decoys without an owner and validated alert workflow."},
-    {"id":60,"name":"Immutable Audit Logs","state":"PARTIAL","applicability":"CURRENT","evidenceIds":["access-contract","server-log"],"currentControl":"Hash-chained application log helpers exist; no external WORM storage or immutable anchor is verified.","gap":"A writer can rewrite local state and recompute a chain.","remediation":"Anchor audit records in independently administered immutable storage."},
-    {"id":61,"name":"Automated Incident Isolation","state":"TEMPLATE","applicability":"FUTURE","evidenceIds":["pr71-blackout"],"currentControl":"Isolation decisions and approval flow are in open PR #71 only.","gap":"No integrated route/edge adapter or persisted incident state.","remediation":"Require tested fail-safe adapters, durable state, and human approval before activation."},
-    {"id":62,"name":"Immutable Offline Backups","state":"PARTIAL","applicability":"CURRENT","evidenceIds":["backup-tool","pr73-infrastructure"],"currentControl":"A local manifest/hash backup tool exists; immutable/offline storage appears only as an unverified infrastructure proposal.","gap":"No independent retention lock or restore exercise is evidenced.","remediation":"Verify offline immutable copies and perform a documented restore drill."},
-    {"id":63,"name":"Automated Disaster Recovery","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":["backup-tool","github-deployments"],"currentControl":"A local backup utility exists; automated production failover is not evidenced.","gap":"No verified failover, RTO/RPO, or recovery drill.","remediation":"Document and test recovery against actual hosting services."},
-    {"id":64,"name":"Cloud Security Posture Management (CSPM)","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":["github-deployments"],"currentControl":"No cloud account or CSPM inventory was provided.","gap":"Cloud posture is outside repository visibility.","remediation":"Verify cloud account ownership and posture monitoring with the operator."},
-    {"id":65,"name":"Container Runtime Security","state":"TEMPLATE","applicability":"FUTURE","evidenceIds":["pr73-infrastructure"],"currentControl":"Container hardening configuration is proposed in open PR #73.","gap":"No integrated container deployment or runtime sensor is evidenced.","remediation":"Reassess only for the selected deployed runtime."},
-    {"id":66,"name":"Kubernetes Security Policies","state":"TEMPLATE","applicability":"FUTURE","evidenceIds":["pr73-infrastructure"],"currentControl":"Kubernetes manifests/policy are PR-only templates.","gap":"No integrated cluster or enforcement evidence.","remediation":"Apply and validate policies against a real cluster before claiming enforcement."},
-    {"id":67,"name":"Infrastructure as Code Security Scanning","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":["pr73-infrastructure"],"currentControl":"IaC samples are proposed in open PR #73; no scanner result is verified.","gap":"No integrated IaC scanning gate or reviewed report.","remediation":"Scan reviewed IaC in CI before infrastructure deployment."},
-    {"id":68,"name":"Supply Chain Security","state":"PARTIAL","applicability":"CURRENT","evidenceIds":["supply-chain-tool","security-workflow"],"currentControl":"Dependency/workflow checks exist; signed provenance and comprehensive action pinning are not established here.","gap":"No verified attestation, complete SBOM, or end-to-end provenance.","remediation":"Close provenance gaps and retain verifiable build attestations."},
-    {"id":69,"name":"Software Bill of Materials (SBOM)","state":"PARTIAL","applicability":"CURRENT","evidenceIds":["supply-chain-tool"],"currentControl":"A repository dependency inventory tool exists.","gap":"No verified signed CycloneDX/SPDX artifact for a release.","remediation":"Generate and retain a format-compliant SBOM for each release."},
-    {"id":70,"name":"DNSSEC","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":["github-deployments"],"currentControl":"No DNS-provider evidence was reviewed.","gap":"DNSSEC status is unknown.","remediation":"Verify DNSSEC at the authoritative DNS provider."},
-    {"id":71,"name":"DNS Filtering","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":[],"currentControl":"No resolver or egress DNS policy evidence.","gap":"Filtering cannot be established from application code.","remediation":"Verify the hosting/network resolver policy."},
-    {"id":72,"name":"Certificate Transparency Monitoring","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":["github-deployments"],"currentControl":"No domain monitoring evidence was provided.","gap":"Certificate monitoring and ownership are unknown.","remediation":"Verify monitoring for every production hostname."},
-    {"id":73,"name":"HTTP Security Headers","state":"ACTIVE","applicability":"CURRENT","evidenceIds":["next-config","headers","header-tests","pr72-csp"],"currentControl":"Global response-header configuration and deterministic tests are integrated; production runtime was not independently observed.","gap":"Live deployment/header behavior is unverified; HSTS is opt-in.","remediation":"Verify headers on each deployed hostname and enable HSTS only after HTTPS confirmation."},
-    {"id":74,"name":"Content Security Policy (CSP)","state":"ACTIVE","applicability":"CURRENT","evidenceIds":["headers","header-tests","pr72-csp"],"currentControl":"Production CSP is enforced even when report-only is requested; policy retains unsafe-inline and has no report receiver.","gap":"No nonce-based strict policy, CSP report collection, or deployed-header evidence.","remediation":"Plan nonce-compatible strict CSP and a privacy-reviewed reporting endpoint."},
-    {"id":75,"name":"Subresource Integrity (SRI)","state":"NOT_APPLICABLE","applicability":"NOT_APPLICABLE","evidenceIds":["headers"],"currentControl":"The app CSP does not allow external script origins; no external script dependency is evidenced in the active surface.","gap":"Reassess if externally hosted scripts/styles are introduced.","remediation":"Use SRI or self-host assets before introducing third-party executable resources."},
-    {"id":76,"name":"Multi-Factor Authentication (MFA)","state":"NOT_APPLICABLE","applicability":"FUTURE","evidenceIds":["access-contract","editorial-identity"],"currentControl":"No live account/IdP flow exists; MFA fields/helpers are not active authentication.","gap":"No authenticated privileged workflow to enforce MFA against.","remediation":"Require provider-backed MFA before enabling privileged accounts."},
-    {"id":77,"name":"Risk-Based Authentication","state":"NOT_APPLICABLE","applicability":"FUTURE","evidenceIds":["editorial-identity"],"currentControl":"No live authentication provider or user telemetry.","gap":"No risk signals or adaptive authentication control.","remediation":"Reassess if authenticated services are introduced."},
-    {"id":78,"name":"Database Activity Monitoring","state":"NOT_APPLICABLE","applicability":"NOT_APPLICABLE","evidenceIds":["threat-model"],"currentControl":"No database exists in the reviewed application architecture.","gap":"Reassess if a database is introduced.","remediation":"Add database monitoring with any future database."},
-    {"id":79,"name":"Data Loss Prevention (DLP)","state":"PARTIAL","applicability":"CURRENT","evidenceIds":["secrets-tool","server-log","threat-model"],"currentControl":"Repository secret checks and log redaction exist; no enterprise DLP is verified.","gap":"No endpoint/network DLP policy or deployed data inventory evidence.","remediation":"Define data classes and verify controls at storage and egress boundaries."},
-    {"id":80,"name":"Cloud Workload Protection (CWPP)","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":["github-deployments"],"currentControl":"No cloud workload inventory or protection-agent evidence.","gap":"Runtime workload posture is unknown.","remediation":"Verify with the hosting/cloud operator."},
-    {"id":81,"name":"Attack Surface Management (ASM)","state":"PARTIAL","applicability":"CURRENT","evidenceIds":["threat-model","research-export"],"currentControl":"Repository routes are documented; continuous asset discovery is not evidenced.","gap":"No continuously reconciled external asset inventory.","remediation":"Maintain an owner-verified route/domain inventory and review changes."},
-    {"id":82,"name":"External Attack Surface Monitoring (EASM)","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":["github-deployments"],"currentControl":"No external monitoring service or report was verified.","gap":"Public domains and cloud assets may not be fully enumerated.","remediation":"Verify authorized external asset monitoring with the operator."},
-    {"id":83,"name":"Threat Intelligence Platform (TIP)","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":[],"currentControl":"This report uses public framework catalogs; no project threat-intelligence feed/platform is evidenced.","gap":"No maintained feed, triage, or operational integration.","remediation":"Do not describe framework mapping as an operational TIP."},
-    {"id":84,"name":"Continuous Security Validation","state":"PARTIAL","applicability":"CURRENT","evidenceIds":["security-workflow","header-tests","access-tests"],"currentControl":"Repository security checks run in CI; no live production validation evidence.","gap":"No runtime validation evidence or end-to-end deployment assurance.","remediation":"Keep CI checks and add authorized post-deployment verification."},
-    {"id":85,"name":"Breach and Attack Simulation (BAS)","state":"TEMPLATE","applicability":"CURRENT","evidenceIds":["pr74-security-lab"],"currentControl":"A security-lab proposal exists in open PR #74; this task performs no attack simulation.","gap":"No integrated BAS execution or authorized exercise result.","remediation":"Require explicit scope/authorization and controlled test environment before any exercise."},
-    {"id":86,"name":"Automated Vulnerability Patching","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":["security-workflow"],"currentControl":"No automated patch PR policy or successful patch-cycle evidence was reviewed.","gap":"Automation configuration and ownership are unknown.","remediation":"Verify dependency update automation and remediation SLAs."},
-    {"id":87,"name":"Secure CI/CD Pipeline","state":"PARTIAL","applicability":"CURRENT","evidenceIds":["security-workflow","release-workflow","github-branch-protection"],"currentControl":"Least-privilege/security workflows and checks exist; branch protection is unverified and several PR checks fail on editorial gates.","gap":"Required review, protected refs, provenance, and deployment approvals are not proven.","remediation":"Verify repository rulesets and release permissions; retain editorial gates."},
-    {"id":88,"name":"Runtime Application Self-Protection (RASP)","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":["github-deployments"],"currentControl":"No RASP agent or runtime service is evidenced.","gap":"Deployed runtime instrumentation is unknown.","remediation":"Verify the selected host's runtime protection, if any."},
-    {"id":89,"name":"File Integrity Monitoring (FIM)","state":"PARTIAL","applicability":"CURRENT","evidenceIds":["integrity-tool","security-workflow"],"currentControl":"Repository content integrity checking exists; no deployed host filesystem monitor is verified.","gap":"Local manifest integrity is not an immutable external anchor or host FIM.","remediation":"Anchor manifests independently and verify production filesystem monitoring."},
-    {"id":90,"name":"Cryptographic Key Rotation","state":"NOT_APPLICABLE","applicability":"FUTURE","evidenceIds":["access-contract"],"currentControl":"No application signing/key-management service is evidenced.","gap":"No managed keys currently exist in the reviewed app flow.","remediation":"Define rotation and revocation before introducing managed keys."},
-    {"id":91,"name":"Hardware Security Module (HSM)","state":"NOT_APPLICABLE","applicability":"FUTURE","evidenceIds":["access-contract"],"currentControl":"No application signing key or HSM-backed service is evidenced.","gap":"Would be required only if future signing/key custody warrants it.","remediation":"Reassess key custody when signing or privileged identity is introduced."},
-    {"id":92,"name":"Tamper Detection","state":"PARTIAL","applicability":"CURRENT","evidenceIds":["integrity-tool","backup-tool","access-contract"],"currentControl":"Repository hashes, backup verification, and hash-chain helpers exist.","gap":"No external immutable anchor or WORM sink prevents privileged rewrite.","remediation":"Anchor records outside the write authority and test tamper alerts."},
-    {"id":93,"name":"Emergency Access Revocation","state":"NOT_APPLICABLE","applicability":"FUTURE","evidenceIds":["access-contract"],"currentControl":"No active application session store or privileged sessions.","gap":"No live revocation channel exists.","remediation":"Implement and exercise revocation with any future IdP/session store."},
-    {"id":94,"name":"Automated Credential Revocation","state":"NOT_APPLICABLE","applicability":"FUTURE","evidenceIds":["editorial-identity"],"currentControl":"No registered IdP or runtime credential service.","gap":"No credential lifecycle integration.","remediation":"Design provider-backed revocation before issuing application credentials."},
-    {"id":95,"name":"Critical Database Read-Only Lockdown","state":"NOT_APPLICABLE","applicability":"NOT_APPLICABLE","evidenceIds":["threat-model","pr71-blackout"],"currentControl":"No application database or active BLACKOUT lockdown integration; PR #71 is open.","gap":"Database lockdown is not a current feature and PR-only code is not active evidence.","remediation":"Reassess if a database or integrated incident-control plane is introduced."},
-    {"id":96,"name":"Emergency Network Quarantine","state":"TEMPLATE","applicability":"FUTURE","evidenceIds":["pr73-infrastructure","pr71-blackout"],"currentControl":"Edge fallback and quarantine concepts are only proposed in open infrastructure/application PRs.","gap":"No deployed network quarantine control or persistent operational state.","remediation":"Treat as a future design until provider adapters and recovery are tested."},
-    {"id":97,"name":"Incident Evidence Preservation","state":"PARTIAL","applicability":"CURRENT","evidenceIds":["access-contract","server-log","pr71-blackout"],"currentControl":"Hash-chained local evidence/log helpers exist; BLACKOUT evidence ledger is PR-only.","gap":"No independently administered WORM retention or legal-hold evidence.","remediation":"Use an external immutable evidence sink and test access/retention."},
-    {"id":98,"name":"Independent Recovery Environment","state":"NOT_VERIFIED","applicability":"CURRENT","evidenceIds":["backup-tool","github-deployments"],"currentControl":"No separate recovery account/region is evidenced.","gap":"Independence and recovery readiness are unknown.","remediation":"Verify a separately controlled recovery environment and restoration drill."},
-    {"id":99,"name":"PROJECT BLACKOUT — Kritik ihlal doğrulandığında sistemi güvenli moda alma, saldırganın erişimini kesme ve verileri koruma.","state":"TEMPLATE","applicability":"FUTURE","evidenceIds":["pr71-blackout"],"currentControl":"Decision/state-machine implementation is in open PR #71; it is not integrated or connected to production.","gap":"No durable active state, production adapter, or deployed recovery path is verified.","remediation":"Do not claim active BLACKOUT; require review, durable state, safe adapters, and recovery exercises before integration."}
+    {
+      "id": 1,
+      "name": "Next-Generation Firewall (NGFW)",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [],
+      "currentControl": "No integrated network perimeter configuration is evidenced.",
+      "gap": "Hosting/network firewall posture is unknown.",
+      "remediation": "Obtain deployment-provider evidence before claiming an NGFW.",
+      "strideIds": [
+        "S-05"
+      ],
+      "mitreIds": [
+        "T1498"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 2,
+      "name": "Web Application Firewall (WAF)",
+      "state": "TEMPLATE",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "pr73-infrastructure"
+      ],
+      "currentControl": "WAF rules are present only in open PR #73.",
+      "gap": "No integrated or deployed WAF evidence.",
+      "remediation": "Integrate, configure, and independently verify the chosen edge WAF.",
+      "strideIds": [
+        "S-02",
+        "S-05",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1190",
+        "T1498"
+      ],
+      "asvsIds": [
+        "v5.0.0-2.2.1",
+        "v5.0.0-3.4.3"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 3,
+      "name": "Intrusion Detection System (IDS)",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [],
+      "currentControl": "No active network/host IDS evidence is available.",
+      "gap": "Sensor deployment and alert routing are unknown.",
+      "remediation": "Verify sensors and alert ownership with the hosting operator.",
+      "strideIds": [
+        "S-02",
+        "S-05",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1190",
+        "T1498",
+        "T1036"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 4,
+      "name": "Intrusion Prevention System (IPS)",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [],
+      "currentControl": "No active inline prevention evidence is available.",
+      "gap": "Network enforcement is outside the integrated application code.",
+      "remediation": "Verify the deployed network controls; do not infer them from application code.",
+      "strideIds": [
+        "S-02",
+        "S-05",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1190",
+        "T1498",
+        "T1036"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 5,
+      "name": "Anti-DDoS Protection",
+      "state": "TEMPLATE",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "pr73-infrastructure"
+      ],
+      "currentControl": "Edge/anti-DDoS artifacts are proposed in open PR #73 only.",
+      "gap": "No active provider protection or capacity evidence.",
+      "remediation": "Confirm contracted edge protection and operational limits.",
+      "strideIds": [
+        "S-05"
+      ],
+      "mitreIds": [
+        "T1498",
+        "T1496"
+      ],
+      "asvsIds": [
+        "v5.0.0-2.4.1"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 6,
+      "name": "Security Information and Event Management (SIEM)",
+      "state": "TEMPLATE",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "pr73-infrastructure",
+        "server-log"
+      ],
+      "currentControl": "Application logging exists; SIEM configuration is PR-only.",
+      "gap": "No centralized ingestion, correlation, retention, or alert proof.",
+      "remediation": "Integrate and test a managed log pipeline with an accountable operator.",
+      "strideIds": [
+        "S-03",
+        "S-05"
+      ],
+      "mitreIds": [
+        "T1498",
+        "T1036"
+      ],
+      "asvsIds": [
+        "v5.0.0-3.4.7"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 7,
+      "name": "Endpoint Detection and Response (EDR)",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [],
+      "currentControl": "No host or developer endpoint agent evidence.",
+      "gap": "Endpoint coverage is unknown.",
+      "remediation": "Verify endpoint coverage and response ownership.",
+      "strideIds": [
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1068",
+        "T1036"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Host-protection relevance only for future infrastructure: S-06, T1068, and T1036 do not assert an active host agent or observed activity."
+    },
+    {
+      "id": 8,
+      "name": "Extended Detection and Response (XDR)",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [],
+      "currentControl": "No correlated endpoint/network/cloud telemetry evidence.",
+      "gap": "XDR operations are unverified.",
+      "remediation": "Verify an operational telemetry and response service.",
+      "strideIds": [
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1068",
+        "T1036"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Host-protection relevance only for future infrastructure: S-06, T1068, and T1036 do not assert an active host agent or observed activity."
+    },
+    {
+      "id": 9,
+      "name": "Security Operations Center (SOC)",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [],
+      "currentControl": "No staffed monitoring service is evidenced.",
+      "gap": "Coverage and escalation ownership are unknown.",
+      "remediation": "Document monitoring responsibility and escalation coverage.",
+      "strideIds": [
+        "S-03"
+      ],
+      "mitreIds": [],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ATT&CK/ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 10,
+      "name": "Siber Olaylara Müdahale Ekibi (SOME)",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "threat-model"
+      ],
+      "currentControl": "The threat model calls for response ownership but no assigned team is verified.",
+      "gap": "Contacts, response authority, and exercise evidence are absent.",
+      "remediation": "Assign incident owners and test a response plan.",
+      "strideIds": [
+        "S-03"
+      ],
+      "mitreIds": [],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ATT&CK/ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 11,
+      "name": "Network Access Control (NAC)",
+      "state": "NOT_APPLICABLE",
+      "applicability": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "threat-model"
+      ],
+      "currentControl": "The project does not operate an enterprise local network.",
+      "gap": "Reassess if managed office/network assets are introduced.",
+      "remediation": "Reassess applicability when the operating environment changes.",
+      "strideIds": [],
+      "mitreIds": [],
+      "asvsIds": [],
+      "mappingNote": "No direct crosswalk is supported; all three arrays are intentionally empty for this control in the integrated app scope. The project does not operate an enterprise local network."
+    },
+    {
+      "id": 12,
+      "name": "Virtual Private Network (VPN)",
+      "state": "NOT_VERIFIED",
+      "applicability": "FUTURE",
+      "evidenceIds": [
+        "access-contract"
+      ],
+      "currentControl": "No administrative service or VPN deployment is evidenced.",
+      "gap": "A future administrative surface would need a verified access path.",
+      "remediation": "Choose and verify a private access path before enabling administration.",
+      "strideIds": [],
+      "mitreIds": [
+        "T1021"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty STRIDE/ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 13,
+      "name": "SSL/TLS Encryption",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "headers",
+        "github-deployments"
+      ],
+      "currentControl": "The application can emit HSTS only when configured; transport termination is external.",
+      "gap": "Live TLS configuration and certificate state were not verified.",
+      "remediation": "Verify TLS at the deployed edge and enable HSTS only for the confirmed HTTPS domain.",
+      "strideIds": [
+        "S-04"
+      ],
+      "mitreIds": [],
+      "asvsIds": [
+        "v5.0.0-3.4.1"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ATT&CK arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 14,
+      "name": "Malware Sandbox",
+      "state": "NOT_APPLICABLE",
+      "applicability": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "research-export"
+      ],
+      "currentControl": "The application has no server-side file-upload workflow.",
+      "gap": "Reassess if untrusted uploads are introduced.",
+      "remediation": "Add isolated scanning before enabling uploads.",
+      "strideIds": [],
+      "mitreIds": [],
+      "asvsIds": [],
+      "mappingNote": "No direct crosswalk is supported; all three arrays are intentionally empty for this control in the integrated app scope. The application has no server-side file-upload workflow."
+    },
+    {
+      "id": 15,
+      "name": "Secure Email Gateway",
+      "state": "NOT_APPLICABLE",
+      "applicability": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "threat-model"
+      ],
+      "currentControl": "The application does not operate an email system.",
+      "gap": "Project email infrastructure is not part of the current app.",
+      "remediation": "Reassess if the project operates email.",
+      "strideIds": [],
+      "mitreIds": [],
+      "asvsIds": [],
+      "mappingNote": "No direct crosswalk is supported; all three arrays are intentionally empty for this control in the integrated app scope. The application does not operate an email system."
+    },
+    {
+      "id": 16,
+      "name": "Endpoint Protection Platform (EPP)",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [],
+      "currentControl": "No server/developer endpoint protection evidence.",
+      "gap": "Endpoint product and policy are unknown.",
+      "remediation": "Verify endpoint protections with the relevant operators.",
+      "strideIds": [
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1068",
+        "T1036"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Host-protection relevance only for future infrastructure: S-06, T1068, and T1036 do not assert an active host agent or observed activity."
+    },
+    {
+      "id": 17,
+      "name": "Vulnerability Management",
+      "state": "PARTIAL",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "supply-chain-tool",
+        "security-workflow"
+      ],
+      "currentControl": "Dependency/workflow audit tooling exists in the repository.",
+      "gap": "No complete asset-level vulnerability program or remediation SLA is evidenced.",
+      "remediation": "Document owners, scope, cadence, and remediation tracking.",
+      "strideIds": [
+        "S-02",
+        "S-05",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1190",
+        "T1195",
+        "T1595"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 18,
+      "name": "Penetration Testing",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "pr74-security-lab"
+      ],
+      "currentControl": "An adversarial lab is proposed in open PR #74; no independent penetration test is evidenced.",
+      "gap": "No authorized human penetration-test report was verified.",
+      "remediation": "Commission a scoped, authorized assessment before claiming penetration testing.",
+      "strideIds": [
+        "S-02"
+      ],
+      "mitreIds": [
+        "T1190",
+        "T1595"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 19,
+      "name": "Identity and Access Management (IAM)",
+      "state": "MISSING",
+      "applicability": "FUTURE",
+      "evidenceIds": [
+        "access-contract",
+        "editorial-identity"
+      ],
+      "currentControl": "Both application identity-provider registrations are null; admin routes fail closed.",
+      "gap": "No live IdP, user lifecycle, or administrative session service exists.",
+      "remediation": "Require a tested IdP and access lifecycle before adding protected features.",
+      "strideIds": [
+        "S-01",
+        "S-04",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1078",
+        "T1110",
+        "T1098",
+        "T1136",
+        "T1552",
+        "T1087",
+        "T1021"
+      ],
+      "asvsIds": [
+        "v5.0.0-6.1.1",
+        "v5.0.0-8.3.1"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 20,
+      "name": "Load Balancer",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "github-deployments"
+      ],
+      "currentControl": "No deployed load-balancer configuration is verified.",
+      "gap": "Hosting topology is unknown.",
+      "remediation": "Obtain deployment architecture evidence.",
+      "strideIds": [
+        "S-05"
+      ],
+      "mitreIds": [
+        "T1498",
+        "T1496"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 21,
+      "name": "Centralized Syslog / EventLog",
+      "state": "PARTIAL",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "server-log"
+      ],
+      "currentControl": "Structured application logging helper is integrated.",
+      "gap": "Central collection, retention, and alerting are not evidenced.",
+      "remediation": "Connect logs to a managed sink and verify retention/alert paths.",
+      "strideIds": [
+        "S-03"
+      ],
+      "mitreIds": [
+        "T1036"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 22,
+      "name": "MITRE ATT&CK Framework",
+      "state": "PARTIAL",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "threat-model"
+      ],
+      "currentControl": "This assessment adds a bounded ATT&CK v20.0 mapping.",
+      "gap": "No continuously maintained threat-intelligence feed or ATT&CK-driven response is evidenced.",
+      "remediation": "Review mappings when the threat model or ATT&CK catalog changes.",
+      "strideIds": [],
+      "mitreIds": [
+        "T1190",
+        "T1195",
+        "T1565",
+        "T1498",
+        "T1078",
+        "T1110",
+        "T1068",
+        "T1098",
+        "T1136",
+        "T1036",
+        "T1552",
+        "T1087",
+        "T1595",
+        "T1021",
+        "T1213",
+        "T1567",
+        "T1496"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Framework index only: ATT&CK IDs enumerate this assessment’s selected techniques; this is not a detection or control-effectiveness claim."
+    },
+    {
+      "id": 23,
+      "name": "OWASP Security Standards",
+      "state": "PARTIAL",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "threat-model",
+        "headers"
+      ],
+      "currentControl": "This assessment maps selected ASVS 5.0.0 and Top 10:2025 areas.",
+      "gap": "This is not a complete ASVS verification or certification.",
+      "remediation": "Commission a scoped verification against the required ASVS level.",
+      "strideIds": [],
+      "mitreIds": [],
+      "asvsIds": [
+        "v5.0.0-2.2.1",
+        "v5.0.0-2.4.1",
+        "v5.0.0-3.3.1",
+        "v5.0.0-3.3.2",
+        "v5.0.0-3.3.3",
+        "v5.0.0-3.3.4",
+        "v5.0.0-3.4.1",
+        "v5.0.0-3.4.3",
+        "v5.0.0-3.4.4",
+        "v5.0.0-3.4.7",
+        "v5.0.0-3.5.1",
+        "v5.0.0-5.2.2",
+        "v5.0.0-6.1.1",
+        "v5.0.0-8.3.1"
+      ],
+      "mappingNote": "Framework index only: ASVS IDs enumerate the selected assessment requirements; this is not evidence of conformance or certification."
+    },
+    {
+      "id": 24,
+      "name": "ISO/IEC 27001",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [],
+      "currentControl": "No organizational ISMS or certification evidence was reviewed.",
+      "gap": "Policies, audits, and certification status are unknown.",
+      "remediation": "Do not claim certification; assess organizational requirements separately.",
+      "strideIds": [],
+      "mitreIds": [],
+      "asvsIds": [],
+      "mappingNote": "No direct crosswalk is supported; all three arrays are intentionally empty for this control in the integrated app scope. No organizational ISMS or certification evidence was reviewed."
+    },
+    {
+      "id": 25,
+      "name": "Disaster Recovery",
+      "state": "PARTIAL",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "backup-tool",
+        "pr73-infrastructure"
+      ],
+      "currentControl": "A local repository backup utility exists; runbook proposals are in open PR #73.",
+      "gap": "No tested production recovery plan, RTO/RPO, or independent recovery environment.",
+      "remediation": "Define and exercise recovery objectives against the deployed platform.",
+      "strideIds": [],
+      "mitreIds": [
+        "T1498",
+        "T1496"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty STRIDE/ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 26,
+      "name": "Zero Trust Architecture",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "access-contract"
+      ],
+      "currentControl": "Fail-closed admin routing exists; no identity/device-aware network architecture is verified.",
+      "gap": "No end-to-end Zero Trust deployment evidence.",
+      "remediation": "Assess the complete identity, device, and network path before claiming this control.",
+      "strideIds": [
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1021"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 27,
+      "name": "Network Segmentation",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [],
+      "currentControl": "No deployed network topology is available.",
+      "gap": "Segmentation cannot be inferred from repository code.",
+      "remediation": "Verify hosting network boundaries.",
+      "strideIds": [],
+      "mitreIds": [
+        "T1021"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty STRIDE/ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 28,
+      "name": "Global CDN / Anycast",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "github-deployments"
+      ],
+      "currentControl": "No active CDN provider or DNS routing evidence was verified.",
+      "gap": "Delivery topology is unknown.",
+      "remediation": "Verify the deployed DNS/CDN configuration.",
+      "strideIds": [
+        "S-05"
+      ],
+      "mitreIds": [
+        "T1498",
+        "T1496"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 29,
+      "name": "Enterprise Bot Management",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "pr73-infrastructure"
+      ],
+      "currentControl": "No active bot-management policy is evidenced; edge proposals remain PR-only.",
+      "gap": "No deployed bot detection or mitigation proof.",
+      "remediation": "Verify edge controls without treating robots/noindex as a security control.",
+      "strideIds": [
+        "S-04",
+        "S-05"
+      ],
+      "mitreIds": [
+        "T1190",
+        "T1498",
+        "T1110",
+        "T1595"
+      ],
+      "asvsIds": [
+        "v5.0.0-2.4.1",
+        "v5.0.0-6.1.1"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 30,
+      "name": "Adaptive Rate Limiting",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "research-export"
+      ],
+      "currentControl": "No distributed application limiter or provider rule is evidenced.",
+      "gap": "Multi-instance rate-limit behavior and thresholds are unknown.",
+      "remediation": "Set and test shared/edge limits before exposing costly or stateful endpoints.",
+      "strideIds": [
+        "S-04",
+        "S-05"
+      ],
+      "mitreIds": [
+        "T1190",
+        "T1498",
+        "T1110",
+        "T1595",
+        "T1496"
+      ],
+      "asvsIds": [
+        "v5.0.0-2.4.1",
+        "v5.0.0-6.1.1"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 31,
+      "name": "Behavioral Threat Analysis",
+      "state": "TEMPLATE",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "pr71-blackout"
+      ],
+      "currentControl": "Behavioral classification is proposed in open PR #71 only.",
+      "gap": "No integrated telemetry or deployed behavioral analysis exists in the reviewed base.",
+      "remediation": "Integrate with verified signals, thresholds, and human escalation.",
+      "strideIds": [
+        "S-04",
+        "S-05"
+      ],
+      "mitreIds": [
+        "T1498",
+        "T1110",
+        "T1595"
+      ],
+      "asvsIds": [
+        "v5.0.0-2.4.1",
+        "v5.0.0-6.1.1"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 32,
+      "name": "IP Reputation Intelligence",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [],
+      "currentControl": "No threat-intelligence feed or edge reputation service is evidenced.",
+      "gap": "Feed provider, freshness, and enforcement are unknown.",
+      "remediation": "Verify an authorized feed and bounded enforcement policy.",
+      "strideIds": [
+        "S-05"
+      ],
+      "mitreIds": [
+        "T1190",
+        "T1498",
+        "T1110",
+        "T1595"
+      ],
+      "asvsIds": [
+        "v5.0.0-2.4.1"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 33,
+      "name": "Adaptive Security Challenges",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "pr73-infrastructure"
+      ],
+      "currentControl": "No deployed challenge service is verified.",
+      "gap": "Challenge behavior and accessibility are unknown.",
+      "remediation": "Assess an edge challenge only if abuse evidence justifies it.",
+      "strideIds": [
+        "S-04",
+        "S-05"
+      ],
+      "mitreIds": [
+        "T1190",
+        "T1498",
+        "T1110",
+        "T1595"
+      ],
+      "asvsIds": [
+        "v5.0.0-2.4.1",
+        "v5.0.0-6.1.1"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 34,
+      "name": "Origin Server Protection",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "pr73-infrastructure"
+      ],
+      "currentControl": "Origin access policy appears only as proposed infrastructure artifacts.",
+      "gap": "Origin exposure and edge-only access are not verified.",
+      "remediation": "Verify origin restrictions in the actual hosting environment.",
+      "strideIds": [
+        "S-05"
+      ],
+      "mitreIds": [
+        "T1190",
+        "T1498"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 35,
+      "name": "Server Hardening",
+      "state": "TEMPLATE",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "pr73-infrastructure"
+      ],
+      "currentControl": "Host/container hardening files are in open PR #73 only.",
+      "gap": "No hardened production host is evidenced.",
+      "remediation": "Integrate, deploy, and verify the applicable host baseline.",
+      "strideIds": [
+        "S-05",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1190",
+        "T1498",
+        "T1068",
+        "T1036",
+        "T1496"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 36,
+      "name": "Runtime Threat Detection",
+      "state": "TEMPLATE",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "pr73-infrastructure"
+      ],
+      "currentControl": "Runtime-monitoring configuration is proposed in open PR #73.",
+      "gap": "No deployed runtime sensor or alert path is verified.",
+      "remediation": "Validate runtime telemetry and response ownership after deployment.",
+      "strideIds": [
+        "S-05",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1190",
+        "T1498",
+        "T1036"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 37,
+      "name": "Outbound Traffic Filtering",
+      "state": "PARTIAL",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "headers",
+        "threat-model"
+      ],
+      "currentControl": "Browser CSP restricts browser connections; server egress is not constrained by this policy.",
+      "gap": "No host/network egress policy is verified.",
+      "remediation": "Verify infrastructure egress controls independently of browser CSP.",
+      "strideIds": [
+        "S-05"
+      ],
+      "mitreIds": [
+        "T1498",
+        "T1567",
+        "T1496"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 38,
+      "name": "Hardware Security Keys",
+      "state": "NOT_APPLICABLE",
+      "applicability": "FUTURE",
+      "evidenceIds": [
+        "access-contract"
+      ],
+      "currentControl": "No live identity provider or privileged user flow exists.",
+      "gap": "Hardware-key enforcement becomes relevant if authentication is introduced.",
+      "remediation": "Require phishing-resistant authentication for future privileged access.",
+      "strideIds": [
+        "S-01"
+      ],
+      "mitreIds": [
+        "T1078",
+        "T1110"
+      ],
+      "asvsIds": [
+        "v5.0.0-6.1.1"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 39,
+      "name": "FIDO2 / Passkeys",
+      "state": "NOT_APPLICABLE",
+      "applicability": "FUTURE",
+      "evidenceIds": [
+        "access-contract"
+      ],
+      "currentControl": "No live account authentication is present.",
+      "gap": "No passkey enrollment/verification path exists.",
+      "remediation": "Select a verified identity provider before enabling accounts.",
+      "strideIds": [
+        "S-01"
+      ],
+      "mitreIds": [
+        "T1078",
+        "T1110"
+      ],
+      "asvsIds": [
+        "v5.0.0-6.1.1"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 40,
+      "name": "Privileged Access Management (PAM)",
+      "state": "NOT_VERIFIED",
+      "applicability": "FUTURE",
+      "evidenceIds": [
+        "access-contract"
+      ],
+      "currentControl": "No administrative sessions or PAM service is evidenced.",
+      "gap": "Privileged operational access is outside the codebase evidence.",
+      "remediation": "Verify operator access controls before production administration.",
+      "strideIds": [
+        "S-01",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1078",
+        "T1068",
+        "T1098",
+        "T1552",
+        "T1021"
+      ],
+      "asvsIds": [
+        "v5.0.0-6.1.1",
+        "v5.0.0-8.3.1"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 41,
+      "name": "Role-Based Access Control (RBAC)",
+      "state": "PARTIAL",
+      "applicability": "FUTURE",
+      "evidenceIds": [
+        "access-contract",
+        "access-tests"
+      ],
+      "currentControl": "Role/permission policy helpers are tested, but no provider or active admin surface exists.",
+      "gap": "No live authenticated subject is authoritatively bound to those roles.",
+      "remediation": "Integrate roles with a verified IdP and test authorization at the service boundary.",
+      "strideIds": [
+        "S-01",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1078",
+        "T1068",
+        "T1098",
+        "T1087",
+        "T1021"
+      ],
+      "asvsIds": [
+        "v5.0.0-6.1.1",
+        "v5.0.0-8.3.1"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 42,
+      "name": "Just-in-Time Privileged Access",
+      "state": "NOT_APPLICABLE",
+      "applicability": "FUTURE",
+      "evidenceIds": [
+        "access-contract"
+      ],
+      "currentControl": "No active privileged account or elevation workflow.",
+      "gap": "Time-bounded elevation is not implemented.",
+      "remediation": "Design JIT access before creating privileged accounts.",
+      "strideIds": [
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1078",
+        "T1068",
+        "T1098",
+        "T1021"
+      ],
+      "asvsIds": [
+        "v5.0.0-6.1.1",
+        "v5.0.0-8.3.1"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 43,
+      "name": "Device Trust Verification",
+      "state": "NOT_VERIFIED",
+      "applicability": "FUTURE",
+      "evidenceIds": [
+        "access-contract"
+      ],
+      "currentControl": "No device management or IdP device signal is evidenced.",
+      "gap": "Device posture cannot be checked by current app code.",
+      "remediation": "Require verified device posture for future privileged workflows.",
+      "strideIds": [
+        "S-01",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1078",
+        "T1068",
+        "T1021"
+      ],
+      "asvsIds": [
+        "v5.0.0-6.1.1",
+        "v5.0.0-8.3.1"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 44,
+      "name": "Session Hijacking Protection",
+      "state": "PARTIAL",
+      "applicability": "FUTURE",
+      "evidenceIds": [
+        "access-contract",
+        "access-tests"
+      ],
+      "currentControl": "Session and cookie validators exist; the application does not issue active sessions.",
+      "gap": "No live session rotation, revocation, or runtime cookie evidence.",
+      "remediation": "Verify the complete session lifecycle before enabling authentication.",
+      "strideIds": [
+        "S-01",
+        "S-04"
+      ],
+      "mitreIds": [
+        "T1078"
+      ],
+      "asvsIds": [
+        "v5.0.0-3.3.1",
+        "v5.0.0-3.3.2",
+        "v5.0.0-3.3.3",
+        "v5.0.0-3.3.4",
+        "v5.0.0-8.3.1"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 45,
+      "name": "Continuous Authentication",
+      "state": "NOT_APPLICABLE",
+      "applicability": "FUTURE",
+      "evidenceIds": [
+        "access-contract"
+      ],
+      "currentControl": "No active authenticated user sessions.",
+      "gap": "No IdP risk signals or continuous reauthentication flow.",
+      "remediation": "Reassess if authenticated services are introduced.",
+      "strideIds": [
+        "S-01"
+      ],
+      "mitreIds": [
+        "T1078"
+      ],
+      "asvsIds": [
+        "v5.0.0-6.1.1"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 46,
+      "name": "SQL Injection Protection",
+      "state": "NOT_APPLICABLE",
+      "applicability": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "threat-model"
+      ],
+      "currentControl": "The reviewed app uses repository JSON and has no SQL database.",
+      "gap": "Reassess if a database/query interface is added.",
+      "remediation": "Use parameterized queries and test authorization if SQL is introduced.",
+      "strideIds": [
+        "S-02"
+      ],
+      "mitreIds": [],
+      "asvsIds": [
+        "v5.0.0-2.2.1"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ATT&CK arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 47,
+      "name": "Cross-Site Scripting (XSS) Protection",
+      "state": "PARTIAL",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "threat-model",
+        "headers"
+      ],
+      "currentControl": "React rendering and a restrictive CSP provide defenses; CSP still permits unsafe-inline.",
+      "gap": "No complete sink-by-sink review or strict nonce CSP evidence.",
+      "remediation": "Maintain output encoding and remove unsafe-inline when nonce support is verified.",
+      "strideIds": [
+        "S-01",
+        "S-02",
+        "S-04",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1190"
+      ],
+      "asvsIds": [
+        "v5.0.0-2.2.1",
+        "v5.0.0-3.4.3"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 48,
+      "name": "Cross-Site Request Forgery (CSRF) Protection",
+      "state": "NOT_APPLICABLE",
+      "applicability": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "access-contract",
+        "research-export"
+      ],
+      "currentControl": "No integrated state-changing application endpoint is evidenced; a CSRF contract helper is not an active mutation defense.",
+      "gap": "Reassess before adding state-changing routes.",
+      "remediation": "Require same-origin and anti-forgery validation before enabling mutations.",
+      "strideIds": [],
+      "mitreIds": [],
+      "asvsIds": [
+        "v5.0.0-3.3.2",
+        "v5.0.0-3.5.1"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty STRIDE/ATT&CK arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 49,
+      "name": "API Security Gateway",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "research-export",
+        "github-deployments"
+      ],
+      "currentControl": "A small development-gated export route exists; no production gateway is verified.",
+      "gap": "Gateway/WAF enforcement and deployed API inventory are unknown.",
+      "remediation": "Verify gateway controls at the actual deployment boundary.",
+      "strideIds": [
+        "S-02",
+        "S-04",
+        "S-05",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1190",
+        "T1498",
+        "T1595",
+        "T1567",
+        "T1496"
+      ],
+      "asvsIds": [
+        "v5.0.0-2.2.1",
+        "v5.0.0-2.4.1",
+        "v5.0.0-3.5.1"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 50,
+      "name": "Object-Level Authorization",
+      "state": "NOT_APPLICABLE",
+      "applicability": "FUTURE",
+      "evidenceIds": [
+        "access-contract",
+        "research-export"
+      ],
+      "currentControl": "No authenticated object mutation or private-object API is evidenced in the integrated app.",
+      "gap": "Object authorization must be implemented before user-scoped data is exposed.",
+      "remediation": "Apply subject-to-object authorization at the trusted service layer for future private data.",
+      "strideIds": [
+        "S-04",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1087",
+        "T1213"
+      ],
+      "asvsIds": [
+        "v5.0.0-8.3.1"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 51,
+      "name": "Secrets Management",
+      "state": "PARTIAL",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "secrets-tool",
+        "security-workflow"
+      ],
+      "currentControl": "Repository secret checks exist; no external secrets vault or rotation evidence.",
+      "gap": "Secret issuance, runtime delivery, rotation, and incident revocation are unverified.",
+      "remediation": "Verify a least-privilege runtime secret-management process.",
+      "strideIds": [
+        "S-04"
+      ],
+      "mitreIds": [
+        "T1552",
+        "T1213",
+        "T1567"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 52,
+      "name": "Database Encryption",
+      "state": "NOT_APPLICABLE",
+      "applicability": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "threat-model"
+      ],
+      "currentControl": "No application database or persistent user-data store is evidenced.",
+      "gap": "Reassess if a database is introduced.",
+      "remediation": "Define encryption/key-management requirements before storing database data.",
+      "strideIds": [
+        "S-04"
+      ],
+      "mitreIds": [
+        "T1213"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 53,
+      "name": "Secure File Upload Scanning",
+      "state": "NOT_APPLICABLE",
+      "applicability": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "research-export"
+      ],
+      "currentControl": "No server-side upload route is evidenced.",
+      "gap": "Reassess before adding upload handling.",
+      "remediation": "Validate, isolate, and scan uploads before processing.",
+      "strideIds": [],
+      "mitreIds": [],
+      "asvsIds": [
+        "v5.0.0-2.2.1",
+        "v5.0.0-5.2.2"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty STRIDE/ATT&CK arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 54,
+      "name": "Static Application Security Testing (SAST)",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "security-workflow"
+      ],
+      "currentControl": "Lint/type checks are not by themselves SAST; no dedicated SAST result was verified.",
+      "gap": "No dedicated static security analyzer evidence.",
+      "remediation": "Add and review an appropriate static analyzer before claiming SAST.",
+      "strideIds": [
+        "S-02",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1190",
+        "T1195",
+        "T1068",
+        "T1036"
+      ],
+      "asvsIds": [
+        "v5.0.0-2.2.1"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 55,
+      "name": "Dynamic Application Security Testing (DAST)",
+      "state": "PARTIAL",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "security-workflow",
+        "header-tests",
+        "pr74-security-lab"
+      ],
+      "currentControl": "Application security tests exist; PR #74's red-team engine remains open and no active scan was run here.",
+      "gap": "No verified production DAST run or authorized independent scanner result.",
+      "remediation": "Run approved non-production DAST and retain the exact scope/results.",
+      "strideIds": [
+        "S-02",
+        "S-05"
+      ],
+      "mitreIds": [
+        "T1190",
+        "T1498",
+        "T1595"
+      ],
+      "asvsIds": [
+        "v5.0.0-2.2.1",
+        "v5.0.0-2.4.1"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 56,
+      "name": "Software Composition Analysis (SCA)",
+      "state": "PARTIAL",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "supply-chain-tool",
+        "security-workflow"
+      ],
+      "currentControl": "Dependency audit tooling and CI workflow are present.",
+      "gap": "This evidence does not establish complete dependency provenance or production inventory.",
+      "remediation": "Retain versioned audit output and establish remediation ownership.",
+      "strideIds": [
+        "S-02"
+      ],
+      "mitreIds": [
+        "T1195"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 57,
+      "name": "Security Orchestration, Automation and Response (SOAR)",
+      "state": "TEMPLATE",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "pr71-blackout"
+      ],
+      "currentControl": "A response decision engine is proposed in open PR #71 only.",
+      "gap": "No integrated orchestration platform or production adapters.",
+      "remediation": "Treat as a prototype until integrations, persistence, and approval controls are deployed.",
+      "strideIds": [
+        "S-03",
+        "S-05",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1498",
+        "T1068",
+        "T1036"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 58,
+      "name": "User and Entity Behavior Analytics (UEBA)",
+      "state": "NOT_APPLICABLE",
+      "applicability": "FUTURE",
+      "evidenceIds": [
+        "editorial-identity"
+      ],
+      "currentControl": "No active identity/session telemetry is evidenced.",
+      "gap": "No user/entity behavior dataset or analytics operation.",
+      "remediation": "Reassess only after identity and telemetry exist.",
+      "strideIds": [],
+      "mitreIds": [
+        "T1087"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty STRIDE/ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 59,
+      "name": "Honeytokens / Deception Technology",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [],
+      "currentControl": "No honeytoken deployment is evidenced.",
+      "gap": "No monitored deception signal or response procedure.",
+      "remediation": "Do not add decoys without an owner and validated alert workflow.",
+      "strideIds": [
+        "S-05"
+      ],
+      "mitreIds": [],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ATT&CK/ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 60,
+      "name": "Immutable Audit Logs",
+      "state": "PARTIAL",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "access-contract",
+        "server-log"
+      ],
+      "currentControl": "Hash-chained application log helpers exist; no external WORM storage or immutable anchor is verified.",
+      "gap": "A writer can rewrite local state and recompute a chain.",
+      "remediation": "Anchor audit records in independently administered immutable storage.",
+      "strideIds": [
+        "S-02",
+        "S-03",
+        "S-04"
+      ],
+      "mitreIds": [
+        "T1565",
+        "T1036",
+        "T1213"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 61,
+      "name": "Automated Incident Isolation",
+      "state": "TEMPLATE",
+      "applicability": "FUTURE",
+      "evidenceIds": [
+        "pr71-blackout"
+      ],
+      "currentControl": "Isolation decisions and approval flow are in open PR #71 only.",
+      "gap": "No integrated route/edge adapter or persisted incident state.",
+      "remediation": "Require tested fail-safe adapters, durable state, and human approval before activation.",
+      "strideIds": [
+        "S-05",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1498",
+        "T1068",
+        "T1021"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 62,
+      "name": "Immutable Offline Backups",
+      "state": "PARTIAL",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "backup-tool",
+        "pr73-infrastructure"
+      ],
+      "currentControl": "A local manifest/hash backup tool exists; immutable/offline storage appears only as an unverified infrastructure proposal.",
+      "gap": "No independent retention lock or restore exercise is evidenced.",
+      "remediation": "Verify offline immutable copies and perform a documented restore drill.",
+      "strideIds": [
+        "S-05"
+      ],
+      "mitreIds": [
+        "T1565",
+        "T1498",
+        "T1213"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 63,
+      "name": "Automated Disaster Recovery",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "backup-tool",
+        "github-deployments"
+      ],
+      "currentControl": "A local backup utility exists; automated production failover is not evidenced.",
+      "gap": "No verified failover, RTO/RPO, or recovery drill.",
+      "remediation": "Document and test recovery against actual hosting services.",
+      "strideIds": [
+        "S-05"
+      ],
+      "mitreIds": [
+        "T1498",
+        "T1496"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 64,
+      "name": "Cloud Security Posture Management (CSPM)",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "github-deployments"
+      ],
+      "currentControl": "No cloud account or CSPM inventory was provided.",
+      "gap": "Cloud posture is outside repository visibility.",
+      "remediation": "Verify cloud account ownership and posture monitoring with the operator.",
+      "strideIds": [
+        "S-05",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1498",
+        "T1068",
+        "T1036",
+        "T1496"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 65,
+      "name": "Container Runtime Security",
+      "state": "TEMPLATE",
+      "applicability": "FUTURE",
+      "evidenceIds": [
+        "pr73-infrastructure"
+      ],
+      "currentControl": "Container hardening configuration is proposed in open PR #73.",
+      "gap": "No integrated container deployment or runtime sensor is evidenced.",
+      "remediation": "Reassess only for the selected deployed runtime.",
+      "strideIds": [
+        "S-05",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1068",
+        "T1021",
+        "T1496"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 66,
+      "name": "Kubernetes Security Policies",
+      "state": "TEMPLATE",
+      "applicability": "FUTURE",
+      "evidenceIds": [
+        "pr73-infrastructure"
+      ],
+      "currentControl": "Kubernetes manifests/policy are PR-only templates.",
+      "gap": "No integrated cluster or enforcement evidence.",
+      "remediation": "Apply and validate policies against a real cluster before claiming enforcement.",
+      "strideIds": [
+        "S-05",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1068",
+        "T1021",
+        "T1496"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 67,
+      "name": "Infrastructure as Code Security Scanning",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "pr73-infrastructure"
+      ],
+      "currentControl": "IaC samples are proposed in open PR #73; no scanner result is verified.",
+      "gap": "No integrated IaC scanning gate or reviewed report.",
+      "remediation": "Scan reviewed IaC in CI before infrastructure deployment.",
+      "strideIds": [
+        "S-02",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1195",
+        "T1565",
+        "T1068",
+        "T1036"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 68,
+      "name": "Supply Chain Security",
+      "state": "PARTIAL",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "supply-chain-tool",
+        "security-workflow"
+      ],
+      "currentControl": "Dependency/workflow checks exist; signed provenance and comprehensive action pinning are not established here.",
+      "gap": "No verified attestation, complete SBOM, or end-to-end provenance.",
+      "remediation": "Close provenance gaps and retain verifiable build attestations.",
+      "strideIds": [
+        "S-02",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1195",
+        "T1565"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 69,
+      "name": "Software Bill of Materials (SBOM)",
+      "state": "PARTIAL",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "supply-chain-tool"
+      ],
+      "currentControl": "A repository dependency inventory tool exists.",
+      "gap": "No verified signed CycloneDX/SPDX artifact for a release.",
+      "remediation": "Generate and retain a format-compliant SBOM for each release.",
+      "strideIds": [
+        "S-02",
+        "S-04"
+      ],
+      "mitreIds": [
+        "T1195",
+        "T1565",
+        "T1213"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 70,
+      "name": "DNSSEC",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "github-deployments"
+      ],
+      "currentControl": "No DNS-provider evidence was reviewed.",
+      "gap": "DNSSEC status is unknown.",
+      "remediation": "Verify DNSSEC at the authoritative DNS provider.",
+      "strideIds": [
+        "S-05"
+      ],
+      "mitreIds": [
+        "T1498"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 71,
+      "name": "DNS Filtering",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [],
+      "currentControl": "No resolver or egress DNS policy evidence.",
+      "gap": "Filtering cannot be established from application code.",
+      "remediation": "Verify the hosting/network resolver policy.",
+      "strideIds": [
+        "S-05"
+      ],
+      "mitreIds": [
+        "T1498"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 72,
+      "name": "Certificate Transparency Monitoring",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "github-deployments"
+      ],
+      "currentControl": "No domain monitoring evidence was provided.",
+      "gap": "Certificate monitoring and ownership are unknown.",
+      "remediation": "Verify monitoring for every production hostname.",
+      "strideIds": [
+        "S-04"
+      ],
+      "mitreIds": [],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ATT&CK/ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 73,
+      "name": "HTTP Security Headers",
+      "state": "ACTIVE",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "next-config",
+        "headers",
+        "header-tests",
+        "pr72-csp"
+      ],
+      "currentControl": "Global response-header configuration and deterministic tests are integrated; production runtime was not independently observed.",
+      "gap": "Live deployment/header behavior is unverified; HSTS is opt-in.",
+      "remediation": "Verify headers on each deployed hostname and enable HSTS only after HTTPS confirmation.",
+      "strideIds": [
+        "S-02",
+        "S-04"
+      ],
+      "mitreIds": [
+        "T1190"
+      ],
+      "asvsIds": [
+        "v5.0.0-3.4.1",
+        "v5.0.0-3.4.3",
+        "v5.0.0-3.4.4",
+        "v5.0.0-3.4.7"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 74,
+      "name": "Content Security Policy (CSP)",
+      "state": "ACTIVE",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "headers",
+        "header-tests",
+        "pr72-csp"
+      ],
+      "currentControl": "Production CSP is enforced even when report-only is requested; policy retains unsafe-inline and has no report receiver.",
+      "gap": "No nonce-based strict policy, CSP report collection, or deployed-header evidence.",
+      "remediation": "Plan nonce-compatible strict CSP and a privacy-reviewed reporting endpoint.",
+      "strideIds": [
+        "S-02",
+        "S-04"
+      ],
+      "mitreIds": [
+        "T1190"
+      ],
+      "asvsIds": [
+        "v5.0.0-3.4.3",
+        "v5.0.0-3.4.4",
+        "v5.0.0-3.4.7"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 75,
+      "name": "Subresource Integrity (SRI)",
+      "state": "NOT_APPLICABLE",
+      "applicability": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "headers"
+      ],
+      "currentControl": "The app CSP does not allow external script origins; no external script dependency is evidenced in the active surface.",
+      "gap": "Reassess if externally hosted scripts/styles are introduced.",
+      "remediation": "Use SRI or self-host assets before introducing third-party executable resources.",
+      "strideIds": [],
+      "mitreIds": [],
+      "asvsIds": [],
+      "mappingNote": "No direct crosswalk is supported; all three arrays are intentionally empty for this control in the integrated app scope. The app CSP does not allow external script origins; no external script dependency is evidenced in the active surface."
+    },
+    {
+      "id": 76,
+      "name": "Multi-Factor Authentication (MFA)",
+      "state": "NOT_APPLICABLE",
+      "applicability": "FUTURE",
+      "evidenceIds": [
+        "access-contract",
+        "editorial-identity"
+      ],
+      "currentControl": "No live account/IdP flow exists; MFA fields/helpers are not active authentication.",
+      "gap": "No authenticated privileged workflow to enforce MFA against.",
+      "remediation": "Require provider-backed MFA before enabling privileged accounts.",
+      "strideIds": [
+        "S-01",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1078",
+        "T1110",
+        "T1098",
+        "T1136",
+        "T1552",
+        "T1087"
+      ],
+      "asvsIds": [
+        "v5.0.0-6.1.1",
+        "v5.0.0-8.3.1"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 77,
+      "name": "Risk-Based Authentication",
+      "state": "NOT_APPLICABLE",
+      "applicability": "FUTURE",
+      "evidenceIds": [
+        "editorial-identity"
+      ],
+      "currentControl": "No live authentication provider or user telemetry.",
+      "gap": "No risk signals or adaptive authentication control.",
+      "remediation": "Reassess if authenticated services are introduced.",
+      "strideIds": [
+        "S-01",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1078",
+        "T1110",
+        "T1098",
+        "T1136",
+        "T1552",
+        "T1087"
+      ],
+      "asvsIds": [
+        "v5.0.0-6.1.1",
+        "v5.0.0-8.3.1"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 78,
+      "name": "Database Activity Monitoring",
+      "state": "NOT_APPLICABLE",
+      "applicability": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "threat-model"
+      ],
+      "currentControl": "No database exists in the reviewed application architecture.",
+      "gap": "Reassess if a database is introduced.",
+      "remediation": "Add database monitoring with any future database.",
+      "strideIds": [],
+      "mitreIds": [
+        "T1213"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty STRIDE/ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 79,
+      "name": "Data Loss Prevention (DLP)",
+      "state": "PARTIAL",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "secrets-tool",
+        "server-log",
+        "threat-model"
+      ],
+      "currentControl": "Repository secret checks and log redaction exist; no enterprise DLP is verified.",
+      "gap": "No endpoint/network DLP policy or deployed data inventory evidence.",
+      "remediation": "Define data classes and verify controls at storage and egress boundaries.",
+      "strideIds": [
+        "S-04",
+        "S-05"
+      ],
+      "mitreIds": [
+        "T1498",
+        "T1213",
+        "T1567",
+        "T1496"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 80,
+      "name": "Cloud Workload Protection (CWPP)",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "github-deployments"
+      ],
+      "currentControl": "No cloud workload inventory or protection-agent evidence.",
+      "gap": "Runtime workload posture is unknown.",
+      "remediation": "Verify with the hosting/cloud operator.",
+      "strideIds": [
+        "S-05"
+      ],
+      "mitreIds": [
+        "T1498",
+        "T1068",
+        "T1021",
+        "T1496"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 81,
+      "name": "Attack Surface Management (ASM)",
+      "state": "PARTIAL",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "threat-model",
+        "research-export"
+      ],
+      "currentControl": "Repository routes are documented; continuous asset discovery is not evidenced.",
+      "gap": "No continuously reconciled external asset inventory.",
+      "remediation": "Maintain an owner-verified route/domain inventory and review changes.",
+      "strideIds": [
+        "S-02",
+        "S-05"
+      ],
+      "mitreIds": [
+        "T1190",
+        "T1498",
+        "T1595"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 82,
+      "name": "External Attack Surface Monitoring (EASM)",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "github-deployments"
+      ],
+      "currentControl": "No external monitoring service or report was verified.",
+      "gap": "Public domains and cloud assets may not be fully enumerated.",
+      "remediation": "Verify authorized external asset monitoring with the operator.",
+      "strideIds": [
+        "S-05"
+      ],
+      "mitreIds": [
+        "T1190",
+        "T1498",
+        "T1595"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 83,
+      "name": "Threat Intelligence Platform (TIP)",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [],
+      "currentControl": "This report uses public framework catalogs; no project threat-intelligence feed/platform is evidenced.",
+      "gap": "No maintained feed, triage, or operational integration.",
+      "remediation": "Do not describe framework mapping as an operational TIP.",
+      "strideIds": [
+        "S-05"
+      ],
+      "mitreIds": [
+        "T1498",
+        "T1595",
+        "T1567"
+      ],
+      "asvsIds": [
+        "v5.0.0-2.4.1"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 84,
+      "name": "Continuous Security Validation",
+      "state": "PARTIAL",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "security-workflow",
+        "header-tests",
+        "access-tests"
+      ],
+      "currentControl": "Repository security checks run in CI; no live production validation evidence.",
+      "gap": "No runtime validation evidence or end-to-end deployment assurance.",
+      "remediation": "Keep CI checks and add authorized post-deployment verification.",
+      "strideIds": [
+        "S-02",
+        "S-05"
+      ],
+      "mitreIds": [
+        "T1190",
+        "T1195",
+        "T1498",
+        "T1595"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 85,
+      "name": "Breach and Attack Simulation (BAS)",
+      "state": "TEMPLATE",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "pr74-security-lab"
+      ],
+      "currentControl": "A security-lab proposal exists in open PR #74; this task performs no attack simulation.",
+      "gap": "No integrated BAS execution or authorized exercise result.",
+      "remediation": "Require explicit scope/authorization and controlled test environment before any exercise.",
+      "strideIds": [
+        "S-02",
+        "S-05"
+      ],
+      "mitreIds": [
+        "T1190",
+        "T1195",
+        "T1498",
+        "T1595"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 86,
+      "name": "Automated Vulnerability Patching",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "security-workflow"
+      ],
+      "currentControl": "No automated patch PR policy or successful patch-cycle evidence was reviewed.",
+      "gap": "Automation configuration and ownership are unknown.",
+      "remediation": "Verify dependency update automation and remediation SLAs.",
+      "strideIds": [
+        "S-02",
+        "S-05"
+      ],
+      "mitreIds": [
+        "T1190",
+        "T1195",
+        "T1496"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 87,
+      "name": "Secure CI/CD Pipeline",
+      "state": "PARTIAL",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "security-workflow",
+        "release-workflow",
+        "github-branch-protection"
+      ],
+      "currentControl": "Least-privilege/security workflows and checks exist; branch protection is unverified and several PR checks fail on editorial gates.",
+      "gap": "Required review, protected refs, provenance, and deployment approvals are not proven.",
+      "remediation": "Verify repository rulesets and release permissions; retain editorial gates.",
+      "strideIds": [
+        "S-02",
+        "S-05",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1195",
+        "T1565",
+        "T1068",
+        "T1036"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 88,
+      "name": "Runtime Application Self-Protection (RASP)",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "github-deployments"
+      ],
+      "currentControl": "No RASP agent or runtime service is evidenced.",
+      "gap": "Deployed runtime instrumentation is unknown.",
+      "remediation": "Verify the selected host's runtime protection, if any.",
+      "strideIds": [
+        "S-05"
+      ],
+      "mitreIds": [
+        "T1190"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 89,
+      "name": "File Integrity Monitoring (FIM)",
+      "state": "PARTIAL",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "integrity-tool",
+        "security-workflow"
+      ],
+      "currentControl": "Repository content integrity checking exists; no deployed host filesystem monitor is verified.",
+      "gap": "Local manifest integrity is not an immutable external anchor or host FIM.",
+      "remediation": "Anchor manifests independently and verify production filesystem monitoring.",
+      "strideIds": [
+        "S-02",
+        "S-03",
+        "S-04"
+      ],
+      "mitreIds": [
+        "T1195",
+        "T1565",
+        "T1036"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 90,
+      "name": "Cryptographic Key Rotation",
+      "state": "NOT_APPLICABLE",
+      "applicability": "FUTURE",
+      "evidenceIds": [
+        "access-contract"
+      ],
+      "currentControl": "No application signing/key-management service is evidenced.",
+      "gap": "No managed keys currently exist in the reviewed app flow.",
+      "remediation": "Define rotation and revocation before introducing managed keys.",
+      "strideIds": [],
+      "mitreIds": [
+        "T1552"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty STRIDE/ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 91,
+      "name": "Hardware Security Module (HSM)",
+      "state": "NOT_APPLICABLE",
+      "applicability": "FUTURE",
+      "evidenceIds": [
+        "access-contract"
+      ],
+      "currentControl": "No application signing key or HSM-backed service is evidenced.",
+      "gap": "Would be required only if future signing/key custody warrants it.",
+      "remediation": "Reassess key custody when signing or privileged identity is introduced.",
+      "strideIds": [],
+      "mitreIds": [
+        "T1552"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty STRIDE/ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 92,
+      "name": "Tamper Detection",
+      "state": "PARTIAL",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "integrity-tool",
+        "backup-tool",
+        "access-contract"
+      ],
+      "currentControl": "Repository hashes, backup verification, and hash-chain helpers exist.",
+      "gap": "No external immutable anchor or WORM sink prevents privileged rewrite.",
+      "remediation": "Anchor records outside the write authority and test tamper alerts.",
+      "strideIds": [
+        "S-02",
+        "S-04",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1565"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 93,
+      "name": "Emergency Access Revocation",
+      "state": "NOT_APPLICABLE",
+      "applicability": "FUTURE",
+      "evidenceIds": [
+        "access-contract"
+      ],
+      "currentControl": "No active application session store or privileged sessions.",
+      "gap": "No live revocation channel exists.",
+      "remediation": "Implement and exercise revocation with any future IdP/session store.",
+      "strideIds": [
+        "S-01",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1078",
+        "T1098",
+        "T1136"
+      ],
+      "asvsIds": [
+        "v5.0.0-6.1.1",
+        "v5.0.0-8.3.1"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 94,
+      "name": "Automated Credential Revocation",
+      "state": "NOT_APPLICABLE",
+      "applicability": "FUTURE",
+      "evidenceIds": [
+        "editorial-identity"
+      ],
+      "currentControl": "No registered IdP or runtime credential service.",
+      "gap": "No credential lifecycle integration.",
+      "remediation": "Design provider-backed revocation before issuing application credentials.",
+      "strideIds": [
+        "S-01",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1078",
+        "T1110",
+        "T1098",
+        "T1136",
+        "T1552"
+      ],
+      "asvsIds": [
+        "v5.0.0-6.1.1",
+        "v5.0.0-8.3.1"
+      ],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness."
+    },
+    {
+      "id": 95,
+      "name": "Critical Database Read-Only Lockdown",
+      "state": "NOT_APPLICABLE",
+      "applicability": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "threat-model",
+        "pr71-blackout"
+      ],
+      "currentControl": "No application database or active BLACKOUT lockdown integration; PR #71 is open.",
+      "gap": "Database lockdown is not a current feature and PR-only code is not active evidence.",
+      "remediation": "Reassess if a database or integrated incident-control plane is introduced.",
+      "strideIds": [],
+      "mitreIds": [
+        "T1213"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty STRIDE/ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 96,
+      "name": "Emergency Network Quarantine",
+      "state": "TEMPLATE",
+      "applicability": "FUTURE",
+      "evidenceIds": [
+        "pr73-infrastructure",
+        "pr71-blackout"
+      ],
+      "currentControl": "Edge fallback and quarantine concepts are only proposed in open infrastructure/application PRs.",
+      "gap": "No deployed network quarantine control or persistent operational state.",
+      "remediation": "Treat as a future design until provider adapters and recovery are tested.",
+      "strideIds": [
+        "S-05",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1498",
+        "T1068",
+        "T1021"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 97,
+      "name": "Incident Evidence Preservation",
+      "state": "PARTIAL",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "access-contract",
+        "server-log",
+        "pr71-blackout"
+      ],
+      "currentControl": "Hash-chained local evidence/log helpers exist; BLACKOUT evidence ledger is PR-only.",
+      "gap": "No independently administered WORM retention or legal-hold evidence.",
+      "remediation": "Use an external immutable evidence sink and test access/retention.",
+      "strideIds": [
+        "S-02",
+        "S-03",
+        "S-04"
+      ],
+      "mitreIds": [
+        "T1565",
+        "T1036",
+        "T1213"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 98,
+      "name": "Independent Recovery Environment",
+      "state": "NOT_VERIFIED",
+      "applicability": "CURRENT",
+      "evidenceIds": [
+        "backup-tool",
+        "github-deployments"
+      ],
+      "currentControl": "No separate recovery account/region is evidenced.",
+      "gap": "Independence and recovery readiness are unknown.",
+      "remediation": "Verify a separately controlled recovery environment and restoration drill.",
+      "strideIds": [
+        "S-05"
+      ],
+      "mitreIds": [
+        "T1565",
+        "T1498",
+        "T1021",
+        "T1496"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    },
+    {
+      "id": 99,
+      "name": "PROJECT BLACKOUT — Kritik ihlal doğrulandığında sistemi güvenli moda alma, saldırganın erişimini kesme ve verileri koruma.",
+      "state": "TEMPLATE",
+      "applicability": "FUTURE",
+      "evidenceIds": [
+        "pr71-blackout"
+      ],
+      "currentControl": "Decision/state-machine implementation is in open PR #71; it is not integrated or connected to production.",
+      "gap": "No durable active state, production adapter, or deployed recovery path is verified.",
+      "remediation": "Do not claim active BLACKOUT; require review, durable state, safe adapters, and recovery exercises before integration.",
+      "strideIds": [
+        "S-02",
+        "S-05",
+        "S-06"
+      ],
+      "mitreIds": [
+        "T1565",
+        "T1498",
+        "T1098",
+        "T1496"
+      ],
+      "asvsIds": [],
+      "mappingNote": "Defensive relevance only; mappings do not assert observed attacks or control effectiveness. Empty ASVS arrays mean no direct supported crosswalk."
+    }
   ],
   "stride": [
     {
@@ -356,7 +2558,11 @@
       "riskId": "R-TECH-04",
       "verification": "Confirmed null provider in access-contract.ts and editorial-trust configuration; no live auth flow was found.",
       "owner": "Application owner",
-      "evidenceIds": ["access-contract","editorial-identity"]
+      "evidenceIds": [
+        "access-contract",
+        "editorial-identity"
+      ],
+      "id": "S-01"
     },
     {
       "category": "Tampering",
@@ -372,7 +2578,12 @@
       "riskId": "R-TECH-01",
       "verification": "Inspected existing fortress tools and queried branch protection; API returned 404, so protection is unknown.",
       "owner": "Repository maintainer",
-      "evidenceIds": ["integrity-tool","supply-chain-tool","github-branch-protection"]
+      "evidenceIds": [
+        "integrity-tool",
+        "supply-chain-tool",
+        "github-branch-protection"
+      ],
+      "id": "S-02"
     },
     {
       "category": "Repudiation",
@@ -388,7 +2599,11 @@
       "riskId": "R-OPS-03",
       "verification": "Inspected access-contract.ts and server log helper; no deployed immutable sink evidence was available.",
       "owner": "Security operations owner",
-      "evidenceIds": ["access-contract","server-log"]
+      "evidenceIds": [
+        "access-contract",
+        "server-log"
+      ],
+      "id": "S-03"
     },
     {
       "category": "Information Disclosure",
@@ -404,7 +2619,11 @@
       "riskId": "R-TECH-05",
       "verification": "Inspected the threat model and export route; did not probe a deployed service.",
       "owner": "Application owner",
-      "evidenceIds": ["threat-model","research-export"]
+      "evidenceIds": [
+        "threat-model",
+        "research-export"
+      ],
+      "id": "S-04"
     },
     {
       "category": "Denial of Service",
@@ -420,7 +2639,12 @@
       "riskId": "R-TECH-02",
       "verification": "Reviewed integrated routes and PR #73 status only; no traffic generation or active scan was performed.",
       "owner": "Hosting operator",
-      "evidenceIds": ["research-export","github-deployments","pr73-infrastructure"]
+      "evidenceIds": [
+        "research-export",
+        "github-deployments",
+        "pr73-infrastructure"
+      ],
+      "id": "S-05"
     },
     {
       "category": "Elevation of Privilege",
@@ -436,109 +2660,971 @@
       "riskId": "R-TECH-04",
       "verification": "Read access-contract.ts; confirmed REGISTERED_PROVIDER is null and admin paths fail closed.",
       "owner": "Application owner",
-      "evidenceIds": ["access-contract","access-tests"]
+      "evidenceIds": [
+        "access-contract",
+        "access-tests"
+      ],
+      "id": "S-06"
     }
   ],
   "mitre": [
     {
       "id": "T1190",
       "name": "Exploit Public-Facing Application",
+      "phases": [
+        "initial-access"
+      ],
       "applicability": "CURRENT_RELEVANT",
       "controlState": "PARTIAL",
-      "evidenceIds": ["threat-model","headers","research-export"],
-      "gaps": "Public web routes are active; no deployed WAF or live production verification is evidenced. This mapping is not a claim that a vulnerability was found.",
-      "remediation": "Maintain code-level validation and verify edge controls in the authorized production configuration.",
-      "url": "https://attack.mitre.org/techniques/T1190/"
+      "evidenceIds": [
+        "threat-model",
+        "headers",
+        "research-export"
+      ],
+      "coverageAreas": [
+        "public-facing application exploitation"
+      ],
+      "applicabilityRationale": "The integrated app contains public web routes and a development-gated export route. This is a possible technique mapping, not a vulnerability or observed exploit; production exposure remains unverified.",
+      "gaps": "Public routes exist in source; deployed exposure, actual WAF, and production behavior are unverified.",
+      "remediation": "Maintain server-side validation and verify approved edge controls against the deployed configuration.",
+      "url": "https://attack.mitre.org/techniques/T1190"
     },
     {
       "id": "T1195",
       "name": "Supply Chain Compromise",
+      "phases": [
+        "initial-access"
+      ],
       "applicability": "CURRENT_RELEVANT",
       "controlState": "PARTIAL",
-      "evidenceIds": ["supply-chain-tool","security-workflow"],
-      "gaps": "Repository checks exist; full signed provenance, action pinning, and release attestations are not established by this review.",
+      "evidenceIds": [
+        "supply-chain-tool",
+        "security-workflow"
+      ],
+      "coverageAreas": [
+        "supply-chain compromise"
+      ],
+      "applicabilityRationale": "Repository dependency/build workflows exist in the integrated project; this maps supply-chain risk without asserting compromise.",
+      "gaps": "Full signed provenance, action pinning, and release attestations are not established by this review.",
       "remediation": "Close build provenance gaps and retain verifiable dependency/build evidence.",
-      "url": "https://attack.mitre.org/techniques/T1195/"
+      "url": "https://attack.mitre.org/techniques/T1195"
     },
     {
       "id": "T1565",
       "name": "Data Manipulation",
+      "phases": [
+        "impact"
+      ],
       "applicability": "CURRENT_RELEVANT",
       "controlState": "PARTIAL",
-      "evidenceIds": ["integrity-tool","threat-model"],
-      "gaps": "Local integrity checking does not prevent a write-authorized actor from changing both content and its expected manifest.",
+      "evidenceIds": [
+        "integrity-tool",
+        "threat-model"
+      ],
+      "coverageAreas": [
+        "data integrity manipulation"
+      ],
+      "applicabilityRationale": "Repository content and integrity tooling are present; local hashes do not independently protect the expected manifest from the same write authority.",
+      "gaps": "Local integrity checking cannot prevent a write-authorized actor from changing both content and its expected manifest.",
       "remediation": "Anchor trusted content manifests outside the same write authority and require reviewed changes.",
-      "url": "https://attack.mitre.org/techniques/T1565/"
+      "url": "https://attack.mitre.org/techniques/T1565"
     },
     {
       "id": "T1498",
       "name": "Network Denial of Service",
+      "phases": [
+        "impact"
+      ],
       "applicability": "CURRENT_RELEVANT",
       "controlState": "NOT_VERIFIED",
-      "evidenceIds": ["research-export","github-deployments","pr73-infrastructure"],
-      "gaps": "Network/edge mitigation, capacity, and distributed rate limits are not verified; PR #73 is open.",
+      "evidenceIds": [
+        "research-export",
+        "github-deployments",
+        "pr73-infrastructure"
+      ],
+      "coverageAreas": [
+        "network denial of service",
+        "resource exhaustion"
+      ],
+      "applicabilityRationale": "The app has request-handling routes in source, but edge exposure and mitigation are not verified; no live attack or scan was performed.",
+      "gaps": "Network/edge mitigation, capacity, and distributed rate limits are not verified; PR #73 remains PR-only.",
       "remediation": "Obtain provider evidence and test limits only in an explicitly authorized non-production environment.",
-      "url": "https://attack.mitre.org/techniques/T1498/"
+      "url": "https://attack.mitre.org/techniques/T1498"
     },
     {
       "id": "T1078",
       "name": "Valid Accounts",
+      "phases": [
+        "stealth",
+        "persistence",
+        "privilege-escalation",
+        "initial-access"
+      ],
       "applicability": "FUTURE_ONLY",
       "controlState": "NOT_APPLICABLE",
-      "evidenceIds": ["access-contract","editorial-identity"],
-      "gaps": "No active application accounts, IdP, or session issuer exists to assess.",
-      "remediation": "Reassess if accounts are introduced; require provider-backed MFA and lifecycle controls.",
-      "url": "https://attack.mitre.org/techniques/T1078/"
+      "evidenceIds": [
+        "access-contract",
+        "editorial-identity"
+      ],
+      "coverageAreas": [
+        "credential abuse",
+        "persistence",
+        "privilege escalation",
+        "stealth"
+      ],
+      "applicabilityRationale": "No active application accounts, IdP, or session issuer exists. Reassess if those surfaces are introduced.",
+      "gaps": "No active application account or authentication provider exists.",
+      "remediation": "Reassess when accounts are introduced; require provider-backed MFA and lifecycle controls.",
+      "url": "https://attack.mitre.org/techniques/T1078"
+    },
+    {
+      "id": "T1110",
+      "name": "Brute Force",
+      "phases": [
+        "credential-access"
+      ],
+      "applicability": "FUTURE_ONLY",
+      "controlState": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "access-contract",
+        "editorial-identity"
+      ],
+      "coverageAreas": [
+        "credential abuse",
+        "credential access"
+      ],
+      "applicabilityRationale": "No login or credential verification surface is active in the integrated app; account-focused brute-force scenarios are future-only.",
+      "gaps": "There is no active authentication endpoint to brute force.",
+      "remediation": "Before introducing authentication, define provider-side throttling, anti-automation, and account-enumeration defenses.",
+      "url": "https://attack.mitre.org/techniques/T1110"
+    },
+    {
+      "id": "T1068",
+      "name": "Exploitation for Privilege Escalation",
+      "phases": [
+        "privilege-escalation"
+      ],
+      "applicability": "FUTURE_ONLY",
+      "controlState": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "access-contract",
+        "github-deployments"
+      ],
+      "coverageAreas": [
+        "privilege escalation"
+      ],
+      "applicabilityRationale": "No deployed host privilege boundary or privileged application service was verified; this is a future infrastructure threat.",
+      "gaps": "Runtime/host privilege configuration is outside the verified source surface.",
+      "remediation": "Reassess least privilege and patch posture for the actual hosting runtime before deployment.",
+      "url": "https://attack.mitre.org/techniques/T1068"
+    },
+    {
+      "id": "T1098",
+      "name": "Account Manipulation",
+      "phases": [
+        "persistence",
+        "privilege-escalation"
+      ],
+      "applicability": "FUTURE_ONLY",
+      "controlState": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "access-contract",
+        "editorial-identity"
+      ],
+      "coverageAreas": [
+        "persistence",
+        "privilege escalation"
+      ],
+      "applicabilityRationale": "Account manipulation requires an account/identity surface, which is not active in the integrated application.",
+      "gaps": "No active account lifecycle or identity provider exists.",
+      "remediation": "If accounts are introduced, protect role, credential, and recovery changes with authorization, logging, and user notification.",
+      "url": "https://attack.mitre.org/techniques/T1098"
+    },
+    {
+      "id": "T1136",
+      "name": "Create Account",
+      "phases": [
+        "persistence"
+      ],
+      "applicability": "FUTURE_ONLY",
+      "controlState": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "access-contract",
+        "editorial-identity"
+      ],
+      "coverageAreas": [
+        "persistence"
+      ],
+      "applicabilityRationale": "Account creation is not an active capability because the app has no integrated account service.",
+      "gaps": "No account creation or identity provider exists.",
+      "remediation": "Reassess account provisioning and approval controls before introducing user accounts.",
+      "url": "https://attack.mitre.org/techniques/T1136"
+    },
+    {
+      "id": "T1036",
+      "name": "Masquerading",
+      "phases": [
+        "stealth"
+      ],
+      "applicability": "FUTURE_ONLY",
+      "controlState": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "fortress-tools",
+        "pr73-infrastructure"
+      ],
+      "coverageAreas": [
+        "defense evasion",
+        "stealth"
+      ],
+      "applicabilityRationale": "ATT&CK v20.0 classifies Masquerading under Stealth. No deployed host/process telemetry surface is verified, so this is future-only; no behavior was observed.",
+      "gaps": "No verified runtime host inventory, endpoint telemetry, or production detection stack.",
+      "remediation": "Reassess against the actual hosted runtime and detection evidence; do not treat repository checks as host telemetry.",
+      "url": "https://attack.mitre.org/techniques/T1036"
+    },
+    {
+      "id": "T1552",
+      "name": "Unsecured Credentials",
+      "phases": [
+        "credential-access"
+      ],
+      "applicability": "FUTURE_ONLY",
+      "controlState": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "secrets-tool",
+        "security-workflow",
+        "editorial-identity"
+      ],
+      "coverageAreas": [
+        "credential access"
+      ],
+      "applicabilityRationale": "The repository has secret-check tooling, but no application identity/credential store or runtime secret plane was verified.",
+      "gaps": "Repository scanning does not establish deployed credential storage or runtime exposure.",
+      "remediation": "Assess runtime secret delivery, access, rotation, and revocation if a hosting identity/secret plane is introduced.",
+      "url": "https://attack.mitre.org/techniques/T1552"
+    },
+    {
+      "id": "T1087",
+      "name": "Account Discovery",
+      "phases": [
+        "discovery"
+      ],
+      "applicability": "FUTURE_ONLY",
+      "controlState": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "access-contract",
+        "editorial-identity"
+      ],
+      "coverageAreas": [
+        "discovery"
+      ],
+      "applicabilityRationale": "There are no application accounts to enumerate; account discovery is therefore not applicable to the current app surface.",
+      "gaps": "No active application account inventory exists.",
+      "remediation": "Reassess account enumeration controls if identity features are added.",
+      "url": "https://attack.mitre.org/techniques/T1087"
+    },
+    {
+      "id": "T1595",
+      "name": "Active Scanning",
+      "phases": [
+        "reconnaissance"
+      ],
+      "applicability": "CURRENT_RELEVANT",
+      "controlState": "NOT_VERIFIED",
+      "evidenceIds": [
+        "threat-model",
+        "research-export",
+        "github-deployments"
+      ],
+      "coverageAreas": [
+        "discovery"
+      ],
+      "applicabilityRationale": "Source contains web routes that could be discovered if exposed. This is not evidence of scanning; no active scan was performed and deployment is unverified.",
+      "gaps": "No deployment exposure or authorized scan results were verified.",
+      "remediation": "Use passive inventory and approved non-production exposure checks; retain scope and results.",
+      "url": "https://attack.mitre.org/techniques/T1595"
+    },
+    {
+      "id": "T1021",
+      "name": "Remote Services",
+      "phases": [
+        "lateral-movement"
+      ],
+      "applicability": "FUTURE_ONLY",
+      "controlState": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "access-contract",
+        "pr73-infrastructure"
+      ],
+      "coverageAreas": [
+        "lateral movement"
+      ],
+      "applicabilityRationale": "No remote administration, authenticated service-to-service, or deployed network boundary is verified in the current app.",
+      "gaps": "The integrated app has no verified remote-service identity or lateral movement surface.",
+      "remediation": "Reassess segmentation and service identity if administration or internal services are introduced.",
+      "url": "https://attack.mitre.org/techniques/T1021"
+    },
+    {
+      "id": "T1213",
+      "name": "Data from Information Repositories",
+      "phases": [
+        "collection"
+      ],
+      "applicability": "FUTURE_ONLY",
+      "controlState": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "threat-model",
+        "research-export",
+        "integrity-tool"
+      ],
+      "coverageAreas": [
+        "collection"
+      ],
+      "applicabilityRationale": "The integrated app does not evidence a private database or protected information repository; public content is not treated as sensitive data.",
+      "gaps": "No private repository or user-data store is evidenced.",
+      "remediation": "Reassess access, audit, and minimization controls before introducing private data stores.",
+      "url": "https://attack.mitre.org/techniques/T1213"
+    },
+    {
+      "id": "T1567",
+      "name": "Exfiltration Over Web Service",
+      "phases": [
+        "exfiltration"
+      ],
+      "applicability": "FUTURE_ONLY",
+      "controlState": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "research-export",
+        "github-deployments"
+      ],
+      "coverageAreas": [
+        "exfiltration"
+      ],
+      "applicabilityRationale": "The development-gated export route is read-only and does not write to an archive; no sensitive-data store or outbound exfiltration channel was verified.",
+      "gaps": "No current sensitive-data repository or validated outbound channel is evidenced.",
+      "remediation": "Reassess egress controls and data-loss detection before handling non-public data.",
+      "url": "https://attack.mitre.org/techniques/T1567"
+    },
+    {
+      "id": "T1496",
+      "name": "Resource Hijacking",
+      "phases": [
+        "impact"
+      ],
+      "applicability": "FUTURE_ONLY",
+      "controlState": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "github-deployments",
+        "pr73-infrastructure",
+        "fortress-tools"
+      ],
+      "coverageAreas": [
+        "resource manipulation"
+      ],
+      "applicabilityRationale": "Resource Hijacking depends on deployed compute/cloud resources; this review verified no production runtime or cloud workload evidence.",
+      "gaps": "Compute inventory, resource quotas, and provider monitoring remain unverified.",
+      "remediation": "Verify tenant isolation, quotas, anomaly monitoring, and provider alerting in the actual hosting account.",
+      "url": "https://attack.mitre.org/techniques/T1496"
     }
   ],
   "asvs": [
-    {"id":"v5.0.0-2.2.1","topic":"Input validation","status":"PARTIAL","applicability":"APPLICABLE","evidenceIds":["research-export","threat-model"],"gap":"Some server-side allowlisting is visible, but this is not a complete input inventory or ASVS verification.","remediation":"Inventory all inputs and test trusted-layer validation."},
-    {"id":"v5.0.0-2.4.1","topic":"Anti-automation","status":"NOT_VERIFIED","applicability":"APPLICABLE","evidenceIds":["research-export","github-deployments"],"gap":"No distributed limiter or deployed edge policy is evidenced.","remediation":"Verify edge/shared rate limiting and abuse controls."},
-    {"id":"v5.0.0-3.3.1","topic":"Secure cookie attributes","status":"NOT_APPLICABLE","applicability":"NOT_APPLICABLE","evidenceIds":["access-contract"],"gap":"No active application session cookie is issued; helper code alone is not cookie deployment evidence.","remediation":"Reassess when a real session issuer is introduced."},
-    {"id":"v5.0.0-3.3.2","topic":"Cookie SameSite policy","status":"NOT_APPLICABLE","applicability":"NOT_APPLICABLE","evidenceIds":["access-contract"],"gap":"No active application cookie is issued.","remediation":"Reassess when a real session issuer is introduced."},
-    {"id":"v5.0.0-3.3.3","topic":"Host-prefixed cookies","status":"NOT_APPLICABLE","applicability":"NOT_APPLICABLE","evidenceIds":["access-contract"],"gap":"No active application cookie is issued.","remediation":"Reassess when a real session issuer is introduced."},
-    {"id":"v5.0.0-3.3.4","topic":"HttpOnly session cookies","status":"NOT_APPLICABLE","applicability":"NOT_APPLICABLE","evidenceIds":["access-contract"],"gap":"No active application session cookie is issued.","remediation":"Reassess when a real session issuer is introduced."},
-    {"id":"v5.0.0-3.4.1","topic":"HSTS","status":"NOT_VERIFIED","applicability":"APPLICABLE","evidenceIds":["headers","github-deployments"],"gap":"HSTS is opt-in in app configuration and deployed edge behavior is unknown.","remediation":"Verify all production responses over HTTPS and enable the approved HSTS policy."},
-    {"id":"v5.0.0-3.4.3","topic":"Content Security Policy","status":"PARTIAL","applicability":"APPLICABLE","evidenceIds":["headers","header-tests","pr72-csp"],"gap":"CSP is enforced in source but permits unsafe-inline; deployment behavior is not verified.","remediation":"Move to nonce-compatible strict CSP and verify deployed responses."},
-    {"id":"v5.0.0-3.4.4","topic":"X-Content-Type-Options","status":"PARTIAL","applicability":"APPLICABLE","evidenceIds":["headers","header-tests"],"gap":"Code and helper tests exist; all deployed responses were not observed.","remediation":"Verify the header on deployed pages and API responses."},
-    {"id":"v5.0.0-3.4.7","topic":"CSP violation reporting","status":"FAIL","applicability":"APPLICABLE","evidenceIds":["headers"],"gap":"The integrated policy has no report receiver or report directive.","remediation":"Design a privacy-reviewed report endpoint and add it only after operational ownership is defined."},
-    {"id":"v5.0.0-3.5.1","topic":"Cross-origin request protection","status":"NOT_APPLICABLE","applicability":"NOT_APPLICABLE","evidenceIds":["access-contract","research-export"],"gap":"No state-changing sensitive route is evidenced in the integrated app.","remediation":"Reassess and enforce origin/token checks before adding mutations."},
-    {"id":"v5.0.0-5.2.2","topic":"File upload validation","status":"NOT_APPLICABLE","applicability":"NOT_APPLICABLE","evidenceIds":["research-export"],"gap":"No server-side upload endpoint is evidenced.","remediation":"Reassess before accepting untrusted files."},
-    {"id":"v5.0.0-6.1.1","topic":"Authentication abuse controls","status":"NOT_APPLICABLE","applicability":"NOT_APPLICABLE","evidenceIds":["access-contract"],"gap":"No application authentication flow exists; this is a future requirement.","remediation":"Document abuse/rate controls before introducing authentication."},
-    {"id":"v5.0.0-8.3.1","topic":"Trusted-layer authorization","status":"PARTIAL","applicability":"APPLICABLE","evidenceIds":["access-contract","access-tests"],"gap":"Authorization helpers are tested but not integrated with a live identity provider or protected service.","remediation":"Enforce authorization at each future trusted service boundary."}
+    {
+      "id": "v5.0.0-2.2.1",
+      "topic": "Input validation",
+      "status": "PARTIAL",
+      "applicability": "APPLICABLE",
+      "evidenceIds": [
+        "research-export",
+        "threat-model"
+      ],
+      "gap": "Some server-side allowlisting is visible, but this is not a complete input inventory or ASVS verification.",
+      "remediation": "Inventory all inputs and test trusted-layer validation.",
+      "catalogSection": "V2.2 Input Validation",
+      "catalogUrl": "https://raw.githubusercontent.com/OWASP/ASVS/3383877f732ce89a458a1af43288f2f1b1d7db0c/5.0/en/0x11-V2-Validation-and-Business-Logic.md"
+    },
+    {
+      "id": "v5.0.0-2.4.1",
+      "topic": "Anti-automation",
+      "status": "NOT_VERIFIED",
+      "applicability": "APPLICABLE",
+      "evidenceIds": [
+        "research-export",
+        "github-deployments"
+      ],
+      "gap": "No distributed limiter or deployed edge policy is evidenced.",
+      "remediation": "Verify edge/shared rate limiting and abuse controls.",
+      "catalogSection": "V2.4 Anti-automation",
+      "catalogUrl": "https://raw.githubusercontent.com/OWASP/ASVS/3383877f732ce89a458a1af43288f2f1b1d7db0c/5.0/en/0x11-V2-Validation-and-Business-Logic.md"
+    },
+    {
+      "id": "v5.0.0-3.3.1",
+      "topic": "Secure cookie attributes",
+      "status": "NOT_APPLICABLE",
+      "applicability": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "access-contract"
+      ],
+      "gap": "No active application session cookie is issued; helper code alone is not cookie deployment evidence.",
+      "remediation": "Reassess when a real session issuer is introduced.",
+      "catalogSection": "V3.3 Cookie Setup",
+      "catalogUrl": "https://raw.githubusercontent.com/OWASP/ASVS/3383877f732ce89a458a1af43288f2f1b1d7db0c/5.0/en/0x12-V3-Web-Frontend-Security.md"
+    },
+    {
+      "id": "v5.0.0-3.3.2",
+      "topic": "Cookie SameSite policy",
+      "status": "NOT_APPLICABLE",
+      "applicability": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "access-contract"
+      ],
+      "gap": "No active application cookie is issued.",
+      "remediation": "Reassess when a real session issuer is introduced.",
+      "catalogSection": "V3.3 Cookie Setup",
+      "catalogUrl": "https://raw.githubusercontent.com/OWASP/ASVS/3383877f732ce89a458a1af43288f2f1b1d7db0c/5.0/en/0x12-V3-Web-Frontend-Security.md"
+    },
+    {
+      "id": "v5.0.0-3.3.3",
+      "topic": "Host-prefixed cookies",
+      "status": "NOT_APPLICABLE",
+      "applicability": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "access-contract"
+      ],
+      "gap": "No active application cookie is issued.",
+      "remediation": "Reassess when a real session issuer is introduced.",
+      "catalogSection": "V3.3 Cookie Setup",
+      "catalogUrl": "https://raw.githubusercontent.com/OWASP/ASVS/3383877f732ce89a458a1af43288f2f1b1d7db0c/5.0/en/0x12-V3-Web-Frontend-Security.md"
+    },
+    {
+      "id": "v5.0.0-3.3.4",
+      "topic": "HttpOnly session cookies",
+      "status": "NOT_APPLICABLE",
+      "applicability": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "access-contract"
+      ],
+      "gap": "No active application session cookie is issued.",
+      "remediation": "Reassess when a real session issuer is introduced.",
+      "catalogSection": "V3.3 Cookie Setup",
+      "catalogUrl": "https://raw.githubusercontent.com/OWASP/ASVS/3383877f732ce89a458a1af43288f2f1b1d7db0c/5.0/en/0x12-V3-Web-Frontend-Security.md"
+    },
+    {
+      "id": "v5.0.0-3.4.1",
+      "topic": "HSTS",
+      "status": "NOT_VERIFIED",
+      "applicability": "APPLICABLE",
+      "evidenceIds": [
+        "headers",
+        "github-deployments"
+      ],
+      "gap": "HSTS is opt-in in app configuration and deployed edge behavior is unknown.",
+      "remediation": "Verify all production responses over HTTPS and enable the approved HSTS policy.",
+      "catalogSection": "V3.4 Browser Security Mechanism Headers",
+      "catalogUrl": "https://raw.githubusercontent.com/OWASP/ASVS/3383877f732ce89a458a1af43288f2f1b1d7db0c/5.0/en/0x12-V3-Web-Frontend-Security.md"
+    },
+    {
+      "id": "v5.0.0-3.4.3",
+      "topic": "Content Security Policy",
+      "status": "PARTIAL",
+      "applicability": "APPLICABLE",
+      "evidenceIds": [
+        "headers",
+        "header-tests",
+        "pr72-csp"
+      ],
+      "gap": "CSP is enforced in source but permits unsafe-inline; deployment behavior is not verified.",
+      "remediation": "Move to nonce-compatible strict CSP and verify deployed responses.",
+      "catalogSection": "V3.4 Browser Security Mechanism Headers",
+      "catalogUrl": "https://raw.githubusercontent.com/OWASP/ASVS/3383877f732ce89a458a1af43288f2f1b1d7db0c/5.0/en/0x12-V3-Web-Frontend-Security.md"
+    },
+    {
+      "id": "v5.0.0-3.4.4",
+      "topic": "X-Content-Type-Options",
+      "status": "PARTIAL",
+      "applicability": "APPLICABLE",
+      "evidenceIds": [
+        "headers",
+        "header-tests"
+      ],
+      "gap": "Code and helper tests exist; all deployed responses were not observed.",
+      "remediation": "Verify the header on deployed pages and API responses.",
+      "catalogSection": "V3.4 Browser Security Mechanism Headers",
+      "catalogUrl": "https://raw.githubusercontent.com/OWASP/ASVS/3383877f732ce89a458a1af43288f2f1b1d7db0c/5.0/en/0x12-V3-Web-Frontend-Security.md"
+    },
+    {
+      "id": "v5.0.0-3.4.7",
+      "topic": "CSP violation reporting",
+      "status": "FAIL",
+      "applicability": "APPLICABLE",
+      "evidenceIds": [
+        "headers"
+      ],
+      "gap": "The integrated policy has no report receiver or report directive.",
+      "remediation": "Design a privacy-reviewed report endpoint and add it only after operational ownership is defined.",
+      "catalogSection": "V3.4 Browser Security Mechanism Headers",
+      "catalogUrl": "https://raw.githubusercontent.com/OWASP/ASVS/3383877f732ce89a458a1af43288f2f1b1d7db0c/5.0/en/0x12-V3-Web-Frontend-Security.md"
+    },
+    {
+      "id": "v5.0.0-3.5.1",
+      "topic": "Cross-origin request protection",
+      "status": "NOT_APPLICABLE",
+      "applicability": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "access-contract",
+        "research-export"
+      ],
+      "gap": "No state-changing sensitive route is evidenced in the integrated app.",
+      "remediation": "Reassess and enforce origin/token checks before adding mutations.",
+      "catalogSection": "V3.5 Browser Origin Separation",
+      "catalogUrl": "https://raw.githubusercontent.com/OWASP/ASVS/3383877f732ce89a458a1af43288f2f1b1d7db0c/5.0/en/0x12-V3-Web-Frontend-Security.md"
+    },
+    {
+      "id": "v5.0.0-5.2.2",
+      "topic": "File upload validation",
+      "status": "NOT_APPLICABLE",
+      "applicability": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "research-export"
+      ],
+      "gap": "No server-side upload endpoint is evidenced.",
+      "remediation": "Reassess before accepting untrusted files.",
+      "catalogSection": "V5.2 File Upload and Content",
+      "catalogUrl": "https://raw.githubusercontent.com/OWASP/ASVS/3383877f732ce89a458a1af43288f2f1b1d7db0c/5.0/en/0x14-V5-File-Handling.md"
+    },
+    {
+      "id": "v5.0.0-6.1.1",
+      "topic": "Authentication abuse controls",
+      "status": "NOT_APPLICABLE",
+      "applicability": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "access-contract"
+      ],
+      "gap": "No application authentication flow exists; this is a future requirement.",
+      "remediation": "Document abuse/rate controls before introducing authentication.",
+      "catalogSection": "V6.1 Authentication Documentation",
+      "catalogUrl": "https://raw.githubusercontent.com/OWASP/ASVS/3383877f732ce89a458a1af43288f2f1b1d7db0c/5.0/en/0x15-V6-Authentication.md"
+    },
+    {
+      "id": "v5.0.0-8.3.1",
+      "topic": "Trusted-layer authorization",
+      "status": "PARTIAL",
+      "applicability": "APPLICABLE",
+      "evidenceIds": [
+        "access-contract",
+        "access-tests"
+      ],
+      "gap": "Authorization helpers are tested but not integrated with a live identity provider or protected service.",
+      "remediation": "Enforce authorization at each future trusted service boundary.",
+      "catalogSection": "V8.3 Operation Level Authorization",
+      "catalogUrl": "https://raw.githubusercontent.com/OWASP/ASVS/3383877f732ce89a458a1af43288f2f1b1d7db0c/5.0/en/0x17-V8-Authorization.md"
+    }
   ],
   "owaspTop10": [
-    {"id":"A01:2025","name":"Broken Access Control","status":"PARTIAL","evidenceIds":["access-contract","editorial-identity"],"note":"Admin access is currently closed; future authorization contracts are not a live identity integration."},
-    {"id":"A02:2025","name":"Security Misconfiguration","status":"PARTIAL","evidenceIds":["headers","pr73-infrastructure","github-deployments"],"note":"App header configuration exists; edge/hosting configuration and production drift are unverified."},
-    {"id":"A03:2025","name":"Software Supply Chain Failures","status":"PARTIAL","evidenceIds":["supply-chain-tool","security-workflow"],"note":"Repository checks exist; complete signed provenance is not evidenced."},
-    {"id":"A04:2025","name":"Cryptographic Failures","status":"NOT_VERIFIED","evidenceIds":["headers","github-deployments"],"note":"App key custody is limited; deployed TLS and external storage encryption are not verified."},
-    {"id":"A05:2025","name":"Injection","status":"PARTIAL","evidenceIds":["research-export","headers"],"note":"Some server-side allowlisting and browser controls are visible; no complete sink/input audit was conducted."},
-    {"id":"A06:2025","name":"Insecure Design","status":"PARTIAL","evidenceIds":["threat-model","access-contract"],"note":"An older threat model and fail-closed future contracts exist; identity, edge controls, and response persistence remain gaps."},
-    {"id":"A07:2025","name":"Authentication Failures","status":"NOT_APPLICABLE","evidenceIds":["access-contract","editorial-identity"],"note":"There is no active account/authentication system; requirements become applicable before one is added."},
-    {"id":"A08:2025","name":"Software or Data Integrity Failures","status":"PARTIAL","evidenceIds":["integrity-tool","supply-chain-tool"],"note":"Integrity tooling exists but lacks an independent immutable trust anchor and complete provenance."},
-    {"id":"A09:2025","name":"Security Logging and Alerting Failures","status":"PARTIAL","evidenceIds":["server-log","access-contract"],"note":"Structured/redacted and hash-chain helpers exist; central immutable retention/alerting is unverified."},
-    {"id":"A10:2025","name":"Mishandling of Exceptional Conditions","status":"NOT_VERIFIED","evidenceIds":["threat-model","research-export"],"note":"No complete error-path or deployed resilience review was performed."}
+    {
+      "id": "A01:2025",
+      "name": "Broken Access Control",
+      "status": "PARTIAL",
+      "evidenceIds": [
+        "access-contract",
+        "editorial-identity"
+      ],
+      "note": "Admin access is currently closed; future authorization contracts are not a live identity integration."
+    },
+    {
+      "id": "A02:2025",
+      "name": "Security Misconfiguration",
+      "status": "PARTIAL",
+      "evidenceIds": [
+        "headers",
+        "pr73-infrastructure",
+        "github-deployments"
+      ],
+      "note": "App header configuration exists; edge/hosting configuration and production drift are unverified."
+    },
+    {
+      "id": "A03:2025",
+      "name": "Software Supply Chain Failures",
+      "status": "PARTIAL",
+      "evidenceIds": [
+        "supply-chain-tool",
+        "security-workflow"
+      ],
+      "note": "Repository checks exist; complete signed provenance is not evidenced."
+    },
+    {
+      "id": "A04:2025",
+      "name": "Cryptographic Failures",
+      "status": "NOT_VERIFIED",
+      "evidenceIds": [
+        "headers",
+        "github-deployments"
+      ],
+      "note": "App key custody is limited; deployed TLS and external storage encryption are not verified."
+    },
+    {
+      "id": "A05:2025",
+      "name": "Injection",
+      "status": "PARTIAL",
+      "evidenceIds": [
+        "research-export",
+        "headers"
+      ],
+      "note": "Some server-side allowlisting and browser controls are visible; no complete sink/input audit was conducted."
+    },
+    {
+      "id": "A06:2025",
+      "name": "Insecure Design",
+      "status": "PARTIAL",
+      "evidenceIds": [
+        "threat-model",
+        "access-contract"
+      ],
+      "note": "An older threat model and fail-closed future contracts exist; identity, edge controls, and response persistence remain gaps."
+    },
+    {
+      "id": "A07:2025",
+      "name": "Authentication Failures",
+      "status": "NOT_APPLICABLE",
+      "evidenceIds": [
+        "access-contract",
+        "editorial-identity"
+      ],
+      "note": "There is no active account/authentication system; requirements become applicable before one is added."
+    },
+    {
+      "id": "A08:2025",
+      "name": "Software or Data Integrity Failures",
+      "status": "PARTIAL",
+      "evidenceIds": [
+        "integrity-tool",
+        "supply-chain-tool"
+      ],
+      "note": "Integrity tooling exists but lacks an independent immutable trust anchor and complete provenance."
+    },
+    {
+      "id": "A09:2025",
+      "name": "Security Logging and Alerting Failures",
+      "status": "PARTIAL",
+      "evidenceIds": [
+        "server-log",
+        "access-contract"
+      ],
+      "note": "Structured/redacted and hash-chain helpers exist; central immutable retention/alerting is unverified."
+    },
+    {
+      "id": "A10:2025",
+      "name": "Mishandling of Exceptional Conditions",
+      "status": "NOT_VERIFIED",
+      "evidenceIds": [
+        "threat-model",
+        "research-export"
+      ],
+      "note": "No complete error-path or deployed resilience review was performed."
+    }
   ],
   "architecture": [
-    {"layer":"Visitor","state":"ACTIVE","evidenceIds":["threat-model","research-export"],"note":"Public read-only Next.js pages and a small set of GET routes are integrated."},
-    {"layer":"CDN/WAF","state":"TEMPLATE","evidenceIds":["pr73-infrastructure","github-deployments"],"note":"Provider/WAF files are PR-only or unverified; no active edge deployment is confirmed."},
-    {"layer":"Application","state":"ACTIVE","evidenceIds":["next-config","headers","research-export"],"note":"Next.js App Router is integrated; admin paths fail closed and app routes are primarily read-only."},
-    {"layer":"Infrastructure","state":"TEMPLATE","evidenceIds":["pr73-infrastructure","github-deployments"],"note":"Host, firewall, monitoring, and recovery configurations are proposed in open PR #73, not verified as deployed."},
-    {"layer":"Identity","state":"MISSING","evidenceIds":["access-contract","editorial-identity"],"note":"No registered IdP; no live admin identity or session system."},
-    {"layer":"Data integrity","state":"PARTIAL","evidenceIds":["integrity-tool","backup-tool"],"note":"Repository integrity and backup tools exist; independent immutable anchoring is absent/unverified."},
-    {"layer":"Monitoring","state":"PARTIAL","evidenceIds":["server-log","security-workflow","pr73-infrastructure"],"note":"Local logging/CI exist; centralized SIEM, WORM retention, and alert ownership are unverified."},
-    {"layer":"BLACKOUT","state":"TEMPLATE","evidenceIds":["pr71-blackout"],"note":"Implementation is in open PR #71 only; no integrated or durable production state."},
-    {"layer":"Backup/recovery","state":"PARTIAL","evidenceIds":["backup-tool","pr73-infrastructure"],"note":"Local backup tooling exists; immutable offline copies, independent recovery, and production drills are unverified."}
+    {
+      "layer": "Visitor",
+      "state": "ACTIVE",
+      "evidenceIds": [
+        "threat-model",
+        "research-export"
+      ],
+      "note": "Public read-only Next.js pages and a small set of GET routes are integrated."
+    },
+    {
+      "layer": "CDN/WAF",
+      "state": "TEMPLATE",
+      "evidenceIds": [
+        "pr73-infrastructure",
+        "github-deployments"
+      ],
+      "note": "Provider/WAF files are PR-only or unverified; no active edge deployment is confirmed."
+    },
+    {
+      "layer": "Application",
+      "state": "ACTIVE",
+      "evidenceIds": [
+        "next-config",
+        "headers",
+        "research-export"
+      ],
+      "note": "Next.js App Router is integrated; admin paths fail closed and app routes are primarily read-only."
+    },
+    {
+      "layer": "Infrastructure",
+      "state": "TEMPLATE",
+      "evidenceIds": [
+        "pr73-infrastructure",
+        "github-deployments"
+      ],
+      "note": "Host, firewall, monitoring, and recovery configurations are proposed in open PR #73, not verified as deployed."
+    },
+    {
+      "layer": "Identity",
+      "state": "MISSING",
+      "evidenceIds": [
+        "access-contract",
+        "editorial-identity"
+      ],
+      "note": "No registered IdP; no live admin identity or session system."
+    },
+    {
+      "layer": "Data integrity",
+      "state": "PARTIAL",
+      "evidenceIds": [
+        "integrity-tool",
+        "backup-tool"
+      ],
+      "note": "Repository integrity and backup tools exist; independent immutable anchoring is absent/unverified."
+    },
+    {
+      "layer": "Monitoring",
+      "state": "PARTIAL",
+      "evidenceIds": [
+        "server-log",
+        "security-workflow",
+        "pr73-infrastructure"
+      ],
+      "note": "Local logging/CI exist; centralized SIEM, WORM retention, and alert ownership are unverified."
+    },
+    {
+      "layer": "BLACKOUT",
+      "state": "TEMPLATE",
+      "evidenceIds": [
+        "pr71-blackout"
+      ],
+      "note": "Implementation is in open PR #71 only; no integrated or durable production state."
+    },
+    {
+      "layer": "Backup/recovery",
+      "state": "PARTIAL",
+      "evidenceIds": [
+        "backup-tool",
+        "pr73-infrastructure"
+      ],
+      "note": "Local backup tooling exists; immutable offline copies, independent recovery, and production drills are unverified."
+    }
   ],
   "risks": [
-    {"id":"R-TECH-01","classification":"TECHNICAL","title":"Repository protection cannot be verified","impact":"HIGH","likelihood":"NOT_ESTIMATED","risk":"UNASSESSED","riskRationale":"The branch-protection API returned 404; the response cannot establish whether rules are absent or the current credential lacks access.","evidenceIds":["github-branch-protection"],"mitigation":"Verify rulesets, required review, and status checks with an authorized repository owner."},
-    {"id":"R-TECH-02","classification":"TECHNICAL","title":"Public availability controls are unverified","impact":"MEDIUM","likelihood":"NOT_ESTIMATED","risk":"UNASSESSED","riskRationale":"No deployed WAF, anti-DDoS, origin restriction, or shared rate-limit evidence is available; exposure and capacity are unknown.","evidenceIds":["research-export","github-deployments","pr73-infrastructure"],"mitigation":"Verify provider controls and limits; do not run active traffic tests without explicit authorization."},
-    {"id":"R-TECH-03","classification":"TECHNICAL","title":"CSP still allows unsafe-inline","impact":"HIGH","likelihood":"LOW","risk":"MODERATE","riskRationale":"The code enforces a restrictive CSP, but inline script allowance weakens XSS containment; existing rendering defenses lower likelihood but do not remove impact.","evidenceIds":["headers","header-tests"],"mitigation":"Adopt nonce-compatible CSP and verify behavior on the deployed app."},
-    {"id":"R-TECH-04","classification":"TECHNICAL","title":"Future privileged features need a real identity boundary","impact":"CRITICAL","likelihood":"LOW","risk":"HIGH","riskRationale":"Current admin routes are closed, so the scenario is conditional; enabling future accounts without a provider-backed authorization boundary could expose editorial integrity.","evidenceIds":["access-contract","editorial-identity"],"mitigation":"Keep routes closed until IdP, server-side authorization, MFA, and audit identity are tested."},
-    {"id":"R-TECH-05","classification":"TECHNICAL","title":"Future non-public content could be exposed by a public route","impact":"MEDIUM","likelihood":"NOT_ESTIMATED","risk":"UNASSESSED","riskRationale":"The current model is read-oriented and no private data store is evidenced, but production routing/data visibility was not observed and future draft content would change the impact.","evidenceIds":["threat-model","research-export"],"mitigation":"Keep draft/private data out of public loaders and verify route-level visibility before introducing it."},
-    {"id":"R-OPS-01","classification":"OPERATIONAL","title":"BLACKOUT is not an integrated response capability","impact":"HIGH","likelihood":"MEDIUM","risk":"HIGH","riskRationale":"The decision engine is in open PR #71 only; there is no integrated durable state or production adapter to rely on during an incident.","evidenceIds":["pr71-blackout"],"mitigation":"Do not claim the control is active; review persistence, adapter safety, approval, and recovery before integration."},
-    {"id":"R-OPS-02","classification":"OPERATIONAL","title":"Immutable evidence retention and recovery are unverified","impact":"HIGH","likelihood":"LOW","risk":"MODERATE","riskRationale":"Local hashes and backup utilities help detect errors but do not establish WORM retention, independent custody, or successful production restore.","evidenceIds":["access-contract","backup-tool","server-log"],"mitigation":"Use separately administered immutable storage and conduct a documented restore/evidence-retention exercise."},
-    {"id":"R-OPS-03","classification":"OPERATIONAL","title":"Development-to-production drift cannot be ruled out","impact":"HIGH","likelihood":"NOT_ESTIMATED","risk":"UNASSESSED","riskRationale":"No production deployment or response-header observation was available; source configuration alone cannot prove deployed behavior.","evidenceIds":["headers","github-deployments"],"mitigation":"Verify configuration and security headers on each authorized deployment."},
-    {"id":"R-EDITORIAL-01","classification":"EDITORIAL","title":"Human-review publication gate remains blocked","impact":"PUBLICATION_GATE","likelihood":"CONFIRMED","risk":"RELEASE_BLOCKER","riskRationale":"PR #71 reports 302 inherited human-review findings blocking release. These are editorial review findings, not 302 security vulnerabilities.","evidenceIds":["pr71-editorial"],"mitigation":"Preserve the existing human-review gate and resolve editorial findings through the approved review process."}
+    {
+      "id": "R-TECH-01",
+      "classification": "TECHNICAL",
+      "title": "Repository protection cannot be verified",
+      "impact": "HIGH",
+      "likelihood": "NOT_ESTIMATED",
+      "risk": "UNASSESSED",
+      "riskRationale": "The branch-protection API returned 404; the response cannot establish whether rules are absent or the current credential lacks access.",
+      "evidenceIds": [
+        "github-branch-protection"
+      ],
+      "mitigation": "Verify rulesets, required review, and status checks with an authorized repository owner."
+    },
+    {
+      "id": "R-TECH-02",
+      "classification": "TECHNICAL",
+      "title": "Public availability controls are unverified",
+      "impact": "MEDIUM",
+      "likelihood": "NOT_ESTIMATED",
+      "risk": "UNASSESSED",
+      "riskRationale": "No deployed WAF, anti-DDoS, origin restriction, or shared rate-limit evidence is available; exposure and capacity are unknown.",
+      "evidenceIds": [
+        "research-export",
+        "github-deployments",
+        "pr73-infrastructure"
+      ],
+      "mitigation": "Verify provider controls and limits; do not run active traffic tests without explicit authorization."
+    },
+    {
+      "id": "R-TECH-03",
+      "classification": "TECHNICAL",
+      "title": "CSP still allows unsafe-inline",
+      "impact": "HIGH",
+      "likelihood": "LOW",
+      "risk": "MODERATE",
+      "riskRationale": "The code enforces a restrictive CSP, but inline script allowance weakens XSS containment; existing rendering defenses lower likelihood but do not remove impact.",
+      "evidenceIds": [
+        "headers",
+        "header-tests"
+      ],
+      "mitigation": "Adopt nonce-compatible CSP and verify behavior on the deployed app."
+    },
+    {
+      "id": "R-TECH-04",
+      "classification": "TECHNICAL",
+      "title": "Future privileged features need a real identity boundary",
+      "impact": "CRITICAL",
+      "likelihood": "LOW",
+      "risk": "HIGH",
+      "riskRationale": "Current admin routes are closed, so the scenario is conditional; enabling future accounts without a provider-backed authorization boundary could expose editorial integrity.",
+      "evidenceIds": [
+        "access-contract",
+        "editorial-identity"
+      ],
+      "mitigation": "Keep routes closed until IdP, server-side authorization, MFA, and audit identity are tested."
+    },
+    {
+      "id": "R-TECH-05",
+      "classification": "TECHNICAL",
+      "title": "Future non-public content could be exposed by a public route",
+      "impact": "MEDIUM",
+      "likelihood": "NOT_ESTIMATED",
+      "risk": "UNASSESSED",
+      "riskRationale": "The current model is read-oriented and no private data store is evidenced, but production routing/data visibility was not observed and future draft content would change the impact.",
+      "evidenceIds": [
+        "threat-model",
+        "research-export"
+      ],
+      "mitigation": "Keep draft/private data out of public loaders and verify route-level visibility before introducing it."
+    },
+    {
+      "id": "R-OPS-01",
+      "classification": "OPERATIONAL",
+      "title": "BLACKOUT is not an integrated response capability",
+      "impact": "HIGH",
+      "likelihood": "MEDIUM",
+      "risk": "HIGH",
+      "riskRationale": "The decision engine is in open PR #71 only; there is no integrated durable state or production adapter to rely on during an incident.",
+      "evidenceIds": [
+        "pr71-blackout"
+      ],
+      "mitigation": "Do not claim the control is active; review persistence, adapter safety, approval, and recovery before integration."
+    },
+    {
+      "id": "R-OPS-02",
+      "classification": "OPERATIONAL",
+      "title": "Immutable evidence retention and recovery are unverified",
+      "impact": "HIGH",
+      "likelihood": "LOW",
+      "risk": "MODERATE",
+      "riskRationale": "Local hashes and backup utilities help detect errors but do not establish WORM retention, independent custody, or successful production restore.",
+      "evidenceIds": [
+        "access-contract",
+        "backup-tool",
+        "server-log"
+      ],
+      "mitigation": "Use separately administered immutable storage and conduct a documented restore/evidence-retention exercise."
+    },
+    {
+      "id": "R-OPS-03",
+      "classification": "OPERATIONAL",
+      "title": "Development-to-production drift cannot be ruled out",
+      "impact": "HIGH",
+      "likelihood": "NOT_ESTIMATED",
+      "risk": "UNASSESSED",
+      "riskRationale": "No production deployment or response-header observation was available; source configuration alone cannot prove deployed behavior.",
+      "evidenceIds": [
+        "headers",
+        "github-deployments"
+      ],
+      "mitigation": "Verify configuration and security headers on each authorized deployment."
+    },
+    {
+      "id": "R-EDITORIAL-01",
+      "classification": "EDITORIAL",
+      "title": "Human-review publication gate remains blocked",
+      "impact": "PUBLICATION_GATE",
+      "likelihood": "CONFIRMED",
+      "risk": "RELEASE_BLOCKER",
+      "riskRationale": "PR #71 reports 302 inherited human-review findings blocking release. These are editorial review findings, not 302 security vulnerabilities.",
+      "evidenceIds": [
+        "pr71-editorial"
+      ],
+      "mitigation": "Preserve the existing human-review gate and resolve editorial findings through the approved review process."
+    }
+  ],
+  "mitreCoverage": [
+    {
+      "family": "Credential abuse",
+      "techniqueIds": [
+        "T1110",
+        "T1078"
+      ],
+      "applicability": "FUTURE_ONLY",
+      "note": "No active account, login, or IdP surface exists."
+    },
+    {
+      "family": "Privilege escalation",
+      "techniqueIds": [
+        "T1068",
+        "T1098",
+        "T1078"
+      ],
+      "applicability": "FUTURE_ONLY",
+      "note": "No privileged service, account role system, or verified host privilege boundary is active."
+    },
+    {
+      "family": "Persistence",
+      "techniqueIds": [
+        "T1098",
+        "T1136",
+        "T1078"
+      ],
+      "applicability": "FUTURE_ONLY",
+      "note": "Account lifecycle and persistent identity mechanisms are not present in the integrated app."
+    },
+    {
+      "family": "Defense evasion",
+      "techniqueIds": [
+        "T1036",
+        "T1078"
+      ],
+      "applicability": "FUTURE_ONLY",
+      "note": "ATT&CK v20.0 uses Stealth as the phase for these selected techniques; no deployed host or account surface is verified."
+    },
+    {
+      "family": "Credential access",
+      "techniqueIds": [
+        "T1110",
+        "T1552"
+      ],
+      "applicability": "FUTURE_ONLY",
+      "note": "No active authentication or application credential store is evidenced; repository secret checks are not runtime credential evidence."
+    },
+    {
+      "family": "Discovery",
+      "techniqueIds": [
+        "T1087",
+        "T1595"
+      ],
+      "applicability": "CURRENT_RELEVANT",
+      "note": "Web routes exist in source (T1595 relevance only); account discovery is future-only. No scanning was performed."
+    },
+    {
+      "family": "Lateral movement",
+      "techniqueIds": [
+        "T1021"
+      ],
+      "applicability": "FUTURE_ONLY",
+      "note": "No remote administration or service-to-service identity surface is verified."
+    },
+    {
+      "family": "Collection",
+      "techniqueIds": [
+        "T1213"
+      ],
+      "applicability": "FUTURE_ONLY",
+      "note": "No private information repository or user-data store is evidenced."
+    },
+    {
+      "family": "Exfiltration",
+      "techniqueIds": [
+        "T1567"
+      ],
+      "applicability": "FUTURE_ONLY",
+      "note": "The dev-gated export is read-only and no sensitive store or outbound channel is verified."
+    },
+    {
+      "family": "Resource manipulation",
+      "techniqueIds": [
+        "T1496"
+      ],
+      "applicability": "FUTURE_ONLY",
+      "note": "No production workload or cloud compute inventory was verified."
+    }
+  ],
+  "mitreExclusions": [
+    "T1562 and T1562.001 (Impair Defenses / Disable or Modify Tools) are revoked in the official ATT&CK v20.0 Enterprise catalog and are excluded; the valid v20.0 Stealth mapping uses T1036 Masquerading, marked FUTURE_ONLY.",
+    "OS-level persistence, host credential dumping, and lateral-movement techniques without an evidenced deployed host, account, or private data store are not represented as current app findings.",
+    "ATT&CK coverage describes defensive relevance only. It is not a claim that any technique occurred; no active scanning, attack simulation, or production probing was run."
   ]
 }

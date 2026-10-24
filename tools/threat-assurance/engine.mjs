@@ -1,4 +1,4 @@
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { isAbsolute, relative, resolve } from "node:path";
 
@@ -13,29 +13,6 @@ export const CONTROL_STATES = new Set([
 export const ASVS_STATUSES = new Set(["PASS", "PARTIAL", "FAIL", "NOT_APPLICABLE", "NOT_VERIFIED"]);
 export const ARCHITECTURE_STATES = new Set(["ACTIVE", "PARTIAL", "TEMPLATE", "MISSING", "NOT_VERIFIED"]);
 
-const MITRE_CATALOG = new Map([
-  ["T1190", "Exploit Public-Facing Application"],
-  ["T1195", "Supply Chain Compromise"],
-  ["T1565", "Data Manipulation"],
-  ["T1498", "Network Denial of Service"],
-  ["T1078", "Valid Accounts"],
-]);
-const ASVS_IDS = new Set([
-  "v5.0.0-2.2.1",
-  "v5.0.0-2.4.1",
-  "v5.0.0-3.3.1",
-  "v5.0.0-3.3.2",
-  "v5.0.0-3.3.3",
-  "v5.0.0-3.3.4",
-  "v5.0.0-3.4.1",
-  "v5.0.0-3.4.3",
-  "v5.0.0-3.4.4",
-  "v5.0.0-3.4.7",
-  "v5.0.0-3.5.1",
-  "v5.0.0-5.2.2",
-  "v5.0.0-6.1.1",
-  "v5.0.0-8.3.1",
-]);
 const TOP10 = new Map([
   ["A01:2025", "Broken Access Control"],
   ["A02:2025", "Security Misconfiguration"],
@@ -59,6 +36,7 @@ const STRIDE_CATEGORIES = new Set([
   "Elevation of Privilege",
 ]);
 const REQUIRED_STRIDE_FIELDS = [
+  "id",
   "asset",
   "entryPoint",
   "trustBoundary",
@@ -74,6 +52,61 @@ const REQUIRED_STRIDE_FIELDS = [
 
 const nonEmpty = (value) => typeof value === "string" && value.trim().length > 0;
 const isRecord = (value) => value !== null && typeof value === "object" && !Array.isArray(value);
+
+function readOfficialCatalog(repoRoot, add) {
+  const file = resolve(repoRoot, "tools/threat-assurance/catalogs/official-catalogs.json");
+  try {
+    const catalog = JSON.parse(readFileSync(file, "utf8"));
+    if (catalog.schemaVersion !== "1.0.0") add("Official catalog snapshot schemaVersion must be 1.0.0.");
+    if (!isRecord(catalog.mitreAttack) || !Array.isArray(catalog.mitreAttack.entries)) {
+      add("Official MITRE ATT&CK catalog snapshot is malformed.");
+    } else {
+      const ids = new Set();
+      const excludedIds = new Set();
+      for (const entry of catalog.mitreAttack.entries) {
+        if (ids.has(entry.id)) add(`Official MITRE catalog duplicates technique ${entry.id}.`);
+        ids.add(entry.id);
+        if (entry.revoked !== false || entry.deprecated !== false) add(`Official MITRE catalog includes revoked/deprecated technique ${entry.id}.`);
+        if (!/^T\d{4}(?:\.\d{3})?$/.test(entry.id ?? "") || !nonEmpty(entry.name)
+          || !/^https:\/\/attack\.mitre\.org\/techniques\/T\d{4}(?:\/\d{3})?$/.test(entry.url ?? "")
+          || !Array.isArray(entry.phases) || entry.phases.length === 0) {
+          add(`Official MITRE catalog entry ${entry.id} is malformed.`);
+        }
+      }
+      if (!Array.isArray(catalog.mitreAttack.excludedEntries)) {
+        add("Official MITRE catalog must preserve explicitly excluded revoked entries.");
+      } else {
+        for (const entry of catalog.mitreAttack.excludedEntries) {
+          if (excludedIds.has(entry.id) || ids.has(entry.id)) add(`Official MITRE catalog has a duplicate or mapped excluded technique ${entry.id}.`);
+          excludedIds.add(entry.id);
+          if (entry.revoked !== true && entry.deprecated !== true) add(`Official MITRE exclusion ${entry.id} is not marked revoked or deprecated.`);
+          if (!nonEmpty(entry.name) || !nonEmpty(entry.reason) || !/^https:\/\/attack\.mitre\.org\/techniques\/T\d{4}(?:\/\d{3})?$/.test(entry.url ?? "")) {
+            add(`Official MITRE exclusion ${entry.id} is malformed.`);
+          }
+        }
+      }
+    }
+    if (!isRecord(catalog.owaspAsvs) || !Array.isArray(catalog.owaspAsvs.requirements)) {
+      add("Official OWASP ASVS catalog snapshot is malformed.");
+    } else {
+      const documentByFile = new Map((catalog.owaspAsvs.documents ?? []).map((doc) => [doc.file, doc]));
+      const ids = new Set();
+      for (const requirement of catalog.owaspAsvs.requirements) {
+        if (ids.has(requirement.id)) add(`Official ASVS catalog duplicates requirement ${requirement.id}.`);
+        ids.add(requirement.id);
+        const document = documentByFile.get(requirement.sourceFile);
+        if (!document || requirement.sourceUrl !== document.url || requirement.sourceGitBlob !== document.gitBlobSha
+          || !/^v5\.0\.0-\d+\.\d+\.\d+$/.test(requirement.id ?? "") || !nonEmpty(requirement.section)) {
+          add(`Official ASVS catalog entry ${requirement.id} is not backed by a pinned source document.`);
+        }
+      }
+    }
+    return catalog;
+  } catch (error) {
+    add(`Cannot read official catalog snapshot ${file}: ${error.message}`);
+    return null;
+  }
+}
 
 function resolveEvidencePath(root, filePath) {
   const target = resolve(root, ...filePath.split(/[\\/]+/));
@@ -101,6 +134,9 @@ export function validateAssessment(assessment, { repoRoot = process.cwd() } = {}
   const issues = [];
   const add = (message) => issues.push(message);
   if (!isRecord(assessment)) return ["Assessment must be a JSON object."];
+  const catalog = readOfficialCatalog(repoRoot, add);
+  const mitreCatalog = new Map((catalog?.mitreAttack?.entries ?? []).map((entry) => [entry.id, entry]));
+  const asvsCatalog = new Map((catalog?.owaspAsvs?.requirements ?? []).map((entry) => [entry.id, entry]));
   if (assessment.schemaVersion !== "1.0.0") add("schemaVersion must be 1.0.0.");
   if (!/^\d{4}-\d{2}-\d{2}$/.test(assessment.asOf ?? "")) add("asOf must be an ISO calendar date.");
   if (!isRecord(assessment.basis) || !nonEmpty(assessment.basis.branch) || !/^[0-9a-f]{40}$/.test(assessment.basis.commit ?? "")) {
@@ -108,6 +144,33 @@ export function validateAssessment(assessment, { repoRoot = process.cwd() } = {}
   }
   if (!isRecord(assessment.controlSource) || !/^https:\/\/github\.com\/Alisensai\/asrinkemali\/pull\/71$/.test(assessment.controlSource.url ?? "")) {
     add("controlSource must identify the read-only PR #71 source list.");
+  }
+  if (assessment.standards?.mitreAttack?.version !== catalog?.mitreAttack?.version
+    || assessment.standards?.mitreAttack?.releaseCommit !== catalog?.mitreAttack?.releaseCommit
+    || assessment.standards?.mitreAttack?.sourceSha256 !== catalog?.mitreAttack?.sourceSha256) {
+    add("MITRE ATT&CK release metadata does not match the pinned official catalog snapshot.");
+  }
+  if (!/^[0-9a-f]{40}$/.test(catalog?.mitreAttack?.releaseCommit ?? "")
+    || !/^[0-9a-f]{64}$/.test(catalog?.mitreAttack?.sourceSha256 ?? "")
+    || catalog?.mitreAttack?.sourceUrl !== `https://raw.githubusercontent.com/mitre-attack/attack-stix-data/${catalog?.mitreAttack?.releaseCommit}/enterprise-attack/enterprise-attack.json`
+    || catalog?.mitreAttack?.releaseUrl !== "https://github.com/mitre-attack/attack-stix-data/releases/tag/v20.0") {
+    add("MITRE ATT&CK catalog must identify a pinned official v20.0 source and SHA-256.");
+  }
+  if (assessment.standards?.owaspAsvs?.version !== catalog?.owaspAsvs?.version
+    || assessment.standards?.owaspAsvs?.releaseCommit !== catalog?.owaspAsvs?.releaseCommit) {
+    add("OWASP ASVS release metadata does not match the pinned official catalog snapshot.");
+  }
+  if (JSON.stringify(assessment.standards?.owaspAsvs?.catalogDocuments) !== JSON.stringify(catalog?.owaspAsvs?.documents?.map(
+    ({ file, url, gitBlobSha }) => ({ file, url, gitBlobSha }),
+  ))) {
+    add("OWASP ASVS source document references do not match the pinned official catalog snapshot.");
+  }
+  if (!/^[0-9a-f]{40}$/.test(catalog?.owaspAsvs?.releaseCommit ?? "")
+    || catalog?.owaspAsvs?.releaseUrl !== "https://github.com/OWASP/ASVS/tree/v5.0.0"
+    || !Array.isArray(catalog?.owaspAsvs?.documents)
+    || catalog.owaspAsvs.documents.some((doc) => !/^[0-9a-f]{40}$/.test(doc.gitBlobSha ?? "")
+      || doc.url !== `https://raw.githubusercontent.com/OWASP/ASVS/${catalog.owaspAsvs.releaseCommit}/5.0/en/${doc.file}`)) {
+    add("OWASP ASVS catalog must identify pinned official v5.0.0 source documents.");
   }
 
   const evidenceById = new Map();
@@ -181,6 +244,19 @@ export function validateAssessment(assessment, { repoRoot = process.cwd() } = {}
       if (!nonEmpty(control.name) || !nonEmpty(control.currentControl) || !nonEmpty(control.gap) || !nonEmpty(control.remediation)) {
         add(`${owner} needs a name, currentControl, gap, and remediation.`);
       }
+      for (const [field, references] of [
+        ["strideIds", new Set((assessment.stride ?? []).map((item) => item?.id))],
+        ["mitreIds", new Set((assessment.mitre ?? []).map((item) => item?.id))],
+        ["asvsIds", new Set((assessment.asvs ?? []).map((item) => item?.id))],
+      ]) {
+        if (!Array.isArray(control[field])) {
+          add(`${owner} ${field} must be an array, including when there are no mappings.`);
+          continue;
+        }
+        if (new Set(control[field]).size !== control[field].length) add(`${owner} ${field} must not contain duplicate references.`);
+        for (const id of control[field]) if (!references.has(id)) add(`${owner} ${field} references unknown id ${id}.`);
+      }
+      if (!nonEmpty(control.mappingNote)) add(`${owner} needs a mappingNote, including for empty crosswalks.`);
       if (!CONTROL_STATES.has(control.state)) add(`${owner} has unsupported state ${control.state}.`);
       if (!["CURRENT", "FUTURE", "NOT_APPLICABLE"].includes(control.applicability)) add(`${owner} has unsupported applicability.`);
       if (control.state === "NOT_APPLICABLE" && control.applicability === "CURRENT") add(`${owner} is contradictory: current applicability cannot be NOT_APPLICABLE.`);
@@ -199,12 +275,15 @@ export function validateAssessment(assessment, { repoRoot = process.cwd() } = {}
   if (!Array.isArray(assessment.stride)) {
     add("stride must be an array.");
   } else {
+    const seenStrideIds = new Set();
     for (const [index, threat] of assessment.stride.entries()) {
       const owner = `stride[${index}]`;
       if (!isRecord(threat) || !STRIDE_CATEGORIES.has(threat.category)) {
         add(`${owner} has an invalid STRIDE category.`);
         continue;
       }
+      if (!/^S-\d{2}$/.test(threat.id ?? "") || seenStrideIds.has(threat.id)) add(`${owner} needs a unique STRIDE id in S-## format.`);
+      seenStrideIds.add(threat.id);
       for (const field of REQUIRED_STRIDE_FIELDS) if (!nonEmpty(threat[field])) add(`${owner} is missing ${field}.`);
       checkEvidenceIds(owner, threat.evidenceIds);
     }
@@ -215,13 +294,26 @@ export function validateAssessment(assessment, { repoRoot = process.cwd() } = {}
   } else {
     for (const [index, technique] of assessment.mitre.entries()) {
       const owner = `mitre[${index}]`;
-      const catalogName = MITRE_CATALOG.get(technique?.id);
-      if (!catalogName) add(`${owner} uses an unverified MITRE ATT&CK v20.0 ID ${technique?.id}.`);
-      else if (technique.name !== catalogName) add(`${owner} name does not match the MITRE catalog for ${technique.id}.`);
+      const catalogEntry = mitreCatalog.get(technique?.id);
+      if (!catalogEntry) add(`${owner} uses an unverified or revoked MITRE ATT&CK v20.0 ID ${technique?.id}.`);
+      else {
+        if (technique.name !== catalogEntry.name) add(`${owner} name does not match the official MITRE catalog for ${technique.id}.`);
+        if (JSON.stringify(technique.phases) !== JSON.stringify(catalogEntry.phases)) add(`${owner} phases do not match the official MITRE catalog for ${technique.id}.`);
+        if (technique.url !== catalogEntry.url) add(`${owner} URL does not match the official MITRE catalog for ${technique.id}.`);
+      }
       if (!["CURRENT_RELEVANT", "FUTURE_ONLY"].includes(technique?.applicability)) add(`${owner} has invalid applicability.`);
       if (!CONTROL_STATES.has(technique?.controlState)) add(`${owner} has invalid controlState.`);
-      if (!/^https:\/\/attack\.mitre\.org\/techniques\/T\d{4}\/?$/.test(technique?.url ?? "")) add(`${owner} has invalid official technique URL.`);
+      if (!nonEmpty(technique?.applicabilityRationale) || !Array.isArray(technique?.coverageAreas) || technique.coverageAreas.length === 0
+        || technique.coverageAreas.some((item) => !nonEmpty(item))) add(`${owner} needs coverage areas and an applicability rationale.`);
       if (!nonEmpty(technique?.gaps) || !nonEmpty(technique?.remediation)) add(`${owner} needs a gap and remediation.`);
+      if (technique?.applicability === "FUTURE_ONLY" && !["NOT_APPLICABLE", "NOT_VERIFIED"].includes(technique.controlState)) {
+        add(`${owner} future-only applicability cannot claim an active control state.`);
+      }
+      if (technique?.controlState === "ACTIVE") {
+        const refs = checkEvidenceIds(owner, technique.evidenceIds);
+        if (!refs.some((item) => item.kind === "file" && item.state === "INTEGRATED")
+          || refs.some((item) => item.evidenceState === "PR_ONLY")) add(`${owner} ACTIVE cannot be supported by PR-only or non-integrated evidence.`);
+      }
       checkEvidenceIds(owner, technique?.evidenceIds);
     }
   }
@@ -231,7 +323,11 @@ export function validateAssessment(assessment, { repoRoot = process.cwd() } = {}
   } else {
     for (const [index, requirement] of assessment.asvs.entries()) {
       const owner = `asvs[${index}]`;
-      if (!isRecord(requirement) || !ASVS_IDS.has(requirement.id)) add(`${owner} uses an unverified ASVS v5.0.0 requirement id.`);
+      const catalogEntry = asvsCatalog.get(requirement?.id);
+      if (!isRecord(requirement) || !catalogEntry) add(`${owner} uses an unverified ASVS v5.0.0 requirement id.`);
+      else if (requirement.catalogSection !== catalogEntry.section || requirement.catalogUrl !== catalogEntry.sourceUrl) {
+        add(`${owner} catalog section or URL does not match the pinned official ASVS source.`);
+      }
       if (!ASVS_STATUSES.has(requirement?.status)) add(`${owner} has an invalid ASVS status.`);
       if (!["APPLICABLE", "NOT_APPLICABLE"].includes(requirement?.applicability)) add(`${owner} has invalid applicability.`);
       if (requirement?.status === "NOT_APPLICABLE" && requirement.applicability !== "NOT_APPLICABLE") add(`${owner} has contradictory NOT_APPLICABLE status.`);
@@ -247,6 +343,34 @@ export function validateAssessment(assessment, { repoRoot = process.cwd() } = {}
         add(`${owner} needs a topic, gap, and remediation.`);
       }
     }
+  }
+
+  if (!Array.isArray(assessment.mitreCoverage) || assessment.mitreCoverage.length === 0) {
+    add("mitreCoverage must document the requested adversary behavior families.");
+  } else {
+    const familyNames = new Set();
+    const techniqueIds = new Set((assessment.mitre ?? []).map((item) => item?.id));
+    for (const [index, family] of assessment.mitreCoverage.entries()) {
+      const owner = `mitreCoverage[${index}]`;
+      if (!isRecord(family) || !nonEmpty(family.family) || !nonEmpty(family.note)) add(`${owner} needs a family and evidence-limited note.`);
+      if (familyNames.has(family?.family)) add(`${owner} duplicates family ${family?.family}.`);
+      familyNames.add(family?.family);
+      if (!["CURRENT_RELEVANT", "FUTURE_ONLY"].includes(family?.applicability)) add(`${owner} has invalid applicability.`);
+      if (!Array.isArray(family?.techniqueIds) || family.techniqueIds.length === 0) {
+        add(`${owner} must reference verified technique IDs or be explicitly excluded.`);
+      } else {
+        for (const id of family.techniqueIds) {
+          if (!techniqueIds.has(id)) add(`${owner} references unknown technique ${id}.`);
+          const mapped = (assessment.mitre ?? []).find((item) => item?.id === id);
+          if (family.applicability === "FUTURE_ONLY" && mapped?.applicability !== "FUTURE_ONLY") {
+            add(`${owner} is FUTURE_ONLY but includes a currently relevant technique ${id}.`);
+          }
+        }
+      }
+    }
+  }
+  if (!Array.isArray(assessment.mitreExclusions) || assessment.mitreExclusions.some((item) => !nonEmpty(item))) {
+    add("mitreExclusions must explain catalog and scope exclusions.");
   }
 
   if (!Array.isArray(assessment.owaspTop10)) {
@@ -346,6 +470,8 @@ export function buildReport(assessment) {
     controls: assessment.controls,
     stride: assessment.stride,
     mitre: assessment.mitre,
+    mitreCoverage: assessment.mitreCoverage,
+    mitreExclusions: assessment.mitreExclusions,
     asvs: assessment.asvs,
     owaspTop10: assessment.owaspTop10,
     architecture: assessment.architecture,
@@ -368,7 +494,17 @@ export function validateReportShape(report, schema) {
   }
   for (const key of schema.required) if (!(key in report)) issues.push(`Report is missing required property ${key}.`);
   if (report.schemaVersion !== schema.properties?.schemaVersion?.const) issues.push("Report schemaVersion does not match the schema.");
-  for (const [key, minItems] of [["controls", 99], ["stride", 1], ["mitre", 1], ["asvs", 1], ["owaspTop10", 10], ["architecture", 1], ["risks", 1]]) {
+  for (const [key, minItems] of [
+    ["controls", 99],
+    ["stride", 1],
+    ["mitre", 1],
+    ["mitreCoverage", 10],
+    ["mitreExclusions", 1],
+    ["asvs", 1],
+    ["owaspTop10", 10],
+    ["architecture", 1],
+    ["risks", 1],
+  ]) {
     if (!Array.isArray(report[key]) || report[key].length < minItems) issues.push(`Report ${key} must contain at least ${minItems} item(s).`);
   }
   if (report.controls?.length !== 99) issues.push("Report controls must contain exactly 99 items.");
@@ -377,15 +513,31 @@ export function validateReportShape(report, schema) {
     if (!isRecord(control) || control.id !== index + 1 || !nonEmpty(control.name)) issues.push(`Report control ${index + 1} has invalid identity/order.`);
     if (!CONTROL_STATES.has(control?.state)) issues.push(`Report control ${index + 1} has an invalid state.`);
     if (!Array.isArray(control?.evidenceIds)) issues.push(`Report control ${index + 1} evidenceIds must be an array.`);
+    for (const [field, references] of [
+      ["strideIds", new Set((report.stride ?? []).map((item) => item?.id))],
+      ["mitreIds", new Set((report.mitre ?? []).map((item) => item?.id))],
+      ["asvsIds", new Set((report.asvs ?? []).map((item) => item?.id))],
+    ]) {
+      if (!Array.isArray(control?.[field]) || control[field].some((id) => !references.has(id))) {
+        issues.push(`Report control ${index + 1} has invalid ${field}.`);
+      }
+    }
+    if (!nonEmpty(control?.mappingNote)) issues.push(`Report control ${index + 1} has no mapping note.`);
   }
   for (const [index, requirement] of (report.asvs ?? []).entries()) {
     if (!ASVS_STATUSES.has(requirement?.status)) issues.push(`Report ASVS item ${index + 1} has an invalid status.`);
-    if (!ASVS_IDS.has(requirement?.id)) issues.push(`Report ASVS item ${index + 1} has an invalid requirement id.`);
+    if (!/^v5\.0\.0-\d+\.\d+\.\d+$/.test(requirement?.id ?? "")
+      || !/^https:\/\/raw\.githubusercontent\.com\/OWASP\/ASVS\/[0-9a-f]{40}\/5\.0\/en\/.+\.md$/.test(requirement?.catalogUrl ?? "")) {
+      issues.push(`Report ASVS item ${index + 1} has no pinned official catalog reference.`);
+    }
   }
   for (const [index, layer] of (report.architecture ?? []).entries()) {
     if (!ARCHITECTURE_STATES.has(layer?.state)) issues.push(`Report architecture layer ${index + 1} has an invalid state.`);
   }
   if (report.summary?.controlCount !== 99) issues.push("Report summary must count exactly 99 controls.");
+  if (!Array.isArray(report.mitreCoverage) || !Array.isArray(report.mitreExclusions)) {
+    issues.push("Report must include ATT&CK family coverage and exclusions.");
+  }
   return issues;
 }
 
@@ -458,10 +610,13 @@ export function renderMarkdown(report) {
     "",
     `Resmî sürüm kaynağı: ${report.standards.mitreAttack.url}. Eşleme teknikleri uygulama kapsamına göre seçilmiştir; katalog kaydı tek başına saldırı bulgusu değildir.`,
     "",
-    "| Teknik | Uygulanabilirlik | Kontrol durumu | Kanıt | Boşluk | Düzeltme |",
-    "|---|---|---|---|---|---|",
+    `Teknik adları ve fazları [Enterprise ATT&CK v20.0 STIX kataloğundan](${report.standards.mitreAttack.releaseUrl}) doğrulandı ([sabitlenmiş kaynak dosyası](${report.standards.mitreAttack.sourceUrl}); commit \`${report.standards.mitreAttack.releaseCommit}\`, SHA-256 \`${report.standards.mitreAttack.sourceSha256}\`).`,
+    "",
+    "| Teknik | ATT&CK fazı | Uygulanabilirlik | Kontrol durumu | Kanıt | Boşluk | Düzeltme |",
+    "|---|---|---|---|---|---|---|",
     ...report.mitre.map((item) => tableRow([
       `[${item.id} ${item.name}](${item.url})`,
+      item.phases.join(", "),
       item.applicability,
       item.controlState,
       item.evidenceIds.join(", "),
@@ -469,14 +624,30 @@ export function renderMarkdown(report) {
       item.remediation,
     ])),
     "",
+    "### İstenen davranış aileleri",
+    "",
+    "| Davranış ailesi | ATT&CK teknikleri | Uygulanabilirlik | Sınır / gerekçe |",
+    "|---|---|---|---|",
+    ...report.mitreCoverage.map((item) => tableRow([
+      item.family,
+      item.techniqueIds.join(", "),
+      item.applicability,
+      item.note,
+    ])),
+    "",
+    "### Eşleme dışı bırakılanlar",
+    "",
+    ...report.mitreExclusions.map((item) => `- ${item}`),
+    "",
     "## OWASP ASVS 5.0.0",
     "",
-    `Resmî sürüm kaynağı: ${report.standards.owaspAsvs.releaseUrl}. Her durum yalnız listelenen kanıt kapsamıyla sınırlıdır; sertifikasyon iddiası yoktur.`,
+    `Resmî sürüm kaynağı: ${report.standards.owaspAsvs.releaseUrl} (kaynak commit \`${report.standards.owaspAsvs.releaseCommit}\`). Her durum yalnız listelenen kanıt kapsamıyla sınırlıdır; sertifikasyon iddiası yoktur.`,
     "",
-    "| Gereksinim | Konu | Durum | Kanıt | Boşluk | Düzeltme |",
-    "|---|---|---|---|---|---|",
+    "| Gereksinim | Resmî bölüm | Değerlendirme konusu | Durum | Kanıt | Boşluk | Düzeltme |",
+    "|---|---|---|---|---|---|---|",
     ...report.asvs.map((item) => tableRow([
-      `[${item.id}](${report.standards.owaspAsvs.releaseUrl})`,
+      `[${item.id}](${item.catalogUrl})`,
+      item.catalogSection,
       item.topic,
       item.status,
       item.evidenceIds.join(", "),
@@ -496,13 +667,17 @@ export function renderMarkdown(report) {
     "",
     `Kaynak adları ve sırası [PR #71 özgün listesi](${report.controlSource.url}) ile doğrulanır (SHA-256: \`${report.controlSource.sha256}\`); aşağıdaki durum/kanıt değerlendirmesi bağımsızdır. \`ACTIVE\`, entegre kaynak kodunda gözlenen kontrolü ifade eder; üretimde etkin olduğu anlamına gelmez.`,
     "",
-    "| # | Kontrol | Durum | Uygulanabilirlik | Mevcut kanıt | Boşluk | Sonraki adım |",
-    "|---:|---|---|---|---|---|---|",
+    "| # | Kontrol | Durum | Uygulanabilirlik | STRIDE | ATT&CK | ASVS | Eşleme notu | Mevcut kanıt | Boşluk | Sonraki adım |",
+    "|---:|---|---|---|---|---|---|---|---|---|---|",
     ...report.controls.map((item) => tableRow([
       item.id,
       item.name,
       item.state,
       item.applicability,
+      item.strideIds.join(", ") || "—",
+      item.mitreIds.join(", ") || "—",
+      item.asvsIds.join(", ") || "—",
+      item.mappingNote,
       item.evidenceIds.map((id) => evidence.get(id)?.path ?? evidence.get(id)?.url ?? id).join(", ") || "Doğrulanmış kanıt yok",
       item.gap,
       item.remediation,
