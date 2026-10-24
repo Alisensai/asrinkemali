@@ -45,3 +45,23 @@ Yerel doğrulama: PR'ın `headers.ts` dosyası üzerinde `headerOptionsFromEnv({
 | Release quality | ❌: 1458 test geçti, 0 başarısız. Kapı yalnız 302 insan onayı bulgusu nedeniyle kırmızı; teknik hata değil. |
 
 **Sonuç:** CI teknik olarak yeşil. PR #72 `off` açığını kapattığı için güvenliği kesin olarak iyileştiriyor. Production `report-only` riski ise açık kalıyor. Ortak entegrasyon dalına alma kararı kullanıcıya bırakıldı. Önerilen sıra: PR #72 alınsın ve report-only düzeltmesi Codex'ten ayrı PR olarak istensin, ya da aynı PR'a eklensin.
+
+## Yeniden inceleme: düzeltilmiş commit `042af19`
+
+Codex, `report-only` riskini `042af19` ile kapattı: `fix(security): preserve enforced CSP with report-only`.
+
+- **Değişiklik:** `securityHeaders` içinde `if (!development || mode === "enforce")` ile development dışında zorunlu `Content-Security-Policy` her zaman gönderiliyor. `report-only` modunda `Content-Security-Policy-Report-Only` yalnız **ek** başlık. Kural fonksiyonun içinde olduğundan `headerOptionsFromEnv` atlanıp `securityHeaders({ mode: "off" | "report-only", development: false })` doğrudan çağrılsa bile CSP kalkmıyor.
+- **Yerel doğrulama:**
+  - PR testleri 5/5.
+  - `NODE_ENV` yok / `production` / `test` / boş × `ASRIN_CSP_MODE` yok / `enforce` / `off` / `report-only` / `OFF` / `Report-Only` / geçersiz, artı 3 doğrudan çağrı: development dışındaki **31 kombinasyonun 31'inde zorunlu CSP var**. Kalktığı durum yok.
+  - Development'ta `off`/`report-only` yerel çalışma için korunuyor.
+- **Açık kalan (kapsam dışı, düşük):** Raporlama uç noktası (`report-to`) hâlâ yok. Report-only başlığı gözlem verisi üretmiyor ama artık korumayı da kaldırmıyor. Altyapı gereksinimi (#6 SIEM, #21 merkezi günlük).
+
+| Workflow (head `042af19`, push + pull_request) | Sonuç |
+|---|---|
+| Next.js CI (verify-next-app: lint, typecheck, build, production Playwright) | ✅ ✅: 753 geçti, 117 atlandı, 0 başarısız |
+| MKA FORTRESS security | ✅ ✅ |
+| Asrin Kemali CI (smoke) | ✅ ✅ |
+| Release quality | ❌ ❌: 1458 test geçti, 0 başarısız. Yalnız 302 insan onayı bulgusu; teknik hata değil. |
+
+**Yeniden değerlendirme:** Teknik engel kalmadı. Kullanıcının koşulu ("zorunlu CSP hiçbir production modunda kaldırılmamalı") kod ve testle sağlanıyor. Entegrasyon dalına alma onayı kullanıcıdan bekleniyor.
