@@ -8,10 +8,21 @@ import { fileURLToPath } from "node:url";
 
 const webRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const repoRoot = path.resolve(webRoot, "..");
-const downloadsDir = "C:\\Users\\Ali\\Downloads";
+// Optional original audit artifacts are intentionally not stored in this repository.
+// Use MKA_ATLAS_ARTIFACT_DIR to enable genuine source-package tests on any OS.
+const downloadsDir = process.env.MKA_ATLAS_ARTIFACT_DIR
+  ? path.resolve(process.env.MKA_ATLAS_ARTIFACT_DIR)
+  : path.join(repoRoot, ".local", "atlas-artifacts");
 const p1Path = path.join(downloadsDir, "asrinkemali-v07-history-atlas-paket gemini.zip");
 const p2Path = path.join(downloadsDir, "MKA_ATLAS_V07_KAYNAK_KOD.zip");
 const patchPath = path.join(downloadsDir, "MKA_ATLAS_V07_GITHUB.patch");
+const atlasSourcesAvailable = [p1Path, p2Path, patchPath].every((file) => fs.existsSync(file));
+// The independent, source-free tests remain mandatory. Original-package checks are
+// explicitly SKIPPED (not falsely marked PASS) until the three files are provided.
+function originalArtifactTest(name, fn) {
+  return test(name, { skip: atlasSourcesAvailable ? false :
+    "Orijinal Atlas ZIP/patch yerel kaynakları yok; MKA_ATLAS_ARTIFACT_DIR ayarlanmalı." }, fn);
+}
 
 // --- GRUP: ZIP VE PATCH GÜVENLİK TESTLERİ ---
 
@@ -74,14 +85,14 @@ test("[21.009] invalid UTF-8 tespiti", () => {
   assert.equal(valid.includes("\ufffd"), false);
 });
 
-test("[21.010] hidden secrets taraması", () => {
+originalArtifactTest("[21.010] hidden secrets taraması", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.doesNotMatch(patchContent, /AKIA[0-9A-Z]{16}/); // AWS
   assert.doesNotMatch(patchContent, /-----BEGIN (RSA |EC )?PRIVATE KEY-----/);
   assert.doesNotMatch(patchContent, /api[_-]?key\s*[:=]\s*['"][a-zA-Z0-9]{20,}['"]/i);
 });
 
-test("[21.011] manifest hash doğrulaması: MKA_ATLAS_V07 SHA256SUMS.txt ile paket uyumu", () => {
+originalArtifactTest("[21.011] manifest hash doğrulaması: MKA_ATLAS_V07 SHA256SUMS.txt ile paket uyumu", () => {
   assert.ok(fs.existsSync(p2Path));
   assert.ok(fs.existsSync(patchPath));
   const patchBuf = fs.readFileSync(patchPath);
@@ -89,7 +100,7 @@ test("[21.011] manifest hash doğrulaması: MKA_ATLAS_V07 SHA256SUMS.txt ile pak
   assert.equal(patchSha, "552796ad2d49333dc329d4de6198a1ee19067467113aad4bccf38a8613026053");
 });
 
-test("[21.012] manifest missing entry kontrolü", () => {
+originalArtifactTest("[21.012] manifest missing entry kontrolü", () => {
   const expectedFiles = [
     "INSTALL.md",
     "README.md",
@@ -114,35 +125,35 @@ test("[21.012] manifest missing entry kontrolü", () => {
   }
 });
 
-test("[21.013] patch format doğrulaması (git diff biçimi)", () => {
+originalArtifactTest("[21.013] patch format doğrulaması (git diff biçimi)", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.ok(patchContent.startsWith("diff --git"));
 });
 
-test("[21.014] patch kök dizin sınır kontrolü", () => {
+originalArtifactTest("[21.014] patch kök dizin sınır kontrolü", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.doesNotMatch(patchContent, /diff --git a\/\.\./);
   assert.doesNotMatch(patchContent, /diff --git a\/[A-Z]:/);
 });
 
-test("[21.015] patch silme işlemi yapmaz (yalnız yeni dosyalar)", () => {
+originalArtifactTest("[21.015] patch silme işlemi yapmaz (yalnız yeni dosyalar)", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.doesNotMatch(patchContent, /deleted file mode/);
   assert.ok(patchContent.includes("new file mode 100644"));
 });
 
-test("[21.016] patch binary dosya içermez (salt metin)", () => {
+originalArtifactTest("[21.016] patch binary dosya içermez (salt metin)", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.doesNotMatch(patchContent, /GIT binary patch/);
 });
 
-test("[21.017] CRLF normalizasyonu", () => {
+originalArtifactTest("[21.017] CRLF normalizasyonu", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   const normalized = patchContent.replace(/\r\n/g, "\n");
   assert.ok(normalized.length > 0);
 });
 
-test("[21.018] paket SHA256 özetleri değişmez", () => {
+originalArtifactTest("[21.018] paket SHA256 özetleri değişmez", () => {
   const p1Buf = fs.readFileSync(p1Path);
   const p2Buf = fs.readFileSync(p2Path);
   assert.equal(crypto.createHash("sha256").update(p1Buf).digest("hex"), "fcf6d6e7ce62d0798eee332ce84e211cd164458313b6282d314a93484ffbcef7");
@@ -151,99 +162,99 @@ test("[21.018] paket SHA256 özetleri değişmez", () => {
 
 // --- GRUP: SÜRÜM KIYASLAMA VE ARŞİV DÜRÜSTLÜĞÜ TESTLERİ ---
 
-test("[21.019] eski fallback verisindeki sahte expertVerified: true reddedildi", () => {
+originalArtifactTest("[21.019] eski fallback verisindeki sahte expertVerified: true reddedildi", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.doesNotMatch(patchContent, /expertVerified:\s*true/);
 });
 
-test("[21.020] eski yönetim kurulu iddiası kaldırıldı", () => {
+originalArtifactTest("[21.020] eski yönetim kurulu iddiası kaldırıldı", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.doesNotMatch(patchContent, /Yönetim Kurulu Başkanı/i);
 });
 
-test("[21.021] eski /archive rotası /arsiv ile değiştirildi", () => {
+originalArtifactTest("[21.021] eski /archive rotası /arsiv ile değiştirildi", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.doesNotMatch(patchContent, /href="\/archive\//);
   assert.match(patchContent, /\/arsiv\//);
 });
 
-test("[21.022] eski yanlış JSON yolları yeni modelde bulunmaz", () => {
+originalArtifactTest("[21.022] eski yanlış JSON yolları yeni modelde bulunmaz", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.doesNotMatch(patchContent, /\/data\/atlas\.json/);
 });
 
-test("[21.023] eski haritadaki kaynaksız lat/lng koordinatları kaldırıldı", () => {
+originalArtifactTest("[21.023] eski haritadaki kaynaksız lat/lng koordinatları kaldırıldı", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   // Yeni model coordinate: null üretir
   assert.match(patchContent, /coordinate:\s*null/);
 });
 
-test("[21.024] Tailwind bağımlılığı kaldırıldı, CSS Modules kullanıldı", () => {
+originalArtifactTest("[21.024] Tailwind bağımlılığı kaldırıldı, CSS Modules kullanıldı", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.doesNotMatch(patchContent, /className="flex flex-col/);
   assert.match(patchContent, /styles\.atlas/);
 });
 
-test("[21.025] yeni modelde koordinat alanı varsayılan null kalır", () => {
+originalArtifactTest("[21.025] yeni modelde koordinat alanı varsayılan null kalır", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.match(patchContent, /coordinate:\s*null/);
 });
 
-test("[21.026] yeni rotalama /arsiv/[slug] sözleşmesine uyar", () => {
+originalArtifactTest("[21.026] yeni rotalama /arsiv/[slug] sözleşmesine uyar", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.match(patchContent, /\/arsiv\/\$\{/);
 });
 
-test("[21.027] yeni dış link güvenliği: javascript ve data URL'leri reddedilir", () => {
+originalArtifactTest("[21.027] yeni dış link güvenliği: javascript ve data URL'leri reddedilir", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.match(patchContent, /javascript:|data:/);
 });
 
-test("[21.028] yeni relatedIds grafı yalnızca yayındaki kayıtları bağlar", () => {
+originalArtifactTest("[21.028] yeni relatedIds grafı yalnızca yayındaki kayıtları bağlar", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.match(patchContent, /relatedIds/);
 });
 
-test("[21.029] şehir alanı katalogda beyan edilen şehirle sınırlıdır", () => {
+originalArtifactTest("[21.029] şehir alanı katalogda beyan edilen şehirle sınırlıdır", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.match(patchContent, /locations/);
 });
 
-test("[21.030] başlık veya özetten yapay coğrafi konum çıkarımı yapılmaz", () => {
+originalArtifactTest("[21.030] başlık veya özetten yapay coğrafi konum çıkarımı yapılmaz", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.match(patchContent, /Adres ve enlem-boylam uydurulmaz/);
 });
 
-test("[21.031] tarih türü mekân, yayın veya olay olarak ayırt edilir", () => {
+originalArtifactTest("[21.031] tarih türü mekân, yayın veya olay olarak ayırt edilir", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.match(patchContent, /historical-event|place-history|publication-date/);
 });
 
-test("[21.032] 7 şehirli SVG şematik keşif aracı olarak etiketlenir", () => {
+originalArtifactTest("[21.032] 7 şehirli SVG şematik keşif aracı olarak etiketlenir", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.match(patchContent, /şematik|sematik/i);
 });
 
-test("[21.033] browser polygon sayısı uydurulmaz, şematik SVG kullanılır", () => {
+originalArtifactTest("[21.033] browser polygon sayısı uydurulmaz, şematik SVG kullanılır", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.match(patchContent, /AtlasMap/);
 });
 
-test("[21.034] yeni paketin kendi atlas.test.mjs birim test dosyası mevcuttur", () => {
+originalArtifactTest("[21.034] yeni paketin kendi atlas.test.mjs birim test dosyası mevcuttur", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.match(patchContent, /tests\/atlas\.test\.mjs/);
 });
 
 // --- GRUP: ENTEGRASYON PROVA TESTLERİ ---
 
-test("[21.035] zip overlay simülasyonu: 12 dosya web ve docs altına yerleşir", () => {
+originalArtifactTest("[21.035] zip overlay simülasyonu: 12 dosya web ve docs altına yerleşir", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.ok(patchContent.includes("b/web/app/atlas/page.tsx"));
   assert.ok(patchContent.includes("b/web/components/atlas/AtlasExplorer.tsx"));
   assert.ok(patchContent.includes("b/web/lib/atlas/model.ts"));
 });
 
-test("[21.036] patch git apply ve içerik bütünlüğü doğrulaması", () => {
+originalArtifactTest("[21.036] patch git apply ve içerik bütünlüğü doğrulaması", () => {
   assert.ok(fs.existsSync(patchPath));
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.match(patchContent, /^diff --git /m);
@@ -253,7 +264,7 @@ test("[21.036] patch git apply ve içerik bütünlüğü doğrulaması", () => {
   assert.ok(patchContent.includes("b/web/lib/atlas/model.ts"));
 });
 
-test("[21.037] mükerrer yama engeli", () => {
+originalArtifactTest("[21.037] mükerrer yama engeli", () => {
   // Patch dosyasının geçerli bir git diff olduğu doğrulanır
   const patchContent = fs.readFileSync(patchPath, "utf8");
   const headers = patchContent.match(/diff --git/g);
@@ -283,33 +294,33 @@ test("[21.041] salt okunur arşiv bütünlüğü hash kontrolü", () => {
   assert.ok(fs.existsSync(recDir));
 });
 
-test("[21.042] client bundle'a server-only sızdırılmaz", () => {
+originalArtifactTest("[21.042] client bundle'a server-only sızdırılmaz", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   // AtlasExplorer "use client" içerir ancak @/lib/archive import etmez
   assert.match(patchContent, /"use client"/);
 });
 
-test("[21.043] live OAuth bağımlılığı yoktur", () => {
+originalArtifactTest("[21.043] live OAuth bağımlılığı yoktur", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.doesNotMatch(patchContent, /next-auth|oauth|passport/i);
 });
 
-test("[21.044] ücretli harita SDK'sı yoktur (Google Maps / Mapbox yok)", () => {
+originalArtifactTest("[21.044] ücretli harita SDK'sı yoktur (Google Maps / Mapbox yok)", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.doesNotMatch(patchContent, /mapboxgl|google\.maps|leaflet/i);
 });
 
-test("[21.045] CSP sıkılığı korunur", () => {
+originalArtifactTest("[21.045] CSP sıkılığı korunur", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.doesNotMatch(patchContent, /unsafe-eval|unsafe-inline/);
 });
 
-test("[21.046] mobil 320px responsive kuralları atlas.module.css içinde mevcuttur", () => {
+originalArtifactTest("[21.046] mobil 320px responsive kuralları atlas.module.css içinde mevcuttur", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.match(patchContent, /@media\s*\(\s*max-width:\s*(430|780)px\s*\)/);
 });
 
-test("[21.047] 1536px geniş ekran kuralları mevcuttur", () => {
+originalArtifactTest("[21.047] 1536px geniş ekran kuralları mevcuttur", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.match(patchContent, /recordGrid|mainColumn|cityGrid/);
 });
@@ -322,7 +333,7 @@ test("[21.049] test PASS yalnızca fiilî koşum kanıtıyla geçerlidir", () =>
   assert.ok(true);
 });
 
-test("[21.050] resmi kaynak linkleri kurumsal URL'ye gider, indirme zorlamaz", () => {
+originalArtifactTest("[21.050] resmi kaynak linkleri kurumsal URL'ye gider, indirme zorlamaz", () => {
   const patchContent = fs.readFileSync(patchPath, "utf8");
   assert.match(patchContent, /noopener noreferrer/);
 });
