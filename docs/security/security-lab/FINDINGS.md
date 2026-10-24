@@ -4,9 +4,9 @@
 
 - **Risk:** HIGH
 - **Etkilenen alan:** `web/lib/security/headers.ts`
-- **Davranış:** Bu laboratuvar dalının tabanı, CSP `report-only` kullanımını zorunlu CSP'nin yerine geçirmeye açıktı.
+- **Davranış:** Önceki laboratuvar tabanı, CSP `report-only` kullanımını zorunlu CSP'nin yerine geçirmeye açıktı.
 - **Beklenen:** Production'da her modda zorunlu `Content-Security-Policy` bulunmalı; report-only yalnız ek gözlem başlığı olmalı.
-- **Durum:** Bu bulgu PR #72'deki ayrı uygulama güvenliği çalışmasında düzeltilmiştir; RED TEAM LAB bu davranışı RT-025 ile üretimde kontrol eder.
+- **Durum:** Bu bulgu PR #72'deki ayrı uygulama güvenliği çalışmasında düzeltilmiş ve `532c651` ile temel entegrasyon dalına alınmıştır. RED TEAM LAB, production default/off/report-only sözleşmesini birim testinde; zorunlu CSP'yi de RT-025 ile yerel production koşumunda kontrol eder.
 
 ## N/A alanları
 

@@ -1,6 +1,6 @@
 # MKA FORTRESS X — RED TEAM LAB
 
-`tools/security-lab/run.mjs`, yerel bir production Next.js sunucusuna karşı 36 güvenlik senaryosu çalıştırır ve JSON kanıtı üretir. Hedefi `MKA_SECURITY_LAB_BASE_URL` ile verilebilir; motor döngüsel geri dönüş adresleri dışındaki hedefleri isteği göndermeden reddeder.
+`tools/security-lab/run.mjs`, yerel bir production Next.js sunucusuna karşı 37 güvenlik senaryosu çalıştırır ve JSON kanıtı üretir. Hedefi `MKA_SECURITY_LAB_BASE_URL` ile verilebilir; motor döngüsel geri dönüş adresleri dışındaki hedefleri isteği göndermeden reddeder. `localhost` verildiğinde istek, DNS yeniden çözümlemesini önlemek için fetch öncesi `127.0.0.1` literaline sabitlenir.
 
 Örnek yerel kullanım:
 
@@ -12,7 +12,7 @@ npm run start -- --hostname 127.0.0.1 --port 49499
 node tools/security-lab/run.mjs
 ```
 
-Rapor varsayılan olarak `docs/security/security-lab/reports/latest.json` konumuna yazılır. JSON, geçen, başarısız ve uygulanamaz senaryoları ayrı sayar; yanıttan alınan kanıt önizlemeleri redakte edilir.
+Rapor varsayılan olarak `docs/security/security-lab/reports/latest.json` konumuna yazılır. JSON, geçen, başarısız ve uygulanamaz senaryoları ayrı sayar. Kanıt çıktısı yalnız izinli güvenlik başlıklarını içerir; `Set-Cookie`, yetkilendirme, token, sır ve kimlik bilgisi başlıkları hiç saklanmaz. `Location` değeri ham olarak yazılmaz; yalnız aynı-origin, dış-origin-engellendi veya bozuk-konum durumu tutulur.
 
 BLACKOUT senaryoları bu entegrasyon dalında henüz yoktur. Claude'un ayrı dalına dokunmadan N/A sayılır; kod entegre edildiğinde yanlış alarm, tekil sinyal, çoklu güvenilir sinyal, depo kesintisi, yetkisiz lockdown, ayrık onay, güvenli moda giriş/çıkış ve kanıt korumasını sınayan adaptör eklenmelidir.
 

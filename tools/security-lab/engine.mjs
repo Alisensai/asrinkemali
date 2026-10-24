@@ -2,7 +2,16 @@ import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const LOOPBACK_HOSTS = new Set(["127.0.0.1", "localhost", "::1"]);
-const SENSITIVE = /(?:authorization|cookie|password|secret|token|api[_-]?key)\s*[:=]\s*[^\s,;]+/gi;
+const SAFE_EVIDENCE_HEADERS = new Set([
+  "cache-control",
+  "content-security-policy",
+  "content-security-policy-report-only",
+  "content-type",
+  "referrer-policy",
+  "x-content-type-options",
+  "x-frame-options",
+]);
+const SENSITIVE = /(?:authorization|cookie|set-cookie|password|secret|token|api[_-]?key|session|credential)\s*[:=]\s*(?:"[^"]*"|'[^']*'|[^\s,;]+)/gi;
 
 export function assertLocalTarget(rawTarget) {
   const target = new URL(rawTarget);
@@ -11,6 +20,10 @@ export function assertLocalTarget(rawTarget) {
     throw new Error("MKA RED TEAM LAB yalnızca localhost/127.0.0.1/::1 hedeflerine bağlanabilir.");
   }
   if (!["http:", "https:"].includes(target.protocol)) throw new Error("Desteklenmeyen laboratuvar protokolü.");
+  // `localhost` DNS ile yeniden çözümlenebileceği için, fetch işleminden önce
+  // güvenli literal loopback adresine sabitlenir. Böylece istek sırasında DNS
+  // yönlendirmesiyle laboratuvarın dış ağa çıkması engellenir.
+  if (hostname === "localhost") target.hostname = "127.0.0.1";
   return target;
 }
 
@@ -18,8 +31,45 @@ function redact(value) {
   return String(value ?? "").replace(SENSITIVE, "[REDACTED]").slice(0, 512);
 }
 
+export function resolveScenarioUrl(target, scenarioPath) {
+  const url = new URL(scenarioPath, target);
+  // Senaryolar mutlak veya protocol-relative bir URL ile çalışma hedefini
+  // değiştiremez; yalnız aynı literal loopback origin'inde yol tanımlayabilir.
+  if (url.origin !== target.origin || url.username || url.password) {
+    throw new Error("Senaryo hedefi laboratuvarın loopback origin'i dışına çıkamaz.");
+  }
+  assertLocalTarget(url.href);
+  return url;
+}
+
+function safeLocation(location, target) {
+  if (!location) return "";
+  try {
+    const redirect = new URL(location, target);
+    if (redirect.origin !== target.origin) return "[EXTERNAL_REDIRECT_BLOCKED]";
+    return "[SAME_ORIGIN_REDIRECT]";
+  } catch {
+    return "[MALFORMED_LOCATION_REDACTED]";
+  }
+}
+
+function evidenceHeaders(response, target) {
+  const headers = {};
+  for (const [name, value] of response.headers.entries()) {
+    const key = name.toLowerCase();
+    if (key === "location") {
+      headers.location = safeLocation(value, target);
+    } else if (SAFE_EVIDENCE_HEADERS.has(key)) {
+      headers[key] = redact(value);
+    }
+  }
+  return headers;
+}
+
 async function request(target, scenario) {
-  const url = new URL(scenario.path, target);
+  // Doğrulama fetch çağrısından hemen önce yapılır; yönlendirmeler ise manuel
+  // tutulur. Bu iki kural dış hedefe takip isteği gönderilmesini önler.
+  const url = resolveScenarioUrl(target, scenario.path);
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), scenario.timeoutMs ?? 8_000);
   try {
@@ -32,9 +82,9 @@ async function request(target, scenario) {
     const text = await response.text();
     return {
       status: response.status,
-      headers: Object.fromEntries(response.headers.entries()),
+      headers: evidenceHeaders(response, target),
       body: redact(text),
-      location: response.headers.get("location") ?? "",
+      location: safeLocation(response.headers.get("location"), target),
     };
   } finally {
     clearTimeout(timer);
@@ -44,7 +94,9 @@ async function request(target, scenario) {
 const noServerError = (result) => result.status < 500;
 const isNotFound = (result) => result.status === 404;
 const isMethodRejected = (result) => result.status === 405;
-const isSameOriginRedirect = (result, target) => !result.location || new URL(result.location, target).origin === target.origin;
+const hasNoExternalRedirect = (result) => result.location !== "[EXTERNAL_REDIRECT_BLOCKED]" && result.location !== "[MALFORMED_LOCATION_REDACTED]";
+const hasNoExecutableXssReflection = (result) => !/<script[^>]*>\s*window\.__mkaXss\s*=\s*1\s*<\/script>/i.test(result.body);
+const hasNoPrototypePollutionReflection = (result) => !/__proto__|mkaRedTeamProbe/i.test(result.body);
 
 export function scenarios() {
   const hostileScript = encodeURIComponent('<script>window.__mkaXss=1</script>');
@@ -64,13 +116,13 @@ export function scenarios() {
     ["RT-013", "Git yapılandırması erişilemez", "HIGH", "/.git/config", isNotFound],
     ["RT-014", "Paket bildirimi erişilemez", "MEDIUM", "/package.json", isNotFound],
     ["RT-015", "Kodlanmış path traversal reddi", "HIGH", "/%2e%2e/%2e%2e/package.json", (r) => [400, 404].includes(r.status)],
-    ["RT-016", "XSS sorgusu çalıştırılmaz veya yansıtılmaz", "HIGH", `/arsiv?q=${hostileScript}`, (r) => noServerError(r) && !r.body.includes("window.__mkaXss")],
-    ["RT-017", "SQLi benzeri sorgu sunucuyu düşürmez", "MEDIUM", "/arsiv?q=%27%20OR%201%3D1--", noServerError],
-    ["RT-018", "Prototype pollution sorgusu sunucuyu düşürmez", "MEDIUM", "/arsiv?__proto__[polluted]=true", noServerError],
+    ["RT-016", "XSS sorgusu yürütülebilir betik olarak yansıtılmaz", "HIGH", `/arsiv?q=${hostileScript}`, (r) => noServerError(r) && hasNoExecutableXssReflection(r)],
+    ["RT-017", "SQLi testi SQL katmanı olmadığından uygulanamaz", "MEDIUM", "N/A", () => true, "N/A_SQL"],
+    ["RT-018", "Prototype pollution girdisi yansıtılmaz veya hata ayrıntısı sızdırmaz", "MEDIUM", "/arsiv?__proto__[mkaRedTeamProbe]=true", (r) => [200, 400, 404].includes(r.status) && hasNoPrototypePollutionReflection(r) && !/stack|TypeError|ReferenceError/i.test(r.body)],
     ["RT-019", "Bozuk Unicode girdisi hata sızdırmaz", "MEDIUM", "/arsiv?q=%ED%A0%80", (r) => noServerError(r) && !/ENOENT|stack|at Object\./i.test(r.body)],
     ["RT-020", "Aşırı arama girdisi hata sızdırmaz", "MEDIUM", `/arsiv?q=${"a".repeat(6000)}`, noServerError],
-    ["RT-021", "Açık yönlendirme yok", "HIGH", "/?next=https://example.invalid", (r, target) => isSameOriginRedirect(r, target)],
-    ["RT-022", "Şemaya benzer eğik çizgi girdisi dışa yönlendirmez", "HIGH", "/%2F%2Fexample.invalid", (r, target) => isSameOriginRedirect(r, target)],
+    ["RT-021", "Açık yönlendirme yok", "HIGH", "/?next=https://example.invalid", hasNoExternalRedirect],
+    ["RT-022", "Şemaya benzer eğik çizgi girdisi dışa yönlendirmez", "HIGH", "/%2F%2Fexample.invalid", hasNoExternalRedirect],
     ["RT-023", "Bilinmeyen rota hata ayrıntısı sızdırmaz", "MEDIUM", "/olmayan-sayfa", (r) => isNotFound(r) && !/node_modules|[A-Z]:\\|\/home\/runner|stack/i.test(r.body)],
     ["RT-024", "Bilinmeyen arşiv kaydı hata ayrıntısı sızdırmaz", "MEDIUM", "/arsiv/yayinda-olmayan-kayit", (r) => isNotFound(r) && !/node_modules|stack/i.test(r.body)],
     ["RT-025", "Production CSP zorunlu", "HIGH", "/", (r) => /object-src 'none'/.test(r.headers["content-security-policy"] ?? "")],
@@ -86,7 +138,19 @@ export function scenarios() {
     ["RT-035", "Yerel hedef koruması dış hedefi reddeder", "HIGH", "N/A", () => {
       try { assertLocalTarget("https://example.invalid"); return false; } catch { return true; }
     }, "LOCAL"],
-    ["RT-036", "BLACKOUT entegrasyon dalında mevcut değil", "INFO", "N/A", () => true, "N/A"],
+    ["RT-036", "Mutlak veya protocol-relative senaryo URL'si reddedilir", "HIGH", "N/A", () => {
+      const target = assertLocalTarget("http://127.0.0.1:49499");
+      for (const path of ["https://example.invalid/x", "//example.invalid/x", "http://localhost:49498/x"]) {
+        try {
+          resolveScenarioUrl(target, path);
+          return false;
+        } catch {
+          // Reddetme beklenen güvenli davranıştır.
+        }
+      }
+      return true;
+    }, "LOCAL"],
+    ["RT-037", "BLACKOUT entegrasyon dalında mevcut değil", "INFO", "N/A", () => true, "N/A"],
   ].map(([id, title, risk, path, assert, method = "GET"]) => ({ id, title, risk, path, assert, method }));
 }
 
@@ -94,8 +158,11 @@ export async function runLab({ baseUrl, outputFile }) {
   const target = assertLocalTarget(baseUrl);
   const results = [];
   for (const scenario of scenarios()) {
-    if (scenario.method === "N/A") {
+    if (scenario.method === "N/A" || scenario.method === "N/A_SQL") {
+      const sql = scenario.method === "N/A_SQL";
       results.push({ id: scenario.id, title: scenario.title, risk: scenario.risk, status: "na", expected: "BLACKOUT kodu entegrasyon dalında bulunmadığı için N/A", actual: "Claude dalında ayrı tutuluyor; çalışma ağacı değiştirilmedi." });
+      if (sql) results.at(-1).expected = "Uygulamada SQL veritabanı veya SQL sorgu katmanı bulunmadığı için N/A";
+      if (sql) results.at(-1).actual = "Arşiv verisi yerel/statik katalogdan okunur; SQLi savunması iddiası yapılmıyor.";
       continue;
     }
     if (scenario.method === "LOCAL") {
@@ -106,7 +173,7 @@ export async function runLab({ baseUrl, outputFile }) {
     try {
       const actual = await request(target, scenario);
       const passed = scenario.assert(actual, target);
-      results.push({ id: scenario.id, title: scenario.title, risk: scenario.risk, status: passed ? "passed" : "failed", expected: "Güvenli HTTP davranışı", actual: { status: actual.status, location: actual.location, headers: { "cache-control": actual.headers["cache-control"], "content-security-policy": actual.headers["content-security-policy"], "x-frame-options": actual.headers["x-frame-options"] }, bodyPreview: actual.body } });
+      results.push({ id: scenario.id, title: scenario.title, risk: scenario.risk, status: passed ? "passed" : "failed", expected: "Güvenli HTTP davranışı", actual: { status: actual.status, location: actual.location, headers: actual.headers, bodyPreview: actual.body } });
     } catch (error) {
       results.push({ id: scenario.id, title: scenario.title, risk: scenario.risk, status: "failed", expected: "Güvenli HTTP davranışı", actual: { error: redact(error instanceof Error ? error.message : error) } });
     }
