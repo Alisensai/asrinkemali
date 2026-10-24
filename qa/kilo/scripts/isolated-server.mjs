@@ -1,27 +1,34 @@
-import { spawn } from "node:child_process";
-import net from "node:net";
+import { startIsolatedServer, stopIsolatedServer } from "../../../tools/qa-unified/lib/server.mjs";
+import { gitValue } from "../../../tools/qa-unified/lib/runtime.mjs";
 
-function getFreePort() {
-  return new Promise((resolve) => {
-    const server = net.createServer();
-    server.listen(0, "127.0.0.1", () => {
-      const port = server.address().port;
-      server.close(() => resolve(port));
-    });
+let server;
+let shuttingDown = false;
+let finish;
+const finished = new Promise((resolve) => { finish = resolve; });
+
+try {
+  server = await startIsolatedServer({ mode: "dev" });
+  console.log(`Owned isolated server: ${server.url}`);
+  console.log(`PID: ${server.child.pid}`);
+  console.log(`Branch: ${await gitValue(["branch", "--show-current"]) || "detached"}`);
+  console.log(`Commit: ${await gitValue(["rev-parse", "HEAD"]) || "unknown"}`);
+  server.child.once("close", (code) => {
+    if (!shuttingDown) {
+      console.error(`Isolated server exited unexpectedly with code ${code ?? 1}.`);
+      process.exitCode = code ?? 1;
+    }
+    finish();
   });
+  for (const signal of ["SIGINT", "SIGTERM"]) {
+    process.once(signal, async () => {
+      shuttingDown = true;
+      process.exitCode = signal === "SIGINT" ? 130 : 143;
+      await stopIsolatedServer(server.child);
+      finish();
+    });
+  }
+  await finished;
+} catch (error) {
+  console.error(`Could not start isolated QA server: ${error.message}`);
+  process.exitCode = 1;
 }
-
-const port = await getFreePort();
-console.log(`Starting isolated server on port ${port}`);
-console.log(`URL: http://127.0.0.1:${port}`);
-console.log(`Commit: ${process.env.GIT_COMMIT || "unknown"}`);
-console.log(`Branch: ${process.env.GIT_BRANCH || "unknown"}`);
-
-const proc = spawn("npm", ["run", "dev", "--", "--hostname", "127.0.0.1", "--port", port.toString()], {
-  cwd: "web",
-  shell: true,
-  stdio: "inherit"
-});
-
-process.on("SIGINT", () => proc.kill());
-process.on("SIGTERM", () => proc.kill());

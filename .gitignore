@@ -13,5 +13,6 @@ playwright-report/
 test-results/
 release-check-reports/
 qa/kilo/results/
+qa/results/
 __pycache__/
 *.pyc
