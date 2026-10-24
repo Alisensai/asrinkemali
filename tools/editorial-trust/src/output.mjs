@@ -79,7 +79,6 @@ export function toMarkdown(report, gate) {
     "## Global bulgular",
     "",
     ...report.globalFindings.map((item) => `- **${item.code}** (${item.severity}): ${escapeMarkup(item.reason)} → ${escapeMarkup(item.remediation)}`),
-    "",
   ];
   return `${lines.join("\n")}\n`;
 }
