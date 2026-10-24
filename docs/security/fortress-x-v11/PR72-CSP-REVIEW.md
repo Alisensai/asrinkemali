@@ -4,7 +4,7 @@
 - **Dal / commit:** `feature/codex-v11-application-security` @ `58548d3` → `integration/asrinkemali-v11-fortress-x`
 - **Değişen dosyalar:** `web/lib/security/headers.ts`, `web/tests/security-headers.test.mjs`
 - **İnceleme tarihi:** 2026-10-24
-- **Karar:** **Entegrasyona alınmadı.** CI tamamlanmadı (aşağıda). Ayrıca `report-only` riski kapatılmadan alınmaması önerilir.
+- **Karar:** **Henüz entegrasyona alınmadı.** CI teknik olarak yeşil (aşağıda); alma kararı kullanıcıda. `report-only` riski açık.
 
 ## PR'ın düzelttiği
 
@@ -32,16 +32,16 @@ Yerel doğrulama: PR'ın `headers.ts` dosyası üzerinde `headerOptionsFromEnv({
 - **Önem:** Orta/yüksek (savunma derinliği). React kaçışlama ve `dangerouslySetInnerHTML` yokluğu birincil XSS korumasını sürdürüyor. Ancak CSP, bunların atlatıldığı durumda son katman.
 - **Önerilen düzeltme** (Codex, `headers.ts`):
   1. Production'da report-only **zorunlu politikanın yerine geçmemeli, onun yanına eklenmeli**. Yani `report-only` modunda production hem `Content-Security-Policy` hem de (aday katı politika için) `Content-Security-Policy-Report-Only` göndermeli. Report-only'nin tek başına kullanımı yalnız `NODE_ENV=development`'ta olmalı.
-  2. Report-only'nin anlamı olması için raporlama uç noktası (`report-to` + `Reporting-Endpoints`) gerekiyor. Bu bir altyapı gereksinimi (SIEM/günlük deposu, matris #11, #96). Uç nokta yokken report-only yalnız gözlemsiz bir başlıktır.
+  2. Report-only'nin anlamı olması için raporlama uç noktası (`report-to` + `Reporting-Endpoints`) gerekiyor. Bu bir altyapı gereksinimi (SIEM/merkezi günlük, matris #7, #22). Uç nokta yokken report-only yalnız gözlemsiz bir başlıktır.
   3. Test: `NODE_ENV=production, ASRIN_CSP_MODE=report-only` → `Content-Security-Policy` başlığı **var** olmalı.
 
-## CI durumu (head `58548d3`, inceleme anı)
+## CI durumu (head `58548d3`, tamamlandı)
 
 | Workflow | Sonuç |
 |---|---|
-| MKA FORTRESS security (fortress-tools, production-security-e2e) | ✅ ✅ |
+| Next.js CI (verify-next-app: lint, typecheck, build, production Playwright) | ✅: 753 geçti, 117 atlandı, 0 başarısız |
+| MKA FORTRESS security (fortress-tools, production-security-e2e) | ✅ |
 | Asrin Kemali CI (smoke) | ✅ |
-| Next.js CI (verify-next-app) | ⏳ Sürüyor |
-| Release quality | ⏳ Sürüyor. Tamamlansa da 302 insan onayı bulgusu nedeniyle kırmızı kalması beklenir; bu teknik bir hata değil. |
+| Release quality | ❌: 1458 test geçti, 0 başarısız. Kapı yalnız 302 insan onayı bulgusu nedeniyle kırmızı; teknik hata değil. |
 
-CI doğrulanmadan PR #72 entegrasyon dalına alınmadı.
+**Sonuç:** CI teknik olarak yeşil. PR #72 `off` açığını kapattığı için güvenliği kesin olarak iyileştiriyor. Production `report-only` riski ise açık kalıyor. Ortak entegrasyon dalına alma kararı kullanıcıya bırakıldı. Önerilen sıra: PR #72 alınsın ve report-only düzeltmesi Codex'ten ayrı PR olarak istensin, ya da aynı PR'a eklensin.

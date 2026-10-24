@@ -2,7 +2,8 @@
 
 | Belge | İçerik |
 |---|---|
-| [CONTROL-MATRIX.md](CONTROL-MATRIX.md) | 99 kontrolün numaralı durumu (22 uygulandı, 21 kısmi, 9 eksik, 6 kapsam dışı, 41 altyapı gerektiriyor) |
+| [SOURCE-CONTROL-LIST.md](SOURCE-CONTROL-LIST.md) | Kullanıcının özgün kontrol listesi (100 madde), değiştirilmeden |
+| [CONTROL-MATRIX.md](CONTROL-MATRIX.md) | Özgün 100 maddenin ASRIN KEMALİ durumu (5 uygulandı, 25 kısmi, 13 eksik, 10 kapsam dışı, 47 altyapı gerektiriyor) + ayrı ek öneriler (E1–E12) |
 | [BLACKOUT.md](BLACKOUT.md) | PROJECT BLACKOUT mimarisi, düzeyler, onaylar, geri dönüş |
 | [INFRASTRUCTURE-REQUIREMENTS.md](INFRASTRUCTURE-REQUIREMENTS.md) | Repo dışından sağlanması gereken altyapı ve öncelik sırası |
 | [PR72-CSP-REVIEW.md](PR72-CSP-REVIEW.md) | Codex PR #72 CSP düzeltmesinin incelemesi; production `report-only` riski |
