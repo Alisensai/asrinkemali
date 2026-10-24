@@ -7,6 +7,7 @@ import type {
   HumanReviewWorklistDTO,
   SourceFindingDTO,
 } from "./types.ts";
+import type { FindingCategory, FindingSeverity } from "./types.ts";
 
 const REPO_ROOT = path.resolve(process.cwd(), "..");
 const TOOLS_DIR = path.join(REPO_ROOT, "tools", "archive-source-reliability");
@@ -66,6 +67,12 @@ interface RawQualityReport {
 }
 
 let cachedReport: RawQualityReport | null = null;
+const findingCategories = new Set<FindingCategory>(["date", "source_sufficiency", "rights", "duplicate", "provenance", "human_review"]);
+const findingSeverities = new Set<FindingSeverity>(["critical", "error", "warning", "info"]);
+function category(value: string | undefined): FindingCategory { return value && findingCategories.has(value as FindingCategory) ? value as FindingCategory : "source_sufficiency"; }
+function severity(value: string | undefined): FindingSeverity { return value && findingSeverities.has(value as FindingSeverity) ? value as FindingSeverity : "warning"; }
+type RawCandidate = { id?: unknown; sourceId?: unknown; title?: unknown; url?: unknown; sourceUrl?: unknown; institution?: unknown; period?: unknown; whyCandidate?: unknown };
+function stringValue(value: unknown, fallback = ""): string { return typeof value === "string" ? value : fallback; }
 
 function loadQualityReport(): RawQualityReport {
   if (cachedReport) return cachedReport;
@@ -133,8 +140,8 @@ export function getSourceFindingsForRecord(recordId: string): SourceFindingDTO[]
     .filter((f) => f.recordId === recordId)
     .map((f) => ({
       recordId: f.recordId,
-      category: (f.category as any) ?? "source_sufficiency",
-      severity: (f.severity as any) ?? "warning",
+      category: category(f.category),
+      severity: severity(f.severity),
       message: f.message,
       field: f.field,
       observedValue: f.observedValue,
@@ -189,20 +196,20 @@ export function get13EarlyPeriodCandidates(): EarlyPeriodCandidateDTO[] {
   try {
     if (fs.existsSync(CANDIDATES_DATA_PATH)) {
       const raw = fs.readFileSync(CANDIDATES_DATA_PATH, "utf8");
-      const parsed = JSON.parse(raw);
+      const parsed: { candidates?: unknown } = JSON.parse(raw);
       if (Array.isArray(parsed.candidates)) {
-        return parsed.candidates.map((c: any) => ({
-          id: c.id,
-          sourceId: c.sourceId ?? c.id,
-          title: c.title,
-          sourceUrl: c.url ?? c.sourceUrl ?? "",
-          institution: c.institution ?? "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
-          period: c.period ?? "1881-1918",
+        return parsed.candidates.filter((candidate: unknown): candidate is RawCandidate => typeof candidate === "object" && candidate !== null).map((c) => ({
+          id: stringValue(c.id),
+          sourceId: stringValue(c.sourceId, stringValue(c.id)),
+          title: stringValue(c.title),
+          sourceUrl: stringValue(c.url, stringValue(c.sourceUrl)),
+          institution: stringValue(c.institution, "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)"),
+          period: stringValue(c.period, "1881-1918"),
           status: "unverified" as const,
           ingest: false as const,
           humanApproved: false as const,
           verificationRequired: true as const,
-          whyCandidate: c.whyCandidate ?? "",
+          whyCandidate: stringValue(c.whyCandidate),
         }));
       }
     }
