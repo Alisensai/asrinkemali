@@ -6,7 +6,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 
 const webRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const repoRoot = path.resolve(webRoot, "..");
-const { buildAtaturkExperience, dateNote, formatYearRanges, periodFor, safeExternalUrl, PLACE_DATE_NOTE } = await import(pathToFileURL(path.join(webRoot, "lib", "ataturk-experience.ts")).href);
+const { buildAtaturkExperience, dateNote, formatYearRanges, periodFor, safeExternalUrl, PLACE_DATE_NOTE, packExperienceRecords, unpackExperienceRecords } = await import(pathToFileURL(path.join(webRoot, "lib", "ataturk-experience.ts")).href);
 
 function readRecords() {
   return ["content/archive/records", "data/archive/catalog"].flatMap((directory) => readdirSync(path.join(repoRoot, directory)).filter((name) => name.endsWith(".json")).map((name) => JSON.parse(readFileSync(path.join(repoRoot, directory, name), "utf8"))));
@@ -157,4 +157,13 @@ test("art arda üç ve daha fazla kayıtsız yıl rayda tek aralık olur", () =>
 test("1938 sonrası ve tarihsiz kayıtlar rayda tek kısayol olarak gösterilir", () => {
   const result = buildAtaturkExperience([make("olay", { date: day("1920-04-23") }), make("anit", { type: "place", date: day("1953-11-10") }), make("yayin", { type: "publication", date: day("2025") }), make("belirsiz", { date: { start: null, end: null, precision: "unknown", certainty: "unknown", display: "Tarih bilinmiyor" } })]);
   assert.deepEqual(result.rail.map((item) => item.kind === "period" ? `p:${item.periodId}:${item.count}` : item.kind), ["year", "p:miras:2", "p:tarihsiz:1"]);
+});
+
+test("istemci yükü paketlemesi kayıtları birebir geri üretir ve yükü küçültür", () => {
+  const packed = packExperienceRecords(experience.records);
+  assert.deepEqual(unpackExperienceRecords(packed), experience.records);
+  assert.ok(packed.strings.length < experience.records.length, "paylaşılan dize tablosu kayıt sayısından küçük olmalı");
+  const before = JSON.stringify(experience.records).length; const after = JSON.stringify(packed).length;
+  assert.ok(after < before * 0.85, `paketli yük en az %15 küçük olmalı (önce ${before}, sonra ${after})`);
+  assert.deepEqual(unpackExperienceRecords(packExperienceRecords([])), []);
 });

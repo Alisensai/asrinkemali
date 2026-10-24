@@ -1,0 +1,77 @@
+name: MKA FORTRESS security
+
+on:
+  push:
+  pull_request:
+
+# En az yetki: yalnız okuma. Gizli değişken kullanılmaz.
+permissions:
+  contents: read
+
+concurrency:
+  group: fortress-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  fortress-tools:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      # Üçüncü taraf eylemler etiket yerine commit SHA ile sabitlenmiştir (etiket kaydırma saldırısına karşı).
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24
+      - name: Fortress tool tests
+        run: node --test tools/mka-fortress/tests/*.test.mjs
+      - name: Archive integrity (blocking on data errors)
+        run: node tools/mka-fortress/integrity.mjs check
+      - name: Secret scan (values never printed)
+        run: node tools/mka-fortress/secrets.mjs
+      - name: Supply chain and workflow audit (blocking on high/critical)
+        run: node tools/mka-fortress/supply-chain.mjs --audit
+      - name: Archive change report against base branch (for human review, non-blocking)
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          node tools/mka-fortress/integrity.mjs diff --base="git:origin/${BASE_REF}" > archive-change-report.json || echo "::warning::Arşiv değişikliği insan incelemesi gerektiriyor (archive-change-report.json)."
+          node -e "const r=require('./archive-change-report.json');console.log(JSON.stringify({total:r.total,unexpected:r.unexpected,reReviewRequired:r.reReviewRequired,sourceUrlChanges:r.sourceUrlChanges,massChange:r.massChange}))" >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload change report
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: archive-change-report
+          path: archive-change-report.json
+          retention-days: 30
+
+  production-security-e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci --no-audit --no-fund
+      - name: Security unit tests (headers, access contract, publishing, logging)
+        run: node --test tests/security-*.test.mjs
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - name: Production-server security and hardening E2E
+        run: npx playwright test -c playwright.prod.config.ts e2e/security e2e/v06-hardening.spec.ts e2e/network-filter.spec.ts --project=desktop-1536x1024
+      - name: CSP probe (real browser, all routes)
+        run: |
+          npx next start --hostname 127.0.0.1 --port 4421 &
+          for i in $(seq 1 60); do curl -sf http://127.0.0.1:4421/api/health > /dev/null && break; sleep 1; done
+          node ../tools/mka-fortress/csp-probe.mjs --base=http://127.0.0.1:4421
