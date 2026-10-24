@@ -1,5 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 import path from "node:path";
+import { collectFailedRequests, unreachablePrefetchTargets } from "./support/network";
 
 async function expectNoOverflow(page: Page) {
   const dimensions = await page.evaluate(() => ({ scrollWidth: document.documentElement.scrollWidth, viewportWidth: window.innerWidth }));
@@ -9,11 +10,11 @@ async function expectNoOverflow(page: Page) {
 test("ana sayfa etkileşimleri, klavye ve ekran görüntüsü", async ({ page }, testInfo) => {
   const consoleErrors: string[] = [];
   const pageErrors: string[] = [];
-  const failedRequests: string[] = [];
   const unexpected404s: string[] = [];
   page.on("console", (message) => { if (message.type() === "error") consoleErrors.push(message.text()); });
   page.on("pageerror", (error) => pageErrors.push(error.message));
-  page.on("requestfailed", (request) => failedRequests.push(`${request.method()} ${request.url()} ${request.failure()?.errorText ?? ""}`));
+  // Yalnız Next.js yönlendiricisinin iptal ettiği RSC prefetch'leri ayrı tutulur; diğer tüm ağ hataları raporlanır.
+  const network = collectFailedRequests(page, new URL(testInfo.project.use.baseURL!).origin);
   page.on("response", (response) => { if (response.status() === 404) unexpected404s.push(response.url()); });
 
   await page.goto("/");
@@ -55,7 +56,13 @@ test("ana sayfa etkileşimleri, klavye ve ekran görüntüsü", async ({ page },
   await page.screenshot({ path: screenshotPath, fullPage: false });
   expect(consoleErrors, `console errors: ${consoleErrors.join("\n")}`).toEqual([]);
   expect(pageErrors, `page errors: ${pageErrors.join("\n")}`).toEqual([]);
-  expect(failedRequests, `failed requests: ${failedRequests.join("\n")}`).toEqual([]);
+  await network.settle();
+  expect(network.failures, `failed requests: ${network.failures.join("\n")}`).toEqual([]);
+  // İptal edilen prefetch'ler gerçek bir navigasyon veya veri yükleme hatasını gizlemesin:
+  // sayfa ana sayfada kalmış olmalı ve iptal edilen her hedef rota 200 ile yüklenebilmeli.
+  expect(new URL(page.url()).pathname).toBe("/");
+  expect(await unreachablePrefetchTargets(page, network.ignoredPrefetchAborts), "iptal edilen prefetch hedefi yüklenemiyor").toEqual([]);
+  if (network.ignoredPrefetchAborts.length) testInfo.annotations.push({ type: "next-prefetch-aborts", description: `${network.ignoredPrefetchAborts.length} RSC prefetch, bağlantı DOM'dan kalkınca yönlendirici tarafından iptal edildi` });
   expect(unexpected404s, `network 404: ${unexpected404s.join("\n")}`).toEqual([]);
 });
 
