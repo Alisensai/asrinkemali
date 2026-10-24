@@ -1,0 +1,804 @@
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  box-sizing: border-box;
+  color: var(--cream, #f4e8d6);
+}
+
+.header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(209, 163, 109, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.headerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-serif, "Cinzel", Georgia, serif);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold-bright, #e7bf8c);
+  letter-spacing: -0.02em;
+}
+
+.description {
+  margin: 0.5rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(244, 232, 214, 0.75);
+  max-width: 640px;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.1rem;
+  border: 1px solid rgba(209, 163, 109, 0.4);
+  background: rgba(54, 9, 12, 0.6);
+  color: var(--gold-bright, #e7bf8c);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  min-height: 44px;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.backLink:hover,
+.backLink:focus-visible {
+  border-color: var(--gold, #d1a36d);
+  background: rgba(54, 9, 12, 0.9);
+  color: #fff;
+  outline: 2px solid var(--gold, #d1a36d);
+  outline-offset: 2px;
+}
+
+/* Uyarı ve Gizlilik Paneli */
+.warningBox {
+  margin-bottom: 1.5rem;
+  background: rgba(54, 9, 12, 0.4);
+  border: 1px solid rgba(209, 163, 109, 0.3);
+  border-left: 4px solid var(--gold, #d1a36d);
+  border-radius: 8px;
+  padding: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: rgba(244, 232, 214, 0.9);
+}
+
+.warningBoxTitle {
+  font-weight: 700;
+  color: var(--gold-bright, #e7bf8c);
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Ana Düzen (Grid) */
+.mainLayout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.collectionSplit {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+/* Yan Panel / Koleksiyon Listesi */
+.collectionsSidebar {
+  background: rgba(18, 14, 14, 0.85);
+  border: 1px solid rgba(209, 163, 109, 0.25);
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sidebarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(209, 163, 109, 0.15);
+}
+
+.sidebarTitle {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--gold, #d1a36d);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.collectionButton {
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 0.875rem;
+  border-radius: 6px;
+  border: 1px solid rgba(209, 163, 109, 0.2);
+  background: rgba(26, 20, 20, 0.6);
+  color: var(--cream, #f4e8d6);
+  cursor: pointer;
+  min-height: 44px;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.collectionButton:hover,
+.collectionButton:focus-visible {
+  border-color: var(--gold, #d1a36d);
+  background: rgba(54, 9, 12, 0.4);
+  outline: 2px solid var(--gold, #d1a36d);
+  outline-offset: 1px;
+}
+
+.collectionButtonActive {
+  border-color: var(--gold, #d1a36d);
+  background: rgba(54, 9, 12, 0.8);
+  color: #fff;
+  box-shadow: 0 0 10px rgba(209, 163, 109, 0.2);
+}
+
+.collectionName {
+  font-weight: 600;
+  font-size: 0.925rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.collectionMeta {
+  font-size: 0.75rem;
+  color: rgba(244, 232, 214, 0.6);
+}
+
+/* Aktif Koleksiyon Detay Bölmesi */
+.activeCollectionPane {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.collectionCardHeader {
+  background: rgba(18, 14, 14, 0.85);
+  border: 1px solid rgba(209, 163, 109, 0.25);
+  border-radius: 10px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.collectionTitleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.activeColTitle {
+  margin: 0;
+  font-family: var(--font-serif, "Cinzel", serif);
+  font-size: 1.4rem;
+  color: var(--gold-bright, #e7bf8c);
+}
+
+.activeColDesc {
+  margin: 0.35rem 0 0;
+  font-size: 0.9rem;
+  color: rgba(244, 232, 214, 0.75);
+}
+
+.activeColDates {
+  margin: 0.35rem 0 0;
+  font-size: 0.75rem;
+  color: rgba(244, 232, 214, 0.5);
+}
+
+.colActionBtns {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btnSecondary {
+  padding: 0.45rem 0.85rem;
+  font-size: 0.825rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 1px solid rgba(209, 163, 109, 0.35);
+  background: rgba(30, 24, 24, 0.8);
+  color: var(--cream, #f4e8d6);
+  cursor: pointer;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.2s ease;
+}
+
+.btnSecondary:hover,
+.btnSecondary:focus-visible {
+  border-color: var(--gold, #d1a36d);
+  background: rgba(54, 9, 12, 0.6);
+  color: #fff;
+  outline: 2px solid var(--gold, #d1a36d);
+  outline-offset: 1px;
+}
+
+.btnDanger {
+  padding: 0.45rem 0.85rem;
+  font-size: 0.825rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 1px solid rgba(190, 40, 40, 0.4);
+  background: rgba(45, 10, 10, 0.8);
+  color: #ff9999;
+  cursor: pointer;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.2s ease;
+}
+
+.btnDanger:hover,
+.btnDanger:focus-visible {
+  border-color: #ff5555;
+  background: rgba(80, 15, 15, 0.9);
+  color: #fff;
+  outline: 2px solid #ff5555;
+  outline-offset: 1px;
+}
+
+.btnPrimary {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  border-radius: 6px;
+  border: 1px solid var(--gold, #d1a36d);
+  background: var(--red-masthead, #36090c);
+  color: var(--gold-bright, #e7bf8c);
+  cursor: pointer;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s ease;
+}
+
+.btnPrimary:hover,
+.btnPrimary:focus-visible {
+  background: #501015;
+  color: #fff;
+  border-color: var(--gold-bright, #e7bf8c);
+  outline: 2px solid var(--gold, #d1a36d);
+  outline-offset: 1px;
+}
+
+/* Filtre ve Sıralama Çubuğu */
+.controlsRow {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(209, 163, 109, 0.15);
+  font-size: 0.875rem;
+}
+
+.sortSelect {
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(209, 163, 109, 0.35);
+  background: #141010;
+  color: var(--cream, #f4e8d6);
+  font-size: 0.85rem;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.sortSelect:focus-visible {
+  outline: 2px solid var(--gold, #d1a36d);
+  outline-offset: 1px;
+}
+
+.checkboxLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  min-height: 44px;
+  user-select: none;
+}
+
+.checkboxLabel input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--gold, #d1a36d);
+  cursor: pointer;
+}
+
+.recordCount {
+  margin-left: auto;
+  font-size: 0.8rem;
+  color: rgba(244, 232, 214, 0.6);
+}
+
+/* Kayıt Kartları */
+.recordsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.recordCard {
+  background: rgba(18, 14, 14, 0.85);
+  border: 1px solid rgba(209, 163, 109, 0.25);
+  border-left: 4px solid var(--gold, #d1a36d);
+  border-radius: 8px;
+  padding: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.recordCardMissing {
+  border-left-color: #888;
+  opacity: 0.85;
+  background: rgba(25, 20, 20, 0.6);
+}
+
+.recordCardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.recordCardTitle {
+  margin: 0;
+  font-family: var(--font-serif, "Cinzel", serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--cream, #f4e8d6);
+  line-height: 1.35;
+}
+
+.readLaterBadge {
+  background: var(--gold, #d1a36d);
+  color: #1a0608;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.recordCardMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  color: rgba(244, 232, 214, 0.7);
+}
+
+.metaBadge {
+  background: rgba(54, 9, 12, 0.5);
+  border: 1px solid rgba(209, 163, 109, 0.25);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  color: var(--gold-bright, #e7bf8c);
+}
+
+.noteBox {
+  background: rgba(30, 22, 18, 0.7);
+  border: 1px dashed rgba(209, 163, 109, 0.4);
+  padding: 0.65rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: var(--cream, #f4e8d6);
+  line-height: 1.4;
+}
+
+.noteBox strong {
+  color: var(--gold-bright, #e7bf8c);
+}
+
+.recordCardActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(209, 163, 109, 0.1);
+}
+
+.cardActionLink {
+  color: var(--gold, #d1a36d);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.cardActionLink:hover,
+.cardActionLink:focus-visible {
+  color: var(--gold-bright, #e7bf8c);
+  outline: 2px solid var(--gold, #d1a36d);
+  outline-offset: 2px;
+}
+
+.cardActionBtn {
+  padding: 0.35rem 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 1px solid rgba(209, 163, 109, 0.25);
+  background: rgba(26, 20, 20, 0.6);
+  color: var(--cream, #f4e8d6);
+  cursor: pointer;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: all 0.2s ease;
+}
+
+.cardActionBtn:hover,
+.cardActionBtn:focus-visible {
+  border-color: var(--gold, #d1a36d);
+  background: rgba(54, 9, 12, 0.6);
+  color: #fff;
+  outline: 2px solid var(--gold, #d1a36d);
+  outline-offset: 1px;
+}
+
+.cardActionBtnActive {
+  background: var(--red-masthead, #36090c);
+  border-color: var(--gold, #d1a36d);
+  color: var(--gold-bright, #e7bf8c);
+}
+
+.moveSelect {
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid rgba(209, 163, 109, 0.25);
+  background: #141010;
+  color: var(--cream, #f4e8d6);
+  font-size: 0.8rem;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+/* Sağ Araç Çubuğu / Dışa-İçe Aktar */
+.toolsSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: sticky;
+  top: 1.5rem;
+}
+
+.toolsCard {
+  background: rgba(18, 14, 14, 0.85);
+  border: 1px solid rgba(209, 163, 109, 0.25);
+  border-radius: 10px;
+  padding: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.toolsCardTitle {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--gold-bright, #e7bf8c);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.toolsCardText {
+  margin: 0;
+  font-size: 0.825rem;
+  line-height: 1.5;
+  color: rgba(244, 232, 214, 0.7);
+}
+
+.toolsList {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: rgba(244, 232, 214, 0.75);
+}
+
+/* Formlar ve Giriş Alanları */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.formLabel {
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--gold, #d1a36d);
+}
+
+.formInput,
+.formTextarea {
+  padding: 0.6rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(209, 163, 109, 0.3);
+  background: #100c0c;
+  color: var(--cream, #f4e8d6);
+  font-size: 0.9rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.formInput:focus-visible,
+.formTextarea:focus-visible {
+  border-color: var(--gold, #d1a36d);
+  outline: 2px solid var(--gold, #d1a36d);
+  outline-offset: 1px;
+}
+
+.formTextarea {
+  min-height: 70px;
+  resize: vertical;
+}
+
+.charCount {
+  font-size: 0.75rem;
+  color: rgba(244, 232, 214, 0.5);
+  text-align: right;
+}
+
+.formActions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Modal Stilleri */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 6, 6, 0.85);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: #161010;
+  border: 1px solid var(--gold, #d1a36d);
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 600px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(209, 163, 109, 0.2);
+  padding-bottom: 0.75rem;
+}
+
+.modalTitle {
+  margin: 0;
+  font-family: var(--font-serif, "Cinzel", serif);
+  font-size: 1.25rem;
+  color: var(--gold-bright, #e7bf8c);
+}
+
+.modalCloseBtn {
+  background: transparent;
+  border: 1px solid rgba(209, 163, 109, 0.3);
+  color: var(--cream, #f4e8d6);
+  border-radius: 6px;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.modalCloseBtn:hover,
+.modalCloseBtn:focus-visible {
+  border-color: var(--gold, #d1a36d);
+  color: #fff;
+  outline: 2px solid var(--gold, #d1a36d);
+}
+
+/* Boş Durum (EmptyState) */
+.emptyStateWrapper {
+  background: rgba(18, 14, 14, 0.7);
+  border: 1px dashed rgba(209, 163, 109, 0.3);
+  border-radius: 10px;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.emptyStateTitle {
+  margin: 0;
+  font-family: var(--font-serif, "Cinzel", serif);
+  font-size: 1.35rem;
+  color: var(--gold-bright, #e7bf8c);
+}
+
+.emptyStateDesc {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(244, 232, 214, 0.7);
+  max-width: 480px;
+  line-height: 1.5;
+}
+
+/* Bildirim Toast */
+.toast {
+  background: rgba(54, 9, 12, 0.95);
+  border: 1px solid var(--gold, #d1a36d);
+  color: var(--cream, #f4e8d6);
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ==========================================================================
+   Responsive Kuralları (320px–1536px)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .mainLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .toolsSidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .collectionSplit {
+    grid-template-columns: 1fr;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .controlsRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .recordCount {
+    margin-left: 0;
+    text-align: right;
+  }
+
+  .colActionBtns {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 430px) {
+  .container {
+    padding: 1rem 0.75rem;
+  }
+
+  .title {
+    font-size: 1.35rem;
+  }
+
+  .recordCardActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cardActionBtn,
+  .moveSelect,
+  .cardActionLink {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Baskı Kuralları */
+@media print {
+  .container {
+    color: #000;
+    background: #fff;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .backLink,
+  .colActionBtns,
+  .controlsRow,
+  .toolsSidebar,
+  .recordCardActions,
+  .sidebarHeader button {
+    display: none !important;
+  }
+
+  .mainLayout,
+  .collectionSplit {
+    display: block;
+  }
+
+  .recordCard,
+  .collectionsSidebar,
+  .collectionCardHeader {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #000;
+    page-break-inside: avoid;
+    box-shadow: none;
+  }
+
+  .recordCardTitle,
+  .activeColTitle,
+  .sidebarTitle {
+    color: #000;
+  }
+}
