@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "mka-fortress-waf-rulesets",
+  "version": "1.1.0",
+  "description": "ASRIN KEMALİ WAF ve Hız Sınırlama Kuralları Matrisi",
+  "rulesets": [
+    {
+      "id": "WAF-01-SENSITIVE-FILES",
+      "action": "block",
+      "phase": "http_request_firewall_custom",
+      "description": "Hassas dizin (.env, .git, .bak, config) ve yönetim yolu taramalarını engelle",
+      "target_patterns": ["/.env", "/.git", "/wp-admin", "/wp-login", "/phpmyadmin", "/.aws", "/.ssh", ".bak", ".sql"]
+    },
+    {
+      "id": "WAF-02-VULN-SCANNERS",
+      "action": "block",
+      "phase": "http_request_firewall_custom",
+      "description": "Otomatik zafiyet tarayıcılarını ve exploit araçlarını engelle",
+      "blocked_user_agents": ["sqlmap", "nikto", "nmap", "acunetix", "masscan", "zgrab"]
+    },
+    {
+      "id": "WAF-03-HTTP-METHODS",
+      "action": "block",
+      "phase": "http_request_firewall_custom",
+      "description": "Salt-okunur kamusal sitede geçersiz HTTP metotlarını engelle",
+      "blocked_methods": ["TRACE", "TRACK", "CONNECT", "DELETE", "PUT"]
+    },
+    {
+      "id": "WAF-04-TURKISH-SEARCH-WHITELIST",
+      "action": "skip",
+      "phase": "http_request_firewall_custom",
+      "description": "Meşru Türkçe arşiv arama sorgularını yanlış pozitif filtrelemeden muaf tut",
+      "allowed_routes": ["/arsiv", "/arastirma", "/kronoloji"],
+      "exempt_characters": ["ç", "ğ", "ı", "ö", "ş", "ü", "Ç", "Ğ", "İ", "Ö", "Ş", "Ü"],
+      "max_query_length": 256
+    },
+    {
+      "id": "RATELIMIT-01-SEARCH",
+      "action": "block",
+      "phase": "http_ratelimit",
+      "description": "Arşiv ve arama sorguları hız sınırlaması",
+      "rate_limit": {
+        "requests": 30,
+        "period_seconds": 10,
+        "action": "block",
+        "mitigation_timeout_seconds": 60
+      },
+      "target_routes": ["/api/search", "/arsiv", "/arastirma"]
+    },
+    {
+      "id": "RATELIMIT-02-GENERAL-PAGES",
+      "action": "challenge",
+      "phase": "http_ratelimit",
+      "description": "Genel sayfa gezinmesi agresif tarama koruması",
+      "rate_limit": {
+        "requests": 120,
+        "period_seconds": 10,
+        "action": "challenge",
+        "mitigation_timeout_seconds": 120
+      },
+      "exempt_routes": [
+        "/_next/static/*",
+        "/assets/*",
+        "/api/health",
+        "/api/ready",
+        "/favicon.ico"
+      ]
+    }
+  ]
+}

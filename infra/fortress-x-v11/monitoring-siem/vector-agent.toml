@@ -1,0 +1,64 @@
+# ==============================================================================
+# ASRIN KEMALİ — MKA FORTRESS X V1.1
+# Vector Log & Event Aggregator Yapılandırması
+# ==============================================================================
+
+[api]
+enabled = false
+
+# 1. Kaynaklar: Nginx ve Uygulama Günlükleri
+[sources.nginx_logs]
+type = "file"
+include = ["/var/log/nginx/access.log"]
+read_from = "end"
+
+[sources.app_logs]
+type = "file"
+include = ["/var/log/asrinkemali/*.log"]
+read_from = "end"
+
+# 2. Dönüşüm ve Güvenlik Filtreleri (Gizlilik & Redaksiyon)
+[transforms.parse_json]
+type = "remap"
+inputs = ["nginx_logs", "app_logs"]
+source = '''
+  # JSON ayrıştırma
+  parsed, err = parse_json(.message)
+  if err == null {
+    . = parsed
+  }
+
+  # Gizlilik: IP Adresini Tuzlu SHA-256 ile Anonimleştir (KVKK / GDPR Uyumu)
+  if exists(.client_ip) {
+    salt = "mka-fortress-static-salt-v1"
+    .client_ip_hash = sha256(string!(.client_ip) + salt)
+    del(.client_ip)
+  }
+
+  # Güvenlik Redaksiyonu: Olası Sır, Token veya Şifre Parametrelerini Maskele
+  if exists(.http_user_agent) {
+    .http_user_agent = truncate(string!(.http_user_agent), 256)
+  }
+  if exists(.authorization) {
+    .authorization = "[REDACTED]"
+  }
+  if exists(.cookie) {
+    .cookie = "[REDACTED]"
+  }
+'''
+
+# 3. Çıktı: Merkezi SIEM / Günlük Deposu (OpenSearch, Elasticsearch veya Loki)
+[sinks.siem_cluster]
+type = "elasticsearch"
+inputs = ["parse_json"]
+endpoints = ["https://siem-internal.asrinkemali.local:9200"]
+mode = "bulk"
+compression = "gzip"
+healthcheck.enabled = false
+
+# Güvenli Yerel Yedekleme (Log Kaybını Önleme)
+[sinks.local_backup]
+type = "file"
+inputs = ["parse_json"]
+path = "/var/log/fortress-archive/%Y-%m-%d/audit.log"
+encoding.codec = "ndjson"

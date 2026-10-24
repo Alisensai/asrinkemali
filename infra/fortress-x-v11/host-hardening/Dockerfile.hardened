@@ -1,0 +1,59 @@
+# ==============================================================================
+# ASRIN KEMALİ — MKA FORTRESS X V1.1
+# Sertleştirilmiş Üretim Konteyner İmajı (Hardened Next.js Container)
+# ==============================================================================
+# - Multi-stage minimal yapı
+# - Root olmayan kullanıcı (UID 10001: nextjs)
+# - Salt-okunur dosya sistemi (Read-Only Root Filesystem uyumlu)
+# - Paket yöneticisi ve derleme araçları üretim aşamasında bulunmaz
+# ==============================================================================
+
+# 1. Aşama: Bağımlılıklar (Dependencies)
+FROM node:24-alpine AS deps
+WORKDIR /app
+RUN apk add --no-cache libc6-compat
+COPY web/package.json web/package-lock.json ./
+RUN npm ci --no-audit --no-fund
+
+# 2. Aşama: Derleme (Builder)
+FROM node:24-alpine AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY web/ ./
+COPY content/ ../content/
+COPY data/ ../data/
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV NODE_ENV=production
+RUN npm run build
+
+# 3. Aşama: Güvenli Çalışma Zamanı (Runner)
+FROM node:24-alpine AS runner
+WORKDIR /app
+
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
+
+# En az yetki prensibi: Sistem grubu ve yetkisiz kullanıcı oluştur (UID/GID 10001)
+RUN addgroup --system --gid 10001 nodejs && \
+    adduser --system --uid 10001 nextjs
+
+# Yalnızca gerekli derleme çıktılarını kopyala
+COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+# Güvenlik Sıkılaştırma: Geçici dizin izinleri ve paket yöneticisi silme
+RUN rm -rf /lib/apk /etc/apk /usr/share/apk
+
+# Yetkisiz kullanıcıya geç
+USER nextjs
+
+EXPOSE 3000
+
+# Sağlık Kontrolü (Dahili Node.js betiği ile harici curl/wget gerektirmeden)
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD node -e "const http=require('http');http.get('http://127.0.0.1:3000/api/health', (r)=>{process.exit(r.statusCode===200?0:1);}).on('error', ()=>process.exit(1));"
+
+CMD ["node", "server.js"]

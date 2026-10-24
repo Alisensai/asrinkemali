@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MkaFortressLogSchema",
+  "description": "ASRIN KEMALİ ECS & OpenTelemetry Uyumlu Yapılandırılmış Güvenlik Günlüğü Şeması",
+  "type": "object",
+  "required": [
+    "@timestamp",
+    "event",
+    "http",
+    "client",
+    "trace"
+  ],
+  "properties": {
+    "@timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 UTC olay zaman damgası"
+    },
+    "event": {
+      "type": "object",
+      "required": ["dataset", "category", "severity"],
+      "properties": {
+        "dataset": {
+          "type": "string",
+          "enum": ["asrin-kemali.access", "asrin-kemali.security", "asrin-kemali.audit", "asrin-kemali.fim"]
+        },
+        "category": {
+          "type": "string",
+          "enum": ["web", "threat", "audit", "system"]
+        },
+        "severity": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4,
+          "description": "1: Bilgi (Info), 2: Düşük/Orta (SEV-4/SEV-3), 3: Yüksek (SEV-2), 4: Kritik (SEV-1)"
+        },
+        "action": {
+          "type": "string",
+          "enum": ["allow", "challenge", "block", "skip", "redact", "alert"]
+        }
+      }
+    },
+    "trace": {
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "İstek bazlı benzersiz correlation / request ID"
+        }
+      }
+    },
+    "client": {
+      "type": "object",
+      "required": ["ip_hash"],
+      "properties": {
+        "ip_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$",
+          "description": "KVKK/GDPR uyumlu, tuzlu SHA-256 ile anonimleştirilmiş istemci IP özeti"
+        },
+        "geo_country": {
+          "type": "string",
+          "description": "İstemci ülke kodu (Örn: TR)"
+        },
+        "user_agent": {
+          "type": "string"
+        }
+      }
+    },
+    "http": {
+      "type": "object",
+      "required": ["request", "response"],
+      "properties": {
+        "request": {
+          "type": "object",
+          "required": ["method", "path"],
+          "properties": {
+            "method": {
+              "type": "string",
+              "enum": ["GET", "HEAD", "POST", "OPTIONS"]
+            },
+            "path": {
+              "type": "string"
+            },
+            "query_length": {
+              "type": "integer"
+            }
+          }
+        },
+        "response": {
+          "type": "object",
+          "required": ["status_code"],
+          "properties": {
+            "status_code": {
+              "type": "integer"
+            },
+            "bytes": {
+              "type": "integer"
+            },
+            "duration_ms": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "threat": {
+      "type": "object",
+      "properties": {
+        "indicator": {
+          "type": "string"
+        },
+        "rule_id": {
+          "type": "string"
+        },
+        "classification": {
+          "type": "string",
+          "enum": ["scanner", "bruteforce", "ddos_spike", "fim_tamper", "none"]
+        }
+      }
+    }
+  }
+}
