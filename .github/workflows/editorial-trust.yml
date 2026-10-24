@@ -1,0 +1,40 @@
+name: Editorial trust
+
+# Görev 04 güven çekirdeği testleri. Çevrimdışı, salt-okunur; gizli değişken istemez.
+# release-quality.yml kapısına dokunmaz: insan onayı eksikliği orada kırmızı kalmaya devam eder.
+# gate-check burada çalıştırılmaz; onun 1 çıkışı (release_ready=false) beklenen editoryal engeldir.
+on:
+  pull_request:
+    paths:
+      - "tools/editorial-trust/**"
+      - "web/lib/editorial-trust/**"
+      - "web/lib/publishing-integrations/**"
+      - "web/tests/editorial-trust.test.mjs"
+      - "docs/editorial/forms/**"
+      - "data/archive/catalog/**"
+      - "content/archive/records/**"
+      - ".github/workflows/editorial-trust.yml"
+  push:
+    paths:
+      - "tools/editorial-trust/**"
+      - "web/lib/editorial-trust/**"
+      - ".github/workflows/editorial-trust.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  trust-core:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24
+      - name: Editorial trust tests (offline, real catalog)
+        run: node --test tools/editorial-trust/tests/*.test.mjs
+      - name: Editorial trust web contract tests
+        run: node --test web/tests/editorial-trust.test.mjs
