@@ -9,7 +9,7 @@
 
 import fs from "node:fs/promises";
 import path from "node:path";
-import { CANDIDATE_STATES, INSTITUTION_TYPES, DOCUMENT_TYPES, assertNoCatalogWrite } from "./types.mjs";
+import { CANDIDATE_STATES, CANDIDATE_TRANSITIONS, TRANSITIONS_REQUIRING_REASON, INSTITUTION_TYPES, DOCUMENT_TYPES, SOURCE_NATURES, assertNoCatalogWrite } from "./types.mjs";
 import { validateExternalUrl } from "./url-security.mjs";
 import { normalizeUrl } from "./dedupe.mjs";
 
@@ -50,6 +50,40 @@ export function validateCandidate(candidate) {
   if (typeof candidate.accessedAt !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(candidate.accessedAt)) {
     issues.push({ code: "BAD_ACCESSED_AT", path: "$.accessedAt", message: "Erişim tarihi YYYY-MM-DD olmalı." });
   }
+  // Görev 07 ek doğrulamaları: varsayılan atanmaz, alana özgü sorun üretilir.
+  if (!SOURCE_NATURES.includes(candidate.sourceNature)) {
+    issues.push({ code: "BAD_SOURCE_NATURE", path: "$.sourceNature", message: "Kaynak niteliği primary/secondary/unknown olmalı; birincil varsayılmaz." });
+  }
+  if (typeof candidate.accessedAt === "string" && /^\d{4}-\d{2}-\d{2}$/.test(candidate.accessedAt) && !isCalendarDate(candidate.accessedAt)) {
+    issues.push({ code: "BAD_ACCESSED_AT", path: "$.accessedAt", message: "Erişim tarihi takvimde yok." });
+  }
+  if (candidate.publishedAt !== null && candidate.publishedAt !== undefined && !isPartialDate(candidate.publishedAt)) {
+    issues.push({ code: "BAD_PUBLISHED_AT", path: "$.publishedAt", message: "Yayın tarihi YYYY, YYYY-MM veya geçerli YYYY-MM-DD olmalı." });
+  }
+  for (const field of ["eventYear", "periodStart", "periodEnd"]) {
+    const value = candidate[field];
+    if (value !== null && value !== undefined && !(Number.isInteger(value) && value >= 1000 && value <= 2100)) {
+      issues.push({ code: "BAD_YEAR", path: `$.${field}`, message: `${field} tam sayı yıl veya null olmalı.` });
+    }
+  }
+  if (Number.isInteger(candidate.periodStart) && Number.isInteger(candidate.periodEnd) && candidate.periodStart > candidate.periodEnd) {
+    issues.push({ code: "PERIOD_REVERSED", path: "$.periodStart", message: "Dönem başlangıcı bitişten büyük olamaz." });
+  }
+  if (candidate.rights !== undefined && (candidate.rights === null || typeof candidate.rights !== "object" || Array.isArray(candidate.rights))) {
+    issues.push({ code: "BAD_RIGHTS", path: "$.rights", message: "Hak alanı nesne olmalı." });
+  }
+  if (candidate.verification !== undefined && (candidate.verification === null || typeof candidate.verification !== "object" || Array.isArray(candidate.verification))) {
+    issues.push({ code: "BAD_VERIFICATION", path: "$.verification", message: "Doğrulama alanı nesne olmalı." });
+  }
+  if (candidate.authors !== undefined && (!Array.isArray(candidate.authors) || candidate.authors.some((author) => !author || typeof author.name !== "string" || !author.name.trim()))) {
+    issues.push({ code: "BAD_AUTHORS", path: "$.authors", message: "Yazarlar {name} nesnelerinden oluşan dizi olmalı; boş ad yer tutucu olarak yazılmaz." });
+  }
+  const sourceId = typeof candidate.id === "string" ? candidate.id : null;
+  for (const issue of issues) {
+    // Bu doğrulayıcının bütün bulguları adayı geçersiz yapar; uyarılar ayrı katmanda.
+    issue.severity ??= "error";
+    issue.sourceId ??= sourceId;
+  }
   // Künye bütünlüğü: yazar yoksa bu UYDURULMAZ, eksiklik olarak işaretlenir.
   const citationComplete =
     Boolean(candidate.title && candidate.institution && candidate.url) &&
@@ -65,17 +99,43 @@ export function validateCandidate(candidate) {
  * stateHistory'ye yazılır. "published" gibi bir durum YOKTUR: havuz, yayımlama
  * kararı üretmez.
  */
-export function transitionState(candidate, nextState, note = "") {
+export function transitionState(candidate, nextState, note = "", options = {}) {
   if (!CANDIDATE_STATES.includes(nextState)) {
     throw new Error(`Geçersiz aday durumu: ${nextState}`);
   }
   const previous = candidate.state;
-  // Reddedilen aday yeniden açılabilir (insan kararıyla), ancak otomatik
-  // yükseltme zinciri yoktur: rejected → awaiting_human_review gibi geçişler
-  // yalnızca insan kararıyla yapılır ve not ister.
+  // Görev 07: açık izin matrisi. Reddedilen geçişte aday DEĞİŞTİRİLMEZ.
+  if (previous === nextState) return candidate; // aynı geçiş tekrar edilirse geçmiş çoğaltılmaz
+  if (!(CANDIDATE_TRANSITIONS[previous] ?? []).includes(nextState)) {
+    throw new Error(`İzin verilmeyen aday geçişi: ${previous} → ${nextState}`);
+  }
+  if (TRANSITIONS_REQUIRING_REASON.includes(`${previous}->${nextState}`) && !String(note).trim()) {
+    throw new Error(`Bu geçiş gerekçe ister: ${previous} → ${nextState}`);
+  }
+  const at = options.at ?? new Date().toISOString();
+  if (typeof at !== "string" || !/(Z|[+-]\d{2}:\d{2})$/.test(at) || Number.isNaN(Date.parse(at))) {
+    throw new Error("Geçiş zamanı saat dilimli ISO 8601 olmalı.");
+  }
+  if (!Array.isArray(candidate.stateHistory)) candidate.stateHistory = [];
   candidate.state = nextState;
-  candidate.stateHistory.push({ state: nextState, at: new Date().toISOString(), note: `${previous} → ${nextState}${note ? ` — ${note}` : ""}` });
+  candidate.stateHistory.push({ state: nextState, at, note: `${previous} → ${nextState}${note ? ` — ${note}` : ""}` });
   return candidate;
+}
+
+function isCalendarDate(value) {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
+  if (!match) return false;
+  const [year, month, day] = [Number(match[1]), Number(match[2]), Number(match[3])];
+  const date = new Date(Date.UTC(year, month - 1, day));
+  return date.getUTCFullYear() === year && date.getUTCMonth() === month - 1 && date.getUTCDate() === day;
+}
+
+function isPartialDate(value) {
+  if (typeof value !== "string") return false;
+  if (/^\d{4}$/.test(value)) return true;
+  const month = /^(\d{4})-(\d{2})$/.exec(value);
+  if (month) return Number(month[2]) >= 1 && Number(month[2]) <= 12;
+  return isCalendarDate(value);
 }
 
 /** Havuza yeni aday ekler (kimlik ve URL tekrarı denetimli). */

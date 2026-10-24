@@ -2,8 +2,7 @@
  * Raporlama — JSON, CSV ve Markdown çıktıları.
  */
 
-import fs from "node:fs/promises";
-import path from "node:path";
+import { writeFileAtomic } from "./integration/safe-output.mjs";
 import { assertNoCatalogWrite } from "./types.mjs";
 
 /**
@@ -100,8 +99,10 @@ export function poolToMarkdown(pool, summary) {
 export function poolToCsv(pool) {
   const header = ["id", "title", "institution", "institutionType", "institutionUrl", "url", "authors", "publishedAt", "eventYear", "periodStart", "periodEnd", "documentType", "sourceNature", "researchThemes", "accessedAt", "archiveIdentifier", "citation", "synthetic"];
   const escape = (value) => {
-    const text = String(value ?? "");
-    return /[",\n]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text;
+    let text = String(value ?? "");
+    // Görev 07: hesap tablosu formül enjeksiyonu (=, +, -, @, TAB, CR) nötrlenir.
+    if (/^[=+\-@\t\r]/.test(text)) text = `'${text}`;
+    return /[",\r\n]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text;
   };
   const rows = [header.join(",")];
   for (const candidate of pool) {
@@ -130,8 +131,8 @@ export function poolToCsv(pool) {
 }
 
 /** Raporu dosyaya yazar (korumalı yollar hariç). */
-export async function writeReport(targetPath, content) {
+export async function writeReport(targetPath, content, options = {}) {
   assertNoCatalogWrite(targetPath);
-  await fs.mkdir(path.dirname(targetPath), { recursive: true });
-  await fs.writeFile(targetPath, content, "utf8");
+  // Görev 07: izin listesi + realpath + atomik yazım (katalog dışı keyfî yollar da reddedilir).
+  writeFileAtomic(targetPath, content, options);
 }

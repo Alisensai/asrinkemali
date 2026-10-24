@@ -7,7 +7,7 @@
  */
 
 import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "..");
 
@@ -17,14 +17,10 @@ let loader;
 async function getLoader() {
   if (!loader) {
     loader = await import(
-      pathToFileUrl(path.join(REPO_ROOT, "scripts", "archive", "lib", "load.mjs"))
+      pathToFileURL(path.join(REPO_ROOT, "scripts", "archive", "lib", "load.mjs")).href
     );
   }
   return loader;
-}
-
-function pathToFileUrl(p) {
-  return `file://${p.replaceAll("\\", "/")}`;
 }
 
 /**

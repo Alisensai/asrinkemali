@@ -121,7 +121,8 @@ test("katalog yazma koruması: korumalı yollar reddedilir", async () => {
 
 test("dry-run çıktı yolu yalnızca exports/ altına düşer", async () => {
   const { draftExportPath } = await import("../lib/convert-dryrun.mjs");
-  const target = draftExportPath("/repo", "src-2026-0001");
+  // Görev 07 (QA-098): Windows'ta path.join ters eğik çizgi üretir; karşılaştırma ayırıcıdan bağımsız.
+  const target = draftExportPath("/repo", "src-2026-0001").replaceAll("\\", "/");
   assert.match(target, /data\/research\/candidates\/exports\/src-2026-0001\.json$/);
   // Üretilen yol asla korumalı katalog dizinlerine giremez
   assert.ok(!target.includes("data/archive/catalog"));

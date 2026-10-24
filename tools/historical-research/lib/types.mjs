@@ -30,6 +30,26 @@ export const CANDIDATE_STATES = [
  * @typedef {"new"|"investigating"|"insufficient_info"|"duplicate"|"awaiting_human_review"|"import_ready"|"rejected"} CandidateState
  */
 
+/**
+ * Açık geçiş izin matrisi (Görev 07). Hiçbir geçiş insan onayı üretmez.
+ * `rejected`/`duplicate` adaylar yeniden araştırmaya ancak gerekçeyle döner;
+ * `import_ready`'ye yalnız `awaiting_human_review`'dan gelinir.
+ */
+export const CANDIDATE_TRANSITIONS = Object.freeze({
+  new: Object.freeze(["investigating", "insufficient_info", "duplicate", "rejected"]),
+  investigating: Object.freeze(["insufficient_info", "duplicate", "awaiting_human_review", "rejected"]),
+  insufficient_info: Object.freeze(["investigating", "rejected"]),
+  duplicate: Object.freeze(["investigating"]),
+  awaiting_human_review: Object.freeze(["investigating", "insufficient_info", "import_ready", "rejected"]),
+  import_ready: Object.freeze(["awaiting_human_review", "rejected"]),
+  rejected: Object.freeze(["investigating"]),
+});
+
+/** Gerekçe (not) zorunlu olan geçişler: geri açma ve içe aktarım hazırlığı. */
+export const TRANSITIONS_REQUIRING_REASON = Object.freeze(["rejected->investigating", "duplicate->investigating", "awaiting_human_review->import_ready", "import_ready->awaiting_human_review"]);
+
+export const SOURCE_NATURES = Object.freeze(["primary", "secondary", "unknown"]);
+
 /** Kurum türleri — mevcut arşiv şemasıyla birebir. */
 export const INSTITUTION_TYPES = [
   "official", "institutional", "archive", "library", "academic", "other",
@@ -156,6 +176,7 @@ export const CATALOG_WRITE_GUARDS = [
   "data/archive/catalog",
   "content/archive/records",
   "schemas",
+  ".git",
 ];
 
 export function assertNoCatalogWrite(targetPath) {
@@ -178,10 +199,13 @@ export function assertNoCatalogWrite(targetPath) {
       normalized.includes(`/${guard}/`) ||
       normalized.endsWith(`/${guard}`)
     ) {
-      throw new Error(
-        `Korumalı arşiv yoluna yazma reddedildi: ${targetPath}. ` +
+      // Görev 07: mesaj yerel mutlak yolu içermez (yalnız korunan kök adı).
+      const error = new Error(
+        `Korumalı arşiv yoluna yazma reddedildi (${guard}). ` +
         "Gerçek katalog dosyaları yalnızca insan onayıyla, ayrı bir süreçte değişir."
       );
+      error.code = "PROTECTED_PATH";
+      throw error;
     }
   }
 }

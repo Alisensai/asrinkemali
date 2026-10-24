@@ -8,6 +8,7 @@
  */
 
 import { validateCandidate } from "./candidates.mjs";
+import { INPUT_LIMITS, parseUntrustedJson, sanitizeImportedCandidate } from "./integration/candidate-contract.mjs";
 
 const CANDIDATE_FIELDS = [
   "id", "title", "institution", "institutionType", "institutionUrl", "url",
@@ -26,6 +27,11 @@ export function parseCsv(csvText) {
   if (typeof csvText !== "string" || csvText.trim().length === 0) {
     return { rows: [], issues: ["CSV metni boş."] };
   }
+  if (Buffer.byteLength(csvText, "utf8") > INPUT_LIMITS.maxBytes) {
+    return { rows: [], issues: [`CSV ${INPUT_LIMITS.maxBytes} bayt sınırını aşıyor.`] };
+  }
+  // UTF-8 BOM başlıktaki ilk sütun adını bozmasın ("﻿id" → "id").
+  if (csvText.charCodeAt(0) === 0xfeff) csvText = csvText.slice(1);
   const rows = [];
   let field = "";
   let row = [];
@@ -79,7 +85,8 @@ export function parseCsv(csvText) {
  * @param {string} csvText
  * @returns {{candidates: Array, issues: Array<{row: number, code: string, message: string}>}}
  */
-export function importCandidatesFromCsv(csvText) {
+export function importCandidatesFromCsv(csvText, options = {}) {
+  const now = options.now ?? new Date().toISOString();
   const { rows, issues: parseIssues } = parseCsv(csvText);
   const importIssues = parseIssues.map((message) => ({ row: 0, code: "CSV_PARSE", message }));
   if (rows.length === 0) {
@@ -131,12 +138,13 @@ export function importCandidatesFromCsv(csvText) {
       accessedAt: raw.accessedAt,
       verification: { urlReachable: false, citationComplete: false, rightsKnown: false, duplicateChecked: false, aiReviewed: false, humanReviewed: false, notes: "" },
       state: "new",
-      stateHistory: [{ state: "new", at: new Date().toISOString(), note: "CSV içe aktarması" }],
+      stateHistory: [{ state: "new", at: now, note: "CSV içe aktarması" }],
       relatedArchiveIds: [],
       claims: [],
       archiveIdentifier: raw.archiveIdentifier || null,
       citation: raw.citation || null,
       synthetic: raw.synthetic === "true",
+      importTrust: "unverified",
       notes: null,
     };
     const validation = validateCandidate(candidate);
@@ -164,13 +172,20 @@ function parseYear(value) {
  * @param {string} jsonText
  * @returns {{candidates: Array, issues: Array<{code: string, message: string}>}}
  */
-export function importCandidatesFromJson(jsonText) {
-  let parsed;
-  try {
-    parsed = JSON.parse(jsonText);
-  } catch (error) {
-    return { candidates: [], issues: [{ code: "JSON_PARSE", message: `JSON ayrıştırılamadı: ${error.message}` }] };
+export function importCandidatesFromJson(jsonText, options = {}) {
+  const now = options.now ?? new Date().toISOString();
+  const parsedResult = parseUntrustedJson(jsonText);
+  if (!parsedResult.ok) {
+    const messages = {
+      JSON_PARSE: "JSON ayrıştırılamadı.",
+      PROTOTYPE_KEY: "Girdide yasak anahtar (__proto__/constructor/prototype) var; girdi reddedildi.",
+      INPUT_TOO_LARGE: `Girdi ${INPUT_LIMITS.maxBytes} bayt sınırını aşıyor.`,
+      INPUT_TOO_DEEP: `Girdi ${INPUT_LIMITS.maxDepth} düzeyden derin.`,
+      INPUT_NOT_TEXT: "Girdi metin değil.",
+    };
+    return { candidates: [], issues: [{ code: parsedResult.code, message: messages[parsedResult.code] ?? "Girdi reddedildi." }] };
   }
+  const parsed = parsedResult.value;
   if (parsed === null || typeof parsed !== "object" || Array.isArray(parsed) === false && !Array.isArray(parsed.candidates)) {
     return { candidates: [], issues: [{ code: "NO_CANDIDATES", message: "Dizi veya candidates alanı bulunamadı." }] };
   }
@@ -178,35 +193,26 @@ export function importCandidatesFromJson(jsonText) {
   if (!Array.isArray(list)) {
     return { candidates: [], issues: [{ code: "NO_CANDIDATES", message: "candidates alanı dizi değil." }] };
   }
+  if (list.length > INPUT_LIMITS.maxCandidates) {
+    return { candidates: [], issues: [{ code: "TOO_MANY_CANDIDATES", message: `En fazla ${INPUT_LIMITS.maxCandidates} aday içe aktarılabilir.` }] };
+  }
   const candidates = [];
   const issues = [];
   for (let index = 0; index < list.length; index += 1) {
     const candidate = list[index];
-    if (candidate === null || typeof candidate !== "object") {
+    if (candidate === null || typeof candidate !== "object" || Array.isArray(candidate)) {
       issues.push({ code: "INVALID_CANDIDATE", message: `${index + 1}. aday bir nesne değil.` });
       continue;
     }
-    const validation = validateCandidate(candidate);
+    // Dış içe aktarma onay/güven iddialarını SIFIRLAR: state, verification,
+    // rights, urlStatus ve approvedBy/publicationApproval gibi alanlar korunmaz.
+    const { candidate: sanitized, removedClaims } = sanitizeImportedCandidate(candidate, { now, source: "JSON" });
+    const validation = validateCandidate(sanitized);
     if (!validation.ok) {
       issues.push({ code: "INVALID_CANDIDATE", message: `${index + 1}. aday: ${validation.issues.map((i) => i.message).join(" ")}` });
       continue;
     }
-    // Dış içe aktarma onay bayraklarını SIFIRLAR: gelen `state`,
-    // `humanReviewed` ve `verification` değerleri asla korunmaz.
-    const sanitized = {
-      ...candidate,
-      state: "new",
-      stateHistory: [{ state: "new", at: new Date().toISOString(), note: "JSON içe aktarması; onay bayrakları sıfırlandı" }],
-      verification: {
-        urlReachable: false,
-        citationComplete: false,
-        rightsKnown: false,
-        duplicateChecked: false,
-        aiReviewed: false,
-        humanReviewed: false,
-        notes: "",
-      },
-    };
+    if (removedClaims.length) issues.push({ code: "UNTRUSTED_CLAIMS_REMOVED", message: `${sanitized.id}: ${removedClaims.join(", ")}` });
     candidates.push(sanitized);
   }
   return { candidates, issues };

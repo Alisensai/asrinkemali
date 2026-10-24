@@ -26,7 +26,14 @@ export function registerSourceProvider(provider) {
   if (typeof provider.importFrom !== "function") {
     throw new Error("Sağlayıcı `importFrom` işlevi tanımlamalıdır.");
   }
-  providers.set(provider.id, provider);
+  // Görev 07: aynı kimlikle ikinci kayıt mevcut sağlayıcıyı sessizce EZMEZ.
+  if (providers.has(provider.id)) {
+    throw new Error(`Sağlayıcı kimliği zaten kayıtlı: ${provider.id}. Değiştirmek için önce ayrı bir sürüm kimliği kullanın.`);
+  }
+  if (provider.network === true) {
+    throw new Error("Ağ erişimli sağlayıcı bu sürümde kabul edilmez; ayrı güvenlik değerlendirmesi gerekir.");
+  }
+  providers.set(provider.id, Object.freeze({ ...provider }));
 }
 
 export function listSourceProviders() {

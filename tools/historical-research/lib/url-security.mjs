@@ -28,6 +28,10 @@ const PRIVATE_IPV4_PATTERNS = [
   /^192\.168\./,
   /^100\.(6[4-9]|[7-9]\d|1[01]\d|12[0-7])\./, // CGNAT 100.64/10
   /^198\.1[89]\./,                              // benchmarking
+  // Görev 07: çok noktaya yayın, ayrılmış ve yayın adresleri
+  /^22[4-9]\./, /^23\d\./,                       // 224.0.0.0/4 multicast
+  /^2[4-5]\d\./,                                 // 240.0.0.0/4 ayrılmış + 255.255.255.255
+  /^192\.0\.0\./, /^192\.0\.2\./, /^198\.51\.100\./, /^203\.0\.113\./, // IETF / doküman ağları
 ];
 
 function isPrivateIPv4(host) {
@@ -38,7 +42,15 @@ function isPrivateIPv6(host) {
   const lower = host.toLowerCase().replace(/^\[|\]$/g, "");
   if (lower === "::" || lower === "::1") return true;
   if (lower.startsWith("fc") || lower.startsWith("fd")) return true; // ULA fc00::/7
-  if (lower.startsWith("fe80")) return true; // link-local
+  if (/^fe[89ab]/.test(lower)) return true; // link-local fe80::/10
+  if (lower.startsWith("ff")) return true; // multicast ff00::/8 (Görev 07)
+  if (lower.startsWith("2001:db8") || lower.startsWith("2001:0db8")) return true; // doküman
+  if (lower.startsWith("64:ff9b:")) {
+    // NAT64: gömülü IPv4 özel ağa düşüyorsa reddedilir; biçim belirsizse güvenli taraf.
+    const tail = lower.slice("64:ff9b:".length).replace(/^:+/, "");
+    if (isIP(tail) === 4) return isPrivateIPv4(tail);
+    return true;
+  }
   if (lower.startsWith("::ffff:")) {
     // IPv4-eşlenmiş IPv6: hem noktalı ondalık hem onaltılık gösterim yakalanır
     // (ör. ::ffff:127.0.0.1 VE ::ffff:7f00:1).
@@ -58,7 +70,8 @@ function isPrivateIPv6(host) {
 }
 
 function isMetaHostname(hostname) {
-  const lower = hostname.toLowerCase();
+  // Görev 07: "localhost." gibi sonda noktalı FQDN biçimi de aynı ana makinedir.
+  const lower = hostname.toLowerCase().replace(/\.+$/, "");
   return (
     lower === "localhost" ||
     lower === "metadata.google.internal" ||
@@ -76,6 +89,11 @@ function isMetaHostname(hostname) {
  * @param {string} rawUrl
  * @returns {{ok: boolean, errors: Array<{code: string, message: string}>, url: URL|null}}
  */
+export function isPrivateAddress(address) {
+  const version = isIP(address);
+  return version === 4 ? isPrivateIPv4(address) : version === 6 ? isPrivateIPv6(address) : false;
+}
+
 export function validateExternalUrl(rawUrl) {
   const errors = [];
   if (typeof rawUrl !== "string" || rawUrl.length === 0) {
@@ -83,6 +101,9 @@ export function validateExternalUrl(rawUrl) {
   }
   if (rawUrl.length > MAX_URL_LENGTH) {
     errors.push({ code: "URL_TOO_LONG", message: `URL ${MAX_URL_LENGTH} karakterden uzun.` });
+  }
+  if (/[\u0000-\u001f\u007f-\u009f\u200b-\u200f\u202a-\u202e\u2066-\u2069]/.test(rawUrl)) {
+    errors.push({ code: "URL_CONTROL_CHAR", message: "URL kontrol veya yön karakteri içeriyor." });
   }
   if (/\s/.test(rawUrl)) {
     errors.push({ code: "URL_WHITESPACE", message: "URL boşluk karakteri içeriyor." });
@@ -141,7 +162,7 @@ export function validateExternalUrl(rawUrl) {
  * @param {string} rawUrl
  * @returns {Promise<{ok: boolean, errors: Array<{code: string, message: string}>, resolved?: string[]}>}
  */
-export async function assertPublicDnsResolution(rawUrl) {
+export async function assertPublicDnsResolution(rawUrl, resolver = { resolve4: (host) => dns.resolve4(host), resolve6: (host) => dns.resolve6(host) }) {
   const structural = validateExternalUrl(rawUrl);
   if (!structural.ok || !structural.url) return structural;
   const hostname = structural.url.hostname.replace(/^\[|\]$/g, "");
@@ -150,8 +171,8 @@ export async function assertPublicDnsResolution(rawUrl) {
   try {
     // Hem A hem AAAA kayıtları denetlenir; biri bile özel ağa düşerse reddedilir.
     const [a, aaaa] = await Promise.all([
-      dns.resolve4(hostname).catch(() => []),
-      dns.resolve6(hostname).catch(() => []),
+      Promise.resolve().then(() => resolver.resolve4(hostname)).catch(() => []),
+      Promise.resolve().then(() => resolver.resolve6(hostname)).catch(() => []),
     ]);
     addresses = [...a, ...aaaa];
   } catch {

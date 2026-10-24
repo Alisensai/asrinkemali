@@ -11,7 +11,7 @@
  */
 
 import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { normalizeUrl, titleSimilarity, foldTr } from "./dedupe.mjs";
 import { validateCandidate } from "./candidates.mjs";
 import { assertNoCatalogWrite } from "./types.mjs";
@@ -110,7 +110,8 @@ export function convertCandidateToDraft(candidate, archiveRecords = [], deps = {
   }
 
   // --- Kayıt üretimi (draft) ---
-  const now = new Date().toISOString().replace(/\.\d{3}Z$/, "Z");
+  // Görev 07: aynı girdi + aynı saat → aynı taslak (deps.now ile belirlenimci).
+  const now = (deps.now ?? new Date().toISOString()).replace(/\.\d{3}Z$/, "Z");
   const slugBase = foldTr(candidate.title)
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "")
@@ -292,13 +293,13 @@ export function draftExportPath(root, candidateId) {
  * @param {{taxonomy: object|null, recordSchema: object|null, taxonomySchema: object|null, root: string}} archiveContext
  * @returns {Promise<DryRunResult & {validationErrors: Array}>}
  */
-export async function convertAndValidate(candidate, archiveRecords, archiveContext) {
-  const base = convertCandidateToDraft(candidate, archiveRecords);
+export async function convertAndValidate(candidate, archiveRecords, archiveContext, deps = {}) {
+  const base = convertCandidateToDraft(candidate, archiveRecords, deps);
   if (base.outcome !== "ok" || !base.record) {
     return { ...base, validationErrors: [] };
   }
   const validateModule = await import(
-    pathToFileUrlSafe(path.join(REPO_ROOT, "scripts", "archive", "lib", "validate.mjs"))
+    pathToFileURL(path.join(archiveContext?.root ?? REPO_ROOT, "scripts", "archive", "lib", "validate.mjs")).href
   );
   const result = await validateModule.validateArchive({
     records: [base.record],
@@ -323,10 +324,6 @@ export async function convertAndValidate(candidate, archiveRecords, archiveConte
     ],
     validationErrors: result.errors,
   };
-}
-
-function pathToFileUrlSafe(p) {
-  return `file://${p.replaceAll("\\", "/")}`;
 }
 
 export { REPO_ROOT };
