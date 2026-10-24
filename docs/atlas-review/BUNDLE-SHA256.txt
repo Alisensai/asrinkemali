@@ -1,0 +1,41 @@
+================================================================================
+ASRIN KEMALİ — ATLAS PAKET VE DOSYA KRİPTOGRAFİK SHA-256 DOĞRULAMA ÇİZELGESİ
+Tarih: 24 Ekim 2026 | Ajan: ANTIGRAVITY | Görev: MKA-ANTIGRAVITY-21
+================================================================================
+
+--- 1. ANA ARŞİV VE YAMA PAKETLERİ ---
+asrinkemali-v07-history-atlas-paket gemini.zip: fcf6d6e7ce62d0798eee332ce84e211cd164458313b6282d314a93484ffbcef7 (83202 B)
+MKA_ATLAS_V07_KAYNAK_KOD.zip:                 b31b6d8162ce7dd12e85cd622ebf9921ccff3f5f0b485df2045f4e1b19dca454 (34104 B)
+MKA_ATLAS_V07_GITHUB.patch:                   552796ad2d49333dc329d4de6198a1ee19067467113aad4bccf38a8613026053 (82130 B)
+
+--- 2. YENİ MKA ATLAS 2.0 (MKA_ATLAS_V07) DOSYA ENVANTERİ ---
+34f1418074773cd2e9c55c6433763f646725f1f33efcb043e149a72c22abf085  MKA_ATLAS_V07/docs/atlas/V07-ARCHITECTURE.md (3306 B)
+7010b1c494a469b1f8160f58d42955bc1f5e923ae4fb45e9087462c2dac168fa  MKA_ATLAS_V07/docs/atlas/V07-PR-DRAFT.md (1827 B)
+d10771f67935db6e62da3ee71d3a699e0e0361a846e53a21f11ce16b30733052  MKA_ATLAS_V07/docs/atlas/V07-STATUS.md (5415 B)
+0b660f26819abcfd1895f242ec994d6c87300f535440d130bf72414fac6e6dfb  MKA_ATLAS_V07/INSTALL.md (2509 B)
+655e85aad3ed353a24c2c448a1d2e924b7a8f949a2535a05d6e08c32f0bdbef9  MKA_ATLAS_V07/README.md (1719 B)
+e64d5b9142f8b3f5a0eae01ce0f7392e010926dd630bef6d47816bdd73cd73bb  MKA_ATLAS_V07/SHA256SUMS.txt (1297 B)
+cc912336d380f674492e410a68ad1738737248b3ff3d92886d372705bfdea22f  MKA_ATLAS_V07/web/app/atlas/page.tsx (934 B)
+0b548e363be3384324560febb70105b1149ade246d81b835696ba2d89eb967da  MKA_ATLAS_V07/web/components/atlas/atlas.module.css (13221 B)
+3a7205f557e44ea091b1e0f32e461237f058658b47b7d310c1d440129fed1918  MKA_ATLAS_V07/web/components/atlas/AtlasExplorer.tsx (19409 B)
+53949265d10366223e23e84c3c4a4b1e58b6f28b1bbbb5d1e174e7a4e420d442  MKA_ATLAS_V07/web/components/atlas/AtlasMap.tsx (2843 B)
+8b1acb8306c604f87710b6d552944499292fbc7487b2a13a4dbc1ec0f7d04670  MKA_ATLAS_V07/web/components/atlas/AtlasTimeline.tsx (2224 B)
+4b1075cb56cb108993190f07110adac47f95d553170e0cbec8473e54379105bc  MKA_ATLAS_V07/web/e2e/atlas.spec.ts (4733 B)
+ddeeca0c7d486dff9e43323a726c5ba045d3fd3c8d75f85b6f501abc27ff2089  MKA_ATLAS_V07/web/lib/atlas/adapters.ts (2442 B)
+0bc9933e23a0629712b9343172bafcadf8a6596b5eeefac32efa8cfa4ebb31c6  MKA_ATLAS_V07/web/lib/atlas/model.ts (13174 B)
+174c6b46cb8ae0bc13e6c2300bf3a93635127fdaf81e9f24459fb7d3d1afce73  MKA_ATLAS_V07/web/tests/atlas.test.mjs (9713 B)
+
+--- 3. ESKİ GEMİNİ ATLAS DOSYA ENVANTERİ (RET EDİLDİ) ---
+27e93d88347abdc3d04ece30124dfec4fcd84e21a35ca3671efc3394bd619da3  INTEGRATION_GUIDE.md (158000 B)
+28d4ce610a1ee0fff9ab8c38aa57984255cf458f3df5c24ac0934e1a3704d2e8  web/app/atlas/page.tsx (2167 B)
+66042501d07e73d10e2ef004e0aa44ce844751a799ecae767c537b7665880287  web/components/atlas/AtlasExplorer.tsx (41359 B)
+8dcfeeddb5869763b969b63a32d4d4006ff99c0686714168811b45e2655968b5  web/components/atlas/index.ts (66 B)
+fe39e103aa48c9338f8301d8ea15562f174496d74f6053f45575d7cddbcb7203  web/components/atlas/TurkiyeSvgMap.tsx (12666 B)
+3188b7e2f6aa8685bb6748bc947f4170351055e711789014a65d8f23770e4380  web/e2e/atlas.spec.ts (5444 B)
+944820154be85a79e3f7d7d3d371b4faedb247c210b1de9788e82352fb6a5e5f  web/lib/atlas/adapter.ts (24680 B)
+28538e3c9205a56192f938bbb3621418c5a0fdd4c4ecb727d878586163ef84d4  web/lib/atlas/engine.ts (14068 B)
+39a4d74d13b374b73149e55a5a57e3bad105b8f25d5cf1e7db6814b46dc31289  web/lib/atlas/fallback-data.ts (23179 B)
+77f6dccdf39a21b21b34ddcb6c5b049ecdf7de683c1bdd2354926ecb6d42fec2  web/lib/atlas/index.ts (137 B)
+9aabe9654a9c85b189abf7a4f9ee49d98820a913b317b101c5c9ffa139fffdd9  web/lib/atlas/loader.ts (2295 B)
+31322bea19a4bedabd25bfeb3f69be4dc0549cc1714871f3f1938d3dff8e57d6  web/lib/atlas/types.ts (7070 B)
+5cc9950578f05be3ac243d7a6fa458f571f3166f417d2edf3ad96eb8c36ab283  web/tests/atlas.test.mjs (17448 B)
