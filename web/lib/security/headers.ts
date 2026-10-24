@@ -41,8 +41,12 @@ export function securityHeaders({ mode, development, hsts }: SecurityHeaderOptio
     { key: "Cross-Origin-Resource-Policy", value: "same-origin" },
     { key: "X-DNS-Prefetch-Control", value: "off" },
   ];
-  if (mode === "enforce") headers.push({ key: "Content-Security-Policy", value: contentSecurityPolicy(development) });
-  if (mode === "report-only") headers.push({ key: "Content-Security-Policy-Report-Only", value: contentSecurityPolicy(development) });
+  const policy = contentSecurityPolicy(development);
+  // Production'da CSP zorunludur. Report-only, korumayı kaldıran bir mod değil,
+  // zorunlu politikanın yanında ek gözlem başlığıdır. Rapor toplama uç noktası
+  // yapılandırılmadığından report-uri/report-to eklenmez.
+  if (!development || mode === "enforce") headers.push({ key: "Content-Security-Policy", value: policy });
+  if (mode === "report-only") headers.push({ key: "Content-Security-Policy-Report-Only", value: policy });
   // HSTS yalnız HTTPS ile sunulan gerçek önizleme/canlı alan adında açılmalıdır; yerel http geliştirmeyi bozmaz.
   if (hsts && !development) headers.push({ key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains" });
   return headers;
@@ -54,7 +58,7 @@ export function securityHeaders({ mode, development, hsts }: SecurityHeaderOptio
  * CSP'yi tamamen kapatmak yalnız yerel geliştirme için desteklenir. Production'da
  * yanlışlıkla `ASRIN_CSP_MODE=off` verilmesi, bütün XSS savunma katmanını kaldırır;
  * bu nedenle üretim varsayılanına (enforce) kapalı-başarısız düşer. Report-only,
- * kontrollü politika gözlemi için açıkça istenirse korunur.
+ * zorunlu politikanın yanında ek gözlem başlığı olarak korunur.
  */
 export function headerOptionsFromEnv(env: Record<string, string | undefined>): SecurityHeaderOptions {
   const requested = env.ASRIN_CSP_MODE;

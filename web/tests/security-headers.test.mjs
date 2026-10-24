@@ -17,14 +17,28 @@ test("geliştirme CSP'si yalnız HMR için eval ve websocket'e izin verir", () =
   assert.match(contentSecurityPolicy(true), /connect-src 'self' ws: wss:/);
 });
 
-test("CSP modu: production'da fail-closed, geliştirmede açıkça kapatılabilir", () => {
-  const enforce = securityHeaders(headerOptionsFromEnv({ NODE_ENV: "production" }));
-  assert.ok(get(enforce, "Content-Security-Policy")); assert.equal(get(enforce, "Content-Security-Policy-Report-Only"), undefined);
-  const reportOnly = securityHeaders(headerOptionsFromEnv({ NODE_ENV: "production", ASRIN_CSP_MODE: "report-only" }));
-  assert.ok(get(reportOnly, "Content-Security-Policy-Report-Only")); assert.equal(get(reportOnly, "Content-Security-Policy"), undefined);
+test("CSP modu: production'da zorunlu, report-only ek gözlem, geliştirmede açıkça kapatılabilir", () => {
+  const productionDefault = securityHeaders(headerOptionsFromEnv({ NODE_ENV: "production" }));
+  assert.ok(get(productionDefault, "Content-Security-Policy"));
+  assert.equal(get(productionDefault, "Content-Security-Policy-Report-Only"), undefined);
+
   const productionOff = securityHeaders(headerOptionsFromEnv({ NODE_ENV: "production", ASRIN_CSP_MODE: "off" }));
   assert.ok(get(productionOff, "Content-Security-Policy"), "production CSP kapatılmamalı");
-  assert.equal(get(securityHeaders(headerOptionsFromEnv({ NODE_ENV: "development", ASRIN_CSP_MODE: "off" })), "Content-Security-Policy"), undefined);
+  assert.equal(get(productionOff, "Content-Security-Policy-Report-Only"), undefined);
+
+  const productionReportOnly = securityHeaders(headerOptionsFromEnv({ NODE_ENV: "production", ASRIN_CSP_MODE: "report-only" }));
+  assert.ok(get(productionReportOnly, "Content-Security-Policy"), "report-only zorunlu CSP'nin yerine geçmemeli");
+  assert.ok(get(productionReportOnly, "Content-Security-Policy-Report-Only"));
+
+  const developmentDefault = securityHeaders(headerOptionsFromEnv({ NODE_ENV: "development" }));
+  assert.ok(get(developmentDefault, "Content-Security-Policy"));
+  const developmentOff = securityHeaders(headerOptionsFromEnv({ NODE_ENV: "development", ASRIN_CSP_MODE: "off" }));
+  assert.equal(get(developmentOff, "Content-Security-Policy"), undefined);
+  assert.equal(get(developmentOff, "Content-Security-Policy-Report-Only"), undefined);
+
+  const developmentReportOnly = securityHeaders(headerOptionsFromEnv({ NODE_ENV: "development", ASRIN_CSP_MODE: "report-only" }));
+  assert.equal(get(developmentReportOnly, "Content-Security-Policy"), undefined);
+  assert.ok(get(developmentReportOnly, "Content-Security-Policy-Report-Only"));
   assert.ok(get(securityHeaders(headerOptionsFromEnv({ ASRIN_CSP_MODE: "kapat-lütfen" })), "Content-Security-Policy"));
 });
 
