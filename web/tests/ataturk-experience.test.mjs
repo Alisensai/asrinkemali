@@ -158,3 +158,73 @@ test("1938 sonrası ve tarihsiz kayıtlar rayda tek kısayol olarak gösterilir"
   const result = buildAtaturkExperience([make("olay", { date: day("1920-04-23") }), make("anit", { type: "place", date: day("1953-11-10") }), make("yayin", { type: "publication", date: day("2025") }), make("belirsiz", { date: { start: null, end: null, precision: "unknown", certainty: "unknown", display: "Tarih bilinmiyor" } })]);
   assert.deepEqual(result.rail.map((item) => item.kind === "period" ? `p:${item.periodId}:${item.count}` : item.kind), ["year", "p:miras:2", "p:tarihsiz:1"]);
 });
+
+// --- TASK 19 RESMİ KAPSAM VE SÖZLEŞME TESTLERİ ---
+
+test("[19.001] published olmayan kayıtların deneyime girmesi engellenir", () => {
+  const syntheticDraft = make("taslak-olay", { verification: { status: "draft" } });
+  const syntheticReviewed = make("inceleme-olay", { verification: { status: "reviewed" } });
+  const res = buildAtaturkExperience([syntheticDraft, syntheticReviewed]);
+  assert.equal(res.records.length, 0, "Draft ve reviewed kayıtlar deneyime girmemeli");
+});
+
+test("[19.002] published kaydın insan uzman onayı rozetine dönüştürülmemesi", () => {
+  for (const record of experience.records) {
+    assert.doesNotMatch(record.reviewLabel, /tarihçi onayı|resmî uzman onaylı/i);
+    assert.ok(record.reviewLabel.includes("uzman onayı bekliyor") || record.reviewLabel.includes("incelemesinde"));
+  }
+});
+
+test("[19.003] 1881-1918 döneminde yanlış yerleştirme reddi", () => {
+  const decree = make("ogrenim-belgesi", { type: "document", categories: ["egitim"], date: day("1896") });
+  const res = buildAtaturkExperience([decree]);
+  const earlyPeriod = res.periods.find((p) => p.id === "erken-yillar");
+  assert.ok(earlyPeriod);
+  assert.ok(earlyPeriod.recordSlugs.includes("ogrenim-belgesi"));
+});
+
+test("[19.004] tarihsiz kaydın yıl uydurulmaması", () => {
+  const undated = make("tarihsiz-eser", { date: { start: null, end: null, precision: "unknown", certainty: "unknown", display: "Tarih bilinmiyor" } });
+  const res = buildAtaturkExperience([undated]);
+  assert.equal(res.records[0].year, null);
+  assert.equal(res.records[0].periodId, "tarihsiz");
+});
+
+test("[19.005] estimated date uyarısı dürüstçe gösterilir", () => {
+  const note = dateNote({ start: "1933", end: null, precision: "year", certainty: "estimated", display: "1933" });
+  assert.ok(note && note.includes("tahminidir"));
+});
+
+test("[19.006] mekan inşa yılı ile ziyaret yılı ayrımı korunur", () => {
+  const place = make("ankara-palas", { type: "place", categories: ["mekan"], date: day("1928") });
+  const [rec] = buildAtaturkExperience([place]).records;
+  assert.ok(rec.dateNote.startsWith(PLACE_DATE_NOTE));
+});
+
+test("[19.007] çocukluk ve öğrenim teması okul mekanlarını öğrenim kanıtı saymaz", () => {
+  const school = make("okul-binasi", { type: "place", categories: ["mekan", "egitim"], date: day("1883") });
+  const res = buildAtaturkExperience([school]);
+  const theme = res.themes.find((t) => t.id === "cocukluk-ogrenim");
+  assert.equal(theme.count, 0);
+  assert.equal(theme.coverage, "none");
+});
+
+test("[19.008] alıntının kurumsal kaynak doğrulaması ve insan onayı", () => {
+  if (experience.quote) {
+    assert.ok(experience.quote.sourceUrl.startsWith("https://"));
+    assert.doesNotMatch(experience.quote.verifiedBy, /yapay zek/i);
+  }
+});
+
+test("[19.009] ataturk/page.tsx ve bileşenleri client içine node:fs veya sunucu sırrı taşımaz", () => {
+  const pageSrc = readFileSync(path.join(webRoot, "app", "ataturk", "page.tsx"), "utf8");
+  assert.doesNotMatch(pageSrc, /node:fs|fs\/promises/);
+});
+
+test("[19.010] TypeBadge tüm kayıt türlerini semantik ikonlarla eşler", () => {
+  const badgeSrc = readFileSync(path.join(webRoot, "components", "ataturk-experience", "TypeBadge.tsx"), "utf8");
+  assert.match(badgeSrc, /speech:\s*"speech"/);
+  assert.match(badgeSrc, /document:\s*"document"/);
+  assert.match(badgeSrc, /photograph:\s*"image"/);
+});
+
