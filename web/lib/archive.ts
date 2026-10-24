@@ -3,6 +3,7 @@ import "server-only";
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import type { ArchiveRecord, ArchiveRecordType, VerificationStatus } from "../../schemas/archive-record.types";
+import { isSearchV2Enabled, searchPublishedRecords } from "./search-v2";
 
 const TYPE_LABELS: Record<ArchiveRecordType, string> = { photograph: "Fotoğraf", document: "Belge", speech: "Konuşma", event: "Olay", publication: "Yayın", place: "Mekân" };
 const TYPE_ALIASES: Record<string, ArchiveRecordType> = { fotograf: "photograph", belge: "document", konusma: "speech", olay: "event", yayin: "publication", kitap: "publication", mekan: "place" };
@@ -15,8 +16,16 @@ function readDirectory(directory: string) { if (!existsSync(directory)) return [
 let cachedRecords: readonly ArchiveRecord[] | undefined;
 
 export function getAllArchiveRecords(): readonly ArchiveRecord[] { if (!cachedRecords) { const root = repositoryRoot(); cachedRecords = Object.freeze([...readDirectory(path.join(root, "content", "archive", "records")), ...readDirectory(path.join(root, "data", "archive", "catalog"))]); } return cachedRecords; }
-export function getPublishedArchiveRecords() { return getAllArchiveRecords().filter((record) => record.verification.status === "published"); }
-export function getPublishedArchiveRecord(slug: string) { if (!/^[a-z0-9-]{1,120}$/.test(slug)) return undefined; return getPublishedArchiveRecords().find((record) => record.slug === slug); }
+// Yayın kapısı ve dizinler bir kez kurulur; her istek/sayfa 168 kaydı yeniden süzmez (O(1) slug/kimlik araması).
+let publishedIndex: { list: readonly ArchiveRecord[]; bySlug: ReadonlyMap<string, ArchiveRecord>; byId: ReadonlyMap<string, ArchiveRecord> } | undefined;
+function published() {
+  if (!publishedIndex) { const list = Object.freeze(getAllArchiveRecords().filter((record) => record.verification.status === "published")); publishedIndex = { list, bySlug: new Map(list.map((record) => [record.slug, record])), byId: new Map(list.map((record) => [record.id, record])) }; }
+  return publishedIndex;
+}
+export function getPublishedArchiveRecords(): readonly ArchiveRecord[] { return published().list; }
+export function getPublishedArchiveRecord(slug: string) { if (!/^[a-z0-9-]{1,120}$/.test(slug)) return undefined; return published().bySlug.get(slug); }
+/** İlişki alanları (relatedIds, relatedArchiveIds) kimlik taşır; slug ile karıştırılmamalıdır. */
+export function getPublishedArchiveRecordById(id: string) { if (!/^[a-z0-9-]{1,120}$/.test(id)) return undefined; return published().byId.get(id); }
 export function typeLabel(type: ArchiveRecordType) { return TYPE_LABELS[type]; }
 export function reviewLabel(status: VerificationStatus) { if (status === "published") return "Kaynak denetimli · uzman onayı bekliyor"; if (status === "reviewed") return "Yapay zekâ incelemesinde"; return "Taslak · yayıma kapalı"; }
 export function normalizeTurkish(value: string) { return value.toLocaleLowerCase("tr-TR").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ı/g, "i").replace(/ş/g, "s").replace(/ğ/g, "g").replace(/ü/g, "u").replace(/ö/g, "o").replace(/ç/g, "c"); }
@@ -49,6 +58,13 @@ export function queryArchive(records: readonly ArchiveRecord[], filters: Archive
     return true;
   }).sort((a, b) => (b.date.start ?? "").localeCompare(a.date.start ?? "") || a.title.localeCompare(b.title, "tr"));
   const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize)); const page = Math.min(filters.page, pageCount); return { total: filtered.length, page, pageCount, items: filtered.slice((page - 1) * pageSize, page * pageSize) };
+}
+/**
+ * Public-only server adapter. The flag is environment controlled; a URL parameter
+ * cannot reveal reviewed, draft, evidence or staging records.
+ */
+export function queryPublicArchive(records: readonly ArchiveRecord[], filters: ArchiveFilters, pageSize = 12) {
+  return isSearchV2Enabled(process.env) ? searchPublishedRecords(records, filters, pageSize) : queryArchive(records, filters, pageSize);
 }
 export function archiveQueryString(filters: ArchiveFilters, page: number) { const params = new URLSearchParams(); if (filters.q) params.set("q", filters.q); if (filters.type) params.set("tur", Object.entries(TYPE_ALIASES).find(([, value]) => value === filters.type)?.[0] ?? filters.type); if (filters.category) params.set("kategori", filters.category); if (filters.source) params.set("kaynak", filters.source); if (filters.city) params.set("sehir", filters.city); if (filters.yearFrom) params.set("baslangic", String(filters.yearFrom)); if (filters.yearTo) params.set("bitis", String(filters.yearTo)); if (page > 1) params.set("sayfa", String(page)); return params.toString(); }
 export function archiveStats() {

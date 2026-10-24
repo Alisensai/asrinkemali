@@ -2,19 +2,20 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
-import { formatYearRanges, type ExperiencePeriod, type ExperienceRecord, type RailItem } from "@/lib/ataturk-experience";
+import { formatYearRanges, unpackExperienceRecords, type ExperiencePeriod, type ExperienceRecord, type PackedExperienceRecords, type RailItem } from "@/lib/ataturk-experience";
 import { RecordDetails } from "./RecordDetails";
 import { TypeBadge } from "./TypeBadge";
 import styles from "./ataturk-experience.module.css";
 
-type Props = { periods: ExperiencePeriod[]; records: ExperienceRecord[]; rail: RailItem[] };
+type Props = { periods: ExperiencePeriod[]; packed: PackedExperienceRecords; rail: RailItem[] };
 type Navigable = Exclude<RailItem, { kind: "gap" }>;
 
 function prefersReducedMotion() { return typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches; }
 function railKey(item: Navigable) { return item.kind === "year" ? `y-${item.year}` : `p-${item.periodId}`; }
 function targetId(key: string) { return key.startsWith("y-") ? `yil-${key.slice(2)}` : `donem-baslik-${key.slice(2)}`; }
 
-export function LifeJourney({ periods, records, rail }: Props) {
+export function LifeJourney({ periods, packed, rail }: Props) {
+  const records = useMemo(() => unpackExperienceRecords(packed), [packed]);
   const bySlug = useMemo(() => new Map(records.map((record) => [record.slug, record])), [records]);
   const navigable = useMemo(() => rail.filter((item): item is Navigable => item.kind !== "gap"), [rail]);
   const lifetimePeriods = useMemo(() => new Set(periods.filter((period) => period.inLifetime).map((period) => period.id)), [periods]);

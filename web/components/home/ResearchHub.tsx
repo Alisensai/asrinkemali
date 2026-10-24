@@ -53,7 +53,7 @@ const INSTITUTIONAL_PORTALS: ArchivePortal[] = [
     name: "Millî Kütüphane Dijital Koleksiyonları",
     category: "Süreli Yayın & Kitap",
     domain: "mkutup.gov.tr",
-    url: "https://dijitalkutuphane.mkutup.gov.tr/",
+    url: "https://dijital-kutuphane.mkutup.gov.tr/",
     description: "Cumhuriyet'in ilk dönem gazeteleri, dergiler, risaleler ve açık erişimli nadir matbu eserler.",
     scope: "Tarihî Basın",
   },

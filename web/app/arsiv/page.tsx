@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ContentPage } from "@/components/ContentPage";
 import { Icon, type IconName } from "@/components/Icon";
-import { archiveQueryString, archiveStats, getPublishedArchiveRecords, parseArchiveParams, queryArchive, reviewLabel, typeLabel } from "@/lib/archive";
+import { archiveQueryString, archiveStats, getPublishedArchiveRecords, parseArchiveParams, queryPublicArchive, reviewLabel, typeLabel } from "@/lib/archive";
 import type { ArchiveRecordType } from "../../../schemas/archive-record.types";
 import styles from "../content-platform.module.css";
 
@@ -28,7 +28,7 @@ export async function generateMetadata({ searchParams }: { searchParams: Promise
 
 export default async function ArchivePage({ searchParams }: { searchParams: Promise<SearchParams> }) {
   const { filters, warnings } = parseArchiveParams(await searchParams);
-  const result = queryArchive(getPublishedArchiveRecords(), filters);
+  const result = queryPublicArchive(getPublishedArchiveRecords(), filters);
   const stats = archiveStats();
 
   return (
