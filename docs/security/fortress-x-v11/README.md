@@ -5,6 +5,7 @@
 | [CONTROL-MATRIX.md](CONTROL-MATRIX.md) | 99 kontrolün numaralı durumu (22 uygulandı, 21 kısmi, 9 eksik, 6 kapsam dışı, 41 altyapı gerektiriyor) |
 | [BLACKOUT.md](BLACKOUT.md) | PROJECT BLACKOUT mimarisi, düzeyler, onaylar, geri dönüş |
 | [INFRASTRUCTURE-REQUIREMENTS.md](INFRASTRUCTURE-REQUIREMENTS.md) | Repo dışından sağlanması gereken altyapı ve öncelik sırası |
+| [PR72-CSP-REVIEW.md](PR72-CSP-REVIEW.md) | Codex PR #72 CSP düzeltmesinin incelemesi; production `report-only` riski |
 
 ## Katmanlar
 

@@ -114,7 +114,7 @@ Gerekçe (E37–E46): Rol, MFA ve görev ayrılığı politikası kodda ve testl
 | # | Kontrol | Durum | Kanıt / gerekçe |
 |---|---|---|---|
 | 49 | XSS: çıktı kaçışlama | IMPLEMENTED | React kaçışlama; `dangerouslySetInnerHTML` kullanımı 0. FORTRESS e2e "yansıtılan girdiler kaçışlanır". |
-| 50 | Content Security Policy | PARTIAL | Uygulanıyor: `object-src 'none'`, `frame-ancestors 'none'`, `connect-src 'self'`. `script-src 'unsafe-inline'` hâlâ var; nonce tabanlı katı CSP yok. |
+| 50 | Content Security Policy | PARTIAL | Uygulanıyor: `object-src 'none'`, `frame-ancestors 'none'`, `connect-src 'self'`. `script-src 'unsafe-inline'` hâlâ var; nonce tabanlı katı CSP yok. **Risk:** Production'da `ASRIN_CSP_MODE=report-only` zorunlu CSP'yi kaldırıyor ve raporlama uç noktası yok. `off` açığını PR #72 kapatıyor, report-only açık kalıyor (bkz. `PR72-CSP-REVIEW.md`). |
 | 51 | Bağlantı (href) izin listesi | IMPLEMENTED | `safe-url.ts`: TextLink, okuma listeleri, sergi kaynakları (V1.0) |
 | 52 | SQL injection | NOT_APPLICABLE | SQL veritabanı yok; içerik repo içi JSON |
 | 53 | CSRF | NOT_APPLICABLE | Bugün durum değiştiren uç nokta yok. `verifyCsrf()` (köken + çift gönderimli belirteç) hazır; ilk POST ile zorunlu olur. |
