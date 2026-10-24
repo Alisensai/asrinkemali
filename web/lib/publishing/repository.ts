@@ -21,6 +21,6 @@ export function getAllPublications(): readonly PublicationRecord[] {
   return cache;
 }
 
-export function getPublishedPublications() { return getAllPublications().filter(isPubliclyVisible).sort((a, b) => (b.publishedAt ?? "").localeCompare(a.publishedAt ?? "")); }
+export function getPublishedPublications() { return getAllPublications().filter((record) => isPubliclyVisible(record)).sort((a, b) => (b.publishedAt ?? "").localeCompare(a.publishedAt ?? "")); }
 export function getPublishedPublication(slug: string) { if (!/^[a-z0-9-]{3,120}$/.test(slug)) return undefined; return getPublishedPublications().find((record) => record.slug === slug); }
 export function getPublicationCategories() { return [...new Set(getPublishedPublications().map((record) => record.category))].sort((a, b) => a.localeCompare(b, "tr")); }

@@ -1,3 +1,4 @@
+import { isSafeHref } from '../security/safe-url.ts';
 import type { ArchiveRecordRef, ReadingCollection, ReadingItem, ReadingListsState } from './types.ts';
 import {
   MAX_COLLECTION_NAME_LENGTH,
@@ -36,18 +37,14 @@ export function sanitizeText(input: string, maxLen: number): string {
 }
 
 
+/**
+ * V1.0 güvenlik denetimi: yasak listesi (`startsWith('javascript:')`) `java\tscript:` gibi
+ * tarayıcının normalleştirdiği biçimlerle atlatılabiliyordu. Artık FORTRESS izin listesi
+ * kullanılır: yalnız site içi `/yol` veya `http(s)` adres.
+ */
 export function isSafeUrl(url?: string): boolean {
   if (!url) return true;
-  const trimmed = url.trim().toLowerCase();
-  if (
-    trimmed.startsWith('javascript:') ||
-    trimmed.startsWith('data:') ||
-    trimmed.startsWith('file:') ||
-    trimmed.startsWith('vbscript:')
-  ) {
-    return false;
-  }
-  return true;
+  return isSafeHref(url);
 }
 
 export function validateArchiveRef(ref: unknown): { valid: boolean; error?: string; sanitized?: ArchiveRecordRef } {

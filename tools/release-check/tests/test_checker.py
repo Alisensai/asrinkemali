@@ -223,10 +223,18 @@ class ReleaseCheckTests(unittest.TestCase):
         self.assertNotIn("button-without-action", {item["code"] for item in self.report["findings"]})
 
     def test_next_button_with_href_is_allowed(self):
-        self.write("app/page.tsx", '<button href="/about">Link Button</button>')
+        # Tasarım sistemi <Button href> bileşeni Link render eder; geçerli eylemdir.
+        self.write("app/page.tsx", '<Button href="/about">Link Button</Button>')
         self.write("app/about/page.tsx", '<main>About</main>')
         checker.check_next_sources(self.root, self.report)
         self.assertNotIn("button-without-action", {item["code"] for item in self.report["findings"]})
+
+    def test_native_button_with_href_is_still_reported(self):
+        # V1.0 denetimi: yerel <button href> tarayıcıda hiçbir şey yapmaz; kapı bunu kaçırmamalı.
+        self.write("app/page.tsx", '<button href="/about">Ölü düğme</button>')
+        self.write("app/about/page.tsx", '<main>About</main>')
+        checker.check_next_sources(self.root, self.report)
+        self.assertIn("button-without-action", {item["code"] for item in self.report["findings"]})
 
     def test_next_http_link_is_insecure(self):
         self.write("app/page.tsx", '<a href="http://example.invalid">External</a>')
