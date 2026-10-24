@@ -359,6 +359,9 @@ def check_next_sources(root: Path, report: dict, external: bool = False, timeout
     app_root = root / "app"
     pages_root = root / "pages"
     route_files: dict[str, Path] = {}
+    # App Router API/route handler'ları (route.ts) gezilebilir sayfa değildir ama geçerli bağlantı
+    # hedefidir; href/anchor taramasına katılmaz, yalnız hedef eşleşmesinde kullanılır.
+    handler_routes: dict[str, Path] = {}
     for base in (app_root, pages_root):
         if not base.is_dir():
             continue
@@ -366,6 +369,10 @@ def check_next_sources(root: Path, report: dict, external: bool = False, timeout
             relative = path.relative_to(base).with_suffix("")
             parts = list(relative.parts)
             if base == app_root:
+                if parts[-1] == "route":
+                    handler_parts = [part for part in parts[:-1] if not (part.startswith("(") and part.endswith(")"))]
+                    handler_routes[("/" + "/".join(handler_parts)).rstrip("/") or "/"] = path
+                    continue
                 if parts[-1] != "page":
                     continue
                 parts.pop()
@@ -417,6 +424,8 @@ def check_next_sources(root: Path, report: dict, external: bool = False, timeout
                     raw_destination = posixpath.normpath(posixpath.join(route, raw_destination))
                 destination = raw_destination.rstrip("/") or "/"
                 matching_routes = [known for known in route_files if matches_route(known, destination)]
+                if not matching_routes and any(matches_route(known, destination) for known in handler_routes):
+                    continue
                 if not matching_routes:
                     issue(report, "next", "error", "broken-route", f"Next.js yerel rotası bulunamadı: {href}",
                           str(path.relative_to(root)))
@@ -463,6 +472,8 @@ def check_next_sources(root: Path, report: dict, external: bool = False, timeout
             route = posixpath.normpath(posixpath.join(containing_route, route))
         normalized = route.rstrip("/") or "/"
         matches = [known for known in known_routes if matches_route(known, normalized)]
+        if not matches and any(matches_route(known, normalized) for known in handler_routes):
+            return None
         if not matches:
             issue(report, "next", "error", "broken-route", f"Next.js yerel rotası bulunamadı: {href}",
                   str(source.relative_to(root)))

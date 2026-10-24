@@ -83,8 +83,15 @@ test("Task 08 Workbench: staging verileri 10 iddia ve 32 denetimi eksiksiz içer
 
 test("Task 08 Workbench: CSV dışa aktarımı formül enjeksiyonuna karşı korumalıdır", () => {
   const exportRouteSrc = readFileSync(path.join(webRoot, "app/api/arastirma-laboratuvari/export/route.ts"), "utf8");
+  // V0.9 güvenlik denetimi: csvCell ortak modüle taşındı (önekli hücre artık tırnaklanıyor).
+  assert.match(exportRouteSrc, /import \{ csvCell \} from "@\/lib\/research-evidence\/csv";/);
+  const csvSrc = readFileSync(path.join(webRoot, "lib/research-evidence/csv.ts"), "utf8");
+  assert.match(csvSrc, /\/\^\[=\+\\-@\\t\\r\\n\]\//, "CSV formül başlatıcıları kontrol edilmelidir");
+  assert.match(csvSrc, /text = `'\$\{text\}`/, "Zararlı hücreler tek tırnak önekiyle kaçışlanmalıdır");
+});
 
-  // csvCell formül koruma regex'i
-  assert.match(exportRouteSrc, /\/\^\[=\+\\-@\\t\\r\]\//, "CSV formül başlatıcıları kontrol edilmelidir");
-  assert.match(exportRouteSrc, /return `'/, "Zararlı hücreler tek tırnakla kaçışlanmalıdır");
+test("V0.9: önekli CSV hücresi tırnaklanır; gömülü virgül satırı bölmez", async () => {
+  const { csvCell } = await import("../lib/research-evidence/csv.ts");
+  const row = ["a", "=SUM(1,2)", "b"].map(csvCell).join(",");
+  assert.equal(row.match(/"(?:[^"]|"")*"/g).length, 3);
 });
