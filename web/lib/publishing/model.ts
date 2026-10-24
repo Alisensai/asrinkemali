@@ -1,7 +1,7 @@
 import type { PublicationRecord, PublicationStatus } from "../../../schemas/publication-record.types";
 
 const ID = /^[a-z0-9][a-z0-9-]{2,119}$/;
-const ISO_DATE = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z$/;
+const ISO_DATE = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})(?:\.(\d{3}))?Z$/;
 const CALENDAR_DATE = /^(\d{4})-(\d{2})-(\d{2})$/;
 const MAX_BODY_BLOCKS = 200;
 const MAX_BODY_CHARACTERS = 180_000;
@@ -16,7 +16,12 @@ const TRANSITIONS: Record<PublicationStatus, readonly PublicationStatus[]> = {
 export interface PublicationValidationResult { ok: boolean; errors: string[] }
 
 function nonEmpty(value: string | undefined) { return Boolean(value?.trim()); }
-function isIso(value: string | null | undefined) { return Boolean(value && ISO_DATE.test(value) && !Number.isNaN(Date.parse(value))); }
+function isIso(value: string | null | undefined) {
+  if (!value) return false;
+  const match = ISO_DATE.exec(value); if (!match) return false;
+  const date = new Date(value);
+  return !Number.isNaN(date.getTime()) && date.getUTCFullYear() === Number(match[1]) && date.getUTCMonth() + 1 === Number(match[2]) && date.getUTCDate() === Number(match[3]) && date.getUTCHours() === Number(match[4]) && date.getUTCMinutes() === Number(match[5]) && date.getUTCSeconds() === Number(match[6]) && date.getUTCMilliseconds() === Number(match[7] ?? 0);
+}
 function isCalendarDate(value: unknown) {
   if (typeof value !== "string") return false;
   const match = CALENDAR_DATE.exec(value); if (!match) return false;

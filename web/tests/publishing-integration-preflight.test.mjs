@@ -33,6 +33,7 @@ test("takvimsel olmayan erişim tarihi ve bozuk otomasyon nesnesi tipli validati
   const { validatePublication } = await import("../lib/publishing/model.ts");
   assert.equal(validatePublication(publication({ bibliography: [{ ...publication().bibliography[0], accessedAt: "2026-02-30" }] })).ok, false);
   assert.equal(validatePublication(publication({ automation: { mode: "deterministic" } })).ok, false);
+  assert.equal(validatePublication(publication({ createdAt: "2026-02-30T10:00:00Z" })).ok, false);
 });
 
 test("revizyon özeti kanonik ve kaynak değişimine duyarlıdır", () => {
