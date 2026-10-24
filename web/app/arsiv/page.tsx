@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ContentPage } from "@/components/ContentPage";
 import { Icon, type IconName } from "@/components/Icon";
+import { EmptyState } from "@/components/design-system";
 import { archiveQueryString, archiveStats, getPublishedArchiveRecords, parseArchiveParams, queryArchive, reviewLabel, typeLabel } from "@/lib/archive";
 import type { ArchiveRecordType } from "../../../schemas/archive-record.types";
 import styles from "../content-platform.module.css";
@@ -124,10 +125,12 @@ export default async function ArchivePage({ searchParams }: { searchParams: Prom
             ))}
           </ul>
         ) : (
-          <div className="empty-state page-empty">
-            <h2>Aramanızla eşleşen yayımlanabilir kayıt bulunmuyor.</h2>
-            <p>Filtreleri genişletin. İnceleme ve taslak kayıtlar yayın kapısı nedeniyle sonuçlara eklenmez.</p>
-          </div>
+          <EmptyState
+            title="Aramanızla eşleşen yayımlanabilir kayıt bulunmuyor."
+            description="Filtreleri genişletin. İnceleme ve taslak kayıtlar yayın kapısı nedeniyle sonuçlara eklenmez."
+            actionLabel="Filtreleri temizle"
+            actionHref="/arsiv"
+          />
         )}
 
         {result.pageCount > 1 ? (
