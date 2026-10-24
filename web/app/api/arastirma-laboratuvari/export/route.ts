@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { researchLabEnabled } from "@/lib/research-evidence/candidates";
+import { csvCell } from "@/lib/research-evidence/csv";
 import { loadWorkbench } from "@/lib/research-evidence/workbench";
 
 export const dynamic = "force-dynamic";
@@ -8,6 +9,9 @@ export const dynamic = "force-dynamic";
 const NO_CACHE_HEADERS = {
   "cache-control": "no-store, no-cache, must-revalidate, max-age=0",
   "pragma": "no-cache",
+  // V0.9 güvenlik denetimi: içerik türü tahmini ve dizinleme kapalı.
+  "x-content-type-options": "nosniff",
+  "x-robots-tag": "noindex, nofollow",
 };
 
 /**
@@ -92,13 +96,3 @@ export async function HEAD() {
   }
   return new NextResponse(null, { status: 200, headers: NO_CACHE_HEADERS });
 }
-
-/** Formül enjeksiyonu koruması: hücre başı = + - @ veya boşlukla başlıyorsa tek tırnak öneki. */
-function csvCell(value: unknown) {
-  const text = String(value ?? "");
-  if (/^[=+\-@\t\r]/.test(text) || /^\s/.test(text)) {
-    return `'${text.replace(/"/g, '""')}`;
-  }
-  return `"${text.replace(/"/g, '""')}"`;
-}
-

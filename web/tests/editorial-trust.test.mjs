@@ -32,8 +32,11 @@ test("inceleme DTO'su iç yol, hash veya aktör kimliği sızdırmaz ve 'güveni
 test("üretim bağlantısı kayıtlı sağlayıcı ve politika olmadan kapalıdır; server-only ile korunur", async () => {
   const source = readFileSync(path.join(webRoot, "lib/editorial-trust/server.ts"), "utf8");
   assert.match(source, /^import "server-only";/m);
-  assert.match(source, /REGISTERED_IDENTITY_PROVIDER: TrustedIdentityProvider \| null = null;/);
-  assert.match(source, /ACTIVE_EDITORIAL_POLICY: EditorialPolicy \| null = null;/);
+  // V0.9: değerler tek kaynakta (configuration.ts); server.ts yeniden dışa aktarır.
+  assert.match(source, /export \{ ACTIVE_EDITORIAL_POLICY, REGISTERED_IDENTITY_PROVIDER \};/);
+  const configuration = readFileSync(path.join(webRoot, "lib/editorial-trust/configuration.ts"), "utf8");
+  assert.match(configuration, /REGISTERED_IDENTITY_PROVIDER: TrustedIdentityProvider \| null = null;/);
+  assert.match(configuration, /ACTIVE_EDITORIAL_POLICY: EditorialPolicy \| null = null;/);
   assert.deepEqual(await createActorResolver({ provider: null, environment: "production" }).resolve({ headers: { "x-role": "chief_editor" } }), { ok: false, error: "not_configured" });
 });
 

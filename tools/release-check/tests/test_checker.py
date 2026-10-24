@@ -136,6 +136,23 @@ class ReleaseCheckTests(unittest.TestCase):
         self.assertNotIn("broken-route", codes)
         self.assertIn("missing-route", codes)
 
+    def test_next_source_link_to_existing_route_handler_passes(self):
+        # V0.9 güvenlik denetimi: app/**/route.ts geçerli bir bağlantı hedefidir (yanlış pozitif düzeltmesi).
+        self.write("app/page.tsx", '<a href="/api/export?format=csv">CSV</a>')
+        self.write("app/api/export/route.ts", "export async function GET() { return new Response('x'); }")
+        self.write("components/ExportSection.tsx", '<a href="/api/export?format=json">JSON</a>')
+        checker.check_next_sources(self.root, self.report)
+        self.assertNotIn("broken-route", {item["code"] for item in self.report["findings"]})
+
+    def test_next_source_link_to_missing_route_handler_is_still_reported(self):
+        self.write("app/page.tsx", '<a href="/api/yok?format=csv">CSV</a>')
+        self.write("app/api/export/route.ts", "export async function GET() { return new Response('x'); }")
+        self.write("components/ExportSection.tsx", '<a href="/api/hic-yok">JSON</a>')
+        checker.check_next_sources(self.root, self.report)
+        broken = {item["message"] for item in self.report["findings"] if item["code"] == "broken-route"}
+        self.assertTrue(any("/api/yok?format=csv" in message for message in broken), broken)
+        self.assertTrue(any("/api/hic-yok" in message for message in broken), broken)
+
     def test_next_source_broken_route_is_reported(self):
         page = self.write("app/page.tsx", '<a href="/missing">Boş rota</a>')
         checker.check_next_sources(self.root, self.report)
