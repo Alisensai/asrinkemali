@@ -1,4 +1,5 @@
 import type { ArchiveRecord } from "../../../schemas/archive-record.types";
+import { sha256CanonicalJson } from "./canonical-hash.ts";
 
 export interface ReviewFormSnapshot {
   title: string;
@@ -62,6 +63,7 @@ export function getReviewFormState(form: ReviewForm, record: ArchiveRecord | und
     typeof form.record_snapshot.rights_status !== "string"
   ) return "invalid";
   if (!record) return "invalid";
+  if (form.record_snapshot_sha256 !== sha256CanonicalJson(record)) return "stale";
 
   const snapshot = form.record_snapshot;
   const changed =

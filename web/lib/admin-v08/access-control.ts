@@ -66,17 +66,29 @@ function isAdminRole(value: string): value is AdminRole {
 export async function resolveAdminSession(provider: SessionProvider | null): Promise<AdminSession | null> {
   if (!provider) return null;
 
-  const principal = await provider.getAuthenticatedPrincipal();
-  if (!principal || !principal.subject.trim() || !principal.displayName.trim() || !isAdminRole(principal.role)) {
+  try {
+    const principal = await provider.getAuthenticatedPrincipal();
+    if (
+      !principal ||
+      typeof principal.subject !== "string" ||
+      !principal.subject.trim() ||
+      typeof principal.displayName !== "string" ||
+      !principal.displayName.trim() ||
+      typeof principal.role !== "string" ||
+      !isAdminRole(principal.role)
+    ) {
+      return null;
+    }
+
+    return Object.freeze({
+      subject: principal.subject,
+      displayName: principal.displayName,
+      role: principal.role,
+      allowedSections: ROLE_SECTIONS[principal.role],
+    });
+  } catch {
     return null;
   }
-
-  return Object.freeze({
-    subject: principal.subject,
-    displayName: principal.displayName,
-    role: principal.role,
-    allowedSections: ROLE_SECTIONS[principal.role],
-  });
 }
 
 export function canAccessSection(session: AdminSession, section: AdminSection): boolean {
@@ -85,6 +97,6 @@ export function canAccessSection(session: AdminSession, section: AdminSection): 
 
 export function canPerformRoleAction(session: AdminSession, action: "review_history" | "approve_publication" | "manage_users"): boolean {
   if (action === "manage_users") return session.role === "system_admin";
-  if (action === "review_history") return session.role === "historian" || session.role === "system_admin";
-  return session.role === "chief_editor" || session.role === "content_editor" || session.role === "system_admin";
+  if (action === "review_history") return session.role === "historian";
+  return session.role === "chief_editor";
 }

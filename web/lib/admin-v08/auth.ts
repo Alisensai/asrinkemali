@@ -1,6 +1,8 @@
 import "server-only";
 
-import type { AdminSession } from "./access-control";
+import { resolveAdminSession, type AdminSession, type SessionProvider } from "./access-control";
+
+export const REGISTERED_ADMIN_SESSION_PROVIDER: SessionProvider | null = null;
 
 export {
   canAccessSection,
@@ -18,6 +20,5 @@ export type {
 } from "./access-control";
 
 export async function getCurrentAdminSession(): Promise<AdminSession | null> {
-  // No trusted identity provider is configured in this repository yet.
-  return null;
+  return resolveAdminSession(REGISTERED_ADMIN_SESSION_PROVIDER);
 }

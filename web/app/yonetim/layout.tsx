@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { AdminAccessClosed } from "@/components/admin-v08/AdminAccessClosed";
+import { notFound } from "next/navigation";
 import { AdminShell } from "@/components/admin-v08/AdminShell";
 import { getCurrentAdminSession } from "@/lib/admin-v08/auth";
 
@@ -13,6 +13,6 @@ export const metadata: Metadata = {
 
 export default async function AdminLayout({ children }: Readonly<{ children: ReactNode }>) {
   const session = await getCurrentAdminSession();
-  if (!session) return <AdminAccessClosed />;
+  if (!session) notFound();
   return <AdminShell session={session}>{children}</AdminShell>;
 }
