@@ -1,0 +1,1805 @@
+{
+  "graph": {
+    "edges": [
+      {
+        "from": 4,
+        "kind": "branch_base",
+        "to": 6
+      },
+      {
+        "from": 4,
+        "kind": "branch_base",
+        "to": 7
+      },
+      {
+        "from": 4,
+        "kind": "branch_base",
+        "to": 8
+      },
+      {
+        "from": 4,
+        "kind": "branch_base",
+        "to": 9
+      },
+      {
+        "from": 4,
+        "kind": "branch_base",
+        "to": 10
+      },
+      {
+        "from": 10,
+        "kind": "branch_base",
+        "to": 11
+      },
+      {
+        "from": 10,
+        "kind": "branch_base",
+        "to": 12
+      },
+      {
+        "from": 10,
+        "kind": "branch_base",
+        "to": 13
+      },
+      {
+        "from": 10,
+        "kind": "branch_base",
+        "to": 14
+      },
+      {
+        "from": 10,
+        "kind": "branch_base",
+        "to": 15
+      },
+      {
+        "from": 10,
+        "kind": "branch_base",
+        "to": 16
+      },
+      {
+        "from": 10,
+        "kind": "branch_base",
+        "to": 17
+      },
+      {
+        "from": 10,
+        "kind": "branch_base",
+        "to": 18
+      },
+      {
+        "from": 10,
+        "kind": "branch_base",
+        "to": 21
+      },
+      {
+        "from": 10,
+        "kind": "branch_base",
+        "to": 22
+      },
+      {
+        "from": 14,
+        "kind": "branch_base",
+        "to": 19
+      },
+      {
+        "from": 14,
+        "kind": "branch_base",
+        "to": 20
+      },
+      {
+        "from": 19,
+        "kind": "branch_base",
+        "to": 24
+      },
+      {
+        "from": 22,
+        "kind": "branch_base",
+        "to": 23
+      },
+      {
+        "from": 22,
+        "kind": "branch_base",
+        "to": 25
+      },
+      {
+        "from": 22,
+        "kind": "branch_base",
+        "to": 26
+      },
+      {
+        "from": 23,
+        "kind": "branch_base",
+        "to": 27
+      },
+      {
+        "from": 25,
+        "kind": "branch_base",
+        "to": 28
+      }
+    ],
+    "externalBases": [
+      "main"
+    ],
+    "nodes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28
+    ]
+  },
+  "lastFetchedAt": "2026-10-24T00:13:56.130Z",
+  "prs": [
+    {
+      "additions": 6581,
+      "ancestryStatus": "ancestor_included",
+      "author": "Alisensai",
+      "baseRef": "main",
+      "baseSha": "42352e6da93ee3eea1cd6d1dca1f1908f438642e",
+      "blockers": [
+        "Kod zaten V0.6 geçmişinde: ikinci kez birleştirme/cherry-pick yapılmamalı"
+      ],
+      "changedFiles": 25,
+      "checks": {
+        "checks": {
+          "smoke": "success",
+          "verify-next-app": "success"
+        },
+        "counts": {
+          "cancelled": 0,
+          "failure": 0,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 2
+        }
+      },
+      "commits": 1,
+      "createdAt": "2026-10-23T00:49:20Z",
+      "deletions": 0,
+      "discoveredDependencies": [],
+      "explicitDependencies": [],
+      "fileCount": 25,
+      "filesTruncated": false,
+      "headRef": "feature/codex-app-foundation",
+      "headSha": "8cbb1dfc43b32f1d65fa8c8bb49cf7f54ce4c26c",
+      "inclusion": {
+        "reason": "PR başı hedefin atası",
+        "status": "ancestor_included"
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "main/V0.3",
+      "mergeable": "true",
+      "mergeableState": "clean",
+      "modules": [],
+      "number": 1,
+      "patchEquivalentStatus": "PR başı hedefin atası",
+      "recommendedAction": "kapat-veya-arşivle önerisi (kullanıcı kararı); yeniden entegre etme",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "feat: add Next.js application foundation",
+      "updatedAt": "2026-10-23T00:49:20Z"
+    },
+    {
+      "additions": 2255,
+      "ancestryStatus": "not_included",
+      "author": "Alisensai",
+      "baseRef": "main",
+      "baseSha": "42352e6da93ee3eea1cd6d1dca1f1908f438642e",
+      "blockers": [],
+      "changedFiles": 20,
+      "checks": {
+        "checks": {
+          "smoke": "success"
+        },
+        "counts": {
+          "cancelled": 0,
+          "failure": 0,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 1
+        }
+      },
+      "commits": 2,
+      "createdAt": "2026-10-23T00:51:09Z",
+      "deletions": 58,
+      "discoveredDependencies": [],
+      "explicitDependencies": [],
+      "fileCount": 20,
+      "filesTruncated": false,
+      "headRef": "feature/antigravity-visual-fidelity",
+      "headSha": "96d06603cf96b3a9b91ac422f96f93219a9a7cfd",
+      "inclusion": {
+        "matched": 0,
+        "reason": "0/1 patch-id hedefte",
+        "status": "not_included",
+        "total": 1
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "main/V0.3",
+      "mergeable": "true",
+      "mergeableState": "clean",
+      "modules": [],
+      "number": 2,
+      "patchEquivalentStatus": "0/1 patch-id hedefte",
+      "recommendedAction": "izole prova + teknik doğrulama",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "feat(ui): Sprint 1 görsel sadakat ve mobil uyumluluk",
+      "updatedAt": "2026-10-23T01:36:36Z"
+    },
+    {
+      "additions": 923,
+      "ancestryStatus": "content_equivalent_likely",
+      "author": "Alisensai",
+      "baseRef": "main",
+      "baseSha": "42352e6da93ee3eea1cd6d1dca1f1908f438642e",
+      "blockers": [],
+      "changedFiles": 5,
+      "checks": {
+        "checks": {
+          "release-check": "success",
+          "smoke": "success"
+        },
+        "counts": {
+          "cancelled": 0,
+          "failure": 0,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 2
+        }
+      },
+      "commits": 1,
+      "createdAt": "2026-10-23T01:34:07Z",
+      "deletions": 0,
+      "discoveredDependencies": [],
+      "explicitDependencies": [],
+      "fileCount": 5,
+      "filesTruncated": false,
+      "headRef": "alisensai-copilot-release-tooling",
+      "headSha": "804c5cbe0999e4df5c16ec475d075a9b2bd0014e",
+      "inclusion": {
+        "matched": 1,
+        "reason": "1/1 patch-id hedefte",
+        "status": "content_equivalent_likely",
+        "total": 1
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "main/V0.3",
+      "mergeable": "true",
+      "mergeableState": "clean",
+      "modules": [],
+      "number": 3,
+      "patchEquivalentStatus": "1/1 patch-id hedefte",
+      "recommendedAction": "izole prova + teknik doğrulama",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "Add independent release quality checker and CI",
+      "updatedAt": "2026-10-23T01:34:07Z"
+    },
+    {
+      "additions": 11205,
+      "ancestryStatus": "ancestor_included",
+      "author": "Alisensai",
+      "baseRef": "main",
+      "baseSha": "42352e6da93ee3eea1cd6d1dca1f1908f438642e",
+      "blockers": [
+        "Kod zaten V0.6 geçmişinde: ikinci kez birleştirme/cherry-pick yapılmamalı"
+      ],
+      "changedFiles": 69,
+      "checks": {
+        "checks": {
+          "smoke": "success",
+          "verify-next-app": "success"
+        },
+        "counts": {
+          "cancelled": 0,
+          "failure": 0,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 2
+        }
+      },
+      "commits": 6,
+      "createdAt": "2026-10-23T01:40:16Z",
+      "deletions": 66,
+      "discoveredDependencies": [],
+      "explicitDependencies": [
+        1,
+        2
+      ],
+      "fileCount": 69,
+      "filesTruncated": false,
+      "headRef": "integration/nextjs-visual-v03",
+      "headSha": "beea72052ea830082c6db8dc5735d9eea782da9c",
+      "inclusion": {
+        "reason": "PR başı hedefin atası",
+        "status": "ancestor_included"
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "V0.3",
+      "mergeable": "true",
+      "mergeableState": "clean",
+      "modules": [],
+      "number": 4,
+      "patchEquivalentStatus": "PR başı hedefin atası",
+      "recommendedAction": "kapat-veya-arşivle önerisi (kullanıcı kararı); yeniden entegre etme",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "feat: Next.js görsel entegrasyonu ve çalışan site",
+      "updatedAt": "2026-10-23T01:42:45Z"
+    },
+    {
+      "additions": 7282,
+      "ancestryStatus": "ancestor_included",
+      "author": "Alisensai",
+      "baseRef": "main",
+      "baseSha": "42352e6da93ee3eea1cd6d1dca1f1908f438642e",
+      "blockers": [
+        "Kod zaten V0.6 geçmişinde: ikinci kez birleştirme/cherry-pick yapılmamalı"
+      ],
+      "changedFiles": 51,
+      "checks": {
+        "checks": {
+          "smoke": "success"
+        },
+        "counts": {
+          "cancelled": 0,
+          "failure": 0,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 1
+        }
+      },
+      "commits": 1,
+      "createdAt": "2026-10-23T02:10:26Z",
+      "deletions": 0,
+      "discoveredDependencies": [],
+      "explicitDependencies": [],
+      "fileCount": 51,
+      "filesTruncated": false,
+      "headRef": "feature/opencode-source-archive",
+      "headSha": "17ede1bfe9a207c8ca047c09f09660b75ebd24e4",
+      "inclusion": {
+        "reason": "PR başı hedefin atası",
+        "status": "ancestor_included"
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "main/V0.3",
+      "mergeable": "true",
+      "mergeableState": "clean",
+      "modules": [],
+      "number": 5,
+      "patchEquivalentStatus": "PR başı hedefin atası",
+      "recommendedAction": "kapat-veya-arşivle önerisi (kullanıcı kararı); yeniden entegre etme",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "Arşiv: kaynaklı veri modeli, doğrulama, Türkçe arama ve denetim dokümanları",
+      "updatedAt": "2026-10-23T02:10:26Z"
+    },
+    {
+      "additions": 2599,
+      "ancestryStatus": "ancestor_included",
+      "author": "Alisensai",
+      "baseRef": "integration/nextjs-visual-v03",
+      "baseSha": "beea72052ea830082c6db8dc5735d9eea782da9c",
+      "blockers": [
+        "Kod zaten V0.6 geçmişinde: ikinci kez birleştirme/cherry-pick yapılmamalı"
+      ],
+      "changedFiles": 10,
+      "checks": {
+        "checks": {
+          "release-quality": "success",
+          "smoke": "success"
+        },
+        "counts": {
+          "cancelled": 0,
+          "failure": 0,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 2
+        }
+      },
+      "commits": 3,
+      "createdAt": "2026-10-23T02:41:34Z",
+      "deletions": 0,
+      "discoveredDependencies": [
+        4
+      ],
+      "explicitDependencies": [
+        3,
+        4
+      ],
+      "fileCount": 10,
+      "filesTruncated": false,
+      "headRef": "feature/copilot-quality-v04",
+      "headSha": "85a45e30412d71ee2a22c1703b392d13e0795a17",
+      "inclusion": {
+        "reason": "PR başı hedefin atası",
+        "status": "ancestor_included"
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "V0.4",
+      "mergeable": "true",
+      "mergeableState": "clean",
+      "modules": [],
+      "number": 6,
+      "patchEquivalentStatus": "PR başı hedefin atası",
+      "recommendedAction": "kapat-veya-arşivle önerisi (kullanıcı kararı); yeniden entegre etme",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "feat: integrate v0.4 release quality gates",
+      "updatedAt": "2026-10-23T02:54:31Z"
+    },
+    {
+      "additions": 291,
+      "ancestryStatus": "ancestor_included",
+      "author": "Alisensai",
+      "baseRef": "integration/nextjs-visual-v03",
+      "baseSha": "beea72052ea830082c6db8dc5735d9eea782da9c",
+      "blockers": [
+        "Kod zaten V0.6 geçmişinde: ikinci kez birleştirme/cherry-pick yapılmamalı"
+      ],
+      "changedFiles": 9,
+      "checks": {
+        "checks": {
+          "smoke": "success",
+          "verify-next-app": "success"
+        },
+        "counts": {
+          "cancelled": 0,
+          "failure": 0,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 2
+        }
+      },
+      "commits": 1,
+      "createdAt": "2026-10-23T02:42:16Z",
+      "deletions": 0,
+      "discoveredDependencies": [
+        4
+      ],
+      "explicitDependencies": [],
+      "fileCount": 9,
+      "filesTruncated": false,
+      "headRef": "feature/kilo-qa-suite",
+      "headSha": "e91db725a8abd9c69a8f7194a4a2fdf4cf0696fb",
+      "inclusion": {
+        "reason": "PR başı hedefin atası",
+        "status": "ancestor_included"
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "V0.3",
+      "mergeable": "true",
+      "mergeableState": "clean",
+      "modules": [],
+      "number": 7,
+      "patchEquivalentStatus": "PR başı hedefin atası",
+      "recommendedAction": "kapat-veya-arşivle önerisi (kullanıcı kararı); yeniden entegre etme",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "Kilo QA: Mobil uyumluluk, erişilebilirlik ve otomatik test paketi (PR #4 hedefli)",
+      "updatedAt": "2026-10-23T02:42:16Z"
+    },
+    {
+      "additions": 209,
+      "ancestryStatus": "ancestor_included",
+      "author": "Alisensai",
+      "baseRef": "integration/nextjs-visual-v03",
+      "baseSha": "beea72052ea830082c6db8dc5735d9eea782da9c",
+      "blockers": [
+        "Kod zaten V0.6 geçmişinde: ikinci kez birleştirme/cherry-pick yapılmamalı"
+      ],
+      "changedFiles": 12,
+      "checks": {
+        "checks": {
+          "smoke": "success",
+          "verify-next-app": "success"
+        },
+        "counts": {
+          "cancelled": 0,
+          "failure": 0,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 2
+        }
+      },
+      "commits": 1,
+      "createdAt": "2026-10-23T02:44:01Z",
+      "deletions": 56,
+      "discoveredDependencies": [
+        4
+      ],
+      "explicitDependencies": [
+        4
+      ],
+      "fileCount": 12,
+      "filesTruncated": false,
+      "headRef": "feature/antigravity-nextjs-fidelity-v04",
+      "headSha": "5181a08bc92c0df25d273956b39ce5920dd14acb",
+      "inclusion": {
+        "reason": "PR başı hedefin atası",
+        "status": "ancestor_included"
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "V0.4",
+      "mergeable": "true",
+      "mergeableState": "clean",
+      "modules": [],
+      "number": 8,
+      "patchEquivalentStatus": "PR başı hedefin atası",
+      "recommendedAction": "kapat-veya-arşivle önerisi (kullanıcı kararı); yeniden entegre etme",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "feat(ui): Next.js V0.4 görsel mükemmelleştirme ve 1:1 piksel sadakati",
+      "updatedAt": "2026-10-23T02:44:01Z"
+    },
+    {
+      "additions": 13275,
+      "ancestryStatus": "ancestor_included",
+      "author": "Alisensai",
+      "baseRef": "integration/nextjs-visual-v03",
+      "baseSha": "beea72052ea830082c6db8dc5735d9eea782da9c",
+      "blockers": [
+        "Kod zaten V0.6 geçmişinde: ikinci kez birleştirme/cherry-pick yapılmamalı"
+      ],
+      "changedFiles": 106,
+      "checks": {
+        "checks": {
+          "smoke": "success",
+          "verify-next-app": "success"
+        },
+        "counts": {
+          "cancelled": 0,
+          "failure": 0,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 2
+        }
+      },
+      "commits": 3,
+      "createdAt": "2026-10-23T02:55:33Z",
+      "deletions": 0,
+      "discoveredDependencies": [
+        4
+      ],
+      "explicitDependencies": [
+        5
+      ],
+      "fileCount": 106,
+      "filesTruncated": false,
+      "headRef": "feature/opencode-verified-catalog",
+      "headSha": "a5a147ebd90c931f6ee78ddc214ddaaa5dd138d3",
+      "inclusion": {
+        "reason": "PR başı hedefin atası",
+        "status": "ancestor_included"
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "V0.3",
+      "mergeable": "true",
+      "mergeableState": "clean",
+      "modules": [],
+      "number": 9,
+      "patchEquivalentStatus": "PR başı hedefin atası",
+      "recommendedAction": "kapat-veya-arşivle önerisi (kullanıcı kararı); yeniden entegre etme",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "Arşiv: 50 doğrulanmış kurumsal kaynak ve Codex entegrasyonu",
+      "updatedAt": "2026-10-23T02:55:33Z"
+    },
+    {
+      "additions": 16608,
+      "ancestryStatus": "ancestor_included",
+      "author": "Alisensai",
+      "baseRef": "integration/nextjs-visual-v03",
+      "baseSha": "beea72052ea830082c6db8dc5735d9eea782da9c",
+      "blockers": [
+        "Kod zaten V0.6 geçmişinde: ikinci kez birleştirme/cherry-pick yapılmamalı"
+      ],
+      "changedFiles": 157,
+      "checks": {
+        "checks": {
+          "release-quality": "success",
+          "smoke": "success",
+          "verify-next-app": "success"
+        },
+        "counts": {
+          "cancelled": 0,
+          "failure": 0,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 3
+        }
+      },
+      "commits": 13,
+      "createdAt": "2026-10-23T13:23:01Z",
+      "deletions": 72,
+      "discoveredDependencies": [
+        4
+      ],
+      "explicitDependencies": [
+        4,
+        6,
+        7,
+        8,
+        9
+      ],
+      "fileCount": 157,
+      "filesTruncated": false,
+      "headRef": "integration/asrinkemali-v05-release-candidate",
+      "headSha": "f9e2d63dcca48162cb1469a6c0a744b5a92b6b06",
+      "inclusion": {
+        "reason": "PR başı hedefin atası",
+        "status": "ancestor_included"
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "V0.5",
+      "mergeable": "true",
+      "mergeableState": "clean",
+      "modules": [],
+      "number": 10,
+      "patchEquivalentStatus": "PR başı hedefin atası",
+      "recommendedAction": "kapat-veya-arşivle önerisi (kullanıcı kararı); yeniden entegre etme",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "feat: ASRIN KEMALİ V0.5 büyük entegrasyon",
+      "updatedAt": "2026-10-23T13:23:01Z"
+    },
+    {
+      "additions": 1410,
+      "ancestryStatus": "ancestor_included",
+      "author": "Alisensai",
+      "baseRef": "integration/asrinkemali-v05-release-candidate",
+      "baseSha": "f9e2d63dcca48162cb1469a6c0a744b5a92b6b06",
+      "blockers": [
+        "Kod zaten V0.6 geçmişinde: ikinci kez birleştirme/cherry-pick yapılmamalı"
+      ],
+      "changedFiles": 29,
+      "checks": {
+        "checks": {
+          "release-quality": "success",
+          "smoke": "success",
+          "verify-next-app": "success"
+        },
+        "counts": {
+          "cancelled": 0,
+          "failure": 0,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 3
+        }
+      },
+      "commits": 1,
+      "createdAt": "2026-10-23T14:26:49Z",
+      "deletions": 49,
+      "discoveredDependencies": [
+        4,
+        10
+      ],
+      "explicitDependencies": [],
+      "fileCount": 29,
+      "filesTruncated": false,
+      "headRef": "feature/antigravity-v06-archive-experience",
+      "headSha": "f9e6d6b3cfd4db630b09540cfc6923c7b05d077a",
+      "inclusion": {
+        "reason": "PR başı hedefin atası",
+        "status": "ancestor_included"
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "V0.6",
+      "mergeable": "true",
+      "mergeableState": "clean",
+      "modules": [],
+      "number": 11,
+      "patchEquivalentStatus": "PR başı hedefin atası",
+      "recommendedAction": "kapat-veya-arşivle önerisi (kullanıcı kararı); yeniden entegre etme",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "feat(archive): v0.6 Görsel Tasarım ve Dijital Müze Deneyimi",
+      "updatedAt": "2026-10-23T14:26:49Z"
+    },
+    {
+      "additions": 903,
+      "ancestryStatus": "ancestor_included",
+      "author": "Alisensai",
+      "baseRef": "integration/asrinkemali-v05-release-candidate",
+      "baseSha": "f9e2d63dcca48162cb1469a6c0a744b5a92b6b06",
+      "blockers": [
+        "Kod zaten V0.6 geçmişinde: ikinci kez birleştirme/cherry-pick yapılmamalı",
+        "release-quality başarısız: teknik/editoryal ayrımı için rapor artefaktı incelenmeli (gates komutu)"
+      ],
+      "changedFiles": 8,
+      "checks": {
+        "checks": {
+          "release-quality": "failure",
+          "smoke": "success",
+          "verify-next-app": "success"
+        },
+        "counts": {
+          "cancelled": 0,
+          "failure": 1,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 2
+        }
+      },
+      "commits": 1,
+      "createdAt": "2026-10-23T14:32:01Z",
+      "deletions": 26,
+      "discoveredDependencies": [
+        4,
+        10
+      ],
+      "explicitDependencies": [],
+      "fileCount": 8,
+      "filesTruncated": false,
+      "headRef": "feature/copilot-v06-quality",
+      "headSha": "4a2a8465680691e0eae26068b535d438525d77b4",
+      "inclusion": {
+        "reason": "PR başı hedefin atası",
+        "status": "ancestor_included"
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "V0.6",
+      "mergeable": "true",
+      "mergeableState": "unstable",
+      "modules": [],
+      "number": 12,
+      "patchEquivalentStatus": "PR başı hedefin atası",
+      "recommendedAction": "kapat-veya-arşivle önerisi (kullanıcı kararı); yeniden entegre etme",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "V0.6: yayın onayı ve kalite kapıları",
+      "updatedAt": "2026-10-23T14:32:01Z"
+    },
+    {
+      "additions": 662936,
+      "ancestryStatus": "ancestor_included",
+      "author": "Alisensai",
+      "baseRef": "integration/asrinkemali-v05-release-candidate",
+      "baseSha": "f9e2d63dcca48162cb1469a6c0a744b5a92b6b06",
+      "blockers": [
+        "Kod zaten V0.6 geçmişinde: ikinci kez birleştirme/cherry-pick yapılmamalı",
+        "release-quality başarısız: teknik/editoryal ayrımı için rapor artefaktı incelenmeli (gates komutu)"
+      ],
+      "changedFiles": 17,
+      "checks": {
+        "checks": {
+          "release-quality": "failure",
+          "smoke": "success",
+          "verify-next-app": "cancelled"
+        },
+        "counts": {
+          "cancelled": 1,
+          "failure": 1,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 1
+        }
+      },
+      "commits": 7,
+      "createdAt": "2026-10-23T14:52:13Z",
+      "deletions": 31,
+      "discoveredDependencies": [
+        4,
+        10
+      ],
+      "explicitDependencies": [],
+      "fileCount": 17,
+      "filesTruncated": false,
+      "headRef": "feature/kilo-v06-qa",
+      "headSha": "38b4010da38d747b49d2c59af3a0a0442aa4f38e",
+      "inclusion": {
+        "reason": "PR başı hedefin atası",
+        "status": "ancestor_included"
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "V0.6",
+      "mergeable": "true",
+      "mergeableState": "unstable",
+      "modules": [],
+      "number": 13,
+      "patchEquivalentStatus": "PR başı hedefin atası",
+      "recommendedAction": "kapat-veya-arşivle önerisi (kullanıcı kararı); yeniden entegre etme",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "Kilo V0.6 QA — V0.5 bağımsız test ve yeniden kullanılabilir test paketi",
+      "updatedAt": "2026-10-23T16:48:08Z"
+    },
+    {
+      "additions": 9999,
+      "ancestryStatus": "ancestor_included",
+      "author": "Alisensai",
+      "baseRef": "integration/asrinkemali-v05-release-candidate",
+      "baseSha": "f9e2d63dcca48162cb1469a6c0a744b5a92b6b06",
+      "blockers": [
+        "Kod zaten V0.6 geçmişinde: ikinci kez birleştirme/cherry-pick yapılmamalı",
+        "release-quality başarısız: teknik/editoryal ayrımı için rapor artefaktı incelenmeli (gates komutu)"
+      ],
+      "changedFiles": 113,
+      "checks": {
+        "checks": {
+          "release-quality": "failure",
+          "smoke": "success"
+        },
+        "counts": {
+          "cancelled": 0,
+          "failure": 1,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 1
+        }
+      },
+      "commits": 1,
+      "createdAt": "2026-10-23T15:03:37Z",
+      "deletions": 166,
+      "discoveredDependencies": [
+        4,
+        10
+      ],
+      "explicitDependencies": [],
+      "fileCount": 113,
+      "filesTruncated": false,
+      "headRef": "feature/opencode-v06-archive-expansion",
+      "headSha": "334a8d8ff8075a2adf3a43f558709950297bb81c",
+      "inclusion": {
+        "reason": "PR başı hedefin atası",
+        "status": "ancestor_included"
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "V0.6",
+      "mergeable": "true",
+      "mergeableState": "unstable",
+      "modules": [],
+      "number": 14,
+      "patchEquivalentStatus": "PR başı hedefin atası",
+      "recommendedAction": "kapat-veya-arşivle önerisi (kullanıcı kararı); yeniden entegre etme",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "feat(archive): 100 doğrulanmış kaynakla arşivi 168 kayda çıkar",
+      "updatedAt": "2026-10-23T15:22:41Z"
+    },
+    {
+      "additions": 10622,
+      "ancestryStatus": "ancestor_included",
+      "author": "Alisensai",
+      "baseRef": "integration/asrinkemali-v05-release-candidate",
+      "baseSha": "f9e2d63dcca48162cb1469a6c0a744b5a92b6b06",
+      "blockers": [
+        "Kod zaten V0.6 geçmişinde: ikinci kez birleştirme/cherry-pick yapılmamalı"
+      ],
+      "changedFiles": 87,
+      "checks": {
+        "checks": {
+          "release-quality": "success",
+          "smoke": "success"
+        },
+        "counts": {
+          "cancelled": 0,
+          "failure": 0,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 2
+        }
+      },
+      "commits": 2,
+      "createdAt": "2026-10-23T15:05:00Z",
+      "deletions": 0,
+      "discoveredDependencies": [
+        4,
+        10
+      ],
+      "explicitDependencies": [
+        12,
+        14
+      ],
+      "fileCount": 87,
+      "filesTruncated": false,
+      "headRef": "feature/copilot-v06-editorial-toolkit",
+      "headSha": "498c8823698e41cbd3deed5c0ce37be26feb2cde",
+      "inclusion": {
+        "reason": "PR başı hedefin atası",
+        "status": "ancestor_included"
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "V0.6",
+      "mergeable": "true",
+      "mergeableState": "clean",
+      "modules": [],
+      "number": 15,
+      "patchEquivalentStatus": "PR başı hedefin atası",
+      "recommendedAction": "kapat-veya-arşivle önerisi (kullanıcı kararı); yeniden entegre etme",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "V0.6 editorial review toolkit and archive inventory",
+      "updatedAt": "2026-10-23T17:09:41Z"
+    },
+    {
+      "additions": 1010,
+      "ancestryStatus": "ancestor_included",
+      "author": "Alisensai",
+      "baseRef": "integration/asrinkemali-v05-release-candidate",
+      "baseSha": "f9e2d63dcca48162cb1469a6c0a744b5a92b6b06",
+      "blockers": [
+        "Kod zaten V0.6 geçmişinde: ikinci kez birleştirme/cherry-pick yapılmamalı"
+      ],
+      "changedFiles": 17,
+      "checks": {
+        "checks": {
+          "release-quality": "success",
+          "smoke": "success",
+          "verify-next-app": "success"
+        },
+        "counts": {
+          "cancelled": 0,
+          "failure": 0,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 3
+        }
+      },
+      "commits": 1,
+      "createdAt": "2026-10-23T15:17:35Z",
+      "deletions": 3,
+      "discoveredDependencies": [
+        4,
+        10
+      ],
+      "explicitDependencies": [],
+      "fileCount": 17,
+      "filesTruncated": false,
+      "headRef": "feature/antigravity-v06-home-premium",
+      "headSha": "0056130dcc8068c07eab5aa29664ed09363c2b3b",
+      "inclusion": {
+        "reason": "PR başı hedefin atası",
+        "status": "ancestor_included"
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "V0.6",
+      "mergeable": "true",
+      "mergeableState": "clean",
+      "modules": [],
+      "number": 16,
+      "patchEquivalentStatus": "PR başı hedefin atası",
+      "recommendedAction": "kapat-veya-arşivle önerisi (kullanıcı kararı); yeniden entegre etme",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "feat(home): premium ana sayfa sergi vitrini, acik erisim rehberi ve manifesto entegrasyonu (v0.6)",
+      "updatedAt": "2026-10-23T15:17:35Z"
+    },
+    {
+      "additions": 2730,
+      "ancestryStatus": "ancestor_included",
+      "author": "Alisensai",
+      "baseRef": "integration/asrinkemali-v05-release-candidate",
+      "baseSha": "f9e2d63dcca48162cb1469a6c0a744b5a92b6b06",
+      "blockers": [
+        "Kod zaten V0.6 geçmişinde: ikinci kez birleştirme/cherry-pick yapılmamalı"
+      ],
+      "changedFiles": 36,
+      "checks": {
+        "checks": {
+          "release-quality": "success",
+          "smoke": "success",
+          "verify-next-app": "success"
+        },
+        "counts": {
+          "cancelled": 0,
+          "failure": 0,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 3
+        }
+      },
+      "commits": 3,
+      "createdAt": "2026-10-23T15:18:19Z",
+      "deletions": 3,
+      "discoveredDependencies": [
+        4,
+        10
+      ],
+      "explicitDependencies": [
+        11
+      ],
+      "fileCount": 36,
+      "filesTruncated": false,
+      "headRef": "feature/claude-ataturk-experience-v06",
+      "headSha": "d0bede0a3397cdb1cf71f0d9ca2c0893a5535571",
+      "inclusion": {
+        "reason": "PR başı hedefin atası",
+        "status": "ancestor_included"
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "V0.6",
+      "mergeable": "true",
+      "mergeableState": "unstable",
+      "modules": [],
+      "number": 17,
+      "patchEquivalentStatus": "PR başı hedefin atası",
+      "recommendedAction": "kapat-veya-arşivle önerisi (kullanıcı kararı); yeniden entegre etme",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "feat(ataturk): Atatürk dijital yaşam deneyimi (V0.6)",
+      "updatedAt": "2026-10-23T17:36:20Z"
+    },
+    {
+      "additions": 333,
+      "ancestryStatus": "ancestor_included",
+      "author": "Alisensai",
+      "baseRef": "integration/asrinkemali-v05-release-candidate",
+      "baseSha": "f9e2d63dcca48162cb1469a6c0a744b5a92b6b06",
+      "blockers": [
+        "Kod zaten V0.6 geçmişinde: ikinci kez birleştirme/cherry-pick yapılmamalı"
+      ],
+      "changedFiles": 10,
+      "checks": {
+        "checks": {
+          "release-quality": "success",
+          "smoke": "success",
+          "verify-next-app": "success"
+        },
+        "counts": {
+          "cancelled": 0,
+          "failure": 0,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 3
+        }
+      },
+      "commits": 1,
+      "createdAt": "2026-10-23T17:10:24Z",
+      "deletions": 19,
+      "discoveredDependencies": [
+        4,
+        10
+      ],
+      "explicitDependencies": [],
+      "fileCount": 10,
+      "filesTruncated": false,
+      "headRef": "feature/antigravity-v06-mobile-shell",
+      "headSha": "e2640069c6c39b95a6bbcb9909ee36ac408bd6fc",
+      "inclusion": {
+        "reason": "PR başı hedefin atası",
+        "status": "ancestor_included"
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "V0.6",
+      "mergeable": "true",
+      "mergeableState": "clean",
+      "modules": [],
+      "number": 18,
+      "patchEquivalentStatus": "PR başı hedefin atası",
+      "recommendedAction": "kapat-veya-arşivle önerisi (kullanıcı kararı); yeniden entegre etme",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "feat(shell): mobile shell ve erisilebilirlik ince iscilik (v0.6)",
+      "updatedAt": "2026-10-23T17:10:24Z"
+    },
+    {
+      "additions": 7366,
+      "ancestryStatus": "not_included",
+      "author": "Alisensai",
+      "baseRef": "feature/opencode-v06-archive-expansion",
+      "baseSha": "334a8d8ff8075a2adf3a43f558709950297bb81c",
+      "blockers": [
+        "Teknik CI başarısız (son baş SHA)",
+        "release-quality başarısız: teknik/editoryal ayrımı için rapor artefaktı incelenmeli (gates komutu)"
+      ],
+      "changedFiles": 39,
+      "checks": {
+        "checks": {
+          "release-quality": "failure",
+          "smoke": "success",
+          "verify-next-app": "failure"
+        },
+        "counts": {
+          "cancelled": 0,
+          "failure": 2,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 1
+        }
+      },
+      "commits": 5,
+      "createdAt": "2026-10-23T17:10:58Z",
+      "deletions": 0,
+      "discoveredDependencies": [
+        4,
+        10,
+        14
+      ],
+      "explicitDependencies": [
+        17
+      ],
+      "fileCount": 39,
+      "filesTruncated": false,
+      "headRef": "feature/perplexity-v07-evidence-engine",
+      "headSha": "e7ed5f183a58a430e5fcc51c69821381af07f633",
+      "inclusion": {
+        "matched": 0,
+        "reason": "0/5 patch-id hedefte",
+        "status": "not_included",
+        "total": 5
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "V0.7",
+      "mergeable": "true",
+      "mergeableState": "unstable",
+      "modules": [],
+      "number": 19,
+      "patchEquivalentStatus": "0/5 patch-id hedefte",
+      "recommendedAction": "önce bağımlılık zinciri: #4 → #10 → #14",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "MKA Evidence Engine V0.7: kaynak keşfi, boşluk analizi ve aday havuzu",
+      "updatedAt": "2026-10-23T17:29:09Z"
+    },
+    {
+      "additions": 92204,
+      "ancestryStatus": "not_included",
+      "author": "Alisensai",
+      "baseRef": "feature/opencode-v06-archive-expansion",
+      "baseSha": "334a8d8ff8075a2adf3a43f558709950297bb81c",
+      "blockers": [
+        "release-quality başarısız: teknik/editoryal ayrımı için rapor artefaktı incelenmeli (gates komutu)"
+      ],
+      "changedFiles": 54,
+      "checks": {
+        "checks": {
+          "release-quality": "failure",
+          "smoke": "success"
+        },
+        "counts": {
+          "cancelled": 0,
+          "failure": 1,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 1
+        }
+      },
+      "commits": 1,
+      "createdAt": "2026-10-23T17:39:13Z",
+      "deletions": 0,
+      "discoveredDependencies": [
+        4,
+        10,
+        14
+      ],
+      "explicitDependencies": [
+        14
+      ],
+      "fileCount": 54,
+      "filesTruncated": false,
+      "headRef": "feature/opencode-v07-source-reliability",
+      "headSha": "890a24aa13471173eeb306c8b0d5efd104054a45",
+      "inclusion": {
+        "matched": 0,
+        "reason": "0/1 patch-id hedefte",
+        "status": "not_included",
+        "total": 1
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "V0.7",
+      "mergeable": "true",
+      "mergeableState": "unstable",
+      "modules": [],
+      "number": 20,
+      "patchEquivalentStatus": "0/1 patch-id hedefte",
+      "recommendedAction": "önce bağımlılık zinciri: #4 → #10 → #14",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "feat(tools): v0.7 kaynak güvenilirliği ve kapsam denetimi",
+      "updatedAt": "2026-10-23T17:50:33Z"
+    },
+    {
+      "additions": 347,
+      "ancestryStatus": "ancestor_included",
+      "author": "Alisensai",
+      "baseRef": "integration/asrinkemali-v05-release-candidate",
+      "baseSha": "f9e2d63dcca48162cb1469a6c0a744b5a92b6b06",
+      "blockers": [
+        "Kod zaten V0.6 geçmişinde: ikinci kez birleştirme/cherry-pick yapılmamalı"
+      ],
+      "changedFiles": 29,
+      "checks": {
+        "checks": {
+          "release-quality": "success",
+          "smoke": "success",
+          "verify-next-app": "success"
+        },
+        "counts": {
+          "cancelled": 0,
+          "failure": 0,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 3
+        }
+      },
+      "commits": 1,
+      "createdAt": "2026-10-23T18:07:00Z",
+      "deletions": 9,
+      "discoveredDependencies": [
+        4,
+        10
+      ],
+      "explicitDependencies": [],
+      "fileCount": 29,
+      "filesTruncated": false,
+      "headRef": "feature/codex-v06-publishing",
+      "headSha": "bfdf7424249985b0940f3a5406ad795937454b8b",
+      "inclusion": {
+        "reason": "PR başı hedefin atası",
+        "status": "ancestor_included"
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "V0.6",
+      "mergeable": "true",
+      "mergeableState": "clean",
+      "modules": [],
+      "number": 21,
+      "patchEquivalentStatus": "PR başı hedefin atası",
+      "recommendedAction": "kapat-veya-arşivle önerisi (kullanıcı kararı); yeniden entegre etme",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "V0.6: kaynaklı yayın platformu ve Tarihte Bugün motoru",
+      "updatedAt": "2026-10-23T18:07:00Z"
+    },
+    {
+      "additions": 38928,
+      "ancestryStatus": "ancestor_included",
+      "author": "Alisensai",
+      "baseRef": "integration/asrinkemali-v05-release-candidate",
+      "baseSha": "f9e2d63dcca48162cb1469a6c0a744b5a92b6b06",
+      "blockers": [
+        "Kod zaten V0.6 geçmişinde: ikinci kez birleştirme/cherry-pick yapılmamalı",
+        "release-quality başarısız: teknik/editoryal ayrımı için rapor artefaktı incelenmeli (gates komutu)"
+      ],
+      "changedFiles": 444,
+      "checks": {
+        "checks": {
+          "release-quality": "failure",
+          "smoke": "success",
+          "verify-next-app": "success"
+        },
+        "counts": {
+          "cancelled": 0,
+          "failure": 1,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 2
+        }
+      },
+      "commits": 32,
+      "createdAt": "2026-10-23T18:45:48Z",
+      "deletions": 316,
+      "discoveredDependencies": [
+        4,
+        10
+      ],
+      "explicitDependencies": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "fileCount": 444,
+      "filesTruncated": false,
+      "headRef": "integration/asrinkemali-v06-release-candidate",
+      "headSha": "10cdbfd70e0d2c7d12ed1e71907273d9a1f92b7e",
+      "inclusion": {
+        "reason": "PR başı hedefin atası",
+        "status": "ancestor_included"
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "V0.6",
+      "mergeable": "true",
+      "mergeableState": "unstable",
+      "modules": [],
+      "number": 22,
+      "patchEquivalentStatus": "PR başı hedefin atası",
+      "recommendedAction": "kapat-veya-arşivle önerisi (kullanıcı kararı); yeniden entegre etme",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "V0.6 release candidate: arşiv, yayın ve deneyim entegrasyonu",
+      "updatedAt": "2026-10-23T18:45:48Z"
+    },
+    {
+      "additions": 951,
+      "ancestryStatus": "not_included",
+      "author": "Alisensai",
+      "baseRef": "integration/asrinkemali-v06-release-candidate",
+      "baseSha": "10cdbfd70e0d2c7d12ed1e71907273d9a1f92b7e",
+      "blockers": [
+        "release-quality başarısız: teknik/editoryal ayrımı için rapor artefaktı incelenmeli (gates komutu)"
+      ],
+      "changedFiles": 24,
+      "checks": {
+        "checks": {
+          "release-quality": "failure",
+          "smoke": "success",
+          "verify-next-app": "success"
+        },
+        "counts": {
+          "cancelled": 0,
+          "failure": 1,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 2
+        }
+      },
+      "commits": 1,
+      "createdAt": "2026-10-23T19:28:17Z",
+      "deletions": 35,
+      "discoveredDependencies": [
+        4,
+        10,
+        22
+      ],
+      "explicitDependencies": [],
+      "fileCount": 24,
+      "filesTruncated": false,
+      "headRef": "feature/antigravity-v06-visual-polish",
+      "headSha": "abd3369a65cecfd07f80f28f0d097478b8e40540",
+      "inclusion": {
+        "matched": 0,
+        "reason": "0/1 patch-id hedefte",
+        "status": "not_included",
+        "total": 1
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "V0.6",
+      "mergeable": "true",
+      "mergeableState": "unstable",
+      "modules": [],
+      "number": 23,
+      "patchEquivalentStatus": "0/1 patch-id hedefte",
+      "recommendedAction": "önce bağımlılık zinciri: #4 → #10 → #22",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "feat(visual): premium muze UI gorsel mukemmellestirme ve 9 viewport sadakati (v0.6)",
+      "updatedAt": "2026-10-23T19:28:17Z"
+    },
+    {
+      "additions": 6377,
+      "ancestryStatus": "not_included",
+      "author": "Alisensai",
+      "baseRef": "feature/perplexity-v07-evidence-engine",
+      "baseSha": "e7ed5f183a58a430e5fcc51c69821381af07f633",
+      "blockers": [
+        "Teknik CI başarısız (son baş SHA)",
+        "release-quality başarısız: teknik/editoryal ayrımı için rapor artefaktı incelenmeli (gates komutu)"
+      ],
+      "changedFiles": 38,
+      "checks": {
+        "checks": {
+          "release-quality": "failure",
+          "smoke": "success",
+          "verify-next-app": "failure"
+        },
+        "counts": {
+          "cancelled": 0,
+          "failure": 2,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 1
+        }
+      },
+      "commits": 4,
+      "createdAt": "2026-10-23T19:50:31Z",
+      "deletions": 95,
+      "discoveredDependencies": [
+        4,
+        10,
+        14,
+        19
+      ],
+      "explicitDependencies": [
+        19
+      ],
+      "fileCount": 38,
+      "filesTruncated": false,
+      "headRef": "feature/perplexity-v07-evidence-workbench",
+      "headSha": "ba6ec6038317da4b8f9bd653ff1762f3f262df06",
+      "inclusion": {
+        "matched": 0,
+        "reason": "0/9 patch-id hedefte",
+        "status": "not_included",
+        "total": 9
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "V0.7",
+      "mergeable": "true",
+      "mergeableState": "unstable",
+      "modules": [],
+      "number": 24,
+      "patchEquivalentStatus": "0/9 patch-id hedefte",
+      "recommendedAction": "önce bağımlılık zinciri: #4 → #10 → #14 → #19",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "MKA Evidence Workbench 2.0: iddia inceleme platformu, kanıt konumları, bağımsızlık/çelişki motoru, akademik kaynakça ve A–J panel",
+      "updatedAt": "2026-10-23T19:50:31Z"
+    },
+    {
+      "additions": 680,
+      "ancestryStatus": "not_included",
+      "author": "Alisensai",
+      "baseRef": "integration/asrinkemali-v06-release-candidate",
+      "baseSha": "10cdbfd70e0d2c7d12ed1e71907273d9a1f92b7e",
+      "blockers": [
+        "release-quality başarısız: teknik/editoryal ayrımı için rapor artefaktı incelenmeli (gates komutu)"
+      ],
+      "changedFiles": 24,
+      "checks": {
+        "checks": {
+          "release-quality": "failure",
+          "smoke": "success",
+          "verify-next-app": "success"
+        },
+        "counts": {
+          "cancelled": 0,
+          "failure": 1,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 2
+        }
+      },
+      "commits": 5,
+      "createdAt": "2026-10-23T19:56:39Z",
+      "deletions": 36,
+      "discoveredDependencies": [
+        4,
+        10,
+        22
+      ],
+      "explicitDependencies": [
+        22
+      ],
+      "fileCount": 24,
+      "filesTruncated": false,
+      "headRef": "feature/claude-v06-integration-hardening",
+      "headSha": "97d9efd63f35c3d12102df3cefceb3c2d22a34c9",
+      "inclusion": {
+        "matched": 0,
+        "reason": "0/5 patch-id hedefte",
+        "status": "not_included",
+        "total": 5
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "V0.6",
+      "mergeable": "true",
+      "mergeableState": "unstable",
+      "modules": [],
+      "number": 25,
+      "patchEquivalentStatus": "0/5 patch-id hedefte",
+      "recommendedAction": "önce bağımlılık zinciri: #4 → #10 → #22",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "fix(v06): entegrasyon sağlamlaştırma — yayın motoru, arşiv, güvenlik başlıkları, production E2E",
+      "updatedAt": "2026-10-23T20:52:39Z"
+    },
+    {
+      "additions": 2151,
+      "ancestryStatus": "not_included",
+      "author": "Alisensai",
+      "baseRef": "integration/asrinkemali-v06-release-candidate",
+      "baseSha": "10cdbfd70e0d2c7d12ed1e71907273d9a1f92b7e",
+      "blockers": [
+        "release-quality başarısız: teknik/editoryal ayrımı için rapor artefaktı incelenmeli (gates komutu)"
+      ],
+      "changedFiles": 38,
+      "checks": {
+        "checks": {
+          "release-quality": "failure",
+          "smoke": "success",
+          "verify-next-app": "success"
+        },
+        "counts": {
+          "cancelled": 0,
+          "failure": 1,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 2
+        }
+      },
+      "commits": 1,
+      "createdAt": "2026-10-23T19:56:46Z",
+      "deletions": 0,
+      "discoveredDependencies": [
+        4,
+        10,
+        22
+      ],
+      "explicitDependencies": [],
+      "fileCount": 38,
+      "filesTruncated": false,
+      "headRef": "feature/copilot-v08-control-center",
+      "headSha": "875bca18eca5e4db1e6e01a2c5d06ad13e670a6e",
+      "inclusion": {
+        "matched": 0,
+        "reason": "0/1 patch-id hedefte",
+        "status": "not_included",
+        "total": 1
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "V0.8",
+      "mergeable": "true",
+      "mergeableState": "unstable",
+      "modules": [],
+      "number": 26,
+      "patchEquivalentStatus": "0/1 patch-id hedefte",
+      "recommendedAction": "önce bağımlılık zinciri: #4 → #10 → #22",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "V0.8: Yönetim kontrol merkezi altyapısı",
+      "updatedAt": "2026-10-23T19:56:46Z"
+    },
+    {
+      "additions": 3818,
+      "ancestryStatus": "not_included",
+      "author": "Alisensai",
+      "baseRef": "feature/antigravity-v06-visual-polish",
+      "baseSha": "abd3369a65cecfd07f80f28f0d097478b8e40540",
+      "blockers": [
+        "release-quality başarısız: teknik/editoryal ayrımı için rapor artefaktı incelenmeli (gates komutu)"
+      ],
+      "changedFiles": 25,
+      "checks": {
+        "checks": {
+          "release-quality": "failure",
+          "smoke": "success",
+          "verify-next-app": "success"
+        },
+        "counts": {
+          "cancelled": 0,
+          "failure": 1,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 2
+        }
+      },
+      "commits": 1,
+      "createdAt": "2026-10-23T20:10:31Z",
+      "deletions": 2,
+      "discoveredDependencies": [
+        4,
+        10,
+        22,
+        23
+      ],
+      "explicitDependencies": [],
+      "fileCount": 25,
+      "filesTruncated": false,
+      "headRef": "feature/antigravity-v07-immersive-museum",
+      "headSha": "117a4f409dcaf164d4c6700bac06fbb53a46621c",
+      "inclusion": {
+        "matched": 0,
+        "reason": "0/2 patch-id hedefte",
+        "status": "not_included",
+        "total": 2
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "V0.7",
+      "mergeable": "true",
+      "mergeableState": "unstable",
+      "modules": [],
+      "number": 27,
+      "patchEquivalentStatus": "0/2 patch-id hedefte",
+      "recommendedAction": "önce bağımlılık zinciri: #4 → #10 → #22 → #23",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "feat(museum): MKA immersive museum engine and curated exhibition platform (v0.7)",
+      "updatedAt": "2026-10-23T20:10:31Z"
+    },
+    {
+      "additions": 1726,
+      "ancestryStatus": "not_included",
+      "author": "Alisensai",
+      "baseRef": "feature/claude-v06-integration-hardening",
+      "baseSha": "97d9efd63f35c3d12102df3cefceb3c2d22a34c9",
+      "blockers": [
+        "release-quality başarısız: teknik/editoryal ayrımı için rapor artefaktı incelenmeli (gates komutu)"
+      ],
+      "changedFiles": 30,
+      "checks": {
+        "checks": {
+          "fortress-tools": "success",
+          "production-security-e2e": "success",
+          "release-quality": "failure",
+          "smoke": "success",
+          "verify-next-app": "success"
+        },
+        "counts": {
+          "cancelled": 0,
+          "failure": 1,
+          "neutral": 0,
+          "other": 0,
+          "pending": 0,
+          "skipped": 0,
+          "success": 4
+        }
+      },
+      "commits": 9,
+      "createdAt": "2026-10-23T20:50:12Z",
+      "deletions": 12,
+      "discoveredDependencies": [
+        4,
+        10,
+        22,
+        25
+      ],
+      "explicitDependencies": [
+        25
+      ],
+      "fileCount": 30,
+      "filesTruncated": false,
+      "headRef": "feature/claude-v08-fortress-foundation",
+      "headSha": "d6c6c282be978754c3fe7ed5f92f7d9629d6132b",
+      "inclusion": {
+        "matched": 0,
+        "reason": "0/13 patch-id hedefte",
+        "status": "not_included",
+        "total": 13
+      },
+      "isDraft": true,
+      "lastCheckedAt": "2026-10-24T00:13:56.130Z",
+      "layer": "V0.8",
+      "mergeable": "true",
+      "mergeableState": "unstable",
+      "modules": [],
+      "number": 28,
+      "patchEquivalentStatus": "0/13 patch-id hedefte",
+      "recommendedAction": "önce bağımlılık zinciri: #4 → #10 → #22 → #25",
+      "reviewStatus": "no_review_recorded",
+      "riskCategory": null,
+      "state": "open",
+      "title": "feat(security): MKA FORTRESS Phase 1 — CSP, kapalı-başarısız erişim, bütünlük ve güvenlik otomasyonu",
+      "updatedAt": "2026-10-23T21:10:51Z"
+    }
+  ],
+  "schema": "mka-integration/inventory@1",
+  "sourceMode": "offline-snapshot",
+  "stale": false,
+  "staleHeads": [],
+  "target": {
+    "ref": "origin/integration/asrinkemali-v06-release-candidate",
+    "sha": "10cdbfd70e0d2c7d12ed1e71907273d9a1f92b7e"
+  }
+}

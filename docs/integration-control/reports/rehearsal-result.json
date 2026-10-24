@@ -1,0 +1,96 @@
+{
+  "schema": "mka-integration/rehearsal-results@1",
+  "note": "Gerçekten koşulan izole provalar (2026-10-24). Taban: V0.6 10cdbfd. Hiçbir uzak dal değişmedi.",
+  "mergeOnly": [
+    {
+      "prs": "25,23",
+      "status": "clean_merge_possible",
+      "tree": "ab93dbad20"
+    },
+    {
+      "prs": "23,25",
+      "status": "clean_merge_possible",
+      "tree": "ab93dbad20"
+    },
+    {
+      "prs": "23,27",
+      "status": "clean_merge_possible",
+      "tree": "ef9c3932b9"
+    },
+    {
+      "prs": "25,28",
+      "status": "clean_merge_possible",
+      "tree": "ae933e1c52"
+    }
+  ],
+  "withTests": [
+    {
+      "prs": [
+        26
+      ],
+      "status": "validated_in_rehearsal",
+      "mainRepoUnchanged": true,
+      "cleanup": "removed",
+      "baseSha": "10cdbfd70e0d2c7d12ed1e71907273d9a1f92b7e",
+      "combinedTree": "b0bdecfdae290fd6f13d1dd2bb19e8ce78bf5942",
+      "commands": [
+        {
+          "name": "npm ci",
+          "status": "pass",
+          "exitCode": 0,
+          "seconds": 95,
+          "summary": ""
+        },
+        {
+          "name": "e2e e2e/admin-v08.spec.ts",
+          "status": "pass",
+          "exitCode": 0,
+          "seconds": 18,
+          "summary": "[1/2<test-results> [desktop-1536x1024<test-results> › e2e\\admin-v08.spec.ts:19:1 › admin routes remain fail-closed without a trusted identity provider |   2 passed (16.4s)"
+        }
+      ],
+      "startedAt": "2026-10-24T00:36:39.705Z",
+      "finishedAt": "2026-10-24T00:38:40.884Z"
+    },
+    {
+      "prs": [
+        25,
+        28,
+        26
+      ],
+      "status": "test_failed",
+      "mainRepoUnchanged": true,
+      "cleanup": "removed",
+      "baseSha": "10cdbfd70e0d2c7d12ed1e71907273d9a1f92b7e",
+      "combinedTree": "8e3e5bdd6c6562b2ee0ff85dd1175d7e5b2bf9a6",
+      "commands": [
+        {
+          "name": "npm ci",
+          "status": "pass",
+          "exitCode": 0,
+          "seconds": 74,
+          "summary": ""
+        },
+        {
+          "name": "e2e e2e/admin-v08.spec.ts",
+          "status": "fail",
+          "exitCode": 1,
+          "seconds": 17,
+          "summary": "    Error: expect(locator).toBeVisible() failed |     Error: element(s) not found |     test-results\\admin-v08-admin-access-den-1eaa4-d-mobile-and-desktop-widths-desktop-1536x1024\\test-failed-1.png |     Error Context: test-results\\admin-v08-admin-access-den-1eaa4-d-mobile-and-desktop-widths-desktop"
+        }
+      ],
+      "startedAt": "2026-10-24T00:38:53.901Z",
+      "finishedAt": "2026-10-24T00:40:33.008Z"
+    }
+  ],
+  "invalidatedEarlierRuns": [
+    {
+      "prs": "26",
+      "reason": "başka ajanın (Copilot) 49173 portundaki sunucusu: e2e başlamadı; araç bunu yanlışlıkla test_failed saymıştı → düzeltildi (blocked)"
+    },
+    {
+      "prs": "25,28,26",
+      "reason": "dev sunucusu next/font hatasıyla başlamadı (test sonucu değil); dev sunucusu next-env.d.ts yeniden üretip temizliği engelledi → düzeltildi"
+    }
+  ]
+}

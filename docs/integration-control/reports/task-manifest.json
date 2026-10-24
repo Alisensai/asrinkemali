@@ -1,0 +1,1169 @@
+{
+  "schema": "mka-integration/tasks@1",
+  "tasks": [
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "CLAUDE",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [],
+      "dependencyPrs": [
+        22,
+        25,
+        28
+      ],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-01",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 1,
+      "ownedPaths": [
+        "tools/integration-control/",
+        "docs/integration-control/"
+      ],
+      "plannedBranch": "feature/claude-v07-integration-control-plane",
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "IN_PROGRESS",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "PR denetimi ve entegrasyon kontrol düzlemi"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "COPILOT",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        1
+      ],
+      "dependencyPrs": [
+        13
+      ],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-02",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 2,
+      "ownedPaths": [
+        "qa/",
+        "web/e2e/kilo-v06/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "Kilo QA modernizasyonu"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "COPILOT",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        1
+      ],
+      "dependencyPrs": [
+        21,
+        25
+      ],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-03",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 3,
+      "ownedPaths": [
+        "web/lib/publishing/",
+        "scripts/publishing/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "Codex yayın motoru entegrasyonu"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "CLAUDE",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        1
+      ],
+      "dependencyPrs": [
+        12,
+        15,
+        26
+      ],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-04",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 4,
+      "ownedPaths": [
+        "tools/approval-gates/",
+        "web/lib/approval/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "Uzman/editör insan onayı ve yayın kapıları"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "COPILOT",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        1
+      ],
+      "dependencyPrs": [
+        20,
+        14
+      ],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-05",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 5,
+      "ownedPaths": [
+        "tools/source-reliability/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "OpenCode kaynak güvenilirliği"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "COPILOT",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        5
+      ],
+      "dependencyPrs": [
+        20
+      ],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-06",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 6,
+      "ownedPaths": [
+        "tools/authority-registry/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "OpenCode Authority Registry"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "CLAUDE",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        5,
+        6
+      ],
+      "dependencyPrs": [
+        19,
+        14
+      ],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-07",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 7,
+      "ownedPaths": [
+        "tools/historical-research/",
+        "web/lib/evidence/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "Perplexity Evidence Engine"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "CLAUDE",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        7
+      ],
+      "dependencyPrs": [
+        24,
+        19
+      ],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-08",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 8,
+      "ownedPaths": [
+        "tools/evidence-workbench/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "Perplexity Evidence Workbench"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "COPILOT",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        5
+      ],
+      "dependencyPrs": [],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-09",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 9,
+      "ownedPaths": [
+        "tools/source-import/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "Google AI Studio kaynak içe aktarma"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "COPILOT",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        1
+      ],
+      "dependencyPrs": [],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-10",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 10,
+      "ownedPaths": [
+        "web/lib/search/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "DeepSeek Türkçe arama V2"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "COPILOT",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        10
+      ],
+      "dependencyPrs": [],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-11",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 11,
+      "ownedPaths": [
+        "web/lib/recommendations/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "Qwen kayıt önerileri"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "COPILOT",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        10
+      ],
+      "dependencyPrs": [],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-12",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 12,
+      "ownedPaths": [
+        "tools/search-eval/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "Cohere arama değerlendirme"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "COPILOT",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        1
+      ],
+      "dependencyPrs": [],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-13",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 13,
+      "ownedPaths": [
+        "web/lib/collections/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "Meta koleksiyon backend'i"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "COPILOT",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        4
+      ],
+      "dependencyPrs": [
+        26,
+        28
+      ],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-14",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 14,
+      "ownedPaths": [
+        "web/app/yonetim/",
+        "web/lib/admin-v08/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "V0.8 Control Center tamamlamaları"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "CLAUDE",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [
+        "#03–#14 sonuçları PR ve testlerle doğrulanmadan başlamaz"
+      ],
+      "dependencyPrompts": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "dependencyPrs": [],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-15",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 15,
+      "ownedPaths": [
+        "docs/integration/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "Backend sürüm adayı entegrasyonu"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "ANTIGRAVITY",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        1
+      ],
+      "dependencyPrs": [
+        23
+      ],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-16",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 16,
+      "ownedPaths": [
+        "web/app/globals.css",
+        "web/components/ui/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "Tasarım sistemi"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "ANTIGRAVITY",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        16
+      ],
+      "dependencyPrs": [
+        23
+      ],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-17",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 17,
+      "ownedPaths": [
+        "web/components/home/",
+        "web/components/Navigation.tsx"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "Ana sayfa ve global navigasyon"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "ANTIGRAVITY",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        16
+      ],
+      "dependencyPrs": [
+        23,
+        27
+      ],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-18",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 18,
+      "ownedPaths": [
+        "web/app/arsiv/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "Arşiv vitrini ve müze deneyimi"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "ANTIGRAVITY",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        16
+      ],
+      "dependencyPrs": [
+        17,
+        25
+      ],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-19",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 19,
+      "ownedPaths": [
+        "web/components/ataturk-experience/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "Atatürk yaşam deneyimi"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "ANTIGRAVITY",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        16
+      ],
+      "dependencyPrs": [],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-20",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 20,
+      "ownedPaths": [
+        "web/app/donemler/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "Kimi tarihî dönemler"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "ANTIGRAVITY",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        1
+      ],
+      "dependencyPrs": [],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-21",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 21,
+      "ownedPaths": [
+        "docs/atlas/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "Gemini Atlas ZIP/patch inceleme"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "ANTIGRAVITY",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        21
+      ],
+      "dependencyPrs": [],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-22",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 22,
+      "ownedPaths": [
+        "web/app/atlas/",
+        "web/lib/atlas/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "Gemini Atlas uygulama entegrasyonu"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "ANTIGRAVITY",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        16
+      ],
+      "dependencyPrs": [],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-23",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 23,
+      "ownedPaths": [
+        "web/app/karsilastir/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "Mistral belge karşılaştırma"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "ANTIGRAVITY",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        13,
+        16
+      ],
+      "dependencyPrs": [],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-24",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 24,
+      "ownedPaths": [
+        "web/app/koleksiyonlar/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "Meta koleksiyon arayüzü"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "ANTIGRAVITY",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        16
+      ],
+      "dependencyPrs": [
+        27
+      ],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-25",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 25,
+      "ownedPaths": [
+        "docs/exhibitions/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "AnyCoder sergi prototipi değerlendirme"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "ANTIGRAVITY",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        16
+      ],
+      "dependencyPrs": [
+        27,
+        23
+      ],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-26",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 26,
+      "ownedPaths": [
+        "web/app/sergiler/",
+        "web/components/exhibitions/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "Immersive Museum PR #27 geliştirme"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "ANTIGRAVITY",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        3,
+        16
+      ],
+      "dependencyPrs": [
+        21
+      ],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-27",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 27,
+      "ownedPaths": [
+        "web/app/yayinlar/",
+        "web/app/tarihte-bugun/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "Yayınlar/Tarihte Bugün premium deneyim"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "ANTIGRAVITY",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        8,
+        16
+      ],
+      "dependencyPrs": [
+        24
+      ],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-28",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 28,
+      "ownedPaths": [
+        "web/app/arastirma/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "Perplexity araştırma paneli"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "ANTIGRAVITY",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        11,
+        16
+      ],
+      "dependencyPrs": [],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-29",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 29,
+      "ownedPaths": [
+        "web/app/kesfet/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "Qwen Keşfet ekranı"
+    },
+    {
+      "acceptanceTests": [
+        "lint",
+        "typecheck",
+        "unit",
+        "build",
+        "production-e2e"
+      ],
+      "assignedAgent": "ANTIGRAVITY",
+      "baseBranch": "integration/asrinkemali-v06-release-candidate",
+      "blockers": [],
+      "dependencyPrompts": [
+        16,
+        17,
+        18,
+        19,
+        26,
+        27,
+        28,
+        29
+      ],
+      "dependencyPrs": [],
+      "forbiddenPaths": [
+        "content/archive/",
+        "data/archive/",
+        "tools/release-check/",
+        "tools/editorial-review/forms/"
+      ],
+      "id": "MKA-30",
+      "lastUpdatedAt": "2026-10-24T00:13:56.130Z",
+      "number": 30,
+      "ownedPaths": [
+        "web/e2e/visual/"
+      ],
+      "plannedBranch": null,
+      "reportPath": null,
+      "resultingPr": null,
+      "resultingSha": null,
+      "sourceEvidence": "MKA Multi-Agent Delivery Plan v1.0 + GOREV_LISTESI.json",
+      "status": "PLANNED",
+      "targetPrBranch": "integration/asrinkemali-v06-release-candidate",
+      "title": "Görsel E2E/erişilebilirlik finali"
+    }
+  ],
+  "validation": {
+    "errors": [],
+    "ok": true
+  }
+}
