@@ -1,0 +1,10 @@
+import assert from "node:assert/strict";
+import test from "node:test";
+import { isSearchV2Enabled } from "../lib/search-v2/feature-flag.ts";
+import { passesFilters, searchPublishedRecords } from "../lib/search-v2/engine.ts";
+const record = (id, more = {}) => ({ id, slug:id, title:"İzmir’in İşgali", type:"event", date:{start:"1919-05-15",end:null,precision:"day",certainty:"exact",display:"15 Mayıs 1919"}, people:[], locations:[], categories:[], summary:"Tarihî olay", description:"", source:{institution:"ATAM",title:"Kaynak",citation:"",url:"https://atam.gov.tr",institutionType:"institutional",institutionUrl:"https://atam.gov.tr",accessedAt:"2026-10-24"}, provenance:[], rights:{status:"unknown",imageReuse:"not_downloaded",note:""}, image:null, verification:{status:"published"}, tags:[], createdAt:"",updatedAt:"", ...more });
+const filters = (more={}) => ({q:"",category:"",source:"",city:"",page:1,...more});
+test("boş kategori ve şehir filtresi alanı boş kayıtları dışlamaz",()=>assert.equal(passesFilters(record("a"),filters()),true));
+test("tek harf ve salt noktalama sorgusu tüm kayıtları yanlış eşleştirmez",()=>{assert.equal(searchPublishedRecords([record("a")],filters({q:"a"})).total,1);assert.equal(searchPublishedRecords([record("a")],filters({q:"!!!"})).total,1)});
+test("Türkçe katlama, sıralama ve sayfalama kararlıdır",()=>{const result=searchPublishedRecords([record("b"),record("a",{title:"İzmir"})],filters({q:"IZMIR"}),1);assert.equal(result.total,2);assert.equal(result.items[0].id,"a");assert.equal(result.pageCount,2)});
+test("sunucu flag'i URL değil yalnız ortam sözleşmesiyle açılır",()=>{assert.equal(isSearchV2Enabled({}),false);assert.equal(isSearchV2Enabled({ASRIN_SEARCH_V2:"1"}),true)});

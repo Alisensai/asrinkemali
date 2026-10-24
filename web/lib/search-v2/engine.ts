@@ -1,5 +1,5 @@
 import type { ArchiveRecord } from "../../../schemas/archive-record.types";
-import { foldTurkish, queryTokens } from "./normalize";
+import { foldTurkish, queryTokens } from "./normalize.ts";
 import type { MatchedField, PublicSearchFilters, SearchHit, SearchResult } from "./types";
 
 const WEIGHTS: Readonly<Record<MatchedField, number>> = { title: 12, summary: 5, description: 3, tag: 4, category: 4, source: 2, location: 3 };
@@ -14,12 +14,12 @@ const text = (record: ArchiveRecord, field: MatchedField) => {
 };
 
 function years(record: ArchiveRecord) { const start = record.date.start ? Number(record.date.start.slice(0, 4)) : undefined; const end = record.date.end ? Number(record.date.end.slice(0, 4)) : start; return { start, end }; }
-function passesFilters(record: ArchiveRecord, filters: PublicSearchFilters): boolean {
+export function passesFilters(record: ArchiveRecord, filters: PublicSearchFilters): boolean {
   if (filters.type && record.type !== filters.type) return false;
   const includes = (value: string, filter: string) => !filter || foldTurkish(value).includes(foldTurkish(filter));
-  if (!record.categories.some((item) => includes(item, filters.category))) return false;
+  if (filters.category && !record.categories.some((item) => includes(item, filters.category))) return false;
   if (!includes(text(record, "source"), filters.source)) return false;
-  if (!record.locations.some((item) => includes(`${item.name} ${item.city ?? ""}`, filters.city))) return false;
+  if (filters.city && !record.locations.some((item) => includes(`${item.name} ${item.city ?? ""}`, filters.city))) return false;
   const range = years(record);
   return !(filters.yearFrom && (!range.end || range.end < filters.yearFrom)) && !(filters.yearTo && (!range.start || range.start > filters.yearTo));
 }
