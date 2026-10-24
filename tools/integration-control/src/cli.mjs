@@ -75,7 +75,15 @@ export function buildConflicts(snapshot, inventory, git, { textualFor = "open-no
     return { ...pair, textual, risk: rateRisk(pair, textual) };
   });
   const risksByPr = candidates.map((pr) => semanticRisks(pr.number, filesByPr[pr.number]));
-  return { schema: "mka-integration/conflicts@1", basedOn: { lastFetchedAt: inventory.lastFetchedAt, target: inventory.target }, analyzedPrs: candidates.map((pr) => pr.number), pairs: pairs.sort((x, y) => ["critical", "high", "medium", "low"].indexOf(x.risk.level) - ["critical", "high", "medium", "low"].indexOf(y.risk.level) || x.a - y.a || x.b - y.b), semantic: risksByPr.flat(), crossPrSemantic: crossPrSemanticConflicts(risksByPr) };
+  const crossPrSemantic = crossPrSemanticConflicts(risksByPr);
+  // Ortak dosya olmasa bile semantik çakışma çifti en az "high": dosya sayısı tek belirleyici değildir.
+  for (const conflict of crossPrSemantic.filter((item) => item.prs.length === 2)) {
+    const [a, b] = conflict.prs; let pair = pairs.find((item) => item.a === a && item.b === b);
+    if (!pair) { pair = { a, b, sharedFiles: [], sharedCodeFiles: [], sharedScreenshots: [], sameDirectoryOnly: false, sharedCategories: [], textual: null, risk: { level: "low", reasons: [] } }; pairs.push(pair); }
+    if (["low", "medium"].includes(pair.risk.level)) pair.risk.level = "high";
+    pair.risk.reasons.push(`semantik: ${conflict.rule}`);
+  }
+  return { schema: "mka-integration/conflicts@1", basedOn: { lastFetchedAt: inventory.lastFetchedAt, target: inventory.target }, analyzedPrs: candidates.map((pr) => pr.number), pairs: pairs.sort((x, y) => ["critical", "high", "medium", "low"].indexOf(x.risk.level) - ["critical", "high", "medium", "low"].indexOf(y.risk.level) || x.a - y.a || x.b - y.b), semantic: risksByPr.flat(), crossPrSemantic };
 }
 
 const COMMANDS = { unit: { name: "web unit", command: "npm", args: ["test"], cwd: "web" }, typecheck: { name: "typecheck", command: "npx", args: ["tsc", "--noEmit"], cwd: "web" }, lint: { name: "lint", command: "npm", args: ["run", "lint"], cwd: "web" }, build: { name: "build", command: "npm", args: ["run", "build"], cwd: "web", kind: "build" }, install: { name: "npm ci", command: "npm", args: ["ci", "--no-audit", "--no-fund"], cwd: "web", timeoutMs: 900_000 }, archive: { name: "archive tests", command: "node", args: ["--test", "scripts/archive/tests/*.test.mjs"], cwd: "." } };
