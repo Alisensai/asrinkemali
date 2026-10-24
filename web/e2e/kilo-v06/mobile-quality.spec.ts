@@ -64,5 +64,9 @@ test("mobil-kalite: arşiv filtreler ve sayfalama", async ({ page }) => {
   await form.getByLabel("Başlık veya anahtar kelime").fill("Cumhuriyet");
   await form.getByRole("button", { name: "Arşivde ara" }).click();
   await expect(page).toHaveURL(/q=/);
+  // Arama tam sayfa gezinmedir; URL commit anında değişir, yeni belge henüz stil
+  // uygulanmadan ayrıştırılıyor olabilir. Taşmayı yüklenmiş ve çizilebilir sayfada ölç.
+  await page.waitForLoadState("load");
+  await expect(page.getByRole("form", { name: "Arşiv arama ve filtreleri" })).toBeVisible();
   await expectNoOverflow(page);
 });
