@@ -1,0 +1,231 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+  color: var(--cream, #f4e8d6);
+  font-family: var(--font-sans, system-ui, sans-serif);
+  box-sizing: border-box;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.header {
+  border-bottom: 1px solid rgba(209, 163, 109, 0.25);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.badgeMissing {
+  display: inline-block;
+  background: rgba(180, 40, 40, 0.2);
+  color: #ff9b9b;
+  border: 1px solid rgba(255, 120, 120, 0.4);
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
+
+.badgeDuplicate {
+  display: inline-block;
+  background: rgba(209, 163, 109, 0.15);
+  color: var(--gold-bright, #e7bf8c);
+  border: 1px solid rgba(209, 163, 109, 0.35);
+  padding: 0.2rem 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 3px;
+}
+
+.badgeReject {
+  display: inline-block;
+  background: rgba(220, 50, 50, 0.2);
+  color: #ff8888;
+  border: 1px solid rgba(220, 50, 50, 0.4);
+  padding: 0.2rem 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 3px;
+}
+
+.badgeDeferred {
+  display: inline-block;
+  background: rgba(100, 140, 200, 0.15);
+  color: #9ac2ff;
+  border: 1px solid rgba(100, 140, 200, 0.35);
+  padding: 0.2rem 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 3px;
+}
+
+.title {
+  font-family: var(--font-serif, "Cinzel", "Playfair Display", Georgia, serif);
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  color: var(--gold, #d1a36d);
+  margin: 0 0 0.5rem;
+  line-height: 1.2;
+}
+
+.subtitle {
+  color: rgba(244, 232, 214, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 800px;
+}
+
+.filterBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem;
+  background: rgba(20, 16, 16, 0.6);
+  border: 1px solid rgba(209, 163, 109, 0.2);
+  border-radius: 6px;
+}
+
+.filterBtn {
+  background: transparent;
+  color: var(--cream, #f4e8d6);
+  border: 1px solid rgba(209, 163, 109, 0.25);
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filterBtn:hover {
+  background: rgba(209, 163, 109, 0.15);
+  border-color: var(--gold, #d1a36d);
+}
+
+.filterBtn:focus-visible {
+  outline: 2px solid var(--gold, #d1a36d);
+  outline-offset: 2px;
+}
+
+.filterBtnActive {
+  background: var(--red-masthead, #36090c);
+  color: var(--gold-bright, #e7bf8c);
+  border-color: var(--gold, #d1a36d);
+  font-weight: 600;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: rgba(14, 11, 11, 0.85);
+  border: 1px solid rgba(209, 163, 109, 0.2);
+  border-radius: 6px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s ease;
+}
+
+.card:hover {
+  border-color: rgba(209, 163, 109, 0.45);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.cardTitle {
+  font-family: var(--font-serif, "Cinzel", "Playfair Display", Georgia, serif);
+  font-size: 1.05rem;
+  color: var(--cream, #f4e8d6);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.cardRationale {
+  color: rgba(244, 232, 214, 0.75);
+  font-size: 0.85rem;
+  line-height: 1.45;
+  margin: 0 0 1rem;
+  flex-grow: 1;
+}
+
+.cardMeta {
+  border-top: 1px solid rgba(209, 163, 109, 0.15);
+  padding-top: 0.75rem;
+  font-size: 0.75rem;
+  color: rgba(244, 232, 214, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.metaItem {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.metaLabel {
+  color: rgba(209, 163, 109, 0.8);
+}
+
+.sandboxSection {
+  background: rgba(18, 14, 14, 0.9);
+  border: 1px solid rgba(209, 163, 109, 0.25);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.sandboxTitle {
+  font-family: var(--font-serif, "Cinzel", "Playfair Display", Georgia, serif);
+  font-size: 1.25rem;
+  color: var(--gold, #d1a36d);
+  margin: 0 0 1rem;
+}
+
+.sandboxList {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: rgba(244, 232, 214, 0.85);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.sandboxList li {
+  margin-bottom: 0.5rem;
+}
+
+.securityNote {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(209, 163, 109, 0.08);
+  border-left: 3px solid var(--gold, #d1a36d);
+  font-size: 0.85rem;
+  color: rgba(244, 232, 214, 0.9);
+  line-height: 1.4;
+}
