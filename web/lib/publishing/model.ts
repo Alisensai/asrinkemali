@@ -1,4 +1,5 @@
 import type { PublicationRecord, PublicationStatus } from "../../../schemas/publication-record.types";
+import { editorialTrustConfigured } from "../editorial-trust/configuration.ts";
 
 const ID = /^[a-z0-9][a-z0-9-]{2,119}$/;
 const ISO_DATE = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})(?:\.(\d{3}))?Z$/;
@@ -86,5 +87,24 @@ export function validatePublication(input: PublicationRecord): PublicationValida
 }
 
 export function canTransition(from: PublicationStatus, to: PublicationStatus) { return TRANSITIONS[from].includes(to); }
-export function isPubliclyVisible(record: PublicationRecord) { return isObject(record) && record.status === "published" && validatePublication(record).ok; }
+/**
+ * Kamuya açık yayın kapısı.
+ *
+ * V1.0 güvenlik denetimi: `approval: { kind: "human", approvedBy: "<serbest metin>" }` kayıt
+ * sahibinin kendi beyanıdır; doğrulanmış editör kararı DEĞİLDİR (sergi kapısındaki SEC-V09-01 ile
+ * aynı örüntü). Kamuya açılma, editoryal güven katmanında (Görev 04) güvenilir kimlik sağlayıcısı +
+ * etkin politika ve bu yayın revizyonu için doğrulanmış onay ister. Bu repoda sağlayıcı/politika
+ * olmadığından hiçbir yayın kamuya açılmaz, site haritasına girmez (fail-closed).
+ */
+export interface PublicationTrustContext {
+  trustConfigured: boolean;
+  verifiedApproval: boolean;
+}
+
+export function isPubliclyVisible(
+  record: PublicationRecord,
+  trust: PublicationTrustContext = { trustConfigured: editorialTrustConfigured(), verifiedApproval: false },
+) {
+  return isObject(record) && record.status === "published" && validatePublication(record).ok && trust.trustConfigured && trust.verifiedApproval;
+}
 export function publicationKindLabel(kind: PublicationRecord["kind"]) { return ({ research_article: "Araştırma yazısı", biography: "Biyografi", historical_analysis: "Tarihî inceleme", sourced_article: "Kaynaklı makale" } as const)[kind]; }

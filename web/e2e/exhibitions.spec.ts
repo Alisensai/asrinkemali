@@ -58,7 +58,7 @@ test.describe("MKA Immersive Museum Platform V0.8 — Görev 26 Hardening & E2E"
 
     // Prodüksiyon ortamında taslak sergiler karantinada ve 404 dönmeli
     if (res?.status() === 404) {
-      await expect(page.getByRole("heading", { name: "Sayfa bulunamadı" })).toBeVisible();
+      await expect(page.getByRole("heading", { name: "Arşiv Kaydı veya Sayfa Bulunamadı" })).toBeVisible();
       const overflow = await page.evaluate(
         () => document.documentElement.scrollWidth > window.innerWidth + 1
       );
@@ -113,9 +113,11 @@ test.describe("MKA Immersive Museum Platform V0.8 — Görev 26 Hardening & E2E"
     const drawer = page.locator('aside[role="dialog"]');
     await expect(drawer).toBeVisible();
 
-    // Doğrulanmış dürüst rozetler denetimi: KATALOG KAYDI ve DOĞRULANMIŞ KAYNAK
-    await expect(page.locator("text=KATALOG KAYDI")).toBeVisible();
-    await expect(page.locator("text=DOĞRULANMIŞ KAYNAK")).toBeVisible();
+    // Sentetik staging sergisi insan onayından geçmediği için doğrulanmış kaynak
+    // rozeti taşımaz; kaynak inceleme paneli bunu açıkça belirtmelidir.
+    await expect(drawer.getByText("KATALOG KAYDI", { exact: true })).toBeVisible();
+    await expect(drawer.getByText("SENTETİK ÖNİZLEME · DOĞRULANMADI", { exact: true })).toBeVisible();
+    await expect(drawer.getByText("DOĞRULANMIŞ KAYNAK", { exact: true })).toHaveCount(0);
 
     // Escape ile çekmeceyi kapat
     await page.keyboard.press("Escape");

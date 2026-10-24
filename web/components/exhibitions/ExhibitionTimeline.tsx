@@ -67,7 +67,6 @@ export function ExhibitionTimeline({ section, onInspectSource }: ExhibitionTimel
                           dateDisplay: evt.documentDate || evt.eventDate,
                           description: evt.description,
                           archiveSlug: evt.archiveSlug,
-                          isVerified: true,
                         })
                       }
                       className={styles.timelineInspectBtn}

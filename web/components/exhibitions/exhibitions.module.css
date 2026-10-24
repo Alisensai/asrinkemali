@@ -1085,3 +1085,1031 @@
     transform: none !important;
   }
 }
+
+/* --------------------------------------------------------------------------
+   10. SERGİ GÖVDESİ — V1.0 tamamlama
+   Bileşenlerin kullandığı ancak bu modülde tanımlı olmayan sınıflar (sanal galeri
+   odası, liste modu, vitrin, kronoloji, sergi kartı). Renk ve yazı tipleri mevcut
+   MKA token'larından gelir.
+   -------------------------------------------------------------------------- */
+.exhibitionRoot {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.exhibitionMain {
+  width: min(1200px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 40px 0 72px;
+  min-width: 0;
+}
+
+.noticeIcon {
+  margin-right: 6px;
+  color: var(--gold-bright);
+}
+
+.curatorLabel {
+  margin-right: 6px;
+  color: var(--text-secondary);
+}
+
+/* Ortak başlık yığını (oda, liste modu ve kronoloji) */
+.slideHeader,
+.sectionHeaderStack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.slideKicker,
+.sectionKicker {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.slideTitle,
+.sectionHeading {
+  margin: 0;
+  font-family: var(--font-serif-display);
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.2;
+  color: var(--cream);
+  overflow-wrap: anywhere;
+}
+
+.slideLead,
+.sectionIntro {
+  margin: 0 0 24px;
+  max-width: 72ch;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* Sanal galeri odası */
+.virtualRoomWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.emptyRoomState {
+  padding: 40px 24px;
+  border: 1px dashed var(--border-gold);
+  text-align: center;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+}
+
+.roomHudBar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px 24px;
+  padding: 14px 18px;
+  border: 1px solid var(--border-gold);
+  background: rgba(20, 6, 8, 0.85);
+}
+
+.roomProgressInfo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.hudBadge {
+  padding: 4px 10px;
+  border: 1px solid rgba(209, 163, 109, 0.45);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--gold-bright);
+}
+
+.hudStepText {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.hudStepText strong {
+  color: var(--cream);
+}
+
+.hudProgressBarTrack {
+  height: 3px;
+  background: rgba(209, 163, 109, 0.18);
+  overflow: hidden;
+}
+
+.hudProgressBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold-bright) 100%);
+  transition: width 0.3s ease;
+}
+
+.hudNavButtonGroup {
+  display: flex;
+  gap: 8px;
+}
+
+.hudNavBtn,
+.roomDotBtn,
+.inspectButton,
+.miniInspectBtn,
+.timelineInspectBtn,
+.returnDirectoryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--border-gold);
+  border-radius: 2px;
+  background: rgba(20, 6, 8, 0.7);
+  color: var(--gold-pale);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.hudNavBtn:hover:not(:disabled),
+.roomDotBtn:hover,
+.inspectButton:hover,
+.miniInspectBtn:hover,
+.timelineInspectBtn:hover,
+.returnDirectoryBtn:hover {
+  background: rgba(50, 14, 18, 0.95);
+  border-color: var(--gold-bright);
+  color: #ffffff;
+}
+
+.hudNavBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.hudNavBtn:focus-visible,
+.roomDotBtn:focus-visible,
+.inspectButton:focus-visible,
+.miniInspectBtn:focus-visible,
+.timelineInspectBtn:focus-visible,
+.returnDirectoryBtn:focus-visible,
+.exploreArchiveBtn:focus-visible,
+.archiveDirectLink:focus-visible,
+.galleryLink:focus-visible,
+.cardCtaBtn:focus-visible,
+.cardTitleLink:focus-visible,
+.room3DStage:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 3px;
+}
+
+.room3DStage {
+  position: relative;
+  padding: clamp(20px, 4vw, 44px);
+  border: 1px solid var(--border-gold);
+  background: radial-gradient(ellipse at top, rgba(54, 9, 12, 0.55) 0%, rgba(10, 4, 5, 0.96) 70%);
+  overflow: hidden;
+  min-width: 0;
+}
+
+.roomStageAmbientGlow {
+  position: absolute;
+  inset: -40% 20% auto;
+  height: 60%;
+  background: radial-gradient(ellipse, rgba(209, 163, 109, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.roomActiveCard {
+  position: relative;
+  min-width: 0;
+  animation: roomCardIn 0.35s ease;
+}
+
+@keyframes roomCardIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+.roomSlideShowcase,
+.roomSlideNarrative,
+.roomSlideGallery,
+.roomSlideComparison,
+.roomSlideSourcePanel,
+.roomSlideClosing,
+.vitrineSpotlight,
+.roomDotNav {
+  min-width: 0;
+}
+
+.roomDotList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.roomDotBtn {
+  width: 100%;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.roomDotBtnActive {
+  background: rgba(110, 17, 22, 0.55);
+  border-color: var(--gold-bright);
+  color: #ffffff;
+}
+
+.dotNumber {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-size: 11px;
+}
+
+.dotTitlePreview {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.roomKeyboardTip {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* Liste modu */
+.sectionRendererContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  min-width: 0;
+}
+
+.sectionBlock {
+  min-width: 0;
+  scroll-margin-top: 96px;
+}
+
+.narrativeSection,
+.showcaseSection,
+.gallerySection,
+.comparisonSection,
+.sourcePanelSection,
+.closingSection,
+.timelineSectionWrap {
+  min-width: 0;
+}
+
+/* Anlatı */
+.narrativeBodyGrid,
+.narrativeContentGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 32px;
+}
+
+.narrativeTextCol,
+.narrativeProse {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.narrativeParagraph,
+.narrativeProse p {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--cream);
+}
+
+.narrativeQuote {
+  margin: 8px 0 0;
+  padding: 20px 24px;
+  border-left: 3px solid var(--gold);
+  background: rgba(54, 9, 12, 0.35);
+}
+
+.narrativeQuote p {
+  margin: 0 0 10px;
+  font-family: var(--font-serif-display);
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--gold-pale);
+}
+
+.narrativeQuote footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.quoteCitation {
+  flex-basis: 100%;
+  font-style: normal;
+  font-size: 12px;
+  color: var(--gold);
+}
+
+.supportingSidebar {
+  align-self: start;
+  padding: 20px;
+  border: 1px solid var(--border-gold);
+  background: rgba(14, 4, 6, 0.8);
+}
+
+.sidebarTitle {
+  margin: 0 0 10px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.historicalContextBox {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* Vitrin (DocumentShowcase) */
+.showcaseFigure {
+  margin: 0;
+  min-width: 0;
+}
+
+/* Görsel ve künye vitrin içinde yan yana; dar ekranda alt alta. */
+.showcaseFigure .showcaseVitrine {
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  align-items: start;
+  gap: 28px;
+}
+
+.showcaseImageContainer {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--border-gold);
+  background: #0b0405;
+  overflow: hidden;
+}
+
+.showcaseImage,
+.galleryImage {
+  object-fit: cover;
+}
+
+.showcaseOverlayTag {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: calc(100% - 24px);
+  padding: 6px 10px;
+  background: rgba(8, 6, 6, 0.85);
+  border: 1px solid rgba(209, 163, 109, 0.4);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--gold-pale);
+}
+
+.tagIcon {
+  flex: 0 0 auto;
+}
+
+.showcaseCardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.showcaseMetaHeader,
+.sourcePanelTop,
+.timelineDateRow,
+.cardMetaRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.catalogBadge,
+.dateBadge,
+.eventDateBadge,
+.documentDateBadge,
+.comparisonPeriodBadge,
+.galleryInstBadge,
+.cardThemeTag {
+  display: inline-block;
+  padding: 3px 8px;
+  border: 1px solid rgba(209, 163, 109, 0.4);
+  border-radius: 2px;
+  background: rgba(209, 163, 109, 0.1);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--gold-bright);
+  overflow-wrap: anywhere;
+}
+
+.comparisonPeriodBadge {
+  align-self: flex-start;
+}
+
+.showcaseTitle {
+  margin: 0;
+  font-family: var(--font-serif-display);
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--cream);
+}
+
+.showcaseCaption {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.showcaseExcerptBox {
+  padding: 16px 18px;
+  border: 1px solid var(--border-gold);
+  background: rgba(14, 4, 6, 0.8);
+}
+
+.excerptLabel {
+  display: block;
+  margin-bottom: 8px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+}
+
+.excerptText {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--cream);
+}
+
+.showcaseContext {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contextBullet {
+  padding-left: 14px;
+  border-left: 2px solid rgba(209, 163, 109, 0.4);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.showcaseFooterActions,
+.sourcePanelFoot,
+.galleryCardActions,
+.closingActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin-top: auto;
+}
+
+.archiveDirectLink,
+.galleryLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gold-bright);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.archiveDirectLink:hover,
+.galleryLink:hover {
+  color: #ffffff;
+}
+
+/* Belge galerisi */
+.documentGalleryGrid,
+.galleryGridList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.galleryCardThumb {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  margin: -20px -20px 0;
+  border-bottom: 1px solid var(--border-gold);
+  overflow: hidden;
+  background: #0b0405;
+}
+
+.galleryInstBadge {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  max-width: calc(100% - 20px);
+  background: rgba(8, 6, 6, 0.85);
+}
+
+.galleryCardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.galleryDate,
+.galleryCatalog {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--gold);
+}
+
+.galleryItemTitle {
+  margin: 0;
+  font-family: var(--font-serif-display);
+  font-size: 18px;
+  line-height: 1.3;
+  color: var(--cream);
+}
+
+.galleryDesc {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Karşılaştırma */
+.comparisonGrid,
+.comparisonRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+.comparisonSide {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 22px;
+  border: 1px solid var(--border-gold);
+  background: rgba(14, 4, 6, 0.85);
+}
+
+.sideTitle {
+  margin: 0;
+  font-family: var(--font-serif-display);
+  font-size: 20px;
+  color: var(--cream);
+}
+
+.sideContent {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.comparisonPointsList {
+  margin: 0;
+  padding-left: 18px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--cream);
+}
+
+.comparisonDivider {
+  display: grid;
+  place-items: center;
+}
+
+.comparisonDivider span {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border-gold);
+  border-radius: 50%;
+  font-family: var(--font-serif-display);
+  font-size: 14px;
+  color: var(--gold);
+}
+
+/* Kaynak paneli */
+.sourcePanelGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.sourcePanelCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border: 1px solid var(--border-gold);
+  background: radial-gradient(ellipse at top left, rgba(34, 8, 11, 0.9) 0%, rgba(14, 4, 6, 0.96) 100%);
+  min-width: 0;
+}
+
+.sourcePanelTitle {
+  margin: 0;
+  font-family: var(--font-serif-display);
+  font-size: 18px;
+  line-height: 1.3;
+  color: var(--cream);
+}
+
+.sourcePanelInst,
+.sourcePanelCitation {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.sourcePanelInst {
+  color: var(--gold-pale);
+}
+
+/* Kapanış */
+.closingCard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: clamp(20px, 4vw, 36px);
+  border: 1px solid var(--border-gold);
+  background: rgba(14, 4, 6, 0.85);
+}
+
+.closingSummary {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--cream);
+}
+
+.closingSignificance h3 {
+  margin: 0 0 8px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.closingSignificance p {
+  margin: 0 0 10px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.closingSignificance .sourcesSummaryNote {
+  font-size: 13px;
+  color: var(--gold-pale);
+}
+
+.exploreArchiveBtn,
+.cardCtaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 18px;
+  border: 1px solid var(--gold);
+  border-radius: 2px;
+  background: var(--red-masthead);
+  color: var(--cream);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.exploreArchiveBtn:hover,
+.cardCtaBtn:hover {
+  background: #6e1116;
+  border-color: var(--gold-bright);
+}
+
+/* Kronoloji */
+.timelineList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timelineItem {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 16px;
+}
+
+.timelineMarkerCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timelineDot {
+  width: 12px;
+  height: 12px;
+  margin-top: 22px;
+  border: 2px solid var(--gold-bright);
+  border-radius: 50%;
+  background: var(--red-masthead);
+}
+
+.timelineLine {
+  flex: 1;
+  width: 1px;
+  background: rgba(209, 163, 109, 0.35);
+}
+
+.timelineItem:last-child .timelineLine {
+  display: none;
+}
+
+.timelineContentCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 18px 20px;
+  border: 1px solid var(--border-gold);
+  background: rgba(14, 4, 6, 0.85);
+  min-width: 0;
+}
+
+.timelineEventTitle {
+  margin: 0;
+  font-family: var(--font-serif-display);
+  font-size: 19px;
+  color: var(--cream);
+}
+
+.timelineEventDesc {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.timelineSourceRibbon {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(209, 163, 109, 0.2);
+}
+
+.timelineSourceInfo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  min-width: 0;
+}
+
+.sourceLabel,
+.sourceInstitution {
+  color: var(--text-secondary);
+}
+
+.sourceName {
+  color: var(--gold-pale);
+}
+
+/* Sergi kartı (dizin) */
+.cardItem {
+  list-style: none;
+  min-width: 0;
+}
+
+.cardCoverWrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-gold);
+}
+
+.cardCoverGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(8, 6, 6, 0.9) 100%);
+}
+
+.cardThemeTag {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  background: rgba(8, 6, 6, 0.85);
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+}
+
+.cardEra,
+.cardSources {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--gold);
+}
+
+.cardTitleLink {
+  color: var(--cream);
+  text-decoration: none;
+}
+
+.cardTitleLink:hover {
+  color: var(--gold-bright);
+}
+
+.cardLeadExcerpt {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.cardCurator {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+}
+
+.curatorSmallLabel {
+  color: var(--text-secondary);
+}
+
+.curatorSmallName {
+  color: var(--gold-pale);
+}
+
+@media (max-width: 960px) {
+  .narrativeBodyGrid,
+  .narrativeContentGrid,
+  .showcaseFigure .showcaseVitrine {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .showcaseImageContainer {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (max-width: 620px) {
+  .exhibitionMain {
+    padding: 24px 0 48px;
+  }
+
+  .roomHudBar,
+  .comparisonGrid,
+  .comparisonRow,
+  .documentGalleryGrid,
+  .galleryGridList,
+  .sourcePanelGrid,
+  .roomDotList {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hudNavButtonGroup > * {
+    flex: 1;
+  }
+
+  .comparisonDivider span {
+    width: 36px;
+    height: 36px;
+  }
+
+  .roomKeyboardTip {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .roomActiveCard {
+    animation: none;
+  }
+
+  .hudProgressBarFill {
+    transition: none;
+  }
+}
+
+/* Sergi dizini filtre durumu */
+.filterCountInfo {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.noResultsBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 40px 24px;
+  border: 1px dashed var(--border-gold);
+  text-align: center;
+  font-family: var(--font-sans);
+  color: var(--text-secondary);
+}
+
+.resetFilterBtn {
+  min-height: 44px;
+  padding: 10px 18px;
+  border: 1px solid var(--border-gold);
+  border-radius: 2px;
+  background: rgba(20, 6, 8, 0.7);
+  color: var(--gold-pale);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.resetFilterBtn:hover {
+  border-color: var(--gold-bright);
+  color: #ffffff;
+}
+
+.resetFilterBtn:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 3px;
+}

@@ -574,7 +574,11 @@ def check_next_sources(root: Path, report: dict, external: bool = False, timeout
             if not has_label and not re.search(r"\baria-labelledby\s*=", attrs):
                 issue(report, "next", "error", "unlabeled-button", "Next.js button erişilebilir etikete sahip değil.",
                       str(path.relative_to(root)))
-            has_action = bool(re.search(r"\b(?:onClick|formAction|href)\s*=", attrs) or
+            # `href` yalnız tasarım sistemi <Button> bileşeninde eylemdir (Link/anchor render eder);
+            # yerel <button href> HTML'de hiçbir şey yapmaz ve eylemsiz sayılmaya devam eder.
+            is_component = match.group(0).startswith("<B")
+            has_action = bool(re.search(r"\b(?:onClick|formAction)\s*=", attrs) or
+                              (is_component and re.search(r"\bhref\s*=", attrs)) or
                               re.search(r"""\btype\s*=\s*(['"])submit\1""", attrs))
             disabled = bool(re.search(r"\bdisabled(?:\s|=|$)", attrs) or
                             re.search(r"""\baria-disabled\s*=\s*(['"])true\1""", attrs))
