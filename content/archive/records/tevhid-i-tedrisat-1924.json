@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "tevhid-i-tedrisat-1924",
+  "slug": "tevhid-i-tedrisat-1924",
+  "title": "Tevhid-i Tedrisat Kanunu",
+  "type": "event",
+  "date": {
+    "start": "1924-03-03",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "3 Mart 1924"
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "official",
+      "note": "Eğitim ve öğretim birliği politikasının önde gelen savunucusu."
+    },
+    {
+      "name": "Vasıf Çınar",
+      "role": "official",
+      "note": "Kanun teklifini TBMM'ye sunan Saruhan milletvekili."
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "egitim",
+    "hukuk",
+    "cumhuriyet"
+  ],
+  "summary": "Tevhid-i Tedrisat Kanunu 3 Mart 1924'te TBMM'de kabul edildi. Kanun, medrese, okul ve yabancı okul ayrımını kaldırarak eğitim ve öğretimi Maarif Vekâleti çatısı altında birleştirdi.",
+  "description": "Osmanlı döneminde eğitim kurumları farklı program, amaç ve denetim yapılarına sahipti. 3 Mart 1924'te kabul edilen 430 sayılı Tevhid-i Tedrisat Kanunu ile ülkedeki bütün bilim ve öğretim kurumları Maarif Vekâleti'ne bağlandı. Kanun, eğitimde birlik ve laiklik ilkelerinin kurumsal temelini oluşturdu; kız ve erkek öğrencilerin eşit haklarla eğitim görmesi hedeflendi.",
+  "source": {
+    "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "institutionType": "institutional",
+    "institutionUrl": "https://ataturkansiklopedisi.gov.tr/",
+    "title": "Atatürk Ansiklopedisi: Tevhid-i Tedrisat Kanunu",
+    "url": "https://ataturkansiklopedisi.gov.tr/detay/400/Tevhid-i-Tedrisat-Kanunu",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2020-12-06",
+    "archiveIdentifier": "400",
+    "note": "Kurumsal ansiklopedi maddesi; kanun teklifini, TBMM görüşmesini ve eğitim reformunun kapsamını açıklar."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "collection": "Atatürk Ansiklopedisi",
+      "identifier": "400",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/400/Tevhid-i-Tedrisat-Kanunu",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal madde, 3 Mart 1924 tarihli TBMM kararını ve 430 sayılı kanunu belgeler."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal ansiklopedi sayfasında yeniden kullanım lisansı doğrulanmadı; metin ve görsel kopyalanmaz, yalnızca kaynak sayfaya bağlantı verilir."
+  },
+  "image": null,
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Kaynak sayfa 23 Ekim 2026'da erişildi; 3 Mart 1924 tarihi ve 430 sayılı kanun bilgisi kurumsal maddeyle doğrulandı. Doğrudan alıntı kullanılmadı."
+  },
+  "tags": [
+    "Tevhid-i Tedrisat",
+    "eğitim",
+    "3 Mart 1924",
+    "Maarif Vekâleti",
+    "laiklik"
+  ],
+  "relatedIds": [
+    "1924-anayasasi",
+    "harf-devrimi-1928"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

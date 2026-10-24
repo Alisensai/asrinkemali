@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "samsun-cikarmasi-1919",
+  "slug": "samsun-cikarmasi-1919",
+  "title": "Mustafa Kemal'in Samsun'a Çıkışı",
+  "type": "event",
+  "date": {
+    "start": "1919-05-19",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "19 Mayıs 1919"
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "official",
+      "note": "Anadolu'daki Millî Mücadele'nin örgütlenmesini başlatan lider."
+    }
+  ],
+  "locations": [
+    {
+      "name": "Samsun",
+      "city": "Samsun",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "milli-mucadele",
+    "kurulus",
+    "siyaset"
+  ],
+  "summary": "Mustafa Kemal Atatürk 19 Mayıs 1919'da Samsun'a çıktı. Bu tarih, Anadolu'da Millî Mücadele'nin örgütlenme sürecinin başlangıcı olarak kabul edilir.",
+  "description": "Mustafa Kemal Paşa, Karadeniz bölgesindeki gelişmeleri teftiş etmek üzere Samsun'a gönderildi. Samsun'a çıkışının ardından Havza'ya geçti ve Anadolu'daki direniş hareketinin örgütlenmesinde önemli bir rol üstlendi. Atatürk Ansiklopedisi maddesi, 19 Mayıs 1919'u Türk Millî Mücadelesi'nin başladığı gün olarak tanımlar.",
+  "source": {
+    "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "institutionType": "institutional",
+    "institutionUrl": "https://ataturkansiklopedisi.gov.tr/",
+    "title": "Atatürk Ansiklopedisi: Millî Bayramlar",
+    "url": "https://ataturkansiklopedisi.gov.tr/detay/324/Millî-Bayramlar",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2021-02-19",
+    "archiveIdentifier": "324",
+    "note": "Atatürk Araştırma Merkezi tarafından yayımlanan ansiklopedi maddesi; 19 Mayıs'ın anlamını ve dönemin olaylarını açıklar."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "collection": "Atatürk Ansiklopedisi",
+      "identifier": "324",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/324/Millî-Bayramlar",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal ansiklopedi maddesi, 19 Mayıs 1919'u Millî Mücadele'nin başlangıcı olarak tanımlar."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal ansiklopedi sayfasında yeniden kullanım lisansı doğrulanmadı; metin ve görsel kopyalanmaz, yalnızca kaynak sayfaya bağlantı verilir."
+  },
+  "image": null,
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Kaynak sayfa 23 Ekim 2026'da erişildi; 19 Mayıs 1919 tarihi kurumsal ansiklopedi metniyle doğrulandı. Doğrudan alıntı kullanılmadı."
+  },
+  "tags": [
+    "Samsun",
+    "19 Mayıs",
+    "1919",
+    "Millî Mücadele",
+    "istiklal",
+    "Anadolu"
+  ],
+  "relatedIds": [
+    "tbmm-acilisi-1920"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

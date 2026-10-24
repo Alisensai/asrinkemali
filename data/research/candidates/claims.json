@@ -1,0 +1,192 @@
+{
+  "schemaVersion": "1.0.0",
+  "meta": {
+    "note": "İddialar yalnızca 23.10.2026'da okunan kurumsal sayfalarda açıkça belirtilen bilgilerden türetilmiştir. Kaynak kapsamı ile komuta/görev sürekliliği iddiası birbirinden ayrı tutulur; nihai tarih kararı insan incelemesiyle verilir."
+  },
+  "claims": [
+    {
+      "id": "claim-001",
+      "text": "Mustafa Kemal Atatürk 1881'de Selanik'te doğdu ve 10 Kasım 1938'de vefat etti.",
+      "date": {
+        "start": "1881",
+        "end": "1938",
+        "precision": "range",
+        "certainty": "exact",
+        "display": "1881–1938"
+      },
+      "evidence": [
+        {
+          "candidateId": "src-2026-0001",
+          "relation": "supports"
+        }
+      ],
+      "evidenceBasis": "künye ve kapsam meta verisi (kaynak sayfasından 23.10.2026'da çıkarıldı); destekleyici tam metin pasajı/konum kaydı HENÜZ YOK — insan incelemesinde pasaj eklenene dek unverified kabul edilmeli"
+    },
+    {
+      "id": "claim-002",
+      "text": "Atatürk Ansiklopedisi'nin \"Atatürk'ün Eğitim ve Öğretim Gördüğü Kurumlar\" maddesi, öğrenim hayatını 1887–2005 aralığında Şemsi Efendi Mektebi'nden Erkân-ı Harbiye Mektebi'ne uzanan kurumlarla belgeler (madde künyesi ve kapsam aralığı; tam metin pasajı ayrıca kaydedilmeli).",
+      "date": {
+        "start": "1887",
+        "end": "1905",
+        "precision": "range",
+        "certainty": "exact",
+        "display": "1887–1905"
+      },
+      "evidence": [
+        {
+          "candidateId": "src-2026-0006",
+          "relation": "supports"
+        }
+      ],
+      "evidenceBasis": "künye ve kapsam meta verisi (kaynak sayfasından 23.10.2026'da çıkarıldı); destekleyici tam metin pasajı/konum kaydı HENÜZ YOK — insan incelemesinde pasaj eklenene dek unverified kabul edilmeli"
+    },
+    {
+      "id": "claim-003",
+      "text": "Mustafa Kemal, Trablusgarp Savaşı'nda (1911–1912) Derne bölgesinde komutanlık görevi üstlendi.",
+      "date": {
+        "start": "1911",
+        "end": "1912",
+        "precision": "range",
+        "certainty": "exact",
+        "display": "1911–1912"
+      },
+      "evidence": [
+        {
+          "candidateId": "src-2026-0007",
+          "relation": "supports"
+        }
+      ],
+      "evidenceBasis": "künye ve kapsam meta verisi (kaynak sayfasından 23.10.2026'da çıkarıldı); destekleyici tam metin pasajı/konum kaydı HENÜZ YOK — insan incelemesinde pasaj eklenene dek unverified kabul edilmeli"
+    },
+    {
+      "id": "claim-004",
+      "text": "Mustafa Kemal, Balkan Savaşı'nda 1 Aralık 1912 – 10 Ağustos 1913 arasında görev yaptı.",
+      "date": {
+        "start": "1912-12-01",
+        "end": "1913-08-10",
+        "precision": "range",
+        "certainty": "exact",
+        "display": "1 Aralık 1912 – 10 Ağustos 1913"
+      },
+      "evidence": [
+        {
+          "candidateId": "src-2026-0008",
+          "relation": "supports"
+        }
+      ],
+      "evidenceBasis": "künye ve kapsam meta verisi (kaynak sayfasından 23.10.2026'da çıkarıldı); destekleyici tam metin pasajı/konum kaydı HENÜZ YOK — insan incelemesinde pasaj eklenene dek unverified kabul edilmeli"
+    },
+    {
+      "id": "claim-005",
+      "text": "Mustafa Kemal, Sofya Ataşemiliterliği'ni 27 Ekim 1913 – 20 Ocak 1915 arasında yürüttü.",
+      "date": {
+        "start": "1913-10-27",
+        "end": "1915-01-20",
+        "precision": "range",
+        "certainty": "exact",
+        "display": "27 Ekim 1913 – 20 Ocak 1915"
+      },
+      "evidence": [
+        {
+          "candidateId": "src-2026-0011",
+          "relation": "supports"
+        }
+      ],
+      "evidenceBasis": "künye ve kapsam meta verisi (kaynak sayfasından 23.10.2026'da çıkarıldı); destekleyici tam metin pasajı/konum kaydı HENÜZ YOK — insan incelemesinde pasaj eklenene dek unverified kabul edilmeli"
+    },
+    {
+      "id": "claim-006",
+      "text": "Atatürk Ansiklopedisi'nin \"Çanakkale Cephesi'nde Mustafa Kemal\" maddesi, Mustafa Kemal'in bu cephedeki görevlerini 1914–1916 dönemini kapsayacak şekilde ele alır.",
+      "date": {
+        "start": "1914",
+        "end": "1916",
+        "precision": "range",
+        "certainty": "estimated",
+        "display": "1914–1916"
+      },
+      "evidence": [
+        {
+          "candidateId": "src-2026-0010",
+          "relation": "supports"
+        },
+        {
+          "candidateId": "src-2026-0009",
+          "relation": "partial"
+        }
+      ],
+      "evidenceBasis": "künye ve kapsam meta verisi (kaynak sayfasından 23.10.2026'da çıkarıldı); destekleyici tam metin pasajı/konum kaydı HENÜZ YOK — insan incelemesinde pasaj eklenene dek unverified kabul edilmeli"
+    },
+    {
+      "id": "claim-007",
+      "text": "ATAM'ın e-yayını \"İlk Defa Yayınlanan Belgelerle Mustafa Kemal Paşa ve 16'ncı Kolordu Komutanlığı\" kitabının kapsamı, başlığında belirtildiği üzere 1915–1917 dönemidir.",
+      "date": {
+        "start": "1915",
+        "end": "1917",
+        "precision": "range",
+        "certainty": "exact",
+        "display": "1915–1917"
+      },
+      "evidence": [
+        {
+          "candidateId": "src-2026-0030",
+          "relation": "supports"
+        }
+      ],
+      "evidenceBasis": "künye ve kapsam meta verisi (kaynak sayfasından 23.10.2026'da çıkarıldı); destekleyici tam metin pasajı/konum kaydı HENÜZ YOK — insan incelemesinde pasaj eklenene dek unverified kabul edilmeli"
+    },
+    {
+      "id": "claim-008",
+      "text": "Mustafa Kemal, 30 Haziran – 28 Temmuz 1918 arasında Karlsbad'da tedavi/kur süresindeydi.",
+      "date": {
+        "start": "1918-06-30",
+        "end": "1918-07-28",
+        "precision": "range",
+        "certainty": "exact",
+        "display": "30 Haziran – 28 Temmuz 1918"
+      },
+      "evidence": [
+        {
+          "candidateId": "src-2026-0014",
+          "relation": "supports"
+        }
+      ],
+      "evidenceBasis": "künye ve kapsam meta verisi (kaynak sayfasından 23.10.2026'da çıkarıldı); destekleyici tam metin pasajı/konum kaydı HENÜZ YOK — insan incelemesinde pasaj eklenene dek unverified kabul edilmeli"
+    },
+    {
+      "id": "claim-009",
+      "text": "Mondros Mütarekesi 30 Ekim 1918'de imzalandı.",
+      "date": {
+        "start": "1918-10-30",
+        "end": null,
+        "precision": "day",
+        "certainty": "exact",
+        "display": "30 Ekim 1918"
+      },
+      "evidence": [
+        {
+          "candidateId": "src-2026-0015",
+          "relation": "supports"
+        }
+      ],
+      "evidenceBasis": "künye ve kapsam meta verisi (kaynak sayfasından 23.10.2026'da çıkarıldı); destekleyici tam metin pasajı/konum kaydı HENÜZ YOK — insan incelemesinde pasaj eklenene dek unverified kabul edilmeli"
+    },
+    {
+      "id": "claim-010",
+      "text": "Atatürk Ansiklopedisi'nin \"Sina ve Filistin Cephesi'nde Atatürk\" maddesi, Mustafa Kemal'in bu cephedeki görevlerini kapsayan dönem olarak 1917–1919 aralığını esas alır.",
+      "date": {
+        "start": "1917",
+        "end": "1919",
+        "precision": "range",
+        "certainty": "estimated",
+        "display": "1917–1919"
+      },
+      "evidence": [
+        {
+          "candidateId": "src-2026-0012",
+          "relation": "supports"
+        }
+      ],
+      "evidenceBasis": "künye ve kapsam meta verisi (kaynak sayfasından 23.10.2026'da çıkarıldı); destekleyici tam metin pasajı/konum kaydı HENÜZ YOK — insan incelemesinde pasaj eklenene dek unverified kabul edilmeli"
+    }
+  ]
+}

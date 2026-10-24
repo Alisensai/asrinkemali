@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "ayk-ankara-ziraat-mektebi",
+  "slug": "ayk-ankara-ziraat-mektebi",
+  "title": "Ankara Ziraat Mektebi",
+  "type": "place",
+  "date": {
+    "start": "1919-12-27",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "27 Aralık 1919",
+    "note": "Tarih, Atatürk Ansiklopedisi maddesindeki olay tarihinden alınmıştır."
+  },
+  "people": [
+    {
+      "name": "Hikmet Kavruk",
+      "role": "author"
+    },
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "subject"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "mekan",
+    "milli-mucadele"
+  ],
+  "summary": "Ankara Ziraat Mektebi, Mustafa Kemal Paşa’nın Sivas Kongresini yapıp 27 Aralık 1919 tarihinde Ankara’ya geldiğinden itibaren Heyet-i Temsiliye üyeleriyle beraber dört ay (118 gün) kaldığı, milli Mücadelenin o dönemki kararlarını buradan aldığı, milli mücadelenin Ankara’daki ilk karargah merkezi olan binadır. Mustafa Kemal buradan sonra Gar Müdürlüğündeki Direksiyon binasında ikamet etmeye başlamıştır. Ekim 1921’den itibaren Direksiyon binası hem ikametgahı hem çalışma yeri olmuştur. Sonra da Ankara Belediyesinin satın alıp Mustafa Kemal Paşaya verdiği Çankaya’daki bağ evine...",
+  "description": "Ankara Ziraat Mektebi, Mustafa Kemal Paşa’nın Sivas Kongresini yapıp 27 Aralık 1919 tarihinde Ankara’ya geldiğinden itibaren Heyet-i Temsiliye üyeleriyle beraber dört ay (118 gün) kaldığı, milli Mücadelenin o dönemki kararlarını buradan aldığı, milli mücadelenin Ankara’daki ilk karargah merkezi olan binadır. Mustafa Kemal buradan sonra Gar Müdürlüğündeki Direksiyon binasında ikamet etmeye başlamıştır. Ekim 1921’den itibaren Direksiyon binası hem ikametgahı hem çalışma yeri olmuştur. Sonra da Ankara Belediyesinin satın alıp Mustafa Kemal Paşaya verdiği Çankaya’daki bağ evine... Atatürk Ansiklopedisi maddesi, Hikmet Kavruk imzasıyla mekânın tarihsel bağlamını ayrıntılı olarak ele alır. Bu arşiv kaydı yalnızca künye, tarih ve kısa açıklama sunar; maddenin tam metni ve kaynakçası için kurumun sayfasına başvurulmalıdır.",
+  "source": {
+    "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "institutionType": "institutional",
+    "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+    "title": "Atatürk Ansiklopedisi: Ankara Ziraat Mektebi",
+    "url": "https://www.ataturkansiklopedisi.gov.tr/detay/1262/ankara-ziraat-mektebi",
+    "citation": "Hikmet Kavruk, \"Ankara Ziraat Mektebi\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/1262/ankara-ziraat-mektebi.",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2024-09-19",
+    "archiveIdentifier": "AYK-1262",
+    "note": "Atatürk Ansiklopedisi maddesi; künye ve metin AYK kamuya açık API üzerinden doğrulandı. Sayfa yalnızca bağlantı olarak sunulur."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "collection": "Atatürk Ansiklopedisi",
+      "identifier": "AYK-1262",
+      "url": "https://www.ataturkansiklopedisi.gov.tr/detay/1262/ankara-ziraat-mektebi",
+      "accessedAt": "2026-10-23",
+      "note": "AYK kamuya açık API kaydındaki başlık, yazar, yayın tarihi ve metin özetiyle eşleştirildi."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "AYK maddesi, yazarı, yayın tarihi ve tarih bilgisi kurumsal kaynak üzerinden doğrulandı; insan uzman onayı değildir."
+  },
+  "tags": [
+    "Ankara Ziraat Mektebi",
+    "Hikmet Kavruk",
+    "Atatürk Ansiklopedisi",
+    "1919"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

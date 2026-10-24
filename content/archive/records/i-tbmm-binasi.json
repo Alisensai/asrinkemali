@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "i-tbmm-binasi",
+  "slug": "i-tbmm-binasi",
+  "title": "I. Türkiye Büyük Millet Meclisi Binası",
+  "type": "place",
+  "date": {
+    "start": "1920-04-23",
+    "end": "1924-10-15",
+    "precision": "range",
+    "certainty": "exact",
+    "display": "23 Nisan 1920 – 15 Ekim 1924"
+  },
+  "people": [],
+  "locations": [
+    {
+      "name": "I. TBMM Binası (Kurtuluş Savaşı Müzesi)",
+      "city": "Ankara",
+      "country": "Türkiye",
+      "note": "Günümüzde Kurtuluş Savaşı Müzesi olarak ziyarete açıktır."
+    }
+  ],
+  "categories": [
+    "mekan",
+    "tbmm",
+    "kurulus"
+  ],
+  "summary": "I. TBMM Binası, 23 Nisan 1920 ile 15 Ekim 1924 arasında Türkiye Büyük Millet Meclisi tarafından kullanıldı. Yapı günümüzde Kurtuluş Savaşı Müzesi olarak ziyarete açıktır.",
+  "description": "Ankara'da İttihat ve Terakki Partisi temsilciliği olarak planlanan bina, TBMM'nin ilk toplantılarına ev sahipliği yaptı. Kurumsal sayfaya göre bina 23 Nisan 1920 ile 15 Ekim 1924 arasında Meclis olarak kullanıldı; ardından Cumhuriyet Halk Fırkası Genel Merkezi oldu. 23 Nisan 1961'de Türkiye Büyük Millet Meclisi Müzesi adıyla ziyarete açıldı ve 23 Nisan 1981'de Kurtuluş Savaşı Müzesi adını aldı.",
+  "source": {
+    "institution": "Türkiye Büyük Millet Meclisi",
+    "institutionType": "official",
+    "institutionUrl": "https://kurtulussavasimuzesi.tbmm.gov.tr/",
+    "title": "Kurtuluş Savaşı Müzesi: Tarihçe",
+    "url": "https://kurtulussavasimuzesi.tbmm.gov.tr/tarihce",
+    "accessedAt": "2026-10-23",
+    "publishedAt": null,
+    "archiveIdentifier": "tarihce",
+    "note": "Kurumsal tarihçe sayfası; I. TBMM Binası’nın Meclis olarak kullanım aralığını ve müze statüsünü açıklar."
+  },
+  "provenance": [
+    {
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "collection": "Kurtuluş Savaşı Müzesi",
+      "identifier": "tarihce",
+      "url": "https://kurtulussavasimuzesi.tbmm.gov.tr/tarihce",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal tarihçe sayfası, binanın 23 Nisan 1920 – 15 Ekim 1924 arasındaki kullanımını belgeler."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Türkiye Büyük Millet Meclisi Kurtuluş Savaşı Müzesi",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal sayfada yeniden kullanım lisansı doğrulanmadı; metin ve görsel kopyalanmaz, yalnızca kaynak sayfaya bağlantı verilir."
+  },
+  "image": null,
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Kaynak sayfa 23 Ekim 2026'da erişildi; kullanım aralığı ve müze statüsü kurumsal sayfayla doğrulandı. Doğrudan alıntı kullanılmadı."
+  },
+  "tags": [
+    "I. TBMM Binası",
+    "Kurtuluş Savaşı Müzesi",
+    "Ankara",
+    "meclis",
+    "müze"
+  ],
+  "relatedIds": [
+    "tbmm-acilisi-1920",
+    "tbmm-acilis-fotografi-1920"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

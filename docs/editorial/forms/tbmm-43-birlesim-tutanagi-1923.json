@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "tbmm-43-birlesim-tutanagi-1923",
+  "record_path": "data/archive/catalog/tbmm-43-birlesim-tutanagi-1923.json",
+  "record_snapshot_sha256": "794409fb34c645373bbf97899e4f893f9e24513a3694338d1d5635dec715e995",
+  "record_snapshot": {
+    "title": "TBMM 43. Birleşim Tutanağı (29 Ekim 1923)",
+    "type": "document",
+    "date": {
+      "start": "1923-10-29",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "29 Ekim 1923"
+    },
+    "source_institution": "Türkiye Büyük Millet Meclisi",
+    "source_url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c003/tbmm02003043.pdf",
+    "citation": "TBMM Tutanak Dergisi, Dönem 2, Cilt 3, 43. Birleşim, 29 Ekim 1923, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c003/tbmm02003043.pdf",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

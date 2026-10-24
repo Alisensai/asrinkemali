@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ataturkun-nutuk-adli-eseri-1927",
+  "record_path": "data/archive/catalog/ataturkun-nutuk-adli-eseri-1927.json",
+  "record_snapshot_sha256": "aebeedd309f446521db31144b5a4e216adca1e1d392a270e6845ab4c1362a7a6",
+  "record_snapshot": {
+    "title": "Atatürk'ün Nutuk Adlı Eseri",
+    "type": "publication",
+    "date": {
+      "start": "1927-01-01",
+      "end": null,
+      "precision": "year",
+      "certainty": "exact",
+      "display": "1927",
+      "note": "Nutuk'un TBMM'de okunduğu 15-20 Ekim 1927 tarihleri esas alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/878/ataturkun-nutuk-adli-eseri-1927",
+    "citation": "Atatürk Ansiklopedisi, “Atatürk'ün Nutuk Adlı Eseri”, yazar Temuçin Faik ERTAN, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/878/ataturkun-nutuk-adli-eseri-1927",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

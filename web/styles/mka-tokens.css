@@ -1,0 +1,212 @@
+/**
+ * ============================================================================
+ * ASRIN KEMALİ (MKA) — Tasarım Sistemi Token Mimarisi (v0.8)
+ * Referans: design/ONAYLANAN-TASARIM.webp (1536x1024)
+ * ============================================================================
+ *
+ * Üç Katmanlı Mimari:
+ * 1. Primitive Tokens: Fiziksel renkler, aralıklar, fontlar, gölgeler, z-index.
+ * 2. Semantic Tokens: Bağlam ve amaca bağlı yüzey, metin, sınır, durum renkleri.
+ * 3. Component Tokens: Buton, kart, plaket, rozet, form kontrolü varyantları.
+ *
+ * Geriye Dönük Uyumluluk:
+ * Mevcut --black, --night, --gold, --cream vb. değişkenlerle %100 uyumludur.
+ */
+
+:root {
+  /* ========================================================================
+     KATMAN 1: PRIMITIVE TOKENS
+     ======================================================================== */
+
+  /* Renkler — Zemin ve Bordo Tonları */
+  --mka-color-black: #080606;
+  --mka-color-night: #100a0b;
+  --mka-color-red-deep: #1e0506;
+  --mka-color-red-dark: #270709;
+  --mka-color-red-masthead: #36090c;
+  --mka-color-red-nav: #280608;
+  --mka-color-red-card: #6e1116;
+  --mka-color-red-accent: #8b141b;
+  --mka-color-red-crimson: #a61c24;
+
+  /* Renkler — Altın ve Bronz Tonları */
+  --mka-color-gold: #d1a36d;
+  --mka-color-gold-bright: #e7bf8c;
+  --mka-color-gold-pale: #f5e8d4;
+  --mka-color-gold-dark: #916940;
+  --mka-color-bronze: #7a5028;
+
+  /* Renkler — Metin ve Krem Tonları */
+  --mka-color-white: #ffffff;
+  --mka-color-cream: #f4e8d6;
+  --mka-color-sand: #e1d3c5;
+  --mka-color-muted: #bdaaa0;
+  --mka-color-dim: #7d6b63;
+
+  /* Durum Renkleri (Yalnızca UI geri bildirimi; tarihsel/editoryal onay yerine geçmez) */
+  --mka-color-info-bg: rgba(30, 58, 95, 0.4);
+  --mka-color-info-border: rgba(90, 140, 210, 0.45);
+  --mka-color-info-text: #b8d4f8;
+  --mka-color-warning-bg: rgba(70, 45, 15, 0.45);
+  --mka-color-warning-border: rgba(209, 145, 45, 0.5);
+  --mka-color-warning-text: #f7d28b;
+  --mka-color-error-bg: rgba(80, 15, 20, 0.45);
+  --mka-color-error-border: rgba(220, 60, 70, 0.5);
+  --mka-color-error-text: #fca5a5;
+  --mka-color-success-bg: rgba(20, 55, 30, 0.45);
+  --mka-color-success-border: rgba(50, 160, 80, 0.45);
+  --mka-color-success-text: #86efac;
+
+  /* Sınırlar (Borders) */
+  --mka-border-gold: rgba(209, 163, 109, 0.45);
+  --mka-border-gold-strong: rgba(231, 191, 140, 0.75);
+  --mka-border-subtle: rgba(139, 87, 57, 0.35);
+  --mka-border-dark: rgba(255, 255, 255, 0.08);
+
+  /* Boşluklar (4/8 Tabanlı Spacing Skalası) */
+  --mka-space-0: 0px;
+  --mka-space-1: 4px;
+  --mka-space-2: 8px;
+  --mka-space-3: 12px;
+  --mka-space-4: 16px;
+  --mka-space-5: 20px;
+  --mka-space-6: 24px;
+  --mka-space-7: 28px;
+  --mka-space-8: 32px;
+  --mka-space-10: 40px;
+  --mka-space-12: 48px;
+  --mka-space-16: 64px;
+  --mka-space-20: 80px;
+
+  /* Yarıçap (Radii) */
+  --mka-radius-none: 0px;
+  --mka-radius-sm: 2px;
+  --mka-radius-md: 4px;
+  --mka-radius-lg: 8px;
+  --mka-radius-xl: 12px;
+  --mka-radius-pill: 9999px;
+
+  /* Tipografi Font Aileleri */
+  --mka-font-display: var(--font-cinzel), Georgia, 'Times New Roman', serif;
+  --mka-font-title: var(--font-playfair), var(--font-cinzel), Georgia, serif;
+  --mka-font-body: var(--font-cormorant), Georgia, serif;
+  --mka-font-sans: var(--font-montserrat), -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+
+  /* Tipografi Ölçüleri (Responsive Rem & Clamp) */
+  --mka-text-xs: 0.75rem;     /* 12px */
+  --mka-text-sm: 0.8125rem;   /* 13px */
+  --mka-text-base: 1rem;       /* 16px */
+  --mka-text-lg: 1.125rem;    /* 18px */
+  --mka-text-xl: 1.25rem;     /* 20px */
+  --mka-text-2xl: 1.5rem;     /* 24px */
+  --mka-text-3xl: clamp(1.75rem, 2vw + 1rem, 2.25rem); /* 28px - 36px */
+  --mka-text-4xl: clamp(2.25rem, 3vw + 1rem, 3.25rem); /* 36px - 52px */
+
+  /* Satır Yükseklikleri */
+  --mka-leading-tight: 1.15;
+  --mka-leading-snug: 1.35;
+  --mka-leading-normal: 1.5;
+  --mka-leading-relaxed: 1.7;
+
+  /* Gölgeler (Elevation / Shadows) */
+  --mka-shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.4);
+  --mka-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.55), 0 0 0 1px var(--mka-border-subtle);
+  --mka-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.7), 0 0 0 1px var(--mka-border-gold);
+  --mka-shadow-glow: 0 0 24px rgba(209, 163, 109, 0.22);
+  --mka-shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 -1px 0 rgba(0, 0, 0, 0.4);
+
+  /* Katmanlama (Z-Index Scale) */
+  --mka-z-base: 0;
+  --mka-z-card: 1;
+  --mka-z-badge: 5;
+  --mka-z-sticky: 100;
+  --mka-z-nav: 200;
+  --mka-z-header: 300;
+  --mka-z-drawer: 400;
+  --mka-z-modal: 500;
+  --mka-z-toast: 600;
+
+  /* Geçişler ve Hareket (Motion) */
+  --mka-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --mka-transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --mka-transition-smooth: 350ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Yerleşim Konteyneri */
+  --mka-container-max: 1366px;
+  --mka-container-prose: 760px;
+  --mka-container-narrow: 960px;
+
+  /* ========================================================================
+     KATMAN 2: SEMANTIC TOKENS
+     ======================================================================== */
+
+  /* Yüzeyler */
+  --mka-surface-page: var(--mka-color-night);
+  --mka-surface-deep: var(--mka-color-black);
+  --mka-surface-masthead: var(--mka-color-red-masthead);
+  --mka-surface-nav: var(--mka-color-red-nav);
+  --mka-surface-card: var(--mka-color-red-card);
+  --mka-surface-card-hover: #7d151b;
+  --mka-surface-elevated: #1e090b;
+  --mka-surface-modal: #140709;
+  --mka-surface-plaque: #18090b;
+
+  /* Metinler */
+  --mka-text-primary: var(--mka-color-white);
+  --mka-text-secondary: var(--mka-color-sand);
+  --mka-text-muted: var(--mka-color-muted);
+  --mka-text-dim: var(--mka-color-dim);
+  --mka-text-gold: var(--mka-color-gold-bright);
+  --mka-text-gold-classic: var(--mka-color-gold);
+
+  /* Odak ve İnteraktiflik */
+  --mka-focus-ring: 2px solid var(--mka-color-gold-bright);
+  --mka-focus-offset: 2px;
+  --mka-touch-target-min: 44px;
+
+  /* ========================================================================
+     KATMAN 3: GERİYE DÖNÜK UYUMLULUK ALIASLARI (Mevcut CSS ile tam eşleşme)
+     ======================================================================== */
+  --black: var(--mka-color-black);
+  --night: var(--mka-color-night);
+  --red-deep: var(--mka-color-red-deep);
+  --red-dark: var(--mka-color-red-dark);
+  --red-masthead: var(--mka-color-red-masthead);
+  --red-nav: var(--mka-color-red-nav);
+  --red-card: var(--mka-color-red-card);
+  --red-accent: var(--mka-color-red-accent);
+  --gold: var(--mka-color-gold);
+  --gold-bright: var(--mka-color-gold-bright);
+  --gold-pale: var(--mka-color-gold-pale);
+  --gold-dark: var(--mka-color-gold-dark);
+  --cream: var(--mka-color-cream);
+  --text-primary: var(--mka-text-primary);
+  --text-secondary: var(--mka-text-secondary);
+  --text-muted: var(--mka-text-muted);
+  --border-gold: var(--mka-border-gold);
+  --border-subtle: var(--mka-border-subtle);
+  --font-serif-display: var(--mka-font-display);
+  --font-serif-title: var(--mka-font-title);
+  --font-serif-body: var(--mka-font-body);
+  --font-sans: var(--mka-font-sans);
+  --container: var(--mka-container-max);
+}
+
+/* Yüksek Kontrast (Forced Colors) Erişilebilirlik Modu */
+@media (forced-colors: active) {
+  :root {
+    --mka-border-gold: CanvasText;
+    --mka-border-gold-strong: Highlight;
+    --mka-border-subtle: CanvasText;
+    --mka-focus-ring: 2px solid Highlight;
+  }
+}
+
+/* Azaltılmış Hareket Tercihi */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --mka-transition-fast: 0.01ms;
+    --mka-transition-base: 0.01ms;
+    --mka-transition-smooth: 0.01ms;
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-ankara-ziraat-mektebi",
+  "record_path": "data/archive/catalog/ayk-ankara-ziraat-mektebi.json",
+  "record_snapshot_sha256": "d930540394269f9402453a044b348ed401f412a204d2cfbfac463df4ae67911d",
+  "record_snapshot": {
+    "title": "Ankara Ziraat Mektebi",
+    "type": "place",
+    "date": {
+      "start": "1919-12-27",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "27 Aralık 1919",
+      "note": "Tarih, Atatürk Ansiklopedisi maddesindeki olay tarihinden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/1262/ankara-ziraat-mektebi",
+    "citation": "Hikmet Kavruk, \"Ankara Ziraat Mektebi\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/1262/ankara-ziraat-mektebi.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

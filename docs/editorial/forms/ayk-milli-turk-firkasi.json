@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-milli-turk-firkasi",
+  "record_path": "data/archive/catalog/ayk-milli-turk-firkasi.json",
+  "record_snapshot_sha256": "c96d2fbfbd579d7235110f60675da769109d968f6bf2e0e45e0284af16eff67f",
+  "record_snapshot": {
+    "title": "Millî Türk Fırkası",
+    "type": "event",
+    "date": {
+      "start": "1919-12-09",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "9 Aralık 1919",
+      "note": "Tarih, Atatürk Ansiklopedisi maddesindeki olay tarihinden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/1041/milli-turk-firkasi",
+    "citation": "Yenal ÜNAL, \"Millî Türk Fırkası\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/1041/milli-turk-firkasi.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

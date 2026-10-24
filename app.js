@@ -10,9 +10,10 @@ menuBtn.addEventListener('click',()=>{const open=menu.classList.toggle('open');m
 $$('#main-menu a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');}));
 
 const slides=[
-  {kicker:'TARİH • KÜLTÜR • ARAŞTIRMA',pre:'GAZİ MUSTAFA KEMAL',title:'ATATÜRK',desc:'Bir milletin tarihini, belgeleriyle ve hafızasıyla keşfedin.'},
-  {kicker:'ASRIN KEMALİ • DİJİTAL ARŞİV',pre:'TARİHİN İZİNDE',title:'ARŞİV',desc:'Tarihî belgeleri, görüntüleri ve kaynakları bir arada inceleyin.'},
-  {kicker:'BİR ASRIN MİRASI',pre:'GEÇMİŞTEN GELECEĞE',title:'HAFIZA',desc:'Tarihî mirasa dair bilgileri kaynaklarıyla birlikte yaşatıyoruz.'}
+  {kicker:'TARİHİN EN BÜYÜK LİDERLERİNDEN BİRİ',pre:'GAZİ MUSTAFA KEMAL',title:'ATATÜRK',desc:'Bir milletin kaderini değiştiren irade, fikir ve mücadelenin hikâyesi.'},
+  {kicker:'BİRİNCİL BELGELER VE YAZIŞMALAR',pre:'TARİHİN İZİNDE',title:'ARŞİV',desc:'Tarihî belgeleri, fotoğrafları ve kaynakları tek çatı altında inceleyin.'},
+  {kicker:'BİR ASRIN MİRASI, SONSUZLUĞUN HAFIZASI',pre:'GEÇMİŞTEN GELECEĞE',title:'HAFIZA',desc:'Cumhuriyet’in kurucu değerlerini ve tarihî mirası kaynaklarıyla koruyoruz.'},
+  {kicker:'NUTUK VE TARİHÎ KÜLLİYAT',pre:'BİLİMSEL VE ELEŞTİREL',title:'KÜTÜPHANE',desc:'Birincil tarihî metinlere ve dijital koleksiyonlara doğrudan erişim.'}
 ];
 let currentSlide=0;
 function showSlide(n){currentSlide=(n+slides.length)%slides.length;const slide=slides[currentSlide];$('#hero-kicker').textContent=slide.kicker;$('#hero-pretitle').textContent=slide.pre;$('#hero-title').textContent=slide.title;$('#hero-description').textContent=slide.desc;$('.current-slide').textContent=String(currentSlide+1).padStart(2,'0');$$('.slide-dot').forEach((btn,i)=>{btn.classList.toggle('selected',i===currentSlide);btn.setAttribute('aria-current',i===currentSlide?'true':'false');});}

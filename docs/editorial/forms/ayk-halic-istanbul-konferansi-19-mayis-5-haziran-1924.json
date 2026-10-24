@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-halic-istanbul-konferansi-19-mayis-5-haziran-1924",
+  "record_path": "data/archive/catalog/ayk-halic-istanbul-konferansi-19-mayis-5-haziran-1924.json",
+  "record_snapshot_sha256": "25cf415bd12642760c2c39d295456d1a5c763af86eacccfd4faf4d1c68e1071b",
+  "record_snapshot": {
+    "title": "Haliç-İstanbul Konferansı (19 Mayıs-5 Haziran 1924)",
+    "type": "event",
+    "date": {
+      "start": "1924-05-19",
+      "end": "1924-06-05",
+      "precision": "range",
+      "certainty": "exact",
+      "display": "19 Mayıs - 5 Haziran 1924",
+      "note": "Tarih aralığı, Atatürk Ansiklopedisi maddesindeki ifadeden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/1804/halic-istanbul-konferansi-19-mayis-5-haziran-1924",
+    "citation": "Tahir KODAL, \"Haliç-İstanbul Konferansı (19 Mayıs-5 Haziran 1924)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/1804/halic-istanbul-konferansi-19-mayis-5-haziran-1924.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

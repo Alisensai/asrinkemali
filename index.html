@@ -9,6 +9,9 @@
   <meta property="og:description" content="Bağımsız dijital tarih, kültür ve araştırma platformu." />
   <title>Asrın Kemali | Tarih, Hafıza, Miras</title>
   <link rel="icon" type="image/webp" href="assets/mka-arma.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Playfair+Display:wght@700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@400;500;600;700&subset=latin,latin-ext&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <script src="app.js" defer></script>
 </head>
@@ -16,13 +19,40 @@
   <a class="skip" href="#icerik">İçeriğe geç</a>
   <div class="utility-bar">
     <div class="container utility-inner">
-      <div class="utility-date"><span class="symbol">▤</span><time id="today-date"></time></div>
-      <div class="utility-phrase">BİR ASRIN MİRASI, SONSUZLUĞUN HAFIZASI</div>
+      <div class="utility-date">
+        <svg class="ui-icon ui-icon-gold" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        <time id="today-date"></time>
+      </div>
+      <div class="utility-quote">
+        <span class="quote-text">“En büyük eserim, Türk milletinin hürriyet ve istiklalini temin eden cumhuriyettir.”</span>
+        <span class="quote-author">— Gazi Mustafa Kemal Atatürk</span>
+      </div>
       <div class="utility-right">
-        <button class="plain-icon" id="contrast-toggle" type="button" aria-label="Yüksek kontrastı aç veya kapat" title="Yüksek kontrast">◉ <span>ERİŞİLEBİLİRLİK</span></button>
+        <button class="plain-icon a11y-btn" id="contrast-toggle" type="button" aria-label="Yüksek kontrast modunu aç veya kapat" title="Erişilebilirlik">
+          <svg class="ui-icon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M12 3v18A9 9 0 0 0 12 3z" fill="currentColor"></path>
+          </svg>
+          <span>Erişilebilirlik</span>
+        </button>
         <span class="utility-divider" aria-hidden="true"></span>
-        <span class="lang-current" aria-label="Site dili Türkçe">TR ▾</span>
-        <button class="plain-icon search-launch" type="button" aria-label="Sitede ara" title="Ara">⌕</button>
+        <div class="lang-selector" aria-label="Dil seçimi">
+          <span class="lang-item active">TR ▾</span>
+          <span class="lang-sep">|</span>
+          <span class="lang-item">EN ▾</span>
+        </div>
+        <span class="utility-divider" aria-hidden="true"></span>
+        <button class="plain-icon search-launch icon-only-btn" type="button" aria-label="Sitede ara" title="Ara">
+          <svg class="ui-icon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
       </div>
     </div>
   </div>
@@ -30,79 +60,278 @@
   <header class="site-header" id="ust">
     <div class="container masthead">
       <a href="#ust" class="identity" aria-label="Asrın Kemali ana sayfa">
-        <img class="identity-crest" src="assets/mka-arma.webp" width="132" height="132" alt="MKA — Asrın Kemali amblemi" />
-        <span class="identity-copy"><span class="identity-name">ASRIN KEMALİ</span><span class="identity-motto">BİR ASRIN MİRASI, SONSUZLUĞUN HAFIZASI</span></span>
+        <div class="identity-crest-wrapper">
+          <img class="identity-crest" src="assets/mka-arma.webp" width="136" height="136" alt="MKA — Asrın Kemali amblemi" />
+        </div>
+        <div class="identity-copy">
+          <span class="identity-name">ASRIN KEMALİ</span>
+          <span class="identity-motto">BİR ASRIN MİRASI, SONSUZLUĞUN HAFIZASI</span>
+        </div>
       </a>
-      <div class="masthead-actions"><button class="header-search search-launch" type="button">⌕ <span>Arşivde Ara</span></button><a class="museum-button" href="#dijital-muze"><span aria-hidden="true">♜</span> Dijital Müze</a></div>
+      <div class="masthead-actions">
+        <button class="header-search search-launch" type="button" aria-label="Arşivde Ara">
+          <svg class="ui-icon ui-icon-gold" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span>Arşivde Ara</span>
+        </button>
+        <a class="museum-button" href="#dijital-muze">
+          <svg class="ui-icon ui-icon-gold" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M3 21h18M3 10h18M5 10v11M9 10v11M15 10v11M19 10v11M12 2l9 6H3l9-6z"></path>
+          </svg>
+          <span>Dijital Müze</span>
+        </a>
+      </div>
     </div>
     <nav class="main-nav" aria-label="Ana menü">
       <div class="container nav-inner">
-        <button id="mobile-menu-toggle" type="button" class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-menu">☰ <span>MENÜ</span></button>
+        <button id="mobile-menu-toggle" type="button" class="mobile-menu-toggle" aria-expanded="false" aria-controls="main-menu">
+          <svg class="ui-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <span>MENÜ</span>
+        </button>
         <div id="main-menu" class="menu-links">
-          <a class="active" href="#ust" aria-current="page">⌂ <span>ANA SAYFA</span></a>
-          <a href="#ataturk">ATATÜRK</a>
-          <a href="#kronoloji">KRONOLOJİ</a>
-          <a href="#arsiv">ARŞİV</a>
-          <a href="#belgeler">BELGELER</a>
-          <a href="#fotograflar">FOTOĞRAFLAR</a>
-          <a href="#yayinlar">YAYINLAR</a>
-          <a href="#akademi">AKADEMİ</a>
-          <a href="#etkinlikler">ETKİNLİKLER</a>
-          <a href="#kurumsal">KURUMSAL</a>
+          <a class="nav-item nav-home active" href="#ust" aria-current="page" aria-label="Ana Sayfa">
+            <svg class="ui-icon" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="currentColor">
+              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path>
+            </svg>
+            <span class="nav-label">ANA SAYFA</span>
+          </a>
+          <a class="nav-item" href="#ataturk">ATATÜRK</a>
+          <a class="nav-item" href="#kronoloji">KRONOLOJİ</a>
+          <a class="nav-item" href="#arsiv">ARŞİV</a>
+          <a class="nav-item" href="#belgeler">BELGELER</a>
+          <a class="nav-item" href="#fotograflar">FOTOĞRAFLAR</a>
+          <a class="nav-item" href="#yayinlar">YAYINLAR</a>
+          <a class="nav-item" href="#akademi">AKADEMİ</a>
+          <a class="nav-item" href="#etkinlikler">ETKİNLİKLER</a>
+          <a class="nav-item" href="#kurumsal">KURUMSAL</a>
         </div>
       </div>
     </nav>
   </header>
 
   <main id="icerik">
-    <section class="hero" aria-label="Asrın Kemali tanıtım">
-      <div class="hero-art" role="img" aria-label="Mustafa Kemal Atatürk'ün yapay zekâ ile üretilmiş temsili görseli"></div>
+    <section class="hero" aria-label="Gazi Mustafa Kemal Atatürk tanıtım alanı">
+      <div class="hero-art" role="img" aria-label="Mustafa Kemal Atatürk'ün yapay zekâ ile üretilmiş temsili portresi"></div>
       <div class="hero-vignette"></div>
+      
       <div class="container hero-inner">
+        <!-- Sol taraf: Başlık, açıklama ve aksiyonlar -->
         <div class="hero-copy">
-          <span class="eyebrow" id="hero-kicker">TARİH • KÜLTÜR • ARAŞTIRMA</span>
-          <h1><span id="hero-pretitle">GAZİ MUSTAFA KEMAL</span><strong id="hero-title">ATATÜRK</strong></h1>
-          <p id="hero-description">Bir milletin tarihini, belgeleriyle ve hafızasıyla keşfedin.</p>
+          <span class="eyebrow" id="hero-kicker">TARİHİN EN BÜYÜK LİDERLERİNDEN BİRİ</span>
+          <h1>
+            <span class="hero-pretitle" id="hero-pretitle">GAZİ MUSTAFA KEMAL</span>
+            <strong class="hero-title" id="hero-title">ATATÜRK</strong>
+          </h1>
+          <p class="hero-description" id="hero-description">Bir milletin kaderini değiştiren <br class="hero-desc-br" />irade, fikir ve mücadelenin hikâyesi.</p>
           <div class="hero-actions">
-            <a href="#arsiv" class="button button-red">▤ <span>ARŞİVİ KEŞFET</span><span aria-hidden="true">→</span></a>
-            <a href="#kronoloji" class="button button-outline">KRONOLOJİYİ İNCELE <span aria-hidden="true">→</span></a>
+            <a href="#arsiv" class="button button-red">
+              <svg class="button-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              <span>ARŞİVİ KEŞFET</span>
+              <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="#kronoloji" class="button button-outline">
+              <span>KRONOLOJİYİ İNCELE</span>
+              <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
           </div>
-          <div class="hero-pagination" aria-label="Tanıtım slaytları"><span class="current-slide">01</span><span class="pagination-line"></span><button class="slide-dot selected" type="button" data-slide="0" aria-label="1. tanıtımı göster" aria-current="true">01</button><button class="slide-dot" type="button" data-slide="1" aria-label="2. tanıtımı göster">02</button><button class="slide-dot" type="button" data-slide="2" aria-label="3. tanıtımı göster">03</button></div>
+          <div class="hero-pagination" aria-label="Tanıtım slaytları">
+            <span class="current-slide">01</span>
+            <span class="pagination-line"></span>
+            <div class="slide-dots">
+              <button class="slide-dot selected" type="button" data-slide="0" aria-label="1. tanıtımı göster" aria-current="true">01</button>
+              <button class="slide-dot" type="button" data-slide="1" aria-label="2. tanıtımı göster">02</button>
+              <button class="slide-dot" type="button" data-slide="2" aria-label="3. tanıtımı göster">03</button>
+              <button class="slide-dot" type="button" data-slide="3" aria-label="4. tanıtımı göster">04</button>
+            </div>
+          </div>
         </div>
-        <div class="hero-edge-note"><div class="edge-line"></div><span>BAĞIMSIZ DİJİTAL TARİH PLATFORMU</span><div class="edge-line"></div><small>Atatürk'ün yaşamı, kaynaklar ve tarihî hafıza</small></div>
+
+        <!-- Sağ taraf: Atatürk Alıntısı ve Altın İmzası -->
+        <div class="hero-quote-side">
+          <blockquote class="hero-quote-box">
+            <p class="hero-quote-p">“Türk milletinin tarihi,<br />bir hürriyet ve istiklal mücadelesi tarihidir.”</p>
+            <cite class="hero-quote-author">Gazi Mustafa Kemal Atatürk</cite>
+          </blockquote>
+          <div class="hero-signature" aria-label="K. Atatürk İmzası">
+            <svg viewBox="0 0 260 85" width="230" height="75" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M 18,52 Q 28,18 42,32 Q 54,44 65,36 Q 78,25 90,35 Q 106,46 122,32 Q 138,20 156,28 Q 176,36 195,22 Q 212,14 235,20"></path>
+              <path d="M 22,66 Q 60,58 115,62 Q 165,65 220,54"></path>
+              <path d="M 12,36 Q 22,25 32,34 Q 42,44 34,54 Q 25,60 16,48 Z"></path>
+              <path d="M 68,20 Q 74,12 80,22 Q 86,34 78,52"></path>
+              <path d="M 142,16 Q 150,9 156,20 Q 162,30 154,46"></path>
+            </svg>
+          </div>
+        </div>
       </div>
-      <button class="hero-arrow hero-prev" type="button" id="hero-prev" aria-label="Önceki tanıtım">‹</button>
-      <button class="hero-arrow hero-next" type="button" id="hero-next" aria-label="Sonraki tanıtım">›</button>
+
+      <button class="hero-arrow hero-prev" type="button" id="hero-prev" aria-label="Önceki tanıtım">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <button class="hero-arrow hero-next" type="button" id="hero-next" aria-label="Sonraki tanıtım">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
       <span class="hero-art-disclosure">Kapak görseli: Yapay zekâ ile hazırlanmış temsili canlandırma.</span>
     </section>
 
-    <section class="shortcuts container" aria-label="Hızlı erişim">
-      <a class="shortcut" href="#fotograflar" style="--tile-image:url('assets/fotograf-arsivi.webp')"><span class="tile-symbol">▧</span><span>FOTOĞRAF<br/>ARŞİVİ</span><span class="shortcut-arrow">↗</span></a>
-      <a class="shortcut" href="#belgeler" style="--tile-image:url('assets/belge-merkezi.webp')"><span class="tile-symbol">▤</span><span>BELGE<br/>MERKEZİ</span><span class="shortcut-arrow">↗</span></a>
-      <a class="shortcut" href="#dijital-muze" style="--tile-image:url('assets/dijital-kutuphane.webp')"><span class="tile-symbol">♜</span><span>DİJİTAL<br/>KÜTÜPHANE</span><span class="shortcut-arrow">↗</span></a>
-      <a class="shortcut" href="#kronoloji" style="--tile-image:url('assets/tarih-atlasi.webp')"><span class="tile-symbol">◎</span><span>TARİH<br/>KRONOLOJİSİ</span><span class="shortcut-arrow">↗</span></a>
+    <section class="shortcuts container" aria-label="Hızlı arşiv erişimi">
+      <a class="shortcut" href="#fotograflar" style="--tile-image:url('assets/fotograf-arsivi.webp')">
+        <div class="tile-icon-box">
+          <svg class="tile-svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+          </svg>
+        </div>
+        <div class="shortcut-text">
+          <span>FOTOĞRAF</span>
+          <strong>ARŞİVİ</strong>
+        </div>
+        <span class="shortcut-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="shortcut" href="#belgeler" style="--tile-image:url('assets/belge-merkezi.webp')">
+        <div class="tile-icon-box">
+          <svg class="tile-svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+          </svg>
+        </div>
+        <div class="shortcut-text">
+          <span>BELGE</span>
+          <strong>MERKEZİ</strong>
+        </div>
+        <span class="shortcut-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="shortcut" href="#dijital-muze" style="--tile-image:url('assets/dijital-kutuphane.webp')">
+        <div class="tile-icon-box">
+          <svg class="tile-svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+        </div>
+        <div class="shortcut-text">
+          <span>DİJİTAL</span>
+          <strong>KÜTÜPHANE</strong>
+        </div>
+        <span class="shortcut-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a class="shortcut" href="#kronoloji" style="--tile-image:url('assets/tarih-atlasi.webp')">
+        <div class="tile-icon-box">
+          <svg class="tile-svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8">
+            <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+            <line x1="8" y1="2" x2="8" y2="18"></line>
+            <line x1="16" y1="6" x2="16" y2="22"></line>
+          </svg>
+        </div>
+        <div class="shortcut-text">
+          <span>TARİH</span>
+          <strong>KRONOLOJİSİ</strong>
+        </div>
+        <span class="shortcut-arrow" aria-hidden="true">→</span>
+      </a>
     </section>
 
     <div class="container content-grid" id="yayinlar">
       <section class="publications section-head-wrapper">
-        <div class="section-topline"><h2>GÜNCEL YAYINLAR</h2><a href="#arsiv">Tüm İçerikler <span aria-hidden="true">→</span></a></div>
+        <div class="section-topline">
+          <h2>GÜNCEL YAYINLAR</h2>
+          <a class="section-more-link" href="#arsiv">Tüm Yayınlar <span aria-hidden="true">→</span></a>
+        </div>
         <div class="publication-grid">
-          <a class="publication-card" href="#ataturk" style="--publication-image:url('assets/arastirma.webp')"><span class="publication-tag">TARİH</span><h3>Atatürk'ün Hayatı ve Dönüm Noktaları</h3><span class="publication-meta">Temel kronoloji <span aria-hidden="true">→</span></span></a>
-          <a class="publication-card" href="#kronoloji" style="--publication-image:url('assets/makale.webp')"><span class="publication-tag">KRONOLOJİ</span><h3>Milli Mücadele'den Cumhuriyet'e</h3><span class="publication-meta">Tarihsel dönemler <span aria-hidden="true">→</span></span></a>
-          <a class="publication-card" href="#belgeler" style="--publication-image:url('assets/tarihi-belge.webp')"><span class="publication-tag">ARŞİV</span><h3>Nutuk ve Birincil Kaynaklara Giriş</h3><span class="publication-meta">Kaynak rehberi <span aria-hidden="true">→</span></span></a>
+          <a class="publication-card" href="#ataturk" style="--publication-image:url('assets/arastirma.webp')">
+            <span class="publication-tag">ARAŞTIRMA</span>
+            <h3>Cumhuriyet'in İlanı ve Türk Devleti'nin Yeni Dönemi</h3>
+            <div class="publication-footer">
+              <span class="pub-date">20 Ekim 2026</span>
+              <span class="pub-arrow" aria-hidden="true">→</span>
+            </div>
+          </a>
+          <a class="publication-card" href="#kronoloji" style="--publication-image:url('assets/makale.webp')">
+            <span class="publication-tag">MAKALE</span>
+            <h3>Atatürk'ün Eğitim Vizyonu Üzerine</h3>
+            <div class="publication-footer">
+              <span class="pub-date">18 Ekim 2026</span>
+              <span class="pub-arrow" aria-hidden="true">→</span>
+            </div>
+          </a>
+          <a class="publication-card" href="#belgeler" style="--publication-image:url('assets/tarihi-belge.webp')">
+            <span class="publication-tag">BELGE</span>
+            <h3>Nutuk'tan Seçme Bölümler ve Tarihî Notlar</h3>
+            <div class="publication-footer">
+              <span class="pub-date">16 Ekim 2026</span>
+              <span class="pub-arrow" aria-hidden="true">→</span>
+            </div>
+          </a>
         </div>
         <p class="subtle-note">Bu bölüm ilk sürümde örnek içerik kartları içerir; araştırma yazıları kaynak incelemesinden sonra yayımlanacaktır.</p>
       </section>
+
       <aside class="timeline-teaser" id="kronoloji">
-        <div class="timeline-heading"><h2>▦ &nbsp;TARİH KRONOLOJİSİ</h2><span>1881 — 1938</span></div>
+        <div class="timeline-heading">
+          <h2>
+            <svg class="ui-icon ui-icon-gold" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span>TARİHTE BUGÜN</span>
+          </h2>
+          <span class="today-marker">
+            <svg class="ui-icon" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span>23 Ekim</span>
+          </span>
+        </div>
         <ol class="timeline-items">
-          <li><time datetime="1881">1881</time><p>Mustafa Kemal'in Selanik'te doğumu.</p></li>
-          <li><time datetime="1919-05-19">1919</time><p>19 Mayıs: Samsun'a çıkışı.</p></li>
-          <li><time datetime="1920-04-23">1920</time><p>23 Nisan: Türkiye Büyük Millet Meclisinin açılışı.</p></li>
-          <li><time datetime="1923-10-29">1923</time><p>29 Ekim: Cumhuriyet'in ilanı.</p></li>
-          <li><time datetime="1938-11-10">1938</time><p>10 Kasım: Atatürk'ün vefatı.</p></li>
+          <li>
+            <time datetime="1923-10-23">1923</time>
+            <span class="t-bullet" aria-hidden="true"></span>
+            <p>Türkiye Büyük Millet Meclisi, İktisat Vekâleti'nin kurulmasına ilişkin kanunu kabul etti.</p>
+          </li>
+          <li>
+            <time datetime="1927-10-23">1927</time>
+            <span class="t-bullet" aria-hidden="true"></span>
+            <p>Ankara'da Gazi Mustafa Kemal, öğretmenlerle bir araya geldi.</p>
+          </li>
+          <li>
+            <time datetime="1933-10-23">1933</time>
+            <span class="t-bullet" aria-hidden="true"></span>
+            <p>Üniversite reformu kapsamında önemli adımlar atıldı.</p>
+          </li>
+          <li>
+            <time datetime="1936-10-23">1936</time>
+            <span class="t-bullet" aria-hidden="true"></span>
+            <p>Montrö Sözleşmesi görüşmeleri başladı.</p>
+          </li>
         </ol>
-        <a class="timeline-all" href="#ataturk">Kronolojiyi Keşfet →</a>
+        <div class="timeline-footer">
+          <a class="timeline-all" href="#ataturk">Tümünü Gör <span aria-hidden="true">→</span></a>
+        </div>
       </aside>
     </div>
 

@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-izmit-kagit-ve-karton-fabrikasi",
+  "record_path": "data/archive/catalog/ayk-izmit-kagit-ve-karton-fabrikasi.json",
+  "record_snapshot_sha256": "0425b4d676c59f9a21cd3cf92328b3bdf9e0e7d62713cd33fc92b4e2f09bc6d6",
+  "record_snapshot": {
+    "title": "İzmit Kağıt ve Karton Fabrikası",
+    "type": "place",
+    "date": {
+      "start": "1934-01-01",
+      "end": null,
+      "precision": "year",
+      "certainty": "exact",
+      "display": "1934",
+      "note": "Tarih, Atatürk Ansiklopedisi maddesindeki yıl bilgisinden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/722/izmit-kagit-ve-karton-fabrikasi",
+    "citation": "SEMA YILMAZ GENÇ, \"İzmit Kağıt ve Karton Fabrikası\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/722/izmit-kagit-ve-karton-fabrikasi.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

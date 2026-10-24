@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "ibb-tuzer-ataturk-vefati-mektubu-1938",
+  "slug": "ibb-tuzer-ataturk-vefati-mektubu-1938",
+  "title": "Ahmet Fikri Tüzer’in Atatürk’ün Vefatını Bildiren Mektubu (1938)",
+  "type": "document",
+  "date": {
+    "start": "1938-11-10",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "10 Kasım 1938",
+    "note": "Belge tarihi İBB Atatürk Kitaplığı katalog kaydından alınmıştır."
+  },
+  "people": [
+    {
+      "name": "Ahmet Fikri Tüzer",
+      "role": "author"
+    },
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "subject"
+    },
+    {
+      "name": "Nazmiye Fikri Tüzer",
+      "role": "other",
+      "note": "Mektubun muhatabı."
+    }
+  ],
+  "locations": [
+    {
+      "name": "İstanbul",
+      "city": "İstanbul",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "cumhuriyet",
+    "toplum"
+  ],
+  "summary": "Ahmet Fikri Tüzer’in eşi Nazmiye Fikri Tüzer’e gönderdiği, Atatürk’ün 10 Kasım 1938 sabahı vefat ettiğini bildiren TBMM antetli mektup.",
+  "description": "TBMM antetli kâğıda yazılan mektup, Ahmet Fikri Tüzer’in eşi Nazmiye Fikri Tüzer’e hitaben kaleme aldığı yazışmadır. Tüzer, Atatürk’ün 10 Kasım 1938 sabahı saat 9’u üç geçe vefat ettiğini bildirir ve büyük millete sağlık ve varlık diler. İBB Atatürk Kitaplığı’nda Bel_Mtf_013197 demirbaş numarasıyla kayıtlıdır. Belge, kurumsal katalog kaydına bağlantıyla sunulur.",
+  "source": {
+    "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+    "institutionType": "archive",
+    "institutionUrl": "https://sayisalarsiv.ibb.gov.tr/",
+    "title": "İBB Atatürk Kitaplığı: Ahmet Fikri Tüzer’in Atatürk’ün Vefatını Bildiren Mektubu",
+    "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_013197",
+    "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Bel_Mtf_013197, “Ahmet Fikri Tüzer’in Atatürk’ün Vefatını Bildiren Mektubu”, 10 Kasım 1938, erişim 2026-10-23, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_013197",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1938-11-10",
+    "archiveIdentifier": "Bel_Mtf_013197",
+    "note": "İBB Atatürk Kitaplığı Sayısal Arşiv katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Dosya indirilmedi."
+  },
+  "provenance": [
+    {
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "collection": "İBB Atatürk Kitaplığı Sayısal Arşiv",
+      "identifier": "Bel_Mtf_013197",
+      "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_013197",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal katalog kaydı ve demirbaş numarasına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "İBB Atatürk Kitaplığı",
+    "imageReuse": "link_only",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": {
+    "kind": "digitized_original",
+    "url": null,
+    "sourcePageUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_013197",
+    "alt": "Ahmet Fikri Tüzer’in Atatürk’ün Vefatını Bildiren Mektubu (1938)",
+    "credit": "İBB Atatürk Kitaplığı",
+    "width": null,
+    "height": null,
+    "mimeType": null,
+    "localPath": null,
+    "displayPolicy": "source_link_only"
+  },
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Katalog kaydı ve belge tarihi 23.10.2026 tarihinde doğrulandı; dosya indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "İBB Atatürk Kitaplığı",
+    "Ahmet Fikri Tüzer",
+    "10 Kasım 1938",
+    "mektup",
+    "belge"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

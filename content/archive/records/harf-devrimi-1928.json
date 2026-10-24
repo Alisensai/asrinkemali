@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "harf-devrimi-1928",
+  "slug": "harf-devrimi-1928",
+  "title": "Harf Devrimi",
+  "type": "event",
+  "date": {
+    "start": "1928-11-01",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "1 Kasım 1928"
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "official",
+      "note": "Yeni Türk harflerinin yaygınlaştırılmasında öncülük eden devlet başkanı."
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "kultur",
+    "egitim",
+    "cumhuriyet"
+  ],
+  "summary": "Türk Harflerinin Kabulü ve Tatbiki Hakkındaki Kanun 1 Kasım 1928'de TBMM'den geçti. Arap harflerine dayanan yazı yerine Latin alfabesine dayanan Türk harfleri kullanılmaya başlandı.",
+  "description": "Harf Devrimi, Tanzimat'tan itibaren tartışılan alfabe sorununun Cumhuriyet dönemindeki köklü çözümü oldu. 1 Kasım 1928'de kabul edilen kanunla yeni Türk harfleri resmî yazı sistemi hâline geldi. Uygulama, okuma yazma seferberliği ve eğitim kurumları aracılığıyla yaygınlaştırıldı. Devrim, dil ve eğitim alanında Cumhuriyet'in kültür politikasının temel taşlarından biri oldu.",
+  "source": {
+    "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "institutionType": "institutional",
+    "institutionUrl": "https://ataturkansiklopedisi.gov.tr/",
+    "title": "Atatürk Ansiklopedisi: Harf Devrimi",
+    "url": "https://ataturkansiklopedisi.gov.tr/detay/616/Harf-Devrimi",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2021-02-10",
+    "archiveIdentifier": "616",
+    "note": "Kurumsal ansiklopedi maddesi; 1 Kasım 1928 kanununu, alfabe tartışmalarını ve uygulama sürecini açıklar."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "collection": "Atatürk Ansiklopedisi",
+      "identifier": "616",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/616/Harf-Devrimi",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal madde, 1 Kasım 1928 tarihli Türk Harflerinin Kabulü ve Tatbiki Hakkındaki Kanun'u belgeler."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal ansiklopedi sayfasında yeniden kullanım lisansı doğrulanmadı; metin ve görsel kopyalanmaz, yalnızca kaynak sayfaya bağlantı verilir."
+  },
+  "image": null,
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Kaynak sayfa 23 Ekim 2026'da erişildi; 1 Kasım 1928 tarihi ve kanunun adı kurumsal maddeyle doğrulandı. Doğrudan alıntı kullanılmadı."
+  },
+  "tags": [
+    "Harf Devrimi",
+    "alfabe",
+    "1928",
+    "eğitim",
+    "kültür"
+  ],
+  "relatedIds": [
+    "tevhid-i-tedrisat-1924",
+    "1924-anayasasi"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

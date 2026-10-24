@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-ankara-sehreminleri-1924-1930",
+  "record_path": "data/archive/catalog/ayk-ankara-sehreminleri-1924-1930.json",
+  "record_snapshot_sha256": "cf71118c3a752be0c62094fbf7ddd69d75232854c5a930ddbd6144d2b20c6ee7",
+  "record_snapshot": {
+    "title": "Ankara Şehreminleri (1924-1930)",
+    "type": "event",
+    "date": {
+      "start": "1924-02-16",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "16 Şubat 1924",
+      "note": "Tarih, Atatürk Ansiklopedisi maddesindeki olay tarihinden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/1421/ankara-sehreminleri-1924-1930",
+    "citation": "Mesut ÇAPA, \"Ankara Şehreminleri (1924-1930)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/1421/ankara-sehreminleri-1924-1930.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

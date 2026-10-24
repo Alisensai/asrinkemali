@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-trabzon-ataturk-kosku",
+  "record_path": "data/archive/catalog/ayk-trabzon-ataturk-kosku.json",
+  "record_snapshot_sha256": "25de50848de0ef8deff27b8951dad8d648856cea6be19f19a7cb85b934a93629",
+  "record_snapshot": {
+    "title": "Trabzon Atatürk Köşkü",
+    "type": "place",
+    "date": {
+      "start": "1912-01-01",
+      "end": null,
+      "precision": "year",
+      "certainty": "exact",
+      "display": "1912",
+      "note": "Tarih, Atatürk Ansiklopedisi maddesindeki yıl bilgisinden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/409/trabzon-ataturk-kosku",
+    "citation": "Zehra Aslan,Mehmet Okur, \"Trabzon Atatürk Köşkü\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/409/trabzon-ataturk-kosku.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

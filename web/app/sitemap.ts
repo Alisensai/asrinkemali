@@ -1,0 +1,3 @@
+import type { MetadataRoute } from "next";
+import { getPublishedPublications } from "@/lib/publishing/repository";
+export default function sitemap(): MetadataRoute.Sitemap { const base = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"; const pages = ["", "/ataturk", "/kronoloji", "/tarihte-bugun", "/arsiv", "/yayinlar", "/hakkimizda"].map((path) => ({ url: `${base}${path}`, changeFrequency: "monthly" as const, priority: path === "" ? 1 : 0.7 })); const publications = getPublishedPublications().map((record) => ({ url: `${base}/yayinlar/${record.slug}`, lastModified: record.updatedAt, changeFrequency: "monthly" as const, priority: 0.6 })); return [...pages, ...publications]; }

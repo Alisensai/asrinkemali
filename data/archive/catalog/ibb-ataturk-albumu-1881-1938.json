@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "ibb-ataturk-albumu-1881-1938",
+  "slug": "ibb-ataturk-albumu-1881-1938",
+  "title": "Atatürk Albümü 1881-1938",
+  "type": "publication",
+  "date": {
+    "start": "1939-01-01",
+    "end": null,
+    "precision": "year",
+    "certainty": "exact",
+    "display": "1939",
+    "note": "Katalog kaydındaki basım/konu yılından alınmıştır."
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "subject"
+    }
+  ],
+  "locations": [
+    {
+      "name": "İstanbul",
+      "city": "İstanbul",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "yayin",
+    "fotograf"
+  ],
+  "summary": "Atatürk’ün 1881-1938 yılları arasındaki hayatını fotoğraflarla sunan, 1939 tarihli albüm.",
+  "description": "İBB Atatürk Kitaplığı’nda Alb_000283 demirbaş numarasıyla kayıtlı albüm, Atatürk’ün 1881-1938 yılları arasındaki yaşamını fotoğraflarla belgelemeyi amaçlar. Katalog kaydında basım yılı 1939 olarak verilmiştir. Albümün tamamı indirilmemiş, kurumsal katalog kaydına bağlantı verilmiştir.",
+  "source": {
+    "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+    "institutionType": "archive",
+    "institutionUrl": "https://sayisalarsiv.ibb.gov.tr/",
+    "title": "İBB Atatürk Kitaplığı: Atatürk Albümü 1881-1938",
+    "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Alb_000283",
+    "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Alb_000283, “Atatürk Albümü 1881-1938”, 1939, erişim 2026-10-23, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Alb_000283",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1939-01-01",
+    "archiveIdentifier": "Alb_000283",
+    "note": "İBB Atatürk Kitaplığı Sayısal Arşiv katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Dosya indirilmedi."
+  },
+  "provenance": [
+    {
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "collection": "İBB Atatürk Kitaplığı Sayısal Arşiv",
+      "identifier": "Alb_000283",
+      "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Alb_000283",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal katalog kaydı ve demirbaş numarasına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "İBB Atatürk Kitaplığı",
+    "imageReuse": "link_only",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": {
+    "kind": "digitized_original",
+    "url": null,
+    "sourcePageUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Alb_000283",
+    "alt": "Atatürk Albümü 1881-1938",
+    "credit": "İBB Atatürk Kitaplığı",
+    "width": null,
+    "height": null,
+    "mimeType": null,
+    "localPath": null,
+    "displayPolicy": "source_link_only"
+  },
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Katalog kaydı ve belge tarihi 23.10.2026 tarihinde doğrulandı; dosya indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "Atatürk Albümü",
+    "1881-1938",
+    "fotoğraf",
+    "İBB Atatürk Kitaplığı",
+    "1939"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

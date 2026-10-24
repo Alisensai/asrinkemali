@@ -1,0 +1,249 @@
+{
+  "id": "cumhuriyetin-ilani",
+  "slug": "cumhuriyetin-ilani",
+  "title": "Cumhuriyet'in İlanı ve Yeni Devletin Temelleri",
+  "summary": "29 Ekim 1923'te Teşkilat-ı Esasiye Kanunu'nda yapılan değişiklikle başlayan ve 1924 Anayasası ile kurumsallaşan bağımsız devlet inşasının arşiv belgeleri.",
+  "theme": "cumhuriyetin_ilani",
+  "themeLabel": "Cumhuriyet'in İlanı",
+  "chronologicalScope": {
+    "startYear": 1923,
+    "endYear": 1924,
+    "displayRange": "1923 – 1924"
+  },
+  "coverImage": {
+    "src": "/assets/masthead-archive-temsili.webp",
+    "alt": "Cumhuriyet'in İlanı dönemini temsil eden dijital sergi kapak görseli",
+    "credit": "Asrın Kemali Dijital Müze Küratörlüğü",
+    "isRepresentative": true
+  },
+  "curator": {
+    "name": "Asrın Kemali Araştırma Kurulu",
+    "role": "Baş Küratörlük",
+    "note": "Sergi, Atatürk Ansiklopedisi ve TBMM Açık Erişim Arşivi birincil katalog verileri referans alınarak kurgulanmıştır."
+  },
+  "sections": [
+    {
+      "id": "giris-kapisi",
+      "order": 1,
+      "type": "hero",
+      "kicker": "DİJİTAL SERGİ SALONU I",
+      "title": "Egemenliğin Yeni Adı",
+      "subtitle": "Ankara'da Bir Akşam, Bir Asırlık Miras",
+      "leadParagraph": "Saltanatın kaldırılması ve Lozan Barış Antlaşması'nın getirdiği uluslararası güvencenin ardından, Türkiye Büyük Millet Meclisi 29 Ekim 1923 akşamı devletin yönetim şeklini resmen Cumhuriyet olarak belirledi.",
+      "curatorNote": "Bu sergide sunulan tüm belgeler kurumsal envanter numaralarıyla kataloglanmış birincil tarihî kaynaklara dayanır.",
+      "actions": {
+        "primaryLabel": "SERGİ SALONUNA GİR",
+        "secondaryLabel": "BELGELERİ İNCELE"
+      }
+    },
+    {
+      "id": "tarihsel-baglam",
+      "order": 2,
+      "type": "narrative",
+      "kicker": "TARİHSEL ARKA PLAN",
+      "title": "Millet İradesinin Yasalaşma Süreci",
+      "content": [
+        "Milli Mücadele'nin askerî safhasının zaferle sonuçlanması ve Lozan Barış Antlaşması'nın yürürlüğe girmesiyle birlikte, yeni Türk devletinin anayasal çerçevesinin netleştirilmesi zorunluluk haline gelmişti.",
+        "Mustafa Kemal Paşa'nın 28 Ekim 1923 gecesi Çankaya'da hazırladığı ve ertesi gün Meclis Genel Kurulu'na sunulan anayasa değişikliği teklifi, 'Türkiye Devleti'nin hükümet şekli Cumhuriyettir' hükmünü anayasa metnine yerleştirdi.",
+        "Bu adım yalnız bir hükûmet sistemi değişikliği değil; egemenliğin kayıtsız şartsız millete ait olduğu ilkesinin kalıcı devlet düzenine dönüştürülmesiydi."
+      ],
+      "historicalContext": "13 Ekim 1923'te Ankara'nın başkent ilan edilmesi ile 20 Nisan 1924 Anayasası arasındaki anayasal dönüşüm dönemi.",
+      "highlightQuote": {
+        "text": "Türkiye Devleti'nin şekl-i hükûmeti Cumhuriyettir.",
+        "speaker": "364 Sayılı Kanun Metni",
+        "context": "Teşkilat-ı Esasiye Kanunu'nun Bazı Mevaddının Tavzihan Tadiline Dair Kanun",
+        "verifiedSourceNote": "Düstur, 3. Tertip, Cilt 5, s. 158"
+      }
+    },
+    {
+      "id": "bas-belge-vitrini",
+      "order": 3,
+      "type": "archive_showcase",
+      "kicker": "MERKEZÎ BELGE VİTRİNİ",
+      "title": "Cumhuriyet'in İlanı Kaydı (#608)",
+      "summary": "Atatürk Ansiklopedisi ve TBMM tutanakları ışığında Cumhuriyet'in ilan kararı ve anayasa değişikliğinin katalog dökümü.",
+      "primaryDocument": {
+        "archiveSlug": "cumhuriyetin-ilani-1923",
+        "title": "Cumhuriyet'in İlanı",
+        "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+        "dateDisplay": "29 Ekim 1923",
+        "documentType": "event",
+        "rightsStatus": "public_domain",
+        "citation": "Atatürk Ansiklopedisi: Cumhuriyet'in İlanı (Detay #608)",
+        "sourceUrl": "https://ataturkansiklopedisi.gov.tr/detay/608/Cumhuriyet’in-İlanı",
+        "description": "Mustafa Kemal Paşa'nın hazırladığı anayasa değişikliği teklifi TBMM'de kabul edildi ve 29 Ekim 1923'te Cumhuriyet ilan edildi.",
+        "isRepresentativeVisual": true
+      },
+      "contextualNotes": [
+        "Bu kayıt, bağımsız katalog envanterinde doğrulanmış resmi kurum bağlantısı taşır.",
+        "Görseller yapay zekâ temsili olarak etiketlenmiştir; orijinal zabıt cerideleri TBMM Açık Erişim sisteminde korunur."
+      ],
+      "relatedArchiveSlugs": [
+        "1924-anayasasi",
+        "ankaranin-baskent-olusu-1923"
+      ]
+    },
+    {
+      "id": "zaman-cizelgesi",
+      "order": 4,
+      "type": "timeline",
+      "kicker": "DÖNEMİN ADIMLARI",
+      "title": "Kuruluşun Anayasal Takvimi",
+      "introText": "Olay tarihleri ile kanunlaşma süreçleri arasındaki bağımsız zaman akışı:",
+      "events": [
+        {
+          "id": "olay-lozan-antlasmasi",
+          "year": 1923,
+          "exactDate": "1923-07-24",
+          "dateCertainty": "exact",
+          "title": "Lozan Barış Antlaşması'nın İmzalanması",
+          "description": "Yeni Türk Devleti'nin tam bağımsızlığı ve millî sınırları uluslararası alanda tescil edildi.",
+          "eventDate": "24 Temmuz 1923",
+          "documentDate": "24 Temmuz 1923",
+          "archiveSlug": "lozan-baris-antlasmasi-1923",
+          "institution": "Atatürk Araştırma Merkezi"
+        },
+        {
+          "id": "olay-cumhuriyet-ilani",
+          "year": 1923,
+          "exactDate": "1923-10-29",
+          "dateCertainty": "exact",
+          "title": "Cumhuriyet'in İlanı ve İlk Cumhurbaşkanı Seçimi",
+          "description": "Teşkilat-ı Esasiye Kanunu tadil edildi; Gazi Mustafa Kemal Paşa oy birliğiyle ilk Cumhurbaşkanı seçildi.",
+          "eventDate": "29 Ekim 1923",
+          "documentDate": "29 Ekim 1923",
+          "archiveSlug": "cumhuriyetin-ilani-1923",
+          "institution": "TBMM / Atatürk Ansiklopedisi"
+        },
+        {
+          "id": "olay-tevhid-tedrisat",
+          "year": 1924,
+          "exactDate": "1924-03-03",
+          "dateCertainty": "exact",
+          "title": "Tevhid-i Tedrisat Kanunu",
+          "description": "Eğitimde birlik sağlandı, tüm okullar Millî Eğitim Bakanlığı'na bağlandı.",
+          "eventDate": "3 Mart 1924",
+          "documentDate": "3 Mart 1924",
+          "archiveSlug": "tevhid-i-tedrisat-1924",
+          "institution": "Atatürk Ansiklopedisi"
+        },
+        {
+          "id": "olay-1924-anayasasi",
+          "year": 1924,
+          "exactDate": "1924-04-20",
+          "dateCertainty": "exact",
+          "title": "1924 Anayasası'nın Kabulü",
+          "description": "491 sayılı Teşkilat-ı Esasiye Kanunu ile Cumhuriyet'in ilk kapsamlı anayasal rejimi yürürlüğe girdi.",
+          "eventDate": "20 Nisan 1924",
+          "documentDate": "20 Nisan 1924",
+          "archiveSlug": "1924-anayasasi",
+          "institution": "Atatürk Ansiklopedisi (AYK)"
+        }
+      ]
+    },
+    {
+      "id": "belge-galerisi",
+      "order": 5,
+      "type": "document_gallery",
+      "kicker": "ARŞİV PLAKETLERİ",
+      "title": "Cumhuriyet Hukukunun Kurucu Metinleri",
+      "lead": "Koleksiyonda yer alan ve bağımsız arşiv kodu bulunan temel kurucu belgeler:",
+      "items": [
+        {
+          "archiveSlug": "1924-anayasasi",
+          "title": "1924 Anayasası (Kanun No: 491)",
+          "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+          "dateDisplay": "20 Nisan 1924",
+          "documentType": "document",
+          "rightsStatus": "public_domain",
+          "citation": "Atatürk Ansiklopedisi: 1924 Anayasası (#168)",
+          "sourceUrl": "https://ataturkansiklopedisi.gov.tr/detay/168/1924-Anayasası",
+          "description": "Cumhuriyet'in ilk kapsamlı anayasal çerçevesi, egemenliğin kayıtsız şartsız millete ait olduğu ilkesi."
+        },
+        {
+          "archiveSlug": "tevhid-i-tedrisat-1924",
+          "title": "Tevhid-i Tedrisat Kanunu (Kanun No: 430)",
+          "institution": "Atatürk Ansiklopedisi",
+          "dateDisplay": "3 Mart 1924",
+          "documentType": "document",
+          "rightsStatus": "public_domain",
+          "citation": "Atatürk Ansiklopedisi: Tevhid-i Tedrisat (#503)",
+          "sourceUrl": "https://ataturkansiklopedisi.gov.tr/",
+          "description": "Eğitimin birleştirilmesi ve laik, millî ve çağdaş temellere oturtulması."
+        },
+        {
+          "archiveSlug": "ankaranin-baskent-olusu-1923",
+          "title": "Ankara'nın Başkent Oluşu Kanunu",
+          "institution": "Atatürk Araştırma Merkezi",
+          "dateDisplay": "13 Ekim 1923",
+          "documentType": "event",
+          "rightsStatus": "public_domain",
+          "description": "Yeni Türk devletinin idare merkezinin Ankara olarak tespiti."
+        }
+      ]
+    },
+    {
+      "id": "kurumsal-kaynaklar",
+      "order": 6,
+      "type": "source_panel",
+      "kicker": "KAYNAK ŞEFFAFLIĞI",
+      "title": "Resmî Kurumsal Arşiv Dayanakları",
+      "statement": "Bu sergideki her bilgi, kamuya açık kurumsal kaynak bağlantısı ve kanun zabıt cerideleri üzerinden doğrulanmıştır.",
+      "sources": [
+        {
+          "id": "kaynak-atam-608",
+          "title": "Atatürk Ansiklopedisi: Cumhuriyet'in İlanı",
+          "institution": "Atatürk Araştırma Merkezi Başkanlığı",
+          "catalogId": "#608",
+          "sourceUrl": "https://ataturkansiklopedisi.gov.tr/detay/608/Cumhuriyet’in-İlanı",
+          "rightsNote": "Kamuya açık kurumsal araştırma kaynağı",
+          "verificationBadge": "Doğrulanmış Kurumsal Kaynak",
+          "humanReviewed": true
+        },
+        {
+          "id": "kaynak-atam-168",
+          "title": "Atatürk Ansiklopedisi: 1924 Anayasası",
+          "institution": "Atatürk Araştırma Merkezi Başkanlığı",
+          "catalogId": "#168",
+          "sourceUrl": "https://ataturkansiklopedisi.gov.tr/detay/168/1924-Anayasası",
+          "rightsNote": "491 sayılı kanun resmî metni ve bibliyografyası",
+          "verificationBadge": "Doğrulanmış Kurumsal Kaynak",
+          "humanReviewed": true
+        }
+      ]
+    },
+    {
+      "id": "kapanis-bolumu",
+      "order": 7,
+      "type": "closing",
+      "kicker": "KÜRATÖRYAL BİTİŞ",
+      "title": "Bir Asrın Kurucu Mirası",
+      "epilogue": "Cumhuriyet, yalnızca bir idare tarzı değil; aklın, hukukun ve millet egemenliğinin rehberliğinde kurulan çağdaş bir geleceğin sarsılmaz teminatıdır.",
+      "curatorSignoff": "Asrın Kemali Küratoryal Heyeti • Ankara",
+      "sourcesSummary": "Bu sergi 4 bağımsız katalog kaydı, 2 kurumsal kaynak ve 1incil kanun zabıtları kullanılarak hazırlanmıştır.",
+      "suggestedExhibitions": [
+        {
+          "slug": "milli-mucadele-ve-meclis",
+          "title": "Millî Mücadele ve Meclis'in Kuruluşu",
+          "theme": "Millî Mücadele"
+        }
+      ]
+    }
+  ],
+  "relatedArchiveRecordSlugs": [
+    "cumhuriyetin-ilani-1923",
+    "1924-anayasasi",
+    "lozan-baris-antlasmasi-1923",
+    "tevhid-i-tedrisat-1924"
+  ],
+  "editorialReview": {
+    "status": "published",
+    "reviewedBy": "Asrın Kemali Araştırma ve Küratörlük Kurulu",
+    "reviewedAt": "2026-10-23",
+    "version": "1.0.0",
+    "isSyntheticPreview": true,
+    "notes": "Arşiv kayıtları TBMM ve ATAM kaynaklarına dayalı olarak kurumsallaştırılmıştır."
+  },
+  "createdAt": "2026-10-23T20:00:00.000Z",
+  "updatedAt": "2026-10-23T20:00:00.000Z"
+}

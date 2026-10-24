@@ -1,0 +1,17 @@
+{
+  "name": "@asrinkemali/historical-research",
+  "version": "0.7.0",
+  "description": "MKA Evidence Engine — tarihî kaynak keşfi, arşiv boşluk analizi ve provenans sistemi",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test \"tests/*.test.mjs\" \"evidence/*.test.mjs\"",
+
+    "gap-report": "node cli.mjs gap-report",
+    "pool-status": "node cli.mjs pool-status",
+    "dry-run": "node cli.mjs dry-run"
+  }
+}

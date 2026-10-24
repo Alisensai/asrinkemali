@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-cumhuriyet-halk-firkasi-1923-1938",
+  "record_path": "data/archive/catalog/ayk-cumhuriyet-halk-firkasi-1923-1938.json",
+  "record_snapshot_sha256": "f141be9dfb569e32a4d0b63a8b8702ad5b0128787d7dd91cf919dfe8e654a2d4",
+  "record_snapshot": {
+    "title": "Cumhuriyet Halk Fırkası (1923-1938)",
+    "type": "event",
+    "date": {
+      "start": "1923-09-09",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "9 Eylül 1923",
+      "note": "Tarih, Atatürk Ansiklopedisi maddesindeki olay tarihinden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/604/cumhuriyet-halk-firkasi-1923-1938",
+    "citation": "Hakkı UYAR, \"Cumhuriyet Halk Fırkası (1923-1938)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/604/cumhuriyet-halk-firkasi-1923-1938.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

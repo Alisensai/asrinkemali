@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-ankara-devlet-resim-ve-heykel-muzesi-binasi",
+  "record_path": "data/archive/catalog/ayk-ankara-devlet-resim-ve-heykel-muzesi-binasi.json",
+  "record_snapshot_sha256": "dd650db8ee7da2270bbaa52493fea6db80e395e5db230cb5804293735b91c770",
+  "record_snapshot": {
+    "title": "Ankara Devlet Resim ve Heykel Müzesi Binası",
+    "type": "place",
+    "date": {
+      "start": "1930-05-23",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "23 Mayıs 1930",
+      "note": "Tarih, Atatürk Ansiklopedisi maddesindeki olay tarihinden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/574/ankara-devlet-resim-ve-heykel-muzesi-binasi",
+    "citation": "Nilgün Çuha, \"Ankara Devlet Resim ve Heykel Müzesi Binası\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/574/ankara-devlet-resim-ve-heykel-muzesi-binasi.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

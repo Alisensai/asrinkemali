@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "tbmm-130-birlesim-tutanagi-1922",
+  "record_path": "data/archive/catalog/tbmm-130-birlesim-tutanagi-1922.json",
+  "record_snapshot_sha256": "f47e9d69de208567dcc9aca0d24e0543cf7046113a2fa3d1df4f57cdcf070f4b",
+  "record_snapshot": {
+    "title": "TBMM 130. Birleşim Tutanağı (1 Kasım 1922)",
+    "type": "document",
+    "date": {
+      "start": "1922-11-01",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "1 Kasım 1922"
+    },
+    "source_institution": "Türkiye Büyük Millet Meclisi",
+    "source_url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c024/tbmm01024130.pdf",
+    "citation": "TBMM Tutanak Dergisi, Dönem 1, Cilt 24, 130. Birleşim, 1 Kasım 1922, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c024/tbmm01024130.pdf",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

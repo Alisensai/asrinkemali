@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-trabzon-muhafaza-i-hukuk-i-milliye-cemiyeti",
+  "record_path": "data/archive/catalog/ayk-trabzon-muhafaza-i-hukuk-i-milliye-cemiyeti.json",
+  "record_snapshot_sha256": "19ed919be82d6d4680c2bbed06cb6b847a51e0a3905cd511effb327ce9904c61",
+  "record_snapshot": {
+    "title": "Trabzon Muhafaza-İ Hukuk-I Millîye Cemiyeti",
+    "type": "event",
+    "date": {
+      "start": "1919-02-12",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "12 Şubat 1919",
+      "note": "Tarih, Atatürk Ansiklopedisi maddesindeki olay tarihinden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/1129/trabzon-muhafaza-i-hukuk-i-milliye-cemiyeti",
+    "citation": "Mesut ÇAPA, \"Trabzon Muhafaza-İ Hukuk-I Millîye Cemiyeti\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/1129/trabzon-muhafaza-i-hukuk-i-milliye-cemiyeti.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

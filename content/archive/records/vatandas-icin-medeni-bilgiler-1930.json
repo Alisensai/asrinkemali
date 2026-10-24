@@ -1,0 +1,100 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "vatandas-icin-medeni-bilgiler-1930",
+  "slug": "vatandas-icin-medeni-bilgiler-1930",
+  "title": "Vatandaş İçin Medenî Bilgiler",
+  "type": "publication",
+  "date": {
+    "start": "1930-01-01",
+    "end": null,
+    "precision": "year",
+    "certainty": "exact",
+    "display": "1930",
+    "note": "Eserin ilk baskısı 1930'da Milliyet Matbaası tarafından İstanbul'da yayımlandı. Ay ve gün kaynakta belirtilmediği için yıl hassasiyeti kullanılır."
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "author",
+      "note": "Eserin hazırlanmasında el yazıları ve direktifleriyle katkıda bulundu; kitap Afet İnan imzasıyla yayımlandı."
+    },
+    {
+      "name": "Afet İnan",
+      "role": "author",
+      "note": "Kitabın yayımlanan metnini hazırlayan ve imzalayan yazar."
+    }
+  ],
+  "locations": [
+    {
+      "name": "İstanbul",
+      "city": "İstanbul",
+      "country": "Türkiye",
+      "note": "İlk baskının yayımlandığı şehir."
+    }
+  ],
+  "categories": [
+    "yayin",
+    "egitim",
+    "hukuk",
+    "toplum"
+  ],
+  "summary": "Vatandaş İçin Medenî Bilgiler, Atatürk'ün direktifleri ve el yazılarından yararlanılarak Afet İnan imzasıyla hazırlanan yurttaşlık bilgisi kitabıdır. İlk baskısı 1930'da İstanbul'da Milliyet Matbaası tarafından yayımlandı.",
+  "description": "Kitap, cumhuriyet vatandaşının hak ve ödevlerini, seçim sistemini, vergileri ve askerlik yükümlülüğünü konu edinir. Atatürk Ansiklopedisi maddesine göre eser, Afet İnan'ın daha önce yayımladığı yurt bilgisi notlarının devamı niteliğindedir ve Atatürk'ün el yazılı katkılarını içerir. Metin, dönemin vatandaşlık eğitimi anlayışını ve hukuk dilini yansıtması bakımından birincil kaynak değeri taşır. Kayıt, eserin 1930'daki ilk baskısını tarihler; sonraki baskı ve uyarlamaları kapsamaz.",
+  "source": {
+    "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "institutionType": "institutional",
+    "institutionUrl": "https://ataturkansiklopedisi.gov.tr/",
+    "title": "Atatürk Ansiklopedisi: Vatandaş İçin Medenî Bilgiler",
+    "url": "https://ataturkansiklopedisi.gov.tr/detay/140/Vatandaş-İçin-Medenî-Bilgiler",
+    "accessedAt": "2026-10-23",
+    "publishedAt": null,
+    "archiveIdentifier": "140",
+    "note": "Kurumsal ansiklopedi maddesi; eserin yazarını, hazırlanışını ve 1930 baskısını açıklar."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "collection": "Atatürk Ansiklopedisi",
+      "identifier": "140",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/140/Vatandaş-İçin-Medenî-Bilgiler",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal madde, eserin Afet İnan imzasıyla yayımlandığını ve Atatürk'ün el yazılarıyla ilişkisini belgeler."
+    }
+  ],
+  "rights": {
+    "status": "unknown",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "imageReuse": "not_downloaded",
+    "note": "Eser metninin ve kurumsal sayfadaki görsellerin yeniden kullanım koşulları doğrulanmadı. Kayıt bu nedenle yayımlanmaz; yalnızca kaynak sayfaya bağlantı verilir ve hiçbir görsel indirilmez."
+  },
+  "image": null,
+  "verification": {
+    "status": "reviewed",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": false,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Kaynak sayfa 23 Ekim 2026'da erişildi; 1930 ilk baskısı ve Afet İnan imzası kurumsal maddeyle doğrulandı. Hak/lisans durumu doğrulanmadığı için kayıt 'reviewed' aşamasında tutulur ve yayın kapısı kapalıdır. Doğrudan alıntı kullanılmadı."
+  },
+  "tags": [
+    "Vatandaş İçin Medenî Bilgiler",
+    "Afet İnan",
+    "1930",
+    "yurttaşlık bilgisi",
+    "Milliyet Matbaası"
+  ],
+  "relatedIds": [
+    "harf-devrimi-1928",
+    "1924-anayasasi"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

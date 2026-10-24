@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-anadolu-ajansi",
+  "record_path": "data/archive/catalog/ayk-anadolu-ajansi.json",
+  "record_snapshot_sha256": "9923da1b5e33912d750dc3790f1847a8d8a7a60355e65d7ddc5c26d9f1dd6904",
+  "record_snapshot": {
+    "title": "Anadolu Ajansı",
+    "type": "event",
+    "date": {
+      "start": "1920-04-06",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "6 Nisan 1920",
+      "note": "Tarih, Atatürk Ansiklopedisi maddesindeki olay tarihinden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/213/anadolu-ajansi",
+    "citation": "Nurettin GÜZ, \"Anadolu Ajansı\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/213/anadolu-ajansi.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

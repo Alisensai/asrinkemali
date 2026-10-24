@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-turkiye-iktisat-kongresi",
+  "record_path": "data/archive/catalog/ayk-turkiye-iktisat-kongresi.json",
+  "record_snapshot_sha256": "a2f921489b82f3404b7f378233a30b7462c1cb74b6373f9094ba49654271534a",
+  "record_snapshot": {
+    "title": "Türkiye İktisat Kongresi",
+    "type": "event",
+    "date": {
+      "start": "1923-02-17",
+      "end": "1923-03-04",
+      "precision": "range",
+      "certainty": "exact",
+      "display": "17 Şubat - 4 Mart 1923",
+      "note": "Tarih aralığı, Atatürk Ansiklopedisi maddesindeki ifadeden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/438/turkiye-iktisat-kongresi",
+    "citation": "Erdinç Tokgöz, \"Türkiye İktisat Kongresi\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/438/turkiye-iktisat-kongresi.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-sadabat-pakti-8-temmuz-1937",
+  "record_path": "data/archive/catalog/ayk-sadabat-pakti-8-temmuz-1937.json",
+  "record_snapshot_sha256": "dae2b947f4c36d8401ad14853fffe657d1b76dd6b35b2fd2c17746cd3a8543af",
+  "record_snapshot": {
+    "title": "Sadabat Paktı (8 Temmuz 1937)",
+    "type": "document",
+    "date": {
+      "start": "1937-07-08",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "8 Temmuz 1937",
+      "note": "Tarih, Atatürk Ansiklopedisi maddesindeki olay tarihinden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/200/sadabat-pakti-8-temmuz-1937",
+    "citation": "Temuçin Faik ERTAN, \"Sadabat Paktı (8 Temmuz 1937)\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/200/sadabat-pakti-8-temmuz-1937.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

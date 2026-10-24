@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ibb-canakkale-fotografi-1928",
+  "record_path": "data/archive/catalog/ibb-canakkale-fotografi-1928.json",
+  "record_snapshot_sha256": "82b1dfb7774ffe5bc0866f50a41bc6724b403a542bad57f9fc96dabe280308e2",
+  "record_snapshot": {
+    "title": "Çanakkale'de Atatürk ve Bir Grup Fotoğrafı (1928)",
+    "type": "photograph",
+    "date": {
+      "start": "1928-01-01",
+      "end": null,
+      "precision": "year",
+      "certainty": "exact",
+      "display": "1928",
+      "note": "Arşiv kaydında tarih [1928] olarak verilmiştir."
+    },
+    "source_institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+    "source_url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_014877",
+    "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Krt_014877, “Çanakkale'de Atatürk ve Bir Grup Fotoğrafı (1928)”, erişim 23.10.2026, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_014877",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

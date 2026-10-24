@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "ayk-tanin-gazetesi",
+  "slug": "ayk-tanin-gazetesi",
+  "title": "Tanin Gazetesi",
+  "type": "publication",
+  "date": {
+    "start": "1908-08-01",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "1 Ağustos 1908",
+    "note": "Tarih, Atatürk Ansiklopedisi maddesindeki olay tarihinden alınmıştır."
+  },
+  "people": [
+    {
+      "name": "Hüseyin BAYARSLAN",
+      "role": "author"
+    }
+  ],
+  "locations": [
+    {
+      "name": "İstanbul",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "yayin",
+    "siyaset"
+  ],
+  "summary": "Tanin, II. Meşrutiyet Dönemi'nde İstanbul’da çıkarılmaya başlanan gazetedir. Gazeteyi çıkarma fikri aynı zamanda finansmanını sağlayan İttihat ve Terakki Cemiyeti Merkez-i Umumi üyesi Hüseyin Kâzım (Kadri) tarafından ortaya atılmıştır. Tanin ismi ise gazetenin yazı işleri müdürlüğü görevini üstlenen Tevfik Fikret tarafından verilmiştir. Hüseyin Kâzım ve Tevfik Fikret’in bir süre sonra gazeteden ayrılmaları, gazetenin başyazarı olan ve tüm idaresiyle de neredeyse tek başına ilgilenen Hüseyin Cahit (Yalçın)’ın gazetenin imtiyazını devralmasını sağladı. İlk sayısı 1 Ağustos 1908...",
+  "description": "Tanin, II. Meşrutiyet Dönemi'nde İstanbul’da çıkarılmaya başlanan gazetedir. Gazeteyi çıkarma fikri aynı zamanda finansmanını sağlayan İttihat ve Terakki Cemiyeti Merkez-i Umumi üyesi Hüseyin Kâzım (Kadri) tarafından ortaya atılmıştır. Tanin ismi ise gazetenin yazı işleri müdürlüğü görevini üstlenen Tevfik Fikret tarafından verilmiştir. Hüseyin Kâzım ve Tevfik Fikret’in bir süre sonra gazeteden ayrılmaları, gazetenin başyazarı olan ve tüm idaresiyle de neredeyse tek başına ilgilenen Hüseyin Cahit (Yalçın)’ın gazetenin imtiyazını devralmasını sağladı. İlk sayısı 1 Ağustos 1908... Atatürk Ansiklopedisi maddesi, Hüseyin BAYARSLAN imzasıyla yayının künyesini ve tarihsel bağlamını ayrıntılı olarak ele alır. Bu arşiv kaydı yalnızca künye, tarih ve kısa açıklama sunar; maddenin tam metni ve kaynakçası için kurumun sayfasına başvurulmalıdır.",
+  "source": {
+    "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "institutionType": "institutional",
+    "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+    "title": "Atatürk Ansiklopedisi: Tanin Gazetesi",
+    "url": "https://www.ataturkansiklopedisi.gov.tr/detay/1233/tanin-gazetesi",
+    "citation": "Hüseyin BAYARSLAN, \"Tanin Gazetesi\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/1233/tanin-gazetesi.",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2023-03-13",
+    "archiveIdentifier": "AYK-1233",
+    "note": "Atatürk Ansiklopedisi maddesi; künye ve metin AYK kamuya açık API üzerinden doğrulandı. Sayfa yalnızca bağlantı olarak sunulur."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "collection": "Atatürk Ansiklopedisi",
+      "identifier": "AYK-1233",
+      "url": "https://www.ataturkansiklopedisi.gov.tr/detay/1233/tanin-gazetesi",
+      "accessedAt": "2026-10-23",
+      "note": "AYK kamuya açık API kaydındaki başlık, yazar, yayın tarihi ve metin özetiyle eşleştirildi."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "AYK maddesi, yazarı, yayın tarihi ve tarih bilgisi kurumsal kaynak üzerinden doğrulandı; insan uzman onayı değildir."
+  },
+  "tags": [
+    "Tanin Gazetesi",
+    "Hüseyin BAYARSLAN",
+    "Atatürk Ansiklopedisi",
+    "1908"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

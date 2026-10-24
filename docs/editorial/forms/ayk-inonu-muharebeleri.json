@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-inonu-muharebeleri",
+  "record_path": "data/archive/catalog/ayk-inonu-muharebeleri.json",
+  "record_snapshot_sha256": "c89707193aeb1a24afc82f90516bc6b1a887d558a34443139a4714b015e6f528",
+  "record_snapshot": {
+    "title": "İnönü Muharebeleri",
+    "type": "event",
+    "date": {
+      "start": "1921-01-06",
+      "end": "1921-04-01",
+      "precision": "range",
+      "certainty": "exact",
+      "display": "6 Ocak 1921 - 1 Nisan 1921",
+      "note": "Tarih aralığı, Atatürk Ansiklopedisi maddesindeki ifadeden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/748/inonu-muharebeleri",
+    "citation": "Hüsnü Özlü, \"İnönü Muharebeleri\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/748/inonu-muharebeleri.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "anitkabir",
+  "slug": "anitkabir",
+  "title": "Anıtkabir",
+  "type": "place",
+  "date": {
+    "start": "1953-11-10",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "10 Kasım 1953"
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "subject",
+      "note": "Anıtkabir'deki anıt mezarın sahibi."
+    }
+  ],
+  "locations": [
+    {
+      "name": "Anıtkabir",
+      "city": "Ankara",
+      "country": "Türkiye",
+      "note": "Rasattepe'de yer alan anıt mezar ve müze kompleksi."
+    }
+  ],
+  "categories": [
+    "mekan",
+    "cumhuriyet"
+  ],
+  "summary": "Anıtkabir, Mustafa Kemal Atatürk'ün anıt mezarını barındıran komplekstir. Atatürk'ün naaşı 10 Kasım 1953'te Etnografya Müzesi'nden Anıtkabir'e nakledildi.",
+  "description": "Anıtkabir'in yapılacağı alan 7 Temmuz 1939'da kamulaştırıldı. Uluslararası proje yarışması sonucunda Emin Onat ve Orhan Arda'nın projesi uygulanmaya değer bulundu. Temel 9 Eylül 1944'te atıldı. Atatürk'ün naaşı, 15 yıl Etnografya Müzesi'nde tutulduktan sonra 10 Kasım 1953'te törenle Anıtkabir'e nakledildi. Kompleks, anıt mezar, tören alanı ve müzeyi birlikte barındırır.",
+  "source": {
+    "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "institutionType": "institutional",
+    "institutionUrl": "https://ataturkansiklopedisi.gov.tr/",
+    "title": "Atatürk Ansiklopedisi: Anıtkabir",
+    "url": "https://ataturkansiklopedisi.gov.tr/detay/869/Anıtkabir",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2020-12-17",
+    "archiveIdentifier": "869",
+    "note": "Kurumsal ansiklopedi maddesi; Anıtkabir'in yer seçimi, inşası ve 10 Kasım 1953 nakil törenini açıklar."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "collection": "Atatürk Ansiklopedisi",
+      "identifier": "869",
+      "url": "https://ataturkansiklopedisi.gov.tr/detay/869/Anıtkabir",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal madde, Anıtkabir'in inşa sürecini ve naaşın nakledildiği tarihi belgeler."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal ansiklopedi sayfasında yeniden kullanım lisansı doğrulanmadı; metin ve görsel kopyalanmaz, yalnızca kaynak sayfaya bağlantı verilir."
+  },
+  "image": null,
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Kaynak sayfa 23 Ekim 2026'da erişildi; 10 Kasım 1953 nakil tarihi ve inşa süreci kurumsal maddeyle doğrulandı. Doğrudan alıntı kullanılmadı."
+  },
+  "tags": [
+    "Anıtkabir",
+    "10 Kasım 1953",
+    "Ankara",
+    "anıt mezar",
+    "müze"
+  ],
+  "relatedIds": [
+    "cumhuriyetin-ilani-1923",
+    "onuncu-yil-nutku-1933"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

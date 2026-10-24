@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "tbmm-tutanak-d02-c032-b073-1927-05-28",
+  "record_path": "data/archive/catalog/tbmm-tutanak-d02-c032-b073-1927-05-28.json",
+  "record_snapshot_sha256": "64f32e00e914d0736f01c61ecd58e4775210449e3de20160370638e5dc383419",
+  "record_snapshot": {
+    "title": "TBMM Tutanak Dergisi, II. Dönem, 32. Cilt, 73. Birleşim (28 Mayıs 1927)",
+    "type": "document",
+    "date": {
+      "start": "1927-05-28",
+      "end": null,
+      "precision": "day",
+      "certainty": "exact",
+      "display": "28 Mayıs 1927",
+      "note": "Oturum tarihi TBMM Tutanak Dergisi fihristinden alınmıştır."
+    },
+    "source_institution": "Türkiye Büyük Millet Meclisi",
+    "source_url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c032/tbmm02032073.pdf",
+    "citation": "TBMM Tutanak Dergisi, II. Dönem, 32. Cilt, 73. Birleşim, 28 Mayıs 1927, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c032/tbmm02032073.pdf",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

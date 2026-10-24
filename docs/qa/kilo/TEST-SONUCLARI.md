@@ -1,0 +1,1 @@
+{"baslik":"Asrın Kemali V0.6 QA","tarih":"2026-10-23T13:50:00Z","repo":"https://github.com/Alisensai/asrinkemali","dal":"feature/kilo-v06-qa","hedef":"V0.5 bagimsiz test + V0.6 yeniden kullanilabilir testler","durum":"hazirlandi"}

@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "atam-gazi-mustafa-kemal-ataturkun-hayati-2025",
+  "record_path": "data/archive/catalog/atam-gazi-mustafa-kemal-ataturkun-hayati-2025.json",
+  "record_snapshot_sha256": "51a56e890b348350cb69b5f406b160b36e620df2a0dab26dfa2ca688d8311e1e",
+  "record_snapshot": {
+    "title": "Gazi Mustafa Kemal Atatürk'ün Hayatı",
+    "type": "publication",
+    "date": {
+      "start": "2025-01-01",
+      "end": null,
+      "precision": "year",
+      "certainty": "exact",
+      "display": "2025",
+      "note": "Basım yılı ATAM kitap künyesinden alınmıştır."
+    },
+    "source_institution": "Atatürk Araştırma Merkezi Yayınları",
+    "source_url": "https://atam.gov.tr/kitaplar/gazi-mustafa-kemal-ataturkun-hayati-3/",
+    "citation": "Yücel Özkaya, Mehmet Saray, Mustafa Balcıoğlu, Cezmi Eraslan, Gazi Mustafa Kemal Atatürk'ün Hayatı, Atatürk Araştırma Merkezi Yayınları, Ankara 2025, ISBN 978-975-17-6295-5.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

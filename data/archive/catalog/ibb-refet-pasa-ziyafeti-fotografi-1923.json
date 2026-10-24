@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "ibb-refet-pasa-ziyafeti-fotografi-1923",
+  "slug": "ibb-refet-pasa-ziyafeti-fotografi-1923",
+  "title": "TBMM İstanbul Temsilcisi Refet Paşa'nın Yemekli Toplantısı (1923)",
+  "type": "photograph",
+  "date": {
+    "start": "1923-01-01",
+    "end": null,
+    "precision": "year",
+    "certainty": "exact",
+    "display": "1923",
+    "note": "Arşiv kaydında tarih 1923 olarak verilmiştir."
+  },
+  "people": [
+    {
+      "name": "Refet Paşa (Refet Bele)",
+      "role": "official"
+    }
+  ],
+  "locations": [
+    {
+      "name": "İstanbul",
+      "city": "İstanbul",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "fotograf",
+    "tbmm",
+    "siyaset"
+  ],
+  "summary": "TBMM İstanbul temsilcisi Refet Paşa'nın subaylar ve sivil memurlarla yemekte çekilmiş fotoğrafı.",
+  "description": "İBB Atatürk Kitaplığı'nda Krt_013518 demirbaş numarasıyla kayıtlı fotoğraf, TBMM İstanbul temsilcisi Refet Paşa'nın subaylar ve sivil memurlarla bir yemekte bir araya geldiği anı gösterir. Arşiv kaydında tarih 1923 olarak verilmiştir. Görsel, kurumsal kaynak sayfasına bağlantıyla sunulur.",
+  "source": {
+    "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+    "institutionType": "archive",
+    "institutionUrl": "https://sayisalarsiv.ibb.gov.tr/",
+    "title": "İBB Atatürk Kitaplığı: TBMM İstanbul Temsilcisi Refet Paşa'nın Yemekli Toplantısı (1923)",
+    "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_013518",
+    "citation": "İBB Atatürk Kitaplığı, Demirbaş No. Krt_013518, “TBMM İstanbul Temsilcisi Refet Paşa'nın Yemekli Toplantısı (1923)”, erişim 23.10.2026, https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_013518",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1923-01-01",
+    "archiveIdentifier": "Krt_013518",
+    "note": "İBB Atatürk Kitaplığı Sayısal Arşiv katalog kaydı; kaynak sayfası 23.10.2026 tarihinde erişildi. Görsel indirilmedi."
+  },
+  "provenance": [
+    {
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "collection": "İBB Atatürk Kitaplığı Sayısal Arşiv",
+      "identifier": "Krt_013518",
+      "url": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_013518",
+      "accessedAt": "2026-10-23",
+      "note": "Kurumsal katalog kaydı ve demirbaş numarasına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "İBB Atatürk Kitaplığı",
+    "imageReuse": "link_only",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": {
+    "kind": "digitized_original",
+    "url": null,
+    "sourcePageUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_013518",
+    "alt": "Refet Paşa'nın subaylar ve sivil memurlarla yemekte çekilen fotoğrafı",
+    "credit": "İBB Atatürk Kitaplığı",
+    "width": null,
+    "height": null,
+    "mimeType": null,
+    "localPath": null,
+    "displayPolicy": "source_link_only"
+  },
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Katalog kaydı ve 1923 tarihi 23.10.2026 tarihinde doğrulandı; görsel indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "Refet Paşa",
+    "TBMM",
+    "İstanbul",
+    "1923",
+    "fotoğraf"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MKAAuthorityRegistryEntity",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "authorityId",
+    "kind",
+    "preferredLabel",
+    "aliases",
+    "sourceRecordReferences",
+    "status"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "authorityId": {
+      "type": "string",
+      "pattern": "^(mka|auth):[a-z_]+:[a-z0-9-]+$"
+    },
+    "id": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "person",
+        "place",
+        "institution",
+        "event",
+        "source_work",
+        "source_manifestation",
+        "source_item"
+      ]
+    },
+    "type": {
+      "type": "string"
+    },
+    "preferredLabel": {
+      "type": "string",
+      "minLength": 1
+    },
+    "preferredName": {
+      "type": "string"
+    },
+    "aliases": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "sourceRecordReferences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["recordId"],
+        "properties": {
+          "recordId": { "type": "string" },
+          "recordTitle": { "type": "string" },
+          "role": { "type": ["string", "null"] },
+          "sourceField": { "type": "string" }
+        }
+      }
+    },
+    "humanApproval": {
+      "type": ["object", "null"],
+      "properties": {
+        "verifiedBy": { "type": "string" },
+        "role": { "type": "string" },
+        "decisionDate": { "type": "string" },
+        "evidenceRef": { "type": "string" }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "provisional",
+        "review_required",
+        "rejected",
+        "approved_from_verified_human_workflow"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

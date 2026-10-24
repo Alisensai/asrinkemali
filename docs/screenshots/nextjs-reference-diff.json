@@ -1,0 +1,11 @@
+{
+  "reference": "design\\ONAYLANAN-TASARIM.webp",
+  "actual": "docs\\screenshots\\nextjs-desktop-1536x1024.png",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "mean_absolute_error_0_255": 25.492,
+  "pixels_over_32_percent": 25.584,
+  "note": "Piksel farkı, içerik ve font render farklarını da kapsar; görsel kabulün tek ölçütü değildir."
+}

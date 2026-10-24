@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "auditMetadata": {
+    "auditVersion": "1.0.0",
+    "timestamp": "2026-10-24T06:10:00.000Z",
+    "agent": "ANTIGRAVITY",
+    "taskId": "MKA-ANTIGRAVITY-25",
+    "taskName": "ANYCODER DİJİTAL SERGİ PROTOTİPİ — KAYNAK DENETİMİ, KARŞILAŞTIRMA VE SEÇİCİ AKTARIM",
+    "overallStatus": "SOURCE_MISSING",
+    "sourceAuditSummary": "AnyCoder kaynak kodu veya prototip ZIP dosyası yerel ortamda, Git dallarında ve GitHub PR geçmişinde bulunamadı. Sahte kod üretilmemiş, mevcut PR #27 yetenekleri temel alınarak denetim matrisi ve test iskeleti kurulmuştur.",
+    "searchedLocations": [
+      "C:\\Users\\Ali\\Downloads\\*anycoder*",
+      "C:\\Users\\Ali\\Downloads\\MKA_30_PROMPT_TUM_KAYNAKLAR_ZIP.zip",
+      "C:\\Users\\Ali\\Downloads\\MKA_PROMPT_25_26_27_ANTIGRAVITY_PAKETI.zip",
+      "git log --all --grep=anycoder -i",
+      "gh pr list --state all --search anycoder"
+    ],
+    "baseBranch": "feature/antigravity-v08-personal-collection",
+    "workingBranch": "feature/antigravity-v08-anycoder-exhibit-audit",
+    "sourceArchiveSha256": null,
+    "rollbackCommand": "git revert <commit-sha>"
+  },
+  "decisionRules": {
+    "ACCEPT": "Yalnız gerçek kaynak dosya, doğrulanmış SHA-256, açık lisans ve tam test kanıtı varsa onaylanır.",
+    "ADAPT": "Mimariye uygun ancak güvenlik veya şema adaptasyonu gerektiren bileşenler yamalanarak alınır.",
+    "QUARANTINE": "Bozuk UTF-8, şüpheli bağımlılık veya başarısız sağlama içeren dosyalar derleme dışı bırakılır.",
+    "REJECT": "XSS, dangerouslySetInnerHTML, sahte onay mührü veya haricî CDN içeren kodlar kesinlikle reddedilir.",
+    "SOURCE_MISSING": "Kaynak dosya mevcut değilse kod aktarımı yapılmaz, durum açıkça belgelenir.",
+    "DUPLICATE": "PR #27 müze sisteminde zaten yerel olarak mevcut olan özellikler ikinci kez kopyalanmaz.",
+    "DEFERRED": "Prompt 26 veya sonraki aşamalara ait operasyonel işler ilgili ajana devredilir."
+  },
+  "decisions": [
+    {
+      "id": "AC-DEC-001",
+      "featureName": "AnyCoder Orijinal Kaynak Kodu ve ZIP Teslimi",
+      "category": "SOURCE_MISSING",
+      "sourceFile": null,
+      "sourceSha256": null,
+      "targetComponent": null,
+      "rationale": "Yerel dosya sisteminde, git geçmişinde ve GitHub PR kayıtlarında AnyCoder prototip paketi bulunamamıştır. MKA anayasası uyarınca sahte kod oluşturulamaz.",
+      "securityPosture": "NO_EXTERNAL_CODE",
+      "pr27BaselineReference": "PR #27 feature/antigravity-v07-immersive-museum",
+      "adopted": false
+    },
+    {
+      "id": "AC-DEC-002",
+      "featureName": "3D Sanal Galeri Odası (Virtual Gallery Room)",
+      "category": "DUPLICATE",
+      "sourceFile": "AnyCoder hypothetical VirtualGallery.tsx",
+      "sourceSha256": null,
+      "targetComponent": "web/components/exhibitions/VirtualGalleryRoom.tsx",
+      "rationale": "PR #27 içerisinde saf CSS 3D Transforms ve klavye destekli salon perspektifi zaten tam erişilebilir şekilde hayata geçirilmiştir. Fazladan WebGL/Three.js bağımlılığı gereksizdir.",
+      "securityPosture": "CLEAN",
+      "pr27BaselineReference": "web/components/exhibitions/VirtualGalleryRoom.tsx",
+      "adopted": false
+    },
+    {
+      "id": "AC-DEC-003",
+      "featureName": "Birincil Belge Vitrini (Document Showcase)",
+      "category": "DUPLICATE",
+      "sourceFile": "AnyCoder hypothetical DocumentVitrine.tsx",
+      "sourceSha256": null,
+      "targetComponent": "web/components/exhibitions/DocumentShowcase.tsx",
+      "rationale": "PR #27'de arşiv fon numarası, belge tarihi ve transkripsiyon gösterimi mevcuttur.",
+      "securityPosture": "CLEAN",
+      "pr27BaselineReference": "web/components/exhibitions/DocumentShowcase.tsx",
+      "adopted": false
+    },
+    {
+      "id": "AC-DEC-004",
+      "featureName": "Haricî CDN / Haricî Three.js Script Yükleyicisi",
+      "category": "REJECT",
+      "sourceFile": "AnyCoder hypothetical cdn-three-loader.js",
+      "sourceSha256": null,
+      "targetComponent": null,
+      "rationale": "Haricî script yükleme CSP (Content Security Policy) ihlalidir. Veri sızıntısı ve SSRF riski taşır.",
+      "securityPosture": "CSP_RISK",
+      "pr27BaselineReference": "N/A (PR #27 uses native CSS 3D, no CDN)",
+      "adopted": false
+    },
+    {
+      "id": "AC-DEC-005",
+      "featureName": "Yanıltıcı 'BİRİNCİL TARİHÎ KAYNAK' ve 'DOĞRULANMIŞ' Rozetleri",
+      "category": "REJECT",
+      "sourceFile": "web/components/exhibitions/SourceInspector.tsx (PR #27 legacy badges)",
+      "sourceSha256": null,
+      "targetComponent": "web/components/exhibitions/SourceInspector.tsx",
+      "rationale": "İnsan uzman onayı olmaksızın koşulsuz doğruluk veya birincil belge damgası vurulamaz. Bu düzeltme Prompt 26'ya devredilmiştir.",
+      "securityPosture": "PROVENANCE_RISK",
+      "pr27BaselineReference": "web/components/exhibitions/SourceInspector.tsx",
+      "adopted": false
+    },
+    {
+      "id": "AC-DEC-006",
+      "featureName": "Staging Önizleme Sızıntısı (Staging Bypass in Production)",
+      "category": "REJECT",
+      "sourceFile": "web/lib/exhibitions/repository.ts (staging fallback)",
+      "sourceSha256": null,
+      "targetComponent": "web/lib/exhibitions/repository.ts",
+      "rationale": "Üretim ortamında onaylanmamış staging sergilerinin public kullanıcılara sunulması yayın etiğine aykırıdır. Düzeltme Prompt 26'ya aittir.",
+      "securityPosture": "PUBLICATION_GATE_RISK",
+      "pr27BaselineReference": "web/lib/exhibitions/repository.ts",
+      "adopted": false
+    },
+    {
+      "id": "AC-DEC-007",
+      "featureName": "İnteraktif Sergi Zaman Çizelgesi (Exhibition Timeline)",
+      "category": "DUPLICATE",
+      "sourceFile": "AnyCoder hypothetical Timeline.tsx",
+      "sourceSha256": null,
+      "targetComponent": "web/components/exhibitions/ExhibitionTimeline.tsx",
+      "rationale": "PR #27'de tarihsel olay tarihi ile arşiv muhafaza tarihini ayıran çift tarihli zaman çizgisi halihazırda mevcuttur.",
+      "securityPosture": "CLEAN",
+      "pr27BaselineReference": "web/components/exhibitions/ExhibitionTimeline.tsx",
+      "adopted": false
+    },
+    {
+      "id": "AC-DEC-008",
+      "featureName": "Müze Hardening ve İnsan Onayı Kapıları Entegrasyonu",
+      "category": "DEFERRED",
+      "sourceFile": "PR #27 hardening tasks",
+      "sourceSha256": null,
+      "targetComponent": "web/lib/exhibitions/ & web/components/exhibitions/",
+      "rationale": "Prompt 26 (MKA-ANTIGRAVITY-26) doğrudan sergi motorunun güvenliğini sağlamak ve staging sızıntılarını kapatmak üzere görevlendirilmiştir.",
+      "securityPosture": "DEFERRED_TO_TASK_26",
+      "pr27BaselineReference": "MKA-ANTIGRAVITY-26",
+      "adopted": false
+    }
+  ]
+}

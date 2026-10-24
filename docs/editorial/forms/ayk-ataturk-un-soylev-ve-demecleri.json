@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "ayk-ataturk-un-soylev-ve-demecleri",
+  "record_path": "data/archive/catalog/ayk-ataturk-un-soylev-ve-demecleri.json",
+  "record_snapshot_sha256": "19b1374bdd099b31f7a059bc8ffa3e454bc5cb28eb03d3b18bf772660c6c1bf1",
+  "record_snapshot": {
+    "title": "Atatürk'ün Söylev ve Demeçleri",
+    "type": "publication",
+    "date": {
+      "start": "1945-01-01",
+      "end": "1954-12-31",
+      "precision": "range",
+      "certainty": "exact",
+      "display": "1945-1954",
+      "note": "Tarih aralığı, Atatürk Ansiklopedisi maddesindeki ifadeden alınmıştır."
+    },
+    "source_institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "source_url": "https://www.ataturkansiklopedisi.gov.tr/detay/1146/ataturk-un-soylev-ve-demecleri",
+    "citation": "Mahmut BOLAT, \"Atatürk'ün Söylev ve Demeçleri\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/1146/ataturk-un-soylev-ve-demecleri.",
+    "rights_status": "official_link_only"
+  },
+  "review_status": "pending",
+  "reviewer": null,
+  "review_date": null,
+  "checks": {
+    "historical_facts": "not_reviewed",
+    "source_authenticity": "not_reviewed",
+    "source_record_consistency": "not_reviewed",
+    "quotation": "not_reviewed",
+    "copyright_and_reuse": "not_reviewed"
+  },
+  "outcome": "pending",
+  "evidence": [],
+  "explanation": "",
+  "publicationApproval": null
+}

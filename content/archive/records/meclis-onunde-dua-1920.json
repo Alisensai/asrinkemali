@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "meclis-onunde-dua-1920",
+  "slug": "meclis-onunde-dua-1920",
+  "title": "Meclis Önünde Dua",
+  "type": "photograph",
+  "date": {
+    "start": "1920-05-06",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "6 Mayıs 1920"
+  },
+  "people": [],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "fotograf",
+    "tbmm",
+    "milli-mucadele"
+  ],
+  "summary": "TBMM Kurtuluş Savaşı Müzesi'nin fotoğraf albümünde, milletvekillerinin ve Ankara halkının Türk ordusu için 6 Mayıs 1920'de yaptığı dua törenini gösteren bir fotoğraf yer alır.",
+  "description": "Kurumsal fotoğraf albümünde görsel, Meclis Önünde Dua başlığıyla ve 6 Mayıs 1920 tarihiyle tanımlanır. Açıklamada milletvekillerinin ve Ankara halkının Türk ordusu ve millet için dua ettiği belirtilir. Görselin kendisi indirilmemiş; yeniden kullanım koşulları doğrulanmadığı için yalnızca kaynak sayfaya bağlantı verilmiştir.",
+  "source": {
+    "institution": "Türkiye Büyük Millet Meclisi",
+    "institutionType": "official",
+    "institutionUrl": "https://kurtulussavasimuzesi.tbmm.gov.tr/",
+    "title": "Kurtuluş Savaşı Müzesi: Meclis Önünde Dua Fotoğrafı",
+    "url": "https://cdn.tbmm.gov.tr/KurtulusSavasiMuzeWeb/Fotograf/2.jpg",
+    "accessedAt": "2026-10-23",
+    "publishedAt": null,
+    "archiveIdentifier": "Fotograf/2.jpg",
+    "note": "Kurumsal fotoğraf albümündeki Meclis Önünde Dua fotoğrafının doğrudan CDN adresi; görsel dosyası indirilmedi."
+  },
+  "provenance": [
+    {
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "collection": "Kurtuluş Savaşı Müzesi Fotoğraf Albümü",
+      "identifier": "Fotograf/2.jpg",
+      "url": "https://cdn.tbmm.gov.tr/KurtulusSavasiMuzeWeb/Fotograf/2.jpg",
+      "accessedAt": "2026-10-23",
+      "note": "Görsel, kurumsal albümde 6 Mayıs 1920 tarihli dua töreni olarak tanımlanır; doğrudan CDN adresi kullanılmıştır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "TBMM Kurtuluş Savaşı Müzesi",
+    "imageReuse": "link_only",
+    "note": "Görselin yeniden kullanım lisansı doğrulanmadı; dosya indirilmez ve kopyalanmaz. Kayıt yalnızca kurumsal kaynak sayfaya bağlantı verir."
+  },
+  "image": {
+    "kind": "digitized_original",
+    "url": null,
+    "sourcePageUrl": "https://kurtulussavasimuzesi.tbmm.gov.tr/fotograf",
+    "alt": "Meclis önünde dua eden milletvekilleri ve Ankara halkını gösteren fotoğraf",
+    "credit": "TBMM Kurtuluş Savaşı Müzesi",
+    "width": null,
+    "height": null,
+    "mimeType": null,
+    "localPath": null,
+    "displayPolicy": "source_link_only"
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Kaynak sayfa 23 Ekim 2026'da erişildi; fotoğrafın başlığı ve 6 Mayıs 1920 tarihi kurumsal albüm açıklamasıyla doğrulandı. Görsel dosyası indirilmedi."
+  },
+  "tags": [
+    "TBMM",
+    "6 Mayıs 1920",
+    "fotoğraf",
+    "dua",
+    "Ankara"
+  ],
+  "relatedIds": [
+    "tbmm-acilisi-1920",
+    "tbmm-acilis-fotografi-1920"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

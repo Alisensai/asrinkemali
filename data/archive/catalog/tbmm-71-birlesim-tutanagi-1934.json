@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "tbmm-71-birlesim-tutanagi-1934",
+  "slug": "tbmm-71-birlesim-tutanagi-1934",
+  "title": "TBMM 71. Birleşim Tutanağı (21 Haziran 1934)",
+  "type": "document",
+  "date": {
+    "start": "1934-06-21",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "21 Haziran 1934"
+  },
+  "people": [
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "official",
+      "note": "Dönemin siyasi lideri."
+    }
+  ],
+  "locations": [
+    {
+      "name": "Ankara",
+      "city": "Ankara",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "tbmm",
+    "hukuk",
+    "toplum"
+  ],
+  "summary": "21 Haziran 1934'te yapılan 71. Birleşim'in tutanağı, Soyadı Kanunu'nun kabul edildiği oturumun resmî kaydıdır.",
+  "description": "Tutanak, Dördüncü Dönem Dördüncü Yasama Yılı'nın 71. Birleşiminde Soyadı Kanunu'nun görüşülmesi ve kabulüne ilişkin kayıtları içerir. Kanun, her vatandaşa soyadı alma yükümlülüğü getirerek resmî kimlik düzenini yeniden biçimlendirdi. PDF bağlantısı resmî TBMM tutanak dizinine aittir; dosya indirilmemiştir.",
+  "source": {
+    "institution": "Türkiye Büyük Millet Meclisi",
+    "institutionType": "official",
+    "institutionUrl": "https://www.tbmm.gov.tr/",
+    "title": "TBMM Tutanak Dergisi, Dönem 4, Cilt 23, 71. Birleşim",
+    "url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d04/c023/tbmm04023071.pdf",
+    "citation": "TBMM Tutanak Dergisi, Dönem 4, Cilt 23, 71. Birleşim, 21 Haziran 1934, https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d04/c023/tbmm04023071.pdf",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "1934-06-21",
+    "archiveIdentifier": "Dönem 4, Cilt 23, 71. Birleşim",
+    "note": "Resmî TBMM Tutanak Dergisi PDF'i; bağlantı HTTPS üzerinden 200 yanıtı verdi. PDF indirilmedi ve depoya eklenmedi."
+  },
+  "provenance": [
+    {
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "collection": "TBMM Tutanak Dergisi",
+      "identifier": "Dönem 4, Cilt 23, 71. Birleşim",
+      "url": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d04/c023/tbmm04023071.pdf",
+      "accessedAt": "2026-10-23",
+      "note": "TBMM tutanak dizinindeki resmî birleşim kaydına dayanır."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Türkiye Büyük Millet Meclisi",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "Birleşim tarihi ve resmî PDF bağlantısı TBMM tutanak diziniyle doğrulandı; PDF içeriği indirilmedi. İnsan uzman onayı değildir."
+  },
+  "tags": [
+    "TBMM",
+    "Soyadı Kanunu",
+    "21 Haziran 1934",
+    "tutanak",
+    "kimlik"
+  ],
+  "relatedIds": [
+    "soyadi-kanunu-1934"
+  ],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "1.1.0",
+  "id": "ayk-kayseri-ucak-fabrikasi",
+  "slug": "ayk-kayseri-ucak-fabrikasi",
+  "title": "Kayseri Uçak Fabrikası",
+  "type": "place",
+  "date": {
+    "start": "1926-10-06",
+    "end": null,
+    "precision": "day",
+    "certainty": "exact",
+    "display": "6 Ekim 1926",
+    "note": "Tarih, Atatürk Ansiklopedisi maddesindeki olay tarihinden alınmıştır."
+  },
+  "people": [
+    {
+      "name": "İhsan TAYHANİ",
+      "role": "author"
+    },
+    {
+      "name": "Mustafa Kemal Atatürk",
+      "role": "subject"
+    }
+  ],
+  "locations": [
+    {
+      "name": "Kayseri",
+      "country": "Türkiye"
+    }
+  ],
+  "categories": [
+    "mekan",
+    "cumhuriyet"
+  ],
+  "summary": "6 Ekim 1926'de Kayseri'de Türk havacılığını geliştirmek adına kurulan fabrika.",
+  "description": "6 Ekim 1926'de Kayseri'de Türk havacılığını geliştirmek adına kurulan fabrika. Atatürk Ansiklopedisi maddesi, İhsan TAYHANİ imzasıyla mekânın tarihsel bağlamını ayrıntılı olarak ele alır. Bu arşiv kaydı yalnızca künye, tarih ve kısa açıklama sunar; maddenin tam metni ve kaynakçası için kurumun sayfasına başvurulmalıdır.",
+  "source": {
+    "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "institutionType": "institutional",
+    "institutionUrl": "https://www.ataturkansiklopedisi.gov.tr/",
+    "title": "Atatürk Ansiklopedisi: Kayseri Uçak Fabrikası",
+    "url": "https://www.ataturkansiklopedisi.gov.tr/detay/530/kayseri-ucak-fabrikasi",
+    "citation": "İhsan TAYHANİ, \"Kayseri Uçak Fabrikası\", Atatürk Ansiklopedisi, Atatürk Araştırma Merkezi, erişim 23.10.2026, https://www.ataturkansiklopedisi.gov.tr/detay/530/kayseri-ucak-fabrikasi.",
+    "accessedAt": "2026-10-23",
+    "publishedAt": "2021-03-03",
+    "archiveIdentifier": "AYK-530",
+    "note": "Atatürk Ansiklopedisi maddesi; künye ve metin AYK kamuya açık API üzerinden doğrulandı. Sayfa yalnızca bağlantı olarak sunulur."
+  },
+  "provenance": [
+    {
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "collection": "Atatürk Ansiklopedisi",
+      "identifier": "AYK-530",
+      "url": "https://www.ataturkansiklopedisi.gov.tr/detay/530/kayseri-ucak-fabrikasi",
+      "accessedAt": "2026-10-23",
+      "note": "AYK kamuya açık API kaydındaki başlık, yazar, yayın tarihi ve metin özetiyle eşleştirildi."
+    }
+  ],
+  "rights": {
+    "status": "official_link_only",
+    "license": null,
+    "licenseUrl": null,
+    "termsUrl": null,
+    "credit": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+    "imageReuse": "not_downloaded",
+    "note": "Kurumsal kaynak sayfası yalnızca bağlantı olarak sunulur; dosya indirilmedi ve depoya eklenmedi. Yeniden kullanım lisansı doğrulanmadı."
+  },
+  "image": null,
+  "holding": {
+    "mode": "external_link",
+    "filePath": null,
+    "note": "Kaynak dosya/görselin telif ve erişim koşulları doğrulanmadığı için depoda barındırılmaz; yalnızca kurumsal kaynak sayfasına bağlantı verilir."
+  },
+  "verification": {
+    "status": "published",
+    "reviewedBy": "OpenCode arşiv denetimi (yapay zekâ)",
+    "reviewedAt": "2026-10-23",
+    "checks": {
+      "sourceReachable": true,
+      "dateVerified": true,
+      "rightsVerified": true,
+      "quoteVerified": false,
+      "duplicateChecked": true
+    },
+    "notes": "AYK maddesi, yazarı, yayın tarihi ve tarih bilgisi kurumsal kaynak üzerinden doğrulandı; insan uzman onayı değildir."
+  },
+  "tags": [
+    "Kayseri Uçak Fabrikası",
+    "İhsan TAYHANİ",
+    "Atatürk Ansiklopedisi",
+    "1926"
+  ],
+  "relatedIds": [],
+  "createdAt": "2026-10-23T00:00:00Z",
+  "updatedAt": "2026-10-23T00:00:00Z"
+}

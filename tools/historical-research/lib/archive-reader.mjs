@@ -1,0 +1,45 @@
+/**
+ * Arşiv okuyucu — mevcut iki kayıt kökünü (18 eski + 150 yeni = 168) yükler.
+ *
+ * Bu modül OpenCode'un `scripts/archive/lib/load.mjs` okuyucusunu YENİDEN
+ * KULLANIR; kendi başına JSON okumaz. Böylece tek gerçek kaynak korunur ve
+ * çift sayım engellenir.
+ */
+
+import path from "node:path";
+import { fileURLToPath, pathToFileURL } from "node:url";
+
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "..");
+
+/** @type {typeof import("../../../scripts/archive/lib/load.mjs")} */
+let loader;
+
+async function getLoader() {
+  if (!loader) {
+    loader = await import(
+      pathToFileURL(path.join(REPO_ROOT, "scripts", "archive", "lib", "load.mjs")).href
+    );
+  }
+  return loader;
+}
+
+/**
+ * Tüm arşivi (iki kök birlikte) yükler.
+ * @param {string|null} root
+ * @returns {Promise<{records: Array, errors: Array, warnings: Array, taxonomy: object|null,
+ *                    recordSchema: object|null, taxonomySchema: object|null}>}
+ */
+export async function loadArchive(root = null) {
+  const lib = await getLoader();
+  const result = await lib.loadArchive(root);
+  return {
+    records: result.records,
+    errors: result.errors,
+    warnings: result.warnings,
+    taxonomy: result.taxonomy ?? null,
+    recordSchema: result.recordSchema ?? null,
+    taxonomySchema: result.taxonomySchema ?? null,
+  };
+}
+
+export { REPO_ROOT };
