@@ -72,7 +72,17 @@ export function assertSafeOutputPath(target, options = {}) {
     throw new OutputPathError("UNC_PATH_FORBIDDEN", "UNC/ağ yolu çıktı olarak kabul edilmez.");
   }
   const root = fs.realpathSync(path.resolve(options.root ?? REPO_ROOT));
-  const resolved = realpathOfNearestExisting(path.resolve(root, target.normalize("NFC")));
+  // Reject symlinks on the *unresolved* path. realpath() would erase their identity.
+  const originalTarget = path.resolve(root, target.normalize("NFC"));
+  try {
+    if (fs.lstatSync(originalTarget).isSymbolicLink()) {
+      throw new OutputPathError("SYMLINK_TARGET", "Sembolik bağ hedefine yazılmaz.");
+    }
+  } catch (error) {
+    if (error instanceof OutputPathError) throw error;
+    if (error.code !== "ENOENT") throw error;
+  }
+  const resolved = realpathOfNearestExisting(originalTarget);
   const relativeToRoot = path.relative(root, resolved).split(path.sep).join("/");
   if (inside(root, resolved)) {
     const lower = relativeToRoot.toLowerCase();
@@ -88,11 +98,6 @@ export function assertSafeOutputPath(target, options = {}) {
   const permitted = inside(tmp, resolved) || allowed.some((dir) => inside(realpathOfNearestExisting(dir), resolved));
   if (!permitted) {
     throw new OutputPathError("OUTPUT_DIR_NOT_ALLOWED", `Çıktı yalnız izinli dizinlere yazılabilir: ${ALLOWED_OUTPUT_DIRS.join(", ")} veya geçici dizin.`);
-  }
-  try {
-    if (fs.lstatSync(resolved).isSymbolicLink()) throw new OutputPathError("SYMLINK_TARGET", "Sembolik bağ hedefine yazılmaz.");
-  } catch (error) {
-    if (error instanceof OutputPathError) throw error;
   }
   return resolved;
 }
