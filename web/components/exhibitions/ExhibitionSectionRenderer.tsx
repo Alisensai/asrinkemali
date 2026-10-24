@@ -8,15 +8,20 @@ import { DocumentShowcase } from "./DocumentShowcase";
 import { ExhibitionTimeline } from "./ExhibitionTimeline";
 import type { ExhibitionSection } from "@/lib/exhibitions/types";
 import type { InspectedSource } from "./SourceInspector";
+import { safeHref } from "@/lib/security/safe-url";
+import { sourceBadgeText, type SourceTrust } from "@/lib/exhibitions/source-trust";
 
 export interface ExhibitionSectionRendererProps {
   sections: ExhibitionSection[];
   onInspectSource?: (source: InspectedSource) => void;
+  /** Veriye dayalı kaynak güven durumu (sergi görünümünde `resolveSourceTrust` ile türetilir). */
+  trust: SourceTrust;
 }
 
 export function ExhibitionSectionRenderer({
   sections,
   onInspectSource,
+  trust,
 }: ExhibitionSectionRendererProps) {
   return (
     <div className={styles.sectionRendererContainer}>
@@ -26,7 +31,7 @@ export function ExhibitionSectionRenderer({
           id={section.id}
           className={`${styles.sectionBlock} ${styles[`kind_${section.type}`] || ""}`}
         >
-          {renderSection(section, onInspectSource)}
+          {renderSection(section, trust, onInspectSource)}
         </article>
       ))}
     </div>
@@ -35,6 +40,7 @@ export function ExhibitionSectionRenderer({
 
 function renderSection(
   section: ExhibitionSection,
+  trust: SourceTrust,
   onInspectSource?: (source: InspectedSource) => void
 ) {
   switch (section.type) {
@@ -142,7 +148,6 @@ function renderSection(
                             description: item.description,
                             archiveSlug: item.archiveSlug,
                             sourceUrl: item.sourceUrl,
-                            isVerified: true,
                           })
                         }
                         className={styles.miniInspectBtn}
@@ -220,7 +225,7 @@ function renderSection(
               <div key={src.id} className={styles.sourcePanelCard}>
                 <div className={styles.sourcePanelTop}>
                   <span className={styles.catalogBadge}>{src.catalogId || src.id}</span>
-                  <span className={styles.verifiedPill}>{src.verificationBadge}</span>
+                  <span className={trust.state === "verified" ? styles.verifiedPill : styles.unverifiedNotice} title={trust.description}>{sourceBadgeText(src.verificationBadge, trust)}</span>
                 </div>
                 <h3 className={styles.sourcePanelTitle}>{src.title}</h3>
                 <p className={styles.sourcePanelInst}>{src.institution}</p>
@@ -236,7 +241,6 @@ function renderSection(
                           catalogNumber: src.catalogId,
                           rightsStatus: src.rightsNote,
                           sourceUrl: src.sourceUrl,
-                          isVerified: true,
                         })
                       }
                       className={styles.inspectButton}
@@ -244,9 +248,9 @@ function renderSection(
                       Detaylı İncele
                     </button>
                   )}
-                  {src.sourceUrl && (
+                  {safeHref(src.sourceUrl) && (
                     <a
-                      href={src.sourceUrl}
+                      href={safeHref(src.sourceUrl) ?? undefined}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={styles.archiveDirectLink}

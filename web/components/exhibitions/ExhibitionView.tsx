@@ -7,6 +7,7 @@ import { VirtualGalleryRoom } from "./VirtualGalleryRoom";
 import { ExhibitionSectionRenderer } from "./ExhibitionSectionRenderer";
 import { SourceInspector, type InspectedSource } from "./SourceInspector";
 import type { ExhibitionDTO, HeroSection } from "@/lib/exhibitions/types";
+import { resolveSourceTrust } from "@/lib/exhibitions/source-trust";
 
 export interface ExhibitionViewProps {
   exhibition: ExhibitionDTO;
@@ -19,8 +20,16 @@ export function ExhibitionView({ exhibition }: ExhibitionViewProps) {
 
   const heroSection = exhibition.sections.find((s) => s.type === "hero") as HeroSection | undefined;
 
+  // Güven durumu kayıt içi beyandan (editorialReview.status, verificationBadge) değil,
+  // sentetik/staging işaretleri ve editoryal güven yapılandırmasından türetilir.
+  // Karar deposu olmadığı için doğrulanmış onay bugün hiçbir sergi için verilmez.
+  const trust = resolveSourceTrust({
+    isSyntheticPreview: exhibition.isSyntheticPreview,
+    isStagingDraft: exhibition.isStagingDraft === true,
+  });
+
   const handleInspectSource = (source: InspectedSource) => {
-    setInspectedSource(source);
+    setInspectedSource({ ...source, trust });
     setIsInspectorOpen(true);
   };
 
@@ -30,7 +39,7 @@ export function ExhibitionView({ exhibition }: ExhibitionViewProps) {
 
   return (
     <div className={styles.exhibitionRoot}>
-      {(exhibition.isSyntheticPreview || exhibition.editorialReview.status !== "published" || exhibition.isStagingDraft) && (
+      {trust.state !== "verified" && (
         <div className={styles.stagingNoticeBanner} role="alert">
           <span className={styles.stagingBadge}>TASLAK — İNSAN İNCELEMESİ YOK</span>
           <p>
@@ -51,7 +60,7 @@ export function ExhibitionView({ exhibition }: ExhibitionViewProps) {
         recordCount={exhibition.relatedArchiveRecordSlugs.length}
         viewMode={viewMode}
         onToggleMode={setViewMode}
-        reviewStatus={exhibition.editorialReview.status}
+        reviewStatus={trust.label}
         isSynthetic={exhibition.isSyntheticPreview}
       />
 
@@ -61,11 +70,13 @@ export function ExhibitionView({ exhibition }: ExhibitionViewProps) {
           <VirtualGalleryRoom
             sections={exhibition.sections}
             onInspectSource={handleInspectSource}
+            trust={trust}
           />
         ) : (
           <ExhibitionSectionRenderer
             sections={exhibition.sections}
             onInspectSource={handleInspectSource}
+            trust={trust}
           />
         )}
       </div>

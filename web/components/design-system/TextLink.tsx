@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
+import { isSafeHref, safeHref } from "@/lib/security/safe-url";
 import styles from "./design-system.module.css";
 
 export interface TextLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -9,33 +10,36 @@ export interface TextLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElem
   showExternalIcon?: boolean;
 }
 
+/**
+ * Güvenli bağlantı kontrolü FORTRESS `lib/security/safe-url.ts` izin listesine devredilir.
+ * Önceki şema yasak listesi, şema içine sekme/satır sonu veya başa kontrol karakteri
+ * eklenerek atlatılabiliyordu; tarayıcılar bu karakterleri yok sayar.
+ */
 export function isSafeUrl(url: string): boolean {
-  if (!url) return false;
-  const trimmed = url.trim().toLowerCase();
-  // Block dangerous schemes
-  if (trimmed.startsWith("javascript:") || trimmed.startsWith("data:") || trimmed.startsWith("vbscript:")) {
-    return false;
-  }
-  return true;
+  return isSafeHref(url);
 }
 
 export const TextLink = React.forwardRef<HTMLAnchorElement, TextLinkProps>(
   ({ children, href, quiet = false, showExternalIcon = true, className = "", ...props }, ref) => {
-    const isSafe = isSafeUrl(href);
-    const safeHref = isSafe ? href : "#";
-
-    const isExternal =
-      safeHref.startsWith("http://") ||
-      safeHref.startsWith("https://") ||
-      safeHref.startsWith("//");
-
     const linkClass = `${styles.textLink} ${quiet ? styles.textLinkQuiet : ""} ${className}`.trim();
+    const cleanHref = safeHref(href);
+
+    // Güvensiz adres işlevsiz "#" bağlantısına dönüştürülmez; düz metin olarak gösterilir.
+    if (cleanHref === null) {
+      return (
+        <span className={linkClass} data-unsafe-href="true">
+          {children}
+        </span>
+      );
+    }
+
+    const isExternal = cleanHref.startsWith("http://") || cleanHref.startsWith("https://");
 
     if (isExternal) {
       return (
         <a
           ref={ref}
-          href={safeHref}
+          href={cleanHref}
           className={linkClass}
           target="_blank"
           rel="noopener noreferrer"
@@ -48,7 +52,7 @@ export const TextLink = React.forwardRef<HTMLAnchorElement, TextLinkProps>(
     }
 
     return (
-      <Link ref={ref} href={safeHref} className={linkClass} {...props}>
+      <Link ref={ref} href={cleanHref} className={linkClass} {...props}>
         <span>{children}</span>
       </Link>
     );

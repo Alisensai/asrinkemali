@@ -8,13 +8,17 @@ import { DocumentShowcase } from "./DocumentShowcase";
 import { ExhibitionTimeline } from "./ExhibitionTimeline";
 import type { ExhibitionSection } from "@/lib/exhibitions/types";
 import type { InspectedSource } from "./SourceInspector";
+import { safeHref } from "@/lib/security/safe-url";
+import { sourceBadgeText, type SourceTrust } from "@/lib/exhibitions/source-trust";
 
 export interface VirtualGalleryRoomProps {
   sections: ExhibitionSection[];
   onInspectSource?: (source: InspectedSource) => void;
+  /** Veriye dayalı kaynak güven durumu (sergi görünümünde `resolveSourceTrust` ile türetilir). */
+  trust: SourceTrust;
 }
 
-export function VirtualGalleryRoom({ sections, onInspectSource }: VirtualGalleryRoomProps) {
+export function VirtualGalleryRoom({ sections, onInspectSource, trust }: VirtualGalleryRoomProps) {
   // Filter out the initial hero section from the room slides
   const roomSections = sections.filter((s) => s.type !== "hero");
   const totalSlides = roomSections.length;
@@ -115,7 +119,7 @@ export function VirtualGalleryRoom({ sections, onInspectSource }: VirtualGallery
 
         {/* Active Section Slide Card */}
         <div className={styles.roomActiveCard} key={currentSection.id}>
-          {renderRoomSlide(currentSection, onInspectSource)}
+          {renderRoomSlide(currentSection, trust, onInspectSource)}
         </div>
       </div>
 
@@ -148,6 +152,7 @@ export function VirtualGalleryRoom({ sections, onInspectSource }: VirtualGallery
 
 function renderRoomSlide(
   section: ExhibitionSection,
+  trust: SourceTrust,
   onInspectSource?: (source: InspectedSource) => void
 ) {
   switch (section.type) {
@@ -250,7 +255,6 @@ function renderRoomSlide(
                             description: item.description,
                             archiveSlug: item.archiveSlug,
                             sourceUrl: item.sourceUrl,
-                            isVerified: true,
                           })
                         }
                         className={styles.miniInspectBtn}
@@ -326,7 +330,7 @@ function renderRoomSlide(
               <div key={src.id} className={styles.sourcePanelCard}>
                 <div className={styles.sourcePanelTop}>
                   <span className={styles.catalogBadge}>{src.catalogId || src.id}</span>
-                  <span className={styles.verifiedPill}>{src.verificationBadge}</span>
+                  <span className={trust.state === "verified" ? styles.verifiedPill : styles.unverifiedNotice} title={trust.description}>{sourceBadgeText(src.verificationBadge, trust)}</span>
                 </div>
                 <h3 className={styles.sourcePanelTitle}>{src.title}</h3>
                 <p className={styles.sourcePanelInst}>{src.institution}</p>
@@ -342,7 +346,6 @@ function renderRoomSlide(
                           catalogNumber: src.catalogId,
                           rightsStatus: src.rightsNote,
                           sourceUrl: src.sourceUrl,
-                          isVerified: true,
                         })
                       }
                       className={styles.inspectButton}
@@ -350,9 +353,9 @@ function renderRoomSlide(
                       Detaylı İncele
                     </button>
                   )}
-                  {src.sourceUrl && (
+                  {safeHref(src.sourceUrl) && (
                     <a
-                      href={src.sourceUrl}
+                      href={safeHref(src.sourceUrl) ?? undefined}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={styles.archiveDirectLink}

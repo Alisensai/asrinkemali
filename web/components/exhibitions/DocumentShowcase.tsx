@@ -38,7 +38,6 @@ export function DocumentShowcase({
       description: document.description,
       archiveSlug: document.archiveSlug,
       sourceUrl: document.sourceUrl,
-      isVerified: true,
     });
   };
 
