@@ -1,0 +1,1391 @@
+{
+  "schemaVersion": "1.0.0",
+  "description": "Kaynak URL değişiklik defteri. Özgün URL'ler korunur; değişiklikler açık kabul komutuyla eklenir. Rapor varsayılan olarak bu dosyayı yazmaz.",
+  "policy": "Kaynak URL'si değiştiğinde eski URL silinmez; değişiklik kaydı bu dosyada tutulur. Arşiv kaydındaki URL, bu defterdeki currentUrl ile karşılaştırılır.",
+  "updatedAt": "2026-10-23",
+  "seededAt": "2026-10-23",
+  "seededBy": "OpenCode v07 kaynak geçmişi aracı",
+  "seedFile": "data/source-history-seed.json",
+  "sources": [
+    {
+      "recordId": "1924-anayasasi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://ataturkansiklopedisi.gov.tr/detay/168/1924-Anayasası",
+      "currentUrl": "https://ataturkansiklopedisi.gov.tr/detay/168/1924-Anayasası",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "amasya-mulakati-1919",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/209/amasya-mulakati-1919",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/209/amasya-mulakati-1919",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "amasya-tamimi-1919",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/210/amasya-tamimi-1919",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/210/amasya-tamimi-1919",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "anitkabir",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://ataturkansiklopedisi.gov.tr/detay/869/Anıtkabir",
+      "currentUrl": "https://ataturkansiklopedisi.gov.tr/detay/869/Anıtkabir",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ankaranin-baskent-olusu-1923",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/868/ankaranin-baskent-olusu-1923",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/868/ankaranin-baskent-olusu-1923",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "atam-100-yilinda-lozan-baris-antlasmasi-2023",
+      "institution": "Atatürk Araştırma Merkezi Yayınları",
+      "originalUrl": "https://atam.gov.tr/kitaplar/100-yilinda-lozan-baris-antlasmasi/",
+      "currentUrl": "https://atam.gov.tr/kitaplar/100-yilinda-lozan-baris-antlasmasi/",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "atam-ataturk-evleri-ataturk-muzeleri-1993",
+      "institution": "Atatürk Araştırma Merkezi Yayınları",
+      "originalUrl": "https://atam.gov.tr/kitaplar/ataturk-evleri-ataturk-muzeleri/",
+      "currentUrl": "https://atam.gov.tr/kitaplar/ataturk-evleri-ataturk-muzeleri/",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "atam-ataturk-gunlugu-2025",
+      "institution": "Atatürk Araştırma Merkezi Yayınları",
+      "originalUrl": "https://atam.gov.tr/kitaplar/dogumundan-olumune-kadar-kaynakcali-ataturk-gunlugu/",
+      "currentUrl": "https://atam.gov.tr/kitaplar/dogumundan-olumune-kadar-kaynakcali-ataturk-gunlugu/",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "atam-ataturk-orman-ciftligi-tarihi-2025",
+      "institution": "Atatürk Araştırma Merkezi Yayınları",
+      "originalUrl": "https://atam.gov.tr/kitaplar/ataturk-orman-ciftliginin-tarihi-2/",
+      "currentUrl": "https://atam.gov.tr/kitaplar/ataturk-orman-ciftliginin-tarihi-2/",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "atam-ataturkun-annesi-zubeyde-hanim-1997",
+      "institution": "Atatürk Araştırma Merkezi Yayınları",
+      "originalUrl": "https://atam.gov.tr/kitaplar/ataturkun-annesi-zubeyde-hanim/",
+      "currentUrl": "https://atam.gov.tr/kitaplar/ataturkun-annesi-zubeyde-hanim/",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "atam-balkan-savaslari-londra-konferansi-2025",
+      "institution": "Atatürk Araştırma Merkezi Yayınları",
+      "originalUrl": "https://atam.gov.tr/kitaplar/balkan-savaslarinin-diplomatik-boyutu-ve-londra-buyukelciler-konferansi-17-aralik-1912-11-agustos-1913/",
+      "currentUrl": "https://atam.gov.tr/kitaplar/balkan-savaslarinin-diplomatik-boyutu-ve-londra-buyukelciler-konferansi-17-aralik-1912-11-agustos-1913/",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "atam-bogazlar-meselesi-2025",
+      "institution": "Atatürk Araştırma Merkezi Yayınları",
+      "originalUrl": "https://atam.gov.tr/kitaplar/bogazlar-meselesi/",
+      "currentUrl": "https://atam.gov.tr/kitaplar/bogazlar-meselesi/",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "atam-fahri-akcakoca-akca-hatiralari-2025",
+      "institution": "Atatürk Araştırma Merkezi Yayınları",
+      "originalUrl": "https://atam.gov.tr/kitaplar/istiklal-savasi-istihbarat-subaylarindan-fahri-akcakoca-akcanin-hatiralari/",
+      "currentUrl": "https://atam.gov.tr/kitaplar/istiklal-savasi-istihbarat-subaylarindan-fahri-akcakoca-akcanin-hatiralari/",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "atam-fotograflarla-ataturk-bir-omur-bir-cumhuriyet-2025",
+      "institution": "Atatürk Araştırma Merkezi Yayınları",
+      "originalUrl": "https://atam.gov.tr/kitaplar/fotograflarla-ataturk-bir-omur-bir-cumhuriyet/",
+      "currentUrl": "https://atam.gov.tr/kitaplar/fotograflarla-ataturk-bir-omur-bir-cumhuriyet/",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "atam-gazi-mustafa-kemal-ataturkun-hayati-2025",
+      "institution": "Atatürk Araştırma Merkezi Yayınları",
+      "originalUrl": "https://atam.gov.tr/kitaplar/gazi-mustafa-kemal-ataturkun-hayati-3/",
+      "currentUrl": "https://atam.gov.tr/kitaplar/gazi-mustafa-kemal-ataturkun-hayati-3/",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "atam-milletin-sesi-mehmet-akif-ersoy-2026",
+      "institution": "Atatürk Araştırma Merkezi Yayınları",
+      "originalUrl": "https://atam.gov.tr/kitaplar/milletin-sesi-mehmet-akif-ersoy/",
+      "currentUrl": "https://atam.gov.tr/kitaplar/milletin-sesi-mehmet-akif-ersoy/",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "atam-nutuk-ozgun-dille-2025",
+      "institution": "Atatürk Araştırma Merkezi Yayınları",
+      "originalUrl": "https://atam.gov.tr/kitaplar/nutuk-ozgun-dille-orijinal-ciltli/",
+      "currentUrl": "https://atam.gov.tr/kitaplar/nutuk-ozgun-dille-orijinal-ciltli/",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "atam-samsundan-erzuruma-mustafa-kemal-2024",
+      "institution": "Atatürk Araştırma Merkezi Yayınları",
+      "originalUrl": "https://atam.gov.tr/kitaplar/samsundan-erzuruma-mustafa-kemal-2/",
+      "currentUrl": "https://atam.gov.tr/kitaplar/samsundan-erzuruma-mustafa-kemal-2/",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "atam-turkiye-cumhuriyeti-tarihi-3-cilt-2025",
+      "institution": "Atatürk Araştırma Merkezi Yayınları",
+      "originalUrl": "https://atam.gov.tr/kitaplar/turkiye-cumhuriyeti-tarihi-3-cilt-takim-ciltli/",
+      "currentUrl": "https://atam.gov.tr/kitaplar/turkiye-cumhuriyeti-tarihi-3-cilt-takim-ciltli/",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "atam-turkiyenin-100-yillik-birikimi-ulasim-ve-haberlesme-2025",
+      "institution": "Atatürk Araştırma Merkezi Yayınları",
+      "originalUrl": "https://atam.gov.tr/kitaplar/turkiyenin-100-yillik-birikimi-ulasim-ve-haberlesme/",
+      "currentUrl": "https://atam.gov.tr/kitaplar/turkiyenin-100-yillik-birikimi-ulasim-ve-haberlesme/",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ataturkun-nutuk-adli-eseri-1927",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/878/ataturkun-nutuk-adli-eseri-1927",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/878/ataturkun-nutuk-adli-eseri-1927",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-1919-paris-baris-konferansi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/166/1919-paris-baris-konferansi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/166/1919-paris-baris-konferansi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-1927-nufus-sayimi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/170/1927-nufus-sayimi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/170/1927-nufus-sayimi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-1929-ekonomik-buhrani",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/174/1929-ekonomik-buhrani",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/174/1929-ekonomik-buhrani",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-1933-universite-reformu",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/176/1933-universite-reformu",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/176/1933-universite-reformu",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-1935-nufus-sayimi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/4083/1935-nufus-sayimi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/4083/1935-nufus-sayimi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-anadolu-ajansi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/213/anadolu-ajansi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/213/anadolu-ajansi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-anadolu-ve-rumeli-mudafaa-i-hukuk-cemiyeti",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/568/anadolu-ve-rumeli-mudafaa-i-hukuk-cemiyeti",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/568/anadolu-ve-rumeli-mudafaa-i-hukuk-cemiyeti",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-anadolu-ve-rumeli-mudafaa-i-hukuk-grubu",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/569/anadolu-ve-rumeli-mudafaa-i-hukuk-grubu",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/569/anadolu-ve-rumeli-mudafaa-i-hukuk-grubu",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-ankara-antlasmasi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/572/ankara-antlasmasi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/572/ankara-antlasmasi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-ankara-devlet-resim-ve-heykel-muzesi-binasi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/574/ankara-devlet-resim-ve-heykel-muzesi-binasi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/574/ankara-devlet-resim-ve-heykel-muzesi-binasi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-ankara-etnografya-muzesi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/575/ankara-etnografya-muzesi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/575/ankara-etnografya-muzesi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-ankara-itilafnamesi-1921",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/867/ankara-itilafnamesi-1921",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/867/ankara-itilafnamesi-1921",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-ankara-sehreminleri-1924-1930",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1421/ankara-sehreminleri-1924-1930",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1421/ankara-sehreminleri-1924-1930",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-ankara-ziraat-mektebi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1262/ankara-ziraat-mektebi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1262/ankara-ziraat-mektebi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-ataturk-donemi-polis-teskilati",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/903/ataturk-donemi-polis-teskilati",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/903/ataturk-donemi-polis-teskilati",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-ataturk-un-soylev-ve-demecleri",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1146/ataturk-un-soylev-ve-demecleri",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1146/ataturk-un-soylev-ve-demecleri",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-ataturk-un-tamim-telgraf-ve-beyannameleri",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/883/ataturk-un-tamim-telgraf-ve-beyannameleri",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/883/ataturk-un-tamim-telgraf-ve-beyannameleri",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-ataturk-ve-dolmabahce-sarayi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/840/ataturk-ve-dolmabahce-sarayi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/840/ataturk-ve-dolmabahce-sarayi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-bartin-mudafaa-i-hukuk-cemiyeti",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1007/bartin-mudafaa-i-hukuk-cemiyeti",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1007/bartin-mudafaa-i-hukuk-cemiyeti",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-bilecik-gorusmesi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/720/bilecik-gorusmesi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/720/bilecik-gorusmesi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-birinci-basin-kurultayi-25-27-mayis-1935",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/723/birinci-basin-kurultayi-25-27-mayis-1935",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/723/birinci-basin-kurultayi-25-27-mayis-1935",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-bozkurt-lotus-davasi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/4978/bozkurt-lotus-davasi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/4978/bozkurt-lotus-davasi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-briand-kellog-pakti-1928",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/736/briand-kellog-pakti-1928",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/736/briand-kellog-pakti-1928",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-buyuk-nutuk-un-yurt-ici-ve-yurt-disi-basimlari",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/4003/buyuk-nutuk-un-yurt-ici-ve-yurt-disi-basimlari",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/4003/buyuk-nutuk-un-yurt-ici-ve-yurt-disi-basimlari",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-canakkale-olayi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/628/canakkale-olayi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/628/canakkale-olayi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-chester-projesi-imtiyazi-1923",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/597/chester-projesi-imtiyazi-1923",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/597/chester-projesi-imtiyazi-1923",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-cubuk-baraji",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1251/cubuk-baraji",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1251/cubuk-baraji",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-cumhuriyet-halk-firkasi-1923-1938",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/604/cumhuriyet-halk-firkasi-1923-1938",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/604/cumhuriyet-halk-firkasi-1923-1938",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-diyanet-isleri-baskanligi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1732/diyanet-isleri-baskanligi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1732/diyanet-isleri-baskanligi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-erkan-i-harbiye-mektebi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/671/erkan-i-harbiye-mektebi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/671/erkan-i-harbiye-mektebi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-galatasaray-lisesi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/475/galatasaray-lisesi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/475/galatasaray-lisesi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-hakimiyet-i-milliye-gazetesi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/784/hakimiyet-i-milliye-gazetesi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/784/hakimiyet-i-milliye-gazetesi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-halic-istanbul-konferansi-19-mayis-5-haziran-1924",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1804/halic-istanbul-konferansi-19-mayis-5-haziran-1924",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1804/halic-istanbul-konferansi-19-mayis-5-haziran-1924",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-hayat-mecmuasi-2-aralik-1926-mayis-1930",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1291/hayat-mecmuasi-2-aralik-1926-mayis-1930",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1291/hayat-mecmuasi-2-aralik-1926-mayis-1930",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-hiyanet-i-vataniye-vatana-ihanet-kanunu-29-nisan-1920",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/788/hiyanet-i-vataniye-vatana-ihanet-kanunu-29-nisan-1920",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/788/hiyanet-i-vataniye-vatana-ihanet-kanunu-29-nisan-1920",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-i-donem-elazig-milletvekilleri",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1367/i-donem-elazig-milletvekilleri",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1367/i-donem-elazig-milletvekilleri",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-inonu-muharebeleri",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/748/inonu-muharebeleri",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/748/inonu-muharebeleri",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-irade-i-milliye-gazetesi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/759/irade-i-milliye-gazetesi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/759/irade-i-milliye-gazetesi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-istanbul-un-kurtulusu",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/688/istanbul-un-kurtulusu",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/688/istanbul-un-kurtulusu",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-istiklal-marsi-nin-yazilisi-ve-kabulu",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/697/istiklal-marsi-nin-yazilisi-ve-kabulu",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/697/istiklal-marsi-nin-yazilisi-ve-kabulu",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-izmit-kagit-ve-karton-fabrikasi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/722/izmit-kagit-ve-karton-fabrikasi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/722/izmit-kagit-ve-karton-fabrikasi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-kadro-hareketi-ve-dergisi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/517/kadro-hareketi-ve-dergisi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/517/kadro-hareketi-ve-dergisi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-karadeniz-turkleri-mudafaa-i-hukuk-cemiyeti",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1037/karadeniz-turkleri-mudafaa-i-hukuk-cemiyeti",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1037/karadeniz-turkleri-mudafaa-i-hukuk-cemiyeti",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-karbogazi-baskini",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/527/karbogazi-baskini",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/527/karbogazi-baskini",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-kars-antlasmasi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/528/kars-antlasmasi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/528/kars-antlasmasi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-kayseri-ucak-fabrikasi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/530/kayseri-ucak-fabrikasi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/530/kayseri-ucak-fabrikasi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-koy-kanunu",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/560/koy-kanunu",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/560/koy-kanunu",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-kutahya-eskisehir-muharebeleri",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/562/kutahya-eskisehir-muharebeleri",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/562/kutahya-eskisehir-muharebeleri",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-la-turquie-kemaliste-dergisi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/618/la-turquie-kemaliste-dergisi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/618/la-turquie-kemaliste-dergisi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-lakap-ve-unvanlarin-kaldirilisi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/619/lakap-ve-unvanlarin-kaldirilisi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/619/lakap-ve-unvanlarin-kaldirilisi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-m-kemal-ataturk-un-giresun-ziyaretleri",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/9713/m-kemal-ataturk-un-giresun-ziyaretleri",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/9713/m-kemal-ataturk-un-giresun-ziyaretleri",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-manastir-askeri-idadisi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/248/manastir-askeri-idadisi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/248/manastir-askeri-idadisi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-milli-turk-firkasi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1041/milli-turk-firkasi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1041/milli-turk-firkasi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-moskova-antlasmasi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/360/moskova-antlasmasi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/360/moskova-antlasmasi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-mustafa-kemal-pasa-nin-ankara-ya-gelisi-27-aralik-1919",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/385/mustafa-kemal-pasa-nin-ankara-ya-gelisi-27-aralik-1919",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/385/mustafa-kemal-pasa-nin-ankara-ya-gelisi-27-aralik-1919",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-mutareke-donemi-ordu-mufettislikleri",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/3965/mutareke-donemi-ordu-mufettislikleri",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/3965/mutareke-donemi-ordu-mufettislikleri",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-nyon-konferansi-10-14-eylul-1937",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/500/nyon-konferansi-10-14-eylul-1937",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/500/nyon-konferansi-10-14-eylul-1937",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-sadabat-pakti-8-temmuz-1937",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/200/sadabat-pakti-8-temmuz-1937",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/200/sadabat-pakti-8-temmuz-1937",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-selanik-askeri-rustiyesi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/263/selanik-askeri-rustiyesi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/263/selanik-askeri-rustiyesi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-sisli-ataturk-evi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/258/sisli-ataturk-evi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/258/sisli-ataturk-evi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-taksim-cumhuriyet-aniti",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/314/taksim-cumhuriyet-aniti",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/314/taksim-cumhuriyet-aniti",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-tanin-gazetesi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1233/tanin-gazetesi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1233/tanin-gazetesi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-tekalif-i-milliye-emirleri",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/398/tekalif-i-milliye-emirleri",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/398/tekalif-i-milliye-emirleri",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-trabzon-ataturk-kosku",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/409/trabzon-ataturk-kosku",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/409/trabzon-ataturk-kosku",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-trabzon-muhafaza-i-hukuk-i-milliye-cemiyeti",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1129/trabzon-muhafaza-i-hukuk-i-milliye-cemiyeti",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1129/trabzon-muhafaza-i-hukuk-i-milliye-cemiyeti",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-turk-seyyahin-cemiyeti-turkiye-turing-ve-otomobil-kurumu",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1942/turk-seyyahin-cemiyeti-turkiye-turing-ve-otomobil-kurumu",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1942/turk-seyyahin-cemiyeti-turkiye-turing-ve-otomobil-kurumu",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-turkiye-iktisat-kongresi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/438/turkiye-iktisat-kongresi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/438/turkiye-iktisat-kongresi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-ulku-dergisi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/128/ulku-dergisi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/128/ulku-dergisi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-xii-uluslararasi-kadinlar-birligi-kongresi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/126/xii-uluslararasi-kadinlar-birligi-kongresi",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/126/xii-uluslararasi-kadinlar-birligi-kongresi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ayk-yalova-ataturk-kosku",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/96/yalova-ataturk-kosku",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/96/yalova-ataturk-kosku",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "balikesir-zagnos-pasa-nutku-1923",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/863/balikesir-zagnos-pasa-nutku-1923",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/863/balikesir-zagnos-pasa-nutku-1923",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "baskomutanlik-kanunu-1921",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/701/baskomutanlik-kanunu-1921",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/701/baskomutanlik-kanunu-1921",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "buyuk-taarruz-1922",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/4929/buyuk-taarruz-1922",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/4929/buyuk-taarruz-1922",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "cumhuriyet-gazetesi-1924",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1230/cumhuriyet-gazetesi-1924",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1230/cumhuriyet-gazetesi-1924",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "cumhuriyetin-ilani-1923",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://ataturkansiklopedisi.gov.tr/detay/608/Cumhuriyet’in-İlanı",
+      "currentUrl": "https://ataturkansiklopedisi.gov.tr/detay/608/Cumhuriyet’in-İlanı",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "cumhuriyetin-on-besinci-yil-kutlamalari-1938",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/611/cumhuriyetin-on-besinci-yil-kutlamalari-1938",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/611/cumhuriyetin-on-besinci-yil-kutlamalari-1938",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "cumhuriyetin-onuncu-yil-kutlamalari-1933",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/606/cumhuriyetin-onuncu-yil-kutlamalari-1933",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/606/cumhuriyetin-onuncu-yil-kutlamalari-1933",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "erzurum-kongresi-1919",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/673/erzurum-kongresi-1919",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/673/erzurum-kongresi-1919",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "halifeligin-kaldirilmasi-1924",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/940/halifeligin-kaldirilmasi-1924",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/940/halifeligin-kaldirilmasi-1924",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "harf-devrimi-1928",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://ataturkansiklopedisi.gov.tr/detay/616/Harf-Devrimi",
+      "currentUrl": "https://ataturkansiklopedisi.gov.tr/detay/616/Harf-Devrimi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "havza-genelgesi-1919",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/768/havza-genelgesi-1919",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/768/havza-genelgesi-1919",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "i-tbmm-binasi",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "originalUrl": "https://kurtulussavasimuzesi.tbmm.gov.tr/meclisacilis",
+      "currentUrl": "https://kurtulussavasimuzesi.tbmm.gov.tr/tarihce",
+      "changes": [
+        {
+          "changedAt": "2026-10-23",
+          "from": "https://kurtulussavasimuzesi.tbmm.gov.tr/meclisacilis",
+          "to": "https://kurtulussavasimuzesi.tbmm.gov.tr/tarihce",
+          "reason": "Meclis açılış sayfası tarihçe sayfasına yönlendirildi; özgün URL korunuyor.",
+          "evidence": "TBMM Kurtuluş Savaşı Müzesi sitesinde meclisacilis yolu tarihce sayfasına yönleniyor; kayıt tarihçe sayfasına bağlandı.",
+          "author": "OpenCode v07 kaynak geçmişi aracı"
+        }
+      ],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ibb-10-yildonumu-meclis-fotografi-1933",
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "originalUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_026166",
+      "currentUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_026166",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ibb-19-mayis-1941-kutlamalari-albumu",
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "originalUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Alb_000521",
+      "currentUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Alb_000521",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ibb-anadolu-bagdad-taksim-abidesi-1926",
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "originalUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070796",
+      "currentUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070796",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ibb-ataturk-albumu-1881-1938",
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "originalUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Alb_000283",
+      "currentUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Alb_000283",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ibb-canakkale-fotografi-1928",
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "originalUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_014877",
+      "currentUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_014877",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ibb-canonica-taksim-abidesi-mektubu-1928",
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "originalUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070895",
+      "currentUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070895",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ibb-dolmabahce-naas-ziyaret-usulu-1938",
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "originalUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070563",
+      "currentUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070563",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ibb-ertugrul-yati-fotografi-1927",
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "originalUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_016917",
+      "currentUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_016917",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ibb-erzincan-sapka-fotografi-1926",
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "originalUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_014792",
+      "currentUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_014792",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ibb-fotograflarla-ataturk-rafet-zaim-1940",
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "originalUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Alb_000216",
+      "currentUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Alb_000216",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ibb-leipzig-illustrirte-zeitung-mektubu-1937",
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "originalUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_071094",
+      "currentUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_071094",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ibb-lozan-mektubu-1923",
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "originalUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070690",
+      "currentUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070690",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ibb-nutuk-okuma-fotografi-1927",
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "originalUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_026164",
+      "currentUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_026164",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ibb-refet-pasa-ziyafeti-fotografi-1923",
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "originalUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_013518",
+      "currentUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Krt_013518",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ibb-taksim-abide-komisyonu-tutanagi-1928",
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "originalUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070929",
+      "currentUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070929",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ibb-taksim-abidesi-gumruk-muafiyeti-1928",
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "originalUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070902",
+      "currentUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_070902",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ibb-tuzer-ankara-secim-mektubu-1935",
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "originalUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_013167",
+      "currentUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_013167",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ibb-tuzer-ataturk-vefati-mektubu-1938",
+      "institution": "İstanbul Büyükşehir Belediyesi Atatürk Kitaplığı",
+      "originalUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_013197",
+      "currentUrl": "https://sayisalarsiv.ibb.gov.tr/yordambt/yordam.php?aDemirbas=Bel_Mtf_013197",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "ii-inonu-zaferi-fotografi-1921",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "originalUrl": "https://kurtulussavasimuzesi.tbmm.gov.tr/fotograf",
+      "currentUrl": "https://cdn.tbmm.gov.tr/KurtulusSavasiMuzeWeb/Fotograf/6.jpg",
+      "changes": [
+        {
+          "changedAt": "2026-10-23",
+          "from": "https://kurtulussavasimuzesi.tbmm.gov.tr/fotograf",
+          "to": "https://cdn.tbmm.gov.tr/KurtulusSavasiMuzeWeb/Fotograf/6.jpg",
+          "reason": "Fotoğraf galerisi sayfası yerine doğrudan TBMM CDN görsel adresi kullanıldı.",
+          "evidence": "Görselin doğrudan kaynağı TBMM CDN üzerindeki Fotograf/6.jpg dosyası olarak doğrulandı.",
+          "author": "OpenCode v07 kaynak geçmişi aracı"
+        }
+      ],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "izmirin-isgali-1919",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/719/izmirin-isgali-1919",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/719/izmirin-isgali-1919",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "kadinlara-secme-secilme-hakki-1934",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://ataturkansiklopedisi.gov.tr/detay/919/Atatürk-Döneminde-Kadın-Hakları",
+      "currentUrl": "https://ataturkansiklopedisi.gov.tr/detay/919/Atatürk-Döneminde-Kadın-Hakları",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "lozan-baris-antlasmasi-1923",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://ataturkansiklopedisi.gov.tr/detay/627/Lozan-Barış-Antlaşması",
+      "currentUrl": "https://ataturkansiklopedisi.gov.tr/detay/627/Lozan-Barış-Antlaşması",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "meclis-onunde-dua-1920",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "originalUrl": "https://kurtulussavasimuzesi.tbmm.gov.tr/fotograf",
+      "currentUrl": "https://cdn.tbmm.gov.tr/KurtulusSavasiMuzeWeb/Fotograf/2.jpg",
+      "changes": [
+        {
+          "changedAt": "2026-10-23",
+          "from": "https://kurtulussavasimuzesi.tbmm.gov.tr/fotograf",
+          "to": "https://cdn.tbmm.gov.tr/KurtulusSavasiMuzeWeb/Fotograf/2.jpg",
+          "reason": "Fotoğraf galerisi sayfası yerine doğrudan TBMM CDN görsel adresi kullanıldı.",
+          "evidence": "Görselin doğrudan kaynağı TBMM CDN üzerindeki Fotograf/2.jpg dosyası olarak doğrulandı.",
+          "author": "OpenCode v07 kaynak geçmişi aracı"
+        }
+      ],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "menemen-olayi-1930",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/304/menemen-olayi-1930",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/304/menemen-olayi-1930",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "milli-kutuphane-ataturk-donemi-maliye-politikasi-1982",
+      "institution": "Millî Kütüphane",
+      "originalUrl": "https://dijital-kutuphane.mkutup.gov.tr/tr/books/catalog/details/136684",
+      "currentUrl": "https://dijital-kutuphane.mkutup.gov.tr/tr/books/catalog/details/136684",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "milli-kutuphane-ataturk-ve-canakkale-2006",
+      "institution": "Millî Kütüphane",
+      "originalUrl": "https://dijital-kutuphane.mkutup.gov.tr/tr/books/catalog/details/109289",
+      "currentUrl": "https://dijital-kutuphane.mkutup.gov.tr/tr/books/catalog/details/109289",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "milli-kutuphane-inonu-diyor-ki-1933",
+      "institution": "Millî Kütüphane",
+      "originalUrl": "https://dijital-kutuphane.mkutup.gov.tr/tr/books/catalog/details/105276",
+      "currentUrl": "https://dijital-kutuphane.mkutup.gov.tr/tr/books/catalog/details/105276",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "montro-bogazlar-sozlesmesi-1936",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/355/montro-bogazlar-sozlesmesi-1936",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/355/montro-bogazlar-sozlesmesi-1936",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "mudanya-mutarekesi-1922",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/373/mudanya-mutarekesi-1922",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/373/mudanya-mutarekesi-1922",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "nutuk-1928",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://ataturkansiklopedisi.gov.tr/detay/878/Atatürk’ün-Nutuk-Adlı-Eseri",
+      "currentUrl": "https://ataturkansiklopedisi.gov.tr/detay/878/Atatürk’ün-Nutuk-Adlı-Eseri",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "onuncu-yil-nutku-1933",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://ataturkansiklopedisi.gov.tr/detay/503/Onuncu-Yıl-Nutku",
+      "currentUrl": "https://ataturkansiklopedisi.gov.tr/detay/503/Onuncu-Yıl-Nutku",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "sakarya-meydan-muharebesi-1921",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/216/sakarya-meydan-muharebesi-1921",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/216/sakarya-meydan-muharebesi-1921",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "saltanatin-kaldirilmasi-1922",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://ataturkansiklopedisi.gov.tr/detay/222/Saltanatın-Kaldırılması",
+      "currentUrl": "https://ataturkansiklopedisi.gov.tr/detay/222/Saltanatın-Kaldırılması",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "samsun-cikarmasi-1919",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://ataturkansiklopedisi.gov.tr/detay/324/Millî-Bayramlar",
+      "currentUrl": "https://ataturkansiklopedisi.gov.tr/detay/324/Millî-Bayramlar",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "sapka-inkilabi-1925",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1232/sapka-inkilabi-1925",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/1232/sapka-inkilabi-1925",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "selanikteki-ataturk-evi",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://ataturkansiklopedisi.gov.tr/detay/882/Atatürk’ün-Selanik’teki-Evi",
+      "currentUrl": "https://ataturkansiklopedisi.gov.tr/detay/882/Atatürk’ün-Selanik’teki-Evi",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "sevr-antlasmasi-1920",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/271/sevr-antlasmasi-1920",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/271/sevr-antlasmasi-1920",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "sivas-kongresi-1919",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/294/sivas-kongresi-1919",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/294/sivas-kongresi-1919",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "soyadi-kanunu-1934",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/298/soyadi-kanunu-1934",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/298/soyadi-kanunu-1934",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "tbmm-1-birlesim-tutanagi-1920",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "originalUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c001/tbmm01001001.pdf",
+      "currentUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c001/tbmm01001001.pdf",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "tbmm-1-birlesim-tutanagi-1928",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "originalUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d03/c005/tbmm03005001.pdf",
+      "currentUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d03/c005/tbmm03005001.pdf",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "tbmm-130-birlesim-tutanagi-1922",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "originalUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c024/tbmm01024130.pdf",
+      "currentUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c024/tbmm01024130.pdf",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "tbmm-135-birlesim-tutanagi-1921",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "originalUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c007/tbmm01007135.pdf",
+      "currentUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c007/tbmm01007135.pdf",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "tbmm-2-birlesim-tutanagi-1924",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "originalUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c007/tbmm02007002.pdf",
+      "currentUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c007/tbmm02007002.pdf",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "tbmm-35-birlesim-tutanagi-1923",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "originalUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c002/tbmm02002035.pdf",
+      "currentUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c002/tbmm02002035.pdf",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "tbmm-43-birlesim-tutanagi-1923",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "originalUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c003/tbmm02003043.pdf",
+      "currentUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c003/tbmm02003043.pdf",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "tbmm-57-birlesim-tutanagi-1926",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "originalUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c022/tbmm02022057.pdf",
+      "currentUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c022/tbmm02022057.pdf",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "tbmm-62-birlesim-tutanagi-1921",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "originalUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c012/tbmm01012062.pdf",
+      "currentUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d01/c012/tbmm01012062.pdf",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "tbmm-71-birlesim-tutanagi-1934",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "originalUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d04/c023/tbmm04023071.pdf",
+      "currentUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d04/c023/tbmm04023071.pdf",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "tbmm-acilis-fotografi-1920",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "originalUrl": "https://kurtulussavasimuzesi.tbmm.gov.tr/meclisacilis",
+      "currentUrl": "https://cdn.tbmm.gov.tr/KurtulusSavasiMuzeWeb/MeclisAcilis/23Nisan1920Gunu.jpg",
+      "changes": [
+        {
+          "changedAt": "2026-10-23",
+          "from": "https://kurtulussavasimuzesi.tbmm.gov.tr/meclisacilis",
+          "to": "https://cdn.tbmm.gov.tr/KurtulusSavasiMuzeWeb/MeclisAcilis/23Nisan1920Gunu.jpg",
+          "reason": "Meclis açılış sayfası yerine doğrudan TBMM CDN görsel adresi kullanıldı.",
+          "evidence": "Görselin doğrudan kaynağı TBMM CDN üzerindeki 23Nisan1920Gunu.jpg dosyası olarak doğrulandı.",
+          "author": "OpenCode v07 kaynak geçmişi aracı"
+        }
+      ],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "tbmm-acilisi-1920",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "originalUrl": "https://kurtulussavasimuzesi.tbmm.gov.tr/meclisacilis",
+      "currentUrl": "https://kurtulussavasimuzesi.tbmm.gov.tr/meclisacilis",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "tbmm-tutanak-d02-c008-b042-1924-04-20",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "originalUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c008/tbmm02008042.pdf",
+      "currentUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c008/tbmm02008042.pdf",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "tbmm-tutanak-d02-c019-b014-1925-11-25",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "originalUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c019/tbmm02019014.pdf",
+      "currentUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c019/tbmm02019014.pdf",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "tbmm-tutanak-d02-c019-b017-1925-11-30",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "originalUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c019/tbmm02019017.pdf",
+      "currentUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c019/tbmm02019017.pdf",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "tbmm-tutanak-d02-c023-b064-1926-03-01",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "originalUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c023/tbmm02023064.pdf",
+      "currentUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c023/tbmm02023064.pdf",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "tbmm-tutanak-d02-c032-b073-1927-05-28",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "originalUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c032/tbmm02032073.pdf",
+      "currentUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d02/c032/tbmm02032073.pdf",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "tbmm-tutanak-d03-c018-b043-1930-04-03",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "originalUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d03/c018/tbmm03018043.pdf",
+      "currentUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d03/c018/tbmm03018043.pdf",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "tbmm-tutanak-d04-c015-b064-1933-05-31",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "originalUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d04/c015/tbmm04015064.pdf",
+      "currentUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d04/c015/tbmm04015064.pdf",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "tbmm-tutanak-d04-c025-b012-1934-12-05",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "originalUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d04/c025/tbmm04025012.pdf",
+      "currentUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d04/c025/tbmm04025012.pdf",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "tbmm-tutanak-d05-c012-b075-1936-06-08",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "originalUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d05/c012/tbmm05012075.pdf",
+      "currentUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d05/c012/tbmm05012075.pdf",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "tbmm-tutanak-d05-c027-b003-1938-11-11",
+      "institution": "Türkiye Büyük Millet Meclisi",
+      "originalUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d05/c027/tbmm05027003.pdf",
+      "currentUrl": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/d05/c027/tbmm05027003.pdf",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "tekke-zaviye-turbelerin-kapatilmasi-1925",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/397/tekke-zaviye-turbelerin-kapatilmasi-1925",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/397/tekke-zaviye-turbelerin-kapatilmasi-1925",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "teskilat-i-esasiye-1921",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/3980/teskilat-i-esasiye-1921",
+      "currentUrl": "https://www.ataturkansiklopedisi.gov.tr/detay/3980/teskilat-i-esasiye-1921",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "tevhid-i-tedrisat-1924",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://ataturkansiklopedisi.gov.tr/detay/400/Tevhid-i-Tedrisat-Kanunu",
+      "currentUrl": "https://ataturkansiklopedisi.gov.tr/detay/400/Tevhid-i-Tedrisat-Kanunu",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    },
+    {
+      "recordId": "vatandas-icin-medeni-bilgiler-1930",
+      "institution": "Atatürk Ansiklopedisi (Atatürk Araştırma Merkezi)",
+      "originalUrl": "https://ataturkansiklopedisi.gov.tr/detay/140/Vatandaş-İçin-Medenî-Bilgiler",
+      "currentUrl": "https://ataturkansiklopedisi.gov.tr/detay/140/Vatandaş-İçin-Medenî-Bilgiler",
+      "changes": [],
+      "lastSeenAt": "2026-10-23"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "asrin-kemali-archive-source-reliability",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "ASRIN KEMALİ arşivi için salt okunur kaynak güvenilirliği, kapsam ve hak denetimi araçları.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test \"tests/*.test.mjs\"",
+    "report": "node src/cli.mjs report",
+    "report:write": "node src/cli.mjs report --write",
+    "report:online": "node src/cli.mjs report --write --online --concurrency 4",
+    "inventory": "node src/cli.mjs inventory",
+    "history": "node src/cli.mjs history",
+    "candidates": "node src/cli.mjs candidates",
+    "links": "node src/cli.mjs links",
+    "check": "node src/cli.mjs check",
+    "seed:history": "node scripts/seed-source-history.mjs",
+    "validate:archive": "node ../../scripts/archive/validate.mjs",
+    "test:archive": "node --test \"../../scripts/archive/tests/*.test.mjs\""
+  }
+}
