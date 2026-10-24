@@ -1,0 +1,269 @@
+{
+  "counts": {
+    "total": 168,
+    "published": 151,
+    "reviewed": 16,
+    "draft": 1
+  },
+  "recordsByYear": {
+    "1843": 1,
+    "1844": 1,
+    "1845": 1,
+    "1846": 1,
+    "1847": 2,
+    "1848": 2,
+    "1849": 1,
+    "1850": 1,
+    "1851": 1,
+    "1852": 1,
+    "1853": 1,
+    "1854": 1,
+    "1855": 1,
+    "1856": 1,
+    "1868": 1,
+    "1883": 1,
+    "1908": 1,
+    "1912": 1,
+    "1918": 1,
+    "1919": 18,
+    "1920": 12,
+    "1921": 15,
+    "1922": 6,
+    "1923": 14,
+    "1924": 12,
+    "1925": 4,
+    "1926": 8,
+    "1927": 7,
+    "1928": 10,
+    "1929": 3,
+    "1930": 7,
+    "1931": 1,
+    "1932": 2,
+    "1933": 9,
+    "1934": 9,
+    "1935": 7,
+    "1936": 4,
+    "1937": 4,
+    "1938": 5,
+    "1939": 2,
+    "1940": 2,
+    "1941": 2,
+    "1942": 1,
+    "1943": 1,
+    "1944": 1,
+    "1945": 2,
+    "1946": 2,
+    "1947": 2,
+    "1948": 2,
+    "1949": 2,
+    "1950": 1,
+    "1951": 1,
+    "1952": 1,
+    "1953": 2,
+    "1954": 1,
+    "1964": 1,
+    "1982": 1,
+    "1993": 1,
+    "1997": 1,
+    "2006": 1,
+    "2023": 1,
+    "2024": 1,
+    "2025": 10,
+    "2026": 1
+  },
+  "yearRanges": [
+    {
+      "start": 1843,
+      "end": 1856,
+      "count": 16
+    },
+    {
+      "start": 1868,
+      "end": 1868,
+      "count": 1
+    },
+    {
+      "start": 1883,
+      "end": 1883,
+      "count": 1
+    },
+    {
+      "start": 1908,
+      "end": 1908,
+      "count": 1
+    },
+    {
+      "start": 1912,
+      "end": 1912,
+      "count": 1
+    },
+    {
+      "start": 1918,
+      "end": 1954,
+      "count": 183
+    },
+    {
+      "start": 1964,
+      "end": 1964,
+      "count": 1
+    },
+    {
+      "start": 1982,
+      "end": 1982,
+      "count": 1
+    },
+    {
+      "start": 1993,
+      "end": 1993,
+      "count": 1
+    },
+    {
+      "start": 1997,
+      "end": 1997,
+      "count": 1
+    },
+    {
+      "start": 2006,
+      "end": 2006,
+      "count": 1
+    },
+    {
+      "start": 2023,
+      "end": 2026,
+      "count": 13
+    }
+  ],
+  "themeCoverage": [
+    {
+      "theme": "cocukluk",
+      "label": "Çocukluğu ve aile yaşamı",
+      "records": 0,
+      "coverage": "none"
+    },
+    {
+      "theme": "selanik",
+      "label": "Selanik dönemi",
+      "records": 1,
+      "coverage": "sparse"
+    },
+    {
+      "theme": "egitim",
+      "label": "İlk öğrenim ve askerî okullar",
+      "records": 1,
+      "coverage": "sparse"
+    },
+    {
+      "theme": "manastir",
+      "label": "Manastır yılları",
+      "records": 0,
+      "coverage": "none"
+    },
+    {
+      "theme": "harp-okulu",
+      "label": "Harp Okulu",
+      "records": 0,
+      "coverage": "none"
+    },
+    {
+      "theme": "harp-akademisi",
+      "label": "Harp Akademisi",
+      "records": 0,
+      "coverage": "none"
+    },
+    {
+      "theme": "ilk-gorevler",
+      "label": "İlk askerî görevleri",
+      "records": 0,
+      "coverage": "none"
+    },
+    {
+      "theme": "sam",
+      "label": "Şam dönemi",
+      "records": 0,
+      "coverage": "none"
+    },
+    {
+      "theme": "trablusgarp",
+      "label": "Trablusgarp Savaşı",
+      "records": 0,
+      "coverage": "none"
+    },
+    {
+      "theme": "balkan-savaslari",
+      "label": "Balkan Savaşları",
+      "records": 0,
+      "coverage": "none"
+    },
+    {
+      "theme": "canakkale",
+      "label": "Çanakkale Savaşları",
+      "records": 0,
+      "coverage": "none"
+    },
+    {
+      "theme": "dogu-cephesi",
+      "label": "Doğu Cephesi",
+      "records": 0,
+      "coverage": "none"
+    },
+    {
+      "theme": "1917-1918",
+      "label": "1917–1918 dönemi",
+      "records": 1,
+      "coverage": "sparse"
+    },
+    {
+      "theme": "kisiler",
+      "label": "Dönemin tarihî kişileri",
+      "records": 0,
+      "coverage": "none"
+    },
+    {
+      "theme": "mekanlar",
+      "label": "Dönemin tarihî mekânları",
+      "records": 1,
+      "coverage": "sparse"
+    },
+    {
+      "theme": "genel",
+      "label": "Genel yaşam",
+      "records": 0,
+      "coverage": "none"
+    }
+  ],
+  "missingRanges": [
+    {
+      "start": 1881,
+      "end": 1882,
+      "note": "Arşiv kaydı yok."
+    },
+    {
+      "start": 1884,
+      "end": 1907,
+      "note": "Arşiv kaydı yok."
+    },
+    {
+      "start": 1909,
+      "end": 1911,
+      "note": "Arşiv kaydı yok."
+    },
+    {
+      "start": 1913,
+      "end": 1917,
+      "note": "Arşiv kaydı yok."
+    }
+  ],
+  "targetPeriod": {
+    "targetStart": 1881,
+    "targetEnd": 1918,
+    "distinctRecords": 4,
+    "recordYearIncidences": 4,
+    "share": 0.0238
+  },
+  "notes": [
+    {
+      "code": "GAP_METHODOLOGY",
+      "message": "Bu rapor arşiv KAYIT yoğunluğunu ölçer; 'bu yılda tarihî olay yok' anlamına gelmez. `distinctRecords` hedef dönemle kesişen ayrı kayıt sayısıdır; `recordYearIncidences` çok yıllı kayıtların her yıl için bir örneklem üretmesidir (yüzde payı buna göre artabilir). Tema kapsamı yalnızca hedef dönemle kesişen kayıtlar üzerinden hesaplanır; eşleştirme kelime-sınırlıdır."
+    }
+  ]
+}
