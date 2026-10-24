@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MKA Threat Assurance Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "assessmentDate",
+    "repository",
+    "basis",
+    "controlSource",
+    "scope",
+    "standards",
+    "summary",
+    "evidence",
+    "controls",
+    "stride",
+    "mitre",
+    "asvs",
+    "owaspTop10",
+    "architecture",
+    "risks",
+    "limitations"
+  ],
+  "properties": {
+    "schemaVersion": {"const": "1.0.0"},
+    "assessmentDate": {"type": "string", "format": "date"},
+    "repository": {"type": "string"},
+    "basis": {"type": "object"},
+    "controlSource": {
+      "type": "object",
+      "required": ["url", "file", "sha256", "canonicalization"],
+      "properties": {
+        "url": {"type": "string", "format": "uri"},
+        "file": {"type": "string"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "canonicalization": {"type": "string"}
+      }
+    },
+    "scope": {"type": "object"},
+    "standards": {"type": "object"},
+    "summary": {"type": "object"},
+    "evidence": {"type": "array"},
+    "controls": {
+      "type": "array",
+      "minItems": 99,
+      "maxItems": 99,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "state", "applicability", "evidenceIds", "currentControl", "gap", "remediation"],
+        "properties": {
+          "id": {"type": "integer", "minimum": 1, "maximum": 99},
+          "name": {"type": "string", "minLength": 1},
+          "state": {"enum": ["ACTIVE", "PARTIAL", "TEMPLATE", "MISSING", "NOT_APPLICABLE", "NOT_VERIFIED"]},
+          "applicability": {"enum": ["CURRENT", "FUTURE", "NOT_APPLICABLE"]},
+          "evidenceIds": {"type": "array", "items": {"type": "string"}},
+          "currentControl": {"type": "string", "minLength": 1},
+          "gap": {"type": "string", "minLength": 1},
+          "remediation": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "stride": {"type": "array", "minItems": 1, "items": {"type": "object"}},
+    "mitre": {"type": "array", "minItems": 1, "items": {"type": "object"}},
+    "asvs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "topic", "status", "applicability", "evidenceIds", "gap", "remediation"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^v5\\.0\\.0-[0-9]+\\.[0-9]+\\.[0-9]+$"},
+          "status": {"enum": ["PASS", "PARTIAL", "FAIL", "NOT_APPLICABLE", "NOT_VERIFIED"]},
+          "applicability": {"enum": ["APPLICABLE", "NOT_APPLICABLE"]},
+          "evidenceIds": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "owaspTop10": {"type": "array", "minItems": 10, "maxItems": 10},
+    "architecture": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["layer", "state", "evidenceIds", "note"],
+        "properties": {
+          "state": {"enum": ["ACTIVE", "PARTIAL", "TEMPLATE", "MISSING", "NOT_VERIFIED"]},
+          "evidenceIds": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "risks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "classification", "title", "riskRationale", "evidenceIds", "mitigation"],
+        "properties": {
+          "classification": {"enum": ["TECHNICAL", "OPERATIONAL", "EDITORIAL"]},
+          "evidenceIds": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "limitations": {"type": "array", "items": {"type": "string"}}
+  }
+}
